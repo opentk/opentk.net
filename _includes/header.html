@@ -16,13 +16,22 @@
 	<nav class="site-nav">
 		<ul>
 			{% for page in site.pages %}
-			{% if page.title and page.hide != true %}
-			<li>
-				<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
-					{{ page.title }}
-				</a>
-			</li>
-			{% endif %}
+				{% if page.title and page.hide != true and page.excludeFromMenu != true %}
+
+					<!-- make sure to only show link to first page og blog -->
+					{% if page.isBlog != true or listedBlog != true %}
+						<li>
+							<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
+								{{ page.title }}
+							</a>
+						</li>
+					{% endif %}
+
+					{% if page.isBlog %}
+						{% assign listedBlog = true %}
+					{% endif %}
+
+				{% endif %}
 			{% endfor %}
 			<!-- Social icons from Font Awesome, if enabled -->
 			{% include icons.html %}

@@ -2,14 +2,13 @@
 layout: page
 title: FAQ
 permalink: /faq/
-#feature-img: "img/sample_feature_img_2.png"
 ---
 
 #### What platforms are supported?
 Windows, Linux, OSX, Android and iOS.
 
 #### Which version is the official one?
-https://github.com/opentk/opentk/
+[https://github.com/opentk/opentk/](https://github.com/opentk/opentk/ "The official OpenTK repository")
 
 #### How does this relate to the Xamarin OpenTK?
 The Xamarin version is a fork of an ancient version.

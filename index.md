@@ -1,8 +1,7 @@
 ---
 layout: page
 title: The Open Toolkit
-permalink: /about/
-#feature-img: "img/sample_feature_img_2.png"
+excludeFromMenu: true
 ---
 
 ### Introduction
@@ -20,4 +19,4 @@ It is the ideal starting point if you want to write a game or scientific applica
 ### License
 The Open Toolkit is distributed under the permissive MIT/X11 license and is absolutely free.
 
-https://github.com/opentk/opentk/blob/master/Documentation/License.txt
+[View license on GitHub](https://github.com/opentk/opentk/blob/master/Documentation/License.txt)

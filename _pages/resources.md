@@ -7,7 +7,7 @@ permalink: /resources/
 <!-- scripts/styles -->
 <script src="//code.jquery.com/jquery-1.12.3.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<style src="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"></style>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 <script>
 $(document).ready(
 	function(){

@@ -18,18 +18,11 @@ It is the ideal starting point if you want to write a game or scientific applica
 
 ### Project Status (16/01/2017)
 
-You can download it here:
+An OpenTK package is available on NuGet:
 
 [OpenTK](https://www.nuget.org/packages/OpenTK/)
 
 [OpenTK.GLControl](https://www.nuget.org/packages/OpenTK.GLControl/)
-
-We are currently working towards an official release package.
-
-If you wish to install from your IDE or the command line, you'll need to
-enable a 'show pre-releases' flag to see the package. To do this, tick the
-'Include prerelease' in Visual Studio, or use -IncludePrerelease from the
-NuGet CLI.
 
 If you encounter any issues, please let us know with a GitHub issue.
 

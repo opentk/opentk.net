@@ -21,7 +21,7 @@ isBlog: true
       <div class="excerpt">
         {{ post.excerpt }}
         <a class="button" href="{{ post.url | prepend: site.baseurl }}">
-          {{ site.theme.str_continue_reading }}
+          {{ site.theme_settings.str_continue_reading }}
         </a>
       </div>
     </div>
@@ -33,12 +33,12 @@ isBlog: true
     {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >
       <i class="fa fa-chevron-left"></i>
-      {{ site.theme.str_prev }}
+      {{ site.theme_settings.str_prev }}
     </a>
     {% endif %}
     {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >
-      {{ site.theme.str_next }}
+      {{ site.theme_settings.str_next }}
       <i class="fa fa-chevron-right"></i>
     </a>
     {% endif %}

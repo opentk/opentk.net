@@ -39,7 +39,7 @@ $(document).ready(
 	<tbody>
 		{% for resource in site.data.opentk_resources %}
 		<tr>
-			<td><a href="{{resource.Location}}">{{resource.Title}}</a></td>
+			<td><a href="http://web.archive.org/web/20160614023935/{{resource.Location}}">{{resource.Title}}</a></td>
 			<td>{{ resource.Author }}</td>
 			<td>{{ resource.OpenTK_Version }}</td>
 			<td>{{ resource.OpenGL_Version }}</td>

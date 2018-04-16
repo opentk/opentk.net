@@ -30,4 +30,4 @@ If you encounter any issues, please let us know with a GitHub issue.
 ### License
 The Open Toolkit is distributed under the permissive MIT/X11 license and is absolutely free.
 
-[View license on GitHub](https://github.com/opentk/opentk/blob/master/Documentation/License.txt)
+[View license on GitHub](https://github.com/opentk/opentk/blob/develop/License.txt)

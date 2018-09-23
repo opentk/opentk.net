@@ -26,9 +26,9 @@ The Open Toolkit mirrors the raw OpenGL API, with the addition of type-safe enum
 1. Start coding
 
 #### I need help!
-Try asking on the [Gitter channel](https://gitter.im/opentk/opentk).
+Try asking on our [Discord server](https://discord.gg/GZTYR4s).
 
-[![Gitter](https://badges.gitter.im/opentk/opentk.svg)](https://gitter.im/opentk/opentk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Discord](https://discordapp.com/api/guilds/337627185248468993/widget.png)](https://discord.gg/GZTYR4s)
 
 #### Something is broken!
 [Open an issue at the repo](https://github.com/opentk/opentk/).
@@ -38,4 +38,4 @@ Try asking on the [Gitter channel](https://gitter.im/opentk/opentk).
 Others include [@amulware](https://github.com/amulware), [@wcdeich4](https://github.com/wcdeich4), [@varon](https://github.com/varon), and [@cra0zy](https://github.com/cra0zy).
 
 #### How can I help?
-Check outstanding issues, or drop us a message in Gitter.
+Check outstanding issues, or drop us a message in Discord.

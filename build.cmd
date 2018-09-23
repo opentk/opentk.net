@@ -1,1 +1,2 @@
 docfx build
+pause

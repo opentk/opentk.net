@@ -14,9 +14,9 @@ It is the ideal starting point if you want to write a game or scientific applica
 
 An OpenTK package is available on NuGet:
 
-[OpenTK](https://www.nuget.org/packages/OpenTK/) ![NuGet](https://img.shields.io/nuget/v/OpenTK.svg)](https://www.nuget.org/packages/OpenTK) ![NuGet](https://img.shields.io/nuget/dt/OpenTK.svg)](https://www.nuget.org/packages/OpenTK) 
+[OpenTK](https://www.nuget.org/packages/OpenTK/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.svg)](https://www.nuget.org/packages/OpenTK/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.svg)](https://www.nuget.org/packages/OpenTK/)
 
-[OpenTK.GLControl](https://www.nuget.org/packages/OpenTK.GLControl/) ![NuGet](https://img.shields.io/nuget/v/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl) ![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl)
+[OpenTK.GLControl](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/)
 
 If you encounter any issues, please let us know with a GitHub issue.
 
@@ -25,4 +25,4 @@ If you encounter any issues, please let us know with a GitHub issue.
 The Open Toolkit is distributed under the permissive MIT/X11 license and is absolutely free.
 
 
-![View License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/opentk/opentk/blob/develop/License.txt)
+[![View License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/opentk/opentk/blob/develop/License.txt)

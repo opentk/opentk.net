@@ -14,10 +14,10 @@ Add the NuGet package to your project.
 #### Who uses OpenTK?
 OpenTK is used by numerous scientific renderers and games.
 
-### How fast is OpenTK?
+#### How fast is OpenTK?
 For a .Net library, OpenTK is very fast. It uses hand-optimized IL assembly to minimize overhead when calling OpenGL functions. However, keep in mind that the underlying runtimes (.Net/Mono) use garbage collection which introduces some unique performance considerations - refer to our documentation for more information. We place significant emphasis on performance, so please open an issue if you believe something could run faster!
 
-### What kind of abstraction does OpenTK provide?
+#### What kind of abstraction does OpenTK provide?
 The Open Toolkit mirrors the raw OpenGL API, with the addition of type-safe enums. This was a conscious design decision that ensures high performance, easy translation of C/C++ code, and beyond that, matches the OpenTK philosophy of being a toolkit, rather than a framework or engine.
 
 #### How do I use this?
@@ -34,8 +34,8 @@ Try asking on our [Discord server](https://discord.gg/GZTYR4s).
 [Open an issue at the repo](https://github.com/opentk/opentk/).
 
 #### Who are the maintainers?
-[@thefiddler](https://github.com/thefiddler) is the head-honcho.
-Others include [@amulware](https://github.com/amulware), [@wcdeich4](https://github.com/wcdeich4), [@varon](https://github.com/varon), and [@cra0zy](https://github.com/cra0zy).
+[@thefiddler](https://github.com/thefiddler) is the original author.
+Others include [@varon](https://github.com/varon), [@Nihlus](https://github.com/Nihlus), and [@DylanFPS](https://github.com/DylanFPS)
 
 #### How can I help?
 Check outstanding issues, or drop us a message in Discord.

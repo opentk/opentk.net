@@ -3,6 +3,19 @@ This is the repository for the OpenTK Website at opentk.github.io
 
 TODO: maybe add some more stuff here like a contribution guide?
 
+# Building
+The builder assumes that you have a directory structure like so
+```
+<root folder>
+      |
+     / \
+    /   \
+   /     \
+website  Website_GhPages
+```
+
+In this diagram, website is the clone directory for the master branch. Use the Batch Files to build. The finished site is exported to Website_GhPages
+
 # Batch Files
 - **_BuildSite.cmd**: runs `docfx build`, which builds the site (excluding metadata) and exports static HTML to the `docs` folder
 - **_RebuildMetadata.cmd**: runs `docfx metadata`, which builds all of the projects in the submodule directory ([`opentk`](https://github.com/opentk/opentk)) and creates API Reference from them

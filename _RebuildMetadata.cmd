@@ -1,2 +1,0 @@
-docfx metadata
-pause

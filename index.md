@@ -1,9 +1,3 @@
----
-layout: page
-title: The Open Toolkit
-excludeFromMenu: true
----
-
 ### Introduction
 
 The Open Toolkit is set of fast, low-level C# bindings for OpenGL, OpenGL ES and OpenAL. It runs on all major platforms and powers hundreds of apps, games and scientific research.
@@ -20,9 +14,9 @@ It is the ideal starting point if you want to write a game or scientific applica
 
 An OpenTK package is available on NuGet:
 
-[OpenTK](https://www.nuget.org/packages/OpenTK/)
+[OpenTK](https://www.nuget.org/packages/OpenTK/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.svg)](https://www.nuget.org/packages/OpenTK/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.svg)](https://www.nuget.org/packages/OpenTK/)
 
-[OpenTK.GLControl](https://www.nuget.org/packages/OpenTK.GLControl/)
+[OpenTK.GLControl](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/)
 
 If you encounter any issues, please let us know with a GitHub issue.
 
@@ -30,4 +24,5 @@ If you encounter any issues, please let us know with a GitHub issue.
 ### License
 The Open Toolkit is distributed under the permissive MIT/X11 license and is absolutely free.
 
-[View license on GitHub](https://github.com/opentk/opentk/blob/develop/License.txt)
+
+[![View License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/opentk/opentk/blob/develop/License.txt)

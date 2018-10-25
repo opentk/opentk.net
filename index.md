@@ -10,9 +10,11 @@ OpenTK is not a game engine, nor does it try to be one. It offers a useful set o
 
 It is the ideal starting point if you want to write a game or scientific application from the ground up.
 
-### Project Status (16/01/2017)
+### Project Status (25/10/2018)
+Work is well underway on OpenTK 4.0, which targets ,NET Standard/Core. We would welcome any [contributions](https://github.com/opentk/opentk/tree/4.0)!
 
-An OpenTK package is available on NuGet:
+
+### NuGet
 
 [OpenTK](https://www.nuget.org/packages/OpenTK/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.svg)](https://www.nuget.org/packages/OpenTK/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.svg)](https://www.nuget.org/packages/OpenTK/)
 

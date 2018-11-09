@@ -81,6 +81,25 @@ Static methods are provided to list available devices known by the driver.</p>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">AudioContext</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="OpenTK.Audio.html">OpenTK.Audio</a></h6>
   <h6><strong>Assembly</strong>: OpenTK.dll</h6>
   <h5 id="OpenTK_Audio_AudioContext_syntax">Syntax</h5>
@@ -366,6 +385,16 @@ Values higher than supported will be clamped by the driver.
     </thead>
     <tbody>
       <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Occurs when the device string is invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Occurs when a specified parameter is invalid.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="OpenTK.Audio.AudioDeviceException.html">AudioDeviceException</a></td>
         <td><p>Occurs when the specified device is not available, or is in use by another program.</p>
 </td>
@@ -373,6 +402,11 @@ Values higher than supported will be clamped by the driver.
       <tr>
         <td><a class="xref" href="OpenTK.Audio.AudioContextException.html">AudioContextException</a></td>
         <td><p>Occurs when an audio context could not be created with the specified parameters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>Occurs when an AudioContext already exists.</p>
 </td>
       </tr>
     </tbody>
@@ -460,6 +494,16 @@ Values higher than supported will be clamped by the driver.
     </thead>
     <tbody>
       <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Occurs when the device string is invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Occurs when a specified parameter is invalid.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="OpenTK.Audio.AudioDeviceException.html">AudioDeviceException</a></td>
         <td><p>Occurs when the specified device is not available, or is in use by another program.</p>
 </td>
@@ -467,6 +511,11 @@ Values higher than supported will be clamped by the driver.
       <tr>
         <td><a class="xref" href="OpenTK.Audio.AudioContextException.html">AudioContextException</a></td>
         <td><p>Occurs when an audio context could not be created with the specified parameters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>Occurs when an AudioContext already exists.</p>
 </td>
       </tr>
     </tbody>
@@ -499,7 +548,7 @@ Values higher than supported will be clamped by the driver.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -733,6 +782,11 @@ synchronized.</p>
     </thead>
     <tbody>
       <tr>
+        <td><span class="xref">System.OutOfMemoryException</span></td>
+        <td><p>Raised when an out of memory error is detected.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="OpenTK.Audio.AudioValueException.html">AudioValueException</a></td>
         <td><p>Raised when an invalid value is detected.</p>
 </td>
@@ -815,6 +869,8 @@ synchronized.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opentk/opentk/new/0a5c346c525831f095e92f547ba76d678cc08ddf/apiSpec/new?filename=OpenTK_Audio_AudioContext_Finalize.md&amp;value=---%0Auid%3A%20OpenTK.Audio.AudioContext.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -862,6 +918,8 @@ synchronized.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opentk/opentk/new/0a5c346c525831f095e92f547ba76d678cc08ddf/apiSpec/new?filename=OpenTK_Audio_AudioContext_MakeCurrent.md&amp;value=---%0Auid%3A%20OpenTK.Audio.AudioContext.MakeCurrent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -891,6 +949,11 @@ synchronized.</p>
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><p>Occurs if this function is called after the AudioContext has been disposed.</p>
+</td>
+      </tr>
       <tr>
         <td><a class="xref" href="OpenTK.Audio.AudioContextException.html">AudioContextException</a></td>
         <td><p>Occurs when the AudioContext could not be made current.</p>
@@ -925,6 +988,22 @@ audio events.
 In some implementations this function may have no effect.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><p>Occurs when this function is called after the AudioContext had been disposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 id="OpenTK_Audio_AudioContext_Process_seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="OpenTK.Audio.AudioContext.html#OpenTK_Audio_AudioContext_Suspend">Suspend()</a></div>
@@ -1010,6 +1089,22 @@ AudioContext state.
 In some implementations this function may have no effect.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><p>Occurs when this function is called after the AudioContext had been disposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 id="OpenTK_Audio_AudioContext_Suspend_seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="OpenTK.Audio.AudioContext.html#OpenTK_Audio_AudioContext_Process">Process()</a></div>
@@ -1025,7 +1120,7 @@ In some implementations this function may have no effect.
   </span>
   <a id="OpenTK_Audio_AudioContext_ToString_" data-uid="OpenTK.Audio.AudioContext.ToString*"></a>
   <h4 id="OpenTK_Audio_AudioContext_ToString" data-uid="OpenTK.Audio.AudioContext.ToString">ToString()</h4>
-  <div class="markdown level1 summary"><p>Returns a <see cref="!:System.String"></see> that desrcibes this instance.</p>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that desrcibes this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1043,11 +1138,17 @@ In some implementations this function may have no effect.
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>A <see cref="!:System.String"></see> that desrcibes this instance.</p>
+        <td><p>A <span class="xref">System.String</span> that desrcibes this instance.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
 </article>
           </div>
           

@@ -42,7 +42,7 @@ using (Game game = new Game(800, 600, "LearnOpenTK"))
 }
 ```
 
-Plug that code into your `Main` function, and go ahead and build & run your program! You now have a blank window, great job! However, the only way you can close your window is by using the cross (`X`) button or Alt+F4. We don't want that! Let's do a little bit of input handling!
+Plug that code into your `Main` function, and go ahead and build & run your program! You now have a blank window, great job! However, the only way you can close your window is by using the cross (`X`) button or Alt+F4. We don't want that, Let's do a little bit of input handling!
 
 `GameWindow` has plenty of methods that you can override to add all sorts of functionality to your game. You can look at the "API" section of this website to look at them all, but in this case the one we're interested in is `OnUpdateFrame`.
 
@@ -55,13 +55,17 @@ protected override void OnUpdateFrame(FrameEventArgs e)
 }
 ```
 
-It's really simple to detect key presses! `GameWindow` defines a property called `Keyboard` that has a boolean indexer, which returns `true` if a key is pressed. For example, `Keyboard[Key.Escape]` will only return `true` if the escape (`Esc`) key is pressed.
+It's really simple to detect key presses! OpenTK has a class called `KeyboardState` with an `IsKeyDown` method, which returns `true` if a key is pressed. For example, `KeyboardState.IsKeyDown(Key.Escape)` will only return `true` if the escape (`Esc`) key is pressed.
 
 We want to exit when the escape key is pressed, and with the above information is in mind, exiting when the escape key is pressed is as easy at this:
 
 ```cs
-if (Keyboard[Key.Escape])
+KeyboardState input = Keyboard.GetState();
+
+if (input.IsKeyDown(Key.Escape))
+{
     Exit();
+}
 ```
 
 Now, the function should look like this:
@@ -69,8 +73,12 @@ Now, the function should look like this:
 ```cs
 protected override void OnUpdateFrame(FrameEventArgs e)
 {
-    if (Keyboard[Key.Escape])
+    KeyboardState input = Keyboard.GetState();
+
+    if (input.IsKeyDown(Key.Escape))
+    {
         Exit();
+    }
 
     base.OnUpdateFrame(e);
 }

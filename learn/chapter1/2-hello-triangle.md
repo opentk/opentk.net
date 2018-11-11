@@ -289,8 +289,10 @@ Our vertex buffer data is formatted as follows:
 With this knowledge we can tell OpenGL how it should interpret the vertex data (per vertex attribute) using `GL.VertexAttribPointer`:
 
 
-`GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);`
-`GL.EnableVertexAttribArray(0);`
+```cs
+GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+GL.EnableVertexAttribArray(0);
+```
 
 The function glVertexAttribPointer has quite a few parameters, so let's carefully walk through them:
 
@@ -306,11 +308,11 @@ Each vertex attribute takes its data from memory managed by a VBO and which VBO 
 Now that we specified how OpenGL should interpret the vertex data we should also enable the vertex attribute with glEnableVertexAttribArray giving the vertex attribute location as its argument; vertex attributes are disabled by default. From that point on we have everything set up: we initialized the vertex data in a buffer using a vertex buffer object, set up a vertex and fragment shader and told OpenGL how to link the vertex data to the vertex shader's vertex attributes. Drawing an object in OpenGL would now look something like this:
 
 ```cs
-glBindBuffer(GL_ARRAY_BUFFER, VBO);
-glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
+GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
 
-glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-glEnableVertexAttribArray(0);  
+GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+GL.EnableVertexAttribArray(0);
 
 shader.Use()
 // 3. now draw the object 

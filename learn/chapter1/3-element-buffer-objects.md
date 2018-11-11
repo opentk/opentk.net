@@ -49,3 +49,5 @@ The arguments are, in order:
 - The amount of vertices to draw. We use the length of the indices to draw everything.
 - The type of the EBO's elements. Unsigned int.
 - The offset of what we want to draw. Since we want to draw everything, we just use 0.
+
+That's all it takes! If you run your program now, you should be able to see that you have a rectangle instead of one triangle.

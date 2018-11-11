@@ -93,6 +93,7 @@ protected override void OnUnload(EventArgs e)
     base.OnUnload(e);
 }
 ```
+> Binding a buffer to 0 basically sets it to null, so any calls that modify a buffer without binding one first will result in a crash. This is easier to debug than accidentally modifying a buffer that we didn't want modified.
 
 As of now we stored the vertex data within memory on the graphics card as managed by a vertex buffer object named VBO. Next we want to create a vertex and fragment shader that actually processes this data, so let's start building those.
 

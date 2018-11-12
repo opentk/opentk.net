@@ -22,11 +22,59 @@ Sections with a blue background are programmable, and the ones with a gray backg
 
 That may seem like a lot, but it's quite intuitive once setup is complete and we get into the pipeline.
 
+## Some new functions
+We'll need to overload a couple of extra functions to get started. Firstly, we overload OnLoad.
+
+```cs
+protected override void OnLoad(EventArgs e)
+{
+    GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+    //Code goes here
+
+    base.OnLoad(e);
+}
+```
+
+This function runs one time, when the window first opens. Any initialization-related code should go here.
+
+It's also here that we get our first OpenGL function call: `GL.ClearColor`. This takes four floats, ranging between 0.0f and 1.0f. This decides the color of the window after it gets cleared between frames.
+
+Next, we have OnRenderFrame.
+
+```cs
+protected override void OnRenderFrame(EventArgs e)
+{
+    GL.Clear(ClearBufferMask.ColorBufferBit);
+
+    //Code goes here.
+
+    Context.SwapBuffers();
+    base.OnRenderFrame(e);
+}
+```
+
+We have two calls here. Firstly, `GL.Clear` clears the screen, using the color set in OnLoad. This should always be the first function called when rendering.
+
+Then, we have `Context.SwapBuffers`. Almost any modern OpenGL context is what's known as "double-buffered". Double-buffering means that there are two areas that OpenGL draws to. In essence: One area is displayed, while the other is being rendered to. Then, when you call SwapBuffers, the two are reversed. A single-buffered context could have issues such as screen tearing.
+
+Next, we have OnResize.
+
+```cs
+protected override void OnResize(EventArgs e)
+{
+    GL.Viewport(0, 0, Width, Height);
+    base.OnResize(e);
+}
+```
+
+This function runs every time the window gets resized. `GL.Viewport` maps the NDC to the window. OnResize isn't super important, and no code is going to be added here outside of what we've already put down.
+
 ## Vertex input
 
 To start drawing something we have to first give OpenGL some input vertex data. OpenGL is a 3D graphics library so all coordinates that we specify in OpenGL are in 3D (x, y and z coordinate). OpenGL doesn't simply transform all your 3D coordinates to 2D pixels on your screen; OpenGL only processes 3D coordinates when they're in a specific range between -1.0 and 1.0 on all 3 axes (x, y and z). All coordinates within this so called normalized device coordinates range will end up visible on your screen (and all coordinates outside this region won't).
 
-Because we want to render a single triangle we want to specify a total of three vertices with each vertex having a 3D position. We define them in normalized device coordinates (the visible region of OpenGL) in a float array:
+Because we want to render a single triangle we want to specify a total of three vertices with each vertex having a 3D position. We define them in normalized device coordinates (the visible region of OpenGL) in a float array. Put this in your class as a property:
 
 ```cs
 float[] vertices = {
@@ -53,7 +101,7 @@ Your NDC coordinates will then be transformed to screen-space coordinates via th
 ## Buffers
 With the vertex data defined we'd like to send it as input to the first process of the graphics pipeline: the vertex shader. This is done by creating memory on the GPU where we store the vertex data, configure how OpenGL should interpret the memory and specify how to send the data to the graphics card. The vertex shader then processes as much vertices as we tell it to from its memory.
 
-We manage this memory via so called vertex buffer objects (VBO) that can store a large number of vertices in the GPU's memory. The advantage of using those buffer objects is that we can send large batches of data all at once to the graphics card without having to send data a vertex a time. Sending data to the graphics card from the CPU is relatively slow, so wherever we can, we try to send as much data as possible at once. Once the data is in the graphics card's memory the vertex shader has almost instant access to the vertices making it extremely fast
+We manage this memory via so called vertex buffer objects (VBO) that can store a large number of vertices in the GPU's memory. The advantage of using those buffer objects is that we can send large batches of data all at once to the graphics card without having to send data a vertex a time. Sending data to the graphics card from the CPU is relatively slow, so wherever we can, we try to send as much data as possible at once. Once the data is in the graphics card's memory the vertex shader has almost instant access to the vertices making it extremely fast.
 
 A vertex buffer object is our first occurrence of an OpenGL object as we've discussed in the OpenGL tutorial. Just like any object in OpenGL this buffer has a unique ID corresponding to that buffer, so we can generate one with a buffer ID using the `GL.GenBuffers` function.
 
@@ -354,8 +402,8 @@ To use a VAO, all you have to do is bind the VAO using glBindVertexArray. From t
 // 1. bind Vertex Array Object
 GL.BindVertexArray(VertexArrayObject);
 // 2. copy our vertices array in a buffer for OpenGL to use
-glBindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
-glBufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
+GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
+GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
 // 3. then set our vertex attributes pointers
 GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
 glEnableVertexAttribArray(0); 
@@ -372,7 +420,7 @@ someOpenGLFunctionThatDrawsOurTriangle();
 And that is it! Everything we did the last few million pages led up to this moment, a VAO that stores our vertex attribute configuration and which VBO to use. Usually when you have multiple objects you want to draw, you first generate/configure all the VAOs (and thus the required VBO and attribute pointers) and store those for later use. The moment we want to draw one of our objects, we take the corresponding VAO, bind it, then draw the object and unbind the VAO again.
 The triangle we've all been waiting for
 
-To draw our objects of choice, OpenGL provides us with the glDrawArrays function that draws primitives using the currently active shader, the previously defined vertex attribute configuration and with the VBO's vertex data (indirectly bound via the VAO).
+To draw our objects of choice, OpenGL provides us with the `GL.DrawArrays` function that draws primitives using the currently active shader, the previously defined vertex attribute configuration and with the VBO's vertex data (indirectly bound via the VAO).
 
 ```cs
 shader.UseProgram();

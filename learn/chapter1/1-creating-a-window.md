@@ -1,4 +1,25 @@
-# Creating a window
+# Creating a Window
+
+Welcome to the first entry to the LearnOpenTK tutorials. This guide will teach you how to get OpenTK from NuGet, and open your first window. This will be a short one, we promise.
+
+## Installing from NuGet
+OpenTK is shipped on NuGet, the official package manager for .NET. Here is the [url](https://nuget.org/packages/OpenTK). OpenTK 3 can be installed on .NET Framework 2.0, and any derivative Mono version.
+
+In Visual Studio 2013/2015/2017, to access the NuGet package manager simply click on `TOOLS`, hover over `NuGet` and select `Package Manager Console`
+
+![Tools > NuGet > Package Manager Console](1-dropdown-nuget.png)
+
+This will bring up the Package Manager Console - a PowerShell extension for Visual Studio and NuGet. To install OpenTK, simply type the following command into the Package Manager Console.
+
+```
+Install-Package OpenTK
+```
+
+![Install OpenTK](1-nuget-package-manager.png)
+
+And that's it! OpenTK is installed and you're ready to proceed with the next tutorials!
+
+## Creating a window
 
 Unlike OpenGL, OpenTK comes with its own windowing system. This tutorial will teach you how to use it. Go ahead and make a C# console project in your favourite IDE, and make a new file called Game.cs, and add the following using directives:
 
@@ -60,6 +81,7 @@ It's really simple to detect key presses! OpenTK has a class called `KeyboardSta
 We want to exit when the escape key is pressed, and with the above information is in mind, exiting when the escape key is pressed is as easy at this:
 
 ```cs
+//Get the state of the keyboard this frame
 KeyboardState input = Keyboard.GetState();
 
 if (input.IsKeyDown(Key.Escape))
@@ -86,4 +108,4 @@ protected override void OnUpdateFrame(FrameEventArgs e)
 
 ### Review
 
-In this tutorial, we created a blank window that listens for the escape key being pressed and exits when it is. In the next tutorial, we'll draw a triangle on this blank window you've just created. That's all for now!
+In this tutorial, we installed OpenTK, created a blank window that listens for the escape key being pressed, and exits when it is. In the next tutorial, we'll draw a triangle on this blank window you've just created. That's all for now!

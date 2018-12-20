@@ -34,10 +34,10 @@ Texture sampling has a loose interpretation and can be done in many different wa
 
 Texture coordinates usually range from (0,0) to (1,1), but what happens if we specify coordinates outside this range? The default behavior of OpenGL is to repeat the texture images (we basically ignore the integer part of the floating point texture coordinate), but there are more options OpenGL offers:
 
-- `GL_REPEAT`: The default behavior for textures. Repeats the texture image.
-- `GL_MIRRORED_REPEAT`: Same as GL_REPEAT but mirrors the image with each repeat.
-- `GL_CLAMP_TO_EDGE`: Clamps the coordinates between 0 and 1. The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.
-- `GL_CLAMP_TO_BORDER`: Coordinates outside the range are now given a user-specified border color.
+- `Repeat`: The default behavior for textures. Repeats the texture image.
+- `MirroredRepeat`: Same as GL_REPEAT but mirrors the image with each repeat.
+- `ClampToEdge`: Clamps the coordinates between 0 and 1. The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.
+- `ClampToBorder`: Coordinates outside the range are now given a user-specified border color.
 
 Each of the options have a different visual output when using texture coordinates outside the default range. Let's see what these look like on a sample texture image:
 
@@ -49,6 +49,8 @@ Each of the aforementioned options can be set per coordinate axis (s, t (and r i
 GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.Repeat);
 GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.Repeat);
 ```
+
+>Note: You have to cast the enum to int for `GL.TexParameter` to accept it.
 
 The first argument specifies the texture target; we're working with 2D textures so the texture target is `TextureTarget.Texture2D`. The second argument requires us to tell what option we want to set and for which texture axis. We want to configure the WRAP option and specify it for both the S and T axis. The last argument requires us to pass in the texture wrapping mode we'd like and in this case OpenGL will set its texture wrapping option on the currently active texture with `TextureWrapMode.Repeat`.
 
@@ -80,8 +82,8 @@ But what is the visual effect of such a texture filtering method? Let's see how 
 Texture filtering can be set for magnifying and minifying operations (when scaling up or downwards) so you could for example use nearest neighbor filtering when textures are scaled downwards and linear filtering for upscaled textures. We thus have to specify the filtering method for both options via `GL.TexParameter`. The code should look similar to setting the wrapping method:
 
 ```cs
-GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, TextureMinFilter.Nearest);
-GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, TextureMagFilter.Linear);
+GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
+GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
 ```
 
 ## Mipmaps
@@ -104,8 +106,181 @@ When switching between mipmaps levels during rendering OpenGL might show some ar
 Just like texture filtering, we can set the filtering method to one of the 4 aforementioned methods using `GL.TexParameter`:
 
 ```cs
-GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, TextureMinFilter.LinearMipmapLinear);
-GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, TextureMagFilter.Linear);
+GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.LinearMipmapLinear);
+GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
 ```
 
 A common mistake is to set one of the mipmap filtering options as the magnification filter. This doesn't have any effect since mipmaps are primarily used for when textures get downscaled: texture magnification doesn't use mipmaps and giving it a mipmap filtering option will generate an OpenGL GL_INVALID_ENUM error code.
+
+## Loading and creating textures
+
+The first thing we need to do to actually use textures is to load them into our application. Texture images can be stored in dozens of file formats, each with their own structure and ordering of data, so how do we get those images in our application? One solution would be to choose a file format we'd like to use, say .PNG and write our own image loader to convert the image format into a large array of bytes. While it's not very hard to write your own image loader, it's still cumbersome and what if you want to support more file formats? You'd then have to write an image loader for each format you want to support.
+
+Another solution, and probably a good one, is to use an image-loading library that supports several popular formats and does all the hard work for us. A library like
+
+### ImageSharp
+
+ImageSharp is a very popular image loading library by SixLabors that is able to load most popular file formats and is easy to integrate in your project(s). You can add ImageSharp to your project from Nuget.
+
+For the following section on textures, we'll use an [image of a wooden crate](https://learnopengl.com/img/textures/container.jpg).
+
+Create a new file your project, `Texture.cs`. Put the following `using` statements at the top:
+
+```cs
+using System;
+using System.Collections.Generic;
+using OpenTK.Graphics.OpenGL4;
+
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Advanced;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+```
+
+Create a class, `Texture`, and add an int named Handle as a property. The constructor should take one argument: a path to the image file.
+
+In the constructor, write the line `Handle = GL.GenTexture();`. This will generate a blank texture for us to use. 
+
+Next, add the function `Use` to your code, containing the line `GL.BindTexture(TextureTarget.Texture2D, Handle);`. Call that in your constructor just after generating the texture.
+
+Next, we'll have to use ImageSharp to load an image, and send those pixels to OpenGL.
+
+```cs
+//Load the image
+Image<Rgba32> image = Image.Load(path);
+
+//ImageSharp loads from the top-left pixel, whereas OpenGL loads from the bottom-left, causing the texture to be flipped vertically.
+//This will correct that, making the texture display properly.
+image.Mutate(x => x.Flip(FlipMode.Vertical));
+
+//Get an array of the pixels, in ImageSharp's internal format.
+Rgba32[] tempPixels = image.GetPixelSpan().ToArray();
+
+//Convert ImageSharp's format into a byte array, so we can use it with OpenGL.
+List<byte> pixels = new List<byte>();
+
+foreach (Rgba32 p in tempPixels)
+{
+    pixels.Add(p.R);
+    pixels.Add(p.G);
+    pixels.Add(p.B);
+    pixels.Add(p.A);
+}
+```
+
+Now that we have a byte array representing our pixels, we have to set the wrap and filter modes. For now, just go with Linear and Repeat.
+
+Now that that's done, it's time to generate our texture.
+
+```cs
+GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels.ToArray());
+```
+
+The parameters for `TexImage2D` are as follows:
+
+- The type of texture being generated. You can generate 1D, 2D, and 3D textures, but it's rare to need anything other than 2D.
+
+- The level of detail. If this is set to something other than 0, you can set the default mipmap as a level lower than the maximum. We don't want that, so leave it at 0.
+
+- The format OpenGL will use to store the pixels on the GPU. You almost always want this to be RGBA.
+
+- Width of the image.
+
+- Height of the image.
+
+- Border of the image. This must always be 0; it's a legacy parameter from ancient versions of OpenGL.
+
+- The format of the bytes. ImageSharp will always place its images in Rgba, so just use that.
+
+- The type of the pixels. Unsigned bytes in this case.
+
+- The array of pixels to be converted to the texture.
+
+The image is now generated!
+
+Optionally, we can generate mipmaps. This isn't necessary here, but just for reference, put the line `GL.GenerateMipmaps()` after `TexImage2D`. That's all you need to do!
+
+## Applying textures
+
+Now that our texture is created, we'll need to modify our shaders and vertices to use the texture.
+
+Firstly, replace the array of vertices with this:
+
+```cs
+float[] vertices =
+{
+    //Position          Texture coordinates
+     0.5f,  0.5f, 0.0f, 1.0f, 1.0f, // top right
+     0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // bottom right
+    -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
+    -0.5f,  0.5f, 0.0f, 0.0f, 1.0f  // top left 
+};
+```
+
+Recall above when we discussed texture coordinates and how they worked. We add them to every vertex.
+
+Next, we'll have to modify vertex attribute positions to send the texture coordinates to the shaders.
+
+Replace your call to `VertexAttribPointer` with:
+
+```cs
+GL.VertexAttribPointer(vertexLocation, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
+```
+
+It's almost entirely the same, just with the stride changed from `3 * sizeof(float)` to `5 * sizeof(float)` to accomodate the new texture coordinates.
+
+Beneath that, add the following lines:
+
+```cs
+int texCoordLocation = shader.GetAttribLocation("aTexCoord");
+GL.EnableVertexAttribArray(texCoordLocation);
+GL.VertexAttribPointer(texCoordLocation, 2, VertexAttribPointerType.Float, false, 5 * sizeof(float), 3 * sizeof(float));
+```
+
+Again, almost the exact same as the last call, just with 2 packets of data instead of 3, and with an initial offset of `3 * sizeof(float)`.
+
+Now, we need to modify our shaders. First is the vertex shader. The new code is:
+
+```glsl
+#version 330 core
+
+layout(location = 0) in vec3 aPosition;
+
+layout(location = 1) in vec2 aTexCoord;
+
+out vec2 texCoord;
+
+void main(void)
+{
+	texCoord = aTexCoord;
+
+    gl_Position = vec4(aPosition, 1.0);
+}
+```
+
+We add another input variable, `aTexCoord`, which will be the texture coordinates. We forward that to the output variable `texCoord` with no modifications, so that the fragment shader can use it. Speaking of the fragment shader, that's up next:
+
+```glsl
+#version 330
+
+out vec4 outputColor;
+
+in vec2 texCoord;
+
+uniform sampler2D texture0;
+
+void main()
+{
+    outputColor = texture(texture0, texCoord);
+}
+```
+
+We see a brand new type of variable, `sampler2D`. That's the representation of a texture in shaders, to put it simply.
+
+Up to 16 different textures can be bound at once (possibly more, depending on your hardware, but OpenGL requires at least 16). In the next example, I'll show you how to use multiple textures at the same time. For now, though, we don't need to do anything else.
+
+If you've done everything right, you should see the following when you run your code:
+
+![The results](4-results.png)
+
+Congratulations on drawing your first texture! Next time, I'll demonstrate drawing multiple textures at once.

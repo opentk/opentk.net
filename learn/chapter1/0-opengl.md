@@ -1,4 +1,5 @@
 # OpenGL
+
 > Note: No code will be written here. If you already know what OpenGL is and how it works, you can move straight to the next tutorial and get straight to programming.
 
 Before starting our journey we should first define what OpenGL actually is. OpenGL is mainly considered an API (an Application Programming Interface) that provides us with a large set of functions that we can use to manipulate graphics and images. However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.
@@ -51,6 +52,7 @@ Whenever we tell OpenGL that we now want to draw lines instead of triangles for 
 When working in OpenGL we will come across several state-changing functions that change the context and several state-using functions that perform some operations based on the current state of OpenGL. As long as you keep in mind that OpenGL is basically one large state machine, most of its functionality will make more sense.
 
 ## Objects
+
 The OpenGL libraries are written in C and allows for many derivations in other languages, but in its core it remains a C-library. Since many of C's language-constructs do not translate that well to other higher-level languages, OpenGL was developed with several abstractions in mind. One of those abstractions are objects in OpenGL.
 
 OpenGL objects aren't like the objects you'd find in an object-oriented language. You can't directly modify them, since they're stored on the graphics card. Instead, you have an integer that represents where the object is on the graphics card, referred to as a handle. You pass this handle to any function that needs an object. It works like this:

@@ -3,6 +3,7 @@
 Welcome to the first entry to the LearnOpenTK tutorials. This guide will teach you how to get OpenTK from NuGet, and open your first window. This will be a short one, we promise.
 
 ## Installing from NuGet
+
 OpenTK is shipped on NuGet, the official package manager for .NET. Here is the [url](https://nuget.org/packages/OpenTK). OpenTK 3 can be installed on .NET Framework 2.0, and any derivative Mono version.
 
 In Visual Studio 2013/2015/2017, to access the NuGet package manager simply click on `TOOLS`, hover over `NuGet` and select `Package Manager Console`
@@ -11,7 +12,7 @@ In Visual Studio 2013/2015/2017, to access the NuGet package manager simply clic
 
 This will bring up the Package Manager Console - a PowerShell extension for Visual Studio and NuGet. To install OpenTK, simply type the following command into the Package Manager Console.
 
-```
+```shell
 Install-Package OpenTK
 ```
 
@@ -49,6 +50,7 @@ public Game(int width, int height, string title) : base(width, height, GraphicsM
 ```
 
 Your `GameWindow` is ready to go! Now all you have to do is invoke it from your program. You should've had a Program.cs automatically created when you made the program earlier in the tutorial, as well as a `Main` function. To open your window when the program starts, we must:
+
 - Create an instance of your `Game` class
 - Start all the pumps by calling the `Run` function
 - After we're done, dispose the `Game`.

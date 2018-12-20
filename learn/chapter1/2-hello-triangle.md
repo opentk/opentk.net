@@ -1,6 +1,7 @@
 # Hello Triangle
 
 ## The Graphics Pipeline
+
 In OpenGL everything is in 3D space, but the screen and window are a 2D array of pixels so a large part of OpenGL's work is about transforming all 3D coordinates to 2D pixels that fit on your screen. The process of transforming 3D coordinates to 2D pixels is managed by the graphics pipeline of OpenGL. The graphics pipeline can be divided into two large parts: the first transforms your 3D coordinates into 2D coordinates and the second part transforms the 2D coordinates into actual colored pixels. In this tutorial we'll briefly discuss the graphics pipeline and how we can use it to our advantage to create fancy pixels.
 
 The graphics pipeline takes as input a set of 3D coordinates and transforms these to colored 2D pixels on your screen. The graphics pipeline can be divided into several steps where each step requires the output of the previous step as its input. All of these steps are highly specialized (they have one specific function) and can easily be executed in parallel. Because of their parallel nature, graphics cards of today have thousands of small processing cores to quickly process your data within the graphics pipeline by running small programs on the GPU for each step of the pipeline. These small programs are called shaders.
@@ -23,6 +24,7 @@ Sections with a blue background are programmable, and the ones with a gray backg
 That may seem like a lot, but it's quite intuitive once setup is complete and we get into the pipeline.
 
 ## Some new functions
+
 We'll need to overload a couple of extra functions to get started. Firstly, we overload OnLoad.
 
 ```cs
@@ -82,7 +84,7 @@ float[] vertices = {
      0.5f, -0.5f, 0.0f, //Bottom-right vertex
      0.0f,  0.5f, 0.0f  //Top vertex
 };
-``` 
+```
 
 Because OpenGL works in 3D space we render a 2D triangle with each vertex having a z coordinate of 0.0. This way the depth of the triangle remains the same making it look like it's 2D.
 
@@ -99,6 +101,7 @@ Unlike usual screen coordinates the positive y-axis points in the up-direction a
 Your NDC coordinates will then be transformed to screen-space coordinates via the viewport transform using the data you provided with `GL.Viewport`. The resulting screen-space coordinates are then transformed to fragments as inputs to your fragment shader.
 
 ## Buffers
+
 With the vertex data defined we'd like to send it as input to the first process of the graphics pipeline: the vertex shader. This is done by creating memory on the GPU where we store the vertex data, configure how OpenGL should interpret the memory and specify how to send the data to the graphics card. The vertex shader then processes as much vertices as we tell it to from its memory.
 
 We manage this memory via so called vertex buffer objects (VBO) that can store a large number of vertices in the GPU's memory. The advantage of using those buffer objects is that we can send large batches of data all at once to the graphics card without having to send data a vertex a time. Sending data to the graphics card from the CPU is relatively slow, so wherever we can, we try to send as much data as possible at once. Once the data is in the graphics card's memory the vertex shader has almost instant access to the vertices making it extremely fast.
@@ -132,7 +135,7 @@ The fourth parameter is a BufferUsageHint, which specifies how we want the graph
 The position data of the triangle does not change and stays the same for every render call so its usage type should best be StaticDraw. If, for instance, one would have a buffer with data that is likely to change frequently, a usage type of DynamicDraw or StreamDraw ensures the graphics card will place the data in memory that allows for faster writes.
 
 > Note: After the program ends, we have to manually cleanup our buffers. To do so, add the following function:
->
+
 ```cs
 protected override void OnUnload(EventArgs e)
 {
@@ -141,11 +144,13 @@ protected override void OnUnload(EventArgs e)
     base.OnUnload(e);
 }
 ```
+
 > Binding a buffer to 0 basically sets it to null, so any calls that modify a buffer without binding one first will result in a crash. This is easier to debug than accidentally modifying a buffer that we didn't want modified.
 
 As of now we stored the vertex data within memory on the graphics card as managed by a vertex buffer object named VBO. Next we want to create a vertex and fragment shader that actually processes this data, so let's start building those.
 
 ## Shaders
+
 Now that we have our data, it's time to create our pipeline. We do this by creating a vertex shader, and a fragment shader.
 
 The vertex shader is one of the shaders that are programmable by people like us. Modern OpenGL requires that we at least set up a vertex and fragment shader if we want to do some rendering so we will briefly introduce shaders and configure two very simple shaders for drawing our first triangle. In the next tutorial we'll discuss shaders in more detail.
@@ -183,7 +188,7 @@ out vec4 FragColor;
 void main()
 {
     FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
-} 
+}
 ```
 
 Save this as `shader.frag`.
@@ -191,6 +196,7 @@ Save this as `shader.frag`.
 The fragment shader only requires one output variable and that is a vector of size 4 that defines the final color output that we should calculate ourselves. We can declare output values with the out keyword, that we here promptly named FragColor. Next we simply assign a vec4 to the color output as an orange color with an alpha value of 1.0 (1.0 being completely opaque).
 
 ## Compiling the Shaders
+
 We have our shader source, but now we need to compile the shaders. This is done at runtime; pre-compiling a shader and packaging it with your program isn't possible, since the compiled shaders depend on many factors, such as the graphics card model, manufacturer, and driver. Instead, we include the shader source code and compile it when the program begins.
 
 We'll do this by creating a Shader class, which compiles the shaders and wraps several functions we'll see later.
@@ -324,6 +330,7 @@ Back in your Game class, add a new property, `Shader shader;`. Then, in `OnLoad`
 Try running; if nothing prints to console, your shaders have compiled correctly!
 
 ## Linking Vertex Attributes
+
 The vertex shader allows us to specify any input we want in the form of vertex attributes. While this allows for great flexibility, it does mean we have to manually specify what part of our input data goes to which vertex attribute in the vertex shader. This means we have to specify how OpenGL should interpret the vertex data before rendering.
 
 Our vertex buffer data is formatted as follows:
@@ -335,7 +342,6 @@ Our vertex buffer data is formatted as follows:
 - The first value in the data is at the beginning of the buffer.
 
 With this knowledge we can tell OpenGL how it should interpret the vertex data (per vertex attribute) using `GL.VertexAttribPointer`:
-
 
 ```cs
 GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
@@ -363,7 +369,7 @@ GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(fl
 GL.EnableVertexAttribArray(0);
 
 shader.Use()
-// 3. now draw the object 
+// 3. now draw the object
 someOpenGLFunctionThatDrawsOurTriangle();
 ```
 
@@ -406,15 +412,15 @@ GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
 GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
 // 3. then set our vertex attributes pointers
 GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
-glEnableVertexAttribArray(0); 
-``` 
+glEnableVertexAttribArray(0);
+```
 
 Then, to actually draw the object, you'd put the following in your render loop:
 
 ```cs
 GL.UseProgram();
 GL.BindVertexArray(VertexArrayObject);
-someOpenGLFunctionThatDrawsOurTriangle();   
+someOpenGLFunctionThatDrawsOurTriangle();
 ```
 
 And that is it! Everything we did the last few million pages led up to this moment, a VAO that stores our vertex attribute configuration and which VBO to use. Usually when you have multiple objects you want to draw, you first generate/configure all the VAOs (and thus the required VBO and attribute pointers) and store those for later use. The moment we want to draw one of our objects, we take the corresponding VAO, bind it, then draw the object and unbind the VAO again.
@@ -439,6 +445,7 @@ The source code for the complete program can be found [here](https://github.com/
 If your output does not look the same you probably did something wrong along the way so check the complete source code, see if you missed anything or ask in our official Discord server.
 
 ## Addendum: Dynamically retrieving shader layout
+
 For this example, when we call `GL.VertexAttribPointer`, we use a hardcoded layout of 0 for the position of our variable. This only works because our input variable in shader.vert explicitly sets the layout to 0. But what if you didn't want to do it that way? You can retrieve the position at runtime, if you so wish.
 
 If you want to do this, add the following function to your Shader class.

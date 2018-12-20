@@ -6,7 +6,7 @@ Welcome to LearnOpenTK, your home for getting started with OpenTK. We've ported 
 - [1. Getting Started](chapter1)
 
 ### Credit
-These tutorials are derived from [LearnOpenGL](https://learnopengl.com), all of the code has been translated to C# and some text has been used, partially used, or completely replaced. LearnOpenGL and LearnOpenTK are licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
+These tutorials are derived from [LearnOpenGL](https://learnopengl.com), all of the code has been translated to C# and substantial portions of the original text, images, textures, and/or other assets may have been used in these tutorials. LearnOpenGL and LearnOpenTK are licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
 
 Writer: [Joey de Vries](https://joeydevries.com)
 Author: [Dylan Perks](https://github.com/DylanFPS)

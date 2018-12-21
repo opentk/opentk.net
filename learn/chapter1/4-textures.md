@@ -8,13 +8,13 @@ What artists and programmers generally prefer is to use a texture. A texture is 
 
 Below you'll see [a texture image of a brick wall mapped to the triangle](textures/wall.jpg) from the previous tutorial.
 
-![A triangle with a texture](4-textures.png)
+![A triangle with a texture](examples/4-textures.png)
 
 In order to map a texture to the triangle, we need to tell each vertex of the triangle which part of the texture it corresponds to. Each vertex should thus have a texture coordinate associated with them that specifies what part of the texture image to sample from. Fragment interpolation then does the rest for the other fragments.
 
 Texture coordinates range from 0 to 1 in the x and y axis (remember that we use 2D texture images). Retrieving the texture color using texture coordinates is called sampling. Texture coordinates start at (0,0) for the lower left corner of a texture image to (1,1) for the upper right corner of a texture image. The following image shows how we map texture coordinates to the triangle:
 
-![The textured triangle, now with texture coordinates](4-tex_coords.png)
+![The textured triangle, now with texture coordinates](examples/4-tex_coords.png)
 
 We specify 3 texture coordinate points for the triangle. We want the bottom-left side of the triangle to correspond with the bottom-left side of the texture so we use the (0,0) texture coordinate for the triangle's bottom-left vertex. The same applies to the bottom-right side with a (1,0) texture coordinate. The top of the triangle should correspond with the top-center of the texture image so we take (0.5,1.0) as its texture coordinate. We only have to pass 3 texture coordinates to the vertex shader, which then passes those to the fragment shader that neatly interpolates all the texture coordinates for each fragment.
 
@@ -41,7 +41,7 @@ Texture coordinates usually range from (0,0) to (1,1), but what happens if we sp
 
 Each of the options have a different visual output when using texture coordinates outside the default range. Let's see what these look like on a sample texture image:
 
-![Examples of texture wrapping](4-texture_wrapping.png)
+![Examples of texture wrapping](examples/4-texture_wrapping.png)
 
 Each of the aforementioned options can be set per coordinate axis (s, t (and r if you're using 3D textures) equivalent to x,y,z) with the `GL.TexParameter` function:
 
@@ -67,15 +67,15 @@ Texture coordinates do not depend on resolution but can be any floating point va
 
 `Nearest` (also known as nearest neighbor filtering) is the default texture filtering method of OpenGL. When set to `Nearest`, OpenGL selects the pixel which center is closest to the texture coordinate. Below you can see 4 pixels where the cross represents the exact texture coordinate. The upper-left texel has its center closest to the texture coordinate and is therefore chosen as the sampled color:
 
-![Nearest-neighbor filtering](4-texture_filter_nearest.png)
+![Nearest-neighbor filtering](examples/4-texture_filter_nearest.png)
 
 `Linear` (also known as (bi)linear filtering) takes an interpolated value from the texture coordinate's neighboring texels, approximating a color between the texels. The smaller the distance from the texture coordinate to a texel's center,the more that texel's color contributes to the sampled color. Below we can see that a mixed color of the neighboring pixels is returned:
 
-![Linear filtering](4-texture_filter_linear.png)
+![Linear filtering](examples/4-texture_filter_linear.png)
 
 But what is the visual effect of such a texture filtering method? Let's see how these methods work when using a texture with a low resolution on a large object (texture is therefore scaled upwards and individual texels are noticeable):
 
-![Comparison of filtering methods](4-texture_filtering.png)
+![Comparison of filtering methods](examples/4-texture_filtering.png)
 
 `Nearest` results in blocked patterns where we can clearly see the pixels that form the texture while `Linear` produces a smoother pattern where the individual pixels are less visible. `Linear` produces a more realistic output, but some developers prefer a more retro, pixelated look and as a result pick the `Nearest` option.
 
@@ -92,7 +92,7 @@ Imagine if we had a large room with thousands of objects, each with an attached 
 
 To solve this issue OpenGL uses a concept called mipmaps that is basically a collection of texture images where each subsequent texture is twice as small compared to the previous one. The idea behind mipmaps should be easy to understand: after a certain distance threshold from the viewer, OpenGL will use a different mipmap texture that best suits the distance to the object. Because the object is far away, the smaller resolution will not be noticeable to the user. Also, mipmaps have the added bonus feature that they're good for performance as well. Let's take a closer look at what a mipmapped texture looks like:
 
-![Mipmaps](4-mipmaps.png)
+![Mipmaps](examples/4-mipmaps.png)
 
 Creating a collection of mipmapped textures for each texture image is cumbersome to do manually, but luckily OpenGL is able to do all the work for us with a single call to `GL.GenerateMipmaps` after we've created a texture. Later in the texture tutorial you'll see use of this function.
 
@@ -281,6 +281,6 @@ Up to 16 different textures can be bound at once (possibly more, depending on yo
 
 If you've done everything right, you should see the following when you run your code:
 
-![The results](4-results.png)
+![The results](examples/4-results.png)
 
 Congratulations on drawing your first texture! Next time, I'll demonstrate drawing multiple textures at once.

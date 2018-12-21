@@ -10,7 +10,7 @@ Some of these shaders are configurable by the developer which allows us to write
 
 Below you'll find an abstract representation of all the stages of the graphics pipeline.
 
-![Pipeline graph](2-pipeline.png)
+![Pipeline graph](examples/2-pipeline.png)
 
 Sections with a blue background are programmable, and the ones with a gray background can be lightly customized using functions. The stages are as follows:
 
@@ -94,7 +94,7 @@ Once your vertex coordinates have been processed in the vertex shader, they shou
 
 2D Normalized Device Coordinates as shown in a graph
 
-![NDC Graph](2-ndc.png)
+![NDC Graph](examples/2-ndc.png)
 
 Unlike usual screen coordinates the positive y-axis points in the up-direction and the (0,0) coordinates are at the center of the graph, instead of top-left. Eventually you want all the (transformed) coordinates to end up in this coordinate space, otherwise they won't be visible.
 
@@ -334,7 +334,7 @@ Try running; if nothing prints to console, your shaders have compiled correctly!
 The vertex shader allows us to specify any input we want in the form of vertex attributes. While this allows for great flexibility, it does mean we have to manually specify what part of our input data goes to which vertex attribute in the vertex shader. This means we have to specify how OpenGL should interpret the vertex data before rendering.
 
 Our vertex buffer data is formatted as follows:
-![Vertex attribute pointer setup of OpenGL VBO](2-vertex_attribute_pointer.png)
+![Vertex attribute pointer setup of OpenGL VBO](examples/2-vertex_attribute_pointer.png)
 
 - The position data is stored as 32-bit (4 byte) floating point values.
 - Each position is composed of 3 of those values.
@@ -387,7 +387,7 @@ A vertex array object stores the following:
 - Vertex attribute configurations via glVertexAttribPointer.
 - Vertex buffer objects associated with vertex attributes by calls to glVertexAttribPointer.
 
-![Image of how a VAO (Vertex Array Object) operates and what it stores in OpenGL](2-vertex_array_objects.png)
+![Image of how a VAO (Vertex Array Object) operates and what it stores in OpenGL](examples/2-vertex_array_objects.png)
 
 The process to generate a VAO looks similiar to that of a VBO. As a property, add
 
@@ -438,7 +438,7 @@ The glDrawArrays function takes as its first argument the OpenGL primitive type 
 
 Now try to compile the code and work your way backwards if any errors popped up. As soon as your application compiles, you should see the following result:
 
-![An image of a basic triangle rendered in modern OpenGL](2-hellotriangle.png)
+![An image of a basic triangle rendered in modern OpenGL](examples/2-hellotriangle.png)
 
 The source code for the complete program can be found [here](https://github.com/devvoid/LearnOpenGL-TK/tree/master/1.2%20-%20Hello%20Triangle).
 

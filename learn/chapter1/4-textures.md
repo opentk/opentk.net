@@ -6,7 +6,7 @@ What artists and programmers generally prefer is to use a texture. A texture is 
 
 >Aside from images, textures can also be used to store a large collection of data to send to the shaders, but we'll leave that for a different topic.
 
-Below you'll see a texture image of a brick wall mapped to the triangle from the previous tutorial.
+Below you'll see [a texture image of a brick wall mapped to the triangle](textures/wall.jpg) from the previous tutorial.
 
 ![A triangle with a texture](4-textures.png)
 
@@ -122,7 +122,7 @@ Another solution, and probably a good one, is to use an image-loading library th
 
 ImageSharp is a very popular image loading library by SixLabors that is able to load most popular file formats and is easy to integrate in your project(s). You can add ImageSharp to your project from Nuget.
 
-For the following section on textures, we'll use an [image of a wooden crate](https://learnopengl.com/img/textures/container.jpg).
+For the following section on textures, we'll use an [image of a wooden crate](textures/container.jpg).
 
 Create a new file your project, `Texture.cs`. Put the following `using` statements at the top:
 

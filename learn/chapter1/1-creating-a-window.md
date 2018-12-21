@@ -8,7 +8,7 @@ OpenTK is shipped on NuGet, the official package manager for .NET. Here is the [
 
 In Visual Studio 2013/2015/2017, to access the NuGet package manager simply click on `TOOLS`, hover over `NuGet` and select `Package Manager Console`
 
-![Tools > NuGet > Package Manager Console](examples/1-dropdown-nuget.png)
+![Tools > NuGet > Package Manager Console](img/1-dropdown-nuget.png)
 
 This will bring up the Package Manager Console - a PowerShell extension for Visual Studio and NuGet. To install OpenTK, simply type the following command into the Package Manager Console.
 
@@ -16,7 +16,7 @@ This will bring up the Package Manager Console - a PowerShell extension for Visu
 Install-Package OpenTK
 ```
 
-![Install OpenTK](examples/1-nuget-package-manager.png)
+![Install OpenTK](img/1-nuget-package-manager.png)
 
 And that's it! OpenTK is installed and you're ready to proceed with the next tutorials!
 

@@ -18,7 +18,7 @@ We still however need to edit the fragment shader to accept another sampler. Thi
 ```glsl
 #version 330 core
 
-...
+/* ... */
 
 uniform sampler2D texture1;
 uniform sampler2D texture2;
@@ -36,7 +36,8 @@ We now want to load and create another texture; you should be familiar with the 
 To use the second texture (and the first texture) we'd have to change the rendering procedure a bit by binding both textures to the corresponding texture unit. Firstly, go to `Texture.cs`, and modify the Use function like so:
 
 ```cs
-void Use(TextureUnit unit = TextureUnit.Texture0) {
+void Use(TextureUnit unit = TextureUnit.Texture0)
+{
     GL.ActiveTexture(unit);
     GL.BindTexture(TextureTarget.2D, Handle);
 }

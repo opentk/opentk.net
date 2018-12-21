@@ -1,15 +1,15 @@
 # Multiple Textures and Texture Units
 
-You probably wondered why the `sampler2D` variable is a uniform if we didn't even assign it some value with glUniform. Using glUniform1i we can actually assign a location value to the texture sampler so we can set multiple textures at once in a fragment shader. This location of a texture is more commonly known as a texture unit. The default texture unit for a texture is 0 which is the default active texture unit so we did not had to assign a location in the previous section; note that not all graphics drivers assign a default texture unit so the previous section might not've rendered for you.
+You probably wondered why the `sampler2D` variable is a uniform if we didn't even assign it some value with `GL.Uniform*`. Using `GL.Uniform1` we can actually assign a location value to the texture sampler so we can set multiple textures at once in a fragment shader. This location of a texture is more commonly known as a texture unit. The default texture unit for a texture is 0 which is the default active texture unit so we did not had to assign a location in the previous section; note that not all graphics drivers assign a default texture unit so the previous section might not've rendered for you.
 
-The main purpose of texture units is to allow us to use more than 1 texture in our shaders. By assigning texture units to the samplers, we can bind to multiple textures at once as long as we activate the corresponding texture unit first. Just like glBindTexture we can activate texture units using glActiveTexture passing in the texture unit we'd like to use:
+The main purpose of texture units is to allow us to use more than 1 texture in our shaders. By assigning texture units to the samplers, we can bind to multiple textures at once as long as we activate the corresponding texture unit first. Just like `GL.BindTexture` we can activate texture units using `GL.ActiveTexture` passing in the texture unit we'd like to use:
 
 ```cs
 GL.ActiveTexture(TextureUnit.Texture0); // activate the texture unit first before binding texture
 GL.BindTexture(TextureTarget.Texture2D, texture);
 ```
 
-After activating a texture unit, a subsequent `GL.BindTexture` call will bind that texture to the currently active texture unit. Texture unit `Texture0` is always by default activated, so we didn't have to activate any texture units in the previous example when using glBindTexture.
+After activating a texture unit, a subsequent `GL.BindTexture` call will bind that texture to the currently active texture unit. Texture unit `Texture0` is always by default activated, so we didn't have to activate any texture units in the previous example when using `GL.BindTexture`.
 
 >OpenGL should have a at least a minimum of 16 texture units for you to use which you can activate using `Texture0` through `Texture15`.
 

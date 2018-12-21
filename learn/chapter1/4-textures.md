@@ -6,7 +6,7 @@ What artists and programmers generally prefer is to use a texture. A texture is 
 
 >Aside from images, textures can also be used to store a large collection of data to send to the shaders, but we'll leave that for a different topic.
 
-Below you'll see a texture image of a brick wall mapped to the triangle from the previous tutorial.
+Below you'll see [a texture image of a brick wall mapped to the triangle](textures/wall.jpg) from the previous tutorial.
 
 ![A triangle with a texture](4-textures.png)
 
@@ -122,7 +122,7 @@ Another solution, and probably a good one, is to use an image-loading library th
 
 ImageSharp is a very popular image loading library by SixLabors that is able to load most popular file formats and is easy to integrate in your project(s). You can add ImageSharp to your project from Nuget.
 
-For the following section on textures, we'll use an [image of a wooden crate](https://learnopengl.com/img/textures/container.jpg).
+For the following section on textures, we'll use an [image of a wooden crate](textures/container.jpg).
 
 Create a new file your project, `Texture.cs`. Put the following `using` statements at the top:
 
@@ -139,7 +139,7 @@ using SixLabors.ImageSharp.Processing;
 
 Create a class, `Texture`, and add an int named Handle as a property. The constructor should take one argument: a path to the image file.
 
-In the constructor, write the line `Handle = GL.GenTexture();`. This will generate a blank texture for us to use. 
+In the constructor, write the line `Handle = GL.GenTexture();`. This will generate a blank texture for us to use.
 
 Next, add the function `Use` to your code, containing the line `GL.BindTexture(TextureTarget.Texture2D, Handle);`. Call that in your constructor just after generating the texture.
 
@@ -213,7 +213,7 @@ float[] vertices =
      0.5f,  0.5f, 0.0f, 1.0f, 1.0f, // top right
      0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // bottom right
     -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
-    -0.5f,  0.5f, 0.0f, 0.0f, 1.0f  // top left 
+    -0.5f,  0.5f, 0.0f, 0.0f, 1.0f  // top left
 };
 ```
 
@@ -252,7 +252,7 @@ out vec2 texCoord;
 
 void main(void)
 {
-	texCoord = aTexCoord;
+    texCoord = aTexCoord;
 
     gl_Position = vec4(aPosition, 1.0);
 }

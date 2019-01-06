@@ -10,14 +10,14 @@ However, to fully understand transformations we first have to delve a bit deeper
 
 In its most basic definition, vectors are directions and nothing more. A vector has a direction and a magnitude (also known as its strength or length). You can think of vectors like directions on a treasure map: 'go left 10 steps, now go north 3 steps and go right 5 steps'; here 'left' is the direction and '10 steps' is the magnitude of the vector. The directions for the treasure map thus contains 3 vectors. Vectors can have any dimension, but we usually work with dimensions of 2 to 4. If a vector has 2 dimensions it represents a direction on a plane (think of 2D graphs) and when it has 3 dimensions it can represent any direction in a 3D world.
 
-Below you'll see 3 vectors where each vector is represented with (x,y) as arrows in a 2D graph. Because it is more intuitive to display vectors in 2D (than in 3D) you can think of the 2D vectors as 3D vectors with a z coordinate of 0. Since vectors represent directions, the origin of the vector does not change its value. In the graph below we can see that the vectors \(\bar{v}\)
-and \(\bar{w}\) are equal even though their origin is different:
+Below you'll see 3 vectors where each vector is represented with (x,y) as arrows in a 2D graph. Because it is more intuitive to display vectors in 2D (than in 3D) you can think of the 2D vectors as 3D vectors with a z coordinate of 0. Since vectors represent directions, the origin of the vector does not change its value. In the graph below we can see that the vectors **v**
+and **w** are equal even though their origin is different:
 
 ![Vectors](img/6-vectors.png)
 
-When describing vectors mathematicians generally prefer to describe vectors as character symbols with a little bar over their head like \(\bar{v}\). Also, when displaying vectors in formulas they are generally displayed as follows:
+When describing vectors mathematicians generally prefer to describe vectors as character symbols with a little bar over their head. However, we can't do that in Markdown, so we'll bold vector names instead, like **v**. Also, when displaying vectors in formulas they are generally displayed as follows:
 
-\[\bar{v} = \begin{pmatrix} \color{red}x \\ \color{green}y \\ \color{blue}z \end{pmatrix} \]
+![How vectors are displayed in formulas](img/6-latex_vector.png)
 
 Because vectors are specified as directions it is sometimes hard to visualize them as positions. What we basically visualize is we set the origin of the direction to **(0,0,0)** and then point towards a certain direction that specifies the point, making it a position vector (we could also specify a different origin and then say: 'this vector points to that point in space from this origin'). The position vector **(3,5)** would then point to **(3,5)** on the graph with an origin of **(0,0)**. Using vectors we can thus describe directions and positions in 2D and 3D space.
 
@@ -27,15 +27,15 @@ Just like with normal numbers we can also define several operations on vectors (
 
 A scalar is a single digit (or a vector with 1 component if you'd like stay in vector-land). When adding/subtracting/multiplying or dividing a vector with a scalar we simply add/subtract/multiply or divide each element of the vector by the scalar. For addition it would look like this:
 
-\[ \begin{pmatrix} \color{red}1 \\ \color{green}2 \\ \color{blue}3 \end{pmatrix} + x = \begin{pmatrix} \color{red}1 + x \\ \color{green}2 + x \\ \color{blue}3 + x \end{pmatrix} \]
+![Scalar vector operations](img/6-latex_scalar_addition.png)
   
-Where \(+\) can be \(+\),\(-\),\(\cdot\) or \(\div\) where \(\cdot\) is the multiplication operator. Keep in mind that for the \(-\) and \(\div\) operator order, the reverse order is not defined.
+Where **+** can be **+**,**-**, **•** or **÷** where **•** is the multiplication operator. Keep in mind that for the **-** and **÷** operator order, the reverse order is not defined.
 
 ## Vector negation
 
 Negating a vector results in a vector in the reversed direction. A vector pointing north-east would point south-west after negation. To negate a vector we add a minus-sign to each component (you can also represent it as a scalar-vector multiplication with a scalar value of -1):
 
-\[-\bar{v} = -\begin{pmatrix} \color{red}{v_x} \\ \color{blue}{v_y} \\ \color{green}{v_z} \end{pmatrix} = \begin{pmatrix} -\color{red}{v_x} \\ -\color{blue}{v_y} \\ -\color{green}{v_z} \end{pmatrix} \]
+![Vector negation](img/6-latex_vector_negation.png)
 
 ## Addition and subtraction
 

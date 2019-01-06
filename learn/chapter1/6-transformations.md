@@ -243,6 +243,7 @@ First let's define what a rotation of a vector actually is. A rotation in 2D or 
 angle in degrees = angle in radians * (180.0f / PI)
 angle in radians = angle in degrees * (PI / 180.0f)
 Where PI equals (sort of) 3.14159265359.
+In addition, OpenTK provides the function `MathHelper.DegreesToRadians` to easily convert to radians.
 
 Rotating half a circle would rotate us 360/2 = 180 degrees and rotating 1/5th to the right means we rotate 360/5 = 72 degrees to the right. This is demonstrated for a basic 2D vector where \(\color{red}{\bar{v}}\) is rotated 72 degrees to the right from \(\color{green}{\bar{k}}\):
 
@@ -285,3 +286,74 @@ Running the final transformation matrix on our vector results in the following v
 \[\begin{bmatrix} \color{red}2 & \color{red}0 & \color{red}0 & \color{red}1 \\ \color{green}0 & \color{green}2 & \color{green}0 & \color{green}2 \\ \color{blue}0 & \color{blue}0 & \color{blue}2 & \color{blue}3 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} . \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} \color{red}2x + \color{red}1 \\ \color{green}2y + \color{green}2  \\ \color{blue}2z + \color{blue}3 \\ 1 \end{bmatrix} \]
 
 Great! The vector is first scaled by two and then translated by **(1,2,3)**.
+
+## In practice
+
+OpenTK provides its own mathematics library, so there's no need to add another one. Let's see if we can put our transformation knowledge to good use by translating a vector of (1,0,0) by (1,1,0) (note that we define it as a glm::vec4 with its homogenous coordinate set to 1.0:
+
+```cs
+Vector4 vec = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+Matrix4 trans = Matrix4.CreateTranslation(0.1f, 0.1f, 0.0f);
+vec *= trans;
+Console.WriteLine("{0}, {1}, {2}", vec.x, vec.y, vec.z);
+```
+
+We first define a vector named vec using OpenTK's built-in vector class. Next we define a Matrix4 and explicitly initialize it to the identity matrix by calling the `Matrix4.CreateTranslation` function, which takes three floats and creates a translation matrix.
+
+Then we multiply our vector by the transformation matrix and output the result. If we still remember how matrix translation works then the resulting vector should be (1+1,0+1,0+0) which is (2,1,0). This snippet of code outputs 210 so the translation matrix did its job.
+
+Let's do something more interesting and scale and rotate the container object from the previous tutorial:
+
+```cs
+Matrix4 rotation = Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(90.0f));
+Matrix4 scale = Matrix4.CreateScale(0.5f, 0.5f, 0.5f);
+Matrix4 trans = rotation * scale;
+```
+
+We create two matrices: one to rotate 90 degrees on the Z axis, and the other to scale on all axes by 0.5. OpenTK expects its angles in radians so we convert the degrees to radians using `MathHelper.DegreesToRadians`. Note that the textured rectangle is on the XY plane so we want to rotate around the Z-axis. Keep in mind that the axis that we rotate around should be a unit vector, so be sure to normalize the vector first if you're not rotating around the X, Y, or Z axis. Then, we multiply the matrices together to create a single transformation matrix.
+
+The next big question is: how do we get the transformation matrix to the shaders? We shortly mentioned before that GLSL also has a mat4 type. So we'll adapt the vertex shader to accept a mat4 uniform variable and multiply the position vector by the matrix uniform:
+
+```glsl
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec2 aTexCoord;
+
+out vec2 TexCoord;
+  
+uniform mat4 transform;
+
+void main()
+{
+    gl_Position = transform * vec4(aPos, 1.0f);
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+```
+
+>GLSL also has mat2 and mat3 types that allow for swizzling-like operations just like vectors. All the aforementioned math operations (like scalar-matrix multiplication, matrix-vector multiplication and matrix-matrix multiplication) are allowed on the matrix types. Wherever special matrix operations are used we'll be sure to explain what's happening.
+
+We added the uniform and multiplied the position vector with the transformation matrix before passing it to gl_Position. Our container should now be half its size and rotated 90 degrees on the Z axis (tilted to the left). We still need to pass the transformation matrix to the shader though:
+
+```cs
+GL.UseProgram(program);
+
+int location = GL.GetUniformLocation(Handle, name);
+
+GL.UniformMatrix4(location, true, ref matrix);
+```
+
+`GL.UniformMatrix4` is a fairly standard function, similar to the other Uniform functions we've seen so far. The parameters are as follows:
+
+- The location of the uniform on the shader.
+- A boolean, determining whether or not the matrices should be transposed. Since OpenTK uses row-major, whereas GLSL typically uses column-major, you'll almost always want to use `true` here.
+- A reference to the matrix we want to pass.
+
+We created a transformation matrix, declared a uniform in the vertex shader and sent the matrix to the shaders where we transform our vertex coordinates. The result should look something like this:
+
+![Transformation result](img/6-transformations.png)
+
+Perfect! Our container is indeed tilted to the left and twice as small so the transformation was successful.
+
+If you didn't get the right result or you're stuck somewhere else, take a look at the source code and the updated shader class.
+
+In the next tutorial we'll discuss how we can use matrices to define different coordinate spaces for our vertices. This will be our first step into real-time 3D graphics!

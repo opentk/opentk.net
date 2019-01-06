@@ -412,7 +412,7 @@ GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
 GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
 // 3. then set our vertex attributes pointers
 GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
-glEnableVertexAttribArray(0);
+GL.EnableVertexAttribArray(0);
 ```
 
 Then, to actually draw the object, you'd put the following in your render loop:

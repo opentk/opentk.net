@@ -41,7 +41,7 @@ Negating a vector results in a vector in the reversed direction. A vector pointi
 
 Addition of two vectors is defined as component-wise addition, that is each component of one vector is added to the same component of the other vector like so:
 
-\[\bar{v} = \begin{pmatrix} \color{red}1 \\ \color{green}2 \\ \color{blue}3 \end{pmatrix}, \bar{k} = \begin{pmatrix} \color{red}4 \\ \color{green}5 \\ \color{blue}6 \end{pmatrix} \rightarrow \bar{v} + \bar{k} = \begin{pmatrix} \color{red}1 + \color{red}4 \\ \color{green}2 + \color{green}5 \\ \color{blue}3 + \color{blue}6 \end{pmatrix} = \begin{pmatrix} \color{red}5 \\ \color{green}7 \\ \color{blue}9 \end{pmatrix} \]
+![Vector addition](img/6-latex_vector_addition.png)
 
 Visually, it looks like this on vectors **v=(4,2)** and **k=(1,2)**:
 
@@ -49,7 +49,7 @@ Visually, it looks like this on vectors **v=(4,2)** and **k=(1,2)**:
 
 Just like normal addition and subtraction, vector subtraction is the same as addition with a negated second vector:
 
-\[\bar{v} = \begin{pmatrix} \color{red}1 \\ \color{green}2 \\ \color{blue}3 \end{pmatrix}, \bar{k} = \begin{pmatrix} \color{red}4 \\ \color{green}5 \\ \color{blue}6 \end{pmatrix} \rightarrow \bar{v} + -\bar{k} = \begin{pmatrix} \color{red}1 + (-\color{red}{4}) \\ \color{green}2 + (-\color{green}{5}) \\ \color{blue}3 + (-\color{blue}{6}) \end{pmatrix} = \begin{pmatrix} -\color{red}{3} \\ -\color{green}{3} \\ -\color{blue}{3} \end{pmatrix} \]
+![Vector subtraction](6-latex_vector_subtraction.png)
 
 Subtracting two vectors from each other results in a vector that's the difference of the positions both vectors are pointing at. This proves useful in certain cases where we need to retrieve a vector that's the difference between two points.
 
@@ -61,43 +61,45 @@ To retrieve the length/magnitude of a vector we use the Pythagoras theorem that 
 
 ![Pythagoras theorem](img/6-vector_triangle.png)
 
-\[||\color{red}{\bar{v}}|| = \sqrt{\color{green}x^2 + \color{blue}y^2} \]
+![Pythagoras theorem formula](img/6-latex_pythagoras_theorem.png)
   
-Where \(||\color{red}{\bar{v}}||\) is denoted as *the length of vector \(\color{red}{\bar{v}}\)*. This is easily extended to 3D by adding \(z^2\) to the equation.
+Where **||v||** is denoted as *the length of vector* **v**. This is easily extended to 3D by adding **z^2** to the equation.
 
 In this case the length of vector **(4, 2)** equals:
   
-\[||\color{red}{\bar{v}}|| = \sqrt{\color{green}4^2 + \color{blue}2^2} = \sqrt{\color{green}16 + \color{blue}4} = \sqrt{20} = 4.47  \]
+![Pythagoras theorem formula demonstration](img/6-latex_pythagoras_theorem_demonstrated.png)
 
 Which is **4.47**.
 
-There is also a special type of vector that we call a *unit vector*. A unit vector has one extra property and that is that its length is exactly 1. We can calculate a unit vector \(\hat{n}\) from any vector by dividing each of the vector's components by its length:
+There is also a special type of vector that we call a *unit vector*. A unit vector has one extra property and that is that its length is exactly 1. We can calculate a unit vector **n** from any vector by dividing each of the vector's components by its length:
   
-\[\hat{n} = \frac{\bar{v}}{||\bar{v}||}\]
+![Unit vector](img/6-latex_unit_vector.png)
 
 We call this *normalizing* a vector. Unit vectors are displayed with a little roof over their head and are generally easier to work with, especially when we only care about their directions (the direction does not change if we change a vector's length).
 
 ## Vector-vector multiplication
 
-Multiplying two vectors is a bit of a weird case. Normal multiplication isn't really defined on vectors since it has no visual meaning, but we have two specific cases that we could choose from when multiplying: one is the *dot product* denoted as \(\bar{v} \cdot \bar{k}\) and the other is the *cross product* denoted as \(\bar{v} \times \bar{k}\).
+Multiplying two vectors is a bit of a weird case. Normal multiplication isn't really defined on vectors since it has no visual meaning, but we have two specific cases that we could choose from when multiplying: one is the *dot product* denoted as **v** • **k** and the other is the *cross product* denoted as **v** × **k**.
 
 ### Dot product
 
 The dot product of two vectors is equal to the scalar product of their lengths times the cosine of the angle between them. If this sounds confusing take a look at its formula:
 
-Where the angle between them is represented as theta (\(\theta\)). Why is this interesting? Well, imagine if \(\bar{v}\) and \(\bar{k}\) are unit vectors then their length would be equal to 1. This would effectively reduce the formula to:
-  
-\[\hat{v} \cdot \hat{k} = 1 \cdot 1 \cdot \cos \theta = \cos \theta\]
+![Dot product formula](img/6-latex_dot_product.png)
+
+Where the angle between them is represented as theta (θ). Why is this interesting? Well, imagine if **v** and **k** are unit vectors then their length would be equal to 1. This would effectively reduce the formula to:
+
+![Dot product formula, simplified](img/6-latex_dot_product_simplified.png)
 
 Now the dot product **only** defines the angle between both vectors. You might remember that the cosine or cos function becomes **0** when the angle is 90 degrees or **1** when the angle is 0. This allows us to easily test if the two vectors are *orthogonal* or parallel to each other using the dot product (orthogonal means the vectors are at a *right-angle* to each other). In case you want to know more about the **sin** or the **cosine** functions I'd suggest the following [Khan Academy videos](https://www.khanacademy.org/math/trigonometry/basic-trigonometry/basic_trig_ratios/v/basic-trigonometry) about basic trigonometry.
 
->You can also calculate the angle between two non-unit vectors, but then you'd have to divide the lengths of both vectors from the result to be left with \(cos \theta\).
+>You can also calculate the angle between two non-unit vectors, but then you'd have to divide the lengths of both vectors from the result to be left with **cos θ**.
 
 So how do we calculate the dot product? The dot product is a component-wise multiplication where we add the results together. It looks like this with two unit vectors (you can verify that both their lengths are exactly **1**):
 
-\[ \begin{pmatrix} \color{red}{0.6} \\ -\color{green}{0.8} \\ \color{blue}0 \end{pmatrix} \cdot \begin{pmatrix} \color{red}0 \\ \color{green}1 \\ \color{blue}0 \end{pmatrix} = (\color{red}{0.6} \times \color{red}0\color{black}) + (-\color{green}{0.8} \times \color{green}1\color{black}) + (\color{blue}0 \times \color{blue}0\color{black}) = -0.8 \]
+![Dot product demonstrated with two vectors](img/6-latex_dot_product_vectors.png)
 
-To calculate the degree between both these unit vectors we use the inverse of the cosine function \(cos^{-1}\) and this results in **143.1** degrees. We now effectively calculated the angle between these two vectors. The dot product proves very useful when doing lighting calculations.
+To calculate the degree between both these unit vectors we use the inverse of the cosine function **cos^-1**, and this results in **143.1** degrees. We now effectively calculated the angle between these two vectors. The dot product proves very useful when doing lighting calculations.
 
 ## Cross product
 
@@ -107,7 +109,7 @@ The cross product is only defined in 3D space and takes two non-parallel vectors
 
 Unlike the other operations, the cross product isn't really intuitive without delving into linear algebra so it's best to just memorize the formula and you'll be fine (or don't, you'll probably be fine as well). Below you'll see the cross product between two orthogonal vectors A and B:
   
-\[\begin{pmatrix} \color{red}{A_{x}} \\ \color{green}{A_{y}} \\ \color{blue}{A_{z}} \end{pmatrix} \times \begin{pmatrix} \color{red}{B_{x}} \\ \color{green}{B_{y}} \\ \color{blue}{B_{z}}  \end{pmatrix} = \begin{pmatrix} \color{green}{A_{y}} \cdot \color{blue}{B_{z}} - \color{blue}{A_{z}} \cdot \color{green}{B_{y}} \\ \color{blue}{A_{z}} \cdot \color{red}{B_{x}} - \color{red}{A_{x}} \cdot \color{blue}{B_{z}} \\ \color{red}{A_{x}} \cdot \color{green}{B_{y}} - \color{green}{A_{y}} \cdot \color{red}{B_{x}} \end{pmatrix} \]
+![Cross product formula](img/6-latex_cross_product.png)
   
 As you can see, it doesn't really seem to make sense. However, if you just follow these steps you'll get another vector that is orthogonal to your input vectors.
 
@@ -115,7 +117,7 @@ As you can see, it doesn't really seem to make sense. However, if you just follo
 
 Now that we've discussed almost all there is to vectors it is time to enter the matrix! A matrix is basically a rectangular array of numbers, symbols and/or expressions. Each individual item in a matrix is called an element of the matrix. An example of a 2x3 matrix is shown below:
 
-\[\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}\]
+![2x3 Matrix](img/6-latex_matrix.png)
 
 Matrices are indexed by **(i,j)** where **i** is the row and **j** is the column, that is why the above matrix is called a 2x3 matrix (3 columns and 2 rows, also known as the dimensions of the matrix). This is the opposite of what you're used to when indexing 2D graphs as **(x,y)**. To retrieve the value 4 we would index it as (2,1) (second row, first column).
 
@@ -127,25 +129,25 @@ Matrices are basically nothing more than that, just rectangular arrays of mathem
 
 Addition and subtraction between a matrix and a scalar is defined as follows:
 
-\[\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} + \color{green}3\color{black} = \begin{bmatrix} 1 + \color{green}3 & 2 + \color{green}3 \\ 3 + \color{green}3 & 4 + \color{green}3 \end{bmatrix} = \begin{bmatrix} 4 & 5 \\ 6 & 7 \end{bmatrix}\]
+![Matrix addition with a scalar](img/6-latex_matrix_addition_scalar.png)
 
 The scalar value is basically added to each individual element of the matrix. The same applies for matrix-scalar subtraction:
 
-\[\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} - \color{green}3\color{black} = \begin{bmatrix} 1 - \color{green}3 & 2 - \color{green}3 \\ 3 - \color{green}3 & 4 - \color{green}3 \end{bmatrix} = \begin{bmatrix} -2 & -1 \\ 0 & 1 \end{bmatrix}\]
+![Matrix subtraction with a scalar](img/6-latex_matrix_subtraction_scalar.png)
 
 Matrix addition and subtraction between two matrices is done on a per-element basis. So the same general rules apply that we're familiar with for normal numbers, but done on the elements of both matrices with the same index. This does mean that addition and subtraction is only defined for matrices of the same dimensions. A 3x2 matrix and a 2x3 matrix (or a 3x3 matrix and a 4x4 matrix) cannot be added or subtracted together. Let's see how matrix addition works on two 2x2 matrices:
 
-\[\begin{bmatrix} \color{red}1 & \color{red}2 \\ \color{green}3 & \color{green}4 \end{bmatrix} + \begin{bmatrix} \color{red}5 & \color{red}6 \\ \color{green}7 & \color{green}8 \end{bmatrix} = \begin{bmatrix} \color{red}1 + \color{red}5 & \color{red}2 + \color{red}6 \\ \color{green}3 + \color{green}7 & \color{green}4 + \color{green}8 \end{bmatrix} = \begin{bmatrix} \color{red}6 & \color{red}8 \\ \color{green}{10} & \color{green}{12} \end{bmatrix} \]
+![Matrix addition with a matrix](img/6-latex_matrix_addition_matrix.png)
 
 The same rules apply for matrix subtraction:
   
-\[\begin{bmatrix} \color{red}4 & \color{red}2 \\ \color{green}1 & \color{green}6 \end{bmatrix} - \begin{bmatrix} \color{red}2 & \color{red}4 \\ \color{green}0 & \color{green}1 \end{bmatrix} = \begin{bmatrix} \color{red}4 - \color{red}2 & \color{red}2  - \color{red}4 \\ \color{green}1 - \color{green}0 & \color{green}6 - \color{green}1 \end{bmatrix} = \begin{bmatrix} \color{red}2 & -\color{red}2 \\ \color{green}1 & \color{green}5 \end{bmatrix} \]
+![Matrix subtraction with a matrix](img/6-latex_matrix_subtraction_matrix.png)
 
 ## Matrix-scalar products
 
 Just like addition and subtraction, a matrix-scalar product multiples each element of the matrix by a scalar. The following example illustrates the multiplication:
 
-\[\color{green}2\color{black} \cdot \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} = \begin{bmatrix} \color{green}2 \cdot 1 & \color{green}2 \cdot 2 \\ \color{green}2 \cdot 3 & \color{green}2 \cdot 4 \end{bmatrix} = \begin{bmatrix} 2 & 4 \\ 6 & 8 \end{bmatrix}\]
+![Matrix product with a scalar](img/6-latex_matrix_product_scalar.png)
 
 Now it also makes sense as to why those single numbers are called scalars. A scalar basically scales all the elements of the matrix by its value. In the previous example, all elements were scaled by 2.
 
@@ -156,17 +158,17 @@ So far so good, all of our cases weren't really too complicated. That is, until 
 Multiplying matrices is not necessarily complex, but rather difficult to get comfortable with. Matrix multiplication basically means to follow a set of pre-defined rules when multiplying. There are a few restrictions though:
 
 1. You can only multiply two matrices if the number of columns on the left-hand side matrix is equal to the number of rows on the right-hand side matrix.
-2. Matrix multiplication is not commutative that is \(A \cdot B \neq B \cdot A\).
+2. Matrix multiplication is not commutative. That is, A • B does not equal B • A.
 
-Let's get started with an example of a matrix multiplication of 2 2x2 matrices:
+Let's get started with an example of a matrix multiplication of two 2x2 matrices:
 
-\[ \begin{bmatrix} \color{red}1 & \color{red}2 \\ \color{green}3 & \color{green}4 \end{bmatrix} \cdot \begin{bmatrix} \color{blue}5 & \color{purple}6 \\ \color{blue}7 & \color{purple}8 \end{bmatrix} = \begin{bmatrix} \color{red}1 \cdot \color{blue}5 + \color{red}2 \cdot \color{blue}7 & \color{red}1 \cdot \color{purple}6 + \color{red}2 \cdot \color{purple}8 \\ \color{green}3 \cdot \color{blue}5 + \color{green}4 \cdot \color{blue}7 & \color{green}3 \cdot \color{purple}6 + \color{green}4 \cdot \color{purple}8 \end{bmatrix} = \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix} \]
+![Matrix product with a matrix](img/6-latex_matrix_product_matrix.png)
 
 Right now you're probably trying to figure out what the hell just happened? Matrix multiplication is a combination of normal multiplication and addition using the left-matrix's rows with the right-matrix's columns. Let's try discussing this with the following image:
 
 ![Matrix multiplication](img/6-matrix_multiplication.png)
 
- We first take the upper row of the left matrix and then take a column from the right matrix. The row and column that we picked decides which output value of the resulting 2x2 matrix we're going to calculate. If we take the first row of the left matrix the resulting value will end up in the first row of the result matrix, then we pick a column and if it's the first column the result value will end up in the first column of the result matrix. This is exactly the case of the red pathway. To calculate the bottom-right result we take the bottom row of the first matrix and the rightmost column of the second matrix.
+We first take the upper row of the left matrix and then take a column from the right matrix. The row and column that we picked decides which output value of the resulting 2x2 matrix we're going to calculate. If we take the first row of the left matrix the resulting value will end up in the first row of the result matrix, then we pick a column and if it's the first column the result value will end up in the first column of the result matrix. This is exactly the case of the red pathway. To calculate the bottom-right result we take the bottom row of the first matrix and the rightmost column of the second matrix.
 
 To calculate the resulting value we multiply the first element of the row and column together using normal multiplication, we do the same for the second elements, third, fourth etc. The results of the individual multiplications are then summed up and we have our result. Now it also makes sense that one of the requirements is that the size of the left-matrix's columns and the right-matrix's rows are equal, otherwise we can't finish the operations!
 
@@ -176,8 +178,7 @@ Don't worry if you have difficulties imagining the multiplications inside your h
 
 Let's finish the discussion of matrix-matrix multiplication with a larger example. Try to visualize the pattern using the colors. As a useful exercise, see if you can come up with your own answer of the multiplication and then compare them with the resulting matrix (once you try to do a matrix multiplication by hand you'll quickly get the grasp of them).
 
-\[ \begin{bmatrix} \color{red}4 & \color{red}2 & \color{red}0 \\ \color{green}0 & \color{green}8 & \color{green}1 \\ \color{blue}0 & \color{blue}1 & \color{blue}0 \end{bmatrix} \cdot \begin{bmatrix} \color{red}4 & \color{green}2 & \color{blue}1 \\ \color{red}2 & \color{green}0 & \color{blue}4 \\ \color{red}9 & \color{green}4 & \color{blue}2 \end{bmatrix} = \begin{bmatrix} \color{red}4 \cdot \color{red}4 + \color{red}2 \cdot \color{red}2 + \color{red}0 \cdot \color{red}9 & \color{red}4 \cdot \color{green}2 + \color{red}2 \cdot \color{green}0 + \color{red}0 \cdot \color{green}4 & \color{red}4 \cdot \color{blue}1 + \color{red}2 \cdot \color{blue}4 + \color{red}0 \cdot \color{blue}2 \\ \color{green}0 \cdot \color{red}4 + \color{green}8 \cdot \color{red}2 + \color{green}1 \cdot \color{red}9 & \color{green}0 \cdot \color{green}2 + \color{green}8 \cdot \color{green}0 + \color{green}1 \cdot \color{green}4 & \color{green}0 \cdot \color{blue}1 + \color{green}8 \cdot \color{blue}4 + \color{green}1 \cdot \color{blue}2 \\ \color{blue}0 \cdot \color{red}4 + \color{blue}1 \cdot \color{red}2 + \color{blue}0 \cdot \color{red}9 & \color{blue}0 \cdot \color{green}2 + \color{blue}1 \cdot \color{green}0 + \color{blue}0 \cdot \color{green}4 & \color{blue}0 \cdot \color{blue}1 + \color{blue}1 \cdot \color{blue}4 + \color{blue}0 \cdot \color{blue}2 \end{bmatrix}
- \\ = \begin{bmatrix} 20 & 8 & 12 \\ 25 & 4 & 34 \\ 2 & 0 & 4 \end{bmatrix}\]
+![Matrix multiplication, on a bigger scale](img/6-latex_matrix_product_matrix_bigger.png)
 
 As you can see, matrix-matrix multiplication is quite a cumbersome process and very prone to errors (which is why we usually let computers do this) and this gets problematic real quick when the matrices become larger. If you're still thirsty for more and you're curious about some more of the mathematical properties of matrices I strongly suggest you take a look at these [Khan Academy videos](https://www.khanacademy.org/math/algebra2/algebra-matrices) about matrices.
 
@@ -193,9 +194,9 @@ But why do we care if we can multiply matrices with a vector? Well, it just so h
 
 In OpenGL we usually work with 4x4 transformation matrices for several reasons and one of them is that most of the vectors are of size 4. The most simple transformation matrix that we can think of is the identity matrix. The identity matrix is an NxN matrix with only 0s except on its diagonal. As you'll see, this transformation matrix leaves a vector completely unharmed:
 
-\[ \begin{bmatrix} \color{red}1 & \color{red}0 & \color{red}0 & \color{red}0 \\ \color{green}0 & \color{green}1 & \color{green}0 & \color{green}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 & \color{blue}0 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} \cdot \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix} = \begin{bmatrix} \color{red}1 \cdot 1 \\ \color{green}1 \cdot 2 \\ \color{blue}1 \cdot 3 \\ \color{purple}1 \cdot 4 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix} \]
+![The identity matrix](img/6-latex_matrix_identity.png)
 
-The vector seems completely untouched. This becomes obvious from the rules of multiplication: the first result element is each individual element of the first row of the matrix multiplied with each element of the vector. Since each of the row's elements are 0 except the first one, we get: \(\color{red}1\color{black} \cdot 1 + \color{red}0\color{black} \cdot 2 + \color{red}0\color{black} \cdot 3 + \color{red}0\color{black} \cdot 4 = 1\) and the same applies for the other 3 elements of the vector.
+The vector seems completely untouched. This becomes obvious from the rules of multiplication: the first result element is each individual element of the first row of the matrix multiplied with each element of the vector. Since each of the row's elements are 0 except the first one, we get: `1 • 1 + 0 • 2 + 0 • 3 + 0 • 4 = 1` and the same applies for the other 3 elements of the vector.
 
 >You might be wondering what the use is of a transformation matrix that does not transform? The identity matrix is usually a starting point for generating other transformation matrices and if we dig even deeper into linear algebra, a very useful matrix for proving theorems and solving linear equations.
 
@@ -203,15 +204,15 @@ The vector seems completely untouched. This becomes obvious from the rules of mu
 
 When we're scaling a vector we are increasing the length of the arrow by amount we'd like to scale, keeping its direction the same. Since we're working in either 2 or 3 dimensions we can define scaling by a vector of 2 or 3 scaling variables, each scaling one axis (x, y or z).
 
-Let's try scaling the vector \(\color{red}{\bar{v}}\color{black} = (3,2)\). We will scale the vector along the x-axis by **0.5**, thus making it twice as narrow; and we'll scale the vector by **2** along the y-axis, making it twice as high. Let's see what it looks like if we scale the vector by **(0.5,2)** as \(\color{blue}{\bar{s}}\):
+Let's try scaling the vector **v** = (3,2). We will scale the vector along the x-axis by **0.5**, thus making it twice as narrow; and we'll scale the vector by **2** along the y-axis, making it twice as high. Let's see what it looks like if we scale the vector by **(0.5,2)** as **s**:
 
 ![Scaling vectors](img/6-vector_scale.png)
 
 Keep in mind that OpenGL usually operates in 3D space so for this 2D case we could set the z-axis scale to 1 thus leaving it unharmed. The scaling operation we just performed is a non-uniform scale, because the scaling factor is not the same for each axis. If the scalar would be equal on all axes it would be called a uniform scale.
 
-Let's start building a transformation matrix that does the scaling for us. We saw from the identity matrix that each of the diagonal elements were multiplied with its corresponding vector element. What if we were to change the **1**s in the identity matrix to **3**s? In that case, we would be multiplying each of the vector elements by a value of **3** and thus effectively scale the vector by 3. If we represent the scaling variables as \( (\color{red}{S_1}, \color{green}{S_2}, \color{blue}{S_3}) \) we can define a scaling matrix on any vector \((x,y,z)\) as:
+Let's start building a transformation matrix that does the scaling for us. We saw from the identity matrix that each of the diagonal elements were multiplied with its corresponding vector element. What if we were to change the **1**s in the identity matrix to **3**s? In that case, we would be multiplying each of the vector elements by a value of **3** and thus effectively scale the vector by 3. If we represent the scaling variables as (S1, S2, S3) we can define a scaling matrix on any vector **(x,y,z)** as:
 
-\[\begin{bmatrix} \color{red}{S_1} & \color{red}0 & \color{red}0 & \color{red}0 \\ \color{green}0 & \color{green}{S_2} & \color{green}0 & \color{green}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}{S_3} & \color{blue}0 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} \cdot \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = \begin{pmatrix} \color{red}{S_1} \cdot x \\ \color{green}{S_2} \cdot y \\ \color{blue}{S_3} \cdot z \\ 1 \end{pmatrix} \]
+![Scaling matrix](img/6-latex_matrix_scale.png)
 
 Note that the 4th scaling vector stays 1, since it's undefined to scale the **w** component in a 3D space. The **w** component is used for other purposes as we'll see later on.
 
@@ -219,13 +220,13 @@ Note that the 4th scaling vector stays 1, since it's undefined to scale the **w*
 
 *Translation* is the process of adding another vector on top of the original vector to return a new vector with a different position, thus moving the vector based on a translation vector. We've already discussed vector addition so this shouldn't be too new.
 
-Just like the scaling matrix there are several locations on a 4-by-4 matrix that we can use to perform certain operations and for translation those are the top-3 values of the 4th column. If we represent the translation vector as \((\color{red}{T_x},\color{green}{T_y},\color{blue}{T_z}\color{black})\) we can define the translation matrix by:
+Just like the scaling matrix there are several locations on a 4-by-4 matrix that we can use to perform certain operations and for translation those are the top-3 values of the 4th column. If we represent the translation vector as (Tx, Ty, Tz) we can define the translation matrix by:
 
-\[\begin{bmatrix}  \color{red}1 & \color{red}0 & \color{red}0 & \color{red}{T_x} \\ \color{green}0 & \color{green}1 & \color{green}0 & \color{green}{T_y} \\ \color{blue}0 & \color{blue}0 & \color{blue}1 & \color{blue}{T_z} \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} \cdot \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = \begin{pmatrix} x + \color{red}{T_x} \\ y + \color{green}{T_y} \\ z + \color{blue}{T_z} \\ 1 \end{pmatrix} \]
+![Translation matrix](img/6-latex_matrix_translation.png)
 
 This works because all of the translation values are multiplied by the vector's **w** column and added to the vector's original values (remember the matrix-multiplication rules). This wouldn't have been possible with a 3-by-3 matrix.
 
->#### Homogeneous coordinates
+>### Homogeneous coordinates
 >
 >The **w** component of a vector is also known as a *homogeneous coordinate*.
 >To get the 3D vector from a homogeneous vector we divide the **x**, **y** and **z** coordinate by its **w** coordinate. We usually do not notice this since the **w** component is **1.0** most of the time. Using homogeneous coordinates has several advantages: it allows us to do translations on 3D vectors (without a **w** component we can't translate vectors) and in the next chapter we'll use the **w** value to create 3D visuals.
@@ -245,7 +246,7 @@ angle in radians = angle in degrees * (PI / 180.0f)
 Where PI equals (sort of) 3.14159265359.
 In addition, OpenTK provides the function `MathHelper.DegreesToRadians` to easily convert to radians.
 
-Rotating half a circle would rotate us 360/2 = 180 degrees and rotating 1/5th to the right means we rotate 360/5 = 72 degrees to the right. This is demonstrated for a basic 2D vector where \(\color{red}{\bar{v}}\) is rotated 72 degrees to the right from \(\color{green}{\bar{k}}\):
+Rotating half a circle would rotate us 360/2 = 180 degrees and rotating 1/5th to the right means we rotate 360/5 = 72 degrees to the right. This is demonstrated for a basic 2D vector where **v** is rotated 72 degrees to the right from **k**:
 
 ![Vector angles](img/6-vector_angle.png)
 
@@ -253,23 +254,23 @@ Rotations in 3D are specified with an angle and a rotation axis. The angle speci
 
 Using trigonometry it is possible to transform vectors to new rotated vectors given an angle. This is usually done via a smart combination of the sine and cosine function (commonly abbreviated to **sin** and **cos**). A discussion of how the transformation matrices are generated is out of the scope of this tutorial.
 
-A rotation matrix is defined for each unit axis in 3D space where the angle is represented as the theta symbol \(\theta\).
+A rotation matrix is defined for each unit axis in 3D space where the angle is represented as the theta symbol θ.
 
 Rotation around the X-axis:
 
-\[\begin{bmatrix} \color{red}1 & \color{red}0 & \color{red}0 & \color{red}0 \\ \color{green}0 & \color{green}{\cos \theta} & - \color{green}{\sin \theta} & \color{green}0 \\ \color{blue}0 & \color{blue}{\sin \theta} & \color{blue}{\cos \theta} & \color{blue}0 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} \cdot \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = \begin{pmatrix} x \\ \color{green}{\cos \theta} \cdot y - \color{green}{\sin \theta} \cdot z \\ \color{blue}{\sin \theta} \cdot y + \color{blue}{\cos \theta} \cdot z \\ 1 \end{pmatrix}\]
+![A rotation matrix on the X axis](img/6-latex_matrix_rotation_x.png)
 
 Rotation around the Y-axis:
 
-\[\begin{bmatrix} \color{red}{\cos \theta} & \color{red}0 & \color{red}{\sin \theta} & \color{red}0 \\ \color{green}0 & \color{green}1 & \color{green}0 & \color{green}0 \\ - \color{blue}{\sin \theta} & \color{blue}0 & \color{blue}{\cos \theta} & \color{blue}0 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} \cdot \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = \begin{pmatrix} \color{red}{\cos \theta} \cdot x + \color{red}{\sin \theta} \cdot z \\ y \\ - \color{blue}{\sin \theta} \cdot x + \color{blue}{\cos \theta} \cdot z \\ 1 \end{pmatrix} \]
+![A rotation matrix on the Y axis](img/6-latex_matrix_rotation_y.png)
 
 Rotation around the Z-axis:
 
-\[\begin{bmatrix} \color{red}{\cos \theta} & - \color{red}{\sin \theta} & \color{red}0 & \color{red}0 \\ \color{green}{\sin \theta} & \color{green}{\cos \theta} & \color{green}0 & \color{green}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 & \color{blue}0 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} \cdot \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = \begin{pmatrix} \color{red}{\cos \theta} \cdot x - \color{red}{\sin \theta} \cdot y  \\ \color{green}{\sin \theta} \cdot x + \color{green}{\cos \theta} \cdot y \\ z \\ 1 \end{pmatrix} \]
+![A rotation matrix on the z axis](img/6-latex_matrix_rotation_z.png)
 
-Using the rotation matrices we can transform our position vectors around one of the three unit axes. It is also possible to combine them by first rotating around the X-axis and then the Y-axis for example. However, this quickly introduces a problem called *Gimbal lock*. We won't discuss the details, but a better solution is to rotate around an arbitrary unit axis e.g. **(0.662,0.2,0.722)** (note that this is a unit vector) right away instead of combining the rotation matrices. Such a (nasty) matrix exists and is given below with \((\color{red}{R_x}, \color{green}{R_y}, \color{blue}{R_z})\) as the arbitrary rotation axis:
+Using the rotation matrices we can transform our position vectors around one of the three unit axes. It is also possible to combine them by first rotating around the X-axis and then the Y-axis for example. However, this quickly introduces a problem called *Gimbal lock*. We won't discuss the details, but a better solution is to rotate around an arbitrary unit axis e.g. **(0.662,0.2,0.722)** (note that this is a unit vector) right away instead of combining the rotation matrices. Such a (nasty) matrix exists and is given below with (Rx, Ry, Rz) as the arbitrary rotation axis:
 
-\[\begin{bmatrix} \cos \theta + \color{red}{R_x}^2(1 - \cos \theta) & \color{red}{R_x}\color{green}{R_y}(1 - \cos \theta) - \color{blue}{R_z} \sin \theta & \color{red}{R_x}\color{blue}{R_z}(1 - \cos \theta) + \color{green}{R_y} \sin \theta & 0 \\ \color{green}{R_y}\color{red}{R_x} (1 - \cos \theta) + \color{blue}{R_z} \sin \theta & \cos \theta + \color{green}{R_y}^2(1 - \cos \theta) & \color{green}{R_y}\color{blue}{R_z}(1 - \cos \theta) - \color{red}{R_x} \sin \theta & 0 \\ \color{blue}{R_z}\color{red}{R_x}(1 - \cos \theta) - \color{green}{R_y} \sin \theta & \color{blue}{R_z}\color{green}{R_y}(1 - \cos \theta) + \color{red}{R_x} \sin \theta & \cos \theta + \color{blue}{R_z}^2(1 - \cos \theta) & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}\]
+![A rotation matrix on all axes](img/6-latex_matrix_rotation_all.png)
 
 A mathematical discussion of generating such a matrix is out of the scope of this tutorial. Keep in mind that even this matrix does not completely prevent gimbal lock (although it gets a lot harder). To truly prevent Gimbal locks we have to represent rotations using *quaternions*, that are not only safer, but also more computationally friendly. However, a discussion of quaternions is reserved for a later tutorial.
 
@@ -277,19 +278,19 @@ A mathematical discussion of generating such a matrix is out of the scope of thi
 
 The true power from using matrices for transformations is that we can combine multiple transformations in a single matrix thanks to matrix-matrix multiplication. Let's see if we can generate a transformation matrix that combines several transformations. Say we have a vector (x,y,z) and we want to scale it by 2 and then translate it by (1,2,3). We need a translation and a scaling matrix for our required steps. The resulting transformation matrix would then look like:
 
-\[Trans . Scale = \begin{bmatrix} \color{red}1 & \color{red}0 & \color{red}0 & \color{red}1 \\ \color{green}0 & \color{green}1 & \color{green}0 & \color{green}2 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 & \color{blue}3 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} . \begin{bmatrix} \color{red}2 & \color{red}0 & \color{red}0 & \color{red}0 \\ \color{green}0 & \color{green}2 & \color{green}0 & \color{green}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}2 & \color{blue}0 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} = \begin{bmatrix} \color{red}2 & \color{red}0 & \color{red}0 & \color{red}1 \\ \color{green}0 & \color{green}2 & \color{green}0 & \color{green}2 \\ \color{blue}0 & \color{blue}0 & \color{blue}2 & \color{blue}3 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} \]
+![Combining matrices](img/6-latex_combining_matrices.png)
 
 Note that we first do a translation and then a scale transformation when multiplying matrices. Matrix multiplication is not commutative, which means their order is important. When multiplying matrices the right-most matrix is first multiplied with the vector so you should read the multiplications from right to left. It is advised to first do scaling operations, then rotations and lastly translations when combining matrices otherwise they might (negatively) affect each other. For example, if you would first do a translation and then scale, the translation vector would also scale!
 
 Running the final transformation matrix on our vector results in the following vector:
 
-\[\begin{bmatrix} \color{red}2 & \color{red}0 & \color{red}0 & \color{red}1 \\ \color{green}0 & \color{green}2 & \color{green}0 & \color{green}2 \\ \color{blue}0 & \color{blue}0 & \color{blue}2 & \color{blue}3 \\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} . \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} \color{red}2x + \color{red}1 \\ \color{green}2y + \color{green}2  \\ \color{blue}2z + \color{blue}3 \\ 1 \end{bmatrix} \]
+![Combining matrices final](img/6-latex_combining_matrices_result.png)
 
 Great! The vector is first scaled by two and then translated by **(1,2,3)**.
 
 ## In practice
 
-OpenTK provides its own mathematics library, so there's no need to add another one. Let's see if we can put our transformation knowledge to good use by translating a vector of (1,0,0) by (1,1,0) (note that we define it as a glm::vec4 with its homogenous coordinate set to 1.0:
+OpenTK provides its own mathematics library, so there's no need to add another one. Let's see if we can put our transformation knowledge to good use by translating a vector of **(1,0,0)** by **(1,1,0)** (note that we define it as a Vector4 with its homogenous coordinate set to 1.0:
 
 ```cs
 Vector4 vec = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
@@ -300,7 +301,7 @@ Console.WriteLine("{0}, {1}, {2}", vec.x, vec.y, vec.z);
 
 We first define a vector named vec using OpenTK's built-in vector class. Next we define a Matrix4 and explicitly initialize it to the identity matrix by calling the `Matrix4.CreateTranslation` function, which takes three floats and creates a translation matrix.
 
-Then we multiply our vector by the transformation matrix and output the result. If we still remember how matrix translation works then the resulting vector should be (1+1,0+1,0+0) which is (2,1,0). This snippet of code outputs 210 so the translation matrix did its job.
+Then we multiply our vector by the transformation matrix and output the result. If we still remember how matrix translation works then the resulting vector should be **(1+1,0+1,0+0)** which is **(2,1,0)**. This snippet of code outputs 210 so the translation matrix did its job.
 
 Let's do something more interesting and scale and rotate the container object from the previous tutorial:
 

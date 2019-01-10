@@ -22,13 +22,13 @@ The Open Toolkit mirrors the raw OpenGL API, with the addition of type-safe enum
 
 #### How do I use this?
 1. Add the NuGet Package to your project
-1. Open the appropriate namespace
-1. Start coding
+2. Open the appropriate namespace
+3. Start coding
 
 #### I need help!
-Try asking on our [Discord server](https://discord.gg/GZTYR4s).
+Try asking on our [Discord server](https://discord.gg/6HqD48s).
 
-[![Discord](https://discordapp.com/api/guilds/337627185248468993/widget.png)](https://discord.gg/GZTYR4s)
+[![Discord](https://discordapp.com/api/guilds/337627185248468993/widget.png)](https://discord.gg/6HqD48s)
 
 #### Something is broken!
 [Open an issue at the repo](https://github.com/opentk/opentk/).

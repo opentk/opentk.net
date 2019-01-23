@@ -45,7 +45,7 @@ It's also here that we get our first OpenGL function call: `GL.ClearColor`. This
 Next, we have OnRenderFrame.
 
 ```cs
-protected override void OnRenderFrame(EventArgs e)
+protected override void OnRenderFrame(FrameEventArgs e)
 {
     GL.Clear(ClearBufferMask.ColorBufferBit);
 

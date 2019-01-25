@@ -431,7 +431,7 @@ The triangle we've all been waiting for
 To draw our objects of choice, OpenGL provides us with the `GL.DrawArrays` function that draws primitives using the currently active shader, the previously defined vertex attribute configuration and with the VBO's vertex data (indirectly bound via the VAO).
 
 ```cs
-shader.UseProgram();
+shader.Use();
 GL.BindVertexArray(VertexArrayObject);
 GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
 ```

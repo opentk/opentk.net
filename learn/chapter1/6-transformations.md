@@ -49,7 +49,7 @@ Visually, it looks like this on vectors **v=(4,2)** and **k=(1,2)**:
 
 Just like normal addition and subtraction, vector subtraction is the same as addition with a negated second vector:
 
-![Vector subtraction](6-latex_vector_subtraction.png)
+![Vector subtraction](img/6-latex_vector_subtraction.png)
 
 Subtracting two vectors from each other results in a vector that's the difference of the positions both vectors are pointing at. This proves useful in certain cases where we need to retrieve a vector that's the difference between two points.
 

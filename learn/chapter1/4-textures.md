@@ -43,7 +43,7 @@ Each of the options have a different visual output when using texture coordinate
 
 ![Examples of texture wrapping](img/4-texture_wrapping.png)
 
-Each of the aforementioned options can be set per coordinate axis (s, t (and r if you're using 3D textures) equivalent to x,y,z) with the `GL.TexParameter` function:
+Each of the aforementioned options can be set per coordinate axis (s, t (and p if you're using 3D textures) equivalent to x,y,z) with the `GL.TexParameter` function:
 
 ```cs
 GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.Repeat);

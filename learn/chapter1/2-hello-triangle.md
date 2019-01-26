@@ -426,7 +426,6 @@ someOpenGLFunctionThatDrawsOurTriangle();
 ```
 
 And that is it! Everything we did the last few million pages led up to this moment, a VAO that stores our vertex attribute configuration and which VBO to use. Usually when you have multiple objects you want to draw, you first generate/configure all the VAOs (and thus the required VBO and attribute pointers) and store those for later use. The moment we want to draw one of our objects, we take the corresponding VAO, bind it, then draw the object and unbind the VAO again.
-The triangle we've all been waiting for
 
 To draw our objects of choice, OpenGL provides us with the `GL.DrawArrays` function that draws primitives using the currently active shader, the previously defined vertex attribute configuration and with the VBO's vertex data (indirectly bound via the VAO).
 
@@ -436,7 +435,7 @@ GL.BindVertexArray(VertexArrayObject);
 GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
 ```
 
-The glDrawArrays function takes as its first argument the OpenGL primitive type we would like to draw. Since I said at the start we wanted to draw a triangle, and I don't like lying to you, we pass in GL_TRIANGLES. The second argument specifies the starting index of the vertex array we'd like to draw; we just leave this at 0. The last argument specifies how many vertices we want to draw, which is 3 (we only render 1 triangle from our data, which is exactly 3 vertices long).
+The `GL.DrawArrays` function takes as its first argument the OpenGL primitive type we would like to draw. Since I said at the start we wanted to draw a triangle, and I don't like lying to you, we pass in `PrimitiveType.Triangles`. The second argument specifies the starting index of the vertex array we'd like to draw; since we want to draw all of our vertices, we just leave this at 0. The last argument specifies how many vertices we want to draw, which is 3 (we only render 1 triangle from our data, which is exactly 3 vertices long).
 
 Now try to compile the code and work your way backwards if any errors popped up. As soon as your application compiles, you should see the following result:
 

@@ -187,24 +187,45 @@ CursorVisible = false;
 ```
 After this call, wherever we move the mouse it won't be visible and it should not leave the window. This is perfect for an FPS camera system.
 
-When handling mouse input for an FPS style camera we need to use the ***OnMouseMove*** function, this function is called whenever the mouse has moved on the screen. ***OnMouseMove*** also has an event argument ***e*** which stores data about how far the mouse has moved and where on the screen it is. We are just interested in how far it has moved. Now we can just add the mouse movement to the pitch and the yaw. (Notice that with the yaw we actually subtract the mousemovement, this is because of how openTK transposes the matrices as we discussed in an earlier tutorial).
+When handling mouse input for an FPS style camera there are several steps we have to take before eventually retrieving the direction vector:
+
+1. Calculate the mouse's offset since the last frame.
+2. Add the offset values to the camera's yaw and pitch values.
+3. Add some constraints to the maximum/minimum pitch values
+4. Calculate the direction vector
+
+The first step is to calculate the offset of the mouse since the last frame. For this we need to store the last mouse positions in the application for that we will use a vector defined in the top of our program.
+
 
 ```cs
-protected override void OnMouseMove(MouseMoveEventArgs e)
-{    
-    yaw += e.XDelta * sensitivity;
-    pitch -= e.YDelta * sensitivity;
-    
-    base.OnMouseMove(e);
-}
+Vector2 lastPos
 ```
-Next we'd like to add some constraints to the camera so users won't be able to make weird camera movements (also prevents a few weird issues). The pitch will be constrained in such a way that users won't be able to look higher than **89** degrees (at **90** degrees the view tends to reverse, so we stick to **89** as our limit) and also not below **-89** degrees. This ensures the user will be able to look up to the sky and down to his feet but not further. The constraint works by just replacing the resulting value with its constraint value whenever it breaches the constraint:
+Then in the mouse's callback function we calculate the offset (delta) movement between the last and current frame:
+
+```cs
+float deltaX = mouse.X - lastPos.X;
+float deltaY = mouse.Y - lastPos.Y;
+lastPos = new Vector2(mouse.X, mouse.Y);
+```
+
+Next we add the offset values to globally declared ***pitch*** and ***yaw*** values:
+
+```cs
+yaw += deltaX * sensitivity;
+pitch -= deltaY * sensitivity; // reversed since y-coordinates range from bottom to top
+```
+
+Note that we multiply the offset values by a ***sensitivity*** value. If we omit this multiplication the mouse movement would be way too strong; fiddle around with the sensitivity value to your liking.
+
+In the third step we'd like to add some constraints to the camera so users won't be able to make weird camera movements (also prevents a few weird issues). The pitch will be constrained in such a way that users won't be able to look higher than **89** degrees (at **90** degrees the view tends to reverse, so we stick to **89** as our limit) and also not below **-89** degrees. This ensures the user will be able to look up to the sky and down to his feet but not further. The constraint works by just replacing the resulting value with its constraint value whenever it breaches the constraint:
 
 ```cs
 if(pitch > 89.0f)
-  pitch =  89.0f;
-if(pitch < -89.0f)
-  pitch = -89.0f;
+    pitch = 89.0f;
+else if(pitch < -89.0f)
+    pitch = -89.0f;
+else
+    pitch -= deltaX * camera.Sensitivity
 ```
 Note that we set no constraint on the yaw value since we don't want to constrain the user in horizontal rotation. However, it's just as easy to add a constraint to the yaw as well if you feel like it.
 
@@ -223,31 +244,59 @@ If you would now run the code you will notice that the camera makes a large sudd
 ```cs
 if(firstMouse) // this bool variable is initially set to true
 {
-    firstMouse = false;
-    base.OnMouseMove(e);
-    return;
+    lastPos = new Vector2(mouse.X, mouse.Y);
+    firstMove = false;
 }
-//...
+else{
+    //...
+}
 ```
 The final code then becomes:
 
 ```cs
-protected override void OnMouseMove(MouseMoveEventArgs e)
+protected override void OnUpdateFrame(FrameEventArgs e)
 {
+    //Keyboard movement...
+
     if (firstMove)
     {
+        lastPos = new Vector2(mouse.X, mouse.Y);
         firstMove = false;
-        base.OnMouseMove(e);
-        return;
+    }
+    else{    
+        float deltaX = mouse.X - lastPos.X;
+        float deltaY = mouse.Y - lastPos.Y;
+        lastPos = new Vector2(mouse.X, mouse.Y);
+
+        camera.Yaw += deltaX * camera.Sensitivity;
+        if(pitch > 89.0f)
+            pitch = 89.0f;
+        else if(pitch < -89.0f)
+            pitch = -89.0f;
+        else
+            pitch -= deltaX * camera.Sensitivity
     }
     
-    yaw += e.XDelta * sensitivity;
-    pitch -= e.YDelta * sensitivity;
+    front.X = (float)Math.Cos(MathHelper.DegreesToRadians(pitch)) * (float)Math.Cos(MathHelper.DegreesToRadians(yaw));
+    front.Y = (float)Math.Sin(MathHelper.DegreesToRadians(pitch));
+    front.Z = (float)Math.Cos(MathHelper.DegreesToRadians(pitch)) * (float)Math.Sin(MathHelper.DegreesToRadians(yaw));
+    front = Vector3.Normalize(front);
+
+    base.OnUpdateFrame(e);
+}
+```
+Only one small thing left to do, even though we cannot see the mouse it is still there, and it is actually prohibited from moving out of the viewport. For this reason we need to center it once it has moved. So we can add the following function to fix this behaviour.
+```cs
+protected override void OnMouseMove(MouseMoveEventArgs e)
+{
+    Mouse.SetPosition(X + Width/2f, Y + Height/2f);
     
     base.OnMouseMove(e);
 }
 ```
-There we go! Give it a spin and you'll see that we can now freely move through our 3D scene!
+This just sets the mouse position to be in the center of the window every time it has moved.
+
+Give it a spin and you'll see that we can now freely move through our 3D scene!
 
 ## Zoom
 As a little extra to the camera system we'll also implement a zooming interface. In the previous tutorial we said the *Field of view* or *fov* defines how much we can see of the scene. When the field of view becomes smaller the scene's projected space gets smaller giving the illusion of zooming in. To zoom in, we're going to use the mouse's scroll-wheel. Similar to mouse movement and keyboard input we have a callback function for mouse-scrolling:
@@ -296,5 +345,3 @@ The updated version of the source code using the new camera object can be found 
 Exercises
 See if you can transform the camera class in such a way that it becomes a true fps camera where you cannot fly; you can only look around while staying on the **xz** plane.
 Try to create your own LookAt function where you manually create a view matrix as discussed at the start of this tutorial. Replace openTKs LookAt function with your own implementation and see if it still acts the same.
-
-> note: Remember to remove everything GLM, And remove everything GLFW, Check TODO's

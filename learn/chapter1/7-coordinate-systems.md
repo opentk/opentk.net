@@ -90,7 +90,7 @@ If you ever were to enjoy the graphics the real life has to offer you'll notice 
 
 As you can see, due to perspective the lines seem to coincide the farther they're away. This is exactly the effect perspective projection tries to mimic and it does so using a perspective projection matrix. The projection matrix maps a given frustum range to clip space, but also manipulates the w value of each vertex coordinate in such a way that the further away a vertex coordinate is from the viewer, the higher this w component becomes. Once the coordinates are transformed to clip space they are in the range -w to w (anything outside this range is clipped). OpenGL requires that the visible coordinates fall between the range -1.0 and 1.0 as the final vertex shader output, thus once the coordinates are in clip space, perspective division is applied to the clip space coordinates:
 
-![Perspective Division](img/7-perspective_division.png)
+![Perspective Division](img/7-latex_clip_space_coordinates.png)
 
 Each component of the vertex coordinate is divided by its w component giving smaller vertex coordinates the further away a vertex is from the viewer. This is another reason why the w component is important, since it helps us with perspective projection. The resulting coordinates are then in normalized device space. If you're interested to figure out how the orthographic and perspective projection matrices are actually calculated (and aren't too scared of mathematics) I can recommend [this excellent article](http://www.songho.ca/opengl/gl_projectionmatrix.html) by Songho.
 
@@ -149,6 +149,7 @@ Because we want to move backwards and since OpenGL is a right-handed system we h
 > **Right-handed system**
 > By convention, OpenGL is a right-handed system. What this basically says is that the positive x-axis is to your right, the positive y-axis is up and the positive z-axis is backwards. Think of your screen being the center of the 3 axes and the positive z-axis going through your screen towards you. The axes are drawn as follows:
 > ![Right-Handed Coordinate System](img/7-coordinate_systems_right_handed.png)
+> 
 >To understand why it's called right-handed do the following:
 >
 > - Stretch your right-arm along the positive y-axis with your hand up top.

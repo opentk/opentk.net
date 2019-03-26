@@ -53,8 +53,8 @@ Luckily for us, OpenTK already does all this work for us. We only have to specif
 
 ```cs 
 Matrix4 view = Matrix4.LookAt(new Vector3(0.0f, 0.0f, 3.0f), 
-  		   New Vector3(0.0f, 0.0f, 0.0f),
-  		   New Vector3(0.0f, 1.0f, 0.0f));
+  		   new Vector3(0.0f, 0.0f, 0.0f),
+  		   new Vector3(0.0f, 1.0f, 0.0f));
 ```
 The `Matrix4.LookAt` function requires a position, target and up vector respectively. This creates a view matrix that is the same as the one used in the previous tutorial.
 

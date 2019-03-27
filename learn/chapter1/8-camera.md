@@ -80,24 +80,48 @@ We have already taken a look at how we can get user input inside the ***OnUpdate
 ```cs
 protected override void OnUpdateFrame(FrameEventArgs e)
 {
+    if (!Focused) // check to see if the window is focused
+    {
+        return;
+    }
+
     KeyboardState input = Keyboard.GetState();
 
     //...
 
     if (input.IsKeyDown(Key.W))
+    {
         position += front * speed; //Forward 
+    }
+
     if (input.IsKeyDown(Key.S))
+    {
         position -= front * speed; //Backwards
+    }
+
     if (input.IsKeyDown(Key.A))
+    {
         position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Left
+    }
+
     if (input.IsKeyDown(Key.D))
+    {
         position += Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Right
+    }
+
     if (input.IsKeyDown(Key.Space))
+    {
         position += up * speed; //Up 
+    }
+
     if (input.IsKeyDown(Key.LShift))
+    {
         position -= up * speed; //Down
+    }
 }
 ```
+> Note that we also check on the top if the window is focused and return if it is not, this avoids issues when the window is not in focus.
+
 Whenever we press one of the **WASD** keys, the camera's position is updated accordingly. If we want to move forward or backwards we add or subtract the front vector from the position vector. If we want to move sidewards we do a cross product to create a *right* vector and we move along the *right* vector accordingly. This creates the familiar ***strafe*** effect when using the camera. Additionally we also added the ability to fly up (**Space**) or down (**LShift**), this is done the same as up and down, except on the up vector instead of the front.
 
 > Note that we normalize the resulting *right* vector. If we wouldn't normalize this vector, the resulting cross product might return differently sized vectors based on the ***front*** variable. If we would not normalize the vector we would either move slow or fast based on the camera's orientation instead of at a consistent movement speed.
@@ -115,18 +139,36 @@ Now that we have ***deltaTime*** we can take it into account when calculating th
 
 ```cs
 if (input.IsKeyDown(Key.W))
+{
     position += front * speed * (float)e.Time; //Forward 
+}
+
 if (input.IsKeyDown(Key.S))
+{
     position -= front * speed * (float)e.Time; //Backwards
+}
+
 if (input.IsKeyDown(Key.A))
+{
     position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Left
+}
+
 if (input.IsKeyDown(Key.D))
+{
     position += Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Right
+}
+
 if (input.IsKeyDown(Key.Space))
+{
     position += up * speed * (float)e.Time; //Up 
+}
+
 if (input.IsKeyDown(Key.LShift))
+{
     position -= up * speed * (float)e.Time; //Down
+} 
 ```
+
 Together with the previous section we should now have a much smoother and more consistent camera system for moving around the scene:
 <video width="600" height="450" loop="">
     <source src="video/8-camera_smooth.mp4" type="video/mp4">
@@ -221,11 +263,17 @@ In the third step we'd like to add some constraints to the camera so users won't
 
 ```cs
 if(pitch > 89.0f)
+{
     pitch = 89.0f;
+}
 else if(pitch < -89.0f)
+{
     pitch = -89.0f;
+}
 else
+{
     pitch -= deltaX * camera.Sensitivity
+}
 ```
 Note that we set no constraint on the yaw value since we don't want to constrain the user in horizontal rotation. However, it's just as easy to add a constraint to the yaw as well if you feel like it.
 
@@ -247,7 +295,7 @@ if(firstMouse) // this bool variable is initially set to true
     lastPos = new Vector2(mouse.X, mouse.Y);
     firstMove = false;
 }
-else{
+else if (focused) { // check to see if the window is focused
     //...
 }
 ```
@@ -258,23 +306,30 @@ protected override void OnUpdateFrame(FrameEventArgs e)
 {
     //Keyboard movement...
 
-    if (firstMove)
+    if (FirstMove)
     {
         lastPos = new Vector2(mouse.X, mouse.Y);
         firstMove = false;
     }
-    else{    
+    else
+    {
         float deltaX = mouse.X - lastPos.X;
         float deltaY = mouse.Y - lastPos.Y;
         lastPos = new Vector2(mouse.X, mouse.Y);
 
         camera.Yaw += deltaX * camera.Sensitivity;
         if(pitch > 89.0f)
+        {
             pitch = 89.0f;
+        }
         else if(pitch < -89.0f)
+        {
             pitch = -89.0f;
+        }
         else
+        {
             pitch -= deltaX * camera.Sensitivity
+        }
     }
     
     front.X = (float)Math.Cos(MathHelper.DegreesToRadians(pitch)) * (float)Math.Cos(MathHelper.DegreesToRadians(yaw));
@@ -289,8 +344,11 @@ Only one small thing left to do, even though we cannot see the mouse it is still
 ```cs
 protected override void OnMouseMove(MouseMoveEventArgs e)
 {
-    Mouse.SetPosition(X + Width/2f, Y + Height/2f);
-    
+    if (focused) // check to see if the window is focused  
+    {
+        Mouse.SetPosition(X + Width/2f, Y + Height/2f);
+    }
+
     base.OnMouseMove(e);
 }
 ```
@@ -337,10 +395,10 @@ And there you have it. We implemented a simple camera system that allows for fre
 Camera class
 In the upcoming tutorials we will always use a camera to easily look around the scenes and see the results from all angles. However, since a camera can take up quite some space on each tutorial we'll abstract a little from the details and create our own camera object that does most of the work for us with some neat little extras. Unlike the Shader tutorial we won't walk you through creating the camera class, but just provide you with the (fully commented) source code if you want to know the inner workings.
 
-Just like the Shader object we create it entirely in a single file. You can find the camera object ![here](https://github.com/opentk/LearnOpenTK/blob/master/Chapter%201/8%20-%20Camera/Game.cs). You should be able to understand all the code by now. It is advised to at least check the class out once to see how you could create a camera object like this.
+Just like the Shader object we create it entirely in a single file. You can find the camera object [here](https://github.com/opentk/LearnOpenTK/blob/master/Chapter%201/8%20-%20Camera/Game.cs). You should be able to understand all the code by now. It is advised to at least check the class out once to see how you could create a camera object like this.
 
 > The camera system we introduced is an FPS-like camera that suits most purposes and works well with Euler angles, but be careful when creating different camera systems like a flight simulation camera. Each camera system has its own tricks and quirks so be sure to read up on them. For example, this FPS camera doesn't allow for pitch values higher than **90** degrees and a static up vector of **(0,1,0)** doesn't work when we take roll values into account.
-The updated version of the source code using the new camera object can be found ![here](https://github.com/opentk/LearnOpenTK/blob/master/Common/Camera.cs).
+The updated version of the source code using the new camera object can be found [here](https://github.com/opentk/LearnOpenTK/blob/master/Common/Camera.cs).
 
 Exercises
 See if you can transform the camera class in such a way that it becomes a true fps camera where you cannot fly; you can only look around while staying on the **xz** plane.

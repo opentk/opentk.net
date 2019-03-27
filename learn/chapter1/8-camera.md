@@ -90,20 +90,37 @@ protected override void OnUpdateFrame(FrameEventArgs e)
     //...
 
     if (input.IsKeyDown(Key.W))
+    {
         position += front * speed; //Forward 
+    }
+
     if (input.IsKeyDown(Key.S))
+    {
         position -= front * speed; //Backwards
+    }
+
     if (input.IsKeyDown(Key.A))
+    {
         position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Left
+    }
+
     if (input.IsKeyDown(Key.D))
+    {
         position += Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Right
+    }
+
     if (input.IsKeyDown(Key.Space))
+    {
         position += up * speed; //Up 
+    }
+
     if (input.IsKeyDown(Key.LShift))
+    {
         position -= up * speed; //Down
+    }
 }
 ```
-> note that we also check on the top if the window is focused and return if it is not, this avoids issues when the window is not in focus.
+> Note that we also check on the top if the window is focused and return if it is not, this avoids issues when the window is not in focus.
 
 Whenever we press one of the **WASD** keys, the camera's position is updated accordingly. If we want to move forward or backwards we add or subtract the front vector from the position vector. If we want to move sidewards we do a cross product to create a *right* vector and we move along the *right* vector accordingly. This creates the familiar ***strafe*** effect when using the camera. Additionally we also added the ability to fly up (**Space**) or down (**LShift**), this is done the same as up and down, except on the up vector instead of the front.
 
@@ -121,19 +138,35 @@ OpenTK actually calculates the ***deltaTime*** for us and it is even passed to t
 Now that we have ***deltaTime*** we can take it into account when calculating the velocities:
 
 ```cs
-
 if (input.IsKeyDown(Key.W))
+{
     position += front * speed * (float)e.Time; //Forward 
+}
+
 if (input.IsKeyDown(Key.S))
+{
     position -= front * speed * (float)e.Time; //Backwards
+}
+
 if (input.IsKeyDown(Key.A))
+{
     position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Left
+}
+
 if (input.IsKeyDown(Key.D))
+{
     position += Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Right
+}
+
 if (input.IsKeyDown(Key.Space))
+{
     position += up * speed * (float)e.Time; //Up 
+}
+
 if (input.IsKeyDown(Key.LShift))
+{
     position -= up * speed * (float)e.Time; //Down
+} 
 ```
 
 Together with the previous section we should now have a much smoother and more consistent camera system for moving around the scene:
@@ -230,11 +263,17 @@ In the third step we'd like to add some constraints to the camera so users won't
 
 ```cs
 if(pitch > 89.0f)
+{
     pitch = 89.0f;
+}
 else if(pitch < -89.0f)
+{
     pitch = -89.0f;
+}
 else
+{
     pitch -= deltaX * camera.Sensitivity
+}
 ```
 Note that we set no constraint on the yaw value since we don't want to constrain the user in horizontal rotation. However, it's just as easy to add a constraint to the yaw as well if you feel like it.
 
@@ -272,18 +311,25 @@ protected override void OnUpdateFrame(FrameEventArgs e)
         lastPos = new Vector2(mouse.X, mouse.Y);
         firstMove = false;
     }
-    else {
+    else
+    {
         float deltaX = mouse.X - lastPos.X;
         float deltaY = mouse.Y - lastPos.Y;
         lastPos = new Vector2(mouse.X, mouse.Y);
 
         camera.Yaw += deltaX * camera.Sensitivity;
         if(pitch > 89.0f)
+        {
             pitch = 89.0f;
+        }
         else if(pitch < -89.0f)
+        {
             pitch = -89.0f;
+        }
         else
+        {
             pitch -= deltaX * camera.Sensitivity
+        }
     }
     
     front.X = (float)Math.Cos(MathHelper.DegreesToRadians(pitch)) * (float)Math.Cos(MathHelper.DegreesToRadians(yaw));

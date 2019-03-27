@@ -80,6 +80,9 @@ We have already taken a look at how we can get user input inside the ***OnUpdate
 ```cs
 protected override void OnUpdateFrame(FrameEventArgs e)
 {
+    if (!Focused) // check to see if the window is focused
+        return;
+
     KeyboardState input = Keyboard.GetState();
 
     //...
@@ -98,6 +101,8 @@ protected override void OnUpdateFrame(FrameEventArgs e)
         position -= up * speed; //Down
 }
 ```
+> note that we also check on the top if the window is focused and return if it is not, this avoids issues when the window is not in focus.
+
 Whenever we press one of the **WASD** keys, the camera's position is updated accordingly. If we want to move forward or backwards we add or subtract the front vector from the position vector. If we want to move sidewards we do a cross product to create a *right* vector and we move along the *right* vector accordingly. This creates the familiar ***strafe*** effect when using the camera. Additionally we also added the ability to fly up (**Space**) or down (**LShift**), this is done the same as up and down, except on the up vector instead of the front.
 
 > Note that we normalize the resulting *right* vector. If we wouldn't normalize this vector, the resulting cross product might return differently sized vectors based on the ***front*** variable. If we would not normalize the vector we would either move slow or fast based on the camera's orientation instead of at a consistent movement speed.
@@ -114,6 +119,7 @@ OpenTK actually calculates the ***deltaTime*** for us and it is even passed to t
 Now that we have ***deltaTime*** we can take it into account when calculating the velocities:
 
 ```cs
+
 if (input.IsKeyDown(Key.W))
     position += front * speed * (float)e.Time; //Forward 
 if (input.IsKeyDown(Key.S))
@@ -127,6 +133,7 @@ if (input.IsKeyDown(Key.Space))
 if (input.IsKeyDown(Key.LShift))
     position -= up * speed * (float)e.Time; //Down
 ```
+
 Together with the previous section we should now have a much smoother and more consistent camera system for moving around the scene:
 <video width="600" height="450" loop="">
     <source src="video/8-camera_smooth.mp4" type="video/mp4">
@@ -247,7 +254,7 @@ if(firstMouse) // this bool variable is initially set to true
     lastPos = new Vector2(mouse.X, mouse.Y);
     firstMove = false;
 }
-else{
+else if (focused) { // check to see if the window is focused
     //...
 }
 ```
@@ -258,12 +265,12 @@ protected override void OnUpdateFrame(FrameEventArgs e)
 {
     //Keyboard movement...
 
-    if (firstMove)
+    if (FirstMove)
     {
         lastPos = new Vector2(mouse.X, mouse.Y);
         firstMove = false;
     }
-    else{    
+    else {
         float deltaX = mouse.X - lastPos.X;
         float deltaY = mouse.Y - lastPos.Y;
         lastPos = new Vector2(mouse.X, mouse.Y);
@@ -289,7 +296,8 @@ Only one small thing left to do, even though we cannot see the mouse it is still
 ```cs
 protected override void OnMouseMove(MouseMoveEventArgs e)
 {
-    Mouse.SetPosition(X + Width/2f, Y + Height/2f);
+    if (focused) // check to see if the window is focused  
+        Mouse.SetPosition(X + Width/2f, Y + Height/2f);
     
     base.OnMouseMove(e);
 }

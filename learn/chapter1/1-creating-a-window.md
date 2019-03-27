@@ -49,7 +49,7 @@ Now your class is a basic window. This is good, but by itself, you can't do anyt
 public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) { }
 ```
 
-Your `GameWindow` is ready to go! Now all you have to do is invoke it from your program. You should've had a Program.cs automatically created when you made the program earlier in the tutorial, as well as a `Main` function. To open your window when the program starts, we must:
+Your `GameWindow` is ready to go! Now all you have to do is create an instance of it in your program. When you created your project earlier, it should have also created a file named `Program.cs`, containing a `Main` function. To open your window when the program starts, we must:
 
 - Create an instance of your `Game` class
 - Start all the pumps by calling the `Run` function

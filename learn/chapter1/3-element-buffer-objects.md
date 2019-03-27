@@ -38,7 +38,7 @@ GL.BindBuffer(BufferTarget.ElementArrayBuffer, ElementBufferObject);
 GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(uint), indices, BufferUsageHint.StaticDraw);
 ```
 
-It's almost exactly the same as how you use the VBO!
+It's almost exactly the same as how you use the VBO! Most of OpenGL's buffer types will follow this pattern: Create with `GL.GenBuffer()`, bind with `GL.BindBuffer`, and then use `GL.BufferData` to add data to it.
 
 The EBO is now ready to go. Down in OnRenderFrame, replace the call to `DrawArrays` with the following:
 

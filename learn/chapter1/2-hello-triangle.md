@@ -25,7 +25,7 @@ That may seem like a lot, but it's quite intuitive once setup is complete and we
 
 ## Some new functions
 
-We'll need to overload a couple of extra functions to get started. Firstly, we overload OnLoad.
+We'll need to override a couple of extra functions to get started. Firstly, we override OnLoad.
 
 ```cs
 protected override void OnLoad(EventArgs e)
@@ -92,8 +92,6 @@ Because OpenGL works in 3D space we render a 2D triangle with each vertex having
 
 Once your vertex coordinates have been processed in the vertex shader, they should be in normalized device coordinates which is a small space where the x, y and z values vary from -1.0 to 1.0. Any coordinates that fall outside this range will be discarded/clipped and won't be visible on your screen. Below you can see the triangle we specified within normalized device coordinates (ignoring the z axis):
 
-2D Normalized Device Coordinates as shown in a graph
-
 ![NDC Graph](img/2-ndc.png)
 
 Unlike usual screen coordinates the positive y-axis points in the up-direction and the (0,0) coordinates are at the center of the graph, instead of top-left. Eventually you want all the (transformed) coordinates to end up in this coordinate space, otherwise they won't be visible.
@@ -108,23 +106,27 @@ We manage this memory via so called vertex buffer objects (VBO) that can store a
 
 A vertex buffer object is our first occurrence of an OpenGL object as we've discussed in the OpenGL tutorial. Just like any object in OpenGL this buffer has a unique ID corresponding to that buffer, so we can generate one with a buffer ID using the `GL.GenBuffers` function.
 
-Add an int to your Game class to store the handle
+Add an int to your Game class to store the handle:
 
-`int VertexBufferObject;`
+```cs
+int VertexBufferObject;
+```
 
 Then, in the `OnLoad` function, put this line:
 
-`VertexBufferObject = GL.GenBuffer();`
+```cs
+VertexBufferObject = GL.GenBuffer();
+```
 
-OpenGL has many types of buffer objects and the buffer type of a vertex buffer object is GL_ARRAY_BUFFER. OpenGL allows us to bind to several buffers at once as long as they have a different buffer type. We can bind the newly created buffer to the GL_ARRAY_BUFFER target with the `GL.BindBuffer` function:
+OpenGL has many types of buffer objects and the buffer type of a vertex buffer object is `BufferTarget.ArrayBuffer`. OpenGL allows us to bind to several buffers at once as long as they have a different buffer type. We can bind the newly created buffer to the `BufferTarget.ArrayBuffer` target with the `GL.BindBuffer` function:
 
 `GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);`
 
-From that point on any buffer calls we make (on the GL_ARRAY_BUFFER target) will be used to configure the currently bound buffer, which is VertexBufferObject. Then we can make a call to `GL.BufferData` function that copies the previously defined vertex data into the buffer's memory:
+From that point on any buffer calls we make (on the `BufferTarget.ArrayBuffer` target) will be used to configure the currently bound buffer, which is VertexBufferObject. Then we can make a call to `GL.BufferData` function that copies the previously defined vertex data into the buffer's memory:
 
 `GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);`
 
-`GL.BufferData` is a function specifically targeted to copy user-defined data into the currently-bound buffer. Its first argument is the type of the buffer we want to copy data into: the vertex buffer object currently bound to the GL_ARRAY_BUFFER target. The second argument specifies the size of the data (in bytes) we want to pass to the buffer; a simple sizeof of the data type, multiplied by the length of the vertices, suffices. The third parameter is the actual data we want to send.
+`GL.BufferData` is a function specifically targeted to copy user-defined data into the currently-bound buffer. Its first argument is the type of the buffer we want to copy data into: the vertex buffer object currently bound to the `BufferTarget.ArrayBuffer` target. The second argument specifies the size of the data (in bytes) we want to pass to the buffer; a simple sizeof of the data type, multiplied by the length of the vertices, suffices. The third parameter is the actual data we want to send.
 
 The fourth parameter is a BufferUsageHint, which specifies how we want the graphics card to manage the given data. This can take 3 forms:
 
@@ -275,7 +277,7 @@ GL.AttachShader(Handle, FragmentShader);
 GL.LinkProgram(Handle);
 ```
 
-That's all it takes! `Handle` is now a usable shader.
+That's all it takes! `Handle` is now a usable shader program.
 
 Before we leave the constructor, we should do a little cleanup. The individual vertex and fragment shaders are useless now that they've been linked; the compiled data is copied to the shader program when you link it. You also don't need to have those individual shaders attached to the program; let's detach and then delete them.
 
@@ -353,7 +355,7 @@ The function `GL.VertexAttribPointer` has quite a few parameters, so let's caref
 - The first parameter specifies which vertex attribute we want to configure. Remember that we specified the location of the position vertex attribute in the vertex shader with `layout (location = 0)`. This sets the location of the vertex attribute to 0 and since we want to pass data to this vertex attribute, we pass in 0.
 - The next argument specifies the size of the vertex attribute. The vertex attribute is a vec3 so it is composed of 3 values.
 - The third argument specifies the type of the data, which is `float` (a vec* in GLSL consists of floating point values).
-- The next argument specifies if we want the data to be normalized. If we're inputting integer data types (int, byte) and we've set this to GL_TRUE, the integer data is normalized to 0 (or -1 for signed data) and 1 when converted to float. This is not relevant for us, so we'll leave this as false.
+- The next argument specifies if we want the data to be normalized. If we're inputting integer data types (int, byte) and we've set this to `true`, the integer data is normalized to 0 (or -1 for signed data) and 1 when converted to float. This is not relevant for us, so we'll leave this as false.
 - The fifth argument is known as the stride and tells us the space between consecutive vertex attributes. Since the next set of position data is located exactly 3 times the size of a float away we specify that value as the stride. Note that since we know that the array is tightly packed (there is no space between the next vertex attribute value) we could've also specified the stride as 0 to let OpenGL determine the stride (this only works when values are tightly packed). Whenever we have more vertex attributes we have to carefully define the spacing between each vertex attribute but we'll get to see more examples of that later on.
 - The last parameter is the offset of where the position data begins in the buffer. Since the position data is at the start of the data array this value is just 0. We will explore this parameter in more detail later on
 
@@ -375,7 +377,7 @@ shader.Use()
 someOpenGLFunctionThatDrawsOurTriangle();
 ```
 
-We have to repeat this process every time we want to draw an object. It may not look like that much, but imagine if we have over 5 vertex attributes and perhaps 100s of different objects (which is not uncommon). Binding the appropriate buffer objects and configuring all vertex attributes for each of those objects quickly becomes a cumbersome process. What if there was some way we could store all these state configurations into an object and simply bind this object to restore its state?
+We have to repeat this process every time we want to draw an object. It may not look like that much, but imagine if we have five or more vertex attributes, and perhaps hundreds of different objects (which is not uncommon). Binding the appropriate buffer objects and configuring all vertex attributes for each of those objects quickly becomes a cumbersome process. What if there was some way we could store all these state configurations into an object and simply bind this object to restore its state?
 
 ## Vertex Array Object
 
@@ -385,9 +387,9 @@ Core OpenGL requires that we use a VAO so it knows what to do with our vertex in
 
 A vertex array object stores the following:
 
-- Calls to glEnableVertexAttribArray or glDisableVertexAttribArray.
-- Vertex attribute configurations via glVertexAttribPointer.
-- Vertex buffer objects associated with vertex attributes by calls to glVertexAttribPointer.
+- Calls to `GL.EnableVertexAttribArray` or `GL.DisableVertexAttribArray`.
+- Vertex attribute configurations via `GL.VertexAttribPointer`.
+- Vertex buffer objects associated with vertex attributes by calls to `GL.VertexAttribPointer`.
 
 ![Image of how a VAO (Vertex Array Object) operates and what it stores in OpenGL](img/2-vertex_array_objects.png)
 

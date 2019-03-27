@@ -43,7 +43,7 @@ Now we have a blank class. Time to turn it into a `GameWindow`. To do that, simp
 public class Game : GameWindow
 ```
 
-Now your class is operable as a basic window. This is good, but this limits you customizations. There are plenty of ways you can customize your `GameWindow`, but in this tutorial we're going to create a simple constructor to let us set the width, height, and title of the window. We do this by overriding a `base` constructor included with OpenTK:
+Now your class is a basic window. This is good, but by itself, you can't do anything with it. There are plenty of ways you can customize your `GameWindow`, but in this tutorial we're going to create a simple constructor to let us set the width, height, and title of the window. We do this by overriding a `base` constructor included with OpenTK:
 
 ```cs
 public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) { }
@@ -65,9 +65,9 @@ using (Game game = new Game(800, 600, "LearnOpenTK"))
 }
 ```
 
-Plug that code into your `Main` function, and go ahead and build & run your program! You now have a blank window, great job! However, the only way you can close your window is by using the cross (`X`) button or Alt+F4. We don't want that, Let's do a little bit of input handling!
+Plug that code into your `Main` function, then build and run your program! You now have a blank window, great job! However, the only way you can close your window is by using the cross (`X`) button or Alt+F4. We don't want that, Let's do a little bit of input handling!
 
-`GameWindow` has plenty of methods that you can override to add all sorts of functionality to your game. You can look at the "API" section of this website to look at them all, but in this case the one we're interested in is `OnUpdateFrame`.
+`GameWindow` has plenty of methods that you can override to add all sorts of functionality to your window. You can look at the "API" section of this website to look at them all, but in this case the one we're interested in is `OnUpdateFrame`.
 
 By just typing `override OnUpdateFrame` your IDE should be able to generate a function like this one:
 

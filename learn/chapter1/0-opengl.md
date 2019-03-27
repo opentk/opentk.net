@@ -20,6 +20,7 @@ When using OpenGL's core-profile, OpenGL forces us to use modern practices. When
 This is also the reason why our tutorials are geared at Core-Profile OpenGL version 3.3. Although it is more difficult, it is greatly worth the effort.
 
 As of today, much higher versions of OpenGL are published (at the time of writing 4.5) at which you might ask: why do I want to learn OpenGL 3.3 when OpenGL 4.5 is out? The answer to that question is relatively simple. All future versions of OpenGL starting from 3.3 basically add extra useful features to OpenGL without changing OpenGL's core mechanics; the newer versions just introduce slightly more efficient or more useful ways to accomplish the same tasks. The result is that all concepts and techniques remain the same over the modern OpenGL versions so it is perfectly valid to learn OpenGL 3.3. Whenever you're ready and/or more experienced you can easily use specific functionality from more recent OpenGL versions.
+
 When using functionality from the most recent version of OpenGL, only the most modern graphics cards will be able to run your application. This is often why most developers generally target lower versions of OpenGL and optionally enable higher version functionality.
 
 In some tutorials you'll sometimes find more modern features which are noted down as such.
@@ -41,7 +42,7 @@ else
 }
 ```
 
-With OpenGL version 3.3 we rarely need an extension for most techniques, but wherever it is necessary proper instructions are provided.
+With OpenGL version 3.3, we rarely need an extension for most techniques, but wherever it is necessary proper instructions are provided.
 
 ## State machine
 

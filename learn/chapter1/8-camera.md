@@ -81,7 +81,9 @@ We have already taken a look at how we can get user input inside the ***OnUpdate
 protected override void OnUpdateFrame(FrameEventArgs e)
 {
     if (!Focused) // check to see if the window is focused
+    {
         return;
+    }
 
     KeyboardState input = Keyboard.GetState();
 
@@ -297,8 +299,10 @@ Only one small thing left to do, even though we cannot see the mouse it is still
 protected override void OnMouseMove(MouseMoveEventArgs e)
 {
     if (focused) // check to see if the window is focused  
+    {
         Mouse.SetPosition(X + Width/2f, Y + Height/2f);
-    
+    }
+
     base.OnMouseMove(e);
 }
 ```
@@ -345,10 +349,10 @@ And there you have it. We implemented a simple camera system that allows for fre
 Camera class
 In the upcoming tutorials we will always use a camera to easily look around the scenes and see the results from all angles. However, since a camera can take up quite some space on each tutorial we'll abstract a little from the details and create our own camera object that does most of the work for us with some neat little extras. Unlike the Shader tutorial we won't walk you through creating the camera class, but just provide you with the (fully commented) source code if you want to know the inner workings.
 
-Just like the Shader object we create it entirely in a single file. You can find the camera object ![here](https://github.com/opentk/LearnOpenTK/blob/master/Chapter%201/8%20-%20Camera/Game.cs). You should be able to understand all the code by now. It is advised to at least check the class out once to see how you could create a camera object like this.
+Just like the Shader object we create it entirely in a single file. You can find the camera object [here](https://github.com/opentk/LearnOpenTK/blob/master/Chapter%201/8%20-%20Camera/Game.cs). You should be able to understand all the code by now. It is advised to at least check the class out once to see how you could create a camera object like this.
 
 > The camera system we introduced is an FPS-like camera that suits most purposes and works well with Euler angles, but be careful when creating different camera systems like a flight simulation camera. Each camera system has its own tricks and quirks so be sure to read up on them. For example, this FPS camera doesn't allow for pitch values higher than **90** degrees and a static up vector of **(0,1,0)** doesn't work when we take roll values into account.
-The updated version of the source code using the new camera object can be found ![here](https://github.com/opentk/LearnOpenTK/blob/master/Common/Camera.cs).
+The updated version of the source code using the new camera object can be found [here](https://github.com/opentk/LearnOpenTK/blob/master/Common/Camera.cs).
 
 Exercises
 See if you can transform the camera class in such a way that it becomes a true fps camera where you cannot fly; you can only look around while staying on the **xz** plane.

@@ -69,13 +69,13 @@ Because we are also going to create a lamp cube, we want to generate a new VAO s
 
 
 ```cs
-//Initialize the vao for the lamp
+//Initialize the vao for the lamp, this is mostly the same as the code for the model cube
 _vaoLamp = GL.GenVertexArray();
 GL.BindVertexArray(_vaoLamp);
-// we only need to bind to the VBO, the container's VBO's data already contains the correct data.
+//We only need to bind to the VBO, the container's VBO's data already contains the correct data.
 GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
-GL.BindBuffer(BufferTarget.ElementArrayBuffer, _elementBufferObject);
-// set the vertex attributes (only position data for our lamp)
+//Set the vertex attributes (only position data for our lamp)
+vertexLocation = _lampShader.GetAttribLocation("aPos");
 GL.EnableVertexAttribArray(vertexLocation);
 GL.VertexAttribPointer(vertexLocation, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
 ```
@@ -146,7 +146,7 @@ _lampShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
 GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);
 ```		
 Injecting all the code fragments at their appropriate locations would then result in a clean OpenGL application properly configured for experimenting with lighting. If everything compiles it should look like this:
-
+![Light reflection](img/1-light_reflection.png)
 
 Not really much to look at right now, but I'll promise it will get more interesting in the upcoming tutorials.
 

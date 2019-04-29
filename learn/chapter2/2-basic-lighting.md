@@ -139,7 +139,7 @@ You can see that with diffuse lighting the cube starts to look like an actual cu
 
 Feel free to compare your source code with the complete source code here if you're stuck.
 
-## One last thing
+### One last thing
 As of now we've been passing the normal vectors directly from the vertex shader to the fragment shader. However, the calculations we've been doing in the fragment shader are all done in world space coordinates, so shouldn't we transform the normal vectors to world space coordinates as well? Basically yes, but it's not as simple as simply multiplying it with a model matrix.
 
 First of all, normal vectors are only direction vectors and do not represent a specific position in space. Also, normal vectors do not have a homogeneous coordinate (the w component of a vertex position). This means that translations do and should not have any effect on the normal vectors. So if we want to multiply the normal vectors with a model matrix we want to remove the translation part of the matrix by taking the upper-left 3x3 matrix of the model matrix (note that we could also set the w component of a normal vector to 0 and multiply with the 4x4 matrix; this removes translation as well). The only transformations we want to apply to normal vectors are scale and rotation transformations.

@@ -35,7 +35,7 @@ Try asking on our [Discord server](https://discord.gg/6HqD48s).
 
 #### Who are the maintainers?
 [@thefiddler](https://github.com/thefiddler) is the original author.
-Others include [@varon](https://github.com/varon), [@Nihlus](https://github.com/Nihlus), and [@DylanFPS](https://github.com/DylanFPS)
+Others include [@varon](https://github.com/varon), [@Nihlus](https://github.com/Nihlus), and [@Perksey](https://github.com/Perksey)
 
 #### How can I help?
 Check outstanding issues, or drop us a message in Discord.

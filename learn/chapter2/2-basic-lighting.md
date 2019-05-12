@@ -90,7 +90,7 @@ uniform vec3 lightPos;
 And then update the uniform in the game loop (or outside since it doesn't change). We use the lightPos vector declared in the previous tutorial as the location of the light source:
 
 ```cs
-lightingShader.setVec3("lightPos", lightPos); 
+lightingShader.setVector3("lightPos", lightPos); 
 ```
 Then the last thing we need is the actual fragment's position. We're going to do all the lighting calculations in world space so we want a vertex position that is in world space. We can accomplish this by multiplying the vertex position attribute with the model matrix only (not the view and projection matrix) to transform it to world space coordinates. This can easily be accomplished in the vertex shader so let's declare an output variable and calculate its world space coordinates:
 
@@ -157,7 +157,7 @@ The normal matrix is defined as 'the transpose of the inverse of the upper-left 
 In the vertex shader we can generate this normal matrix ourselves by using the **inverse** and **transpose** functions in the vertex shader that work on any matrix type. Note that we also cast the matrix to a 3x3 matrix to ensure it loses its translation properties and that it can multiply with the vec3 normal vector:
 
 ```glsl
-Normal = mat3(transpose(inverse(model))) * aNormal;
+Normal = aNormal * mat3(transpose(inverse(model)));
 ```
 In the diffuse lighting section the lighting was just fine because we did not perform any scaling operation on the object itself so there was not really a need to use a normal matrix and could've just multiplied the normals with the model matrix. If you are doing a non-uniform scale however, it is essential that you multiply your normal vector with the normal matrix.
 

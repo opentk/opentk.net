@@ -111,7 +111,7 @@ By using a specular map we can specify with enormous detail what parts of an obj
 If you would now run the application you can clearly see that the container's material now closely resembles that of an actual wooden container with steel frames:
 ![Lighting maps](img/4-specular_map.png)
 
-You can find the full source code of the application here.
+You can find the full source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/4%20-%20Lighting%20maps).
 
 Using diffuse and specular maps we can really add an enormous amount of detail into relatively simple objects. We can even add more detail into the objects using other texture maps like normal/bump maps and/or reflection maps, but that is something we'll reserve for later tutorials. Show your container to all your friends and family and be content with the fact that our container can one day become even prettier than it already is!
 

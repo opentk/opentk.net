@@ -173,7 +173,7 @@ If you'd also use a flashlight the result of all the combined lights looks somet
 
 As you can see there appears to be some form of a global light (like a sun) somewhere in the sky, we have 4 lights scattered throughout the scene and a flashlight is visible from the player's perspective. Looks pretty neat doesn't it?
 
-You can find the full source code of the final application here.
+You can find the full source code of the final application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/6%20-%20Multiple%20lights).
 
 The image shows all the light sources set with the default light properties we've used in all the previous tutorials, but if you'd play around with these values you can get pretty interesting results. Artists and level editors generally tweak all these lighting variables in a large editor to make sure the lighting matches the environment. Using the simple lighted environment we just created you can create some interesting visuals by simply tweaking the lights their attributes:
 ![Multiple lights atmospheres](img/6-multiple_lights_combined.png)

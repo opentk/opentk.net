@@ -83,8 +83,8 @@ struct PointLight {
     vec3 ambient;
     vec3 diffuse;
     vec3 specular;
-};  
-#define NR_POINT_LIGHTS 4  
+};
+#define NR_POINT_LIGHTS 4
 uniform PointLight pointLights[NR_POINT_LIGHTS];
 ```
 As you can see we used a pre-processor directive in GLSL to define the number of point lights we want to have in our scene. We then use this **NR_POINT_LIGHTS** constant to create an array of **PointLight** structs. Arrays in GLSL are just like C# arrays and can be created by the use of two square brackets. Right now we have 4 **PointLight** structs to fill with data.
@@ -94,7 +94,8 @@ As you can see we used a pre-processor directive in GLSL to define the number of
 The prototype of the point light's function is as follows:
 
 ```glsl
-vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir); ``` 
+vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir);
+``` 
 
 The function takes all the data it needs as its arguments and returns a vec3 that represents the color contribution that this specific point light has on the fragment. Again, some intelligent copy-and-pasting results in the following function:
 
@@ -169,6 +170,7 @@ private readonly Vector3[] _pointLightPositions =
 Then index the corresponding **PointLight** struct from the **pointLights** array and set its position attribute as one of the *positions* we just defined. Also be sure to now draw 4 light cubes instead of just 1. Simply create a different model matrix for each of the light objects just like we did with the containers.
 
 If you'd also use a flashlight the result of all the combined lights looks something like this:
+
 ![Multiple lights combined](img/6-multiple_lights_combined.png)
 
 As you can see there appears to be some form of a global light (like a sun) somewhere in the sky, we have 4 lights scattered throughout the scene and a flashlight is visible from the player's perspective. Looks pretty neat doesn't it?
@@ -176,6 +178,7 @@ As you can see there appears to be some form of a global light (like a sun) some
 You can find the full source code of the final application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/6%20-%20Multiple%20lights).
 
 The image shows all the light sources set with the default light properties we've used in all the previous tutorials, but if you'd play around with these values you can get pretty interesting results. Artists and level editors generally tweak all these lighting variables in a large editor to make sure the lighting matches the environment. Using the simple lighted environment we just created you can create some interesting visuals by simply tweaking the lights their attributes:
+
 ![Multiple lights atmospheres](img/6-multiple_lights_combined.png)
 
 We also changed the clear color to better reflect the lighting. You can see that by simply adjusting some of the lighting parameters you can create completely different atmospheres.

@@ -6,7 +6,7 @@ In the real world, colors can take practically any known color value with each o
 ```cs
 Color4 coral = new Color4(1.0f, 0.5f, 0.31f, 1.0f);
 ```
->Note: there is an extra component **alpha** which is how transparent the color is, this is only helpful when displaying several colors on top of each other, the majority of the time we can just leave this value at 1.
+>Note: there is an extra , **alpha**, which is how transparent the color is, this is only helpful when displaying several colors on top of each other, the majority of the time we can just leave this value at 1.
 
 The colors we see in real life are not the colors the objects actually have, but are the colors **reflected** from the object; the colors that are not absorbed (rejected) by the objects are the colors we perceive of them. For example, the light of the sun is perceived as a white light that is the combined sum of many different colors (as you can see in the image). So if we would shine the white light on a blue toy, it absorbs all the white color's sub-colors except the blue color. Since the toy does not absorb the blue value, it is reflected and this reflected light enters our eye, making it look like the toy has a blue color. The following image shows this for a coral colored toy where it reflects several colors with varying intensity:
 
@@ -146,10 +146,11 @@ _lampShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
 GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);
 ```		
 Injecting all the code fragments at their appropriate locations would then result in a clean OpenGL application properly configured for experimenting with lighting. If everything compiles it should look like this:
+
 ![Light reflection](img/1-light_reflection.png)
 
 Not really much to look at right now, but I'll promise it will get more interesting in the upcoming tutorials.
 
 If you have difficulties finding out where all the code snippets fit together in the application as a whole, check the source code [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/1%20-%20Colors) and carefully work your way through the code/comments.
 
-Now that we have a fair bit of knowledge about colors and created a basic scene for some sexy lighting stuff we can jump to the next tutorial where the real magic begins.
+Now that we have a fair bit of knowledge about colors and created a basic scene for some lighting stuff we can jump to the next tutorial where the real magic begins.

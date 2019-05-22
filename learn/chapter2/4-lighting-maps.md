@@ -1,7 +1,7 @@
 # Lighting maps
 In the previous tutorial we discussed the possibility of each object having a unique material of its own that reacts differently to light. This is great for giving each object a unique look in comparison with other objects in a lighted scene, but still doesn't offer too much flexibility on the visual output of an object.
 
-In the previous tutorial we defined a material for an entire object as a whole, but objects in the real world usually do not consist of a single material, but consist of several materials. Think of a car: its exterior consists of a shiny fabric, it has windows that partly reflect the surrounding environment, its tires are all but shiny so they don't have specular highlights and it has rims that are super shiny (if you actually washed your car alright). The car also has diffuse and ambient colors that are not the same for the entire object; a car displays many different ambient/diffuse colors. All by all, such an object has different material properties for each of its different parts.
+In the previous tutorial we defined a material for an entire object as a whole, but objects in the real world usually do not consist of a single material, but consist of several materials. Think of a car: its exterior consists of a shiny metal, it has windows that partly reflect the surrounding environment, its tires are all but shiny so they don't have specular highlights and it has rims that are super shiny (if you actually washed your car alright). The car also has diffuse and ambient colors that are not the same for the entire object; a car displays many different ambient/diffuse colors. All by all, such an object has different material properties for each of its different parts.
 
 So the material system in the previous tutorial isn't sufficient for all but the simplest models so we need to extend the previous system by introducing diffuse and specular maps. These allow us to influence the diffuse (and indirectly the ambient component since they're almost always the same anyways) and the specular component of an object with much more precision.
 
@@ -11,6 +11,7 @@ What we want is some way to set the diffuse color of an object for each individu
 This should probably all sound extremely familiar and to be honest we've been using such a system for a while now. This sounds a lot like *textures* we've extensively discussed in one of the earlier tutorials and it basically is just that: a texture. We're just using a different name for the same underlying principle: using an image wrapped around an object that we can index for unique color values per fragment. In lighted scenes this is usually called a **diffuse map** (this is generally how 3D artists call them) since a texture image represents all of the object's diffuse colors.
 
 To demonstrate diffuse maps we're going to use the following image of a wooden container with a steel border:
+
 ![Container 2](textures/container2.png)
 
 Using a diffuse map in shaders is exactly the same as with the texture tutorials. This time however we store the texture as a **sampler2D** inside the **Material** struct. We replace the earlier defined vec3 diffuse color vector with the diffuse map.
@@ -65,12 +66,14 @@ _diffuseMap.Use(TextureUnit.Texture0);
 _lightingShader.SetInt("material.diffuse", 0);
 ```
 Now using a diffuse map we get an enormous boost in detail again and this time with added lighting the container really starts to shine (quite literally). Your container now probably looks something like this:
+
 ![Materials diffuse map](img/4-materials_diffuse_map.png)
 
 ## Specular maps
 You probably noticed that the specular highlight looks a bit off since our object is a container that mostly consists of wood and we know that wood doesn't give such specular highlights. We can fix this by setting the specular material of the object to vec3(0.0) but that would mean that the steel borders of the container would stop showing specular highlights as well and we also know that steel should show some specular highlights. Again, we would like to control what parts of the object **should** show a specular highlight with varying intensity. This is a problem that looks really familiar to the diffuse maps discussion. Coincidence? I think not.
 
 We can also use a texture map just for specular highlights. This means we need to generate a black and white (or colors if you feel like it) texture that defines the specular intensities of each part of the object. An example of a specular map is the following image:
+
 ![Container 2 specular](textures/container2_specular.png)
 
 The intensity of a specular highlight is retrieved by the brightness of each pixel in the image. Each pixel of the specular map can be displayed as a color vector where black represents the color vector vec3(0.0) and gray the color vector vec3(0.5) for example. In the fragment shader we then sample the corresponding color value and multiply this value with the light's specular intensity. The more 'white' a pixel thus is, the higher the result of the multiplication and thus the brighter the specular component of an object becomes.
@@ -109,14 +112,9 @@ By using a specular map we can specify with enormous detail what parts of an obj
 
 > If you don't want to be too mainstream you could also use actual colors in the specular map to not only set the specular intensity of each fragment, but also the color of the specular highlight. Realistically, however, the color of the specular highlight is mostly (to completely) determined by the light source itself so it wouldn't generate realistic visuals (that's why the images are usually black and white: we only care about the intensity).
 If you would now run the application you can clearly see that the container's material now closely resembles that of an actual wooden container with steel frames:
-![Lighting maps](img/4-specular_map.png)
+
+![Lighting maps](img/4-materials_specular_map.png)
 
 You can find the full source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/4%20-%20Lighting%20maps).
 
 Using diffuse and specular maps we can really add an enormous amount of detail into relatively simple objects. We can even add more detail into the objects using other texture maps like normal/bump maps and/or reflection maps, but that is something we'll reserve for later tutorials. Show your container to all your friends and family and be content with the fact that our container can one day become even prettier than it already is!
-
-Exercises
-Fool around with the light source's ambient, diffuse and specular vectors and see how they affect the visual output of the container.
-Try inverting the color values of the specular map in the fragment shader so that the wood shows specular highlights and the steel borders do not (note that due to the cracks in the steel border the borders still show some specular highlight, although with less intensity): solution.
-Try creating a specular map from the diffuse texture that uses actual colors instead of black and white and see that the result doesn't look too realistic. You can use this colored specular map if you can't generate one yourself: result.
-Also add something they call an emission map which is a texture that stores emission values per fragment. Emission values are colors an object might emit as if it contains a light source itself; this way an object can glow regardless of the light conditions. Emission maps are often what you see when objects in a game glow (like eyes of a robot, or light strips on a container). Add the following texture (by creativesam) as an emission map onto the container as if the letters emit light: solution; result.

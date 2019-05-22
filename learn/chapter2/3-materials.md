@@ -20,6 +20,7 @@ In the fragment shader we create a struct to store the material properties of th
 As you can see, we define a color vector for each of the Phong lighting's components. The *ambient* material vector defines what color this object reflects under ambient lighting; this is usually the same as the object's color. The **diffuse** material vector defines the color of the object under diffuse lighting. The diffuse color is (just like ambient lighting) set to the desired object's color. The **specular** material vector sets the color impact a specular light has on the object (or possibly even reflect an object-specific specular highlight color). Lastly, the **shininess** impacts the scattering/radius of the specular highlight.
 
 With these 4 components that define an object's material we can simulate many real-world materials. A table as found at [devernay.free.fr](http://devernay.free.fr/cours/opengl/materials.html) shows several material properties that simulate real materials found in the outside world. The following image shows the effect several of these real world materials have on our cube:
+
 ![Materials real world](img/3-materials_real_world.png)
 
 As you can see, by correctly specifying the material properties of an object it seems to change the perception we have of the object. The effects are clearly noticeable, but for the most realistic results we will eventually need more complicated shapes than a cube. In the following tutorial sections we'll discuss more complicated shapes.
@@ -66,6 +67,7 @@ _lightingShader.SetFloat("material.shininess", 32.0f);
 We set the ambient and diffuse component to the color we'd like the object to have and set the specular component of the object to a medium-bright color; we don't want the specular component to be too strong on this specific object. We also keep the shininess at 32. We can now easily influence the object's material from the application.
 
 Running the program gives you something like this:
+
 ![Materials with material](img/3-materials_with_material.png)
 
 It doesn't really look right though?

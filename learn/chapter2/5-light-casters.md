@@ -7,6 +7,7 @@ We'll first discuss a directional light, then a point light which is an extensio
 When a light source is far away the light rays coming from the light source are close to parallel to each other. It looks like all the light rays are coming from the same direction, regardless of where the object and/or the viewer is. When a light source is modeled to be *infinitely* far away it is called a **directional light** since all its light rays have the same direction; it is independent of the location of the light source.
 
 A fine example of a directional light source is the sun as we know it. The sun is not infinitely far away from us, but it is so far away that we can perceive it as being infinitely far away in the lighting calculations. All the light rays from the sun are then modelled as parallel light rays as we can see in the following image:
+
 ![Light casters directional](img/5-light_casters_directional.png)
 
 Because all the light rays are parallel it does not matter how each object relates to the light source's position since the light direction remains the same for each object in the scene. Because the light's direction vector stays the same, the lighting calculations will be similar for each object in the scene.
@@ -77,12 +78,14 @@ else if(lightVector.w == 1.0)
 ```
 
 If you'd now compile the application and fly through the scene it looks like there is a sun-like light source casting light on all the objects. Can you see that the diffuse and specular components all react as if there was a light source somewhere in the sky? It'll look something like this:
+
 ![Light casters directional](img/5-light_casters_directional_light.png)
 
 You can find the full source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20directional%20lights).
 
 ## Point lights
 Directional lights are great for global lights that illuminate the entire scene, but aside from a directional light we usually also want several **point lights** scattered throughout the scene. A point light is a light source with a given position somewhere in a world that illuminates in all directions where the light rays fade out over distance. Think of light bulbs and torches as light casters that act as a point light.
+
 ![Light casters point](img/5-light_casters_point.png)
 
 In the earlier tutorials we've been working with a (simplistic) point light all along. We had a light source at a given position that scatters light in all directions from that given light position. However, the light source we defined simulated light rays that never fade out thus making it look like the light source is extremely strong. In most 3D simulations we'd like to simulate a light source that only illuminates a certain area close to the light source and not the entire scene.
@@ -93,6 +96,7 @@ If you'd add the 10 containers to the lighting scene of the previous tutorial yo
 To reduce the intensity of light, over the distance a light ray travels, is generally called **attenuation**. One way to reduce the light intensity over distance is to simply use a linear equation. Such an equation would linearly reduce the light intensity over the distance thus making sure that objects at a distance are less bright. However, such a linear function tends to look a bit fake. In the real world, lights are generally quite bright standing close by, but the brightness of a light source diminishes quickly at the start and the remaining light intensity more slowly diminishes over distance. We are thus in need of a different formula for reducing the light's intensity.
 
 Luckily some smart people already figured this out for us. The following formula calculates an attenuation value based on a fragment's distance to the light source which we later multiply with the light's intensity vector:
+
 ![Light casters point attenuation](img/5-light_casters_point_attenuation.png)
 
 Here **d** represents the distance from the fragment to the light source. Then to calculate the attenuation value we define 3 (configurable) terms: a *constant* term **Kc**, a *linear* term **Kl** and a *quadratic* term **Kq**.
@@ -111,6 +115,7 @@ You can see that the light has the highest intensity when the distance is small,
 But at what values do we set those 3 terms? Setting the right values depends on many factors: the environment, the distance you want a light to cover, the type of light etc. In most cases, it simply is a question of experience and a moderate amount of tweaking. The following table shows some of the values these terms could take to simulate a realistic (sort of) light source that covers a specific radius (distance). The first column specifies the distance a light will cover with the given terms. These values are good starting points for most lights, with courtesy of [Ogre3D's](http://www.ogre3d.org/tikiwiki/tiki-index.php?page=-Point+Light+Attenuation) wiki:
 
 ![Light casters attenuation table](img/5-light_casters_attenuation_table.png)
+
 As you can see, the constant term **Kc** is kept at 1.0 in all cases. The linear term **Kl** is usually quite small to cover larger distances and the quadratic term **Kq** is even smaller. Try to experiment a bit with these values to see their effect in your implementation. In our environment a distance of 32 to 100 is generally enough for most lights.
 
 #### Implementing attenuation
@@ -154,6 +159,7 @@ diffuse  *= attenuation;
 specular *= attenuation;
 ```
 If you'd run the application you'd get something like this:
+
 ![Light casters point light](img/5-light_casters_point_light.png)
 
 You can see that right now only the front containers are lit with the closest container being the brightest. The containers in the back are not lit at all since they're too far from the light source. You can find the source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20point%20lights).
@@ -164,6 +170,7 @@ A point light is thus a light source with a configurable location and attenuatio
 The last type of light we're going to discuss is a **spotlight**. A spotlight is a light source that is located somewhere in the environment that, instead of shooting light rays in all directions, only shoots them in a specific direction. The result is that only the objects within a certain radius of the spotlight's direction are lit and everything else stays dark. A good example of a spotlight would be a street lamp or a flashlight.
 
 A spotlight in OpenGL is represented by a world-space position, a direction and a **cutoff** angle that specifies the radius of the spotlight. For each fragment we calculate if the fragment is between the spotlight's cutoff directions (thus in its cone) and if so, we lit the fragment accordingly. The following image gives you an idea of how a spotlight works:
+
 ![Light casters spotlight angles](img/5-light_casters_spotlight_angles.png)
 
 * **LightDir**: the vector pointing from the fragment to the light source.
@@ -205,16 +212,22 @@ if(theta > light.cutOff)
 {       
   // do lighting calculations
 }
-else  // else, use ambient light so scene isn't completely dark outside the spotlight.
+else
+{
+  // else, use ambient light so scene isn't completely dark outside the spotlight.
   FragColor = vec4(light.ambient * vec3(texture(material.diffuse, TexCoords)), 1.0);
+}
 ```
 We first calculate the dot product between the **lightDir** vector and the negated **direction** vector (negated, because we want the vectors to point towards the light source, instead of from). Be sure to normalize all the relevant vectors.
 
 > You might be wondering why there is a > sign instead of a < sign in the if guard. Shouldn't theta be smaller than the light's cutoff value to be inside the spotlight? That is right, but don't forget angle values are represented as cosine values and an angle of 0 is represented as the cosine value of 1.0 while an angle of 90 degrees is represented as the cosine value of 0.0 as you can see here:
+
 ![Light casters cos](img/5-light_casters_cos.png)
+
 You can now see that the closer the cosine value is to 1.0 the smaller its angle. Now it makes sense why **theta** needs to be larger than the cutoff value. The cutoff value is currently set at the cosine of 12.5 which is equal to 0.9978 so a cosine theta value between 0.9979 and 1.0 would result in the fragment being lit as inside the spotlight.
 
 Running the application results in a spotlight that only lights the fragments that are directly inside the cone of the spotlight. It'll look something like this:
+
 ![Light casters spotlight hard](img/5-light_casters_spotlight_hard.png)
 
 It still looks a bit fake though, mostly because the spotlight has hard edges. Wherever a fragment reaches the edge of the spotlight's cone it is shut down completely instead of with a nice smooth fade. A realistic spotlight would reduce the light gradually around its edges.
@@ -251,6 +264,7 @@ specular *= intensity;
 Note that we use the **clamp** function that **clamps** its first argument between the values 0.0 and 1.0. This makes sure the intensity values won't end up outside the [0, 1] interval.
 
 Make sure you add the **outerCutOff** value to the **Light** struct and set its uniform value in the application. For the following image an inner cutoff angle of 12.5 and an outer cutoff angle of 17.5 was used:
+
 ![Light casters spotlight](img/5-light_casters_spotlight.png)
 
 Ahhh, that's much better. Play around with the inner and outer cutoff angles and try to create a spotlight that better suits your needs. You can find the source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20spotlight).

@@ -25,10 +25,12 @@ void main()
 }
 ```
 If you'd now run your program, you'll notice that the first stage of lighting is now successfully applied to your object. The object is quite dark, but not completely since ambient lighting is applied (note that the light cube is unaffected because we use a different shader). It should look something like this:
+
 ![Ambient lighting](img/2-ambient_lighting.png)
 
 ## Diffuse lighting
 Ambient lighting by itself does not produce the most interesting results, but diffuse lighting will start to give a significant visual impact on the object. Diffuse lighting gives the object more brightness the closer its fragments are aligned to the light rays from a light source. To give you a better understanding of diffuse lighting take a look at the following image:
+
 ![Diffuse light](img/2-diffuse_light.png)
 
 To the left we find a light source with a light ray targeted at a single fragment of our object. We then need to measure at what angle the light ray touches the fragment. If the light ray is perpendicular to the object's surface the light has the greatest impact. To measure the angle between the light ray and the fragment we use something called a normal vector that is a vector perpendicular to the fragment's surface (here depicted as a yellow arrow); we'll get to that later. The angle between the two vectors can then easily be calculated with the dot product.
@@ -122,16 +124,18 @@ vec3 lightDir = normalize(lightPos - FragPos);
 
 Next we want to calculate the actual diffuse impact the light has on the current fragment by taking the dot product of the *norm* and *lightDir* vector. The resulting value is then multiplied with the light's color to get the diffuse component, resulting in a darker diffuse component the greater the angle is between both vectors:
 
-
+```glsl
 float diff = max(dot(norm, lightDir), 0.0);
 vec3 diffuse = diff * lightColor;
+```
 If the angle between both vectors is greater than 90 degrees then the result of the dot product will actually become negative and we end up with a negative diffuse component. For that reason we use the max function that returns the highest of both its parameters to make sure the diffuse component (and thus the colors) never become negative. Lighting for negative colors is not really defined so it's best to stay away from that, unless you're one of those eccentric artists.
 
 Now that we have both an ambient and a diffuse component we add both colors to each other and then multiply the result with the color of the object to get the resulting fragment's output color:
 
-
+```glsl
 vec3 result = (ambient + diffuse) * objectColor;
 FragColor = vec4(result, 1.0);
+```
 If your application (and shaders) compiled successfully you should see something like this:
 
 
@@ -173,7 +177,7 @@ We calculate a reflection vector by reflecting the light direction around the no
 
 The view vector is the one extra variable we need for specular lighting which we can calculate using the viewer's world space position and the fragment's position. Then we calculate the specular's intensity, multiply this with the light color and add this to the resulting ambient and diffuse components.
 
->We chose to do the lighting calculations in world space, but most people tend to prefer doing lighting in view space. The added advantage of calculating in view space is that the viewer's position is always at (0,0,0) so you already got the position of the viewer for free. However, I find calculating lighting in world space more intuitive for learning purposes. If you still want to calculate lighting in view space you want to transform all the relevant vectors with the view matrix as well (don't forget to change the normal matrix too).
+> We chose to do the lighting calculations in world space, but most people tend to prefer doing lighting in view space. The added advantage of calculating in view space is that the viewer's position is always at (0,0,0) so you already got the position of the viewer for free. However, I find calculating lighting in world space more intuitive for learning purposes. If you still want to calculate lighting in view space you want to transform all the relevant vectors with the view matrix as well (don't forget to change the normal matrix too).
 To get the world space coordinates of the viewer we simply take the position vector of the camera object (which is the viewer of course). So let's add another uniform to the fragment shader and pass the corresponding camera position vector to the fragment shader:
 
 
@@ -203,6 +207,7 @@ float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
 vec3 specular = specularStrength * spec * lightColor;
 ```
 We first calculate the dot product between the view direction and the reflect direction (and make sure it's not negative) and then raise it to the power of 32. This 32 value is the shininess value of the highlight. The higher the shininess value of an object, the more it properly reflects the light instead of scattering it all around and thus the smaller the highlight becomes. Below you can see an image that shows the visual impact of different shininess values:
+
 ![Basic lighting specular shininess](img/2-basic_lighting_specular_shininess.png)
 
 We don't want the specular component to be too dominant so we keep the exponent at 32. The only thing left to do is to add it to the ambient and diffuse components and multiply the combined result with the object's color:

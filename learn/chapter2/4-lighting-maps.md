@@ -111,6 +111,7 @@ FragColor = vec4(ambient + diffuse + specular, 1.0);
 By using a specular map we can specify with enormous detail what parts of an object actually have shiny properties and we can even set their corresponding intensity. Specular maps thus give us an added layer of control on top of the diffuse map.
 
 > If you don't want to be too mainstream you could also use actual colors in the specular map to not only set the specular intensity of each fragment, but also the color of the specular highlight. Realistically, however, the color of the specular highlight is mostly (to completely) determined by the light source itself so it wouldn't generate realistic visuals (that's why the images are usually black and white: we only care about the intensity).
+
 If you would now run the application you can clearly see that the container's material now closely resembles that of an actual wooden container with steel frames:
 
 ![Lighting maps](img/4-materials_specular_map.png)

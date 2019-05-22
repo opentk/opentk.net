@@ -1,1 +1,2 @@
 docfx --serve
+pause

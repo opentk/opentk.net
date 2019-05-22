@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Creating a Window  - OpenTK</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Creating a Window ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+    <meta name="author" content="The Open Toolkit Project">
+    <meta property="og:image" content="https://opentk.net/otkBig.png">
+    <meta property="og:image:width" content="142">
+    <meta property="og:image:height" content="50">
+    <meta property="og:site_name" content="OpenTK">
+    <meta property="og:title" content="Creating a Window  - OpenTK">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
+          <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+          <img id="logo" src="../../otkBig.png" alt="">
+        </a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="creating-a-window">Creating a Window</h1>
+
+<p>Welcome to the first entry to the LearnOpenTK tutorials. This guide will teach you how to get OpenTK from NuGet, and open your first window. This will be a short one, we promise.</p>
+<h2 id="installing-from-nuget">Installing from NuGet</h2>
+<p>OpenTK is shipped on NuGet, the official package manager for .NET. Here is the <a href="https://nuget.org/packages/OpenTK">url</a>. OpenTK 3 can be installed on .NET Framework 2.0, and any derivative Mono version.</p>
+<p>In Visual Studio 2013/2015/2017, to access the NuGet package manager simply click on <code>TOOLS</code>, hover over <code>NuGet</code> and select <code>Package Manager Console</code></p>
+<p><img src="img/1-dropdown-nuget.png" alt="Tools &gt; NuGet &gt; Package Manager Console"></p>
+<p>This will bring up the Package Manager Console - a PowerShell extension for Visual Studio and NuGet. To install OpenTK, simply type the following command into the Package Manager Console.</p>
+<pre><code class="lang-shell">Install-Package OpenTK
+</code></pre>
+<p><img src="img/1-nuget-package-manager.png" alt="Install OpenTK"></p>
+<p>And that's it! OpenTK is installed and you're ready to proceed with the next tutorials!</p>
+<h2 id="creating-a-window-1">Creating a window</h2>
+<p>Unlike OpenGL, OpenTK comes with its own windowing system. This tutorial will teach you how to use it. Go ahead and make a C# console project in your favourite IDE, and make a new file called Game.cs, and add the following using directives:</p>
+<pre><code class="lang-cs">using OpenTK;
+using OpenTK.Graphics;
+
+namespace YourNamespaceHere
+{
+    public class Game
+    {
+
+    }
+}
+</code></pre>
+<p>Now we have a blank class. Time to turn it into a <code>GameWindow</code>. To do that, simply extend <code>GameWindow</code>, like so:</p>
+<pre><code class="lang-cs">public class Game : GameWindow
+</code></pre>
+<p>Now your class is a basic window. This is good, but by itself, you can't do anything with it. There are plenty of ways you can customize your <code>GameWindow</code>, but in this tutorial we're going to create a simple constructor to let us set the width, height, and title of the window. We do this by overriding a <code>base</code> constructor included with OpenTK:</p>
+<pre><code class="lang-cs">public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) { }
+</code></pre>
+<p>Your <code>GameWindow</code> is ready to go! Now all you have to do is create an instance of it in your program. When you created your project earlier, it should have also created a file named <code>Program.cs</code>, containing a <code>Main</code> function. To open your window when the program starts, we must:</p>
+<ul>
+<li>Create an instance of your <code>Game</code> class</li>
+<li>Start all the pumps by calling the <code>Run</code> function</li>
+<li>After we're done, dispose the <code>Game</code>.</li>
+</ul>
+<pre><code class="lang-cs">// This line creates a new instance, and wraps the instance in a using statement so it's automatically disposed once we've exited the block.
+using (Game game = new Game(800, 600, &quot;LearnOpenTK&quot;))
+{
+    //Run takes a double, which is how many frames per second it should strive to reach.
+    //You can leave that out and it'll just update as fast as the hardware will allow it.
+    game.Run(60.0);
+}
+</code></pre>
+<p>Plug that code into your <code>Main</code> function, then build and run your program! You now have a blank window, great job! However, the only way you can close your window is by using the cross (<code>X</code>) button or Alt+F4. We don't want that, Let's do a little bit of input handling!</p>
+<p><code>GameWindow</code> has plenty of methods that you can override to add all sorts of functionality to your window. You can look at the &quot;API&quot; section of this website to look at them all, but in this case the one we're interested in is <code>OnUpdateFrame</code>.</p>
+<p>By just typing <code>override OnUpdateFrame</code> your IDE should be able to generate a function like this one:</p>
+<pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
+{
+    base.OnUpdateFrame(e);
+}
+</code></pre>
+<p>It's really simple to detect key presses! OpenTK has a class called <code>KeyboardState</code> with an <code>IsKeyDown</code> method, which returns <code>true</code> if a key is pressed. For example, <code>KeyboardState.IsKeyDown(Key.Escape)</code> will only return <code>true</code> if the escape (<code>Esc</code>) key is pressed.</p>
+<p>We want to exit when the escape key is pressed, and with the above information is in mind, exiting when the escape key is pressed is as easy at this:</p>
+<pre><code class="lang-cs">//Get the state of the keyboard this frame
+KeyboardState input = Keyboard.GetState();
+
+if (input.IsKeyDown(Key.Escape))
+{
+    Exit();
+}
+</code></pre>
+<p>Now, the function should look like this:</p>
+<pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
+{
+    KeyboardState input = Keyboard.GetState();
+
+    if (input.IsKeyDown(Key.Escape))
+    {
+        Exit();
+    }
+
+    base.OnUpdateFrame(e);
+}
+</code></pre>
+<h3 id="review">Review</h3>
+<p>In this tutorial, we installed OpenTK, created a blank window that listens for the escape key being pressed, and exits when it is. In the next tutorial, we'll draw a triangle on this blank window you've just created. That's all for now!</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opentk/opentk.net/blob/docfx/learn/chapter1/1-creating-a-window.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Element Buffer Objects  - OpenTK</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Element Buffer Objects ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+    <meta name="author" content="The Open Toolkit Project">
+    <meta property="og:image" content="https://opentk.net/otkBig.png">
+    <meta property="og:image:width" content="142">
+    <meta property="og:image:height" content="50">
+    <meta property="og:site_name" content="OpenTK">
+    <meta property="og:title" content="Element Buffer Objects  - OpenTK">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
+          <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+          <img id="logo" src="../../otkBig.png" alt="">
+        </a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="element-buffer-objects">Element Buffer Objects</h1>
+
+<p>We've rendered our first triangle, but what if we wanted to do something more complex? For instance, a rectangle?</p>
+<p>OpenGL works exclusively in triangles. It has partial support for squares and other shapes, but those have been deprecated for a very long time and should not be used. You could do it by defining six vertices to make two triangles that look like they're one shape, but that would be a waste since a rectangle only needs four vertices. While that might not seem terrible, consider a cube: only eight vertices if none are wasted, but if you used the approach of making each face out of two triangles, that'd take 36 vertices just for a single cube! The numbers only get worse the more complex your model is; clearly, a better way is needed.</p>
+<p>There are many different ways to do this (such as a triangle strip), for this tutorial we'll use what's called an Element Buffer Object, which is a type of buffer that lets us re-use vertices to create multiple primitives out of them. Using an EBO, we'll be able to create a rectangle using only four vertices.</p>
+<p>Replace your vertex array with the following:</p>
+<pre><code class="lang-cs">float[] vertices = {
+     0.5f,  0.5f, 0.0f,  // top right
+     0.5f, -0.5f, 0.0f,  // bottom right
+    -0.5f, -0.5f, 0.0f,  // bottom left
+    -0.5f,  0.5f, 0.0f   // top left
+};
+</code></pre>
+<p>Then, below it, add the following array:</p>
+<pre><code class="lang-cs">uint[] indices = {  // note that we start from 0!
+    0, 1, 3,   // first triangle
+    1, 2, 3    // second triangle
+};
+</code></pre>
+<p>The indices array will be fed to our EBO to specify which vertices will be used to create triangles. This one will use vertices 0, 1, and 3 to create one triangle, and 1, 2, and 3 to create the second.</p>
+<p>Next, as a property, add the line <code>int ElementBufferObject</code> below where you added the VertexBufferObject.</p>
+<p>Now, in OnLoad, below where you initialize the VertexBufferObject, we initialize the ElementBufferObject in much the same way:</p>
+<pre><code class="lang-cs">ElementBufferObject = GL.GenBuffer();
+GL.BindBuffer(BufferTarget.ElementArrayBuffer, ElementBufferObject);
+GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(uint), indices, BufferUsageHint.StaticDraw);
+</code></pre>
+<p>It's almost exactly the same as how you use the VBO! Most of OpenGL's buffer types will follow this pattern: Create with <code>GL.GenBuffer()</code>, bind with <code>GL.BindBuffer</code>, and then use <code>GL.BufferData</code> to add data to it.</p>
+<p>The EBO is now ready to go. Down in OnRenderFrame, replace the call to <code>DrawArrays</code> with the following:</p>
+<pre><code class="lang-cs">GL.DrawElements(PrimitiveType.Triangles, indices.Length, DrawElementsType.UnsignedInt, 0);
+</code></pre>
+<p>The arguments are, in order:</p>
+<ul>
+<li>The PrimitiveType. Just like last time, we want to use raw triangles.</li>
+<li>The amount of vertices to draw. We use the length of the indices to draw everything.</li>
+<li>The type of the EBO's elements. Unsigned int.</li>
+<li>The offset of what we want to draw. Since we want to draw everything, we just use 0.</li>
+</ul>
+<p>That's all it takes! If you run your program now, you should be able to see that you have a rectangle instead of one triangle.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opentk/opentk.net/blob/docfx/learn/chapter1/3-element-buffer-objects.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

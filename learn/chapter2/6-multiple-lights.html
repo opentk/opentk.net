@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Multiple lights  - OpenTK</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Multiple lights ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+    <meta name="author" content="The Open Toolkit Project">
+    <meta property="og:image" content="https://opentk.net/otkBig.png">
+    <meta property="og:image:width" content="142">
+    <meta property="og:image:height" content="50">
+    <meta property="og:site_name" content="OpenTK">
+    <meta property="og:title" content="Multiple lights  - OpenTK">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
+          <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+          <img id="logo" src="../../otkBig.png" alt="">
+        </a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="multiple-lights">Multiple lights</h1>
+
+<p>In the previous tutorials we learned quite a lot about lighting in OpenGL. We learned about Phong shading, materials, lighting maps and different types of light casters. In this tutorial we're going to combine all the previously obtained knowledge by creating a fully lit scene with 6 active light sources. We are going to simulate a sun-like light as a directional light source, 4 point lights scattered throughout the scene and we'll be adding a flashlight as well.</p>
+<p>To use more than one light source in the scene we want to encapsulate the lighting calculations into GLSL <strong>functions</strong>. The reason for that is that the code quickly gets nasty when we want to do lighting computations with multiple lights with each light type requiring different computations. If we were to do all these calculations in the <strong>main</strong> function only, the code quickly becomes difficult to understand.</p>
+<p>Functions in GLSL are just like C-functions. We have a function name and a return type. Except in GLSL we have to declare a prototype at the top of the code file if the function hasn't been declared before the main function yet. We'll create a different function for each of the light types: directional lights, point lights and spotlights.</p>
+<p>When using multiple lights in a scene the approach is usually as follows: we have a single color vector that represents the fragment's output color. For each light, the light's contribution color of the fragment is added to the fragment's output color vector. So each light in the scene will calculate its individual impact on the aforementioned fragment and contribute to the final output color. A general structure would look something like this:</p>
+<pre><code class="lang-glsl">out vec4 FragColor;
+
+void main()
+{
+  // define an output color value
+  vec3 output = vec3(0.0);
+  // add the directional light's contribution to the output
+  output += someFunctionToCalculateDirectionalLight();
+  // do the same for all point lights
+  for(int i = 0; i &lt; nr_of_point_lights; i++)
+  	output += someFunctionToCalculatePointLight();
+  // and add others lights as well (like spotlights)
+  output += someFunctionToCalculateSpotLight();
+  
+  FragColor = vec4(output, 1.0);
+}
+</code></pre>
+<p>The actual code will likely differ per implementation, but the general structure remains the same. We define several functions that calculate the impact per light source and add its resulting color to an output color vector. If for example two light sources are close to the fragment, their combined contribution would result in a more brightly lit fragment than the fragment being lit by a single light source.</p>
+<h2 id="directional-light">Directional light</h2>
+<p>What we want to do is define a function in the fragment shader that calculates the contribution a directional light has on the corresponding fragment: a function that takes a few parameters and returns the calculated directional lighting color.</p>
+<p>First we need to set the required variables that we minimally need for a directional light source. We can store the variables in a struct called DirLight and define it as a uniform. The required variables should be familiar from the previous tutorial:</p>
+<pre><code class="lang-glsl">struct DirLight {
+    vec3 direction;
+  
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+};  
+uniform DirLight dirLight;
+</code></pre>
+<p>We can then pass the dirLight uniform to a function with the following prototype:</p>
+<pre><code class="lang-glsl">vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir);
+</code></pre>
+<blockquote>
+<p>Just like C and C++ if we want to call a function (in this case inside the <strong>main</strong> function) the function should be defined somewhere before the caller's line number. In this case we'd prefer to define the functions below the <strong>main</strong> function so this requirement doesn't hold. Therefore we declare the function's prototypes somewhere above the <strong>main</strong> function, just like we would in C.</p>
+</blockquote>
+<p>You can see that the function requires a DirLight struct and two other vectors required for its computation. If you successfully completed the previous tutorial then the content of this function should come as no surprise:</p>
+<pre><code class="lang-glsl">vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
+{
+    vec3 lightDir = normalize(-light.direction);
+    // diffuse shading
+    float diff = max(dot(normal, lightDir), 0.0);
+    // specular shading
+    vec3 reflectDir = reflect(-lightDir, normal);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    // combine results
+    vec3 ambient  = light.ambient  * vec3(texture(material.diffuse, TexCoords));
+    vec3 diffuse  = light.diffuse  * diff * vec3(texture(material.diffuse, TexCoords));
+    vec3 specular = light.specular * spec * vec3(texture(material.specular, TexCoords));
+    return (ambient + diffuse + specular);
+}
+</code></pre>
+<p>We basically copied the code from the previous tutorial and used the vectors given as function arguments to calculate the directional light's contribution vector. The resulting ambient, diffuse and specular contributions are then returned as a single color vector.</p>
+<h2 id="point-light">Point light</h2>
+<p>Just like with directional lights we also want to define a function that calculates the contribution a point light has on the given fragment, including its attenuation. Just like directional lights we want to define a struct that specifies all the variables required for a point light:</p>
+<pre><code class="lang-glsl">struct PointLight {    
+    vec3 position;
+    
+    float constant;
+    float linear;
+    float quadratic;  
+
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+};
+#define NR_POINT_LIGHTS 4
+uniform PointLight pointLights[NR_POINT_LIGHTS];
+</code></pre>
+<p>As you can see we used a pre-processor directive in GLSL to define the number of point lights we want to have in our scene. We then use this <strong>NR_POINT_LIGHTS</strong> constant to create an array of <strong>PointLight</strong> structs. Arrays in GLSL are just like C# arrays and can be created by the use of two square brackets. Right now we have 4 <strong>PointLight</strong> structs to fill with data.</p>
+<blockquote>
+<p>We could also simply define <strong>one</strong> large struct (instead of different structs per light type) that contains <strong>all</strong> the necessary variables for all the different light types and use that struct for each function, and simply ignore the variables we don't need. However, I personally find the current approach more intuitive and aside from a few extra lines of code it could save up some memory since not all light types need all variables.</p>
+</blockquote>
+<p>The prototype of the point light's function is as follows:</p>
+<pre><code class="lang-glsl">vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir);
+</code></pre>
+<p>The function takes all the data it needs as its arguments and returns a vec3 that represents the color contribution that this specific point light has on the fragment. Again, some intelligent copy-and-pasting results in the following function:</p>
+<pre><code class="lang-glsl">vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
+{
+    vec3 lightDir = normalize(light.position - fragPos);
+    // diffuse shading
+    float diff = max(dot(normal, lightDir), 0.0);
+    // specular shading
+    vec3 reflectDir = reflect(-lightDir, normal);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    // attenuation
+    float distance    = length(light.position - fragPos);
+    float attenuation = 1.0 / (light.constant + light.linear * distance + 
+  			     light.quadratic * (distance * distance));    
+    // combine results
+    vec3 ambient  = light.ambient  * vec3(texture(material.diffuse, TexCoords));
+    vec3 diffuse  = light.diffuse  * diff * vec3(texture(material.diffuse, TexCoords));
+    vec3 specular = light.specular * spec * vec3(texture(material.specular, TexCoords));
+    ambient  *= attenuation;
+    diffuse  *= attenuation;
+    specular *= attenuation;
+    return (ambient + diffuse + specular);
+}
+</code></pre>
+<p>Abstracting this functionality away in a function like this has the advantage that we can easily calculate the lighting for multiple point lights without the need for nasty duplicated code. In the <strong>main</strong> function we simply create a loop that iterates over the point light array that calls <strong>CalcPointLight</strong> for each point light.</p>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>Now that we defined both a function for directional lights and a function for point lights we can put it all together in the main function.</p>
+<pre><code class="lang-glsl">void main()
+{
+    // properties
+    vec3 norm = normalize(Normal);
+    vec3 viewDir = normalize(viewPos - FragPos);
+
+    // phase 1: Directional lighting
+    vec3 result = CalcDirLight(dirLight, norm, viewDir);
+    // phase 2: Point lights
+    for(int i = 0; i &lt; NR_POINT_LIGHTS; i++)
+        result += CalcPointLight(pointLights[i], norm, FragPos, viewDir);    
+    // phase 3: Spot light
+    //result += CalcSpotLight(spotLight, norm, FragPos, viewDir);    
+    
+    FragColor = vec4(result, 1.0);
+}
+</code></pre>
+<p>Each light type adds its contribution to the resulting output color until all light sources are processed. The resulting color contains the color impact of all the light sources in the scene combined. If you want you could also implement a spotlight and add its effect to the output color as well. We leave the <strong>CalcSpotLight</strong> function as an exercise for the reader, (solution in source).</p>
+<p>Setting the uniforms for the directional light struct shouldn't be too unfamiliar, but you might be wondering how we could set the uniform values of the point lights since the point light uniform is now an array of <strong>PointLight</strong> structs. This isn't something we've discussed before.</p>
+<p>Luckily for us, it isn't too complicated. To set the uniform of an array of structs works just like setting the uniforms of a single struct, although this time we also have to define the appropriate index when querying the uniform's location:</p>
+<pre><code class="lang-glsl">_lightingShader.setFloat(&quot;pointLights[0].constant&quot;, 1.0f);
+</code></pre>
+<p>Here we index the first <strong>PointLight</strong> struct in the <strong>pointLights</strong> array and retrieve the location of its <em>constant</em> variable. This does mean unfortunately that we have to manually set all the uniforms for each of the 4 point lights, which leads up to 28 uniform calls for the point lights alone which is a bit tedious. You could try to abstract a bit away from this by defining a point light class that sets the uniforms for you, but in the end you'd still have to set the all the lights' uniform values this way.</p>
+<p>Let's not forget that we also need to define a position vector for each of the point lights so let's spread them up a bit around the scene. We'll define another Vector3 array that contains the pointlights' positions:</p>
+<pre><code class="lang-cs">private readonly Vector3[] _pointLightPositions =
+{
+    new Vector3(0.7f, 0.2f, 2.0f),
+    new Vector3(2.3f, -3.3f, -4.0f),
+    new Vector3(-4.0f, 2.0f, -12.0f),
+    new Vector3(0.0f, 0.0f, -3.0f)
+};
+</code></pre>
+<p>Then index the corresponding <strong>PointLight</strong> struct from the <strong>pointLights</strong> array and set its position attribute as one of the <em>positions</em> we just defined. Also be sure to now draw 4 light cubes instead of just 1. Simply create a different model matrix for each of the light objects just like we did with the containers.</p>
+<p>If you'd also use a flashlight the result of all the combined lights looks something like this:</p>
+<p><img src="img/6-multiple_lights_combined.png" alt="Multiple lights combined"></p>
+<p>As you can see there appears to be some form of a global light (like a sun) somewhere in the sky, we have 4 lights scattered throughout the scene and a flashlight is visible from the player's perspective. Looks pretty neat doesn't it?</p>
+<p>You can find the full source code of the final application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/6%20-%20Multiple%20lights">here</a>.</p>
+<p>The image shows all the light sources set with the default light properties we've used in all the previous tutorials, but if you'd play around with these values you can get pretty interesting results. Artists and level editors generally tweak all these lighting variables in a large editor to make sure the lighting matches the environment. Using the simple lighted environment we just created you can create some interesting visuals by simply tweaking the lights their attributes:</p>
+<p><img src="img/6-multiple_lights_combined.png" alt="Multiple lights atmospheres"></p>
+<p>We also changed the clear color to better reflect the lighting. You can see that by simply adjusting some of the lighting parameters you can create completely different atmospheres.</p>
+<p>By now you should have a pretty good understanding of lighting in OpenGL. With the knowledge so far we can already create interesting and visually rich environments and atmospheres. Try playing around with all the different values to create your own atmospheres.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opentk/opentk.net/blob/docfx/learn/chapter2/6-multiple-lights.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

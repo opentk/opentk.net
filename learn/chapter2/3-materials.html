@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Materials  - OpenTK</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Materials ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+    <meta name="author" content="The Open Toolkit Project">
+    <meta property="og:image" content="https://opentk.net/otkBig.png">
+    <meta property="og:image:width" content="142">
+    <meta property="og:image:height" content="50">
+    <meta property="og:site_name" content="OpenTK">
+    <meta property="og:title" content="Materials  - OpenTK">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
+          <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+          <img id="logo" src="../../otkBig.png" alt="">
+        </a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="materials">Materials</h1>
+
+<p>In the real world, each object reacts differently to light. Steel objects are often shinier than a clay vase for example and a wooden container does not react the same to light as a steel container. Each object also responds differently to specular highlights. Some objects reflect the light without too much scattering resulting in a small highlights and others scatter a lot giving the highlight a larger radius. If we want to simulate several types of objects in OpenGL we have to define <strong>material</strong> properties specific to each object.</p>
+<p>In the previous tutorial we specified an object and light color to define the visual output of the object, combined with an ambient and specular intensity component. When describing objects we can define a material color for each of the 3 lighting components: ambient, diffuse and specular lighting. By specifying a color for each of the components we have fine-grained control over the color output of the object. Now add a shininess component to those 3 colors and we have all the material properties we need:</p>
+<pre><code class="lang-glsl">#version 330 core
+struct Material {
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+
+    float shininess;
+};
+  
+uniform Material material;
+</code></pre>
+<p>In the fragment shader we create a struct to store the material properties of the object. We can also store them as individual uniform values, but storing them as a struct keeps it more organized. We first define the layout of the struct and then simply declare a uniform variable with the newly created struct as its type.</p>
+<p>As you can see, we define a color vector for each of the Phong lighting's components. The <em>ambient</em> material vector defines what color this object reflects under ambient lighting; this is usually the same as the object's color. The <strong>diffuse</strong> material vector defines the color of the object under diffuse lighting. The diffuse color is (just like ambient lighting) set to the desired object's color. The <strong>specular</strong> material vector sets the color impact a specular light has on the object (or possibly even reflect an object-specific specular highlight color). Lastly, the <strong>shininess</strong> impacts the scattering/radius of the specular highlight.</p>
+<p>With these 4 components that define an object's material we can simulate many real-world materials. A table as found at <a href="http://devernay.free.fr/cours/opengl/materials.html">devernay.free.fr</a> shows several material properties that simulate real materials found in the outside world. The following image shows the effect several of these real world materials have on our cube:</p>
+<p><img src="img/3-materials_real_world.png" alt="Materials real world"></p>
+<p>As you can see, by correctly specifying the material properties of an object it seems to change the perception we have of the object. The effects are clearly noticeable, but for the most realistic results we will eventually need more complicated shapes than a cube. In the following tutorial sections we'll discuss more complicated shapes.</p>
+<p>Getting the right materials for an object is a difficult feat that mostly requires experimentation and a lot of experience so it's not that uncommon to completely destroy the visual quality of an object by a misplaced material.</p>
+<p>Let's try implementing such a material system in the shaders.</p>
+<h2 id="setting-materials">Setting materials</h2>
+<p>We created a uniform material struct in the fragment shader so next we want to change the lighting calculations to comply with the new material properties. Since all the material variables are stored in a struct we can access them from the <strong>material</strong> uniform:</p>
+<pre><code class="lang-glsl">void main()
+{    
+    // ambient
+    vec3 ambient = lightColor * material.ambient;
+  	
+    // diffuse 
+    vec3 norm = normalize(Normal);
+    vec3 lightDir = normalize(lightPos - FragPos);
+    float diff = max(dot(norm, lightDir), 0.0);
+    vec3 diffuse = lightColor * (diff * material.diffuse);
+    
+    // specular
+    vec3 viewDir = normalize(viewPos - FragPos);
+    vec3 reflectDir = reflect(-lightDir, norm);  
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    vec3 specular = lightColor * (spec * material.specular);  
+        
+    vec3 result = ambient + diffuse + specular;
+    FragColor = vec4(result, 1.0);
+}
+</code></pre>
+<p>As you can see we now access all of the material struct's properties wherever we need them and this time calculate the resulting output color with the help of the material's colors. Each of the object's material attributes are multiplied with their respective lighting components.</p>
+<p>We can set the material of the object in the application by setting the appropriate uniforms. A struct in GLSL however is not special in any regard when setting uniforms. A struct only acts as an encapsulation of uniform variables so if we want to fill the struct we still have to set the individual uniforms, but this time prefixed with the struct's name:</p>
+<pre><code class="lang-cs">_lightingShader.SetVector3(&quot;material.ambient&quot;, new Vector3(1.0f, 0.5f, 0.31f));
+_lightingShader.SetVector3(&quot;material.diffuse&quot;, new Vector3(1.0f, 0.5f, 0.31f));
+_lightingShader.SetVector3(&quot;material.specular&quot;, new Vector3(0.5f, 0.5f, 0.5f));
+_lightingShader.SetFloat(&quot;material.shininess&quot;, 32.0f);
+</code></pre>
+<p>We set the ambient and diffuse component to the color we'd like the object to have and set the specular component of the object to a medium-bright color; we don't want the specular component to be too strong on this specific object. We also keep the shininess at 32. We can now easily influence the object's material from the application.</p>
+<p>Running the program gives you something like this:</p>
+<p><img src="img/3-materials_with_material.png" alt="Materials with material"></p>
+<p>It doesn't really look right though?</p>
+<h2 id="light-properties">Light properties</h2>
+<p>The object is way too bright. The reason for the object being too bright is that the ambient, diffuse and specular colors are reflected with full force from any light source. Light sources also have different intensities for their ambient, diffuse and specular components respectively. In the previous tutorial we solved this by varying the ambient and specular intensities with a strength value. We want to do something similar, but this time by specifying intensity vectors for each of the lighting components. If we'd visualize <strong>lightColor</strong> as vec3(1.0) the code would look like this:</p>
+<pre><code class="lang-glsl">vec3 ambient  = vec3(1.0) * material.ambient;
+vec3 diffuse  = vec3(1.0) * (diff * material.diffuse);
+vec3 specular = vec3(1.0) * (spec * material.specular);
+</code></pre>
+<p>So each material property of the object is returned with full intensity for each of the light's components. These vec3(1.0) values can be influenced individually as well for each light source and this is usually what we want. Right now the ambient component of the object is fully influencing the color of the cube, but the ambient component shouldn't really have such a big impact on the final color so we can restrict the ambient color by setting the light's ambient intensity to a lower value:</p>
+<pre><code class="lang-glsl">vec3 ambient = vec3(0.1) * material.ambient;
+</code></pre>
+<p>We can influence the diffuse and specular intensity of the light source in the same way. This is closely similar to what we did in the previous previous tutorial; you could say we already created some light properties to influence each lighting component individually. We'll want to create something similar to the material struct for the light properties:</p>
+<pre><code class="lang-glsl">struct Light {
+    vec3 position;
+  
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+};
+
+uniform Light light;
+</code></pre>
+<p>A light source has a different intensity for its <strong>ambient</strong>, <strong>diffuse</strong> and <strong>specular light</strong>. The ambient light is usually set to a low intensity because we don't want the ambient color to be too dominant. The diffuse component of a light source is usually set to the exact color we'd like a light to have; often a bright white color. The specular component is usually kept at vec3(1.0) shining at full intensity. Note that we also added the light's position vector to the struct.</p>
+<p>Just like with the material uniform we need to update the fragment shader:</p>
+<pre><code class="lang-glsl">vec3 ambient = light.ambient * material.ambient;
+vec3 diffuse = light.diffuse * (diff * material.diffuse);
+vec3 specular = light.specular * (spec * material.specular);
+</code></pre>
+<p>We then want to set the light intensities in the application:</p>
+<pre><code class="lang-cs">_lightingShader.SetVector3(&quot;light.ambient&quot;,  new Vector3(0.2f, 0.2f, 0.2f));
+_lightingShader.SetVector3(&quot;light.diffuse&quot;,  new Vector3(0.5f, 0.5f, 0.5f)); // darken the light a bit to fit the scene
+_lightingShader.SetVector3(&quot;light.specular&quot;, new Vector3(1.0f, 1.0f, 1.0f));
+</code></pre>
+<p>Now that we modulated how the light influences all the objects' materials we get a visual output that looks much like the output from the previous tutorial. This time however we got full control over the lighting and the material of the object:</p>
+<p><img src="img/3-materials_light.png" alt="Materials light"></p>
+<p>Changing the visual aspects of objects is relatively easy right now. Let's spice things up a bit!</p>
+<h2 id="different-light-colors">Different light colors</h2>
+<p>So far we used light colors to only vary the intensity of their individual components by choosing colors that range from white to gray to black, not affecting the actual colors of the object (only its intensity). Since we now have easy access to the light's properties we can change their colors over time to get some really interesting effects. Since everything is already set up in the fragment shader, changing the light's colors is easy and immediately creates some funky effects.</p>
+<p>As you can see, a different light color greatly influences the object's color output. Since the light color directly influences what colors the object can reflect (as you might remember from the Colors tutorial) it has a significant impact on the visual output.</p>
+<p>We can easily change the light's colors over time by changing the light's ambient and diffuse colors via Math.Sin and DateTime:</p>
+<pre><code class="lang-cs">Vector3 lightColor;
+float time = DateTime.Now.Second + DateTime.Now.Millisecond / 1000f;
+lightColor.X = (float)Math.Sin(time * 2.0f);
+lightColor.Y = (float)Math.Sin(time * 0.7f);
+lightColor.Z = (float)Math.Sin(time * 1.3f);
+
+Vector3 ambientColor = lightColor * new Vector3(0.2f);
+Vector3 diffuseColor = lightColor * new Vector3(0.5f);
+
+_lightingShader.SetVector3(&quot;light.ambient&quot;,  ambientColor);
+_lightingShader.SetVector3(&quot;light.diffuse&quot;,  diffuseColor); // darken the light a bit to fit the scene
+</code></pre>
+<p>Try and experiment with several lighting and material values and see how they affect the visual output. You can find the source code of the application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/3%20-%20Materials">here</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opentk/opentk.net/blob/docfx/learn/chapter2/3-materials.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

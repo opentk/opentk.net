@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Lighting maps  - OpenTK</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Lighting maps ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+    <meta name="author" content="The Open Toolkit Project">
+    <meta property="og:image" content="https://opentk.net/otkBig.png">
+    <meta property="og:image:width" content="142">
+    <meta property="og:image:height" content="50">
+    <meta property="og:site_name" content="OpenTK">
+    <meta property="og:title" content="Lighting maps  - OpenTK">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
+          <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+          <img id="logo" src="../../otkBig.png" alt="">
+        </a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="lighting-maps">Lighting maps</h1>
+
+<p>In the previous tutorial we discussed the possibility of each object having a unique material of its own that reacts differently to light. This is great for giving each object a unique look in comparison with other objects in a lighted scene, but still doesn't offer too much flexibility on the visual output of an object.</p>
+<p>In the previous tutorial we defined a material for an entire object as a whole, but objects in the real world usually do not consist of a single material, but consist of several materials. Think of a car: its exterior consists of a shiny metal, it has windows that partly reflect the surrounding environment, its tires are all but shiny so they don't have specular highlights and it has rims that are super shiny (if you actually washed your car alright). The car also has diffuse and ambient colors that are not the same for the entire object; a car displays many different ambient/diffuse colors. All by all, such an object has different material properties for each of its different parts.</p>
+<p>So the material system in the previous tutorial isn't sufficient for all but the simplest models so we need to extend the previous system by introducing diffuse and specular maps. These allow us to influence the diffuse (and indirectly the ambient component since they're almost always the same anyways) and the specular component of an object with much more precision.</p>
+<h2 id="diffuse-maps">Diffuse maps</h2>
+<p>What we want is some way to set the diffuse color of an object for each individual fragment. Some sort of system where we can retrieve a color value based on the fragment's position on the object?</p>
+<p>This should probably all sound extremely familiar and to be honest we've been using such a system for a while now. This sounds a lot like <em>textures</em> we've extensively discussed in one of the earlier tutorials and it basically is just that: a texture. We're just using a different name for the same underlying principle: using an image wrapped around an object that we can index for unique color values per fragment. In lighted scenes this is usually called a <strong>diffuse map</strong> (this is generally how 3D artists call them) since a texture image represents all of the object's diffuse colors.</p>
+<p>To demonstrate diffuse maps we're going to use the following image of a wooden container with a steel border:</p>
+<p><img src="textures/container2.png" alt="Container 2"></p>
+<p>Using a diffuse map in shaders is exactly the same as with the texture tutorials. This time however we store the texture as a <strong>sampler2D</strong> inside the <strong>Material</strong> struct. We replace the earlier defined vec3 diffuse color vector with the diffuse map.</p>
+<blockquote>
+<p>Keep in mind that <strong>sampler2D</strong> is a so called <strong>opaque</strong> type which means we can't instantiate these types, but only define them as uniforms. If we would instantiate this struct other than as a uniform (like a function parameter) GLSL could throw strange errors; the same thus applies to any struct holding such opaque types.</p>
+</blockquote>
+<p>We also remove the ambient material color vector since the ambient color is in almost all cases equal to the diffuse color so there's no need to store it separately:</p>
+<pre><code class="lang-glsl">struct Material {
+    sampler2D diffuse;
+    vec3      specular;
+    float     shininess;
+}; 
+//...
+in vec2 TexCoords;
+</code></pre>
+<blockquote>
+<p>If you're a bit stubborn and still want to set the ambient colors to a different value (other than the diffuse value) you can keep the ambient vec3, but then the ambient colors would still remain the same for the entire object. To get different ambient values for each fragment you'd have to use another texture for ambient values alone.</p>
+</blockquote>
+<p>Note that we are going to need texture coordinates again in the fragment shader, so we declared an extra input variable. Then we simply sample from the texture to retrieve the fragment's diffuse color value:</p>
+<pre><code class="lang-glsl">vec3 diffuse = light.diffuse * diff * vec3(texture(material.diffuse, TexCoords));
+</code></pre>
+<p>Also, don't forget to set the ambient material's color equal to the diffuse material's color as well:</p>
+<pre><code class="lang-glsl">vec3 ambient = light.ambient * vec3(texture(material.diffuse, TexCoords));
+</code></pre>
+<p>And that's all it takes to use a diffuse map. As you can see it is nothing new, but it does provide a dramatic increase in visual quality. To get it working we do need to update the vertex data with texture coordinates, transfer them as vertex attributes to the fragment shader, load the texture and bind the texture to the appropriate texture unit.</p>
+<p>The updated vertex data can be found in the source of this episode (link at bottom). The vertex data now includes vertex positions, normal vectors and texture coordinates for each of the cube's vertices. Let's update the vertex shader to accept texture coordinates as a vertex attribute and forward them to the fragment shader:</p>
+<pre><code class="lang-glsl">#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aNormal;
+layout (location = 2) in vec2 aTexCoords;
+//...
+out vec2 TexCoords;
+
+void main()
+{
+    //...
+    TexCoords = aTexCoords;
+}
+</code></pre>
+<p>Be sure to update the vertex attribute pointers of both VAOs to match the new vertex data and load the container image as a texture. Before drawing the container we want to assign the preferred texture unit to the material.diffuse uniform sampler and bind the container texture to this texture unit:</p>
+<pre><code class="lang-cs">_diffuseMap.Use(TextureUnit.Texture0);
+//...
+_lightingShader.SetInt(&quot;material.diffuse&quot;, 0);
+</code></pre>
+<p>Now using a diffuse map we get an enormous boost in detail again and this time with added lighting the container really starts to shine (quite literally). Your container now probably looks something like this:</p>
+<p><img src="img/4-materials_diffuse_map.png" alt="Materials diffuse map"></p>
+<h2 id="specular-maps">Specular maps</h2>
+<p>You probably noticed that the specular highlight looks a bit off since our object is a container that mostly consists of wood and we know that wood doesn't give such specular highlights. We can fix this by setting the specular material of the object to vec3(0.0) but that would mean that the steel borders of the container would stop showing specular highlights as well and we also know that steel should show some specular highlights. Again, we would like to control what parts of the object <strong>should</strong> show a specular highlight with varying intensity. This is a problem that looks really familiar to the diffuse maps discussion. Coincidence? I think not.</p>
+<p>We can also use a texture map just for specular highlights. This means we need to generate a black and white (or colors if you feel like it) texture that defines the specular intensities of each part of the object. An example of a specular map is the following image:</p>
+<p><img src="textures/container2_specular.png" alt="Container 2 specular"></p>
+<p>The intensity of a specular highlight is retrieved by the brightness of each pixel in the image. Each pixel of the specular map can be displayed as a color vector where black represents the color vector vec3(0.0) and gray the color vector vec3(0.5) for example. In the fragment shader we then sample the corresponding color value and multiply this value with the light's specular intensity. The more 'white' a pixel thus is, the higher the result of the multiplication and thus the brighter the specular component of an object becomes.</p>
+<p>Because the container mostly consists of wood, and wood as a material should have no specular highlights, the entire wooden section of the diffuse texture was converted to black: black sections do not have any specular highlight. The steel border of the container has varying specular intensities with the steel itself being relatively susceptible to specular highlights while the cracks are not.</p>
+<blockquote>
+<p>Technically wood also has specular highlights although with a much lower shininess value (more light scattering) and less impact, but for learning purposes we can just pretend wood doesn't have any reaction to specular light.
+Using tools like <em>Photoshop</em>, <em>Gimp</em> or <em><d>paint.net</d></em> it is relatively easy to transform a diffuse texture to a specular image like this by cutting out some parts, transforming it to black and white and increasing the brightness/contrast.</p>
+</blockquote>
+<h2 id="sampling-specular-maps">Sampling specular maps</h2>
+<p>A specular map is just like any other texture so the code is similar to the diffuse map code. Make sure to properly load the image and generate a texture object. Since we're using another texture sampler in the same fragment shader we have to use a different texture unit (see Textures) for the specular map so let's bind it to the appropriate texture unit before rendering:</p>
+<pre><code class="lang-cs">_specularMap.Use(TextureUnit.Texture1);
+//...
+_lightingShader.SetInt(&quot;material.specular&quot;, 1);
+</code></pre>
+<p>Then update the material properties of the fragment shader to accept a sampler2D as its specular component instead of a vec3:</p>
+<pre><code class="lang-glsl">struct Material {
+    sampler2D diffuse;
+    sampler2D specular;
+    float     shininess;
+};
+</code></pre>
+<p>And lastly we want to sample the specular map to retrieve the fragment's corresponding specular intensity:</p>
+<pre><code class="lang-glsl">vec3 ambient  = light.ambient  * vec3(texture(material.diffuse, TexCoords));
+vec3 diffuse  = light.diffuse  * diff * vec3(texture(material.diffuse, TexCoords));  
+vec3 specular = light.specular * spec * vec3(texture(material.specular, TexCoords));
+FragColor = vec4(ambient + diffuse + specular, 1.0);
+</code></pre>
+<p>By using a specular map we can specify with enormous detail what parts of an object actually have shiny properties and we can even set their corresponding intensity. Specular maps thus give us an added layer of control on top of the diffuse map.</p>
+<blockquote>
+<p>If you don't want to be too mainstream you could also use actual colors in the specular map to not only set the specular intensity of each fragment, but also the color of the specular highlight. Realistically, however, the color of the specular highlight is mostly (to completely) determined by the light source itself so it wouldn't generate realistic visuals (that's why the images are usually black and white: we only care about the intensity).</p>
+</blockquote>
+<p>If you would now run the application you can clearly see that the container's material now closely resembles that of an actual wooden container with steel frames:</p>
+<p><img src="img/4-materials_specular_map.png" alt="Lighting maps"></p>
+<p>You can find the full source code of the application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/4%20-%20Lighting%20maps">here</a>.</p>
+<p>Using diffuse and specular maps we can really add an enormous amount of detail into relatively simple objects. We can even add more detail into the objects using other texture maps like normal/bump maps and/or reflection maps, but that is something we'll reserve for later tutorials. Show your container to all your friends and family and be content with the fact that our container can one day become even prettier than it already is!</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opentk/opentk.net/blob/docfx/learn/chapter2/4-lighting-maps.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

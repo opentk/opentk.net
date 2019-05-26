@@ -147,7 +147,7 @@ GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.Unsig
 ```		
 Injecting all the code fragments at their appropriate locations would then result in a clean OpenGL application properly configured for experimenting with lighting. If everything compiles it should look like this:
 
-![Light reflection](img/1-light_reflection.png)
+![Light reflection](img/1-colors_scene.png)
 
 Not really much to look at right now, but I'll promise it will get more interesting in the upcoming tutorials.
 

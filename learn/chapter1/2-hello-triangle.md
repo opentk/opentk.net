@@ -173,7 +173,7 @@ Save this as `shader.vert`.
 
 As you can see, GLSL looks similar to C. Each shader begins with a declaration of its version. Since OpenGL 3.3 and higher the version numbers of GLSL match the version of OpenGL (GLSL version 420 corresponds to OpenGL version 4.2 for example). We also explicitly mention we're using core profile functionality.
 
-Next we declare all the input vertex attributes in the vertex shader with the in keyword. Right now we only care about position data so we only need a single vertex attribute. GLSL has a vector datatype that contains 1 to 4 floats based on its postfix digit. Since each vertex has a 3D coordinate we create a vec3 input variable with the name aPos. We also specifically set the location of the input variable via layout (location = 0) and you'll later see that why we're going to need that location.
+Next we declare all the input vertex attributes in the vertex shader with the in keyword. Right now we only care about position data so we only need a single vertex attribute. GLSL has a vector datatype that contains 1 to 4 floats based on its postfix digit. Since each vertex has a 3D coordinate we create a vec3 input variable with the name `aPosition`. We also specifically set the location of the input variable via layout (location = 0) and you'll later see that why we're going to need that location.
 
 Every shader's entrypoint is the `void main()` function. This is where you can do any processing you need to. However, here, we simply assign to `gl_Position`, a built-in variable for vertex shaders that represents the final position of that vertex. However, `gl_Position` is a `vec4`, but our input vertices are a `vec3`. To do this, we use the function `vec4` to make the vector long enough.
 

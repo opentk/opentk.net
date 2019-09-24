@@ -443,7 +443,7 @@ Now try to compile the code and work your way backwards if any errors popped up.
 
 ![An image of a basic triangle rendered in modern OpenGL](img/2-hellotriangle.png)
 
-The source code for the complete program can be found [here](https://github.com/devvoid/LearnOpenGL-TK/tree/master/1.2%20-%20Hello%20Triangle).
+The source code for the complete program can be found [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%201/2%20-%20Hello%20Triangle).
 
 If your output does not look the same you probably did something wrong along the way so check the complete source code, see if you missed anything or ask in our official Discord server.
 

@@ -8,7 +8,7 @@
     <title>Hello Triangle  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Hello Triangle ">
-    <meta name="generator" content="docfx 2.40.0.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -190,7 +190,7 @@ void main()
 </code></pre>
 <p>Save this as <code>shader.vert</code>.</p>
 <p>As you can see, GLSL looks similar to C. Each shader begins with a declaration of its version. Since OpenGL 3.3 and higher the version numbers of GLSL match the version of OpenGL (GLSL version 420 corresponds to OpenGL version 4.2 for example). We also explicitly mention we're using core profile functionality.</p>
-<p>Next we declare all the input vertex attributes in the vertex shader with the in keyword. Right now we only care about position data so we only need a single vertex attribute. GLSL has a vector datatype that contains 1 to 4 floats based on its postfix digit. Since each vertex has a 3D coordinate we create a vec3 input variable with the name aPos. We also specifically set the location of the input variable via layout (location = 0) and you'll later see that why we're going to need that location.</p>
+<p>Next we declare all the input vertex attributes in the vertex shader with the in keyword. Right now we only care about position data so we only need a single vertex attribute. GLSL has a vector datatype that contains 1 to 4 floats based on its postfix digit. Since each vertex has a 3D coordinate we create a vec3 input variable with the name <code>aPosition</code>. We also specifically set the location of the input variable via layout (location = 0) and you'll later see that why we're going to need that location.</p>
 <p>Every shader's entrypoint is the <code>void main()</code> function. This is where you can do any processing you need to. However, here, we simply assign to <code>gl_Position</code>, a built-in variable for vertex shaders that represents the final position of that vertex. However, <code>gl_Position</code> is a <code>vec4</code>, but our input vertices are a <code>vec3</code>. To do this, we use the function <code>vec4</code> to make the vector long enough.</p>
 <p>The current vertex shader is probably the most simple vertex shader we can imagine because we did no processing whatsoever on the input data and simply forwarded it to the shader's output. In real applications the input data is usually not already in normalized device coordinates so we first have to transform the input data to coordinates that fall within OpenGL's visible region</p>
 <p>The fragment shader is the second and final shader we're going to create for rendering a triangle. The fragment shader is all about calculating the color output of your pixels. To keep things simple the fragment shader will always output an orange-ish color.</p>
@@ -384,7 +384,7 @@ GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
 <p>The <code>GL.DrawArrays</code> function takes as its first argument the OpenGL primitive type we would like to draw. Since I said at the start we wanted to draw a triangle, and I don't like lying to you, we pass in <code>PrimitiveType.Triangles</code>. The second argument specifies the starting index of the vertex array we'd like to draw; since we want to draw all of our vertices, we just leave this at 0. The last argument specifies how many vertices we want to draw, which is 3 (we only render 1 triangle from our data, which is exactly 3 vertices long).</p>
 <p>Now try to compile the code and work your way backwards if any errors popped up. As soon as your application compiles, you should see the following result:</p>
 <p><img src="img/2-hellotriangle.png" alt="An image of a basic triangle rendered in modern OpenGL"></p>
-<p>The source code for the complete program can be found <a href="https://github.com/devvoid/LearnOpenGL-TK/tree/master/1.2%20-%20Hello%20Triangle">here</a>.</p>
+<p>The source code for the complete program can be found <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter%201/2%20-%20Hello%20Triangle">here</a>.</p>
 <p>If your output does not look the same you probably did something wrong along the way so check the complete source code, see if you missed anything or ask in our official Discord server.</p>
 <h2 id="addendum-dynamically-retrieving-shader-layout">Addendum: Dynamically retrieving shader layout</h2>
 <p>For this example, when we call <code>GL.VertexAttribPointer</code>, we use a hardcoded layout of 0 for the position of our variable. This only works because our input variable in shader.vert explicitly sets the layout to 0. But what if you didn't want to do it that way? You can retrieve the position at runtime, if you so wish.</p>
@@ -401,13 +401,6 @@ GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/opentk/opentk.net/blob/docfx/learn/chapter1/2-hello-triangle.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>

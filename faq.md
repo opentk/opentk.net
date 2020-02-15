@@ -2,14 +2,17 @@
 Windows, Linux, OSX, Android and iOS.
 
 #### Which version is the official one?
-[https://github.com/opentk/opentk/](https://github.com/opentk/opentk/ "The official OpenTK repository")
+* [https://github.com/opentk/opentk/](https://github.com/opentk/opentk/) is the official source-repository.
+* [https://www.nuget.org/packages/OpenTK/](https://www.nuget.org/packages/OpenTK/) is the official nuget-package.
+
+Please note any other distribution of the package is not officially supported.
 
 #### How does this relate to the Xamarin OpenTK?
 The Xamarin version is a fork of an ancient version.
 You should prefer this where possible.
 
 #### How can I get it?
-Add the NuGet package to your project.
+Add the [NuGet package](https://www.nuget.org/packages/OpenTK/) to your project.
 
 #### Who uses OpenTK?
 OpenTK is used by numerous scientific renderers and games.
@@ -35,7 +38,8 @@ Try asking on our [Discord server](https://discord.gg/6HqD48s).
 
 #### Who are the maintainers?
 [@thefiddler](https://github.com/thefiddler) is the original author.
-Others include [@varon](https://github.com/varon), [@Nihlus](https://github.com/Nihlus), and [@Perksey](https://github.com/Perksey)
+Current maintainers are [@frederikja163](https://github.com/frederikja163), [@jvbsl](https://github.com/jvbsl), [@PJB3005](https://github.com/PJB3005), and [@varon](https://github.com/varon).
+Previous maintainers include [@Nihlus](https://github.com/Nihlus), and [@Perksey](https://github.com/Perksey)
 
 #### How can I help?
 Check outstanding issues, or drop us a message in Discord.

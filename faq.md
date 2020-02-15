@@ -38,7 +38,7 @@ Try asking on our [Discord server](https://discord.gg/6HqD48s).
 
 #### Who are the maintainers?
 [@thefiddler](https://github.com/thefiddler) is the original author.
-Current maintainers are [@varon](https://github.com/varon), [@PJB3005](https://github.com/PJB3005), and [@frederikja163](https://github.com/frederikja163).
+Current maintainers are [@frederikja163](https://github.com/frederikja163), [@jvbsl](https://github.com/jvbsl), [@PJB3005](https://github.com/PJB3005), and [@varon](https://github.com/varon).
 Previous maintainers include [@Nihlus](https://github.com/Nihlus), and [@Perksey](https://github.com/Perksey)
 
 #### How can I help?

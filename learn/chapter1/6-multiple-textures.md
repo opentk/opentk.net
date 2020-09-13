@@ -94,4 +94,4 @@ base.OnRenderFrame(e);
 
 With both textures bound and the shaders setup properly, you should now see the following:
 
-![Multiple textures](img/5-multiple_textures.png)
+![Multiple textures](img/6-multiple_textures.png)

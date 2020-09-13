@@ -6,7 +6,7 @@ In this tutorial we'll discuss how we can set up a camera in OpenGL. We will dis
 ## Camera/View space
 When we're talking about camera/view space we're talking about all the vertex coordinates as seen from the camera's perspective as the origin of the scene: the view matrix transforms all the world coordinates into view coordinates that are relative to the camera's position and direction. To define a camera we need its position in world space, the direction it's looking at, a vector pointing to the right and a vector pointing upwards from the camera. A careful reader might notice that we're actually going to create a coordinate system with 3 perpendicular unit axes with the camera's position as the origin.
 
-![Camera Axes](img/8-camera_axes.png)
+![Camera Axes](img/9-camera_axes.png)
 
 ### 1. Camera position
 Getting a camera position is easy. The camera position is basically a vector in world space that points to the camera's position. We set the camera at the same position we've set the camera in the previous tutorial:
@@ -44,7 +44,7 @@ With the help of the cross product and a few tricks we were able to create all t
 
 ## Look At
 A great thing about matrices is that if you define a coordinate space using 3 perpendicular (or non-linear) axes you can create a matrix with those 3 axes plus a translation vector and you can transform any vector to that coordinate space by multiplying it with this matrix. This is exactly what the LookAt matrix does and now that we have 3 perpendiclar axes and a position vector to define the camera space we can create our own LookAt matrix:
-![LookAt](img/8-LookAt.png)
+![LookAt](img/9-LookAt.png)
 
 Where ***R*** is the right vector, ***U*** is the up vector, ***D*** is the direction vector and ***P*** is the camera's position vector. Note that the position vector is inverted since we eventually want to translate the world in the opposite direction of where we want to move. Using this LookAt matrix as our view matrix effectively transforms all the world coordinates to the view space we just defined. The LookAt matrix then does exactly what it says: it creates a view matrix that *looks* at a given target.
 
@@ -171,7 +171,7 @@ if (input.IsKeyDown(Key.LShift))
 
 Together with the previous section we should now have a much smoother and more consistent camera system for moving around the scene:
 <video width="600" height="450" loop="">
-    <source src="video/8-camera_smooth.mp4" type="video/mp4">
+    <source src="video/9-camera_smooth.mp4" type="video/mp4">
 </video>
 And now we have a camera that walks and looks equally fast on any system. We'll see the ***deltaTime*** value frequently return with anything movement related.
 
@@ -183,17 +183,17 @@ To look around the scene we have to change the ***cameraFront*** vector based on
 ### Euler angles
 Euler angles are 3 values that can represent any rotation in 3D, defined by Leonhard Euler somewhere in the 1700s. There are 3 Euler angles: *pitch*, *yaw* and *roll*. The following image gives them a visual meaning:
 
-![Camera pitch yaw and roll](img/8-camera_pitch_yaw_roll.png)
+![Camera pitch yaw and roll](img/9-camera_pitch_yaw_roll.png)
 
 The ***pitch is the angle that depicts how much we're looking up or down as seen in the first image. The second image shows the yaw value which represents the magnitude we're looking to the left or to the right. The roll represents how much we roll as mostly used in space-flight cameras. Each of the Euler angles are represented by a single value and with the combination of all 3 of them we can calculate any rotation vector in 3D.
 
 For our camera system we only care about the yaw and pitch values so we won't discuss the roll value here. Given a pitch and a yaw value we can convert them into a 3D vector that represents a new direction vector. The process of converting yaw and pitch values to a direction vector requires a bit of trigonemetry and we start with a basic case:
 
-![Camera triangle](img/8-camera_triangle.png)
+![Camera triangle](img/9-camera_triangle.png)
 
 If we define the hypotenuse to be of length **1** we know from trigonometry (soh cah toa) that the adjacant side's length is **cos x/h=cos x/1=cos x** and that the opposing side's length is sin **y/h=sin y/1=sin y**. This gives us some general formulas for retrieving the length in both the **x** and **y** directions, depending on the given angle. Let's use this to calculate the components of the direction vector:
 
-![Camera pitch](img/8-camera_pitch.png)
+![Camera pitch](img/9-camera_pitch.png)
 
 This triangle looks similar to the previous triangle so if we visualize that we are sitting on the **xz** plane and look towards the **y** axis we can calculate the length / strength of the **y** direction (how much we're looking up or down) based on the first triangle. From the image we can see that the resulting **y** value for a given pitch equals sin **θ**:
 
@@ -208,7 +208,7 @@ front.Z = (float)Math.Cos(MathHelper.DegreesToRadians(Pitch))
 ```
 Let's see if we can find the required components for the yaw value as well:
 
-![Camera yaw](img/8-camera_yaw.png)
+![Camera yaw](img/9-camera_yaw.png)
 
 Just like the pitch triangle we can see that the **x** component depends on the **cos(yaw)** value and the z value also depends on the **sin** of the yaw value. Adding this to the previous values results in a final direction vector based on the pitch and yaw values:
 
@@ -389,7 +389,7 @@ Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(fov), AspectRat
 
 And there you have it. We implemented a simple camera system that allows for free movement in a 3D environment.
 <video width="600" height="450" loop="">
-    <source src="video/8-mouse.mp4" type="video/mp4">
+    <source src="video/9-mouse.mp4" type="video/mp4">
 </video>
 
 Camera class

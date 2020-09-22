@@ -18,7 +18,7 @@ You're probably quite confused by now by what a space or coordinate system actua
 
 To transform the coordinates in one space to the next coordinate space we'll use several transformation matrices of which the most important are the model, view and projection matrix. Our vertex coordinates first start in local space as local coordinates and are then further processed to world coordinates, view coordinates, clip coordinates and eventually end up as screen coordinates. The following image displays the process and shows what each transformation does:
 
-![Coordinate Systems](img/7-coordinate_systems.png)
+![Coordinate Systems](img/8-coordinate_systems.png)
 
 1. Local coordinates are the coordinates of your object relative to its local origin; they're the coordinates your object begins in.
 2. The next step is to transform the local coordinates to world-space coordinates which are coordinates in respect of a larger world. These coordinates are relative to a global origin of the world, together with many other objects also placed relative to the world's origin.
@@ -68,7 +68,7 @@ The projection matrix to transform view coordinates to clip coordinates can take
 
 An orthographic projection matrix defines a cube-like frustum box that defines the clipping space where each vertex outside this box is clipped. When creating an orthographic projection matrix we specify the width, height and length of the visible frustum. All the coordinates that end up inside this frustum after transforming them to clip space with the orthographic projection matrix won't be clipped. The frustum looks a bit like a container:
 
-![Orthographic Frustum](img/7-orthographic_frustum.png)
+![Orthographic Frustum](img/8-orthographic_frustum.png)
 
 The frustum defines the visible coordinates and is specified by a width, a height and a near and far plane. Any coordinate in front of the near plane is clipped and the same applies to coordinates behind the far plane. The orthographic frustum directly maps all coordinates inside the frustum to normalized device coordinates since the w component of each vector is untouched; if the w component is equal to 1.0 perspective division doesn't change the coordinates.
 
@@ -86,11 +86,11 @@ An orthographic projection matrix directly maps coordinates to the 2D plane that
 
 If you ever were to enjoy the graphics the real life has to offer you'll notice that objects that are farther away appear much smaller. This weird effect is something we call perspective. Perspective is especially noticeable when looking down the end of an infinite motorway or railway as seen in the following image:
 
-![Perspective Projection](img/7-perspective.png)
+![Perspective Projection](img/8-perspective.png)
 
 As you can see, due to perspective the lines seem to coincide the farther they're away. This is exactly the effect perspective projection tries to mimic and it does so using a perspective projection matrix. The projection matrix maps a given frustum range to clip space, but also manipulates the w value of each vertex coordinate in such a way that the further away a vertex coordinate is from the viewer, the higher this w component becomes. Once the coordinates are transformed to clip space they are in the range -w to w (anything outside this range is clipped). OpenGL requires that the visible coordinates fall between the range -1.0 and 1.0 as the final vertex shader output, thus once the coordinates are in clip space, perspective division is applied to the clip space coordinates:
 
-![Perspective Division](img/7-latex_clip_space_coordinates.png)
+![Perspective Division](img/8-latex_clip_space_coordinates.png)
 
 Each component of the vertex coordinate is divided by its w component giving smaller vertex coordinates the further away a vertex is from the viewer. This is another reason why the w component is important, since it helps us with perspective projection. The resulting coordinates are then in normalized device space. If you're interested to figure out how the orthographic and perspective projection matrices are actually calculated (and aren't too scared of mathematics) I can recommend [this excellent article](http://www.songho.ca/opengl/gl_projectionmatrix.html) by Songho.
 
@@ -102,7 +102,7 @@ Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45.0f), (float)
 
 What `Matrix4.CreatePerspectiveFieldOfView` does is again create a large frustum that defines the visible space, anything outside the frustum will not end up in the clip space volume and will thus become clipped. A perspective frustum can be visualized as a non-uniformly shaped box from where each coordinate inside this box will be mapped to a point in clip space. An image of a perspective frustum is seen below:
 
-![Perspective Frustum](img/7-perspective_frustum.png)
+![Perspective Frustum](img/8-perspective_frustum.png)
 
 Its first parameter defines the **fovy** value, which stands for field of view (with the y representing the y axis, meaning it's the vertical field of view) and sets how large the viewspace is. For a realistic view it is usually set to 45 degrees, but for more doom-style results you could set it to a higher value. The second parameter sets the aspect ratio which is calculated by dividing the viewport's width by its height. The third and fourth parameter set the near and far plane of the frustum. We usually set the near distance to 0.1f and the far distance to 100.0f. All the vertices between the near and far plane and inside the frustum will be rendered.
 
@@ -110,7 +110,7 @@ Its first parameter defines the **fovy** value, which stands for field of view (
 
 When using orthographic projection, each of the vertex coordinates are directly mapped to clip space without any fancy perspective division (it still does perspective division, but the w component is not manipulated (it stays 1) and thus has no effect). Because the orthographic projection doesn't use perspective projection, objects farther away do not seem smaller, which produces a weird visual output. For this reason the orthographic projection is mainly used for 2D renderings and for some architectural or engineering applications where we'd rather not have vertices distorted by perspective. Applications like Blender that are used for 3D modelling sometimes use orthographic projection for modelling, because it more accurately depicts each object's dimensions. Below you'll see a comparison of both projection methods in Blender:
 
-![Perspective vs. Orthographic](img/7-perspective_orthographic.png)
+![Perspective vs. Orthographic](img/8-perspective_orthographic.png)
 
 You can see that with perspective projection, the vertices farther away appear much smaller, while in orthographic projection each vertex has the same distance to the user.
 
@@ -118,7 +118,7 @@ You can see that with perspective projection, the vertices farther away appear m
 
 We create a transformation matrix for each of the aforementioned steps: model, view and projection matrix. A vertex coordinate is then transformed to clip coordinates as follows:
 
-![Vertex to Clip](img/7-latex_vertex_to_clip.png)
+![Vertex to Clip](img/8-latex_vertex_to_clip.png)
 
 Note that the order of matrix multiplication is reversed (remember that we need to read matrix multiplication from right to left). The resulting vertex should then be assigned to `gl_Position` in the vertex shader and OpenGL will then automatically perform perspective division and clipping.
 
@@ -148,7 +148,7 @@ Because we want to move backwards and since OpenGL is a right-handed system we h
 
 > **Right-handed system**
 > By convention, OpenGL is a right-handed system. What this basically says is that the positive x-axis is to your right, the positive y-axis is up and the positive z-axis is backwards. Think of your screen being the center of the 3 axes and the positive z-axis going through your screen towards you. The axes are drawn as follows:
-> ![Right-Handed Coordinate System](img/7-coordinate_systems_right_handed.png)
+> ![Right-Handed Coordinate System](img/8-coordinate_systems_right_handed.png)
 > 
 >To understand why it's called right-handed do the following:
 >
@@ -206,7 +206,7 @@ Now that our vertex coordinates are transformed via the model, view and projecti
 
 Let's check if the result actually does fulfill these requirements:
 
-![Coordinate Systems Result](img/7-coordinate_systems_result.png)
+![Coordinate Systems Result](img/8-coordinate_systems_result.png)
 
 It does indeed look like the plane is a 3D plane that's resting at some imaginary floor. If you're not getting the same result check the [complete source code.](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%201/7%20-%20Coordinates%20Systems)
 

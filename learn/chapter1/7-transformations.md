@@ -13,11 +13,11 @@ In its most basic definition, vectors are directions and nothing more. A vector 
 Below you'll see 3 vectors where each vector is represented with (x,y) as arrows in a 2D graph. Because it is more intuitive to display vectors in 2D (than in 3D) you can think of the 2D vectors as 3D vectors with a z coordinate of 0. Since vectors represent directions, the origin of the vector does not change its value. In the graph below we can see that the vectors **v**
 and **w** are equal even though their origin is different:
 
-![Vectors](img/6-vectors.png)
+![Vectors](img/7-vectors.png)
 
 When describing vectors mathematicians generally prefer to describe vectors as character symbols with a little bar over their head. However, we can't do that in Markdown, so we'll bold vector names instead, like **v**. Also, when displaying vectors in formulas they are generally displayed as follows:
 
-![How vectors are displayed in formulas](img/6-latex_vector.png)
+![How vectors are displayed in formulas](img/7-latex_vector.png)
 
 Because vectors are specified as directions it is sometimes hard to visualize them as positions. What we basically visualize is we set the origin of the direction to **(0,0,0)** and then point towards a certain direction that specifies the point, making it a position vector (we could also specify a different origin and then say: 'this vector points to that point in space from this origin'). The position vector **(3,5)** would then point to **(3,5)** on the graph with an origin of **(0,0)**. Using vectors we can thus describe directions and positions in 2D and 3D space.
 
@@ -27,7 +27,7 @@ Just like with normal numbers we can also define several operations on vectors (
 
 A scalar is a single digit (or a vector with 1 component if you'd like stay in vector-land). When adding/subtracting/multiplying or dividing a vector with a scalar we simply add/subtract/multiply or divide each element of the vector by the scalar. For addition it would look like this:
 
-![Scalar vector operations](img/6-latex_scalar_addition.png)
+![Scalar vector operations](img/7-latex_scalar_addition.png)
   
 Where **+** can be **+**,**-**, **•** or **÷** where **•** is the multiplication operator. Keep in mind that for the **-** and **÷** operator order, the reverse order is not defined.
 
@@ -35,45 +35,45 @@ Where **+** can be **+**,**-**, **•** or **÷** where **•** is the multiplic
 
 Negating a vector results in a vector in the reversed direction. A vector pointing north-east would point south-west after negation. To negate a vector we add a minus-sign to each component (you can also represent it as a scalar-vector multiplication with a scalar value of -1):
 
-![Vector negation](img/6-latex_vector_negation.png)
+![Vector negation](img/7-latex_vector_negation.png)
 
 ## Addition and subtraction
 
 Addition of two vectors is defined as component-wise addition, that is each component of one vector is added to the same component of the other vector like so:
 
-![Vector addition](img/6-latex_vector_addition.png)
+![Vector addition](img/7-latex_vector_addition.png)
 
 Visually, it looks like this on vectors **v=(4,2)** and **k=(1,2)**:
 
-![Addition of vectors](img/6-vector_addition.png)
+![Addition of vectors](img/7-vector_addition.png)
 
 Just like normal addition and subtraction, vector subtraction is the same as addition with a negated second vector:
 
-![Vector subtraction](img/6-latex_vector_subtraction.png)
+![Vector subtraction](img/7-latex_vector_subtraction.png)
 
 Subtracting two vectors from each other results in a vector that's the difference of the positions both vectors are pointing at. This proves useful in certain cases where we need to retrieve a vector that's the difference between two points.
 
-![Subtraction of vectors](img/6-vector_subtraction.png)
+![Subtraction of vectors](img/7-vector_subtraction.png)
 
 ## Length
 
 To retrieve the length/magnitude of a vector we use the Pythagoras theorem that you might remember from your math classes. A vector forms a triangle when you visualize its individual **x** and **y** component as two sides of a triangle:
 
-![Pythagoras theorem](img/6-vector_triangle.png)
+![Pythagoras theorem](img/7-vector_triangle.png)
 
-![Pythagoras theorem formula](img/6-latex_pythagoras_theorem.png)
+![Pythagoras theorem formula](img/7-latex_pythagoras_theorem.png)
   
 Where **||v||** is denoted as *the length of vector* **v**. This is easily extended to 3D by adding **z^2** to the equation.
 
 In this case the length of vector **(4, 2)** equals:
   
-![Pythagoras theorem formula demonstration](img/6-latex_pythagoras_theorem_demonstrated.png)
+![Pythagoras theorem formula demonstration](img/7-latex_pythagoras_theorem_demonstrated.png)
 
 Which is **4.47**.
 
 There is also a special type of vector that we call a *unit vector*. A unit vector has one extra property and that is that its length is exactly 1. We can calculate a unit vector **n** from any vector by dividing each of the vector's components by its length:
   
-![Unit vector](img/6-latex_unit_vector.png)
+![Unit vector](img/7-latex_unit_vector.png)
 
 We call this *normalizing* a vector. Unit vectors are displayed with a little roof over their head and are generally easier to work with, especially when we only care about their directions (the direction does not change if we change a vector's length).
 
@@ -85,11 +85,11 @@ Multiplying two vectors is a bit of a weird case. Normal multiplication isn't re
 
 The dot product of two vectors is equal to the scalar product of their lengths times the cosine of the angle between them. If this sounds confusing take a look at its formula:
 
-![Dot product formula](img/6-latex_dot_product.png)
+![Dot product formula](img/7-latex_dot_product.png)
 
 Where the angle between them is represented as theta (θ). Why is this interesting? Well, imagine if **v** and **k** are unit vectors then their length would be equal to 1. This would effectively reduce the formula to:
 
-![Dot product formula, simplified](img/6-latex_dot_product_simplified.png)
+![Dot product formula, simplified](img/7-latex_dot_product_simplified.png)
 
 Now the dot product **only** defines the angle between both vectors. You might remember that the cosine or cos function becomes **0** when the angle is 90 degrees or **1** when the angle is 0. This allows us to easily test if the two vectors are *orthogonal* or parallel to each other using the dot product (orthogonal means the vectors are at a *right-angle* to each other). In case you want to know more about the **sin** or the **cosine** functions I'd suggest the following [Khan Academy videos](https://www.khanacademy.org/math/trigonometry/basic-trigonometry/basic_trig_ratios/v/basic-trigonometry) about basic trigonometry.
 
@@ -97,7 +97,7 @@ Now the dot product **only** defines the angle between both vectors. You might r
 
 So how do we calculate the dot product? The dot product is a component-wise multiplication where we add the results together. It looks like this with two unit vectors (you can verify that both their lengths are exactly **1**):
 
-![Dot product demonstrated with two vectors](img/6-latex_dot_product_vectors.png)
+![Dot product demonstrated with two vectors](img/7-latex_dot_product_vectors.png)
 
 To calculate the degree between both these unit vectors we use the inverse of the cosine function **cos^-1**, and this results in **143.1** degrees. We now effectively calculated the angle between these two vectors. The dot product proves very useful when doing lighting calculations.
 
@@ -105,11 +105,11 @@ To calculate the degree between both these unit vectors we use the inverse of th
 
 The cross product is only defined in 3D space and takes two non-parallel vectors as input and produces a third vector that is orthogonal to both the input vectors. If both the input vectors are orthogonal to each other as well, a cross product would result in 3 orthogonal vectors. This will prove useful in the upcoming tutorials. The following image shows what this looks like in 3D space:
 
-![Cross product of two vectors](img/6-vector_crossproduct.png)
+![Cross product of two vectors](img/7-vector_crossproduct.png)
 
 Unlike the other operations, the cross product isn't really intuitive without delving into linear algebra so it's best to just memorize the formula and you'll be fine (or don't, you'll probably be fine as well). Below you'll see the cross product between two orthogonal vectors A and B:
   
-![Cross product formula](img/6-latex_cross_product.png)
+![Cross product formula](img/7-latex_cross_product.png)
   
 As you can see, it doesn't really seem to make sense. However, if you just follow these steps you'll get another vector that is orthogonal to your input vectors.
 
@@ -117,7 +117,7 @@ As you can see, it doesn't really seem to make sense. However, if you just follo
 
 Now that we've discussed almost all there is to vectors it is time to enter the matrix! A matrix is basically a rectangular array of numbers, symbols and/or expressions. Each individual item in a matrix is called an element of the matrix. An example of a 2x3 matrix is shown below:
 
-![2x3 Matrix](img/6-latex_matrix.png)
+![2x3 Matrix](img/7-latex_matrix.png)
 
 Matrices are indexed by **(i,j)** where **i** is the row and **j** is the column, that is why the above matrix is called a 2x3 matrix (3 columns and 2 rows, also known as the dimensions of the matrix). This is the opposite of what you're used to when indexing 2D graphs as **(x,y)**. To retrieve the value 4 we would index it as (2,1) (second row, first column).
 
@@ -129,25 +129,25 @@ Matrices are basically nothing more than that, just rectangular arrays of mathem
 
 Addition and subtraction between a matrix and a scalar is defined as follows:
 
-![Matrix addition with a scalar](img/6-latex_matrix_addition_scalar.png)
+![Matrix addition with a scalar](img/7-latex_matrix_addition_scalar.png)
 
 The scalar value is basically added to each individual element of the matrix. The same applies for matrix-scalar subtraction:
 
-![Matrix subtraction with a scalar](img/6-latex_matrix_subtraction_scalar.png)
+![Matrix subtraction with a scalar](img/7-latex_matrix_subtraction_scalar.png)
 
 Matrix addition and subtraction between two matrices is done on a per-element basis. So the same general rules apply that we're familiar with for normal numbers, but done on the elements of both matrices with the same index. This does mean that addition and subtraction is only defined for matrices of the same dimensions. A 3x2 matrix and a 2x3 matrix (or a 3x3 matrix and a 4x4 matrix) cannot be added or subtracted together. Let's see how matrix addition works on two 2x2 matrices:
 
-![Matrix addition with a matrix](img/6-latex_matrix_addition_matrix.png)
+![Matrix addition with a matrix](img/7-latex_matrix_addition_matrix.png)
 
 The same rules apply for matrix subtraction:
   
-![Matrix subtraction with a matrix](img/6-latex_matrix_subtraction_matrix.png)
+![Matrix subtraction with a matrix](img/7-latex_matrix_subtraction_matrix.png)
 
 ## Matrix-scalar products
 
 Just like addition and subtraction, a matrix-scalar product multiples each element of the matrix by a scalar. The following example illustrates the multiplication:
 
-![Matrix product with a scalar](img/6-latex_matrix_product_scalar.png)
+![Matrix product with a scalar](img/7-latex_matrix_product_scalar.png)
 
 Now it also makes sense as to why those single numbers are called scalars. A scalar basically scales all the elements of the matrix by its value. In the previous example, all elements were scaled by 2.
 
@@ -162,11 +162,11 @@ Multiplying matrices is not necessarily complex, but rather difficult to get com
 
 Let's get started with an example of a matrix multiplication of two 2x2 matrices:
 
-![Matrix product with a matrix](img/6-latex_matrix_product_matrix.png)
+![Matrix product with a matrix](img/7-latex_matrix_product_matrix.png)
 
 Right now you're probably trying to figure out what the hell just happened? Matrix multiplication is a combination of normal multiplication and addition using the left-matrix's rows with the right-matrix's columns. Let's try discussing this with the following image:
 
-![Matrix multiplication](img/6-matrix_multiplication.png)
+![Matrix multiplication](img/7-matrix_multiplication.png)
 
 We first take the upper row of the left matrix and then take a column from the right matrix. The row and column that we picked decides which output value of the resulting 2x2 matrix we're going to calculate. If we take the first row of the left matrix the resulting value will end up in the first row of the result matrix, then we pick a column and if it's the first column the result value will end up in the first column of the result matrix. This is exactly the case of the red pathway. To calculate the bottom-right result we take the bottom row of the first matrix and the rightmost column of the second matrix.
 
@@ -178,7 +178,7 @@ Don't worry if you have difficulties imagining the multiplications inside your h
 
 Let's finish the discussion of matrix-matrix multiplication with a larger example. Try to visualize the pattern using the colors. As a useful exercise, see if you can come up with your own answer of the multiplication and then compare them with the resulting matrix (once you try to do a matrix multiplication by hand you'll quickly get the grasp of them).
 
-![Matrix multiplication, on a bigger scale](img/6-latex_matrix_product_matrix_bigger.png)
+![Matrix multiplication, on a bigger scale](img/7-latex_matrix_product_matrix_bigger.png)
 
 As you can see, matrix-matrix multiplication is quite a cumbersome process and very prone to errors (which is why we usually let computers do this) and this gets problematic real quick when the matrices become larger. If you're still thirsty for more and you're curious about some more of the mathematical properties of matrices I strongly suggest you take a look at these [Khan Academy videos](https://www.khanacademy.org/math/algebra2/algebra-matrices) about matrices.
 
@@ -194,7 +194,7 @@ But why do we care if we can multiply matrices with a vector? Well, it just so h
 
 In OpenGL we usually work with 4x4 transformation matrices for several reasons and one of them is that most of the vectors are of size 4. The most simple transformation matrix that we can think of is the identity matrix. The identity matrix is an NxN matrix with only 0s except on its diagonal. As you'll see, this transformation matrix leaves a vector completely unharmed:
 
-![The identity matrix](img/6-latex_matrix_identity.png)
+![The identity matrix](img/7-latex_matrix_identity.png)
 
 The vector seems completely untouched. This becomes obvious from the rules of multiplication: the first result element is each individual element of the first row of the matrix multiplied with each element of the vector. Since each of the row's elements are 0 except the first one, we get: `1 • 1 + 0 • 2 + 0 • 3 + 0 • 4 = 1` and the same applies for the other 3 elements of the vector.
 
@@ -206,13 +206,13 @@ When we're scaling a vector we are increasing the length of the arrow by amount 
 
 Let's try scaling the vector **v** = (3,2). We will scale the vector along the x-axis by **0.5**, thus making it twice as narrow; and we'll scale the vector by **2** along the y-axis, making it twice as high. Let's see what it looks like if we scale the vector by **(0.5,2)** as **s**:
 
-![Scaling vectors](img/6-vector_scale.png)
+![Scaling vectors](img/7-vector_scale.png)
 
 Keep in mind that OpenGL usually operates in 3D space so for this 2D case we could set the z-axis scale to 1 thus leaving it unharmed. The scaling operation we just performed is a non-uniform scale, because the scaling factor is not the same for each axis. If the scalar would be equal on all axes it would be called a uniform scale.
 
 Let's start building a transformation matrix that does the scaling for us. We saw from the identity matrix that each of the diagonal elements were multiplied with its corresponding vector element. What if we were to change the **1**s in the identity matrix to **3**s? In that case, we would be multiplying each of the vector elements by a value of **3** and thus effectively scale the vector by 3. If we represent the scaling variables as (S1, S2, S3) we can define a scaling matrix on any vector **(x,y,z)** as:
 
-![Scaling matrix](img/6-latex_matrix_scale.png)
+![Scaling matrix](img/7-latex_matrix_scale.png)
 
 Note that the 4th scaling vector stays 1, since it's undefined to scale the **w** component in a 3D space. The **w** component is used for other purposes as we'll see later on.
 
@@ -222,7 +222,7 @@ Note that the 4th scaling vector stays 1, since it's undefined to scale the **w*
 
 Just like the scaling matrix there are several locations on a 4-by-4 matrix that we can use to perform certain operations and for translation those are the top-3 values of the 4th column. If we represent the translation vector as (Tx, Ty, Tz) we can define the translation matrix by:
 
-![Translation matrix](img/6-latex_matrix_translation.png)
+![Translation matrix](img/7-latex_matrix_translation.png)
 
 This works because all of the translation values are multiplied by the vector's **w** column and added to the vector's original values (remember the matrix-multiplication rules). This wouldn't have been possible with a 3-by-3 matrix.
 
@@ -248,7 +248,7 @@ In addition, OpenTK provides the function `MathHelper.DegreesToRadians` to easil
 
 Rotating half a circle would rotate us 360/2 = 180 degrees and rotating 1/5th to the right means we rotate 360/5 = 72 degrees to the right. This is demonstrated for a basic 2D vector where **v** is rotated 72 degrees to the right from **k**:
 
-![Vector angles](img/6-vector_angle.png)
+![Vector angles](img/7-vector_angle.png)
 
 Rotations in 3D are specified with an angle and a rotation axis. The angle specified will rotate the object along the rotation axis given. Try to visualize this by spinning your head a certain degree while continually looking down a single rotation axis. When rotating 2D vectors in a 3D world for example, we set the rotation axis to the z-axis (try to visualize this).
 
@@ -258,19 +258,19 @@ A rotation matrix is defined for each unit axis in 3D space where the angle is r
 
 Rotation around the X-axis:
 
-![A rotation matrix on the X axis](img/6-latex_matrix_rotation_x.png)
+![A rotation matrix on the X axis](img/7-latex_matrix_rotation_x.png)
 
 Rotation around the Y-axis:
 
-![A rotation matrix on the Y axis](img/6-latex_matrix_rotation_y.png)
+![A rotation matrix on the Y axis](img/7-latex_matrix_rotation_y.png)
 
 Rotation around the Z-axis:
 
-![A rotation matrix on the z axis](img/6-latex_matrix_rotation_z.png)
+![A rotation matrix on the z axis](img/7-latex_matrix_rotation_z.png)
 
 Using the rotation matrices we can transform our position vectors around one of the three unit axes. It is also possible to combine them by first rotating around the X-axis and then the Y-axis for example. However, this quickly introduces a problem called *Gimbal lock*. We won't discuss the details, but a better solution is to rotate around an arbitrary unit axis e.g. **(0.662,0.2,0.722)** (note that this is a unit vector) right away instead of combining the rotation matrices. Such a (nasty) matrix exists and is given below with (Rx, Ry, Rz) as the arbitrary rotation axis:
 
-![A rotation matrix on all axes](img/6-latex_matrix_rotation_all.png)
+![A rotation matrix on all axes](img/7-latex_matrix_rotation_all.png)
 
 A mathematical discussion of generating such a matrix is out of the scope of this tutorial. Keep in mind that even this matrix does not completely prevent gimbal lock (although it gets a lot harder). To truly prevent Gimbal locks we have to represent rotations using *quaternions*, that are not only safer, but also more computationally friendly. However, a discussion of quaternions is reserved for a later tutorial.
 
@@ -278,13 +278,13 @@ A mathematical discussion of generating such a matrix is out of the scope of thi
 
 The true power from using matrices for transformations is that we can combine multiple transformations in a single matrix thanks to matrix-matrix multiplication. Let's see if we can generate a transformation matrix that combines several transformations. Say we have a vector (x,y,z) and we want to scale it by 2 and then translate it by (1,2,3). We need a translation and a scaling matrix for our required steps. The resulting transformation matrix would then look like:
 
-![Combining matrices](img/6-latex_combining_matrices.png)
+![Combining matrices](img/7-latex_combining_matrices.png)
 
 Note that we first do a translation and then a scale transformation when multiplying matrices. Matrix multiplication is not commutative, which means their order is important. When multiplying matrices the right-most matrix is first multiplied with the vector so you should read the multiplications from right to left. It is advised to first do scaling operations, then rotations and lastly translations when combining matrices otherwise they might (negatively) affect each other. For example, if you would first do a translation and then scale, the translation vector would also scale!
 
 Running the final transformation matrix on our vector results in the following vector:
 
-![Combining matrices final](img/6-latex_combining_matrices_result.png)
+![Combining matrices final](img/7-latex_combining_matrices_result.png)
 
 Great! The vector is first scaled by two and then translated by **(1,2,3)**.
 
@@ -351,7 +351,7 @@ GL.UniformMatrix4(location, true, ref matrix);
 
 We created a transformation matrix, declared a uniform in the vertex shader and sent the matrix to the shaders where we transform our vertex coordinates. The result should look something like this:
 
-![Transformation result](img/6-transformations.png)
+![Transformation result](img/7-transformations.png)
 
 Perfect! Our container is indeed tilted to the left and twice as small so the transformation was successful.
 

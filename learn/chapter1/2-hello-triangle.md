@@ -419,10 +419,10 @@ GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(fl
 GL.EnableVertexAttribArray(0);
 ```
 
-Then, to actually draw the object, you'd put the following in your render loop:
+Then, to actually draw the object, you'd put the following in your render loop `OnRenderFrame()` :
 
 ```cs
-GL.UseProgram();
+GL.UseProgram(0);
 GL.BindVertexArray(VertexArrayObject);
 someOpenGLFunctionThatDrawsOurTriangle();
 ```

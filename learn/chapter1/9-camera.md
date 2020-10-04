@@ -226,6 +226,7 @@ First we will tell OpenTK that it should hide the cursor and *capture* it. Captu
 
 ```cs
 CursorVisible = false;
+CursorGrabbed = true;
 ```
 After this call, wherever we move the mouse it won't be visible and it should not leave the window. This is perfect for an FPS camera system.
 

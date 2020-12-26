@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Multiple Textures and Texture Units  - OpenTK</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Multiple Textures and Texture Units ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+    <meta name="author" content="The Open Toolkit Project">
+    <meta property="og:image" content="https://opentk.net/otkBig.png">
+    <meta property="og:image:width" content="142">
+    <meta property="og:image:height" content="50">
+    <meta property="og:site_name" content="OpenTK">
+    <meta property="og:title" content="Multiple Textures and Texture Units  - OpenTK">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
+          <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+          <img id="logo" src="../../otkBig.png" alt="">
+        </a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="multiple-textures-and-texture-units">Multiple Textures and Texture Units</h1>
+
+<p>You probably wondered why the <code>sampler2D</code> variable is a uniform if we didn't even assign it some value with <code>GL.Uniform*</code>. Using <code>GL.Uniform1</code> we can actually assign a location value to the texture sampler so we can set multiple textures at once in a fragment shader. This location of a texture is more commonly known as a texture unit. The default texture unit for a texture is 0 which is the default active texture unit so we did not had to assign a location in the previous section; note that not all graphics drivers assign a default texture unit so the previous section might not've rendered for you.</p>
+<p>The main purpose of texture units is to allow us to use more than 1 texture in our shaders. By assigning texture units to the samplers, we can bind to multiple textures at once as long as we activate the corresponding texture unit first. Just like <code>GL.BindTexture</code> we can activate texture units using <code>GL.ActiveTexture</code> passing in the texture unit we'd like to use:</p>
+<pre><code class="lang-cs">GL.ActiveTexture(TextureUnit.Texture0); // activate the texture unit first before binding texture
+GL.BindTexture(TextureTarget.Texture2D, texture);
+</code></pre>
+<p>After activating a texture unit, a subsequent <code>GL.BindTexture</code> call will bind that texture to the currently active texture unit. Texture unit <code>Texture0</code> is always by default activated, so we didn't have to activate any texture units in the previous example when using <code>GL.BindTexture</code>.</p>
+<blockquote>
+<p>OpenGL should have a at least a minimum of 16 texture units for you to use which you can activate using <code>Texture0</code> through <code>Texture15</code>.</p>
+</blockquote>
+<p>We still however need to edit the fragment shader to accept another sampler. This should be relatively straightforward now:</p>
+<pre><code class="lang-glsl">#version 330 core
+
+/* ... */
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+</code></pre>
+<p>The final output color is now the combination of two texture lookups. GLSL's built-in mix function takes two values as input and linearly interpolates between them based on its third argument. If the third value is 0.0 it returns the first input; if it's 1.0 it returns the second input value. A value of 0.2 will return 80% of the first input color and 20% of the second input color, resulting in a mixture of both our textures.</p>
+<p>We now want to load and create another texture; you should be familiar with the steps now. Make sure to create another texture object, load the image and generate the final texture using <code>GL.TexImage2D</code>. For the second texture we'll use an image of <a href="textures/awesomeface.png">your facial expression while learning OpenGL</a>:</p>
+<p>To use the second texture (and the first texture) we'd have to change the rendering procedure a bit by binding both textures to the corresponding texture unit. Firstly, go to <code>Texture.cs</code>, and modify the Use function like so:</p>
+<pre><code class="lang-cs">void Use(TextureUnit unit = TextureUnit.Texture0)
+{
+    GL.ActiveTexture(unit);
+    GL.BindTexture(TextureTarget.2D, Handle);
+}
+</code></pre>
+<p>Then, add a new property to hold the new texture, and load it on <code>OnLoad</code>.</p>
+<pre><code class="lang-cs">Texture texture2;
+
+...
+
+texture2 = new Texture(&quot;awesomeface.png&quot;);
+</code></pre>
+<p>The new texture is available, now we have to setup the shader uniforms. Add the following function to <code>Shader.cs</code>:</p>
+<pre><code class="lang-cs">public void SetInt(string name, int value)
+{
+    int location = GL.GetUniformLocation(Handle, name);
+
+    GL.Uniform1(location, value);
+}
+</code></pre>
+<p>This function just simplifies the process of setting a shader's uniform. Samplers are represented as ints to the CPU; set the uniform to an int, and it'll check that texture unit.</p>
+<p>Add the following lines just after the textures are created in <code>OnLoad</code>:</p>
+<pre><code class="lang-cs">shader.SetInt(&quot;texture1&quot;, 0);
+shader.SetInt(&quot;texture2&quot;, 1);
+</code></pre>
+<p>This sets the uniform <code>texture1</code> to use whatever's in texture unit 0, and <code>texture2</code> to use whatever's in texture unit 1.</p>
+<p>Finally, modify <code>OnRenderFrame</code> to this:</p>
+<pre><code class="lang-cs">GL.Clear(ClearBufferMask.ColorBufferBit);
+GL.BindVertexArray(VertexArrayObject);
+
+texture.Use(TextureUnit.Texture0);
+texture2.Use(TextureUnit.Texture1);
+shader.Use();
+
+GL.DrawElements(PrimitiveType.Triangles, indices.Length, DrawElementsType.UnsignedInt, 0);
+
+Context.SwapBuffers();
+
+base.OnRenderFrame(e);
+</code></pre>
+<p>With both textures bound and the shaders setup properly, you should now see the following:</p>
+<p><img src="img/6-multiple_textures.png" alt="Multiple textures"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

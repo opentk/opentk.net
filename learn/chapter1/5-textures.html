@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Textures  - OpenTK</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Textures ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+    <meta name="author" content="The Open Toolkit Project">
+    <meta property="og:image" content="https://opentk.net/otkBig.png">
+    <meta property="og:image:width" content="142">
+    <meta property="og:image:height" content="50">
+    <meta property="og:site_name" content="OpenTK">
+    <meta property="og:title" content="Textures  - OpenTK">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
+          <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+          <img id="logo" src="../../otkBig.png" alt="">
+        </a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="textures">Textures</h1>
+
+<p>We learned that to add more detail to our objects we can use colors for each vertex to create some interesting images. However, to get a fair bit of realism we'd have to have many vertices so we could specify a lot of colors. This takes up a considerable amount of extra overhead, since each models needs a lot more vertices and for each vertex a color attribute as well.</p>
+<p>What artists and programmers generally prefer is to use a texture. A texture is a 2D image (1D and 3D textures exist, but they aren't very common) used to add detail to an object; think of a texture as a piece of paper with a nice brick image (for example) on it neatly folded over your 3D house so it looks like your house has a stone exterior. Because we can insert a lot of detail in a single image, we can give the illusion the object is extremely detailed without having to specify extra vertices.</p>
+<blockquote>
+<p>Aside from images, textures can also be used to store a large collection of data to send to the shaders, but we'll leave that for a different topic.</p>
+</blockquote>
+<p>Below you'll see <a href="textures/wall.jpg">a texture image of a brick wall mapped to the triangle</a> from the previous tutorial.</p>
+<p><img src="img/5-textures.png" alt="A triangle with a texture"></p>
+<p>In order to map a texture to the triangle, we need to tell each vertex of the triangle which part of the texture it corresponds to. Each vertex should thus have a texture coordinate associated with them that specifies what part of the texture image to sample from. Fragment interpolation then does the rest for the other fragments.</p>
+<p>Texture coordinates range from 0 to 1 in the x and y axis (remember that we use 2D texture images). Retrieving the texture color using texture coordinates is called sampling. Texture coordinates start at (0,0) for the lower left corner of a texture image to (1,1) for the upper right corner of a texture image. The following image shows how we map texture coordinates to the triangle:</p>
+<p><img src="img/5-tex_coords.png" alt="The textured triangle, now with texture coordinates"></p>
+<p>We specify 3 texture coordinate points for the triangle. We want the bottom-left side of the triangle to correspond with the bottom-left side of the texture so we use the (0,0) texture coordinate for the triangle's bottom-left vertex. The same applies to the bottom-right side with a (1,0) texture coordinate. The top of the triangle should correspond with the top-center of the texture image so we take (0.5,1.0) as its texture coordinate. We only have to pass 3 texture coordinates to the vertex shader, which then passes those to the fragment shader that neatly interpolates all the texture coordinates for each fragment.</p>
+<p>The resulting texture coordinates would then look like this:</p>
+<pre><code class="lang-cs">float[] texCoords = {
+    0.0f, 0.0f,  // lower-left corner  
+    1.0f, 0.0f,  // lower-right corner
+    0.5f, 1.0f   // top-center corner
+};
+</code></pre>
+<p>Texture sampling has a loose interpretation and can be done in many different ways. It is thus our job to tell OpenGL how it should sample its textures.</p>
+<h2 id="texture-wrapping">Texture Wrapping</h2>
+<p>Texture coordinates usually range from (0,0) to (1,1), but what happens if we specify coordinates outside this range? The default behavior of OpenGL is to repeat the texture images (we basically ignore the integer part of the floating point texture coordinate), but there are more options OpenGL offers:</p>
+<ul>
+<li><code>Repeat</code>: The default behavior for textures. Repeats the texture image.</li>
+<li><code>MirroredRepeat</code>: Same as GL_REPEAT but mirrors the image with each repeat.</li>
+<li><code>ClampToEdge</code>: Clamps the coordinates between 0 and 1. The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.</li>
+<li><code>ClampToBorder</code>: Coordinates outside the range are now given a user-specified border color.</li>
+</ul>
+<p>Each of the options have a different visual output when using texture coordinates outside the default range. Let's see what these look like on a sample texture image:</p>
+<p><img src="img/5-texture_wrapping.png" alt="Examples of texture wrapping"></p>
+<p>Each of the aforementioned options can be set per coordinate axis (s, t (and p if you're using 3D textures) equivalent to x,y,z) with the <code>GL.TexParameter</code> function:</p>
+<pre><code class="lang-cs">GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.Repeat);
+GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.Repeat);
+</code></pre>
+<blockquote>
+<p>Note: You have to cast the enum to int for <code>GL.TexParameter</code> to accept it.</p>
+</blockquote>
+<p>The first argument specifies the texture target; we're working with 2D textures so the texture target is <code>TextureTarget.Texture2D</code>. The second argument requires us to tell what option we want to set and for which texture axis. We want to configure the WRAP option and specify it for both the S and T axis. The last argument requires us to pass in the texture wrapping mode we'd like and in this case OpenGL will set its texture wrapping option on the currently active texture with <code>TextureWrapMode.Repeat</code>.</p>
+<p>If we choose the <code>TextureWrapMode.ClampToBorder</code> option, we should also specify a border color. This is done using the fv equivalent of the glTexParameter function with <code>TextureParameterName.TextureBorderColor</code> as its option where we pass in a float array of the border's color value:</p>
+<pre><code class="lang-cs">float[] borderColor = { 1.0f, 1.0f, 0.0f, 1.0f };
+GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureBorderColor, borderColor);  
+</code></pre>
+<h2 id="texture-filtering">Texture Filtering</h2>
+<p>Texture coordinates do not depend on resolution but can be any floating point value, thus OpenGL has to figure out which texture pixel (also known as a texel) to map the texture coordinate to. This becomes especially important if you have a very large object and a low resolution texture. You probably guessed by now that OpenGL has options for this texture filtering as well. There are several options available but for now we'll discuss the most important options: <code>Nearest</code> and <code>Linear</code>.</p>
+<p><code>Nearest</code> (also known as nearest neighbor filtering) is the default texture filtering method of OpenGL. When set to <code>Nearest</code>, OpenGL selects the pixel which center is closest to the texture coordinate. Below you can see 4 pixels where the cross represents the exact texture coordinate. The upper-left texel has its center closest to the texture coordinate and is therefore chosen as the sampled color:</p>
+<p><img src="img/5-texture_filter_nearest.png" alt="Nearest-neighbor filtering"></p>
+<p><code>Linear</code> (also known as (bi)linear filtering) takes an interpolated value from the texture coordinate's neighboring texels, approximating a color between the texels. The smaller the distance from the texture coordinate to a texel's center,the more that texel's color contributes to the sampled color. Below we can see that a mixed color of the neighboring pixels is returned:</p>
+<p><img src="img/5-texture_filter_linear.png" alt="Linear filtering"></p>
+<p>But what is the visual effect of such a texture filtering method? Let's see how these methods work when using a texture with a low resolution on a large object (texture is therefore scaled upwards and individual texels are noticeable):</p>
+<p><img src="img/5-texture_filtering.png" alt="Comparison of filtering methods"></p>
+<p><code>Nearest</code> results in blocked patterns where we can clearly see the pixels that form the texture while <code>Linear</code> produces a smoother pattern where the individual pixels are less visible. <code>Linear</code> produces a more realistic output, but some developers prefer a more retro, pixelated look and as a result pick the <code>Nearest</code> option.</p>
+<p>Texture filtering can be set for magnifying and minifying operations (when scaling up or downwards) so you could for example use nearest neighbor filtering when textures are scaled downwards and linear filtering for upscaled textures. We thus have to specify the filtering method for both options via <code>GL.TexParameter</code>. The code should look similar to setting the wrapping method:</p>
+<pre><code class="lang-cs">GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
+GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+</code></pre>
+<h2 id="mipmaps">Mipmaps</h2>
+<p>Imagine if we had a large room with thousands of objects, each with an attached texture. There will be objects far away that have the same high resolution texture attached as the objects close to the viewer. Since the objects are far away and probably only produce a few fragments, OpenGL has difficulties retrieving the right color value for its fragment from the high resolution texture, since it has to pick a texture color for a fragment that spans a large part of the texture. This will produce visible artifacts on small objects, not to mention the waste of memory to use high resolution textures on small objects.</p>
+<p>To solve this issue OpenGL uses a concept called mipmaps that is basically a collection of texture images where each subsequent texture is twice as small compared to the previous one. The idea behind mipmaps should be easy to understand: after a certain distance threshold from the viewer, OpenGL will use a different mipmap texture that best suits the distance to the object. Because the object is far away, the smaller resolution will not be noticeable to the user. Also, mipmaps have the added bonus feature that they're good for performance as well. Let's take a closer look at what a mipmapped texture looks like:</p>
+<p><img src="img/5-mipmaps.png" alt="Mipmaps"></p>
+<p>Creating a collection of mipmapped textures for each texture image is cumbersome to do manually, but luckily OpenGL is able to do all the work for us with a single call to <code>GL.GenerateMipmaps</code> after we've created a texture. Later in the texture tutorial you'll see use of this function.</p>
+<p>When switching between mipmaps levels during rendering OpenGL might show some artifacts like sharp edges visible between the two mipmap layers. Just like normal texture filtering, it is also possible to filter between mipmap levels using <code>Nearest</code> and <code>Linear</code> filtering for switching between mipmap levels. To specify the filtering method between mipmap levels we can replace the original filtering methods with one of the following four options:</p>
+<ul>
+<li><code>NearestMipmapNearest</code>: takes the nearest mipmap to match the pixel size and uses nearest neighbor interpolation for texture sampling.</li>
+<li><code>LinearMipmapNearest</code>: takes the nearest mipmap level and samples using linear interpolation.</li>
+<li><code>NearestMipmapLinear</code>: linearly interpolates between the two mipmaps that most closely match the size of a pixel and samples via nearest neighbor interpolation.</li>
+<li><code>LinearMipmapLinear</code>: linearly interpolates between the two closest mipmaps and samples the texture via linear interpolation.</li>
+</ul>
+<p>Just like texture filtering, we can set the filtering method to one of the 4 aforementioned methods using <code>GL.TexParameter</code>:</p>
+<pre><code class="lang-cs">GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.LinearMipmapLinear);
+GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+</code></pre>
+<p>A common mistake is to set one of the mipmap filtering options as the magnification filter. This doesn't have any effect since mipmaps are primarily used for when textures get downscaled: texture magnification doesn't use mipmaps and giving it a mipmap filtering option will generate an OpenGL GL_INVALID_ENUM error code.</p>
+<h2 id="loading-and-creating-textures">Loading and creating textures</h2>
+<p>The first thing we need to do to actually use textures is to load them into our application. Texture images can be stored in dozens of file formats, each with their own structure and ordering of data, so how do we get those images in our application? One solution would be to choose a file format we'd like to use, say .PNG and write our own image loader to convert the image format into a large array of bytes. While it's not very hard to write your own image loader, it's still cumbersome and what if you want to support more file formats? You'd then have to write an image loader for each format you want to support.</p>
+<p>Another solution, and probably a good one, is to use an image-loading library that supports several popular formats and does all the hard work for us. A library like</p>
+<h3 id="imagesharp">ImageSharp</h3>
+<p>ImageSharp is a very popular image loading library by SixLabors that is able to load most popular file formats and is easy to integrate in your project(s). You can add ImageSharp to your project from Nuget.</p>
+<p>For the following section on textures, we'll use an <a href="textures/container.jpg">image of a wooden crate</a>.</p>
+<p>Create a new file your project, <code>Texture.cs</code>. Put the following <code>using</code> statements at the top:</p>
+<pre><code class="lang-cs">using System;
+using System.Collections.Generic;
+using OpenTK.Graphics.OpenGL4;
+
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+</code></pre>
+<p>Create a class, <code>Texture</code>, and add an int named Handle as a property. The constructor should take one argument: a path to the image file.</p>
+<p>In the constructor, write the line <code>Handle = GL.GenTexture();</code>. This will generate a blank texture for us to use.</p>
+<p>Next, add the function <code>Use</code> to your code, containing the line <code>GL.BindTexture(TextureTarget.Texture2D, Handle);</code>. Call that in your constructor just after generating the texture.</p>
+<p>Next, we'll have to use ImageSharp to load an image, and send those pixels to OpenGL.</p>
+<pre><code class="lang-cs">//Load the image
+Image&lt;Rgba32&gt; image = Image.Load&lt;Rgba32&gt;(path);
+
+//ImageSharp loads from the top-left pixel, whereas OpenGL loads from the bottom-left, causing the texture to be flipped vertically.
+//This will correct that, making the texture display properly.
+image.Mutate(x =&gt; x.Flip(FlipMode.Vertical));
+
+//Convert ImageSharp's format into a byte array, so we can use it with OpenGL.
+var pixels = new List&lt;byte&gt;(4 * image.Width * image.Height);
+
+for (int y = 0; y &lt; image.Height; y++) {
+	var row = image.GetPixelRowSpan(y);
+
+	for (int x = 0; x &lt; image.Width; x++) {
+		pixels.Add(row[x].R);
+		pixels.Add(row[x].G);
+		pixels.Add(row[x].B);
+		pixels.Add(row[x].A);
+	}
+}
+</code></pre>
+<p>Now that we have a byte array representing our pixels, we have to set the wrap and filter modes. For now, just go with Linear and Repeat.</p>
+<p>Now that that's done, it's time to generate our texture.</p>
+<pre><code class="lang-cs">GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels.ToArray());
+</code></pre>
+<p>The parameters for <code>TexImage2D</code> are as follows:</p>
+<ul>
+<li><p>The type of texture being generated. You can generate 1D, 2D, and 3D textures, but it's rare to need anything other than 2D.</p>
+</li>
+<li><p>The level of detail. If this is set to something other than 0, you can set the default mipmap as a level lower than the maximum. We don't want that, so leave it at 0.</p>
+</li>
+<li><p>The format OpenGL will use to store the pixels on the GPU. You almost always want this to be RGBA.</p>
+</li>
+<li><p>Width of the image.</p>
+</li>
+<li><p>Height of the image.</p>
+</li>
+<li><p>Border of the image. This must always be 0; it's a legacy parameter from ancient versions of OpenGL.</p>
+</li>
+<li><p>The format of the bytes. ImageSharp will always place its images in Rgba, so just use that.</p>
+</li>
+<li><p>The type of the pixels. Unsigned bytes in this case.</p>
+</li>
+<li><p>The array of pixels to be converted to the texture.</p>
+</li>
+</ul>
+<p>The image is now generated!</p>
+<p>Optionally, we can generate mipmaps. This isn't necessary here, but just for reference, put the line <code>GL.GenerateMipmaps()</code> after <code>TexImage2D</code>. That's all you need to do!</p>
+<h2 id="applying-textures">Applying textures</h2>
+<p>Now that our texture is created, we'll need to modify our shaders and vertices to use the texture.</p>
+<p>Firstly, replace the array of vertices with this:</p>
+<pre><code class="lang-cs">float[] vertices =
+{
+    //Position          Texture coordinates
+     0.5f,  0.5f, 0.0f, 1.0f, 1.0f, // top right
+     0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // bottom right
+    -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
+    -0.5f,  0.5f, 0.0f, 0.0f, 1.0f  // top left
+};
+</code></pre>
+<p>Recall above when we discussed texture coordinates and how they worked. We add them to every vertex.</p>
+<p>Next, we'll have to modify vertex attribute positions to send the texture coordinates to the shaders.</p>
+<p>Replace your call to <code>VertexAttribPointer</code> with:</p>
+<pre><code class="lang-cs">GL.VertexAttribPointer(vertexLocation, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
+</code></pre>
+<p>It's almost entirely the same, just with the stride changed from <code>3 * sizeof(float)</code> to <code>5 * sizeof(float)</code> to accomodate the new texture coordinates.</p>
+<p>Beneath that, add the following lines:</p>
+<pre><code class="lang-cs">int texCoordLocation = shader.GetAttribLocation(&quot;aTexCoord&quot;);
+GL.EnableVertexAttribArray(texCoordLocation);
+GL.VertexAttribPointer(texCoordLocation, 2, VertexAttribPointerType.Float, false, 5 * sizeof(float), 3 * sizeof(float));
+</code></pre>
+<p>Again, almost the exact same as the last call, just with 2 packets of data instead of 3, and with an initial offset of <code>3 * sizeof(float)</code>.</p>
+<p>Now, we need to modify our shaders. First is the vertex shader. The new code is:</p>
+<pre><code class="lang-glsl">#version 330 core
+
+layout(location = 0) in vec3 aPosition;
+
+layout(location = 1) in vec2 aTexCoord;
+
+out vec2 texCoord;
+
+void main(void)
+{
+    texCoord = aTexCoord;
+
+    gl_Position = vec4(aPosition, 1.0);
+}
+</code></pre>
+<p>We add another input variable, <code>aTexCoord</code>, which will be the texture coordinates. We forward that to the output variable <code>texCoord</code> with no modifications, so that the fragment shader can use it. Speaking of the fragment shader, that's up next:</p>
+<pre><code class="lang-glsl">#version 330
+
+out vec4 outputColor;
+
+in vec2 texCoord;
+
+uniform sampler2D texture0;
+
+void main()
+{
+    outputColor = texture(texture0, texCoord);
+}
+</code></pre>
+<p>We see a brand new type of variable, <code>sampler2D</code>. That's the representation of a texture in shaders, to put it simply.</p>
+<p>Up to 16 different textures can be bound at once (possibly more, depending on your hardware, but OpenGL requires at least 16). In the next example, I'll show you how to use multiple textures at the same time. For now, though, we don't need to do anything else.</p>
+<p>If you've done everything right, you should see the following when you run your code:</p>
+<p><img src="img/5-results.png" alt="The results"></p>
+<p>Congratulations on drawing your first texture! Next time, I'll demonstrate drawing multiple textures at once.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

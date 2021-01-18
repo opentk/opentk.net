@@ -117,7 +117,7 @@ uniform mat4 projection;
 
 void main()
 {
-    gl_Position = projection * view * model * vec4(aPos, 1.0);
+    gl_Position = vec4(aPos, 1.0) * model * view * projection;
 }
 </code></pre>
 <p>Make sure to update your vertex data and attribute pointers to correspond with the new vertex shader (if you want you can actually keep the texture data and attribute pointers active; we're just not using them right now, but it's not a bad idea to start from a fresh start).</p>

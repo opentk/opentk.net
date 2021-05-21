@@ -14,7 +14,7 @@ Getting a camera position is easy. The camera position is basically a vector in 
 
 ```cs
 Vector3 Position = new Vector3(0.0f, 0.0f, 3.0f);
-``` 
+```
 > Don't forget that the positive z-axis is going through your screen towards you so if we want the camera to move backwards, we move along the positive z-axis.
 ### 2. Camera direction
 The next vector required is the camera's direction e.g. at what direction it is pointing at. For now we let the camera point to the origin of our scene: **(0,0,0)**. Remember that if we subtract two vectors from each other we get a vector that's the difference of these two vectors? Subtracting the camera position vector from the scene's origin vector thus results in the direction vector. Since we know that the camera points towards the negative z direction we want the direction vector to point towards the camera's positive z-axis. If we switch the subtraction order around we now get a vector pointing towards the camera's positive z-axis:
@@ -59,7 +59,7 @@ Matrix4 view = Matrix4.LookAt(new Vector3(0.0f, 0.0f, 3.0f),
 The `Matrix4.LookAt` function requires a position, target and up vector respectively. This creates a view matrix that is the same as the one used in the previous tutorial.
 
 ## Walk around
-It is time to actually procces some player input and make our window responsive! First we need to set up a camera system, so it is useful to define some camera variables at the top of our program:
+It is time to actually process some player input and make our window responsive! First we need to set up a camera system, so it is useful to define some camera variables at the top of our program:
 
 ```cs
 float speed = 1.5f;
@@ -68,7 +68,7 @@ Vector3 position = new Vector3(0.0f, 0.0f,  3.0f);
 Vector3 front = new Vector3(0.0f, 0.0f, -1.0f);
 Vector3 up = new Vector3(0.0f, 1.0f,  0.0f);
 ```
-Here we have introduced one new variables along with the ones needed for the **LookAt** function the ***speed*** will help us definining the speed of the camera when we move around. Now the **LookAt** function now becomes:
+Here we have introduced one new variables along with the ones needed for the **LookAt** function the ***speed*** will help us defining the speed of the camera when we move around. Now the **LookAt** function now becomes:
 
 ```cs
 view = Matrix4.LookAt(position, position + front, up);
@@ -178,20 +178,20 @@ And now we have a camera that walks and looks equally fast on any system. We'll 
 ## Look around
 Only using the keyboard keys to move around isn't that interesting. Especially since we can't turn around making the movement rather restricted. That's where the mouse comes in!
 
-To look around the scene we have to change the ***cameraFront*** vector based on the input of the mouse. However, changing the direction vector based on mouse rotations is a little complicated and requires some trigonemetry. If you do not understand the trigonemetry, don't worry. You can just skip to the code sections and paste them in your code; you can always come back later if you want to know more.
+To look around the scene we have to change the ***cameraFront*** vector based on the input of the mouse. However, changing the direction vector based on mouse rotations is a little complicated and requires some trigonometry. If you do not understand the trigonometry, don't worry. You can just skip to the code sections and paste them in your code; you can always come back later if you want to know more.
 
 ### Euler angles
 Euler angles are 3 values that can represent any rotation in 3D, defined by Leonhard Euler somewhere in the 1700s. There are 3 Euler angles: *pitch*, *yaw* and *roll*. The following image gives them a visual meaning:
 
 ![Camera pitch yaw and roll](img/9-camera_pitch_yaw_roll.png)
 
-The ***pitch is the angle that depicts how much we're looking up or down as seen in the first image. The second image shows the yaw value which represents the magnitude we're looking to the left or to the right. The roll represents how much we roll as mostly used in space-flight cameras. Each of the Euler angles are represented by a single value and with the combination of all 3 of them we can calculate any rotation vector in 3D.
+The ***pitch*** is the angle that depicts how much we're looking up or down as seen in the first image. The second image shows the ***yaw*** value which represents the magnitude we're looking to the left or to the right. The roll represents how much we roll as mostly used in space-flight cameras. Each of the Euler angles are represented by a single value and with the combination of all 3 of them we can calculate any rotation vector in 3D.
 
-For our camera system we only care about the yaw and pitch values so we won't discuss the roll value here. Given a pitch and a yaw value we can convert them into a 3D vector that represents a new direction vector. The process of converting yaw and pitch values to a direction vector requires a bit of trigonemetry and we start with a basic case:
+For our camera system we only care about the yaw and pitch values so we won't discuss the roll value here. Given a pitch and a yaw value we can convert them into a 3D vector that represents a new direction vector. The process of converting yaw and pitch values to a direction vector requires a bit of trigonometry and we start with a basic case:
 
 ![Camera triangle](img/9-camera_triangle.png)
 
-If we define the hypotenuse to be of length **1** we know from trigonometry (soh cah toa) that the adjacant side's length is **cos x/h=cos x/1=cos x** and that the opposing side's length is sin **y/h=sin y/1=sin y**. This gives us some general formulas for retrieving the length in both the **x** and **y** directions, depending on the given angle. Let's use this to calculate the components of the direction vector:
+If we define the hypotenuse to be of length **1** we know from trigonometry (soh cah toa) that the adjacent side's length is **cos x/h=cos x/1=cos x** and that the opposing side's length is sin **y/h=sin y/1=sin y**. This gives us some general formulas for retrieving the length in both the **x** and **y** directions, depending on the given angle. Let's use this to calculate the components of the direction vector:
 
 ![Camera pitch](img/9-camera_pitch.png)
 
@@ -220,7 +220,7 @@ front.Z = (float)Math.Cos(MathHelper.DegreesToRadians(Pitch)) * (float)Math.Sin(
 This gives us a formula to convert yaw and pitch values to a 3-dimensional direction vector that we can use for looking around. You probably wondered by now: how do we get these yaw and pitch values?
 
 ## Mouse input
-The yaw and pitch values are obtained from mouse (or controller/joystick) movement where horizontal mouse-movement affects the yaw and vertical mouse-movement affects the pitch. The idea is to store the last frame's mouse positions and in the current frame we calculate how much the mouse values changed in comparrison with last frame's value. The higher the horizontal/vertical difference, the more we update the pitch or yaw value and thus the more the camera should move.
+The yaw and pitch values are obtained from mouse (or controller/joystick) movement where horizontal mouse-movement affects the yaw and vertical mouse-movement affects the pitch. The idea is to store the last frame's mouse positions and in the current frame we calculate how much the mouse values changed in comparison with last frame's value. The higher the horizontal/vertical difference, the more we update the pitch or yaw value and thus the more the camera should move.
 
 First we will tell OpenTK that it should hide the cursor and *capture* it. Capturing a cursor means that once the application has focus the mouse cursor stays within the window (unless the application loses focus or quits). We can do this with one simple configuration call:
 
@@ -374,7 +374,7 @@ protected override void OnMouseWheel(MouseWheelEventArgs e)
     }
     else
     {
-        fov -= e.DeltaPrecise;
+        _fov -= e.DeltaPrecise;
     }
 
     base.OnMouseWheel(e);
@@ -390,10 +390,10 @@ Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(fov), AspectRat
 
 And there you have it. We implemented a simple camera system that allows for free movement in a 3D environment.
 <video width="600" height="450" loop="">
-    <source src="video/9-mouse.mp4" type="video/mp4">
+    <source src="video/9-camera_mouse.mp4" type="video/mp4">
 </video>
 
-Camera class
+### Camera class
 In the upcoming tutorials we will always use a camera to easily look around the scenes and see the results from all angles. However, since a camera can take up quite some space on each tutorial we'll abstract a little from the details and create our own camera object that does most of the work for us with some neat little extras. Unlike the Shader tutorial we won't walk you through creating the camera class, but just provide you with the (fully commented) source code if you want to know the inner workings.
 
 Just like the Shader object we create it entirely in a single file. You can find the camera object [here](https://github.com/opentk/LearnOpenTK/blob/master/Common/Camera.cs). You should be able to understand all the code by now. It is advised to at least check the class out once to see how you could create a camera object like this.
@@ -401,6 +401,7 @@ Just like the Shader object we create it entirely in a single file. You can find
 > The camera system we introduced is an FPS-like camera that suits most purposes and works well with Euler angles, but be careful when creating different camera systems like a flight simulation camera. Each camera system has its own tricks and quirks so be sure to read up on them. For example, this FPS camera doesn't allow for pitch values higher than **90** degrees and a static up vector of **(0,1,0)** doesn't work when we take roll values into account.
 The updated version of the source code using the new camera object can be found [here](https://github.com/opentk/LearnOpenTK/blob/master/Common/Camera.cs).
 
-Exercises
+### Exercises
+
 See if you can transform the camera class in such a way that it becomes a true fps camera where you cannot fly; you can only look around while staying on the **xz** plane.
 Try to create your own LookAt function where you manually create a view matrix as discussed at the start of this tutorial. Replace openTKs LookAt function with your own implementation and see if it still acts the same.

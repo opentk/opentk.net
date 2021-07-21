@@ -19,7 +19,7 @@ OpenTK is not a game engine, nor does it try to be one:  It offers a useful set 
 
 ### Help and Support
 
-If you have a question or want to know how to get started, check our extensive [FAQ](faq.html), or try [our tutorials](https://opentk.net/learn/index.html).
+If you have a question or want to know how to get started, check our extensive [FAQ](faq.html), or try our tutorials for [OpenTK 3](https://opentk.net/learn/index.html) and [OpenTK 4](https://github.com/opentk/LearnOpenTK).
 
 The OpenTK source code is available [on GitHub](https://github.com/opentk), and the latest build can be found [on Nuget](https://www.nuget.org/packages/OpenTK/).  If you find a bug or defect, please let us know with a [GitHub issue](https://github.com/opentk/opentk/issues).
 

@@ -203,7 +203,7 @@ Note in the third example that the constants change syntax slightly:  They arenâ
 - The names are changed from `SHOUT_CASE` to `PascalCase` to match C# style conventions.
 - The constants' `GL_` prefixes have been removed for readability.
 
-There is also a special enum type, `All`, that contains *all* of the GL constants; this can simplify porting code from other languages, and it ensures that all of the OpenGL constants are available.  `All` should be avoided in favor of more specialized enum types where possible.
+There is also a special enum type, `All`, that contains *all* of the GL constants; this can simplify porting code from other languages, and it ensures that all of the OpenGL constants are available.  `All` should be avoided in favor of more specialized enum types where possible (but it isn't *always* possible, so don't forget you can cast from `All` to `int` or to the enum type you need!).
 
 ### Where do I start with OpenGL?
 

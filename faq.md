@@ -32,7 +32,7 @@ OpenTK supports any hardware that is supported by your OS’s native OpenGL, Ope
 
 ### Which .NET versions are supported?
 
-- **OpenTK 4.x+** runs on .NET Core 2.x, .NET Core 3.x, and .NET 5+.
+- **OpenTK 4.x+** runs on .NET Core 3.x and .NET 5+.
 
 - **OpenTK 3.x** runs on .NET Framework 4.x.
 
@@ -74,7 +74,7 @@ But if you need to integrate OpenTK with an existing UI, it includes some packag
 
 ### How fast is OpenTK?
 
-For a .NET library, OpenTK is *very* fast.  OpenTK 3 and 4 use hand-optimized IL assembly to minimize overhead when calling OpenGL functions, and OpenTK 5 is planned to use the new C# function pointers to reduce overhead even further.
+For a .NET library, OpenTK is *very* fast.  OpenTK 3 and 4 use hand-optimized IL assembly to minimize overhead when calling OpenGL functions, and OpenTK 5 is planned to use the new C# function pointers to accomplish the same thing.
 
 We take great pains to make it as efficient as possible.  However, keep in mind that the underlying runtimes (.NET/Mono) use both JIT compilation and garbage collection, which can complicate the definition of “fast.”  Still, we place significant emphasis on performance, so if you believe something could run faster, please [open an issue on our GitHub](https://github.com/opentk/opentk/issues)!
 
@@ -120,7 +120,7 @@ First, add a `using` directive for the underlying subsystem you want to use.  Fo
 - `using OpenTK.Audio.OpenAL;`
 - `using OpenTK.Compute.OpenCL;`
 
-Which ones to use depends on which versions of OpenGL/CL/AL you’re targeting.  We generally recommend with OpenGL that unless you have a specific reason to use another version, you should target `OpenGL4`.
+Which ones to use depends on which flavors of OpenGL/CL/AL you’re targeting.  We generally recommend with OpenGL that you should use `OpenGL4` unless you need the legacy fixed-function pipeline (FFP); the `OpenGL4` namespace works for all OpenGL versions, but it excludes the FFP functions and their overhead.  (In OpenTK 5, we plan to rename these namespaces to make this distinction more obvious.)
 
 ### How do I create a window using OpenTK?
 
@@ -201,11 +201,13 @@ Note in the third example that the constants change syntax slightly:  They aren�
 
 - The constants are grouped into strong `enum` types like `ErrorCode` and `ShaderType` — they’re not just a big pile of unrelated values like they are in C.
 - The names are changed from `SHOUT_CASE` to `PascalCase` to match C# style conventions.
-- There are a few special enum values, like `All`, that have been added to support cases in C where you’d have written a fixed constant like `0`.
+- The constants' `GL_` prefixes have been removed for readability.
+
+There is also a special enum type, `All`, that contains *all* of the GL constants; this can simplify porting code from other languages, and it ensures that all of the OpenGL constants are available.  `All` should be avoided in favor of more specialized enum types where possible.
 
 ### Where do I start with OpenGL?
 
-Check out [our tutorial here](https://opentk.net/learn/index.html), which will teach you how to build a basic working program that can draw simple objects.  You can learn more about OpenGL in depth over at [Learn OpenGL](https://learnopengl.com/).
+Check out [our tutorial here](https://opentk.net/learn/index.html), which will teach you how to build a basic working program that can draw simple objects.  You can learn more about OpenGL in depth over at [Learn OpenGL](https://learnopengl.com/); our tutorials are based on theirs.
 
 ### What’s the difference between OpenGL and OpenGL ES?
 
@@ -585,7 +587,7 @@ This is a common source of confusion when using OpenTK, since it often prevents 
 
 OpenTK includes two classes, `NativeWindow` and `GameWindow`, for opening and displaying OpenGL windows.  What’s the difference between these two classes?
 
-- `NativeWindow` is the lowest-level class.  It includes the bare minimum of required mechanics to open and display a window, and not much else.  It’s small, light, and fast, and good for situations where you don’t need an update/render loop or you intend to write most of the update/render logic yourself.
+- `NativeWindow` is the lowest-level class.  It includes the bare minimum of required mechanics to open and display a window, and not much else.  It’s small, light, and fast, and good for situations where you don’t need an update/render loop or you intend to write most of the update/render logic yourself.  (Note that `NativeWindow` is not the lowest *level*, merely the lowest level in managed .NET:  `NativeWindow` wraps native functionality provided by GLFW.)
 - `GameWindow` is a higher-level class that inherits from `NativeWindow` and adds functionality often needed by video games.  It provides timing logic, separated update and render methods, and a variety of ways to synchronize and control the game’s performance.
 
 If you’re making a game, you probably want to use `GameWindow` as your base class.  Otherwise, you probably want to use `NativeWindow`.

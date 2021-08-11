@@ -12,7 +12,7 @@ It is the ideal starting point if you want to write a game or scientific applica
 
 ### Project status (2021-08-11)
 
-OpenTK 3 (.NET framework) is getting incoming PRs merged and released. Feel free to submit a PR! :slight_smile:
+OpenTK 3 (.NET framework) is getting incoming PRs merged and released. Feel free to submit a PR! 🙂
 
 OpenTK 4 (.NET core 3.1+) is considered the "current" version of OpenTK. We try and fix any issues reported. If you have any problems, report them here: https://github.com/opentk/opentk/issues/new
 

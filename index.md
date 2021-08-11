@@ -10,9 +10,13 @@ OpenTK is not a game engine, nor does it try to be one. It offers a useful set o
 
 It is the ideal starting point if you want to write a game or scientific application from the ground up.
 
-### Project Status (25/10/2018)
-Work is well underway on OpenTK 4.0, which targets .NET Standard/Core. We would welcome any [contributions](https://github.com/opentk/opentk/)!
+### Project status (2021-08-11)
 
+OpenTK 3 (.NET framework) is getting incoming PRs merged and released. Feel free to submit a PR! 🙂
+
+OpenTK 4 (.NET core 3.1+) is considered the "current" version of OpenTK. We try and fix any issues reported. If you have any problems, report them here: https://github.com/opentk/opentk/issues/new
+
+OpenTK 5 (.NET 5+) is currently under active development. Not considered stable yet. Follow the progress here: https://github.com/opentk/opentk/issues/1207
 
 ### NuGet
 

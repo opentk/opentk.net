@@ -8,7 +8,7 @@
     <title>Coordinate Systems  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Coordinate Systems ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -197,7 +197,7 @@ uniform mat4 projection;
 void main()
 {
     // note that we read the multiplication from right to left
-    gl_Position = projection * view * model * vec4(aPos, 1.0);
+    gl_Position =  vec4(aPos, 1.0) * model * view * projection;
     ...
 }
 </code></pre>

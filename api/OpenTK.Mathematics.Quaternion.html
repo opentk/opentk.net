@@ -1,0 +1,2118 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Quaternion
+    - OpenTK</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Quaternion
+   ">
+    <meta name="generator" content="docfx 2.58.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  
+    <meta name="author" content="The Open Toolkit Project">
+    <meta property="og:image" content="https://opentk.net/otkBig.png">
+    <meta property="og:image:width" content="142">
+    <meta property="og:image:height" content="50">
+    <meta property="og:site_name" content="OpenTK">
+    <meta property="og:title" content="Struct Quaternion
+    - OpenTK">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
+          <div class="container">
+            <a class="navbar-brand" href="../index.html">
+          <img id="logo" src="../otkBig.png" alt="">
+        </a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenTK.Mathematics.Quaternion">
+  
+  
+  <h1 id="OpenTK_Mathematics_Quaternion" data-uid="OpenTK.Mathematics.Quaternion" class="text-break">Struct Quaternion
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a Quaternion.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenTK.Mathematics.html">OpenTK.Mathematics</a></h6>
+  <h6><strong>Assembly</strong>: OpenTK.Mathematics.dll</h6>
+  <h5 id="OpenTK_Mathematics_Quaternion_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public struct Quaternion : IEquatable&lt;Quaternion&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="OpenTK_Mathematics_Quaternion__ctor_" data-uid="OpenTK.Mathematics.Quaternion.#ctor*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion__ctor_OpenTK_Mathematics_Vector3_" data-uid="OpenTK.Mathematics.Quaternion.#ctor(OpenTK.Mathematics.Vector3)">Quaternion(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a> struct from given Euler angles in radians.
+The rotations will get applied in following order:</p>
+<ol>
+<li>Around X, 2. Around Y, 3. Around Z.</li>
+</ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(Vector3 eulerAngles)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">eulerAngles</span></td>
+        <td><p>The counterclockwise euler angles as a Vector3.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion__ctor_" data-uid="OpenTK.Mathematics.Quaternion.#ctor*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion__ctor_OpenTK_Mathematics_Vector3_System_Single_" data-uid="OpenTK.Mathematics.Quaternion.#ctor(OpenTK.Mathematics.Vector3,System.Single)">Quaternion(Vector3, Single)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(Vector3 v, float w)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">v</span></td>
+        <td><p>The vector part.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">w</span></td>
+        <td><p>The w part.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion__ctor_" data-uid="OpenTK.Mathematics.Quaternion.#ctor*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion__ctor_System_Single_System_Single_System_Single_" data-uid="OpenTK.Mathematics.Quaternion.#ctor(System.Single,System.Single,System.Single)">Quaternion(Single, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a> struct from given Euler angles in radians.
+The rotations will get applied in following order:</p>
+<ol>
+<li>around X axis, 2. around Y axis, 3. around Z axis.</li>
+</ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(float rotationX, float rotationY, float rotationZ)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">rotationX</span></td>
+        <td><p>Counterclockwise rotation around X axis in radian.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">rotationY</span></td>
+        <td><p>Counterclockwise rotation around Y axis in radian.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">rotationZ</span></td>
+        <td><p>Counterclockwise rotation around Z axis in radian.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion__ctor_" data-uid="OpenTK.Mathematics.Quaternion.#ctor*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion__ctor_System_Single_System_Single_System_Single_System_Single_" data-uid="OpenTK.Mathematics.Quaternion.#ctor(System.Single,System.Single,System.Single,System.Single)">Quaternion(Single, Single, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(float x, float y, float z, float w)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>The x component.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>The y component.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">z</span></td>
+        <td><p>The z component.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">w</span></td>
+        <td><p>The w component.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <h4 id="OpenTK_Mathematics_Quaternion_Identity" data-uid="OpenTK.Mathematics.Quaternion.Identity">Identity</h4>
+  <div class="markdown level1 summary"><p>Defines the identity quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Quaternion Identity</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="OpenTK_Mathematics_Quaternion_W" data-uid="OpenTK.Mathematics.Quaternion.W">W</h4>
+  <div class="markdown level1 summary"><p>The W component of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float W</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="OpenTK_Mathematics_Quaternion_Xyz" data-uid="OpenTK.Mathematics.Quaternion.Xyz">Xyz</h4>
+  <div class="markdown level1 summary"><p>The X, Y and Z components of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Xyz</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="OpenTK_Mathematics_Quaternion_Length_" data-uid="OpenTK.Mathematics.Quaternion.Length*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Length" data-uid="OpenTK.Mathematics.Quaternion.Length">Length</h4>
+  <div class="markdown level1 summary"><p>Gets the length (magnitude) of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float Length { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Quaternion_Length_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="OpenTK.Mathematics.Quaternion.html#OpenTK_Mathematics_Quaternion_LengthSquared">LengthSquared</a></div>
+  </div>
+  <a id="OpenTK_Mathematics_Quaternion_LengthSquared_" data-uid="OpenTK.Mathematics.Quaternion.LengthSquared*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_LengthSquared" data-uid="OpenTK.Mathematics.Quaternion.LengthSquared">LengthSquared</h4>
+  <div class="markdown level1 summary"><p>Gets the square of the quaternion length (magnitude).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float LengthSquared { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_X_" data-uid="OpenTK.Mathematics.Quaternion.X*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_X" data-uid="OpenTK.Mathematics.Quaternion.X">X</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the X component of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float X { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Y_" data-uid="OpenTK.Mathematics.Quaternion.Y*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Y" data-uid="OpenTK.Mathematics.Quaternion.Y">Y</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Y component of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Y { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Z_" data-uid="OpenTK.Mathematics.Quaternion.Z*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Z" data-uid="OpenTK.Mathematics.Quaternion.Z">Z</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Z component of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Z { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="OpenTK_Mathematics_Quaternion_Add_" data-uid="OpenTK.Mathematics.Quaternion.Add*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Add_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.Add(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion)">Add(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Add two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion Add(Quaternion left, Quaternion right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first operand.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second operand.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The result of the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Add_" data-uid="OpenTK.Mathematics.Quaternion.Add*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Add_OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.Add(OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@)">Add(in Quaternion, in Quaternion, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Add two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Add(in Quaternion left, in Quaternion right, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first operand.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second operand.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The result of the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Conjugate_" data-uid="OpenTK.Mathematics.Quaternion.Conjugate*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Conjugate" data-uid="OpenTK.Mathematics.Quaternion.Conjugate">Conjugate()</h4>
+  <div class="markdown level1 summary"><p>Inverts the Vector3 component of this Quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Conjugate()</code></pre>
+  </div>
+  <a id="OpenTK_Mathematics_Quaternion_Conjugate_" data-uid="OpenTK.Mathematics.Quaternion.Conjugate*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Conjugate_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.Conjugate(OpenTK.Mathematics.Quaternion)">Conjugate(Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Get the conjugate of the given quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion Conjugate(Quaternion q)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>The quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The conjugate of the given quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Conjugate_" data-uid="OpenTK.Mathematics.Quaternion.Conjugate*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Conjugate_OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.Conjugate(OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@)">Conjugate(in Quaternion, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Get the conjugate of the given quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Conjugate(in Quaternion q, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>The quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The conjugate of the given quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Equals_" data-uid="OpenTK.Mathematics.Quaternion.Equals*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Equals_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.Equals(OpenTK.Mathematics.Quaternion)">Equals(Quaternion)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Quaternion other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Equals_" data-uid="OpenTK.Mathematics.Quaternion.Equals*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Equals_System_Object_" data-uid="OpenTK.Mathematics.Quaternion.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
+  <a id="OpenTK_Mathematics_Quaternion_FromAxisAngle_" data-uid="OpenTK.Mathematics.Quaternion.FromAxisAngle*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_FromAxisAngle_OpenTK_Mathematics_Vector3_System_Single_" data-uid="OpenTK.Mathematics.Quaternion.FromAxisAngle(OpenTK.Mathematics.Vector3,System.Single)">FromAxisAngle(Vector3, Single)</h4>
+  <div class="markdown level1 summary"><p>Build a quaternion from the given axis and angle in radians.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion FromAxisAngle(Vector3 axis, float angle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">axis</span></td>
+        <td><p>The axis to rotate about.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">angle</span></td>
+        <td><p>The rotation angle in radians.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The equivalent quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_FromEulerAngles_" data-uid="OpenTK.Mathematics.Quaternion.FromEulerAngles*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_FromEulerAngles_OpenTK_Mathematics_Vector3_" data-uid="OpenTK.Mathematics.Quaternion.FromEulerAngles(OpenTK.Mathematics.Vector3)">FromEulerAngles(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Builds a Quaternion from the given euler angles in radians.
+The rotations will get applied in following order:</p>
+<ol>
+<li>X axis, 2. Y axis, 3. Z axis.</li>
+</ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion FromEulerAngles(Vector3 eulerAngles)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">eulerAngles</span></td>
+        <td><p>The counterclockwise euler angles as a vector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The equivalent Quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_FromEulerAngles_" data-uid="OpenTK.Mathematics.Quaternion.FromEulerAngles*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_FromEulerAngles_OpenTK_Mathematics_Vector3__OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.FromEulerAngles(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Quaternion@)">FromEulerAngles(in Vector3, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Builds a Quaternion from the given euler angles in radians.
+The rotations will get applied in following order:</p>
+<ol>
+<li>Around X, 2. Around Y, 3. Around Z.</li>
+</ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromEulerAngles(in Vector3 eulerAngles, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">eulerAngles</span></td>
+        <td><p>The counterclockwise euler angles a vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The equivalent Quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_FromEulerAngles_" data-uid="OpenTK.Mathematics.Quaternion.FromEulerAngles*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_FromEulerAngles_System_Single_System_Single_System_Single_" data-uid="OpenTK.Mathematics.Quaternion.FromEulerAngles(System.Single,System.Single,System.Single)">FromEulerAngles(Single, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Builds a Quaternion from the given euler angles in radians
+The rotations will get applied in following order:</p>
+<ol>
+<li>pitch (X axis), 2. yaw (Y axis), 3. roll (Z axis).</li>
+</ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion FromEulerAngles(float pitch, float yaw, float roll)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">pitch</span></td>
+        <td><p>The pitch (attitude), counterclockwise rotation around X axis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">yaw</span></td>
+        <td><p>The yaw (heading), counterclockwise rotation around Y axis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">roll</span></td>
+        <td><p>The roll (bank), counterclockwise rotation around Z axis.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_FromMatrix_" data-uid="OpenTK.Mathematics.Quaternion.FromMatrix*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_FromMatrix_OpenTK_Mathematics_Matrix3_" data-uid="OpenTK.Mathematics.Quaternion.FromMatrix(OpenTK.Mathematics.Matrix3)">FromMatrix(Matrix3)</h4>
+  <div class="markdown level1 summary"><p>Builds a quaternion from the given rotation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion FromMatrix(Matrix3 matrix)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix3.html">Matrix3</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p>A rotation matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The equivalent quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_FromMatrix_" data-uid="OpenTK.Mathematics.Quaternion.FromMatrix*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_FromMatrix_OpenTK_Mathematics_Matrix3__OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.FromMatrix(OpenTK.Mathematics.Matrix3@,OpenTK.Mathematics.Quaternion@)">FromMatrix(in Matrix3, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Builds a quaternion from the given rotation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromMatrix(in Matrix3 matrix, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix3.html">Matrix3</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p>A rotation matrix.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The equivalent quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_GetHashCode_" data-uid="OpenTK.Mathematics.Quaternion.GetHashCode*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_GetHashCode" data-uid="OpenTK.Mathematics.Quaternion.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
+  <a id="OpenTK_Mathematics_Quaternion_Invert_" data-uid="OpenTK.Mathematics.Quaternion.Invert*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Invert" data-uid="OpenTK.Mathematics.Quaternion.Invert">Invert()</h4>
+  <div class="markdown level1 summary"><p>Inverts this Quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Invert()</code></pre>
+  </div>
+  <a id="OpenTK_Mathematics_Quaternion_Invert_" data-uid="OpenTK.Mathematics.Quaternion.Invert*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Invert_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.Invert(OpenTK.Mathematics.Quaternion)">Invert(Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Get the inverse of the given quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion Invert(Quaternion q)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>The quaternion to invert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The inverse of the given quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Invert_" data-uid="OpenTK.Mathematics.Quaternion.Invert*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Invert_OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.Invert(OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@)">Invert(in Quaternion, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Get the inverse of the given quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Invert(in Quaternion q, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>The quaternion to invert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The inverse of the given quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Inverted_" data-uid="OpenTK.Mathematics.Quaternion.Inverted*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Inverted" data-uid="OpenTK.Mathematics.Quaternion.Inverted">Inverted()</h4>
+  <div class="markdown level1 summary"><p>Returns the inverse of this Quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion Inverted()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The inverted copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Multiply_" data-uid="OpenTK.Mathematics.Quaternion.Multiply*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Multiply_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.Multiply(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion)">Multiply(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Multiplies two instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion Multiply(Quaternion left, Quaternion right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>A new instance containing the result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Multiply_" data-uid="OpenTK.Mathematics.Quaternion.Multiply*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Multiply_OpenTK_Mathematics_Quaternion_System_Single_" data-uid="OpenTK.Mathematics.Quaternion.Multiply(OpenTK.Mathematics.Quaternion,System.Single)">Multiply(Quaternion, Single)</h4>
+  <div class="markdown level1 summary"><p>Multiplies an instance by a scalar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion Multiply(Quaternion quaternion, float scale)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">quaternion</span></td>
+        <td><p>The instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">scale</span></td>
+        <td><p>The scalar.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>A new instance containing the result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Multiply_" data-uid="OpenTK.Mathematics.Quaternion.Multiply*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Multiply_OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.Multiply(OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@)">Multiply(in Quaternion, in Quaternion, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Multiplies two instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(in Quaternion left, in Quaternion right, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>A new instance containing the result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Multiply_" data-uid="OpenTK.Mathematics.Quaternion.Multiply*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Multiply_OpenTK_Mathematics_Quaternion__System_Single_OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.Multiply(OpenTK.Mathematics.Quaternion@,System.Single,OpenTK.Mathematics.Quaternion@)">Multiply(in Quaternion, Single, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Multiplies an instance by a scalar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(in Quaternion quaternion, float scale, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">quaternion</span></td>
+        <td><p>The instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">scale</span></td>
+        <td><p>The scalar.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>A new instance containing the result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Normalize_" data-uid="OpenTK.Mathematics.Quaternion.Normalize*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Normalize" data-uid="OpenTK.Mathematics.Quaternion.Normalize">Normalize()</h4>
+  <div class="markdown level1 summary"><p>Scales the Quaternion to unit length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Normalize()</code></pre>
+  </div>
+  <a id="OpenTK_Mathematics_Quaternion_Normalize_" data-uid="OpenTK.Mathematics.Quaternion.Normalize*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Normalize_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.Normalize(OpenTK.Mathematics.Quaternion)">Normalize(Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Scale the given quaternion to unit length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion Normalize(Quaternion q)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>The quaternion to normalize.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The normalized copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Normalize_" data-uid="OpenTK.Mathematics.Quaternion.Normalize*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Normalize_OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.Normalize(OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@)">Normalize(in Quaternion, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Scale the given quaternion to unit length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Normalize(in Quaternion q, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>The quaternion to normalize.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The normalized quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Normalized_" data-uid="OpenTK.Mathematics.Quaternion.Normalized*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Normalized" data-uid="OpenTK.Mathematics.Quaternion.Normalized">Normalized()</h4>
+  <div class="markdown level1 summary"><p>Returns a copy of the Quaternion scaled to unit length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion Normalized()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The normalized copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Slerp_" data-uid="OpenTK.Mathematics.Quaternion.Slerp*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Slerp_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_System_Single_" data-uid="OpenTK.Mathematics.Quaternion.Slerp(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion,System.Single)">Slerp(Quaternion, Quaternion, Single)</h4>
+  <div class="markdown level1 summary"><p>Do Spherical linear interpolation between two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion Slerp(Quaternion q1, Quaternion q2, float blend)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q1</span></td>
+        <td><p>The first quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q2</span></td>
+        <td><p>The second quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">blend</span></td>
+        <td><p>The blend factor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>A smooth blend between the given quaternions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Sub_" data-uid="OpenTK.Mathematics.Quaternion.Sub*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Sub_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.Sub(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion)">Sub(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Subtracts two instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion Sub(Quaternion left, Quaternion right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The left instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The right instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The result of the operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_Sub_" data-uid="OpenTK.Mathematics.Quaternion.Sub*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_Sub_OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Quaternion__" data-uid="OpenTK.Mathematics.Quaternion.Sub(OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Quaternion@)">Sub(in Quaternion, in Quaternion, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Subtracts two instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Sub(in Quaternion left, in Quaternion right, out Quaternion result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The left instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The right instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The result of the operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_ToAxisAngle_" data-uid="OpenTK.Mathematics.Quaternion.ToAxisAngle*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_ToAxisAngle" data-uid="OpenTK.Mathematics.Quaternion.ToAxisAngle">ToAxisAngle()</h4>
+  <div class="markdown level1 summary"><p>Convert this instance to an axis-angle representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 ToAxisAngle()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><p>A Vector4 that is the axis-angle representation of this quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_ToAxisAngle_" data-uid="OpenTK.Mathematics.Quaternion.ToAxisAngle*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_ToAxisAngle_OpenTK_Mathematics_Vector3__System_Single__" data-uid="OpenTK.Mathematics.Quaternion.ToAxisAngle(OpenTK.Mathematics.Vector3@,System.Single@)">ToAxisAngle(out Vector3, out Single)</h4>
+  <div class="markdown level1 summary"><p>Convert the current quaternion to axis angle representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ToAxisAngle(out Vector3 axis, out float angle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">axis</span></td>
+        <td><p>The resultant axis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">angle</span></td>
+        <td><p>The resultant angle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_ToEulerAngles_" data-uid="OpenTK.Mathematics.Quaternion.ToEulerAngles*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_ToEulerAngles" data-uid="OpenTK.Mathematics.Quaternion.ToEulerAngles">ToEulerAngles()</h4>
+  <div class="markdown level1 summary"><p>Convert this instance to an Euler angle representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 ToEulerAngles()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><p>The Euler angles in radians.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_ToEulerAngles_" data-uid="OpenTK.Mathematics.Quaternion.ToEulerAngles*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_ToEulerAngles_OpenTK_Mathematics_Quaternion__OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Mathematics.Quaternion.ToEulerAngles(OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Vector3@)">ToEulerAngles(in Quaternion, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Converts a quaternion to it's euler angle representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ToEulerAngles(in Quaternion q, out Vector3 result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>The Quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The resulting euler angles in radians.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_ToEulerAngles_" data-uid="OpenTK.Mathematics.Quaternion.ToEulerAngles*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_ToEulerAngles_OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Mathematics.Quaternion.ToEulerAngles(OpenTK.Mathematics.Vector3@)">ToEulerAngles(out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Convert the current quaternion to Euler angle representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ToEulerAngles(out Vector3 angles)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">angles</span></td>
+        <td><p>The Euler angles in radians.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_ToString_" data-uid="OpenTK.Mathematics.Quaternion.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_ToString" data-uid="OpenTK.Mathematics.Quaternion.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a System.String that represents the current Quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A human-readable representation of the quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
+  <h3 id="operators">Operators
+  </h3>
+  <a id="OpenTK_Mathematics_Quaternion_op_Addition_" data-uid="OpenTK.Mathematics.Quaternion.op_Addition*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_op_Addition_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.op_Addition(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion)">Addition(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Adds two instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion operator +(Quaternion left, Quaternion right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_op_Equality_" data-uid="OpenTK.Mathematics.Quaternion.op_Equality*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_op_Equality_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.op_Equality(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion)">Equality(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Compares two instances for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Quaternion left, Quaternion right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True, if left equals right; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_op_Inequality_" data-uid="OpenTK.Mathematics.Quaternion.op_Inequality*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_op_Inequality_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.op_Inequality(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion)">Inequality(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Compares two instances for inequality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Quaternion left, Quaternion right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True, if left does not equal right; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_op_Multiply_" data-uid="OpenTK.Mathematics.Quaternion.op_Multiply*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_op_Multiply_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.op_Multiply(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion)">Multiply(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Multiplies two instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion operator *(Quaternion left, Quaternion right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_op_Multiply_" data-uid="OpenTK.Mathematics.Quaternion.op_Multiply*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_op_Multiply_OpenTK_Mathematics_Quaternion_System_Single_" data-uid="OpenTK.Mathematics.Quaternion.op_Multiply(OpenTK.Mathematics.Quaternion,System.Single)">Multiply(Quaternion, Single)</h4>
+  <div class="markdown level1 summary"><p>Multiplies an instance by a scalar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion operator *(Quaternion quaternion, float scale)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">quaternion</span></td>
+        <td><p>The instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">scale</span></td>
+        <td><p>The scalar.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>A new instance containing the result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_op_Multiply_" data-uid="OpenTK.Mathematics.Quaternion.op_Multiply*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_op_Multiply_System_Single_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.op_Multiply(System.Single,OpenTK.Mathematics.Quaternion)">Multiply(Single, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Multiplies an instance by a scalar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion operator *(float scale, Quaternion quaternion)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">scale</span></td>
+        <td><p>The scalar.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">quaternion</span></td>
+        <td><p>The instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>A new instance containing the result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Quaternion_op_Subtraction_" data-uid="OpenTK.Mathematics.Quaternion.op_Subtraction*"></a>
+  <h4 id="OpenTK_Mathematics_Quaternion_op_Subtraction_OpenTK_Mathematics_Quaternion_OpenTK_Mathematics_Quaternion_" data-uid="OpenTK.Mathematics.Quaternion.op_Subtraction(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Quaternion)">Subtraction(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Subtracts two instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Quaternion operator -(Quaternion left, Quaternion right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Quaternion.html">Quaternion</a></td>
+        <td><p>The result of the calculation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

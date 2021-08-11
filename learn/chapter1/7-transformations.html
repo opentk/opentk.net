@@ -8,7 +8,7 @@
     <title>Transformations  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Transformations ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -140,7 +140,7 @@ and <strong>w</strong> are equal even though their origin is different:</p>
 <p><img src="img/7-latex_matrix.png" alt="2x3 Matrix"></p>
 <p>Matrices are indexed by <strong>(i,j)</strong> where <strong>i</strong> is the row and <strong>j</strong> is the column, that is why the above matrix is called a 2x3 matrix (3 columns and 2 rows, also known as the dimensions of the matrix). This is the opposite of what you're used to when indexing 2D graphs as <strong>(x,y)</strong>. To retrieve the value 4 we would index it as (2,1) (second row, first column).</p>
 <blockquote>
-<p>It is important to note that OpenTK stores its matrices in column-major form, <strong>not</strong> row-major form. This doesn't have a major impact on most matrix operations, but I'll be sure to point out whenever it has an effect.</p>
+<p>It is important to note that OpenTK stores its matrices in row-major form, <strong>not</strong> column-major form. This doesn't have a major impact on most matrix operations, but I'll be sure to point out whenever it has an effect.</p>
 </blockquote>
 <p>Matrices are basically nothing more than that, just rectangular arrays of mathematical expressions. They do have a very nice set of mathematical properties and just like vectors we can define several operations on matrices, namely: addition, subtraction and multiplication.</p>
 <h2 id="matrix-addition-and-subtraction">Matrix addition and subtraction</h2>
@@ -239,11 +239,11 @@ In addition, OpenTK provides the function <code>MathHelper.DegreesToRadians</cod
 <h2 id="in-practice">In practice</h2>
 <p>OpenTK provides its own mathematics library, so there's no need to add another one. Let's see if we can put our transformation knowledge to good use by translating a vector of <strong>(1,0,0)</strong> by <strong>(1,1,0)</strong> (note that we define it as a Vector4 with its homogenous coordinate set to 1.0:</p>
 <pre><code class="lang-cs">Vector4 vec = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
-Matrix4 trans = Matrix4.CreateTranslation(0.1f, 0.1f, 0.0f);
+Matrix4 trans = Matrix4.CreateTranslation(1f, 1f, 0.0f);
 vec *= trans;
 Console.WriteLine(&quot;{0}, {1}, {2}&quot;, vec.x, vec.y, vec.z);
 </code></pre>
-<p>We first define a vector named vec using OpenTK's built-in vector class. Next we define a Matrix4 and explicitly initialize it to the identity matrix by calling the <code>Matrix4.CreateTranslation</code> function, which takes three floats and creates a translation matrix.</p>
+<p>We first define a vector named vec using OpenTK's built-in vector class. Next we define a Matrix4 and explicitly initialize it  by calling the <code>Matrix4.CreateTranslation</code> function, which takes three floats and creates a translation matrix.</p>
 <p>Then we multiply our vector by the transformation matrix and output the result. If we still remember how matrix translation works then the resulting vector should be <strong>(1+1,0+1,0+0)</strong> which is <strong>(2,1,0)</strong>. This snippet of code outputs 210 so the translation matrix did its job.</p>
 <p>Let's do something more interesting and scale and rotate the container object from the previous tutorial:</p>
 <pre><code class="lang-cs">Matrix4 rotation = Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(90.0f));
@@ -262,7 +262,7 @@ uniform mat4 transform;
 
 void main()
 {
-    gl_Position = transform * vec4(aPos, 1.0f);
+    gl_Position = vec4(aPos, 1.0f) * transform;
     TexCoord = vec2(aTexCoord.x, aTexCoord.y);
 }
 </code></pre>

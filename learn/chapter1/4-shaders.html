@@ -8,7 +8,7 @@
     <title>Shaders  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Shaders ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -221,9 +221,9 @@ GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 }
 </code></pre>
 <p>The code is a relatively straightforward adaptation of the previous code. This time, we update a uniform value each frame before drawing the triangle. If you update the uniform correctly you should see the color of your triangle gradually change from green to black and back to green.</p>
-<video width="600" height="450" loop="">
-    <source src="video/4-shaders.mp4" type="video/mp4">
-</source></video>
+<p><br><video width="600" height="450" loop="" controls="">
+<source src="video/4-shaders.mp4" type="video/mp4">
+</source></video><br></p>
 <p>As you can see, uniforms are a useful tool for setting attributes that may change every frame, or for interchanging data between your application and your shaders, but what if we want to set a color for each vertex? In that case we'd have to declare as many uniforms as we have vertices. A better solution would be to include more data in the vertex attributes which is what we're going to do now.</p>
 <h2 id="more-attributes">More Attributes</h2>
 <p>We saw in the previous chapter how we can fill a VBO, configure vertex attribute pointers and store it all in a VAO. This time, we also want to add color data to the vertex data. We're going to add color data as 3 floats to the <code>vertices</code> array. We assign a red, green and blue color to each of the corners of our triangle respectively:</p>

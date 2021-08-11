@@ -194,9 +194,9 @@ protected override void OnRenderFrame(FrameEventArgs e)
 ```
 The code is a relatively straightforward adaptation of the previous code. This time, we update a uniform value each frame before drawing the triangle. If you update the uniform correctly you should see the color of your triangle gradually change from green to black and back to green. 
 
-<video width="600" height="450" loop="">
+<br/><video width="600" height="450" loop=""  controls="">
     <source src="video/4-shaders.mp4" type="video/mp4">
-</video>
+</video><br/>
 
 As you can see, uniforms are a useful tool for setting attributes that may change every frame, or for interchanging data between your application and your shaders, but what if we want to set a color for each vertex? In that case we'd have to declare as many uniforms as we have vertices. A better solution would be to include more data in the vertex attributes which is what we're going to do now. 
 

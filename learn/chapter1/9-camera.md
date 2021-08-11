@@ -170,9 +170,9 @@ if (input.IsKeyDown(Key.LShift))
 ```
 
 Together with the previous section we should now have a much smoother and more consistent camera system for moving around the scene:
-<video width="600" height="450" loop="">
+<br/><video width="600" height="450" loop="" controls="">
     <source src="video/9-camera_smooth.mp4" type="video/mp4">
-</video>
+</video><br/>
 And now we have a camera that walks and looks equally fast on any system. We'll see the ***deltaTime*** value frequently return with anything movement related.
 
 ## Look around
@@ -389,9 +389,9 @@ Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(fov), AspectRat
 ```
 
 And there you have it. We implemented a simple camera system that allows for free movement in a 3D environment.
-<video width="600" height="450" loop="">
+<br/><video width="600" height="450" loop=""  controls="">
     <source src="video/9-camera_mouse.mp4" type="video/mp4">
-</video>
+</video><br/>
 
 ### Camera class
 In the upcoming tutorials we will always use a camera to easily look around the scenes and see the results from all angles. However, since a camera can take up quite some space on each tutorial we'll abstract a little from the details and create our own camera object that does most of the work for us with some neat little extras. Unlike the Shader tutorial we won't walk you through creating the camera class, but just provide you with the (fully commented) source code if you want to know the inner workings.

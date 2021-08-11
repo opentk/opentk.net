@@ -24,6 +24,8 @@ OpenTK 5 (.NET 5+) is currently under active development. Not considered stable 
 
 [OpenTK.GLControl](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/)
 
+[OpenTK.GLWpfControl](https://www.nuget.org/packages/OpenTK.GLWpfControl/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLWpfControl.svg)](https://www.nuget.org/packages/OpenTK.GLWpfControl/)
+
 If you encounter any issues, please let us know with a GitHub issue.
 
 

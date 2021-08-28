@@ -1,4 +1,4 @@
 cd opentk
 git pull
 cd ..
-rebuildMetadata.cmd
+_RebuildMetadata.cmd

@@ -23,6 +23,24 @@ If you have a question or want to know how to get started, check our extensive [
 
 The OpenTK source code is available [on GitHub](https://github.com/opentk), and the latest build can be found [on Nuget](https://www.nuget.org/packages/OpenTK/).  If you find a bug or defect, please let us know with a [GitHub issue](https://github.com/opentk/opentk/issues).
 
+### Project status (2021-08-11)
+
+OpenTK 3 (.NET framework) is getting incoming PRs merged and released. Feel free to submit a PR! 🙂
+
+OpenTK 4 (.NET core 3.1+) is considered the "current" version of OpenTK. We try and fix any issues reported. If you have any problems, report them here: https://github.com/opentk/opentk/issues/new
+
+OpenTK 5 (.NET 5+) is currently under active development. Not considered stable yet. Follow the progress here: https://github.com/opentk/opentk/issues/1207
+
+### NuGet
+
+[OpenTK](https://www.nuget.org/packages/OpenTK/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.svg)](https://www.nuget.org/packages/OpenTK/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.svg)](https://www.nuget.org/packages/OpenTK/)
+
+[OpenTK.GLControl](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/)
+
+[OpenTK.GLWpfControl](https://www.nuget.org/packages/OpenTK.GLWpfControl/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.GLWpfControl.svg)](https://www.nuget.org/packages/OpenTK.GLWpfControl/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLWpfControl.svg)](https://www.nuget.org/packages/OpenTK.GLWpfControl/)
+
+If you encounter any issues, please let us know with a GitHub issue.
+
 We have an active, friendly [Discord server](https://discord.gg/6HqD48s); if you need help, feel free to join and ask a question in the `#support` channel!
 
 ### License

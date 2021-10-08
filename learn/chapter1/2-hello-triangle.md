@@ -291,7 +291,7 @@ GL.DeleteShader(VertexShader);
 We have a valid shader now, so let's add a way to use it. Add this function to the Shader class:
 
 ```cs
-void Use()
+public void Use()
 {
     GL.UseProgram(Handle);
 }

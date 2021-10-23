@@ -28,7 +28,7 @@ Just like with normal numbers we can also define several operations on vectors (
 A scalar is a single digit (or a vector with 1 component if you'd like stay in vector-land). When adding/subtracting/multiplying or dividing a vector with a scalar we simply add/subtract/multiply or divide each element of the vector by the scalar. For addition it would look like this:
 
 ![Scalar vector operations](img/7-latex_scalar_addition.png)
-  
+
 Where **+** can be **+**,**-**, **•** or **÷** where **•** is the multiplication operator. Keep in mind that for the **-** and **÷** operator order, the reverse order is not defined.
 
 ## Vector negation
@@ -62,17 +62,17 @@ To retrieve the length/magnitude of a vector we use the Pythagoras theorem that 
 ![Pythagoras theorem](img/7-vector_triangle.png)
 
 ![Pythagoras theorem formula](img/7-latex_pythagoras_theorem.png)
-  
+
 Where **||v||** is denoted as *the length of vector* **v**. This is easily extended to 3D by adding **z^2** to the equation.
 
 In this case the length of vector **(4, 2)** equals:
-  
+
 ![Pythagoras theorem formula demonstration](img/7-latex_pythagoras_theorem_demonstrated.png)
 
 Which is **4.47**.
 
 There is also a special type of vector that we call a *unit vector*. A unit vector has one extra property and that is that its length is exactly 1. We can calculate a unit vector **n** from any vector by dividing each of the vector's components by its length:
-  
+
 ![Unit vector](img/7-latex_unit_vector.png)
 
 We call this *normalizing* a vector. Unit vectors are displayed with a little roof over their head and are generally easier to work with, especially when we only care about their directions (the direction does not change if we change a vector's length).
@@ -108,9 +108,9 @@ The cross product is only defined in 3D space and takes two non-parallel vectors
 ![Cross product of two vectors](img/7-vector_crossproduct.png)
 
 Unlike the other operations, the cross product isn't really intuitive without delving into linear algebra so it's best to just memorize the formula and you'll be fine (or don't, you'll probably be fine as well). Below you'll see the cross product between two orthogonal vectors A and B:
-  
+
 ![Cross product formula](img/7-latex_cross_product.png)
-  
+
 As you can see, it doesn't really seem to make sense. However, if you just follow these steps you'll get another vector that is orthogonal to your input vectors.
 
 ## Matrices
@@ -121,7 +121,7 @@ Now that we've discussed almost all there is to vectors it is time to enter the 
 
 Matrices are indexed by **(i,j)** where **i** is the row and **j** is the column, that is why the above matrix is called a 2x3 matrix (3 columns and 2 rows, also known as the dimensions of the matrix). This is the opposite of what you're used to when indexing 2D graphs as **(x,y)**. To retrieve the value 4 we would index it as (2,1) (second row, first column).
 
->It is important to note that OpenTK stores its matrices in column-major form, **not** row-major form. This doesn't have a major impact on most matrix operations, but I'll be sure to point out whenever it has an effect.
+>It is important to note that OpenTK stores its matrices in row-major form, **not** column-major form. This doesn't have a major impact on most matrix operations, but I'll be sure to point out whenever it has an effect.
 
 Matrices are basically nothing more than that, just rectangular arrays of mathematical expressions. They do have a very nice set of mathematical properties and just like vectors we can define several operations on matrices, namely: addition, subtraction and multiplication.
 
@@ -140,7 +140,7 @@ Matrix addition and subtraction between two matrices is done on a per-element ba
 ![Matrix addition with a matrix](img/7-latex_matrix_addition_matrix.png)
 
 The same rules apply for matrix subtraction:
-  
+
 ![Matrix subtraction with a matrix](img/7-latex_matrix_subtraction_matrix.png)
 
 ## Matrix-scalar products
@@ -294,12 +294,12 @@ OpenTK provides its own mathematics library, so there's no need to add another o
 
 ```cs
 Vector4 vec = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
-Matrix4 trans = Matrix4.CreateTranslation(0.1f, 0.1f, 0.0f);
+Matrix4 trans = Matrix4.CreateTranslation(1f, 1f, 0.0f);
 vec *= trans;
 Console.WriteLine("{0}, {1}, {2}", vec.x, vec.y, vec.z);
 ```
 
-We first define a vector named vec using OpenTK's built-in vector class. Next we define a Matrix4 and explicitly initialize it to the identity matrix by calling the `Matrix4.CreateTranslation` function, which takes three floats and creates a translation matrix.
+We first define a vector named vec using OpenTK's built-in vector class. Next we define a Matrix4 and explicitly initialize it  by calling the `Matrix4.CreateTranslation` function, which takes three floats and creates a translation matrix.
 
 Then we multiply our vector by the transformation matrix and output the result. If we still remember how matrix translation works then the resulting vector should be **(1+1,0+1,0+0)** which is **(2,1,0)**. This snippet of code outputs 210 so the translation matrix did its job.
 
@@ -326,7 +326,7 @@ uniform mat4 transform;
 
 void main()
 {
-    gl_Position = transform * vec4(aPos, 1.0f);
+    gl_Position = vec4(aPos, 1.0f) * transform;
     TexCoord = vec2(aTexCoord.x, aTexCoord.y);
 }
 ```

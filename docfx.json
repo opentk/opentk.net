@@ -4,13 +4,22 @@
       "src": [
         {
           "files": [
-            "opentk/src/**/*.csproj"
-          ]
+            "**/*.csproj"
+          ],
+          "exclude": [
+            "Generator/**",
+            "Generator.Bind/**",
+            "Generator.Converter/**",
+            "Generator.Rewrite/**",
+            "OpenAL/OpenTK.OpenAL.Extensions/**"
+          ],
+          "src": "opentk/src"
         }
       ],
       "dest": "api",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "filter": "filterConfig.yml"
     }
   ],
   "build": {
@@ -33,15 +42,17 @@
     "resource": [
       {
         "files": [
-          "*.png",
-          "**/*.png"
+          "favicon.ico",
+          "**/*.png",
+          "**/*.jpg",
+          "**/*.mp4"
         ]
       }
     ],
     "overwrite": [
       {
         "files": [
-          "apidoc/**.md"
+          "api/**.md"
         ],
         "exclude": [
           "obj/**",

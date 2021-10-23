@@ -172,6 +172,9 @@ namespace MyOpenTKExample
             // Show that we can use OpenGL: Clear the window to cornflower blue.
             GL.ClearColor(0.39f, 0.58f, 0.93f, 1.0f);
             GL.Clear(ClearBufferMask.ColorBufferBit);
+
+            // Show in the window the results of the rendering calls.
+            SwapBuffers();
         }
     }
 }

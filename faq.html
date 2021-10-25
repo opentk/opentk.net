@@ -201,6 +201,9 @@ namespace MyOpenTKExample
             // Show that we can use OpenGL: Clear the window to cornflower blue.
             GL.ClearColor(0.39f, 0.58f, 0.93f, 1.0f);
             GL.Clear(ClearBufferMask.ColorBufferBit);
+
+            // Show in the window the results of the rendering calls.
+            SwapBuffers();
         }
     }
 }
@@ -224,7 +227,7 @@ namespace MyOpenTKExample
 <li>The names are changed from <code>SHOUT_CASE</code> to <code>PascalCase</code> to match C# style conventions.</li>
 <li>The constants' <code>GL_</code> prefixes have been removed for readability.</li>
 </ul>
-<p>There is also a special enum type, <code>All</code>, that contains <em>all</em> of the GL constants; this can simplify porting code from other languages, and it ensures that all of the OpenGL constants are available.  <code>All</code> should be avoided in favor of more specialized enum types where possible.</p>
+<p>There is also a special enum type, <code>All</code>, that contains <em>all</em> of the GL constants; this can simplify porting code from other languages, and it ensures that all of the OpenGL constants are available.  <code>All</code> should be avoided in favor of more specialized enum types where possible (but it isn't <em>always</em> possible, so don't forget you can cast from <code>All</code> to <code>int</code> or to the enum type you need!).</p>
 <h3 id="where-do-i-start-with-opengl">Where do I start with OpenGL?</h3>
 <p>Check out <a href="https://opentk.net/learn/index.html">our tutorial here</a>, which will teach you how to build a basic working program that can draw simple objects.  You can learn more about OpenGL in depth over at <a href="https://learnopengl.com/">Learn OpenGL</a>; our tutorials are based on theirs.</p>
 <h3 id="whats-the-difference-between-opengl-and-opengl-es">What’s the difference between OpenGL and OpenGL ES?</h3>

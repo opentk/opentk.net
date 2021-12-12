@@ -493,15 +493,11 @@ If you’re trying to use the old FFP functions, they’re *exposed* by OpenTK, 
 When creating a `NativeWindow`, you pass a `NativeWindowSettings` object to describe what kind of OpenGL context you need.  To enable *compatibility mode*, you change the `ContextProfile` of the `NativeWindowSettings`:
 
 ```c#
-var settings = new NativeWindowSettings
+var nativeWindowSettings = new NativeWindowSettings
 {
+    ...
     ContextProfile = ContextProfile.Compatibility
 };
-
-using (var window = new NativeWindow(settings))
-{
-    window.Run();
-}
 ```
 
 This will provide access to the older FFP functions, at a small cost in memory overhead and performance. (But if you’re concerned about performance, you shouldn’t be using the FFP anyway!)
@@ -594,6 +590,51 @@ OpenTK includes two classes, `NativeWindow` and `GameWindow`, for opening and di
 - `GameWindow` is a higher-level class that inherits from `NativeWindow` and adds functionality often needed by video games.  It provides timing logic, separated update and render methods, and a variety of ways to synchronize and control the game’s performance.
 
 If you’re making a game, you probably want to use `GameWindow` as your base class.  Otherwise, you probably want to use `NativeWindow`.
+
+### How do I add a “main loop” or “Run” method to NativeWindow?
+
+`NativeWindow` contains minimal functionality, and unlike `GameWindow`, it doesn’t include a `Run()` method.  The bare minimum of a `Run()` method is simply this much:
+
+```c#
+public void Run(MyWindow myWindow)
+{
+    while (true)
+    {
+        // Read input devices, and let the OS update the window.
+        myWindow.ProcessEvents();
+        
+        // Draw the next frame!
+        myWindow. ...update and draw something ... ;
+    }
+}
+```
+
+Which is to say:  A `Run()` method, at its core, consists of a loop that alternates between invoking `ProcessEvents()` to handle keyboard and mouse input and window management; and then updating state and drawing a frame.  A good implementation of a `Run()` method would yield the CPU after each frame, respond to window-close events, and the loop should exit when the program is done — but the example above is enough to be usable for very simple programs.
+
+For comparison, the [`Run()` method in `GameWindow`](https://github.com/opentk/opentk/blob/master/src/OpenTK.Windowing.Desktop/GameWindow.cs) looks something like this (with many parts omitted for brevity):
+
+```c#
+public virtual unsafe void Run()
+{
+    Context.MakeCurrent();
+    OnLoad();
+
+    ...setup logic...
+        
+    while (GLFW.WindowShouldClose(WindowPtr) == false)
+    {
+        ProcessEvents();
+        
+        ...timing logic...
+        OnUpdateFrame();
+        ...more timing logic...
+        OnRenderFrame();
+        ...yet more timing logic...
+    }
+}
+```
+
+Implementing the logic to update and render frames with consistent timing of, say, 60 frames per second can be hard; but writing the core of a simple `Run()` loop is easy.
 
 ### What’s the relationship between OpenTK and GLFW?
 

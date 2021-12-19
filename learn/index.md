@@ -1,6 +1,12 @@
 # LearnOpenTK
 Welcome to LearnOpenTK, your home for getting started with OpenTK. We've ported the tutorials made by the great guys over at [LearnOpenGL](https://learnopengl.com) over to C# so that it's easier for you to see how OpenTK works.
 
+## OpenTK 4
+
+The tutorials hosted on this website is currently based on OpenTK 3.
+If you are looking for tutorials using OpenTK 4 they are currently found here: https://github.com/opentk/LearnOpenTK
+
+
 ### Chapters
 
 - [1. Getting Started](chapter1)

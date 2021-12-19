@@ -425,15 +425,11 @@ unsafe
 <p>Modern OpenGL doesn’t use things like <code>glBegin()</code> and <code>glDrawTriangle()</code> — even though those kinds of functions were easy to use, they didn’t scale well.  Modern OpenGL uses shaders and buffers instead, which can handle much more complex rendering than the older OpenGL fixed-function pipeline did.</p>
 <p>If you’re trying to use the old FFP functions, they’re <em>exposed</em> by OpenTK, but they won’t work out-of-the-box, because you need to turn on <em>compatibility mode</em> to enable them.</p>
 <p>When creating a <code>NativeWindow</code>, you pass a <code>NativeWindowSettings</code> object to describe what kind of OpenGL context you need.  To enable <em>compatibility mode</em>, you change the <code>ContextProfile</code> of the <code>NativeWindowSettings</code>:</p>
-<pre><code class="lang-c#">var settings = new NativeWindowSettings
+<pre><code class="lang-c#">var nativeWindowSettings = new NativeWindowSettings
 {
+    ...
     ContextProfile = ContextProfile.Compatibility
 };
-
-using (var window = new NativeWindow(settings))
-{
-    window.Run();
-}
 </code></pre>
 <p>This will provide access to the older FFP functions, at a small cost in memory overhead and performance. (But if you’re concerned about performance, you shouldn’t be using the FFP anyway!)</p>
 <h3 id="how-do-i-center-my-window-on-the-screen">How do I center my window on the screen?</h3>
@@ -503,6 +499,42 @@ public class MyWindow : GameWindow
 <li><code>GameWindow</code> is a higher-level class that inherits from <code>NativeWindow</code> and adds functionality often needed by video games.  It provides timing logic, separated update and render methods, and a variety of ways to synchronize and control the game’s performance.</li>
 </ul>
 <p>If you’re making a game, you probably want to use <code>GameWindow</code> as your base class.  Otherwise, you probably want to use <code>NativeWindow</code>.</p>
+<h3 id="how-do-i-add-a-main-loop-or-run-method-to-nativewindow">How do I add a “main loop” or “Run” method to NativeWindow?</h3>
+<p><code>NativeWindow</code> contains minimal functionality, and unlike <code>GameWindow</code>, it doesn’t include a <code>Run()</code> method.  The bare minimum of a <code>Run()</code> method is simply this much:</p>
+<pre><code class="lang-c#">public void Run(MyWindow myWindow)
+{
+    while (true)
+    {
+        // Read input devices, and let the OS update the window.
+        myWindow.ProcessEvents();
+        
+        // Draw the next frame!
+        myWindow. ...update and draw something ... ;
+    }
+}
+</code></pre>
+<p>Which is to say:  A <code>Run()</code> method, at its core, consists of a loop that alternates between invoking <code>ProcessEvents()</code> to handle keyboard and mouse input and window management; and then updating state and drawing a frame.  A good implementation of a <code>Run()</code> method would yield the CPU after each frame, respond to window-close events, and the loop should exit when the program is done — but the example above is enough to be usable for very simple programs.</p>
+<p>For comparison, the <a href="https://github.com/opentk/opentk/blob/master/src/OpenTK.Windowing.Desktop/GameWindow.cs"><code>Run()</code> method in <code>GameWindow</code></a> looks something like this (with many parts omitted for brevity):</p>
+<pre><code class="lang-c#">public virtual unsafe void Run()
+{
+    Context.MakeCurrent();
+    OnLoad();
+
+    ...setup logic...
+        
+    while (GLFW.WindowShouldClose(WindowPtr) == false)
+    {
+        ProcessEvents();
+        
+        ...timing logic...
+        OnUpdateFrame();
+        ...more timing logic...
+        OnRenderFrame();
+        ...yet more timing logic...
+    }
+}
+</code></pre>
+<p>Implementing the logic to update and render frames with consistent timing of, say, 60 frames per second can be hard; but writing the core of a simple <code>Run()</code> loop is easy.</p>
 <h3 id="whats-the-relationship-between-opentk-and-glfw">What’s the relationship between OpenTK and GLFW?</h3>
 <p>OpenTK 4.x+ uses the <a href="https://www.glfw.org/">GLFW</a> C++ library to provide cross-platform backend support:  GLFW is responsible for opening windows, handling input, and handling as much as possible of the OS dependencies in a portable way.  There’s no reason for us to implement a portability layer when a good, well-supported one already exists.</p>
 <p>As an example, consider the <code>NativeWindow.Title</code> property, which lets you read and update the window’s title.  Here’s its entire implementation, verbatim:</p>

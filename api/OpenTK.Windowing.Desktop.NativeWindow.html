@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NativeWindow
    ">
-    <meta name="generator" content="docfx 2.58.0.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -580,9 +580,7 @@ where the program only needs to do any processing after the user inputs somethin
   <a id="OpenTK_Windowing_Desktop_NativeWindow_IsExiting_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.IsExiting*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_IsExiting" data-uid="OpenTK.Windowing.Desktop.NativeWindow.IsExiting">IsExiting</h4>
   <div class="markdown level1 summary"><p>Gets a value indicating whether the shutdown sequence has been initiated
-for this window, by calling GameWindow.Close() or hitting the 'close' button.
-If this property is true, it is no longer safe to use any OpenTK.Input or
-OpenTK.Graphics.OpenGL functions or properties.</p>
+for this window, by calling NativeWindow.Close() or hitting the 'close' button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -972,31 +970,6 @@ to enable this behavior.</p>
       </tr>
     </tbody>
   </table>
-  <a id="OpenTK_Windowing_Desktop_NativeWindow_VSync_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.VSync*"></a>
-  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_VSync" data-uid="OpenTK.Windowing.Desktop.NativeWindow.VSync">VSync</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the VSync state of this <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html">NativeWindow</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VSyncMode VSync { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenTK.Windowing.Common.VSyncMode.html">VSyncMode</a></td>
-        <td><p>The VSync state.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_WindowBorder_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.WindowBorder*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_WindowBorder" data-uid="OpenTK.Windowing.Desktop.NativeWindow.WindowBorder">WindowBorder</h4>
   <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_WindowBorder">WindowBorder</a> for this window.</p>
@@ -1066,6 +1039,31 @@ to enable this behavior.</p>
       <tr>
         <td><a class="xref" href="OpenTK.Windowing.Common.WindowState.html">WindowState</a></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_VSync_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.VSync*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_VSync" data-uid="OpenTK.Windowing.Desktop.NativeWindow.VSync">VSync</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the VSync state of this <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html">NativeWindow</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VSyncMode VSync { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.Common.VSyncMode.html">VSyncMode</a></td>
+        <td><p>The VSync state.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1165,7 +1163,8 @@ to enable this behavior.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MonitorHandle FindMonitor()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Monitors.GetMonitorFromWindow instead&quot;, true)]
+public MonitorInfo FindMonitor()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1177,7 +1176,7 @@ to enable this behavior.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="OpenTK.Windowing.Common.MonitorHandle.html">MonitorHandle</a></td>
+        <td><a class="xref" href="OpenTK.Windowing.Desktop.MonitorInfo.html">MonitorInfo</a></td>
         <td><p>The monitor the window is in, if found.</p>
 </td>
       </tr>
@@ -1484,7 +1483,8 @@ to find it.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnClosed()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will never be called.&quot;)]
+protected virtual void OnClosed()</code></pre>
   </div>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_OnClosing_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.OnClosing*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_OnClosing_System_ComponentModel_CancelEventArgs_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.OnClosing(System.ComponentModel.CancelEventArgs)">OnClosing(CancelEventArgs)</h4>
@@ -1651,6 +1651,7 @@ to find it.</p>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_OnMaximized_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.OnMaximized*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_OnMaximized_OpenTK_Windowing_Common_MaximizedEventArgs_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.OnMaximized(OpenTK.Windowing.Common.MaximizedEventArgs)">OnMaximized(MaximizedEventArgs)</h4>
   <div class="markdown level1 summary"><p>Raises the <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_OnMaximized_OpenTK_Windowing_Common_MaximizedEventArgs_">OnMaximized(MaximizedEventArgs)</a> event.</p>
+<p>WARNING: During this callback <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_ClientSize">ClientSize</a> will not be guaranteed to contain the new size of the window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1678,6 +1679,7 @@ to find it.</p>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_OnMinimized_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.OnMinimized*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_OnMinimized_OpenTK_Windowing_Common_MinimizedEventArgs_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.OnMinimized(OpenTK.Windowing.Common.MinimizedEventArgs)">OnMinimized(MinimizedEventArgs)</h4>
   <div class="markdown level1 summary"><p>Raises the <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_OnMinimized_OpenTK_Windowing_Common_MinimizedEventArgs_">OnMinimized(MinimizedEventArgs)</a> event.</p>
+<p> WARNING: During this callback <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_ClientSize">ClientSize</a> will not be guaranteed to contain the new size of the window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1709,7 +1711,8 @@ to find it.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnMonitorConnected(MonitorEventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use the Monitors.OnMonitorConnected event instead.&quot;, true)]
+protected virtual void OnMonitorConnected(MonitorEventArgs e)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2078,8 +2081,7 @@ to find it.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p><code>true</code> if events where processed; otherwise <code>false</code>
-(Event processing not possible anymore, window is about to be destroyed).</p>
+        <td><p>This function will always return true.</p>
 </td>
       </tr>
     </tbody>
@@ -2145,7 +2147,7 @@ by each platforms respective default dpi (72 for macOS and 96 for other systems)
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryGetCurrentMonitorDpiRaw(out float horizontalDpi, out float verticalDpi)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool TryGetCurrentMonitorDpiRaw(out float horizontalRawDpi, out float verticalRawDpi)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2159,14 +2161,14 @@ by each platforms respective default dpi (72 for macOS and 96 for other systems)
     <tbody>
       <tr>
         <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">horizontalDpi</span></td>
-        <td><p>Horizontal dpi.</p>
+        <td><span class="parametername">horizontalRawDpi</span></td>
+        <td><p>Raw horizontal dpi.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">verticalDpi</span></td>
-        <td><p>Vertical dpi.</p>
+        <td><span class="parametername">verticalRawDpi</span></td>
+        <td><p>Raw vertical dpi.</p>
 </td>
       </tr>
     </tbody>
@@ -2249,7 +2251,8 @@ be scaled correctly.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event Action Closed</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This event will never be invoked.&quot;)]
+public event Action Closed</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2406,6 +2409,7 @@ be scaled correctly.</p>
   </table>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_Maximized" data-uid="OpenTK.Windowing.Desktop.NativeWindow.Maximized">Maximized</h4>
   <div class="markdown level1 summary"><p>Occurs when the window is maximized.</p>
+<p> WARNING: During this callback <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_ClientSize">ClientSize</a> will not be guaranteed to contain the new size of the window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2429,6 +2433,7 @@ be scaled correctly.</p>
   </table>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_Minimized" data-uid="OpenTK.Windowing.Desktop.NativeWindow.Minimized">Minimized</h4>
   <div class="markdown level1 summary"><p>Occurs when the window is minimized.</p>
+<p> WARNING: During this callback <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_ClientSize">ClientSize</a> will not be guaranteed to contain the new size of the window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2456,7 +2461,8 @@ be scaled correctly.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event Action&lt;MonitorEventArgs&gt; MonitorConnected</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use the Monitors.OnMonitorConnected event instead.&quot;, true)]
+public event Action&lt;MonitorEventArgs&gt; MonitorConnected</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">

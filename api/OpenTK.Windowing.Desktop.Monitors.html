@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Monitors
    ">
-    <meta name="generator" content="docfx 2.58.0.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -128,7 +128,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Count { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use GetMonitors() instead.&quot;, true)]
+public static int Count { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -154,7 +155,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void BuildMonitorCache()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;There is no cache anymore&quot;, true)]
+public static void BuildMonitorCache()</code></pre>
   </div>
   <a id="OpenTK_Windowing_Desktop_Monitors_CheckCache_" data-uid="OpenTK.Windowing.Desktop.Monitors.CheckCache*"></a>
   <h4 id="OpenTK_Windowing_Desktop_Monitors_CheckCache" data-uid="OpenTK.Windowing.Desktop.Monitors.CheckCache">CheckCache()</h4>
@@ -163,7 +165,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool CheckCache()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;There is no cache anymore&quot;, true)]
+public static bool CheckCache()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -188,7 +191,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MonitorHandle GetMonitorFromWindow(NativeWindow window)</code></pre>
+    <pre><code class="lang-csharp hljs">public static MonitorInfo GetMonitorFromWindow(NativeWindow window)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -218,7 +221,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="OpenTK.Windowing.Common.MonitorHandle.html">MonitorHandle</a></td>
+        <td><a class="xref" href="OpenTK.Windowing.Desktop.MonitorInfo.html">MonitorInfo</a></td>
         <td><p>The window the monitor was found in.</p>
 </td>
       </tr>
@@ -235,7 +238,7 @@ intersection area with the given monitor.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MonitorHandle GetMonitorFromWindow(Window*window)</code></pre>
+    <pre><code class="lang-csharp hljs">public static MonitorInfo GetMonitorFromWindow(Window*window)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -265,7 +268,7 @@ intersection area with the given monitor.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="OpenTK.Windowing.Common.MonitorHandle.html">MonitorHandle</a></td>
+        <td><a class="xref" href="OpenTK.Windowing.Desktop.MonitorInfo.html">MonitorInfo</a></td>
         <td><p>The window the monitor was found in.</p>
 </td>
       </tr>
@@ -275,6 +278,31 @@ intersection area with the given monitor.</p>
   <div class="markdown level1 remarks"><p>This function searches for the window by finding which monitor has the largest
 intersection area with the given monitor.</p>
 </div>
+  <a id="OpenTK_Windowing_Desktop_Monitors_GetMonitors_" data-uid="OpenTK.Windowing.Desktop.Monitors.GetMonitors*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_Monitors_GetMonitors" data-uid="OpenTK.Windowing.Desktop.Monitors.GetMonitors">GetMonitors()</h4>
+  <div class="markdown level1 summary"><p>Retrives a list of connected monitors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;MonitorInfo&gt; GetMonitors()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="OpenTK.Windowing.Desktop.MonitorInfo.html">MonitorInfo</a>&gt;</td>
+        <td><p>A list of connected monitors.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_Desktop_Monitors_GetPlatformDefaultDpi_" data-uid="OpenTK.Windowing.Desktop.Monitors.GetPlatformDefaultDpi*"></a>
   <h4 id="OpenTK_Windowing_Desktop_Monitors_GetPlatformDefaultDpi" data-uid="OpenTK.Windowing.Desktop.Monitors.GetPlatformDefaultDpi">GetPlatformDefaultDpi()</h4>
   <div class="markdown level1 summary"><p>Gets the default dpi for platforms.</p>
@@ -304,6 +332,31 @@ intersection area with the given monitor.</p>
   <div class="markdown level1 remarks"><p>For historical reasons macOS has a default dpi of 72, and other
 platforms have a default dpi of 96.</p>
 </div>
+  <a id="OpenTK_Windowing_Desktop_Monitors_GetPrimaryMonitor_" data-uid="OpenTK.Windowing.Desktop.Monitors.GetPrimaryMonitor*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_Monitors_GetPrimaryMonitor" data-uid="OpenTK.Windowing.Desktop.Monitors.GetPrimaryMonitor">GetPrimaryMonitor()</h4>
+  <div class="markdown level1 summary"><p>Get the primary monitor. This is usually the monitor where elements like the task bar or global menu bar are located.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MonitorInfo GetPrimaryMonitor()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.Desktop.MonitorInfo.html">MonitorInfo</a></td>
+        <td><p>The primary monitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_Desktop_Monitors_TryGetMonitorInfo_" data-uid="OpenTK.Windowing.Desktop.Monitors.TryGetMonitorInfo*"></a>
   <h4 id="OpenTK_Windowing_Desktop_Monitors_TryGetMonitorInfo_OpenTK_Windowing_Common_MonitorHandle_OpenTK_Windowing_Desktop_MonitorInfo__" data-uid="OpenTK.Windowing.Desktop.Monitors.TryGetMonitorInfo(OpenTK.Windowing.Common.MonitorHandle,OpenTK.Windowing.Desktop.MonitorInfo@)">TryGetMonitorInfo(MonitorHandle, out MonitorInfo)</h4>
   <div class="markdown level1 summary"><p>Try to get information about a monitor.</p>
@@ -311,7 +364,8 @@ platforms have a default dpi of 96.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryGetMonitorInfo(MonitorHandle monitor, out MonitorInfo info)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use GetMonitors() instead.&quot;, true)]
+public static bool TryGetMonitorInfo(MonitorHandle monitor, out MonitorInfo info)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -360,7 +414,8 @@ platforms have a default dpi of 96.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryGetMonitorInfo(int index, out MonitorInfo info)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use GetMonitors() instead.&quot;, true)]
+public static bool TryGetMonitorInfo(int index, out MonitorInfo info)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -399,6 +454,31 @@ platforms have a default dpi of 96.</p>
         <td><span class="xref">System.Boolean</span></td>
         <td><p>True when the object was retrieved from cache, or built successfully.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <h4 id="OpenTK_Windowing_Desktop_Monitors_OnMonitorConnected" data-uid="OpenTK.Windowing.Desktop.Monitors.OnMonitorConnected">OnMonitorConnected</h4>
+  <div class="markdown level1 summary"><p>Occurs when a <a class="xref" href="OpenTK.Windowing.Common.MonitorHandle.html">MonitorHandle</a> is connected or disconnected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event Action&lt;MonitorEventArgs&gt; OnMonitorConnected</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="OpenTK.Windowing.Common.MonitorEventArgs.html">MonitorEventArgs</a>&gt;</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

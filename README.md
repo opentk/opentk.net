@@ -1,5 +1,5 @@
 # OpenTK Website
-This is the repository for the OpenTK Website at www.opentk.net
+This is the repository for the OpenTK Website at https://opentk.net
 
 # Building
 The builder assumes that you have a directory structure like so

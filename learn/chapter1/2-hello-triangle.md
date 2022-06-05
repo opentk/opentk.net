@@ -121,13 +121,13 @@ VertexBufferObject = GL.GenBuffer();
 OpenGL has many types of buffer objects and the buffer type of a vertex buffer object is `BufferTarget.ArrayBuffer`. OpenGL allows us to bind to several buffers at once as long as they have a different buffer type. We can bind the newly created buffer to the `BufferTarget.ArrayBuffer` target with the `GL.BindBuffer` function:
 
 ```cs
-`GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);`
+GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
 ```
 
 From that point on any buffer calls we make (on the `BufferTarget.ArrayBuffer` target) will be used to configure the currently bound buffer, which is VertexBufferObject. Then we can make a call to `GL.BufferData` function that copies the previously defined vertex data into the buffer's memory:
 
 ```cs
-`GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);`
+GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
 ```
 
 `GL.BufferData` is a function specifically targeted to copy user-defined data into the currently-bound buffer. Its first argument is the type of the buffer we want to copy data into: the vertex buffer object currently bound to the `BufferTarget.ArrayBuffer` target. The second argument specifies the size of the data (in bytes) we want to pass to the buffer; a simple sizeof of the data type, multiplied by the length of the vertices, suffices. The third parameter is the actual data we want to send.

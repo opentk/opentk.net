@@ -8,7 +8,7 @@
     <title>Hello Triangle  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Hello Triangle ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.59.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -152,9 +152,11 @@
 <pre><code class="lang-cs">VertexBufferObject = GL.GenBuffer();
 </code></pre>
 <p>OpenGL has many types of buffer objects and the buffer type of a vertex buffer object is <code>BufferTarget.ArrayBuffer</code>. OpenGL allows us to bind to several buffers at once as long as they have a different buffer type. We can bind the newly created buffer to the <code>BufferTarget.ArrayBuffer</code> target with the <code>GL.BindBuffer</code> function:</p>
-<p><code>GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);</code></p>
+<pre><code class="lang-cs">GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
+</code></pre>
 <p>From that point on any buffer calls we make (on the <code>BufferTarget.ArrayBuffer</code> target) will be used to configure the currently bound buffer, which is VertexBufferObject. Then we can make a call to <code>GL.BufferData</code> function that copies the previously defined vertex data into the buffer's memory:</p>
-<p><code>GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);</code></p>
+<pre><code class="lang-cs">GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
+</code></pre>
 <p><code>GL.BufferData</code> is a function specifically targeted to copy user-defined data into the currently-bound buffer. Its first argument is the type of the buffer we want to copy data into: the vertex buffer object currently bound to the <code>BufferTarget.ArrayBuffer</code> target. The second argument specifies the size of the data (in bytes) we want to pass to the buffer; a simple sizeof of the data type, multiplied by the length of the vertices, suffices. The third parameter is the actual data we want to send.</p>
 <p>The fourth parameter is a BufferUsageHint, which specifies how we want the graphics card to manage the given data. This can take 3 forms:</p>
 <pre><code>StaticDraw: the data will most likely not change at all or very rarely.

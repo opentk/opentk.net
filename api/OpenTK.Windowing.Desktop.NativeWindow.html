@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NativeWindow
    ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.59.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -203,6 +203,34 @@
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_AspectRatio_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.AspectRatio*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_AspectRatio" data-uid="OpenTK.Windowing.Desktop.NativeWindow.AspectRatio">AspectRatio</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the aspect ratio this window is locked to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int numerator, int denominator)? AspectRatio { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.Int32</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Windowing_Desktop_NativeWindow_AspectRatio_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Set to <code>null</code> disable aspect ratio locking.
+If you set size limits and an aspect ratio lock that conflict, the results are undefined.</p>
+</div>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_Bounds_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.Bounds*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_Bounds" data-uid="OpenTK.Windowing.Desktop.NativeWindow.Bounds">Bounds</h4>
   <div class="markdown level1 summary"><p>Gets or sets a <a class="xref" href="OpenTK.Mathematics.Box2i.html">Box2i</a> structure the contains the external bounds of this window,
@@ -383,7 +411,8 @@ The internal bounds include the drawing area of the window, but exclude the titl
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool CursorGrabbed { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CursorState instead.&quot;)]
+public bool CursorGrabbed { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -400,6 +429,30 @@ The internal bounds include the drawing area of the window, but exclude the titl
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_CursorState_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.CursorState*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_CursorState" data-uid="OpenTK.Windowing.Desktop.NativeWindow.CursorState">CursorState</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the cursor state of the windows cursor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CursorState CursorState { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.Common.CursorState.html">CursorState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_CursorVisible_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.CursorVisible*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_CursorVisible" data-uid="OpenTK.Windowing.Desktop.NativeWindow.CursorVisible">CursorVisible</h4>
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the mouse cursor is visible.</p>
@@ -407,7 +460,8 @@ The internal bounds include the drawing area of the window, but exclude the titl
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool CursorVisible { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CursorState insatead.&quot;)]
+public bool CursorVisible { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -823,6 +877,62 @@ desktop.</p>
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_MaximumSize_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.MaximumSize*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_MaximumSize" data-uid="OpenTK.Windowing.Desktop.NativeWindow.MaximumSize">MaximumSize</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a <a class="xref" href="OpenTK.Mathematics.Vector2i.html">Vector2i</a> structure that contains the maximum external size of this window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2i? MaximumSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="OpenTK.Mathematics.Vector2i.html">Vector2i</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Windowing_Desktop_NativeWindow_MaximumSize_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Set to <code>null</code> to remove the maximum size constraint.
+If you set size limits and an aspect ratio that conflict, the results are undefined.</p>
+</div>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_MinimumSize_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.MinimumSize*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_MinimumSize" data-uid="OpenTK.Windowing.Desktop.NativeWindow.MinimumSize">MinimumSize</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a <a class="xref" href="OpenTK.Mathematics.Vector2i.html">Vector2i</a> structure that contains the minimum external size of this window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2i? MinimumSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="OpenTK.Mathematics.Vector2i.html">Vector2i</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Windowing_Desktop_NativeWindow_MinimumSize_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Set to <code>null</code> to remove the minimum size constraint.
+If you set size limits and an aspect ratio that conflict, the results are undefined.</p>
+</div>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_MouseDelta_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.MouseDelta*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_MouseDelta" data-uid="OpenTK.Windowing.Desktop.NativeWindow.MouseDelta">MouseDelta</h4>
   <div class="markdown level1 summary"><p>Gets the amount that the mouse moved since the last frame.
@@ -970,6 +1080,31 @@ to enable this behavior.</p>
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_VSync_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.VSync*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_VSync" data-uid="OpenTK.Windowing.Desktop.NativeWindow.VSync">VSync</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the VSync state of this <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html">NativeWindow</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VSyncMode VSync { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.Common.VSyncMode.html">VSyncMode</a></td>
+        <td><p>The VSync state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_WindowBorder_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.WindowBorder*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_WindowBorder" data-uid="OpenTK.Windowing.Desktop.NativeWindow.WindowBorder">WindowBorder</h4>
   <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_WindowBorder">WindowBorder</a> for this window.</p>
@@ -1039,31 +1174,6 @@ to enable this behavior.</p>
       <tr>
         <td><a class="xref" href="OpenTK.Windowing.Common.WindowState.html">WindowState</a></td>
         <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="OpenTK_Windowing_Desktop_NativeWindow_VSync_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.VSync*"></a>
-  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_VSync" data-uid="OpenTK.Windowing.Desktop.NativeWindow.VSync">VSync</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the VSync state of this <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html">NativeWindow</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VSyncMode VSync { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenTK.Windowing.Common.VSyncMode.html">VSyncMode</a></td>
-        <td><p>The VSync state.</p>
-</td>
       </tr>
     </tbody>
   </table>
@@ -1219,7 +1329,7 @@ to find it.</p>
       <tr>
         <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">Keys</a></td>
         <td><span class="parametername">key</span></td>
-        <td><p>The <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">Keys</a> to check.</p>
+        <td><p>The <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">key</a> to check.</p>
 </td>
       </tr>
     </tbody>
@@ -1262,7 +1372,7 @@ to find it.</p>
       <tr>
         <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">Keys</a></td>
         <td><span class="parametername">key</span></td>
-        <td><p>The <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">Keys</a> to check.</p>
+        <td><p>The <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">key</a> to check.</p>
 </td>
       </tr>
     </tbody>
@@ -1308,7 +1418,7 @@ to find it.</p>
       <tr>
         <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">Keys</a></td>
         <td><span class="parametername">key</span></td>
-        <td><p>The <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">Keys</a> to check.</p>
+        <td><p>The <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Keys.html">key</a> to check.</p>
 </td>
       </tr>
     </tbody>
@@ -2041,7 +2151,8 @@ protected virtual void OnMonitorConnected(MonitorEventArgs e)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void ProcessEvents()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This function wrongly implies that only events from this window are processed, while in fact events for all windows are processed. Use NativeWindow.ProcessWindowEvents() instead.&quot;)]
+public virtual void ProcessEvents()</code></pre>
   </div>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_ProcessEvents_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.ProcessEvents*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_ProcessEvents_System_Double_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.ProcessEvents(System.Double)">ProcessEvents(Double)</h4>
@@ -2086,6 +2197,46 @@ protected virtual void OnMonitorConnected(MonitorEventArgs e)</code></pre>
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_ProcessInputEvents_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.ProcessInputEvents*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_ProcessInputEvents" data-uid="OpenTK.Windowing.Desktop.NativeWindow.ProcessInputEvents">ProcessInputEvents()</h4>
+  <div class="markdown level1 summary"><p>Updates the input state in preparation for a call to <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_PollEvents">PollEvents()</a> or <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_WaitEvents">WaitEvents()</a>.
+Do not call this function if you are calling <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_ProcessEvents">ProcessEvents()</a> or if you are running the window using <a class="xref" href="OpenTK.Windowing.Desktop.GameWindow.html#OpenTK_Windowing_Desktop_GameWindow_Run">Run()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ProcessInputEvents()</code></pre>
+  </div>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_ProcessWindowEvents_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.ProcessWindowEvents*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_ProcessWindowEvents_System_Boolean_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.ProcessWindowEvents(System.Boolean)">ProcessWindowEvents(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Processes pending window events, either by calling <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_WaitEvents">WaitEvents()</a> or <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_PollEvents">PollEvents()</a> depending on if <code data-dev-comment-type="paramref" class="paramref">waitForEvents</code> is set to true or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ProcessWindowEvents(bool waitForEvents)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">waitForEvents</span></td>
+        <td><p>Whether to call <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_WaitEvents">WaitEvents()</a> or <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_PollEvents">PollEvents()</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Windowing_Desktop_NativeWindow_ProcessWindowEvents_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This function should only be called from the main thread.</p>
+</div>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_TryGetCurrentMonitorDpi_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.TryGetCurrentMonitorDpi*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_TryGetCurrentMonitorDpi_System_Single__System_Single__" data-uid="OpenTK.Windowing.Desktop.NativeWindow.TryGetCurrentMonitorDpi(System.Single@,System.Single@)">TryGetCurrentMonitorDpi(out Single, out Single)</h4>
   <div class="markdown level1 summary"><p>Gets the dpi of the current monitor.</p>

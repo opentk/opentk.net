@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class GLFW
    ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.59.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1222,9 +1222,52 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
   <div class="seealso">
       <div><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetClipboardString_OpenTK_Windowing_GraphicsLibraryFramework_Window__System_String_">SetClipboardString(Window*, String)</a></div>
   </div>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetCocoaMonitor_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaMonitor*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetCocoaMonitor_OpenTK_Windowing_GraphicsLibraryFramework_Monitor__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaMonitor(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)">GetCocoaMonitor(Monitor*)</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>CGDirectDisplayID</code> of the specified monitor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint GetCocoaMonitor(Monitor*monitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html">Monitor</a>*</td>
+        <td><span class="parametername">monitor</span></td>
+        <td><p>The monitor to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><p>The <code>CGDirectDisplayID</code> of the specified monitor, or <code>kCGNullDirectDisplay</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetCocoaWindow_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaWindow*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetCocoaWindow_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetCocoaWindow(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the macos specific window handle (NSWindow).</p>
+  <div class="markdown level1 summary"><p>Returns the <code>NSWindow</code> of the specified window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1260,7 +1303,7 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
     <tbody>
       <tr>
         <td><span class="xref">System.IntPtr</span></td>
-        <td><p>The macos specific window handle (NSWindow).</p>
+        <td><p>The <code>NSWindow</code> of the specified window, or <code>nil</code> if an error occurred.</p>
 </td>
       </tr>
     </tbody>
@@ -1426,7 +1469,7 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
 </div>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetEGLContext_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetEGLContext*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetEGLContext_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetEGLContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetEGLContext(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the egl context associated with the window.</p>
+  <div class="markdown level1 summary"><p>Returns the <code>EGLContext</code> of the specified window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1462,7 +1505,75 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
     <tbody>
       <tr>
         <td><span class="xref">System.IntPtr</span></td>
-        <td><p>The EGLContext of the specified window, or EGL_NO_CONTEXT if an error occurred.</p>
+        <td><p>The <code>EGLContext</code> of the specified window, or <code>EGL_NO_CONTEXT</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetEGLDisplay_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetEGLDisplay*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetEGLDisplay" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetEGLDisplay">GetEGLDisplay()</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>EGLDisplay</code> used by GLFW.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetEGLDisplay()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><p>The <code>EGLDisplay</code> used by GLFW, or <code>EGL_NO_DISPLAY</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetEGLSurface_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetEGLSurface*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetEGLSurface_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetEGLSurface(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetEGLSurface(Window*)</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>EGLSurface</code> of the specified window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetEGLSurface(Window*window)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
+        <td><span class="parametername">window</span></td>
+        <td><p>The window to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><p>The <code>EGLSurface</code> of the specified window, or <code>EGL_NO_SURFACE</code> if an error occurred.</p>
 </td>
       </tr>
     </tbody>
@@ -2039,7 +2150,7 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
 </div>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetGLXContext_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetGLXContext*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetGLXContext_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetGLXContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetGLXContext(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the GLX context associated with the window.</p>
+  <div class="markdown level1 summary"><p>Returns the <code>GLXContext</code> of the specified window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2075,14 +2186,14 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
     <tbody>
       <tr>
         <td><span class="xref">System.UInt32</span></td>
-        <td><p>The GLXContext of the specified window, or NULL if an error occurred.</p>
+        <td><p>The <code>GLXContext</code> of the specified window, or <code>NULL</code> if an error occurred.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetGLXWindow_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetGLXWindow*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetGLXWindow_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetGLXWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetGLXWindow(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the glx specific window handle (Window).</p>
+  <div class="markdown level1 summary"><p>Returns the <code>GLXWindow</code> of the specified window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2118,7 +2229,7 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
     <tbody>
       <tr>
         <td><span class="xref">System.UInt32</span></td>
-        <td><p>The glx specific window handle (Window).</p>
+        <td><p>The <code>GLXWindow</code> of the specified window, or <code>None</code> if an error occurred.</p>
 </td>
       </tr>
     </tbody>
@@ -2170,7 +2281,7 @@ The mode must be <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework
     <tbody>
       <tr>
         <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.CursorModeValue.html">CursorModeValue</a></td>
-        <td><p>TODO: return value is either InputModeValue or bool dependant on <code data-dev-comment-type="paramref" class="paramref">mode</code>.</p>
+        <td><p>The current cursor mode.</p>
 </td>
       </tr>
     </tbody>
@@ -2234,7 +2345,7 @@ The mode must be <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p>TODO: return value is either InputModeValue or bool dependant on <code data-dev-comment-type="paramref" class="paramref">mode</code>.</p>
+        <td><p>Whether or not lock key mods are enabled or not.</p>
 </td>
       </tr>
     </tbody>
@@ -2250,6 +2361,70 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
   <h5 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_LockKeyModAttribute__seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_LockKeyModAttribute_System_Boolean_">SetInputMode(Window*, LockKeyModAttribute, Boolean)</a></div>
+  </div>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetInputMode_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetInputMode*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetInputMode(OpenTK.Windowing.GraphicsLibraryFramework.Window*,OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute)">GetInputMode(Window*, RawMouseMotionAttribute)</h4>
+  <div class="markdown level1 summary"><p>
+This function returns the value of an input option for the specified window.
+The mode must be <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute.html#OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_RawMouseMotion">RawMouseMotion</a>.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetInputMode(Window*window, RawMouseMotionAttribute mode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
+        <td><span class="parametername">window</span></td>
+        <td><p>The window to query.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute.html">RawMouseMotionAttribute</a></td>
+        <td><span class="parametername">mode</span></td>
+        <td><p><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute.html#OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_RawMouseMotion">RawMouseMotion</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether raw mouse motion is enabled or disabled for this window.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This function must only be called from the main thread.
+</p>
+<p>
+Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a> and <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_InvalidEnum">InvalidEnum</a>.
+</p>
+</div>
+  <h5 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_System_Boolean_">SetInputMode(Window*, RawMouseMotionAttribute, Boolean)</a></div>
   </div>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetInputMode_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetInputMode*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_StickyAttributes_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetInputMode(OpenTK.Windowing.GraphicsLibraryFramework.Window*,OpenTK.Windowing.GraphicsLibraryFramework.StickyAttributes)">GetInputMode(Window*, StickyAttributes)</h4>
@@ -2298,7 +2473,7 @@ The mode must be <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p>TODO: return value is either InputModeValue or bool dependant on <code data-dev-comment-type="paramref" class="paramref">mode</code>.</p>
+        <td><p>Whether sticky keys or sticky mouse buttons are enabled depending on the value of <code data-dev-comment-type="paramref" class="paramref">mode</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -4585,7 +4760,7 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
 </div>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetNSGLContext_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetNSGLContext*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetNSGLContext_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetNSGLContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetNSGLContext(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the NSOpenGLContext (macos) associated with the window.</p>
+  <div class="markdown level1 summary"><p>Returns the <code>NSOpenGLContext</code> of the specified window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -4605,7 +4780,7 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
       <tr>
         <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
         <td><span class="parametername">window</span></td>
-        <td><p>The window to get the context from.</p>
+        <td><p>The window to query.</p>
 </td>
       </tr>
     </tbody>
@@ -4621,7 +4796,74 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
     <tbody>
       <tr>
         <td><span class="xref">System.IntPtr</span></td>
-        <td><p>The NSOpenGLContext of the specified window, or nil if an error occurred.</p>
+        <td><p>The <code>NSOpenGLContext</code> of the specified window, or <code>nil</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetOSMesaColorBuffer_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetOSMesaColorBuffer*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetOSMesaColorBuffer_OpenTK_Windowing_GraphicsLibraryFramework_Window__System_Int32__System_Int32__System_Int32__System_IntPtr__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetOSMesaColorBuffer(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Int32@,System.Int32@,System.Int32@,System.IntPtr@)">GetOSMesaColorBuffer(Window*, out Int32, out Int32, out Int32, out IntPtr)</h4>
+  <div class="markdown level1 summary"><p>Retrieves the color buffer associated with the specified window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetOSMesaColorBuffer(Window*window, out int width, out int height, out int format, out IntPtr buffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
+        <td><span class="parametername">window</span></td>
+        <td><p>The window to query.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The width of the color buffer.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height of the color buffer.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The OSMesa pixel format of the color buffer.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>The addess of the color buffer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if successful, or <code>false</code> if an error occurred.</p>
 </td>
       </tr>
     </tbody>
@@ -4665,6 +4907,73 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
       <tr>
         <td><span class="xref">System.IntPtr</span></td>
         <td><p>The OSMesaContext of the specified window, or NULL if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetOSMesaDepthBuffer_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetOSMesaDepthBuffer*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetOSMesaDepthBuffer_OpenTK_Windowing_GraphicsLibraryFramework_Window__System_Int32__System_Int32__System_Int32__System_IntPtr__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetOSMesaDepthBuffer(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Int32@,System.Int32@,System.Int32@,System.IntPtr@)">GetOSMesaDepthBuffer(Window*, out Int32, out Int32, out Int32, out IntPtr)</h4>
+  <div class="markdown level1 summary"><p>Retrieves the depth buffer associated with the specified window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetOSMesaDepthBuffer(Window*window, out int width, out int height, out int bytesPerValue, out IntPtr buffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
+        <td><span class="parametername">window</span></td>
+        <td><p>The window to query.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The width of the depth buffer.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height of the depth buffer.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">bytesPerValue</span></td>
+        <td><p>The number of bytes per depth buffer element.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>The address of the depth buffer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if successful, or <code>false</code> if an error occurred.</p>
 </td>
       </tr>
     </tbody>
@@ -5257,49 +5566,6 @@ This function may be called from any thread.
 Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a>.
 </p>
 </div>
-  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWaylandWindow_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWaylandWindow*"></a>
-  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWaylandWindow_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWaylandWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetWaylandWindow(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the wayland specific window handle (struct wl_surface*).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IntPtr GetWaylandWindow(Window*window)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
-        <td><span class="parametername">window</span></td>
-        <td><p>The window to query.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><p>The wayland specific window handle (struct wl_surface*).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetVersion_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVersion*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetVersion_System_Int32__System_Int32__System_Int32__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVersion(System.Int32@,System.Int32@,System.Int32@)">GetVersion(out Int32, out Int32, out Int32)</h4>
   <div class="markdown level1 summary"><p>
@@ -5450,49 +5716,6 @@ This function may be called from any thread.
   <div class="seealso">
       <div><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetVersion_System_Int32__System_Int32__System_Int32__">GetVersion(out Int32, out Int32, out Int32)</a></div>
   </div>
-  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWGLContext_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWGLContext*"></a>
-  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWGLContext_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWGLContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetWGLContext(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the WGL context associated with the window.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IntPtr GetWGLContext(Window*window)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
-        <td><span class="parametername">window</span></td>
-        <td><p>The window to get the context from.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><p>The HGLRC of the specified window, or NULL if an error occurred.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetVideoMode_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVideoMode*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetVideoMode_OpenTK_Windowing_GraphicsLibraryFramework_Monitor__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVideoMode(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)">GetVideoMode(Monitor*)</h4>
   <div class="markdown level1 summary"><p>
@@ -5765,9 +5988,249 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
   <div class="seealso">
       <div><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetVideoMode_OpenTK_Windowing_GraphicsLibraryFramework_Monitor__">GetVideoMode(Monitor*)</a></div>
   </div>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWaylandDisplay_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWaylandDisplay*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWaylandDisplay" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWaylandDisplay">GetWaylandDisplay()</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>struct wl_display*</code> used by GLFW.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetWaylandDisplay()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><p>The <code>struct wl_display*</code> used by GLFW, or <code>NULL</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWaylandMonitor_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWaylandMonitor*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWaylandMonitor_OpenTK_Windowing_GraphicsLibraryFramework_Monitor__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWaylandMonitor(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)">GetWaylandMonitor(Monitor*)</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>struct wl_output*</code> of the specified monitor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetWaylandMonitor(Monitor*monitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html">Monitor</a>*</td>
+        <td><span class="parametername">monitor</span></td>
+        <td><p>The monitor to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><p>The <code>struct wl_output*</code> of the specified monitor, or <code>NULL</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWaylandWindow_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWaylandWindow*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWaylandWindow_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWaylandWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetWaylandWindow(Window*)</h4>
+  <div class="markdown level1 summary"><p>Returns the main <code>struct wl_surface*</code> of the specified window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetWaylandWindow(Window*window)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
+        <td><span class="parametername">window</span></td>
+        <td><p>The window to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><p>The main <code>xstruct wl_surface*</code> of the specified window, or <code>NULL</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWGLContext_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWGLContext*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWGLContext_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWGLContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetWGLContext(Window*)</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>HGLRC</code> of the specified window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetWGLContext(Window*window)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
+        <td><span class="parametername">window</span></td>
+        <td><p>The window to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><p>The <code>HGLRC</code> of the specified window, or <code>NULL</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWin32Adapter_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWin32Adapter*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWin32Adapter_OpenTK_Windowing_GraphicsLibraryFramework_Monitor__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWin32Adapter(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)">GetWin32Adapter(Monitor*)</h4>
+  <div class="markdown level1 summary"><p>Returns the adapter device name of the specified monitor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetWin32Adapter(Monitor*monitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html">Monitor</a>*</td>
+        <td><span class="parametername">monitor</span></td>
+        <td><p>The monitor to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The adapter device name (for example \.\DISPLAY1) of the specified monitor, or <code>NULL</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWin32Monitor_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWin32Monitor*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWin32Monitor_OpenTK_Windowing_GraphicsLibraryFramework_Monitor__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWin32Monitor(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)">GetWin32Monitor(Monitor*)</h4>
+  <div class="markdown level1 summary"><p>Returns the display device name of the specified monitor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetWin32Monitor(Monitor*monitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html">Monitor</a>*</td>
+        <td><span class="parametername">monitor</span></td>
+        <td><p>The monitor to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The display device name (for example \.\DISPLAY1\Monitor0) of the specified monitor, or NULL if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWin32Window_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWin32Window*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetWin32Window_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWin32Window(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetWin32Window(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the Windows specific window handle (HWND).</p>
+  <div class="markdown level1 summary"><p>Returns the <code>HWND</code> of the specified window..</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -5803,7 +6266,7 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
     <tbody>
       <tr>
         <td><span class="xref">System.IntPtr</span></td>
-        <td><p>The Windows specific window handle (HWND).</p>
+        <td><p>The <code>HWND</code> of the specified window, or <code>NULL</code> if an error occurred.</p>
 </td>
       </tr>
     </tbody>
@@ -6809,14 +7272,150 @@ This function may be called from any thread. Access is not synchronized.
 Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a>.
 </p>
 </div>
-  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Window_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Window*"></a>
-  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Window_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Window(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetX11Window(Window*)</h4>
-  <div class="markdown level1 summary"><p>This function returns the x11 specific window handle (Window).</p>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Adapter_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Adapter*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Adapter_OpenTK_Windowing_GraphicsLibraryFramework_Monitor__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Adapter(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)">GetX11Adapter(Monitor*)</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>RRCrtc</code> of the specified monitor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint GetX11Window(Window*window)</code></pre>
+    <pre><code class="lang-csharp hljs">public static UIntPtr GetX11Adapter(Monitor*monitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html">Monitor</a>*</td>
+        <td><span class="parametername">monitor</span></td>
+        <td><p>The monitor to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UIntPtr</span></td>
+        <td><p>The <code>RRCrtc</code> of the specified monitor, or <code>None</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Display_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Display*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Display" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Display">GetX11Display()</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>Display</code> used by GLFW.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetX11Display()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><p>The <code>Display</code> used by GLFW, or <code>NULL</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Monitor_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Monitor*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Monitor_OpenTK_Windowing_GraphicsLibraryFramework_Monitor__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Monitor(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)">GetX11Monitor(Monitor*)</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>RROutput</code> of the specified monitor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UIntPtr GetX11Monitor(Monitor*monitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html">Monitor</a>*</td>
+        <td><span class="parametername">monitor</span></td>
+        <td><p>The monitor to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UIntPtr</span></td>
+        <td><p>The <code>RROutput</code> of the specified monitor, or <code>None</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11SelectionString_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11SelectionString*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11SelectionString" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11SelectionString">GetX11SelectionString()</h4>
+  <div class="markdown level1 summary"><p>Returns the contents of the current primary selection as a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetX11SelectionString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The contents of the selection as a string, or <code>NULL</code> if an error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Window_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Window*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetX11Window_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Window(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">GetX11Window(Window*)</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>Window</code> of the specified window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UIntPtr GetX11Window(Window*window)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -6846,8 +7445,8 @@ Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UInt32</span></td>
-        <td><p>The x11 specific window handle (Window).</p>
+        <td><span class="xref">System.UIntPtr</span></td>
+        <td><p>The <code>Window</code> of the specified window, or <code>None</code> if an error occurred.</p>
 </td>
       </tr>
     </tbody>
@@ -8400,6 +8999,60 @@ num lock modifier  bit when Num Lock was on.
     </tbody>
   </table>
   <h5 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_LockKeyModAttribute_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This function must only be called from the main thread.
+</p>
+<p>
+Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a>, <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_InvalidEnum">InvalidEnum</a> and <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_PlatformError">PlatformError</a>.
+</p>
+</div>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetInputMode_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetInputMode*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_System_Boolean_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetInputMode(OpenTK.Windowing.GraphicsLibraryFramework.Window*,OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute,System.Boolean)">SetInputMode(Window*, RawMouseMotionAttribute, Boolean)</h4>
+  <div class="markdown level1 summary"><p>
+This function sets an input mode option for the specified window.
+The mode must be <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute.html#OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_RawMouseMotion">RawMouseMotion</a>.
+</p>
+<p>
+If the mode is <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute.html#OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_RawMouseMotion">RawMouseMotion</a>, the value must be either GLFW_TRUE to enable raw (unscaled and unaccelerated) mouse motion when the cursor is disabled, or GLFW_FALSE to disable it.
+If raw motion is not supported, attempting to set this will emit GLFW_PLATFORM_ERROR. Call glfwRawMouseMotionSupported to check for support.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetInputMode(Window*window, RawMouseMotionAttribute mode, bool value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Window.html">Window</a>*</td>
+        <td><span class="parametername">window</span></td>
+        <td><p>The window whose raw mouse motion mode to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute.html">RawMouseMotionAttribute</a></td>
+        <td><span class="parametername">mode</span></td>
+        <td><p>The value <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute.html#OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_RawMouseMotion">RawMouseMotion</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Whether raw mouse motion should be enabled or disabled.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetInputMode_OpenTK_Windowing_GraphicsLibraryFramework_Window__OpenTK_Windowing_GraphicsLibraryFramework_RawMouseMotionAttribute_System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 This function must only be called from the main thread.
 </p>
@@ -10258,6 +10911,33 @@ This function may be called from any thread. Access is not synchronized.
 Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a>.
 </p>
 </div>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetX11SelectionString_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetX11SelectionString*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_SetX11SelectionString_System_String_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetX11SelectionString(System.String)">SetX11SelectionString(String)</h4>
+  <div class="markdown level1 summary"><p>Sets the current primary selection to the specified string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetX11SelectionString(string string)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">string</span></td>
+        <td><p>The string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_ShowWindow_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.ShowWindow*"></a>
   <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_ShowWindow_OpenTK_Windowing_GraphicsLibraryFramework_Window__" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.ShowWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)">ShowWindow(Window*)</h4>
   <div class="markdown level1 summary"><p>
@@ -10586,6 +11266,50 @@ This function must only be called from the main thread.
 </p>
 <p>
 Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a> and <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_InvalidValue">InvalidValue</a>.
+</p>
+</div>
+  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_VulkanSupported_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.VulkanSupported*"></a>
+  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_VulkanSupported" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.VulkanSupported">VulkanSupported()</h4>
+  <div class="markdown level1 summary"><p>Returns whether the Vulkan loader and an ICD have been found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool VulkanSupported()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if Vulkan is minimally available, or <code>false</code> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_VulkanSupported_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This function returns whether the Vulkan loader and any minimally functional ICD have been found.
+</p>
+<p>
+The availability of a Vulkan loader and even an ICD does not by itself
+guarantee that surface creation or even instance creation is possible.
+For example, on Fermi systems Nvidia will install an ICD that provides no actual Vulkan support.
+Call <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetRequiredInstanceExtensions">GetRequiredInstanceExtensions()</a> to check whether the extensions necessary
+for Vulkan surface creation are available and <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetPhysicalDevicePresentationSupport_OpenTK_Windowing_GraphicsLibraryFramework_VkHandle_OpenTK_Windowing_GraphicsLibraryFramework_VkHandle_System_Int32_">GetPhysicalDevicePresentationSupport(VkHandle, VkHandle, Int32)</a>
+to check whether a queue family of a physical device supports image presentation.
+</p>
+<p>
+Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a>.
+</p>
+<p>
+This function may be called from any thread.
 </p>
 </div>
   <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_WaitEvents_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.WaitEvents*"></a>
@@ -11275,50 +11999,6 @@ This function may be called from any thread. Access is not synchronized.
 </p>
 <p>
 Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a>.
-</p>
-</div>
-  <a id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_VulkanSupported_" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.VulkanSupported*"></a>
-  <h4 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_VulkanSupported" data-uid="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.VulkanSupported">VulkanSupported()</h4>
-  <div class="markdown level1 summary"><p>Returns whether the Vulkan loader and an ICD have been found.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool VulkanSupported()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p><code>true</code> if Vulkan is minimally available, or <code>false</code> otherwise.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="OpenTK_Windowing_GraphicsLibraryFramework_GLFW_VulkanSupported_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This function returns whether the Vulkan loader and any minimally functional ICD have been found.
-</p>
-<p>
-The availability of a Vulkan loader and even an ICD does not by itself
-guarantee that surface creation or even instance creation is possible.
-For example, on Fermi systems Nvidia will install an ICD that provides no actual Vulkan support.
-Call <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetRequiredInstanceExtensions">GetRequiredInstanceExtensions()</a> to check whether the extensions necessary
-for Vulkan surface creation are available and <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_GetPhysicalDevicePresentationSupport_OpenTK_Windowing_GraphicsLibraryFramework_VkHandle_OpenTK_Windowing_GraphicsLibraryFramework_VkHandle_System_Int32_">GetPhysicalDevicePresentationSupport(VkHandle, VkHandle, Int32)</a>
-to check whether a queue family of a physical device supports image presentation.
-</p>
-<p>
-Possible errors include <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_NotInitialized">NotInitialized</a>.
-</p>
-<p>
-This function may be called from any thread.
 </p>
 </div>
 </article>

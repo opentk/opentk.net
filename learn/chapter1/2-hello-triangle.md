@@ -256,16 +256,21 @@ Then, we compile the shaders and check for errors.
 ```cs
 GL.CompileShader(VertexShader);
 
-string infoLogVert = GL.GetShaderInfoLog(VertexShader);
-if (infoLogVert != System.String.Empty)
-    System.Console.WriteLine(infoLogVert);
+GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
+if (success == 0)
+{
+    string infoLog = GL.GetShaderInfoLog(VertexShader);
+    System.Console.WriteLine(infoLog);
+}
 
 GL.CompileShader(FragmentShader);
 
-string infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
-
-if (infoLogFrag != System.String.Empty)
-    System.Console.WriteLine(infoLogFrag);
+GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
+if (success == 0)
+{
+    string infoLog = GL.GetShaderInfoLog(FragmentShader);
+    System.Console.WriteLine(infoLog);
+}
 ```
 
 If there are any errors when compiling, you can get the debug string with the function `GL.GetShaderInfoLog`. Assuming there were no issues, we can move on to linking.
@@ -279,6 +284,13 @@ GL.AttachShader(Handle, VertexShader);
 GL.AttachShader(Handle, FragmentShader);
 
 GL.LinkProgram(Handle);
+
+GL.GetProgram(program, GetProgramParameterName.LinkStatus, out int success);
+if (success == 0)
+{
+    string infoLog = GL.GetProgramInfoLog(program);
+    Console.WriteLine(infoLog);
+}
 ```
 
 That's all it takes! `Handle` is now a usable shader program.

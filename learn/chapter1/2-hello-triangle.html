@@ -247,16 +247,21 @@ GL.ShaderSource(FragmentShader, FragmentShaderSource);
 <p>Then, we compile the shaders and check for errors.</p>
 <pre><code class="lang-cs">GL.CompileShader(VertexShader);
 
-string infoLogVert = GL.GetShaderInfoLog(VertexShader);
-if (infoLogVert != System.String.Empty)
-    System.Console.WriteLine(infoLogVert);
+GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
+if (success == 0)
+{
+    string infoLog = GL.GetShaderInfoLog(VertexShader);
+    System.Console.WriteLine(infoLog);
+}
 
 GL.CompileShader(FragmentShader);
 
-string infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
-
-if (infoLogFrag != System.String.Empty)
-    System.Console.WriteLine(infoLogFrag);
+GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
+if (success == 0)
+{
+    string infoLog = GL.GetShaderInfoLog(FragmentShader);
+    System.Console.WriteLine(infoLog);
+}
 </code></pre>
 <p>If there are any errors when compiling, you can get the debug string with the function <code>GL.GetShaderInfoLog</code>. Assuming there were no issues, we can move on to linking.</p>
 <p>Our individual shaders are compiled, but to actually use them, we have to link them together into a program that can be run on the GPU. This is what we mean when we talk about a &quot;shader&quot; from here on out. We do that like this:</p>
@@ -266,6 +271,13 @@ GL.AttachShader(Handle, VertexShader);
 GL.AttachShader(Handle, FragmentShader);
 
 GL.LinkProgram(Handle);
+
+GL.GetProgram(program, GetProgramParameterName.LinkStatus, out int success);
+if (success == 0)
+{
+    string infoLog = GL.GetProgramInfoLog(program);
+    Console.WriteLine(infoLog);
+}
 </code></pre>
 <p>That's all it takes! <code>Handle</code> is now a usable shader program.</p>
 <p>Before we leave the constructor, we should do a little cleanup. The individual vertex and fragment shaders are useless now that they've been linked; the compiled data is copied to the shader program when you link it. You also don't need to have those individual shaders attached to the program; let's detach and then delete them.</p>

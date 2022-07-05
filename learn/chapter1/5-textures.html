@@ -173,23 +173,13 @@ Image&lt;Rgba32&gt; image = Image.Load&lt;Rgba32&gt;(path);
 //This will correct that, making the texture display properly.
 image.Mutate(x =&gt; x.Flip(FlipMode.Vertical));
 
-//Convert ImageSharp's format into a byte array, so we can use it with OpenGL.
-var pixels = new List&lt;byte&gt;(4 * image.Width * image.Height);
-
-for (int y = 0; y &lt; image.Height; y++) {
-	var row = image.GetPixelRowSpan(y);
-
-	for (int x = 0; x &lt; image.Width; x++) {
-		pixels.Add(row[x].R);
-		pixels.Add(row[x].G);
-		pixels.Add(row[x].B);
-		pixels.Add(row[x].A);
-	}
-}
+//Use the CopyPixelDataTo function from ImageSharp to copy all of the bytes from the image into an array that we can give to OpenGL.
+var pixels = new byte[4 * image.Width * image.Height];
+image.CopyPixelDataTo(pixels);
 </code></pre>
 <p>Now that we have a byte array representing our pixels, we have to set the wrap and filter modes. For now, just go with Linear and Repeat.</p>
 <p>Now that that's done, it's time to generate our texture.</p>
-<pre><code class="lang-cs">GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels.ToArray());
+<pre><code class="lang-cs">GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels);
 </code></pre>
 <p>The parameters for <code>TexImage2D</code> are as follows:</p>
 <ul>

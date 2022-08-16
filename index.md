@@ -47,4 +47,4 @@ We have an active, friendly [Discord server](https://discord.gg/6HqD48s); if you
 
 The Open Toolkit is distributed under the permissive MIT/X11 license and is absolutely free.
 
-[![View License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/opentk/opentk/blob/develop/License.txt)
+[![View License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/opentk/opentk/blob/master/License.txt)

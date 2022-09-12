@@ -27,16 +27,33 @@ That may seem like a lot, but it's quite intuitive once setup is complete and we
 
 We'll need to override a couple of extra functions to get started. Firstly, we override OnLoad.
 
+# [OpenTK 3](#tab/onload-opentk3)
+
 ```cs
 protected override void OnLoad(EventArgs e)
 {
+    base.OnLoad(e);
+
     GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
     //Code goes here
-
-    base.OnLoad(e);
 }
 ```
+
+# [OpenTK 4](#tab/onload-opentk4)
+
+```cs
+protected override void OnLoad()
+{
+    base.OnLoad(e);
+
+    GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+    //Code goes here
+}
+```
+
+***
 
 This function runs one time, when the window first opens. Any initialization-related code should go here.
 
@@ -44,17 +61,37 @@ It's also here that we get our first OpenGL function call: `GL.ClearColor`. This
 
 Next, we have OnRenderFrame.
 
+# [OpenTK 3](#tab/onrender-opentk3)
+
 ```cs
 protected override void OnRenderFrame(FrameEventArgs e)
 {
+    base.OnRenderFrame(e);
+
     GL.Clear(ClearBufferMask.ColorBufferBit);
 
     //Code goes here.
 
     Context.SwapBuffers();
-    base.OnRenderFrame(e);
 }
 ```
+
+# [OpenTK 4](#tab/onrender-opentk4)
+
+```cs
+protected override void OnRenderFrame(FrameEventArgs e)
+{
+    base.OnRenderFrame(e);
+
+    GL.Clear(ClearBufferMask.ColorBufferBit);
+
+    //Code goes here.
+
+    SwapBuffers();
+}
+```
+
+***
 
 We have two calls here. Firstly, `GL.Clear` clears the screen, using the color set in OnLoad. This should always be the first function called when rendering.
 
@@ -62,13 +99,29 @@ Then, we have `Context.SwapBuffers`. Almost any modern OpenGL context is what's 
 
 Next, we have OnResize.
 
+# [OpenTK 3](#tab/resize-opentk3)
+
 ```cs
 protected override void OnResize(EventArgs e)
 {
-    GL.Viewport(0, 0, Width, Height);
     base.OnResize(e);
+
+    GL.Viewport(0, 0, Width, Height);
 }
 ```
+
+# [OpenTK 4](#tab/resize-opentk4)
+
+```cs
+protected override void OnResize(ResizeEventArgs e)
+{
+    base.OnResize(e);
+
+    GL.Viewport(0, 0, e.Width, e.Height);
+}
+```
+
+***
 
 This function runs every time the window gets resized. `GL.Viewport` maps the NDC to the window. OnResize isn't super important, and no code is going to be added here outside of what we've already put down.
 
@@ -140,15 +193,11 @@ The fourth parameter is a BufferUsageHint, which specifies how we want the graph
 
 The position data of the triangle does not change and stays the same for every render call so its usage type should best be StaticDraw. If, for instance, one would have a buffer with data that is likely to change frequently, a usage type of DynamicDraw or StreamDraw ensures the graphics card will place the data in memory that allows for faster writes.
 
-> Note: After the program ends, we have to manually cleanup our buffers. To do so, add the following function:
+> Note: After the program ends, all resources used by the process is freed. This means there is no need to delete buffers before closing your program. But if you want to delete buffers for other reasons like limiting VRAM usage, you can do the following:
 
 ```cs
-protected override void OnUnload(EventArgs e)
-{
-    GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-    GL.DeleteBuffer(VertexBufferObject);
-    base.OnUnload(e);
-}
+GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+GL.DeleteBuffer(VertexBufferObject);
 ```
 
 > Binding a buffer to 0 basically sets it to null, so any calls that modify a buffer without binding one first will result in a crash. This is easier to debug than accidentally modifying a buffer that we didn't want modified.
@@ -226,19 +275,9 @@ To start off, in the constructor, define two ints: `VertexShader` and `FragmentS
 Next, we need to load the source code from the individual shader files. We do that like so:
 
 ```cs
-string VertexShaderSource;
+string VertexShaderSource = File.ReadAllText(vertexPath);
 
-using (StreamReader reader = new StreamReader(vertexPath, Encoding.UTF8))
-{
-    VertexShaderSource = reader.ReadToEnd();
-}
-
-string FragmentShaderSource;
-
-using (StreamReader reader = new StreamReader(fragmentPath, Encoding.UTF8))
-{
-    FragmentShaderSource = reader.ReadToEnd();
-}
+string FragmentShaderSource = File.ReadAllText(fragmentPath);
 ```
 
 Then, we generate our shaders, and bind the source code to the shaders.
@@ -260,7 +299,7 @@ GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
 if (success == 0)
 {
     string infoLog = GL.GetShaderInfoLog(VertexShader);
-    System.Console.WriteLine(infoLog);
+    Console.WriteLine(infoLog);
 }
 
 GL.CompileShader(FragmentShader);
@@ -269,7 +308,7 @@ GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
 if (success == 0)
 {
     string infoLog = GL.GetShaderInfoLog(FragmentShader);
-    System.Console.WriteLine(infoLog);
+    Console.WriteLine(infoLog);
 }
 ```
 

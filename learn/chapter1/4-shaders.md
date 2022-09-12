@@ -168,6 +168,8 @@ Now that we know how to set the values of uniform variables, we can use them for
 ``` cs
 protected override void OnRenderFrame(FrameEventArgs e)
 {
+    base.OnRenderFrame(e);
+
     // render
     // clear the colorbuffer
     GL.Clear(ClearBufferMask.ColorBufferBit);
@@ -188,8 +190,6 @@ protected override void OnRenderFrame(FrameEventArgs e)
 
     // swap buffers
     SwapBuffers();
-
-    base.OnRenderFrame(e);
 }
 ```
 The code is a relatively straightforward adaptation of the previous code. This time, we update a uniform value each frame before drawing the triangle. If you update the uniform correctly you should see the color of your triangle gradually change from green to black and back to green. 

@@ -24,6 +24,8 @@ And that's it! OpenTK is installed and you're ready to proceed with the next tut
 
 Unlike OpenGL, OpenTK comes with its own windowing system. This tutorial will teach you how to use it. Go ahead and make a C# console project in your favourite IDE, and make a new file called Game.cs, and add the following using directives:
 
+# [OpenTK 3](#tab/baseclass-opentk3)
+
 ```cs
 using OpenTK;
 using OpenTK.Graphics;
@@ -37,17 +39,50 @@ namespace YourNamespaceHere
 }
 ```
 
+# [OpenTK 4](#tab/baseclass-opentk4)
+
+```cs
+using OpenTK.Graphics.OpenGL4;
+using OpenTK.Windowing.Common;
+using OpenTK.Windowing.Desktop;
+using OpenTK.Windowing.GraphicsLibraryFramework;
+
+namespace YourNamespaceHere
+{
+    public class Game
+    {
+
+    }
+}
+```
+
+***
+
 Now we have a blank class. Time to turn it into a `GameWindow`. To do that, simply extend `GameWindow`, like so:
 
 ```cs
 public class Game : GameWindow
 ```
 
-Now your class is a basic window. This is good, but by itself, you can't do anything with it. There are plenty of ways you can customize your `GameWindow`, but in this tutorial we're going to create a simple constructor to let us set the width, height, and title of the window. We do this by overriding a `base` constructor included with OpenTK:
+Now your class is a basic window. This is good, but by itself, you can't do anything with it. There are plenty of ways you can customize your `GameWindow`, but in this tutorial we're going to create a simple constructor to let us set the width, height, and title of the window.
+
+# [OpenTK 3](#tab/gamewindow-ctor-opentk3)
+
+We do this by overriding a `base` constructor included with OpenTK:
 
 ```cs
 public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) { }
 ```
+
+# [OpenTK 4](#tab/gamewindow-ctor-opentk4)
+
+We do this by setting `Size` and `Title` properties of `NativeWindowSettings`.
+
+```cs
+public Game(int width, int height, string title) : base(GameWindowSettings.Default, new NativeWindowSettings() { Size = (width, height), Title = title }) { }
+```
+
+***
 
 Your `GameWindow` is ready to go! Now all you have to do is create an instance of it in your program. When you created your project earlier, it should have also created a file named `Program.cs`, containing a `Main` function. To open your window when the program starts, we must:
 
@@ -82,6 +117,8 @@ It's really simple to detect key presses! OpenTK has a class called `KeyboardSta
 
 We want to exit when the escape key is pressed, and with the above information is in mind, exiting when the escape key is pressed is as easy at this:
 
+# [OpenTK 3](#tab/keypress-opentk3)
+
 ```cs
 //Get the state of the keyboard this frame
 KeyboardState input = Keyboard.GetState();
@@ -97,16 +134,47 @@ Now, the function should look like this:
 ```cs
 protected override void OnUpdateFrame(FrameEventArgs e)
 {
+    base.OnUpdateFrame(e);
+
     KeyboardState input = Keyboard.GetState();
 
     if (input.IsKeyDown(Key.Escape))
     {
         Exit();
     }
-
-    base.OnUpdateFrame(e);
 }
 ```
+
+# [OpenTK 4](#tab/keypress-opentk4)
+
+```cs
+//Get the state of the keyboard this frame
+// 'KeyboardState' is a property of GameWindow
+KeyboardState input = KeyboardState;
+
+if (input.IsKeyDown(Keys.Escape))
+{
+    Exit();
+}
+```
+
+Now, the function should look like this:
+
+```cs
+protected override void OnUpdateFrame(FrameEventArgs e)
+{
+    base.OnUpdateFrame(e);
+
+    KeyboardState input = KeyboardState;
+
+    if (input.IsKeyDown(Key.Escape))
+    {
+        Exit();
+    }
+}
+```
+
+***
 
 ### Review
 

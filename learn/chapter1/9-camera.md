@@ -77,6 +77,8 @@ First we set the camera position to the previously defined ***Position***. The d
 
 We have already taken a look at how we can get user input inside the ***OnUpdateFrame*** function, now we can expand this to move the camera
 
+# [OpenTK 3](#tab/input-opentk3)
+
 ```cs
 protected override void OnUpdateFrame(FrameEventArgs e)
 {
@@ -120,6 +122,55 @@ protected override void OnUpdateFrame(FrameEventArgs e)
     }
 }
 ```
+
+# [OpenTK 4](#tab/input-opentk4)
+
+```cs
+protected override void OnUpdateFrame(FrameEventArgs e)
+{
+    if (!IsFocused) // check to see if the window is focused
+    {
+        return;
+    }
+
+    KeyboardState input = KeyboardState;
+
+    //...
+
+    if (input.IsKeyDown(Keys.W))
+    {
+        position += front * speed; //Forward 
+    }
+
+    if (input.IsKeyDown(Keys.S))
+    {
+        position -= front * speed; //Backwards
+    }
+
+    if (input.IsKeyDown(Keys.A))
+    {
+        position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Left
+    }
+
+    if (input.IsKeyDown(Keys.D))
+    {
+        position += Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Right
+    }
+
+    if (input.IsKeyDown(Keys.Space))
+    {
+        position += up * speed; //Up 
+    }
+
+    if (input.IsKeyDown(Keys.LeftShift))
+    {
+        position -= up * speed; //Down
+    }
+}
+```
+
+***
+
 > Note that we also check on the top if the window is focused and return if it is not, this avoids issues when the window is not in focus.
 
 Whenever we press one of the **WASD** keys, the camera's position is updated accordingly. If we want to move forward or backwards we add or subtract the front vector from the position vector. If we want to move sidewards we do a cross product to create a *right* vector and we move along the *right* vector accordingly. This creates the familiar ***strafe*** effect when using the camera. Additionally we also added the ability to fly up (**Space**) or down (**LShift**), this is done the same as up and down, except on the up vector instead of the front.
@@ -136,6 +187,8 @@ Graphics applications and games usually keep track of a ***deltatime*** variable
 OpenTK actually calculates the ***deltaTime*** for us and it is even passed to the ***OnUpdateFrame*** as the event arg ***e***, and we can access it like this `(float)e.Time`
 
 Now that we have ***deltaTime*** we can take it into account when calculating the velocities:
+
+# [OpenTK 3](#tab/delta-time-input-opentk3)
 
 ```cs
 if (input.IsKeyDown(Key.W))
@@ -168,6 +221,42 @@ if (input.IsKeyDown(Key.LShift))
     position -= up * speed * (float)e.Time; //Down
 } 
 ```
+
+# [OpenTK 4](#tab/delta-time-input-opentk4)
+
+```cs
+if (input.IsKeyDown(Keys.W))
+{
+    position += front * speed * (float)e.Time; //Forward 
+}
+
+if (input.IsKeyDown(Keys.S))
+{
+    position -= front * speed * (float)e.Time; //Backwards
+}
+
+if (input.IsKeyDown(Keys.A))
+{
+    position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Left
+}
+
+if (input.IsKeyDown(Keys.D))
+{
+    position += Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Right
+}
+
+if (input.IsKeyDown(Keys.Space))
+{
+    position += up * speed * (float)e.Time; //Up 
+}
+
+if (input.IsKeyDown(Keys.LeftShift))
+{
+    position -= up * speed * (float)e.Time; //Down
+} 
+```
+
+***
 
 Together with the previous section we should now have a much smoother and more consistent camera system for moving around the scene:
 <br/><video width="600" height="450" loop="" controls="">
@@ -224,10 +313,21 @@ The yaw and pitch values are obtained from mouse (or controller/joystick) moveme
 
 First we will tell OpenTK that it should hide the cursor and *capture* it. Capturing a cursor means that once the application has focus the mouse cursor stays within the window (unless the application loses focus or quits). We can do this with one simple configuration call:
 
+# [OpenTK 3](#tab/cursor-mode-opentk3)
+
 ```cs
 CursorVisible = false;
 CursorGrabbed = true;
 ```
+
+# [OpenTK 4](#tab/cursor-mode-opentk4)
+
+```cs
+CursorState = CursorState.Grabbed;
+```
+
+***
+
 After this call, wherever we move the mouse it won't be visible and it should not leave the window. This is perfect for an FPS camera system.
 
 When handling mouse input for an FPS style camera there are several steps we have to take before eventually retrieving the direction vector:
@@ -305,6 +405,8 @@ The final code then becomes:
 ```cs
 protected override void OnUpdateFrame(FrameEventArgs e)
 {
+    base.OnUpdateFrame(e);
+
     //Keyboard movement...
 
     if (FirstMove)
@@ -337,22 +439,40 @@ protected override void OnUpdateFrame(FrameEventArgs e)
     front.Y = (float)Math.Sin(MathHelper.DegreesToRadians(pitch));
     front.Z = (float)Math.Cos(MathHelper.DegreesToRadians(pitch)) * (float)Math.Sin(MathHelper.DegreesToRadians(yaw));
     front = Vector3.Normalize(front);
-
-    base.OnUpdateFrame(e);
 }
 ```
 Only one small thing left to do, even though we cannot see the mouse it is still there, and it is actually prohibited from moving out of the viewport. For this reason we need to center it once it has moved. So we can add the following function to fix this behaviour.
+
+# [OpenTK 3](#tab/mouse-move-opentk3)
+
 ```cs
 protected override void OnMouseMove(MouseMoveEventArgs e)
 {
-    if (focused) // check to see if the window is focused  
-    {
-        Mouse.SetPosition(X + Width/2f, Y + Height/2f);
-    }
-
     base.OnMouseMove(e);
+
+    if (Focused) // check to see if the window is focused  
+    {
+        Mouse.SetPosition(e.X + Width/2f, e.Y + Height/2f);
+    }
 }
 ```
+
+# [OpenTK 4](#tab/mouse-move-opentk4)
+
+```cs
+protected override void OnMouseMove(MouseMoveEventArgs e)
+{
+    base.OnMouseMove(e);
+
+    if (IsFocused) // check to see if the window is focused  
+    {
+        Mouse.SetPosition(e.X + Width/2f, e.Y + Height/2f);
+    }
+}
+```
+
+***
+
 This just sets the mouse position to be in the center of the window every time it has moved.
 
 Give it a spin and you'll see that we can now freely move through our 3D scene!
@@ -360,10 +480,13 @@ Give it a spin and you'll see that we can now freely move through our 3D scene!
 ## Zoom
 As a little extra to the camera system we'll also implement a zooming interface. In the previous tutorial we said the *Field of view* or *fov* defines how much we can see of the scene. When the field of view becomes smaller the scene's projected space gets smaller giving the illusion of zooming in. To zoom in, we're going to use the mouse's scroll-wheel. Similar to mouse movement and keyboard input we have a callback function for mouse-scrolling:
 
+# [OpenTK 3](#tab/scroll-opentk3)
 
 ```cs
 protected override void OnMouseWheel(MouseWheelEventArgs e)
 {
+    base.OnMouseWheel(e);
+
     if (value >= 45.0f)
     {
         _fov = 45.0f;
@@ -376,10 +499,33 @@ protected override void OnMouseWheel(MouseWheelEventArgs e)
     {
         _fov -= e.DeltaPrecise;
     }
-
-    base.OnMouseWheel(e);
 }
 ```
+
+# [OpenTK 4](#tab/scroll-opentk4)
+
+```cs
+protected override void OnMouseWheel(MouseWheelEventArgs e)
+{
+    base.OnMouseWheel(e);
+
+    if (value >= 45.0f)
+    {
+        _fov = 45.0f;
+    }
+    else if (value <= 1.0f)
+    {
+        _fov = 1.0f;
+    }
+    else
+    {
+        _fov -= e.OffsetY;
+    }
+}
+```
+
+***
+
 When scrolling, the ***yoffset*** value represents the amount we scrolled vertically. When the ***OnMouseWheel*** function is called we change the content of the ***fov*** variable. Since **45.0f** is the default fov value we want to constrain the zoom level between **1.0f** and **45.0f**.
 
 We now have to upload the perspective projection matrix to the GPU each render iteration but this time with the fov variable as its field of view:

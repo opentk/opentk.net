@@ -8,7 +8,7 @@
     <title>Shaders  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Shaders ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -196,6 +196,8 @@ GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 <p>Now that we know how to set the values of uniform variables, we can use them for rendering. If we want the color to gradually change, we want to update this uniform every frame, otherwise the triangle would maintain a single solid color if we only set it once. So we calculate the <code>greenValue</code> and update the uniform each render iteration:</p>
 <pre><code class="lang-cs">protected override void OnRenderFrame(FrameEventArgs e)
 {
+    base.OnRenderFrame(e);
+
     // render
     // clear the colorbuffer
     GL.Clear(ClearBufferMask.ColorBufferBit);
@@ -216,8 +218,6 @@ GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
     // swap buffers
     SwapBuffers();
-
-    base.OnRenderFrame(e);
 }
 </code></pre>
 <p>The code is a relatively straightforward adaptation of the previous code. This time, we update a uniform value each frame before drawing the triangle. If you update the uniform correctly you should see the color of your triangle gradually change from green to black and back to green.</p>

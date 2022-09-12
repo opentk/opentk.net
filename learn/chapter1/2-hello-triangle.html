@@ -8,7 +8,7 @@
     <title>Hello Triangle  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Hello Triangle ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -94,37 +94,117 @@
 <p>That may seem like a lot, but it's quite intuitive once setup is complete and we get into the pipeline.</p>
 <h2 id="some-new-functions">Some new functions</h2>
 <p>We'll need to override a couple of extra functions to get started. Firstly, we override OnLoad.</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_onload-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_onload-opentk3" data-tab="onload-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_onload-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_onload-opentk4" data-tab="onload-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S_onload-opentk3" role="tabpanel" data-tab="onload-opentk3">
+
 <pre><code class="lang-cs">protected override void OnLoad(EventArgs e)
 {
+    base.OnLoad(e);
+
     GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
     //Code goes here
-
-    base.OnLoad(e);
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S_onload-opentk4" role="tabpanel" data-tab="onload-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnLoad()
+{
+    base.OnLoad(e);
+
+    GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+    //Code goes here
+}
+</code></pre>
+</section>
+</div>
+
 <p>This function runs one time, when the window first opens. Any initialization-related code should go here.</p>
 <p>It's also here that we get our first OpenGL function call: <code>GL.ClearColor</code>. This takes four floats, ranging between 0.0f and 1.0f. This decides the color of the window after it gets cleared between frames.</p>
 <p>Next, we have OnRenderFrame.</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-1_onrender-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_onrender-opentk3" data-tab="onrender-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-1_onrender-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_onrender-opentk4" data-tab="onrender-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-1_onrender-opentk3" role="tabpanel" data-tab="onrender-opentk3">
+
 <pre><code class="lang-cs">protected override void OnRenderFrame(FrameEventArgs e)
 {
+    base.OnRenderFrame(e);
+
     GL.Clear(ClearBufferMask.ColorBufferBit);
 
     //Code goes here.
 
     Context.SwapBuffers();
-    base.OnRenderFrame(e);
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-1_onrender-opentk4" role="tabpanel" data-tab="onrender-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnRenderFrame(FrameEventArgs e)
+{
+    base.OnRenderFrame(e);
+
+    GL.Clear(ClearBufferMask.ColorBufferBit);
+
+    //Code goes here.
+
+    SwapBuffers();
+}
+</code></pre>
+</section>
+</div>
+
 <p>We have two calls here. Firstly, <code>GL.Clear</code> clears the screen, using the color set in OnLoad. This should always be the first function called when rendering.</p>
 <p>Then, we have <code>Context.SwapBuffers</code>. Almost any modern OpenGL context is what's known as &quot;double-buffered&quot;. Double-buffering means that there are two areas that OpenGL draws to. In essence: One area is displayed, while the other is being rendered to. Then, when you call SwapBuffers, the two are reversed. A single-buffered context could have issues such as screen tearing.</p>
 <p>Next, we have OnResize.</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-2_resize-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_resize-opentk3" data-tab="resize-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-2_resize-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_resize-opentk4" data-tab="resize-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-2_resize-opentk3" role="tabpanel" data-tab="resize-opentk3">
+
 <pre><code class="lang-cs">protected override void OnResize(EventArgs e)
 {
-    GL.Viewport(0, 0, Width, Height);
     base.OnResize(e);
+
+    GL.Viewport(0, 0, Width, Height);
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-2_resize-opentk4" role="tabpanel" data-tab="resize-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnResize(ResizeEventArgs e)
+{
+    base.OnResize(e);
+
+    GL.Viewport(0, 0, e.Width, e.Height);
+}
+</code></pre>
+</section>
+</div>
+
 <p>This function runs every time the window gets resized. <code>GL.Viewport</code> maps the NDC to the window. OnResize isn't super important, and no code is going to be added here outside of what we've already put down.</p>
 <h2 id="vertex-input">Vertex input</h2>
 <p>To start drawing something we have to first give OpenGL some input vertex data. OpenGL is a 3D graphics library so all coordinates that we specify in OpenGL are in 3D (x, y and z coordinate). OpenGL doesn't simply transform all your 3D coordinates to 2D pixels on your screen; OpenGL only processes 3D coordinates when they're in a specific range between -1.0 and 1.0 on all 3 axes (x, y and z). All coordinates within this so called normalized device coordinates range will end up visible on your screen (and all coordinates outside this region won't).</p>
@@ -165,14 +245,10 @@ StreamDraw: the data will change every time it is drawn.
 </code></pre>
 <p>The position data of the triangle does not change and stays the same for every render call so its usage type should best be StaticDraw. If, for instance, one would have a buffer with data that is likely to change frequently, a usage type of DynamicDraw or StreamDraw ensures the graphics card will place the data in memory that allows for faster writes.</p>
 <blockquote>
-<p>Note: After the program ends, we have to manually cleanup our buffers. To do so, add the following function:</p>
+<p>Note: After the program ends, all resources used by the process is freed. This means there is no need to delete buffers before closing your program. But if you want to delete buffers for other reasons like limiting VRAM usage, you can do the following:</p>
 </blockquote>
-<pre><code class="lang-cs">protected override void OnUnload(EventArgs e)
-{
-    GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-    GL.DeleteBuffer(VertexBufferObject);
-    base.OnUnload(e);
-}
+<pre><code class="lang-cs">GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+GL.DeleteBuffer(VertexBufferObject);
 </code></pre>
 <blockquote>
 <p>Binding a buffer to 0 basically sets it to null, so any calls that modify a buffer without binding one first will result in a crash. This is easier to debug than accidentally modifying a buffer that we didn't want modified.</p>
@@ -223,19 +299,9 @@ void main()
 <p>The handle will represent the location of our final shader program after it's finished being compiled. We'll do all the initialization in the constructor.</p>
 <p>To start off, in the constructor, define two ints: <code>VertexShader</code> and <code>FragmentShader</code>. These are the handles to the individual shaders. They're defined in the constructor because we won't need the individual shaders after the full shader program is finished.</p>
 <p>Next, we need to load the source code from the individual shader files. We do that like so:</p>
-<pre><code class="lang-cs">string VertexShaderSource;
+<pre><code class="lang-cs">string VertexShaderSource = File.ReadAllText(vertexPath);
 
-using (StreamReader reader = new StreamReader(vertexPath, Encoding.UTF8))
-{
-    VertexShaderSource = reader.ReadToEnd();
-}
-
-string FragmentShaderSource;
-
-using (StreamReader reader = new StreamReader(fragmentPath, Encoding.UTF8))
-{
-    FragmentShaderSource = reader.ReadToEnd();
-}
+string FragmentShaderSource = File.ReadAllText(fragmentPath);
 </code></pre>
 <p>Then, we generate our shaders, and bind the source code to the shaders.</p>
 <pre><code class="lang-cs">VertexShader = GL.CreateShader(ShaderType.VertexShader);
@@ -251,7 +317,7 @@ GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
 if (success == 0)
 {
     string infoLog = GL.GetShaderInfoLog(VertexShader);
-    System.Console.WriteLine(infoLog);
+    Console.WriteLine(infoLog);
 }
 
 GL.CompileShader(FragmentShader);
@@ -260,7 +326,7 @@ GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
 if (success == 0)
 {
     string infoLog = GL.GetShaderInfoLog(FragmentShader);
-    System.Console.WriteLine(infoLog);
+    Console.WriteLine(infoLog);
 }
 </code></pre>
 <p>If there are any errors when compiling, you can get the debug string with the function <code>GL.GetShaderInfoLog</code>. Assuming there were no issues, we can move on to linking.</p>

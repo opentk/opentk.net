@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Box2i
    ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -84,7 +84,7 @@
   <div class="markdown level0 summary"><p>Defines an axis-aligned 2d box (rectangle).</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div classs="implements">
+  <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="OpenTK.Mathematics.Box2i.html">Box2i</a>&gt;</div>
   </div>
@@ -104,7 +104,8 @@
   <h6><strong>Assembly</strong>: OpenTK.Mathematics.dll</h6>
   <h5 id="OpenTK_Mathematics_Box2i_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct Box2i : IEquatable&lt;Box2i&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public struct Box2i : IEquatable&lt;Box2i&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -387,6 +388,7 @@ public bool Contains(Box2i other)</code></pre>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
+[Obsolete(&quot;This function excludes borders even though it's documentation says otherwise. Use ContainsInclusive and ContainsExclusive for the desired behaviour.&quot;)]
 public bool Contains(Vector2i point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -453,6 +455,94 @@ public bool Contains(Vector2i point, bool boundaryInclusive)</code></pre>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">boundaryInclusive</span></td>
         <td><p>Whether points on the box boundary should be recognised as contained as well.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether this box contains the point.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Box2i_ContainsExclusive_" data-uid="OpenTK.Mathematics.Box2i.ContainsExclusive*"></a>
+  <h4 id="OpenTK_Mathematics_Box2i_ContainsExclusive_OpenTK_Mathematics_Vector2i_" data-uid="OpenTK.Mathematics.Box2i.ContainsExclusive(OpenTK.Mathematics.Vector2i)">ContainsExclusive(Vector2i)</h4>
+  <div class="markdown level1 summary"><p>Returns whether the box contains the specified point (borders exclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public bool ContainsExclusive(Vector2i point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2i.html">Vector2i</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to query.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether this box contains the point.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Box2i_ContainsInclusive_" data-uid="OpenTK.Mathematics.Box2i.ContainsInclusive*"></a>
+  <h4 id="OpenTK_Mathematics_Box2i_ContainsInclusive_OpenTK_Mathematics_Vector2i_" data-uid="OpenTK.Mathematics.Box2i.ContainsInclusive(OpenTK.Mathematics.Vector2i)">ContainsInclusive(Vector2i)</h4>
+  <div class="markdown level1 summary"><p>Returns whether the box contains the specified point (borders inclusive).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public bool ContainsInclusive(Vector2i point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2i.html">Vector2i</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to query.</p>
 </td>
       </tr>
     </tbody>

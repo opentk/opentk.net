@@ -8,7 +8,7 @@
     <title>Element Buffer Objects  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Element Buffer Objects ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -100,6 +100,10 @@
 GL.BindBuffer(BufferTarget.ElementArrayBuffer, ElementBufferObject);
 GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(uint), indices, BufferUsageHint.StaticDraw);
 </code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Binding a element array buffer is special in that it can only be bound if there is a VAO currently bound. Conceptually it can be thought of as the VAO owning the binding slot. If you unbind the VAO, the elemet array buffer stays bound to the VAO!</p>
+</div>
 <p>It's almost exactly the same as how you use the VBO! Most of OpenGL's buffer types will follow this pattern: Create with <code>GL.GenBuffer()</code>, bind with <code>GL.BindBuffer</code>, and then use <code>GL.BufferData</code> to add data to it.</p>
 <p>The EBO is now ready to go. Down in OnRenderFrame, replace the call to <code>DrawArrays</code> with the following:</p>
 <pre><code class="lang-cs">GL.DrawElements(PrimitiveType.Triangles, indices.Length, DrawElementsType.UnsignedInt, 0);

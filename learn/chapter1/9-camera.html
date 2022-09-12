@@ -8,7 +8,7 @@
     <title>Camera  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Camera ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -129,6 +129,17 @@ Vector3 up = new Vector3(0.0f, 1.0f,  0.0f);
 </code></pre>
 <p>First we set the camera position to the previously defined <em><strong>Position</strong></em>. The direction is the current position + the direction vector we just defined. This ensures that however we move, the camera keeps looking at the target direction. Let's play a bit with these variables by updating the <em><strong>Position</strong></em> vector when we press some keys.</p>
 <p>We have already taken a look at how we can get user input inside the <em><strong>OnUpdateFrame</strong></em> function, now we can expand this to move the camera</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_input-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_input-opentk3" data-tab="input-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_input-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_input-opentk4" data-tab="input-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S_input-opentk3" role="tabpanel" data-tab="input-opentk3">
+
 <pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
 {
     if (!Focused) // check to see if the window is focused
@@ -171,6 +182,54 @@ Vector3 up = new Vector3(0.0f, 1.0f,  0.0f);
     }
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S_input-opentk4" role="tabpanel" data-tab="input-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
+{
+    if (!IsFocused) // check to see if the window is focused
+    {
+        return;
+    }
+
+    KeyboardState input = KeyboardState;
+
+    //...
+
+    if (input.IsKeyDown(Keys.W))
+    {
+        position += front * speed; //Forward 
+    }
+
+    if (input.IsKeyDown(Keys.S))
+    {
+        position -= front * speed; //Backwards
+    }
+
+    if (input.IsKeyDown(Keys.A))
+    {
+        position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Left
+    }
+
+    if (input.IsKeyDown(Keys.D))
+    {
+        position += Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Right
+    }
+
+    if (input.IsKeyDown(Keys.Space))
+    {
+        position += up * speed; //Up 
+    }
+
+    if (input.IsKeyDown(Keys.LeftShift))
+    {
+        position -= up * speed; //Down
+    }
+}
+</code></pre>
+</section>
+</div>
+
 <blockquote>
 <p>Note that we also check on the top if the window is focused and return if it is not, this avoids issues when the window is not in focus.</p>
 </blockquote>
@@ -184,6 +243,17 @@ Vector3 up = new Vector3(0.0f, 1.0f,  0.0f);
 <p>Graphics applications and games usually keep track of a <em><strong>deltatime</strong></em> variable that stores the time it takes to render the last frame. We then multiply all velocities with this <em><strong>deltaTime</strong></em> value. The result is that when we have a large <em><strong>deltaTime</strong></em> in a frame, meaning that the last frame took longer than average, the velocity for that frame will also be a bit higher to balance it all out. When using this approach it does not matter if you have a very fast or slow pc, the velocity of the camera will be balanced out accordingly so each user will have the same experience.</p>
 <p>OpenTK actually calculates the <em><strong>deltaTime</strong></em> for us and it is even passed to the <em><strong>OnUpdateFrame</strong></em> as the event arg <em><strong>e</strong></em>, and we can access it like this <code>(float)e.Time</code></p>
 <p>Now that we have <em><strong>deltaTime</strong></em> we can take it into account when calculating the velocities:</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" data-tab="delta-time-input-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" data-tab="delta-time-input-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" role="tabpanel" data-tab="delta-time-input-opentk3">
+
 <pre><code class="lang-cs">if (input.IsKeyDown(Key.W))
 {
     position += front * speed * (float)e.Time; //Forward 
@@ -214,6 +284,42 @@ if (input.IsKeyDown(Key.LShift))
     position -= up * speed * (float)e.Time; //Down
 } 
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" role="tabpanel" data-tab="delta-time-input-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">if (input.IsKeyDown(Keys.W))
+{
+    position += front * speed * (float)e.Time; //Forward 
+}
+
+if (input.IsKeyDown(Keys.S))
+{
+    position -= front * speed * (float)e.Time; //Backwards
+}
+
+if (input.IsKeyDown(Keys.A))
+{
+    position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Left
+}
+
+if (input.IsKeyDown(Keys.D))
+{
+    position += Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Right
+}
+
+if (input.IsKeyDown(Keys.Space))
+{
+    position += up * speed * (float)e.Time; //Up 
+}
+
+if (input.IsKeyDown(Keys.LeftShift))
+{
+    position -= up * speed * (float)e.Time; //Down
+} 
+</code></pre>
+</section>
+</div>
+
 <p>Together with the previous section we should now have a much smoother and more consistent camera system for moving around the scene:
 <br><video width="600" height="450" loop="" controls="">
 <source src="video/9-camera_smooth.mp4" type="video/mp4">
@@ -248,9 +354,28 @@ front.Z = (float)Math.Cos(MathHelper.DegreesToRadians(Pitch)) * (float)Math.Sin(
 <h2 id="mouse-input">Mouse input</h2>
 <p>The yaw and pitch values are obtained from mouse (or controller/joystick) movement where horizontal mouse-movement affects the yaw and vertical mouse-movement affects the pitch. The idea is to store the last frame's mouse positions and in the current frame we calculate how much the mouse values changed in comparison with last frame's value. The higher the horizontal/vertical difference, the more we update the pitch or yaw value and thus the more the camera should move.</p>
 <p>First we will tell OpenTK that it should hide the cursor and <em>capture</em> it. Capturing a cursor means that once the application has focus the mouse cursor stays within the window (unless the application loses focus or quits). We can do this with one simple configuration call:</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" data-tab="cursor-mode-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" data-tab="cursor-mode-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" role="tabpanel" data-tab="cursor-mode-opentk3">
+
 <pre><code class="lang-cs">CursorVisible = false;
 CursorGrabbed = true;
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" role="tabpanel" data-tab="cursor-mode-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">CursorState = CursorState.Grabbed;
+</code></pre>
+</section>
+</div>
+
 <p>After this call, wherever we move the mouse it won't be visible and it should not leave the window. This is perfect for an FPS camera system.</p>
 <p>When handling mouse input for an FPS style camera there are several steps we have to take before eventually retrieving the direction vector:</p>
 <ol>
@@ -307,6 +432,8 @@ else if (focused) { // check to see if the window is focused
 <p>The final code then becomes:</p>
 <pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
 {
+    base.OnUpdateFrame(e);
+
     //Keyboard movement...
 
     if (FirstMove)
@@ -339,27 +466,65 @@ else if (focused) { // check to see if the window is focused
     front.Y = (float)Math.Sin(MathHelper.DegreesToRadians(pitch));
     front.Z = (float)Math.Cos(MathHelper.DegreesToRadians(pitch)) * (float)Math.Sin(MathHelper.DegreesToRadians(yaw));
     front = Vector3.Normalize(front);
-
-    base.OnUpdateFrame(e);
 }
 </code></pre>
 <p>Only one small thing left to do, even though we cannot see the mouse it is still there, and it is actually prohibited from moving out of the viewport. For this reason we need to center it once it has moved. So we can add the following function to fix this behaviour.</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" data-tab="mouse-move-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" data-tab="mouse-move-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" role="tabpanel" data-tab="mouse-move-opentk3">
+
 <pre><code class="lang-cs">protected override void OnMouseMove(MouseMoveEventArgs e)
 {
-    if (focused) // check to see if the window is focused  
-    {
-        Mouse.SetPosition(X + Width/2f, Y + Height/2f);
-    }
-
     base.OnMouseMove(e);
+
+    if (Focused) // check to see if the window is focused  
+    {
+        Mouse.SetPosition(e.X + Width/2f, e.Y + Height/2f);
+    }
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" role="tabpanel" data-tab="mouse-move-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnMouseMove(MouseMoveEventArgs e)
+{
+    base.OnMouseMove(e);
+
+    if (IsFocused) // check to see if the window is focused  
+    {
+        Mouse.SetPosition(e.X + Width/2f, e.Y + Height/2f);
+    }
+}
+</code></pre>
+</section>
+</div>
+
 <p>This just sets the mouse position to be in the center of the window every time it has moved.</p>
 <p>Give it a spin and you'll see that we can now freely move through our 3D scene!</p>
 <h2 id="zoom">Zoom</h2>
 <p>As a little extra to the camera system we'll also implement a zooming interface. In the previous tutorial we said the <em>Field of view</em> or <em>fov</em> defines how much we can see of the scene. When the field of view becomes smaller the scene's projected space gets smaller giving the illusion of zooming in. To zoom in, we're going to use the mouse's scroll-wheel. Similar to mouse movement and keyboard input we have a callback function for mouse-scrolling:</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-4">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-4_scroll-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-4_scroll-opentk3" data-tab="scroll-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-4_scroll-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-4_scroll-opentk4" data-tab="scroll-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-4_scroll-opentk3" role="tabpanel" data-tab="scroll-opentk3">
+
 <pre><code class="lang-cs">protected override void OnMouseWheel(MouseWheelEventArgs e)
 {
+    base.OnMouseWheel(e);
+
     if (value &gt;= 45.0f)
     {
         _fov = 45.0f;
@@ -372,10 +537,32 @@ else if (focused) { // check to see if the window is focused
     {
         _fov -= e.DeltaPrecise;
     }
-
-    base.OnMouseWheel(e);
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-4_scroll-opentk4" role="tabpanel" data-tab="scroll-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnMouseWheel(MouseWheelEventArgs e)
+{
+    base.OnMouseWheel(e);
+
+    if (value &gt;= 45.0f)
+    {
+        _fov = 45.0f;
+    }
+    else if (value &lt;= 1.0f)
+    {
+        _fov = 1.0f;
+    }
+    else
+    {
+        _fov -= e.OffsetY;
+    }
+}
+</code></pre>
+</section>
+</div>
+
 <p>When scrolling, the <em><strong>yoffset</strong></em> value represents the amount we scrolled vertically. When the <em><strong>OnMouseWheel</strong></em> function is called we change the content of the <em><strong>fov</strong></em> variable. Since <strong>45.0f</strong> is the default fov value we want to constrain the zoom level between <strong>1.0f</strong> and <strong>45.0f</strong>.</p>
 <p>We now have to upload the perspective projection matrix to the GPU each render iteration but this time with the fov variable as its field of view:</p>
 <pre><code class="lang-cs">Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(fov), AspectRatio, 0.01f, 100f);

@@ -8,7 +8,7 @@
     <title>Creating a Window  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Creating a Window ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -88,6 +88,17 @@
 <p>And that's it! OpenTK is installed and you're ready to proceed with the next tutorials!</p>
 <h2 id="creating-a-window-1">Creating a window</h2>
 <p>Unlike OpenGL, OpenTK comes with its own windowing system. This tutorial will teach you how to use it. Go ahead and make a C# console project in your favourite IDE, and make a new file called Game.cs, and add the following using directives:</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_baseclass-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_baseclass-opentk3" data-tab="baseclass-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_baseclass-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_baseclass-opentk4" data-tab="baseclass-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S_baseclass-opentk3" role="tabpanel" data-tab="baseclass-opentk3">
+
 <pre><code class="lang-cs">using OpenTK;
 using OpenTK.Graphics;
 
@@ -99,12 +110,52 @@ namespace YourNamespaceHere
     }
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S_baseclass-opentk4" role="tabpanel" data-tab="baseclass-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">using OpenTK.Graphics.OpenGL4;
+using OpenTK.Windowing.Common;
+using OpenTK.Windowing.Desktop;
+using OpenTK.Windowing.GraphicsLibraryFramework;
+
+namespace YourNamespaceHere
+{
+    public class Game
+    {
+
+    }
+}
+</code></pre>
+</section>
+</div>
+
 <p>Now we have a blank class. Time to turn it into a <code>GameWindow</code>. To do that, simply extend <code>GameWindow</code>, like so:</p>
 <pre><code class="lang-cs">public class Game : GameWindow
 </code></pre>
-<p>Now your class is a basic window. This is good, but by itself, you can't do anything with it. There are plenty of ways you can customize your <code>GameWindow</code>, but in this tutorial we're going to create a simple constructor to let us set the width, height, and title of the window. We do this by overriding a <code>base</code> constructor included with OpenTK:</p>
+<p>Now your class is a basic window. This is good, but by itself, you can't do anything with it. There are plenty of ways you can customize your <code>GameWindow</code>, but in this tutorial we're going to create a simple constructor to let us set the width, height, and title of the window.</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-1_gamewindow-ctor-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_gamewindow-ctor-opentk3" data-tab="gamewindow-ctor-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-1_gamewindow-ctor-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_gamewindow-ctor-opentk4" data-tab="gamewindow-ctor-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-1_gamewindow-ctor-opentk3" role="tabpanel" data-tab="gamewindow-ctor-opentk3">
+
+<p>We do this by overriding a <code>base</code> constructor included with OpenTK:</p>
 <pre><code class="lang-cs">public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) { }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-1_gamewindow-ctor-opentk4" role="tabpanel" data-tab="gamewindow-ctor-opentk4" aria-hidden="true" hidden="hidden">
+
+<p>We do this by setting <code>Size</code> and <code>Title</code> properties of <code>NativeWindowSettings</code>.</p>
+<pre><code class="lang-cs">public Game(int width, int height, string title) : base(GameWindowSettings.Default, new NativeWindowSettings() { Size = (width, height), Title = title }) { }
+</code></pre>
+</section>
+</div>
+
 <p>Your <code>GameWindow</code> is ready to go! Now all you have to do is create an instance of it in your program. When you created your project earlier, it should have also created a file named <code>Program.cs</code>, containing a <code>Main</code> function. To open your window when the program starts, we must:</p>
 <ul>
 <li>Create an instance of your <code>Game</code> class</li>
@@ -129,6 +180,17 @@ using (Game game = new Game(800, 600, &quot;LearnOpenTK&quot;))
 </code></pre>
 <p>It's really simple to detect key presses! OpenTK has a class called <code>KeyboardState</code> with an <code>IsKeyDown</code> method, which returns <code>true</code> if a key is pressed. For example, <code>KeyboardState.IsKeyDown(Key.Escape)</code> will only return <code>true</code> if the escape (<code>Esc</code>) key is pressed.</p>
 <p>We want to exit when the escape key is pressed, and with the above information is in mind, exiting when the escape key is pressed is as easy at this:</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-2_keypress-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_keypress-opentk3" data-tab="keypress-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-2_keypress-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_keypress-opentk4" data-tab="keypress-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-2_keypress-opentk3" role="tabpanel" data-tab="keypress-opentk3">
+
 <pre><code class="lang-cs">//Get the state of the keyboard this frame
 KeyboardState input = Keyboard.GetState();
 
@@ -140,16 +202,43 @@ if (input.IsKeyDown(Key.Escape))
 <p>Now, the function should look like this:</p>
 <pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
 {
+    base.OnUpdateFrame(e);
+
     KeyboardState input = Keyboard.GetState();
 
     if (input.IsKeyDown(Key.Escape))
     {
         Exit();
     }
-
-    base.OnUpdateFrame(e);
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-2_keypress-opentk4" role="tabpanel" data-tab="keypress-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">//Get the state of the keyboard this frame
+// 'KeyboardState' is a property of GameWindow
+KeyboardState input = KeyboardState;
+
+if (input.IsKeyDown(Keys.Escape))
+{
+    Exit();
+}
+</code></pre>
+<p>Now, the function should look like this:</p>
+<pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
+{
+    base.OnUpdateFrame(e);
+
+    KeyboardState input = KeyboardState;
+
+    if (input.IsKeyDown(Key.Escape))
+    {
+        Exit();
+    }
+}
+</code></pre>
+</section>
+</div>
 <h3 id="review">Review</h3>
 <p>In this tutorial, we installed OpenTK, created a blank window that listens for the escape key being pressed, and exits when it is. In the next tutorial, we'll draw a triangle on this blank window you've just created. That's all for now!</p>
 </article>

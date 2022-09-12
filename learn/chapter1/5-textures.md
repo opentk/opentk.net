@@ -118,6 +118,8 @@ The first thing we need to do to actually use textures is to load them into our 
 
 Another solution, and probably a good one, is to use an image-loading library that supports several popular formats and does all the hard work for us. A library like
 
+# [OpenTK 3](#tab/load-texture-opentk3)
+
 ### ImageSharp
 
 ImageSharp is a very popular image loading library by SixLabors that is able to load most popular file formats and is easy to integrate in your project(s). You can add ImageSharp to your project from Nuget.
@@ -159,11 +161,50 @@ image.CopyPixelDataTo(pixels);
 
 Now that we have a byte array representing our pixels, we have to set the wrap and filter modes. For now, just go with Linear and Repeat.
 
-Now that that's done, it's time to generate our texture.
+Now that that's done, it's time to upload our texture.
 
 ```cs
 GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels);
 ```
+
+# [OpenTK 4](#tab/load-texture-opentk4)
+
+### stb_image.h and StbImageSharp
+
+[`stb_image.h`](https://github.com/nothings/stb/blob/master/stb_image.h) is an incredibly widespread library used in c to load images for a number of common formats (png, jpeg, gif etc). There is a port of the project to C# available on nuget in the form of [`StbImageSharp`](https://www.nuget.org/packages/StbImageSharp).
+
+For the following section on textures, we'll use an [image of a wooden crate](textures/container.jpg).
+
+Create a new file your project, `Texture.cs`. Put the following `using` statements at the top:
+
+```cs
+using System;
+using OpenTK.Graphics.OpenGL4;
+using StbImageSharp;
+```
+
+Create a class, `Texture`, and add an int named Handle as a property. The constructor should take one argument: a path to the image file.
+
+In the constructor, write the line `Handle = GL.GenTexture();`. This will generate a blank texture for us to use.
+
+Next, add the function `Use` to your code, containing the line `GL.BindTexture(TextureTarget.Texture2D, Handle);`. Call that in your constructor just after generating the texture.
+
+```cs
+// stb_image loads from the top-left pixel, whereas OpenGL loads from the bottom-left, causing the texture to be flipped vertically.
+// This will correct that, making the texture display properly.
+StbImage.stbi_set_flip_vertically_on_load(1);
+
+// Load the image.
+ImageResult image = ImageResult.FromStream(File.OpenRead(path), ColorComponents.RedGreenBlueAlpha);
+```
+
+Now that that's done, it's time to upload our texture.
+
+```cs
+GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
+```
+
+***
 
 The parameters for `TexImage2D` are as follows:
 

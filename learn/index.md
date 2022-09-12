@@ -3,8 +3,9 @@ Welcome to LearnOpenTK, your home for getting started with OpenTK. We've ported 
 
 ## OpenTK 4
 
-The tutorials hosted on this website is currently based on OpenTK 3.
-If you are looking for tutorials using OpenTK 4 they are currently found here: https://github.com/opentk/LearnOpenTK
+The tutorials hosted on this website have tabs to switch between OpenTK 3 and OpenTK 4 code snippets.
+There is also a repository on GitHub that contains tutorials using OpenTK 4 here:
+https://github.com/opentk/LearnOpenTK
 
 
 ### Chapters

@@ -39,7 +39,7 @@ GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(uint), in
 ```
 
 > [!WARNING]
-> Binding a element array buffer is special in that it can only be bound if there is a VAO currently bound. Conceptually it can be thought of as the VAO owning the binding slot. If you unbind the VAO, the element array buffer stays bound to the VAO!
+> Binding an element array buffer is special in that it can only be bound if there is a VAO currently bound. Conceptually it can be thought of as the VAO owning the binding slot. If you unbind the VAO, the element array buffer stays bound to the VAO!
 
 It's almost exactly the same as how you use the VBO! Most of OpenGL's buffer types will follow this pattern: Create with `GL.GenBuffer()`, bind with `GL.BindBuffer`, and then use `GL.BufferData` to add data to it.
 

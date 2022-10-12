@@ -145,7 +145,7 @@ GL.Enable(EnableCap.DebugOutputSynchronous)
 > which has no concept delegates, but only function pointers (before C23). If you
 > are very interested in using this parameter (instead of capturing objects via
 > the delegate as recommended) you can use any C# pointer, or a pointer to a C#
-> [GCHandle]((https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle?view=net-7.0 "A structure which allows native code to reference a C# object.")).
+> [GCHandle](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle?view=net-7.0 "A structure which allows native code to reference a C# object.").
 > Common pointer gotchas apply.
 
 References

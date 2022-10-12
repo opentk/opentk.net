@@ -8,11 +8,14 @@ register a callback function which delivers crucial debugging messages like
 errors and warnings to your code.
 
 The history of the debug callback dates to OpenGL 3.0, where AMD created the
-vendor specific extension [`AMD_debug_output`][AMD_debug_output] providing this
-functionality. This extensions was later approved by the OpenGL Architecture
-Review Board (ARB) as the extension [`ARB_debug_output`][ARB_debug_output] in
-2010\. Finally, since OpenGL 4.3, the extension is a core part of the API, as
-well as the extension [`KHR_debug`][KHR_debug]. This article covers usage of
+vendor specific extension [`AMD_debug_output`](https://registry.khronos.org/OpenGL/extensions/AMD/AMD_debug_output.txt 
+"Specification document for AMD_debug_output.") providing this functionality.
+This extensions was later approved by the OpenGL Architecture Review Board (ARB)
+as the extension [`ARB_debug_output`](https://registry.khronos.org/OpenGL/extensions/ARB/ARB_debug_output.txt
+"Specification document for ARB_debug_output.") in 2010\. Finally, since OpenGL
+4.3, the extension is a core part of the API, as well as the extension
+[`KHR_debug`](https://registry.khronos.org/OpenGL/extensions/KHR/KHR_debug.txt
+"Specification document for KHR_debug."). This article covers usage of
 both `ARB_debug_output` extension and the 4.3+ API. `KHR_debug` however covers
 so much more than what was introduced in the original extension.
 
@@ -22,7 +25,6 @@ Registering a Debug Callback
 Firstly, you should create a function which will execute when OpenGL has
 debugging information to relay to your program.
 
-# [Base GL/KHR_debug/ARB_debug_output](#tab)
 ```cs
 using System;
 using System.Runtime.InteropServices;
@@ -56,10 +58,10 @@ private static void OnDebugMessage(
     }
 }
 ```
-***
 
-> [!NOTE] Neither the access modifier or whether the method is an instance method
-> or a static method matters.
+> [!NOTE]
+> Neither the access modifier or whether the method is an instance method or a
+> static method matters.
 
 > [!WARNING]
 > This function is called from native code, which means there are stack frames
@@ -75,19 +77,21 @@ private static void OnDebugMessage(
 
 Then you should create a delegate which encapsulates the function you just
 implmented.
-# [Base](#tab/onload-gl)
+# [Base](#tab/delegate-gl)
 ```cs
 private static GLDebugProc DebugMessageDelegate = OnDebugMessage;
 ```
-# [KHR_debug](#tab/onload-arb)
+# [KHR_debug](#tab/delegate-khr)
 ```cs
 private static GLDebugProcKHR DebugMessageDelegate = OnDebugMessage;
 ```
-# [ARB_debug_output](#tab/onload-arb)
+# [ARB_debug_output](#tab/delegate-arb)
 ```cs
 private static GLDebugProcARB DebugMessageDelegate = OnDebugMessage;
 ```
 ***
+<br/>
+
 > [!NOTE]
 > Creating this reference is critical. A delegate is managed by the .NET garbage
 > collector, however, this delegate will be passed to a native function as a
@@ -102,7 +106,7 @@ private static GLDebugProcARB DebugMessageDelegate = OnDebugMessage;
 Finally you can provide OpenGL your delegate as your debug callback. You can now
 enable debug output, and optionally enable synchronous output.
 
-# [Base](#tab/onload-gl)
+# [Base](#tab/enable-gl)
 ```cs
 GL.DebugMessageCallback(DebugMessageDelegate, IntPtr.Zero);
 GL.Enable(EnableCap.DebugOutput);
@@ -110,7 +114,7 @@ GL.Enable(EnableCap.DebugOutput);
 // Optionally
 GL.Enable(EnableCap.DebugOutputSynchronous)
 ```
-# [KHR_debug](#tab/onload-khr)
+# [KHR_debug](#tab/enable-khr)
 ```cs
 GL.Khr.DebugMessageCallback(DebugMessageDelegate, IntPtr.Zero);
 GL.Enable(EnableCap.DebugOutput);
@@ -118,7 +122,7 @@ GL.Enable(EnableCap.DebugOutput);
 // Optionally
 GL.Enable(EnableCap.DebugOutputSynchronous)
 ```
-# [ARB_debug_output]
+# [ARB_debug_output](#tab/enable-arb)
 ```cs
 GL.Arb.DebugMessageCallback(DebugMessageDelegate, IntPtr.Zero);
 GL.Enable(EnableCap.DebugOutput);
@@ -127,10 +131,13 @@ GL.Enable(EnableCap.DebugOutput);
 GL.Enable(EnableCap.DebugOutputSynchronous)
 ```
 ***
-> [!TIP] Using synchronous output may decrease your performance (untested)
-> as OpenGL will only call your function from the thread that the context is
-> owned by. Otherwise the graphics driver is allowed to call the function from
-> any thread concurrently. Be careful of the usual pitfalls of multithreading.
+<br/>
+
+> [!TIP]
+> Using synchronous output may decrease your performance (untested) as OpenGL
+> will only call your function from the thread that the context is owned by.
+> Otherwise the graphics driver is allowed to call the function from any thread
+> concurrently. Be careful of the usual pitfalls of multithreading.
 
 > [!NOTE]
 > The second paramter of `DebugMessageCallback*` determines the value of the
@@ -138,20 +145,14 @@ GL.Enable(EnableCap.DebugOutputSynchronous)
 > which has no concept delegates, but only function pointers (before C23). If you
 > are very interested in using this parameter (instead of capturing objects via
 > the delegate as recommended) you can use any C# pointer, or a pointer to a C#
-> [GCHandle]. Common pointer gotchas apply.
+> [GCHandle]((https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle?view=net-7.0 "A structure which allows native code to reference a C# object.")).
+> Common pointer gotchas apply.
 
 References
 ----------
- * This page is based on the [gist of Vassalware][vassalware_gist] on the topic.
- * [AMD_debug_output]
- * [ARB_debug_output]
- * [KHR_debug]
- * [System.Runtime.InteropServices.Marshal][Marshal]
- * [System.Runtime.InteropServices.GCHandle][GCHandle]
-
-[AMD_debug_output]: <https://registry.khronos.org/OpenGL/extensions/AMD/AMD_debug_output.txt>   "Specification document for AMD_debug_output."
-[ARB_debug_output]: <https://registry.khronos.org/OpenGL/extensions/ARB/ARB_debug_output.txt>   "Specification document for ARB_debug_output."
-[KHR_debug]:        <https://registry.khronos.org/OpenGL/extensions/KHR/KHR_debug.txt>          "Specification document for KHR_debug."
-[vassalware_gist]:  <https://gist.github.com/Vassalware/d47ff5e60580caf2cbbf0f31aa20af5d>       "The original page this documentation is based on."
-[Marshal]: <https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal?view=net-6.0> "Reference page for System.Runtime.InteropServices.Marshal class."
-[GCHandle]: <https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle?view=net-7.0> "A structure which allows native code to reference a C# object."
+ * This page is based on the [gist of Vassalware](https://gist.github.com/Vassalware/d47ff5e60580caf2cbbf0f31aa20af5d> "The original page this documentation is based on.") on the topic.
+ * [AMD_debug_output](https://registry.khronos.org/OpenGL/extensions/AMD/AMD_debug_output.txt "Specification document for AMD_debug_output.")
+ * [ARB_debug_output](https://registry.khronos.org/OpenGL/extensions/ARB/ARB_debug_output.txt "Specification document for ARB_debug_output.")
+ * [KHR_debug](https://registry.khronos.org/OpenGL/extensions/KHR/KHR_debug.txt "Specification document for KHR_debug.")
+ * [System.Runtime.InteropServices.Marshal](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal?view=net-6.0 "Reference page for System.Runtime.InteropServices.Marshal class.")
+ * [System.Runtime.InteropServices.GCHandle](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle?view=net-7.0 "A structure which allows native code to reference a C# object.")

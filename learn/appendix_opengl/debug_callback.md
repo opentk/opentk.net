@@ -1,5 +1,5 @@
-Debug Callback, Messages and Object Labels
-==========================================
+Debug Callback
+==============
 OpenGL didn't have a comprehensive error notification system at its inception.
 The programmer was limited to querying `glError()` after commands, and the
 information provided in the return value was nothing more than the code for the
@@ -18,9 +18,6 @@ as the extension [`ARB_debug_output`](https://registry.khronos.org/OpenGL/extens
 "Specification document for KHR_debug."). This article covers usage of
 both `ARB_debug_output` extension and the 4.3+ API. `KHR_debug` however covers
 so much more than what was introduced in the original extension.
-
-Registering a Debug Callback
-----------------------------
 
 Firstly, you should create a function which will execute when OpenGL has
 debugging information to relay to your program.
@@ -68,12 +65,6 @@ private static void OnDebugMessage(
 > associated with them. If your debugger does not support mixed-mode debugging
 > it may affect your user experience if an exception is thrown or occurs within
 > the callback.
-
-> [!CAUTION]
-> The pointer `pMessage` is a a reference to memory you do not own. Attempts to
-> write to or accessing it outside the scope of the function can and will cause
-> an access violation. However, it is safe to use the string copied by the
-> `Marshal` class.
 
 Then you should create a delegate which encapsulates the function you just
 implmented.
@@ -134,10 +125,13 @@ GL.Enable(EnableCap.DebugOutputSynchronous)
 <br/>
 
 > [!TIP]
-> Using synchronous output may decrease your performance (untested) as OpenGL
+> Using synchronous output may decrease your performance significantly as OpenGL
 > will only call your function from the thread that the context is owned by.
-> Otherwise the graphics driver is allowed to call the function from any thread
-> concurrently. Be careful of the usual pitfalls of multithreading.
+> However, this will allow you to easily break in the callback function to
+> analyze the situtaion, such as viewing the stack trace and finding the culprit
+> code. Otherwise the graphics driver is allowed to call the function from any
+> thread concurrently. Be careful of the usual pitfalls of multithreading when
+> disabled.
 
 > [!NOTE]
 > The second paramter of `DebugMessageCallback*` determines the value of the

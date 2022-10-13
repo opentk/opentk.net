@@ -144,7 +144,7 @@ GL.Enable(EnableCap.DebugOutputSynchronous)
 
 References
 ----------
- * This page is based on the [gist of Vassalware](https://gist.github.com/Vassalware/d47ff5e60580caf2cbbf0f31aa20af5d> "The original page this documentation is based on.") on the topic.
+ * This page is based on the [gist of Vassalware](https://gist.github.com/Vassalware/d47ff5e60580caf2cbbf0f31aa20af5d "The original page this documentation is based on.") on the topic.
  * [AMD_debug_output](https://registry.khronos.org/OpenGL/extensions/AMD/AMD_debug_output.txt "Specification document for AMD_debug_output.")
  * [ARB_debug_output](https://registry.khronos.org/OpenGL/extensions/ARB/ARB_debug_output.txt "Specification document for ARB_debug_output.")
  * [KHR_debug](https://registry.khronos.org/OpenGL/extensions/KHR/KHR_debug.txt "Specification document for KHR_debug.")

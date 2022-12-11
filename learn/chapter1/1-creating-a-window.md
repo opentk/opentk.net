@@ -154,7 +154,7 @@ KeyboardState input = KeyboardState;
 
 if (input.IsKeyDown(Keys.Escape))
 {
-    Exit();
+    Close();
 }
 ```
 
@@ -167,9 +167,9 @@ protected override void OnUpdateFrame(FrameEventArgs e)
 
     KeyboardState input = KeyboardState;
 
-    if (input.IsKeyDown(Key.Escape))
+    if (input.IsKeyDown(Keys.Escape))
     {
-        Exit();
+        Close();
     }
 }
 ```

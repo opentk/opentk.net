@@ -45,7 +45,7 @@ protected override void OnLoad(EventArgs e)
 ```cs
 protected override void OnLoad()
 {
-    base.OnLoad(e);
+    base.OnLoad();
 
     GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 

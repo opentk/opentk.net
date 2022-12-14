@@ -12,6 +12,7 @@ https://github.com/opentk/LearnOpenTK
 
 - [1. Getting Started](chapter1)
 - [2. Lighting](chapter2)
+- [2. Modles](chapter3)
 
 
 ### Credit

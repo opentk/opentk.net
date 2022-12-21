@@ -162,7 +162,7 @@ GL.Enable(EnableCap.DebugOutputSynchronous)
 
 > [!TIP]
 > Using synchronous output may decrease your performance significantly as OpenGL
-> cannot deffer command execution to other threads and forces validation of
+> cannot defer command execution to other threads and forces validation of
 > parameters immediately. However, this will allow you to easily break in the
 > callback function to analyze the situtaion, such as viewing the stack trace
 > and finding the culprit code. Otherwise the graphics driver is allowed to

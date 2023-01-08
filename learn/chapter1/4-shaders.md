@@ -144,7 +144,7 @@ The uniform is currently empty; we haven't added any data to the uniform yet so 
 
 ``` cs
 double timeValue = _timer.Elapsed.TotalSeconds;
-float greenValue = (float)Math.Sin(timeValue) / (2.0f + 0.5f);
+float greenValue = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
 int vertexColorLocation = GL.GetUniformLocation(_shader.Handle, "ourColor");
 GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 ```
@@ -179,7 +179,7 @@ protected override void OnRenderFrame(FrameEventArgs e)
 
     // update the uniform color
     double timeValue = _timer.Elapsed.TotalSeconds;
-    float greenValue = (float)Math.Sin(timeValue) / (2.0f + 0.5f);
+    float greenValue = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
     int vertexColorLocation = GL.GetUniformLocation(_shader.Handle, "ourColor");
     GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 

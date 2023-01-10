@@ -39,7 +39,7 @@ To use the second texture (and the first texture) we'd have to change the render
 void Use(TextureUnit unit = TextureUnit.Texture0)
 {
     GL.ActiveTexture(unit);
-    GL.BindTexture(TextureTarget.2D, Handle);
+    GL.BindTexture(TextureTarget.Texture2D, Handle);
 }
 ```
 

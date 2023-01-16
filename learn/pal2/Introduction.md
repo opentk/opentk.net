@@ -15,13 +15,10 @@ PAL2 exposes platform APIs through a number of interfaces used to abstract away 
 The first of these interfaces we are going to see is `IWindowComponent` and `IOpenGLComponent` which allows the user to 
 create and interact with windows as well as initialize an OpenGL context and draw graphics to the window.
 
-> [!NOTE]
-> Currently there is no way for OpenTK to automatically initialize these interfaces to the correct platform implementations, this capability will be available in the future.
-
-The following code initializes these interfaces with a windows implementation.
+The following code initializes these interfaces with a platform dependent implementation (or throws `NotSupportedException` for not yet supported OSes).
 ```cs
-IWindowComponent windowComp = new OpenTK.Platform.Native.Windows.WindowComponent();
-IOpenGLComponent openglComp = new OpenTK.Platform.Native.Windows.OpenGLComponent();
+IWindowComponent windowComp = new OpenTK.Platform.Native.PlatformComponents.CreateWindowComponent();
+IOpenGLComponent openglComp = new OpenTK.Platform.Native.PlatformComponents.CreateOpenGLComponent();
 
 windowComp.Initialize(PalComponents.Window);
 openglComp.Initialize(PalComponents.OpenGL);
@@ -147,8 +144,8 @@ namespace Pal2Sample;
 
 class Sample
 {
-    static IWindowComponent windowComp = new OpenTK.Platform.Native.Windows.WindowComponent();
-    static IOpenGLComponent openglComp = new OpenTK.Platform.Native.Windows.OpenGLComponent();
+    static IWindowComponent windowComp = new OpenTK.Platform.Native.PlatformComponents.CreateWindowComponent();
+    static IOpenGLComponent openglComp = new OpenTK.Platform.Native.PlatformComponents.CreateOpenGLComponent();
 
     static WindowHandle Window;
     static OpenGLContextHandle GLContext;

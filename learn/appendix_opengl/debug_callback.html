@@ -1,25 +1,25 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Debug Callback  - OpenTK</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Debug Callback ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
+    <meta name="generator" content="docfx ">
+  
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
-    
-    
-    
   
+  
+  
+
     <meta name="author" content="The Open Toolkit Project">
     <meta property="og:image" content="https://opentk.net/otkBig.png">
     <meta property="og:image:width" content="142">
@@ -31,7 +31,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation" style="background: #0052cc;">
           <div class="container">
             <a class="navbar-brand" href="../../index.html">
@@ -54,7 +54,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -64,7 +64,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -90,7 +90,52 @@ as the extension <a href="https://registry.khronos.org/OpenGL/extensions/ARB/ARB
 <a href="https://registry.khronos.org/OpenGL/extensions/KHR/KHR_debug.txt" title="Specification document for KHR_debug."><code>KHR_debug</code></a>. This article covers usage of
 both <code>ARB_debug_output</code> extension and the 4.3+ API. <code>KHR_debug</code> however covers
 so much more than what was introduced in the original extension.</p>
-<p>Firstly, you should create a function which will execute when OpenGL has
+<p>First and foremost, you should create your OpenGL context with the Debug flag
+set. Without the debug flag OpenGL will not generate debugging messages nor
+send them to your callback function.</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_debug-context-3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_debug-context-3" data-tab="debug-context-3" tabindex="0" aria-selected="true">OpenTK 3.0</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_debug-context-4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_debug-context-4" data-tab="debug-context-4" tabindex="-1">OpenTK 4.0</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S_debug-context-3" role="tabpanel" data-tab="debug-context-3">
+
+<pre><code class="lang-cs">using OpenTK;
+using OpenTK.Graphics;
+
+// ...
+
+GameWindow window = new GameWindow(
+    width, height,                  // Window width.
+    GraphicsMode.Default,           // Context graphics mode.
+    title,                          // Window title.
+    GameWindowFlags.Default,        // GameWindow flags.
+    DisplayDevice.Default,          // The display to create the window in.
+    3, 3,                           // OpenGL context version major then minor.
+    GraphicsContextFlags.Debug);    // OpenGL context flags.
+</code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S_debug-context-4" role="tabpanel" data-tab="debug-context-4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">using OpenTK;
+using OpenTK.Windowing.Desktop;
+
+// ...
+
+GameWindow window = new GameWindow(
+    GameWindowSettings.Default,
+    new NativeWindowSettings() {
+        Flags = ContextFlags.Debug
+    });
+</code></pre>
+</section>
+</div>
+<br>
+<p>Then you should create a function which will execute when OpenGL has
 debugging information to relay to your program.</p>
 <pre><code class="lang-cs">using System;
 using System.Runtime.InteropServices;
@@ -138,29 +183,29 @@ the callback.</p>
 </div>
 <p>Then you should create a delegate which encapsulates the function you just
 implmented.</p>
-<div class="tabGroup" id="tabgroup_bHGHmlrG6S">
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-1">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_delegate-gl" role="tab" aria-controls="tabpanel_bHGHmlrG6S_delegate-gl" data-tab="delegate-gl" tabindex="0" aria-selected="true">Base</a>
+<a href="#tabpanel_bHGHmlrG6S-1_delegate-gl" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delegate-gl" data-tab="delegate-gl" tabindex="0" aria-selected="true">Base</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_delegate-khr" role="tab" aria-controls="tabpanel_bHGHmlrG6S_delegate-khr" data-tab="delegate-khr" tabindex="-1">KHR_debug</a>
+<a href="#tabpanel_bHGHmlrG6S-1_delegate-khr" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delegate-khr" data-tab="delegate-khr" tabindex="-1">KHR_debug</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_delegate-arb" role="tab" aria-controls="tabpanel_bHGHmlrG6S_delegate-arb" data-tab="delegate-arb" tabindex="-1">ARB_debug_output</a>
+<a href="#tabpanel_bHGHmlrG6S-1_delegate-arb" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delegate-arb" data-tab="delegate-arb" tabindex="-1">ARB_debug_output</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S_delegate-gl" role="tabpanel" data-tab="delegate-gl">
+<section id="tabpanel_bHGHmlrG6S-1_delegate-gl" role="tabpanel" data-tab="delegate-gl">
 
 <pre><code class="lang-cs">private static GLDebugProc DebugMessageDelegate = OnDebugMessage;
 </code></pre>
 </section>
-<section id="tabpanel_bHGHmlrG6S_delegate-khr" role="tabpanel" data-tab="delegate-khr" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-1_delegate-khr" role="tabpanel" data-tab="delegate-khr" aria-hidden="true" hidden="hidden">
 
 <pre><code class="lang-cs">private static GLDebugProcKHR DebugMessageDelegate = OnDebugMessage;
 </code></pre>
 </section>
-<section id="tabpanel_bHGHmlrG6S_delegate-arb" role="tabpanel" data-tab="delegate-arb" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-1_delegate-arb" role="tabpanel" data-tab="delegate-arb" aria-hidden="true" hidden="hidden">
 
 <pre><code class="lang-cs">private static GLDebugProcARB DebugMessageDelegate = OnDebugMessage;
 </code></pre>
@@ -180,19 +225,19 @@ suits your code.</p>
 </div>
 <p>Finally you can provide OpenGL your delegate as your debug callback. You can now
 enable debug output, and optionally enable synchronous output.</p>
-<div class="tabGroup" id="tabgroup_bHGHmlrG6S-1">
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-1_enable-gl" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_enable-gl" data-tab="enable-gl" tabindex="0" aria-selected="true">Base</a>
+<a href="#tabpanel_bHGHmlrG6S-2_enable-gl" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_enable-gl" data-tab="enable-gl" tabindex="0" aria-selected="true">Base</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-1_enable-khr" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_enable-khr" data-tab="enable-khr" tabindex="-1">KHR_debug</a>
+<a href="#tabpanel_bHGHmlrG6S-2_enable-khr" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_enable-khr" data-tab="enable-khr" tabindex="-1">KHR_debug</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-1_enable-arb" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_enable-arb" data-tab="enable-arb" tabindex="-1">ARB_debug_output</a>
+<a href="#tabpanel_bHGHmlrG6S-2_enable-arb" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_enable-arb" data-tab="enable-arb" tabindex="-1">ARB_debug_output</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S-1_enable-gl" role="tabpanel" data-tab="enable-gl">
+<section id="tabpanel_bHGHmlrG6S-2_enable-gl" role="tabpanel" data-tab="enable-gl">
 
 <pre><code class="lang-cs">GL.DebugMessageCallback(DebugMessageDelegate, IntPtr.Zero);
 GL.Enable(EnableCap.DebugOutput);
@@ -201,7 +246,7 @@ GL.Enable(EnableCap.DebugOutput);
 GL.Enable(EnableCap.DebugOutputSynchronous)
 </code></pre>
 </section>
-<section id="tabpanel_bHGHmlrG6S-1_enable-khr" role="tabpanel" data-tab="enable-khr" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-2_enable-khr" role="tabpanel" data-tab="enable-khr" aria-hidden="true" hidden="hidden">
 
 <pre><code class="lang-cs">GL.Khr.DebugMessageCallback(DebugMessageDelegate, IntPtr.Zero);
 GL.Enable(EnableCap.DebugOutput);
@@ -210,7 +255,7 @@ GL.Enable(EnableCap.DebugOutput);
 GL.Enable(EnableCap.DebugOutputSynchronous)
 </code></pre>
 </section>
-<section id="tabpanel_bHGHmlrG6S-1_enable-arb" role="tabpanel" data-tab="enable-arb" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-2_enable-arb" role="tabpanel" data-tab="enable-arb" aria-hidden="true" hidden="hidden">
 
 <pre><code class="lang-cs">GL.Arb.DebugMessageCallback(DebugMessageDelegate, IntPtr.Zero);
 GL.Enable(EnableCap.DebugOutput);
@@ -224,20 +269,20 @@ GL.Enable(EnableCap.DebugOutputSynchronous)
 <div class="TIP">
 <h5>Tip</h5>
 <p>Using synchronous output may decrease your performance significantly as OpenGL
-will only call your function from the thread that the context is owned by.
-However, this will allow you to easily break in the callback function to
-analyze the situtaion, such as viewing the stack trace and finding the culprit
-code. Otherwise the graphics driver is allowed to call the function from any
-thread concurrently. Be careful of the usual pitfalls of multithreading when
-disabled.</p>
+cannot defer command execution to other threads and forces validation of
+parameters immediately. However, this will allow you to easily break in the
+callback function to analyze the situtaion, such as viewing the stack trace
+and finding the culprit code. Otherwise the graphics driver is allowed to
+call the function from any thread concurrently. Be careful of the usual
+pitfalls of multithreading when disabled.</p>
 </div>
 <div class="NOTE">
 <h5>Note</h5>
 <p>The second paramter of <code>DebugMessageCallback*</code> determines the value of the
 <code>pUserParam</code> parameter in the callback. This parameter is designed for C users
-which has no concept delegates, but only function pointers (before C23). If you
-are very interested in using this parameter (instead of capturing objects via
-the delegate as recommended) you can use any C# pointer, or a pointer to a C#
+which has no concept delegates, but only function pointers. If you are very
+interested in using this parameter (instead of capturing objects via the
+delegate as recommended) you can use any C# pointer, or a pointer to a C#
 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle?view=net-7.0" title="A structure which allows native code to reference a C# object.">GCHandle</a>.
 Common pointer gotchas apply.</p>
 </div>
@@ -252,7 +297,7 @@ Common pointer gotchas apply.</p>
 </ul>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -263,7 +308,7 @@ Common pointer gotchas apply.</p>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -271,13 +316,13 @@ Common pointer gotchas apply.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>

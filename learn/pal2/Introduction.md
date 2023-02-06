@@ -103,10 +103,14 @@ EventQueue.EventRaised += EventRaised;
 Now we need to define the `EventRaised` function.
 
 ```cs
-void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args) {
+void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
+{
 
 }
 ```
+
+> [!WARNING]
+> The arguments of the event callback are likely to change.
 
 This callback gets a few arguments, the two we are interested in right now are `type` and `args`.
 `type` tells us the type of the argument we received and `args` contains data specific to the type of event.
@@ -114,20 +118,17 @@ This callback gets a few arguments, the two we are interested in right now are `
 To handle the quit message we will do the following:
 
 ```cs
-void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args) {
-
-    if (type == PlatformEventType.Close)
+void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
+{
+    if (args is CloseEventArgs closeArgs)
     {
-        CloseEventArgs closeArgs = (CloseEventArgs)args;
-
         // Destroy the window that the user wanted to close.
         windowComp.Destroy(closeArgs.Window);
     }
-
 }
 ```
 
-First we check if `type` is `Close` and if it is we cast the event args to `CloseEventArgs`. `CloseEventArgs` contains a `window` property which tells us which window the user wanted to close.
+We use pattern matching `is` on `args` to check if it is of type `CloseEventArgs`. `CloseEventArgs` contains a `window` property which tells us which window the user wanted to close.
 So to close the window we call `IWindowComponent.Destroy(WindowHandle)` to destroy the window.
 
 This way of handling events generalizes to other event types. First check for the type of event, then cast the `EventArgs` to the type specific for this type of event which gives appropriate information for handling the event.
@@ -194,10 +195,8 @@ class Sample
 
     static void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
     {
-        if (type == PlatformEventType.Close)
+        if (args is CloseEventArgs closeArgs)
         {
-            CloseEventArgs closeArgs = (CloseEventArgs)args;
-
             // Destroy the window that the user wanted to close.
             windowComp.Destroy(closeArgs.Window);
         }

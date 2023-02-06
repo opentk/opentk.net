@@ -5,8 +5,7 @@
 Feedback is encouraged.
 
 > [!IMPORTANT]
-> Currently PAL2 is basically only usable on windows. 
-This will change as it is developed more.
+> Currently PAL2 is basically feature complete on windows, and only some parts work on x11, macos is not implemented. The final release will also support macos.
 
 ## Setup
 

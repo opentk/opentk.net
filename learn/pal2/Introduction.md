@@ -17,8 +17,10 @@ create and interact with windows as well as initialize an OpenGL context and dra
 
 The following code initializes these interfaces with a platform dependent implementation (or throws `NotSupportedException` for not yet supported OSes).
 ```cs
-IWindowComponent windowComp = new OpenTK.Platform.Native.PlatformComponents.CreateWindowComponent();
-IOpenGLComponent openglComp = new OpenTK.Platform.Native.PlatformComponents.CreateOpenGLComponent();
+using OpenTK.Platform.Native;
+
+IWindowComponent windowComp = new PlatformComponents.CreateWindowComponent();
+IOpenGLComponent openglComp = new PlatformComponents.CreateOpenGLComponent();
 
 windowComp.Initialize(PalComponents.Window);
 openglComp.Initialize(PalComponents.OpenGL);
@@ -140,13 +142,14 @@ using OpenTK.Core.Platform;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
+using OpenTK.Platform.Native;
 
 namespace Pal2Sample;
 
 class Sample
 {
-    static IWindowComponent windowComp = new OpenTK.Platform.Native.PlatformComponents.CreateWindowComponent();
-    static IOpenGLComponent openglComp = new OpenTK.Platform.Native.PlatformComponents.CreateOpenGLComponent();
+    static IWindowComponent windowComp = new PlatformComponents.CreateWindowComponent();
+    static IOpenGLComponent openglComp = new PlatformComponents.CreateOpenGLComponent();
 
     static WindowHandle Window;
     static OpenGLContextHandle GLContext;

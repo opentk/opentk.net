@@ -94,7 +94,7 @@ This event is triggered when the mouse moves.
 
 > Enum: `PlatformEventType.MouseDown`
 
-> Args: [`MouseDownEventArgs`](xref:OpenTK.Core.Platform.MouseDownEventArgs)
+> Args: [`MouseButtonDownEventArgs`](xref:OpenTK.Core.Platform.MouseButtonDownEventArgs)
 
 This event is triggered when a mouse button is pressed.
 
@@ -102,7 +102,7 @@ This event is triggered when a mouse button is pressed.
 
 > Enum: `PlatformEventType.MouseUp`
 
-> Args: [`MouseUpEventArgs`](xref:OpenTK.Core.Platform.MouseUpEventArgs)
+> Args: [`MouseButtonUpEventArgs`](xref:OpenTK.Core.Platform.MouseButtonUpEventArgs)
 
 This event is triggered when a mouse button is released.
 

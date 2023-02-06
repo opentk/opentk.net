@@ -295,7 +295,7 @@ Then, we compile the shaders and check for errors.
 ```cs
 GL.CompileShader(VertexShader);
 
-GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
+GL.GetShader(VertexShader, ShaderParameter.CompileStatus, out int success);
 if (success == 0)
 {
     string infoLog = GL.GetShaderInfoLog(VertexShader);
@@ -304,7 +304,7 @@ if (success == 0)
 
 GL.CompileShader(FragmentShader);
 
-GL.GetShader(shader, ShaderParameter.CompileStatus, out int success);
+GL.GetShader(FragmentShader, ShaderParameter.CompileStatus, out int success);
 if (success == 0)
 {
     string infoLog = GL.GetShaderInfoLog(FragmentShader);
@@ -324,10 +324,10 @@ GL.AttachShader(Handle, FragmentShader);
 
 GL.LinkProgram(Handle);
 
-GL.GetProgram(program, GetProgramParameterName.LinkStatus, out int success);
+GL.GetProgram(Handle, GetProgramParameterName.LinkStatus, out int success);
 if (success == 0)
 {
-    string infoLog = GL.GetProgramInfoLog(program);
+    string infoLog = GL.GetProgramInfoLog(Handle);
     Console.WriteLine(infoLog);
 }
 ```

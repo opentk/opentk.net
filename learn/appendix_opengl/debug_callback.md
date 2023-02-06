@@ -19,7 +19,43 @@ as the extension [`ARB_debug_output`](https://registry.khronos.org/OpenGL/extens
 both `ARB_debug_output` extension and the 4.3+ API. `KHR_debug` however covers
 so much more than what was introduced in the original extension.
 
-Firstly, you should create a function which will execute when OpenGL has
+First and foremost, you should create your OpenGL context with the Debug flag
+set. Without the debug flag OpenGL will not generate debugging messages nor
+send them to your callback function.
+
+# [OpenTK 3.0](#tab/debug-context-3)
+```cs
+using OpenTK;
+using OpenTK.Graphics;
+
+// ...
+
+GameWindow window = new GameWindow(
+    width, height,                  // Window width.
+    GraphicsMode.Default,           // Context graphics mode.
+    title,                          // Window title.
+    GameWindowFlags.Default,        // GameWindow flags.
+    DisplayDevice.Default,          // The display to create the window in.
+    3, 3,                           // OpenGL context version major then minor.
+    GraphicsContextFlags.Debug);    // OpenGL context flags.
+```
+# [OpenTK 4.0](#tab/debug-context-4)
+```cs
+using OpenTK;
+using OpenTK.Windowing.Desktop;
+
+// ...
+
+GameWindow window = new GameWindow(
+    GameWindowSettings.Default,
+    new NativeWindowSettings() {
+        Flags = ContextFlags.Debug
+    });
+```
+***
+<br/>
+
+Then you should create a function which will execute when OpenGL has
 debugging information to relay to your program.
 
 ```cs
@@ -126,19 +162,19 @@ GL.Enable(EnableCap.DebugOutputSynchronous)
 
 > [!TIP]
 > Using synchronous output may decrease your performance significantly as OpenGL
-> will only call your function from the thread that the context is owned by.
-> However, this will allow you to easily break in the callback function to
-> analyze the situtaion, such as viewing the stack trace and finding the culprit
-> code. Otherwise the graphics driver is allowed to call the function from any
-> thread concurrently. Be careful of the usual pitfalls of multithreading when
-> disabled.
+> cannot defer command execution to other threads and forces validation of
+> parameters immediately. However, this will allow you to easily break in the
+> callback function to analyze the situtaion, such as viewing the stack trace
+> and finding the culprit code. Otherwise the graphics driver is allowed to
+> call the function from any thread concurrently. Be careful of the usual
+> pitfalls of multithreading when disabled.
 
 > [!NOTE]
 > The second paramter of `DebugMessageCallback*` determines the value of the
 > `pUserParam` parameter in the callback. This parameter is designed for C users
-> which has no concept delegates, but only function pointers (before C23). If you
-> are very interested in using this parameter (instead of capturing objects via
-> the delegate as recommended) you can use any C# pointer, or a pointer to a C#
+> which has no concept delegates, but only function pointers. If you are very
+> interested in using this parameter (instead of capturing objects via the
+> delegate as recommended) you can use any C# pointer, or a pointer to a C#
 > [GCHandle](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle?view=net-7.0 "A structure which allows native code to reference a C# object.").
 > Common pointer gotchas apply.
 

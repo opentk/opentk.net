@@ -178,7 +178,7 @@ void main()
 <p>If you declare a uniform that isn't used anywhere in your GLSL code the compiler will silently remove the variable from the compiled version which is the cause for several frustrating errors; keep this in mind!</p>
 <p>The uniform is currently empty; we haven't added any data to the uniform yet so let's try that. We first need to find the index/location of the uniform attribute in our shader. Once we have the index/location of the uniform, we can update its values. Instead of passing a single color to the fragment shader, let's spice things up by gradually changing color over time:</p>
 <pre><code class="lang-cs">double timeValue = _timer.Elapsed.TotalSeconds;
-float greenValue = (float)Math.Sin(timeValue) / (2.0f + 0.5f);
+float greenValue = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
 int vertexColorLocation = GL.GetUniformLocation(_shader.Handle, &quot;ourColor&quot;);
 GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 </code></pre>
@@ -207,7 +207,7 @@ GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
     // update the uniform color
     double timeValue = _timer.Elapsed.TotalSeconds;
-    float greenValue = (float)Math.Sin(timeValue) / (2.0f + 0.5f);
+    float greenValue = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
     int vertexColorLocation = GL.GetUniformLocation(_shader.Handle, &quot;ourColor&quot;);
     GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 

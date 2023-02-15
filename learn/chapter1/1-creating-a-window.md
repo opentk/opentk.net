@@ -90,6 +90,8 @@ Your `GameWindow` is ready to go! Now all you have to do is create an instance o
 - Start all the pumps by calling the `Run` function
 - After we're done, dispose the `Game`.
 
+# [OpenTK 3](#tab/gamewindow-run-opentk3)
+
 ```cs
 // This line creates a new instance, and wraps the instance in a using statement so it's automatically disposed once we've exited the block.
 using (Game game = new Game(800, 600, "LearnOpenTK"))
@@ -99,6 +101,18 @@ using (Game game = new Game(800, 600, "LearnOpenTK"))
     game.Run(60.0);
 }
 ```
+
+# [OpenTK 4](#tab/gamewindow-run-opentk4)
+
+```cs
+// This line creates a new instance, and wraps the instance in a using statement so it's automatically disposed once we've exited the block.
+using (Game game = new Game(800, 600, "LearnOpenTK"))
+{
+    game.Run();
+}
+```
+
+***
 
 Plug that code into your `Main` function, then build and run your program! You now have a blank window, great job! However, the only way you can close your window is by using the cross (`X`) button or Alt+F4. We don't want that, Let's do a little bit of input handling!
 

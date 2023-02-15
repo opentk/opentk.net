@@ -162,6 +162,17 @@ namespace YourNamespaceHere
 <li>Start all the pumps by calling the <code>Run</code> function</li>
 <li>After we're done, dispose the <code>Game</code>.</li>
 </ul>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-2_gamewindow-run-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_gamewindow-run-opentk3" data-tab="gamewindow-run-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S-2_gamewindow-run-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_gamewindow-run-opentk4" data-tab="gamewindow-run-opentk4" tabindex="-1">OpenTK 4</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S-2_gamewindow-run-opentk3" role="tabpanel" data-tab="gamewindow-run-opentk3">
+
 <pre><code class="lang-cs">// This line creates a new instance, and wraps the instance in a using statement so it's automatically disposed once we've exited the block.
 using (Game game = new Game(800, 600, &quot;LearnOpenTK&quot;))
 {
@@ -170,6 +181,18 @@ using (Game game = new Game(800, 600, &quot;LearnOpenTK&quot;))
     game.Run(60.0);
 }
 </code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-2_gamewindow-run-opentk4" role="tabpanel" data-tab="gamewindow-run-opentk4" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">// This line creates a new instance, and wraps the instance in a using statement so it's automatically disposed once we've exited the block.
+using (Game game = new Game(800, 600, &quot;LearnOpenTK&quot;))
+{
+    game.Run();
+}
+</code></pre>
+</section>
+</div>
+
 <p>Plug that code into your <code>Main</code> function, then build and run your program! You now have a blank window, great job! However, the only way you can close your window is by using the cross (<code>X</code>) button or Alt+F4. We don't want that, Let's do a little bit of input handling!</p>
 <p><code>GameWindow</code> has plenty of methods that you can override to add all sorts of functionality to your window. You can look at the &quot;API&quot; section of this website to look at them all, but in this case the one we're interested in is <code>OnUpdateFrame</code>.</p>
 <p>By just typing <code>override OnUpdateFrame</code> your IDE should be able to generate a function like this one:</p>
@@ -180,16 +203,16 @@ using (Game game = new Game(800, 600, &quot;LearnOpenTK&quot;))
 </code></pre>
 <p>It's really simple to detect key presses! OpenTK has a class called <code>KeyboardState</code> with an <code>IsKeyDown</code> method, which returns <code>true</code> if a key is pressed. For example, <code>KeyboardState.IsKeyDown(Key.Escape)</code> will only return <code>true</code> if the escape (<code>Esc</code>) key is pressed.</p>
 <p>We want to exit when the escape key is pressed, and with the above information is in mind, exiting when the escape key is pressed is as easy at this:</p>
-<div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S-3">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-2_keypress-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_keypress-opentk3" data-tab="keypress-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S-3_keypress-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-3_keypress-opentk3" data-tab="keypress-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-2_keypress-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_keypress-opentk4" data-tab="keypress-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S-3_keypress-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-3_keypress-opentk4" data-tab="keypress-opentk4" tabindex="-1">OpenTK 4</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S-2_keypress-opentk3" role="tabpanel" data-tab="keypress-opentk3">
+<section id="tabpanel_bHGHmlrG6S-3_keypress-opentk3" role="tabpanel" data-tab="keypress-opentk3">
 
 <pre><code class="lang-cs">//Get the state of the keyboard this frame
 KeyboardState input = Keyboard.GetState();
@@ -213,7 +236,7 @@ if (input.IsKeyDown(Key.Escape))
 }
 </code></pre>
 </section>
-<section id="tabpanel_bHGHmlrG6S-2_keypress-opentk4" role="tabpanel" data-tab="keypress-opentk4" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-3_keypress-opentk4" role="tabpanel" data-tab="keypress-opentk4" aria-hidden="true" hidden="hidden">
 
 <pre><code class="lang-cs">//Get the state of the keyboard this frame
 // 'KeyboardState' is a property of GameWindow

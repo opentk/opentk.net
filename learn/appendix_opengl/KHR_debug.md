@@ -184,7 +184,7 @@ Screenshots
     div.figure {
         padding: 4pt;
         text-align: center;
-        align-center;
+        align: center;
     }
 </style>
 

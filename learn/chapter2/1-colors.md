@@ -151,6 +151,6 @@ Injecting all the code fragments at their appropriate locations would then resul
 
 Not really much to look at right now, but I'll promise it will get more interesting in the upcoming tutorials.
 
-If you have difficulties finding out where all the code snippets fit together in the application as a whole, check the source code [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/1%20-%20Colors) and carefully work your way through the code/comments.
+If you have difficulties finding out where all the code snippets fit together in the application as a whole, check the source code [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/1-Colors) and carefully work your way through the code/comments.
 
 Now that we have a fair bit of knowledge about colors and created a basic scene for some lighting stuff we can jump to the next tutorial where the real magic begins.

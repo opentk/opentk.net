@@ -208,7 +208,7 @@ Let's check if the result actually does fulfill these requirements:
 
 ![Coordinate Systems Result](img/8-coordinate_systems_result.png)
 
-It does indeed look like the plane is a 3D plane that's resting at some imaginary floor. If you're not getting the same result check the [complete source code.](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%201/7%20-%20Coordinates%20Systems)
+It does indeed look like the plane is a 3D plane that's resting at some imaginary floor. If you're not getting the same result check the [complete source code.](https://github.com/opentk/LearnOpenTK/tree/master/Chapter1/8-CoordinatesSystems)
 
 ## More 3D
 

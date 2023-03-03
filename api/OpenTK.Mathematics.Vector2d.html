@@ -87,6 +87,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">System.IEquatable&lt;T&gt;</span>&lt;<a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -105,7 +106,7 @@
   <h5 id="OpenTK_Mathematics_Vector2d_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public struct Vector2d : IEquatable&lt;Vector2d&gt;</code></pre>
+public struct Vector2d : IEquatable&lt;Vector2d&gt;, IFormattable</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -1649,8 +1650,64 @@ public static double Dot(Vector2d left, Vector2d right)</code></pre>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.ValueType.GetHashCode()</span></div>
   <a id="OpenTK_Mathematics_Vector2d_Lerp_" data-uid="OpenTK.Mathematics.Vector2d.Lerp*"></a>
+  <h4 id="OpenTK_Mathematics_Vector2d_Lerp_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_" data-uid="OpenTK.Mathematics.Vector2d.Lerp(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)">Lerp(Vector2d, Vector2d, Vector2d)</h4>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the component-wise linear blend of the 2 given vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Vector2d Lerp(Vector2d a, Vector2d b, Vector2d blend)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>First input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>Second input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a></td>
+        <td><span class="parametername">blend</span></td>
+        <td><p>The blend factor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a></td>
+        <td><p>a when blend=0, b when blend=1, and a component-wise linear combination otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Vector2d_Lerp_" data-uid="OpenTK.Mathematics.Vector2d.Lerp*"></a>
   <h4 id="OpenTK_Mathematics_Vector2d_Lerp_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_System_Double_" data-uid="OpenTK.Mathematics.Vector2d.Lerp(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d,System.Double)">Lerp(Vector2d, Vector2d, double)</h4>
-  <div class="markdown level1 summary"><p>Returns a new Vector that is the linear blend of the 2 given Vectors.</p>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the linear blend of the 2 given vectors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1683,7 +1740,7 @@ public static Vector2d Lerp(Vector2d a, Vector2d b, double blend)</code></pre>
       <tr>
         <td><span class="xref">double</span></td>
         <td><span class="parametername">blend</span></td>
-        <td><p>The blend factor. a when blend=0, b when blend=1.</p>
+        <td><p>The blend factor.</p>
 </td>
       </tr>
     </tbody>
@@ -1705,8 +1762,53 @@ public static Vector2d Lerp(Vector2d a, Vector2d b, double blend)</code></pre>
     </tbody>
   </table>
   <a id="OpenTK_Mathematics_Vector2d_Lerp_" data-uid="OpenTK.Mathematics.Vector2d.Lerp*"></a>
+  <h4 id="OpenTK_Mathematics_Vector2d_Lerp_OpenTK_Mathematics_Vector2d__OpenTK_Mathematics_Vector2d__OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d__" data-uid="OpenTK.Mathematics.Vector2d.Lerp(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d@)">Lerp(in Vector2d, in Vector2d, Vector2d, out Vector2d)</h4>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the component-wise linear blend of the 2 given vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(in Vector2d a, in Vector2d b, Vector2d blend, out Vector2d result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>First input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>Second input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a></td>
+        <td><span class="parametername">blend</span></td>
+        <td><p>The blend factor.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2d.html">Vector2d</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>a when blend=0, b when blend=1, and a component-wise linear combination otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Vector2d_Lerp_" data-uid="OpenTK.Mathematics.Vector2d.Lerp*"></a>
   <h4 id="OpenTK_Mathematics_Vector2d_Lerp_OpenTK_Mathematics_Vector2d__OpenTK_Mathematics_Vector2d__System_Double_OpenTK_Mathematics_Vector2d__" data-uid="OpenTK.Mathematics.Vector2d.Lerp(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,System.Double,OpenTK.Mathematics.Vector2d@)">Lerp(in Vector2d, in Vector2d, double, out Vector2d)</h4>
-  <div class="markdown level1 summary"><p>Returns a new Vector that is the linear blend of the 2 given Vectors.</p>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the linear blend of the 2 given vectors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1738,7 +1840,7 @@ public static Vector2d Lerp(Vector2d a, Vector2d b, double blend)</code></pre>
       <tr>
         <td><span class="xref">double</span></td>
         <td><span class="parametername">blend</span></td>
-        <td><p>The blend factor. a when blend=0, b when blend=1.</p>
+        <td><p>The blend factor.</p>
 </td>
       </tr>
       <tr>
@@ -2411,6 +2513,131 @@ public static Vector2d Subtract(Vector2d a, Vector2d b)</code></pre>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.ValueType.ToString()</span></div>
+  <a id="OpenTK_Mathematics_Vector2d_ToString_" data-uid="OpenTK.Mathematics.Vector2d.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector2d_ToString_System_IFormatProvider_" data-uid="OpenTK.Mathematics.Vector2d.ToString(System.IFormatProvider)">ToString(IFormatProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Vector2d_ToString_" data-uid="OpenTK.Mathematics.Vector2d.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector2d_ToString_System_String_System_IFormatProvider_" data-uid="OpenTK.Mathematics.Vector2d.ToString(System.String,System.IFormatProvider)">ToString(string, IFormatProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Vector2d_ToString_" data-uid="OpenTK.Mathematics.Vector2d.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector2d_ToString_System_String_" data-uid="OpenTK.Mathematics.Vector2d.ToString(System.String)">ToString(string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Mathematics_Vector2d_Transform_" data-uid="OpenTK.Mathematics.Vector2d.Transform*"></a>
   <h4 id="OpenTK_Mathematics_Vector2d_Transform_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Quaterniond_" data-uid="OpenTK.Mathematics.Vector2d.Transform(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Quaterniond)">Transform(Vector2d, Quaterniond)</h4>
   <div class="markdown level1 summary"><p>Transforms a vector by a quaternion rotation.</p>
@@ -3502,6 +3729,9 @@ public static Vector2d operator -(Vector2d vec)</code></pre>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IFormattable</span>
   </div>
 </article>
           </div>

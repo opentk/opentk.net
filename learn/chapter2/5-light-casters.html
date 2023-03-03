@@ -141,7 +141,7 @@ else if(lightVector.w == 1.0)
 </code></pre>
 <p>If you'd now compile the application and fly through the scene it looks like there is a sun-like light source casting light on all the objects. Can you see that the diffuse and specular components all react as if there was a light source somewhere in the sky? It'll look something like this:</p>
 <p><img src="img/5-light_casters_directional_light.png" alt="Light casters directional"></p>
-<p>You can find the full source code of the application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20directional%20lights">here</a>.</p>
+<p>You can find the full source code of the application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/5-LightCasters-DirectionalLights">here</a>.</p>
 <h2 id="point-lights">Point lights</h2>
 <p>Directional lights are great for global lights that illuminate the entire scene, but aside from a directional light we usually also want several <strong>point lights</strong> scattered throughout the scene. A point light is a light source with a given position somewhere in a world that illuminates in all directions where the light rays fade out over distance. Think of light bulbs and torches as light casters that act as a point light.</p>
 <p><img src="img/5-light_casters_point.png" alt="Light casters point"></p>
@@ -198,7 +198,7 @@ specular *= attenuation;
 </code></pre>
 <p>If you'd run the application you'd get something like this:</p>
 <p><img src="img/5-light_casters_point_light.png" alt="Light casters point light"></p>
-<p>You can see that right now only the front containers are lit with the closest container being the brightest. The containers in the back are not lit at all since they're too far from the light source. You can find the source code of the application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20point%20lights">here</a>.</p>
+<p>You can see that right now only the front containers are lit with the closest container being the brightest. The containers in the back are not lit at all since they're too far from the light source. You can find the source code of the application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/5-LightCasters-PointLights">here</a>.</p>
 <p>A point light is thus a light source with a configurable location and attenuation applied to its lighting calculations. Yet another type of light for our lighting arsenal.</p>
 <h2 id="spotlight">Spotlight</h2>
 <p>The last type of light we're going to discuss is a <strong>spotlight</strong>. A spotlight is a light source that is located somewhere in the environment that, instead of shooting light rays in all directions, only shoots them in a specific direction. The result is that only the objects within a certain radius of the spotlight's direction are lit and everything else stays dark. A good example of a spotlight would be a street lamp or a flashlight.</p>
@@ -272,7 +272,7 @@ specular *= intensity;
 <p>Note that we use the <strong>clamp</strong> function that <strong>clamps</strong> its first argument between the values 0.0 and 1.0. This makes sure the intensity values won't end up outside the [0, 1] interval.</p>
 <p>Make sure you add the <strong>outerCutOff</strong> value to the <strong>Light</strong> struct and set its uniform value in the application. For the following image an inner cutoff angle of 12.5 and an outer cutoff angle of 17.5 was used:</p>
 <p><img src="img/5-light_casters_spotlight.png" alt="Light casters spotlight"></p>
-<p>Ahhh, that's much better. Play around with the inner and outer cutoff angles and try to create a spotlight that better suits your needs. You can find the source code of the application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20spotlight">here</a>.</p>
+<p>Ahhh, that's much better. Play around with the inner and outer cutoff angles and try to create a spotlight that better suits your needs. You can find the source code of the application <a href="https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/5-LightCasters-Spotlight">here</a>.</p>
 <p>Such a flashlight/spotlight type of lamp is perfect for horror games and combined with directional and point lights the environment will really start to light up. In the next tutorial we'll combine all the lights and tricks we've discussed so far.</p>
 </article>
           </div>

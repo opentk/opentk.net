@@ -87,6 +87,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">System.IEquatable&lt;T&gt;</span>&lt;<a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -105,7 +106,7 @@
   <h5 id="OpenTK_Mathematics_Vector4_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public struct Vector4 : IEquatable&lt;Vector4&gt;</code></pre>
+public struct Vector4 : IEquatable&lt;Vector4&gt;, IFormattable</code></pre>
   </div>
   <h5 id="OpenTK_Mathematics_Vector4_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
@@ -3492,8 +3493,67 @@ public static float Dot(Vector4 left, Vector4 right)</code></pre>
   <div class="markdown level1 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
 </div>
   <a id="OpenTK_Mathematics_Vector4_Lerp_" data-uid="OpenTK.Mathematics.Vector4.Lerp*"></a>
+  <h4 id="OpenTK_Mathematics_Vector4_Lerp_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_" data-uid="OpenTK.Mathematics.Vector4.Lerp(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)">Lerp(Vector4, Vector4, Vector4)</h4>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the component-wise linear blend of the 2 given vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Vector4 Lerp(Vector4 a, Vector4 b, Vector4 blend)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>First input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>Second input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><span class="parametername">blend</span></td>
+        <td><p>The blend factor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><p>a when blend=0, b when blend=1, and a component-wise linear combination otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector4_Lerp_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector4_Lerp_" data-uid="OpenTK.Mathematics.Vector4.Lerp*"></a>
   <h4 id="OpenTK_Mathematics_Vector4_Lerp_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_System_Single_" data-uid="OpenTK.Mathematics.Vector4.Lerp(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4,System.Single)">Lerp(Vector4, Vector4, float)</h4>
-  <div class="markdown level1 summary"><p>Returns a new Vector that is the linear blend of the 2 given Vectors.</p>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the linear blend of the 2 given vectors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -3526,7 +3586,7 @@ public static Vector4 Lerp(Vector4 a, Vector4 b, float blend)</code></pre>
       <tr>
         <td><span class="xref">float</span></td>
         <td><span class="parametername">blend</span></td>
-        <td><p>The blend factor. a when blend=0, b when blend=1.</p>
+        <td><p>The blend factor.</p>
 </td>
       </tr>
     </tbody>
@@ -3551,8 +3611,56 @@ public static Vector4 Lerp(Vector4 a, Vector4 b, float blend)</code></pre>
   <div class="markdown level1 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
 </div>
   <a id="OpenTK_Mathematics_Vector4_Lerp_" data-uid="OpenTK.Mathematics.Vector4.Lerp*"></a>
+  <h4 id="OpenTK_Mathematics_Vector4_Lerp_OpenTK_Mathematics_Vector4__OpenTK_Mathematics_Vector4__OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4__" data-uid="OpenTK.Mathematics.Vector4.Lerp(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4@)">Lerp(in Vector4, in Vector4, Vector4, out Vector4)</h4>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the component-wise linear blend of the 2 given vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(in Vector4 a, in Vector4 b, Vector4 blend, out Vector4 result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>First input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>Second input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><span class="parametername">blend</span></td>
+        <td><p>The blend factor.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector4.html">Vector4</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>a when blend=0, b when blend=1, and a component-wise linear combination otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector4_Lerp_OpenTK_Mathematics_Vector4__OpenTK_Mathematics_Vector4__OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector4_Lerp_" data-uid="OpenTK.Mathematics.Vector4.Lerp*"></a>
   <h4 id="OpenTK_Mathematics_Vector4_Lerp_OpenTK_Mathematics_Vector4__OpenTK_Mathematics_Vector4__System_Single_OpenTK_Mathematics_Vector4__" data-uid="OpenTK.Mathematics.Vector4.Lerp(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,System.Single,OpenTK.Mathematics.Vector4@)">Lerp(in Vector4, in Vector4, float, out Vector4)</h4>
-  <div class="markdown level1 summary"><p>Returns a new Vector that is the linear blend of the 2 given Vectors.</p>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the linear blend of the 2 given vectors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -3584,7 +3692,7 @@ public static Vector4 Lerp(Vector4 a, Vector4 b, float blend)</code></pre>
       <tr>
         <td><span class="xref">float</span></td>
         <td><span class="parametername">blend</span></td>
-        <td><p>The blend factor. a when blend=0, b when blend=1.</p>
+        <td><p>The blend factor.</p>
 </td>
       </tr>
       <tr>
@@ -4321,6 +4429,140 @@ public static Vector4 Subtract(Vector4 a, Vector4 b)</code></pre>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.ValueType.ToString()</span></div>
   <h5 id="OpenTK_Mathematics_Vector4_ToString_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector4_ToString_" data-uid="OpenTK.Mathematics.Vector4.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector4_ToString_System_IFormatProvider_" data-uid="OpenTK.Mathematics.Vector4.ToString(System.IFormatProvider)">ToString(IFormatProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector4_ToString_System_IFormatProvider__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector4_ToString_" data-uid="OpenTK.Mathematics.Vector4.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector4_ToString_System_String_System_IFormatProvider_" data-uid="OpenTK.Mathematics.Vector4.ToString(System.String,System.IFormatProvider)">ToString(string, IFormatProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector4_ToString_System_String_System_IFormatProvider__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector4_ToString_" data-uid="OpenTK.Mathematics.Vector4.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector4_ToString_System_String_" data-uid="OpenTK.Mathematics.Vector4.ToString(System.String)">ToString(string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector4_ToString_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The Vector4 structure is suitable for interoperation with unmanaged code requiring four consecutive floats.</p>
 </div>
   <a id="OpenTK_Mathematics_Vector4_Transform_" data-uid="OpenTK.Mathematics.Vector4.Transform*"></a>
@@ -5624,6 +5866,9 @@ public static Vector4 operator -(Vector4 vec)</code></pre>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IFormattable</span>
   </div>
 </article>
           </div>

@@ -389,7 +389,8 @@ when the window is created.</p>
 </div>
   <a id="OpenTK_Windowing_Desktop_NativeWindowSettings_Flags_" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.Flags*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindowSettings_Flags" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.Flags">Flags</h4>
-  <div class="markdown level1 summary"><p>Gets or sets a value representing the current graphics profile flags.</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value representing the current graphics profile flags.
+Default value is <a class="xref" href="OpenTK.Windowing.Common.ContextFlags.html#OpenTK_Windowing_Common_ContextFlags_ForwardCompatible">ForwardCompatible</a> to work out of the box on macos.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -856,6 +857,58 @@ This only has an effect on OpenGL 3.2 and higher. On older versions, this settin
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindowSettings_TransparentFramebuffer_" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.TransparentFramebuffer*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindowSettings_TransparentFramebuffer" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.TransparentFramebuffer">TransparentFramebuffer</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the framebuffer should be transparent or not.
+<code>null</code> and <code>false</code> does not result in a transparent framebuffer while <code>true</code> will result in a transparent framebuffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? TransparentFramebuffer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindowSettings_Vsync_" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.Vsync*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindowSettings_Vsync" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.Vsync">Vsync</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating the vsync mode to use.
+A pure NativeWindow supports <a class="xref" href="OpenTK.Windowing.Common.VSyncMode.html#OpenTK_Windowing_Common_VSyncMode_Off">Off</a> and <a class="xref" href="OpenTK.Windowing.Common.VSyncMode.html#OpenTK_Windowing_Common_VSyncMode_On">On</a>.
+<a class="xref" href="OpenTK.Windowing.Desktop.GameWindow.html">GameWindow</a> adds support for <a class="xref" href="OpenTK.Windowing.Common.VSyncMode.html#OpenTK_Windowing_Common_VSyncMode_Adaptive">Adaptive</a>,
+if you are not using <a class="xref" href="OpenTK.Windowing.Desktop.GameWindow.html">GameWindow</a> you will have to handle adaptive vsync yourself.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VSyncMode Vsync { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.Common.VSyncMode.html">VSyncMode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_Desktop_NativeWindowSettings_WindowBorder_" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.WindowBorder*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindowSettings_WindowBorder" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.WindowBorder">WindowBorder</h4>
   <div class="markdown level1 summary"><p>Gets or sets the initial value for <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_WindowBorder">WindowBorder</a> on the new window.</p>
@@ -882,7 +935,8 @@ This only has an effect on OpenGL 3.2 and higher. On older versions, this settin
   </table>
   <a id="OpenTK_Windowing_Desktop_NativeWindowSettings_WindowState_" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.WindowState*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindowSettings_WindowState" data-uid="OpenTK.Windowing.Desktop.NativeWindowSettings.WindowState">WindowState</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the initial value for <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_WindowState">WindowState</a> on the new window.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the initial value for <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_WindowState">WindowState</a> on the new window.
+This setting is ignored if <code><a class="xref" href="OpenTK.Windowing.Desktop.NativeWindowSettings.html#OpenTK_Windowing_Desktop_NativeWindowSettings_StartVisible">StartVisible</a> = false</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

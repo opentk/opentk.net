@@ -777,7 +777,8 @@ limited by the hardware&apos;s capabilities).
     <pre><code class="lang-csharp hljs">public virtual void Run()</code></pre>
   </div>
   <h5 id="OpenTK_Windowing_Desktop_GameWindow_Run_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="OpenTK.Windowing.Desktop.GameWindow.html">GameWindow</a> contains several events you can hook or override to add your custom logic:</p>
+  <div class="markdown level1 remarks"><p>On windows this function calls <code>timeBeginPeriod(1)</code> to get better sleep timings, which can increase power usage.
+This can be undone by calling <code>timeEndPeriod(1)</code> in <a class="xref" href="OpenTK.Windowing.Desktop.GameWindow.html#OpenTK_Windowing_Desktop_GameWindow_OnLoad">OnLoad()</a> and <code>timeBeginPeriod(1)</code> in <a class="xref" href="OpenTK.Windowing.Desktop.GameWindow.html#OpenTK_Windowing_Desktop_GameWindow_OnUnload">OnUnload()</a>.</p>
 </div>
   <a id="OpenTK_Windowing_Desktop_GameWindow_SwapBuffers_" data-uid="OpenTK.Windowing.Desktop.GameWindow.SwapBuffers*"></a>
   <h4 id="OpenTK_Windowing_Desktop_GameWindow_SwapBuffers" data-uid="OpenTK.Windowing.Desktop.GameWindow.SwapBuffers">SwapBuffers()</h4>

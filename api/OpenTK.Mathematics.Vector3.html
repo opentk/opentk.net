@@ -87,6 +87,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">System.IEquatable&lt;T&gt;</span>&lt;<a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -105,7 +106,7 @@
   <h5 id="OpenTK_Mathematics_Vector3_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public struct Vector3 : IEquatable&lt;Vector3&gt;</code></pre>
+public struct Vector3 : IEquatable&lt;Vector3&gt;, IFormattable</code></pre>
   </div>
   <h5 id="OpenTK_Mathematics_Vector3_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
@@ -2369,8 +2370,67 @@ public static float Dot(Vector3 left, Vector3 right)</code></pre>
   <div class="markdown level1 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
 </div>
   <a id="OpenTK_Mathematics_Vector3_Lerp_" data-uid="OpenTK.Mathematics.Vector3.Lerp*"></a>
+  <h4 id="OpenTK_Mathematics_Vector3_Lerp_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_" data-uid="OpenTK.Mathematics.Vector3.Lerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">Lerp(Vector3, Vector3, Vector3)</h4>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the component-wise linear blend of the 2 given vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static Vector3 Lerp(Vector3 a, Vector3 b, Vector3 blend)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>First input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>Second input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">blend</span></td>
+        <td><p>The blend factor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><p>a when blend=0, b when blend=1, and a component-wise linear combination otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector3_Lerp_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector3_Lerp_" data-uid="OpenTK.Mathematics.Vector3.Lerp*"></a>
   <h4 id="OpenTK_Mathematics_Vector3_Lerp_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_System_Single_" data-uid="OpenTK.Mathematics.Vector3.Lerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)">Lerp(Vector3, Vector3, float)</h4>
-  <div class="markdown level1 summary"><p>Returns a new Vector that is the linear blend of the 2 given Vectors.</p>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the linear blend of the 2 given vectors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2403,7 +2463,7 @@ public static Vector3 Lerp(Vector3 a, Vector3 b, float blend)</code></pre>
       <tr>
         <td><span class="xref">float</span></td>
         <td><span class="parametername">blend</span></td>
-        <td><p>The blend factor. a when blend=0, b when blend=1.</p>
+        <td><p>The blend factor.</p>
 </td>
       </tr>
     </tbody>
@@ -2428,8 +2488,56 @@ public static Vector3 Lerp(Vector3 a, Vector3 b, float blend)</code></pre>
   <div class="markdown level1 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
 </div>
   <a id="OpenTK_Mathematics_Vector3_Lerp_" data-uid="OpenTK.Mathematics.Vector3.Lerp*"></a>
+  <h4 id="OpenTK_Mathematics_Vector3_Lerp_OpenTK_Mathematics_Vector3__OpenTK_Mathematics_Vector3__OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Mathematics.Vector3.Lerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3@)">Lerp(in Vector3, in Vector3, Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the component-wise linear blend of the 2 given vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(in Vector3 a, in Vector3 b, Vector3 blend, out Vector3 result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>First input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>Second input vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">blend</span></td>
+        <td><p>The blend factor.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>a when blend=0, b when blend=1, and a component-wise linear combination otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector3_Lerp_OpenTK_Mathematics_Vector3__OpenTK_Mathematics_Vector3__OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector3_Lerp_" data-uid="OpenTK.Mathematics.Vector3.Lerp*"></a>
   <h4 id="OpenTK_Mathematics_Vector3_Lerp_OpenTK_Mathematics_Vector3__OpenTK_Mathematics_Vector3__System_Single_OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Mathematics.Vector3.Lerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)">Lerp(in Vector3, in Vector3, float, out Vector3)</h4>
-  <div class="markdown level1 summary"><p>Returns a new Vector that is the linear blend of the 2 given Vectors.</p>
+  <div class="markdown level1 summary"><p>Returns a new vector that is the linear blend of the 2 given vectors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2461,7 +2569,7 @@ public static Vector3 Lerp(Vector3 a, Vector3 b, float blend)</code></pre>
       <tr>
         <td><span class="xref">float</span></td>
         <td><span class="parametername">blend</span></td>
-        <td><p>The blend factor. a when blend=0, b when blend=1.</p>
+        <td><p>The blend factor.</p>
 </td>
       </tr>
       <tr>
@@ -3288,6 +3396,140 @@ public static Vector3 Subtract(Vector3 a, Vector3 b)</code></pre>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.ValueType.ToString()</span></div>
   <h5 id="OpenTK_Mathematics_Vector3_ToString_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector3_ToString_" data-uid="OpenTK.Mathematics.Vector3.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector3_ToString_System_IFormatProvider_" data-uid="OpenTK.Mathematics.Vector3.ToString(System.IFormatProvider)">ToString(IFormatProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector3_ToString_System_IFormatProvider__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector3_ToString_" data-uid="OpenTK.Mathematics.Vector3.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector3_ToString_System_String_System_IFormatProvider_" data-uid="OpenTK.Mathematics.Vector3.ToString(System.String,System.IFormatProvider)">ToString(string, IFormatProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector3_ToString_System_String_System_IFormatProvider__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
+</div>
+  <a id="OpenTK_Mathematics_Vector3_ToString_" data-uid="OpenTK.Mathematics.Vector3.ToString*"></a>
+  <h4 id="OpenTK_Mathematics_Vector3_ToString_System_String_" data-uid="OpenTK.Mathematics.Vector3.ToString(System.String)">ToString(string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Vector3_ToString_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The Vector3 structure is suitable for interoperation with unmanaged code requiring three consecutive floats.</p>
 </div>
   <a id="OpenTK_Mathematics_Vector3_Transform_" data-uid="OpenTK.Mathematics.Vector3.Transform*"></a>
@@ -5021,6 +5263,9 @@ public static Vector3 operator -(Vector3 vec)</code></pre>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IFormattable</span>
   </div>
 </article>
           </div>

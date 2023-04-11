@@ -27,12 +27,12 @@ That may seem like a lot, but it's quite intuitive once setup is complete and we
 
 We'll need to override a couple of extra functions to get started. Firstly, we override OnLoad.
 
-# [OpenTK 3](#tab/onload-opentk3)
+# [OpenTK 4](#tab/onload-opentk4)
 
 ```cs
-protected override void OnLoad(EventArgs e)
+protected override void OnLoad()
 {
-    base.OnLoad(e);
+    base.OnLoad();
 
     GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
@@ -40,12 +40,12 @@ protected override void OnLoad(EventArgs e)
 }
 ```
 
-# [OpenTK 4](#tab/onload-opentk4)
+# [OpenTK 3](#tab/onload-opentk3)
 
 ```cs
-protected override void OnLoad()
+protected override void OnLoad(EventArgs e)
 {
-    base.OnLoad();
+    base.OnLoad(e);
 
     GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
@@ -60,21 +60,6 @@ This function runs one time, when the window first opens. Any initialization-rel
 It's also here that we get our first OpenGL function call: `GL.ClearColor`. This takes four floats, ranging between 0.0f and 1.0f. This decides the color of the window after it gets cleared between frames.
 
 Next, we have OnRenderFrame.
-
-# [OpenTK 3](#tab/onrender-opentk3)
-
-```cs
-protected override void OnRenderFrame(FrameEventArgs e)
-{
-    base.OnRenderFrame(e);
-
-    GL.Clear(ClearBufferMask.ColorBufferBit);
-
-    //Code goes here.
-
-    Context.SwapBuffers();
-}
-```
 
 # [OpenTK 4](#tab/onrender-opentk4)
 
@@ -91,6 +76,21 @@ protected override void OnRenderFrame(FrameEventArgs e)
 }
 ```
 
+# [OpenTK 3](#tab/onrender-opentk3)
+
+```cs
+protected override void OnRenderFrame(FrameEventArgs e)
+{
+    base.OnRenderFrame(e);
+
+    GL.Clear(ClearBufferMask.ColorBufferBit);
+
+    //Code goes here.
+
+    Context.SwapBuffers();
+}
+```
+
 ***
 
 We have two calls here. Firstly, `GL.Clear` clears the screen, using the color set in OnLoad. This should always be the first function called when rendering.
@@ -98,17 +98,6 @@ We have two calls here. Firstly, `GL.Clear` clears the screen, using the color s
 Then, we have `Context.SwapBuffers`. Almost any modern OpenGL context is what's known as "double-buffered". Double-buffering means that there are two areas that OpenGL draws to. In essence: One area is displayed, while the other is being rendered to. Then, when you call SwapBuffers, the two are reversed. A single-buffered context could have issues such as screen tearing.
 
 Next, we have OnResize.
-
-# [OpenTK 3](#tab/resize-opentk3)
-
-```cs
-protected override void OnResize(EventArgs e)
-{
-    base.OnResize(e);
-
-    GL.Viewport(0, 0, Width, Height);
-}
-```
 
 # [OpenTK 4](#tab/resize-opentk4)
 
@@ -118,6 +107,17 @@ protected override void OnResize(ResizeEventArgs e)
     base.OnResize(e);
 
     GL.Viewport(0, 0, e.Width, e.Height);
+}
+```
+
+# [OpenTK 3](#tab/resize-opentk3)
+
+```cs
+protected override void OnResize(EventArgs e)
+{
+    base.OnResize(e);
+
+    GL.Viewport(0, 0, Width, Height);
 }
 ```
 

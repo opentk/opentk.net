@@ -15,7 +15,7 @@ OpenTK is not a game engine, nor does it try to be one:  It offers a useful set 
 - **OpenTK 3.x** is the legacy version.  It targets .NET Framework 4.x.
    - [OpenTK 3.x](https://www.nuget.org/packages/OpenTK/3.3.1)
    - [OpenTK GLControl 3.x](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/)
-- OpenTK 5.0, the next major revision of OpenTK, [is in development](https://github.com/opentk/opentk/issues/1207) and is likely to be released later in 2021.  We would welcome any [contributions](https://github.com/opentk/opentk/)!
+- OpenTK 5.0, the next major revision of OpenTK, [is in development](https://github.com/opentk/opentk/issues/1207) and is hopefully be released later in 2023.  We would welcome any [contributions](https://github.com/opentk/opentk/)!
 
 ### Help and Support
 

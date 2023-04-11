@@ -1,2 +1,2 @@
-docfx metadata
+dotnet docfx metadata
 pause

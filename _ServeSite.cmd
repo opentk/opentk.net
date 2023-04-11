@@ -1,2 +1,2 @@
-docfx --serve
+dotnet docfx --serve
 pause

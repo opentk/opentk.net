@@ -126,7 +126,7 @@ Which ones to use depends on which flavors of OpenGL/CL/AL you’re targeting.  
 
 There are a lot of older, outdated explanations for this across the Internet.  For OpenTK 4+, you’ll want to inherit a class from `NativeWindow` or `GameWindow`, instantiate your custom window, and then poll for events.  Here’s a simple, complete, working example `Program.cs` that uses `GameWindow`:
 
-```c#
+```cs
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
 
@@ -244,7 +244,7 @@ if (errorCode) {
 
 *C# equivalent:*
 
-```c#
+```cs
 int shader = GL.CreateShader(ShaderType.FragmentShader);
 
 ErrorCode errorCode = GL.GetError();
@@ -278,7 +278,7 @@ The C form of this requires you to pass an array of `data` that could be compose
 
 OpenTK exposes this single function with a dozen different overloads on the `GL` class!
 
-```C#
+```cs
 1. void BufferData<T>(BufferTarget target, int size, T[] data, BufferUsageHint usage)
 2. void BufferData<T>(BufferTarget target, int size, T[,] data, BufferUsageHint usage)
 3. void BufferData<T>(BufferTarget target, int size, T[,,] data, BufferUsageHint usage)
@@ -316,7 +316,7 @@ glBufferData(GL_TEXTURE_BUFFER, bufferSize, data, GL_STATIC_DRAW);
 
 *C# equivalent:*
 
-```c#
+```cs
 byte[] data = new byte[bufferSize];
 ...
 GL.BufferData(BufferTarget.TextureBuffer, bufferSize, data, BufferUsageHint.StaticDraw);
@@ -336,7 +336,7 @@ glBufferData(GL_TEXTURE_BUFFER, bufferSize, data, GL_STATIC_DRAW);
 
 *C# equivalent:*
 
-```c#
+```cs
 MyStruct data;
 ...
 GL.BufferData(BufferTarget.TextureBuffer, bufferSize, data, BufferUsageHint.StaticDraw);
@@ -356,7 +356,7 @@ glBufferData(GL_TEXTURE_BUFFER, bufferSize, data, GL_STATIC_DRAW);
 
 *C# equivalent:*
 
-```c#
+```cs
 byte[] data = new byte[bufferSize];
 ...
 unsafe
@@ -463,7 +463,7 @@ If you’re trying to use the old FFP functions, they’re *exposed* by OpenTK, 
 
 When creating a `NativeWindow`, you pass a `NativeWindowSettings` object to describe what kind of OpenGL context you need.  To enable *compatibility mode*, you change the `ContextProfile` of the `NativeWindowSettings`:
 
-```c#
+```cs
 var nativeWindowSettings = new NativeWindowSettings
 {
     ...
@@ -477,13 +477,13 @@ This will provide access to the older FFP functions, at a small cost in memory o
 
 OpenTK 4.4 adds support for centering a `NativeWindow` or `GameWindow` directly:
 
-```c#
+```cs
 myWindow.CenterWindow();
 ```
 
 You can also center-and-resize the window as a single operation, which is a common need when an application starts:
 
-```c#
+```cs
 myWindow.CenterWindow(new Vector2i(800, 600));
 ```
 
@@ -495,7 +495,7 @@ For OpenTK 4.x prior to OpenTK 4.4, you need to query the window’s `Monitor` i
 
 The `NativeWindowSettings` class, an instance of which you must pass to your window’s constructor, contains many properties for controlling how your window initially appears (or doesn’t appear).  Here are the major properties you might want to use to control how your window looks and behaves:
 
-```c#
+```cs
 public class NativeWindowSettings
 {
     public string Title { get; set; }              // Text for the title bar
@@ -517,7 +517,7 @@ A number of these, like `Location` and `Size` and `WindowState` and `IsFullscree
 
 If you want to delay your window’s position/layout until after it has been constructed and important data for it has been loaded (like its position), a common pattern is something like this:
 
-```c#
+```cs
 var nativeSettings = new NativeWindowSettings { StartVisible = false };
 using (var myWindow = new MyWindow(nativeSettings, gameSettings))
 {
@@ -566,7 +566,7 @@ If you’re making a game, you probably want to use `GameWindow` as your base cl
 
 `NativeWindow` contains minimal functionality, and unlike `GameWindow`, it doesn’t include a `Run()` method.  The bare minimum of a `Run()` method is simply this much:
 
-```c#
+```cs
 public void Run(MyWindow myWindow)
 {
     while (true)
@@ -584,7 +584,7 @@ Which is to say:  A `Run()` method, at its core, consists of a loop that alterna
 
 For comparison, the [`Run()` method in `GameWindow`](https://github.com/opentk/opentk/blob/master/src/OpenTK.Windowing.Desktop/GameWindow.cs) looks something like this (with many parts omitted for brevity):
 
-```c#
+```cs
 public virtual unsafe void Run()
 {
     Context.MakeCurrent();
@@ -613,7 +613,7 @@ OpenTK 4.x+ uses the [GLFW](https://www.glfw.org/) C++ library to provide cross-
 
 As an example, consider the `NativeWindow.Title` property, which lets you read and update the window’s title.  Here’s its entire implementation, verbatim:
 
-```c#
+```cs
 public string Title
 {
     get => _title;

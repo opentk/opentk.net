@@ -2,7 +2,7 @@
 
 ### What is OpenTK?
 
-OpenTK is a library that provides high-speed access to native [OpenGL](#What-is-OpenGL), [OpenCL](#What-is-OpenCL), and [OpenAL](#What-is-OpenAL) for .NET programs.  OpenTK aims to make working with OpenGL, OpenCL, and OpenAL in .NET-supported languages like C# similar in both performance and feel to the equivalent C code, while still running in a managed (and safe!) environment.
+OpenTK is a library that provides high-speed access to native [OpenGL](#what-is-opengl), [OpenCL](#what-is-opencl), and [OpenAL](#what-is-openal) for .NET programs.  OpenTK aims to make working with OpenGL, OpenCL, and OpenAL in .NET-supported languages like C# similar in both performance and feel to the equivalent C code, while still running in a managed (and safe!) environment.
 
 Note that OpenTK is _not_ a high-level library:  It’s not a game engine, or a framework, or a full renderer, or a complete audio system by itself.  Instead, it’s the low-level foundation on which you can _build_ those kinds of things.  If you want a framework or a renderer or a game engine that’s already built, there are lots of those elsewhere on the Internet.
 
@@ -82,7 +82,7 @@ We take great pains to make it as efficient as possible.  However, keep in mind 
 
 #### Vulkan or Metal?
 
-OpenTK does not currently support [Vulkan](https://www.vulkan.org/) or [Metal](https://developer.apple.com/metal/).  OpenTK 5 may not either, but the changes for OpenTK 5 may make it easier to support Vulkan in the future.  Feel free to submit a pull request and [help out](#How-can-I-help)!
+OpenTK does not currently support [Vulkan](https://www.vulkan.org/) or [Metal](https://developer.apple.com/metal/).  OpenTK 5 may not either, but the changes for OpenTK 5 may make it easier to support Vulkan in the future.  Feel free to submit a pull request and [help out](#how-can-i-help)!
 
 #### DirectX or Direct3D?
 
@@ -90,7 +90,7 @@ OpenTK is focused on cross-platform, portable, open standards.  There are other 
 
 #### OpenVG? OpenVX? OpenXR?
 
-OpenTK does not currently support the Khronos group’s other open standards.  Feel free to submit a pull request and [help out](#How-can-I-help)!
+OpenTK does not currently support the Khronos group’s other open standards.  Feel free to submit a pull request and [help out](#how-can-i-help)!
 
 ## Installing and Using OpenTK
 
@@ -196,7 +196,7 @@ As you can see, the programming models are nearly identical, by design:  If you 
 
 **Arrays and pointers**
 
-Passing arrays from .NET to OpenGL/CL/AL (or to any C library) is a complex topic, but OpenTK has built-in support for it:  See the section below on “[How do I pass pointers and arrays?](#How-do-I-pass-pointers-and-arrays)”.
+Passing arrays from .NET to OpenGL/CL/AL (or to any C library) is a complex topic, but OpenTK has built-in support for it:  See the section below on “[How do I pass pointers and arrays?](#how-do-i-pass-pointers-and-arrays)”.
 
 **Constant symbols**
 
@@ -445,8 +445,8 @@ Rendering your first triangle can be challenging just because there are many new
 
 We have some [introductory tutorials](learn/index.md) that should help you get your first project off the ground.  There are a few major parts to drawing your first triangle:
 
-- You’ll need to first [create a window](learn/chapter1/1-creating-a-window.md) (there’s a [quick example above](#How-do-I-create-a-window-using-OpenTK)).
-- You’ll need to fill some [buffers](#How-do-shadersbuffersvertex-arraysetc-work) with the data for your triangle — you’ll need at least a VBO and vertex attributes.
+- You’ll need to first [create a window](learn/chapter1/1-creating-a-window.md) (there’s a [quick example above](#how-do-i-create-a-window-using-opentk)).
+- You’ll need to fill some [buffers](#how-do-shadersbuffersvertex-arraysetc-work) with the data for your triangle — you’ll need at least a VBO and vertex attributes.
 - You’ll need to create and load some [shaders](learn/chapter1/4-shaders.md) — at least a simple vertex shader and a simple fragment shader.
 - Finally, in your window’s render phase, you’ll need to tell OpenGL to [use your shaders to draw the triangle data in your buffers](learn/chapter1/2-hello-triangle.md).
 
@@ -454,7 +454,7 @@ We have some [introductory tutorials](learn/index.md) that should help you get y
 
 *Lots* of triangles!
 
-OpenGL has always supported things like triangle strips and triangle fans (and their modern equivalent, the [EBO](#How-do-shadersbuffersvertex-arraysetc-work)) to make it easy to render “more complex polygons”, but even the most complex graphical scene is really broken down into just lots and lots of triangles.  A rectangle, for example, is just two triangles that share an edge.  A pentagon can be made from three triangles, and a hexagon can be made from four.  A cube is made up of six rectangles — or twelve triangles.
+OpenGL has always supported things like triangle strips and triangle fans (and their modern equivalent, the [EBO](#how-do-shadersbuffersvertex-arraysetc-work)) to make it easy to render “more complex polygons”, but even the most complex graphical scene is really broken down into just lots and lots of triangles.  A rectangle, for example, is just two triangles that share an edge.  A pentagon can be made from three triangles, and a hexagon can be made from four.  A cube is made up of six rectangles — or twelve triangles.
 
 So once you can render a single triangle, you just use the same techniques to render *more* of them, with different colors, textures, and positions, to make anything you can imagine.
 

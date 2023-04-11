@@ -262,7 +262,7 @@ Arguably, throwing exceptions is a better way to handle errors than aborting.
 
 OpenGL 4.3+ offers a new technique, called a _debug message callback_.  (Many older OpenGL drivers also support this via the `KHR_debug` extension.)  The general idea behind this is to “register” a _debug callback_ function with OpenGL; any time OpenGL encounters an error, it will call your function and pass useful things to it like an error message.
 
-Read more about how to hook this up in our [learn article]().
+Read more about how to hook this up in our [learn article](~/learn/appendix_opengl/debug_callback.md).
 
 First, you’ll need to declare an error-handling method that OpenGL can call, something like this:
 

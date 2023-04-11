@@ -393,7 +393,7 @@ Try running; if nothing prints to console, your shaders have compiled correctly!
 
 The vertex shader allows us to specify any input we want in the form of vertex attributes. While this allows for great flexibility, it does mean we have to manually specify what part of our input data goes to which vertex attribute in the vertex shader. This means we have to specify how OpenGL should interpret the vertex data before rendering.
 
-This format information is stored in what is called a Vertex Array Object (VAO). The VAO contains information about the vertex format and what buffers to read from. To get started we create a VAO and bind it like follows:
+This format information is stored in what is called a Vertex Array Object (VAO). The VAO contains information about the vertex format and what buffers to read from. We will discuss this more shortly, but to get started we create a VAO and bind it like follows:
 
 ```cs
 int VertexArrayObject = GL.GenVertexArray();

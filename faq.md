@@ -264,39 +264,6 @@ OpenGL 4.3+ offers a new technique, called a _debug message callback_.  (Many ol
 
 Read more about how to hook this up in our [learn article](~/learn/appendix_opengl/debug_callback.md).
 
-First, you’ll need to declare an error-handling method that OpenGL can call, something like this:
-
-```c#
-private static void DebugCallback(DebugSource source, DebugType type, int id,
-    DebugSeverity severity, int length, IntPtr message, IntPtr userParam)
-{
-    string messageString = Marshal.PtrToStringAnsi(message, length);
-    Console.WriteLine($"{severity} {type} | {messageString}");
-
-    if (type == DebugType.DebugTypeError)
-        throw new Exception(messageString);
-}
-```
-
-Next, you’ll need to create a delegate from it as a handle that the GC can’t collect, and then register the resulting function with OpenGL:
-
-```c#
-private static DebugProc _debugProcCallback = DebugCallback;
-private static GCHandle _debugProcCallbackHandle;
-
-...
-    
-_debugProcCallbackHandle = GCHandle.Alloc(_debugProcCallback);
-
-GL.DebugMessageCallback(_debugProcCallback, IntPtr.Zero);
-GL.Enable(EnableCap.DebugOutput);
-GL.Enable(EnableCap.DebugOutputSynchronous);
-```
-
-Vassalware, a member of the OpenTK Team, has a [more extensive discussion of this technique](https://gist.github.com/Vassalware/d47ff5e60580caf2cbbf0f31aa20af5d).
-
-Note that to use this technique, you may need to change your `NativeWindowSettings` to update the API version of OpenGL to 4.3 or higher; or you may need to check if your drivers support the `KHR_debug` extension.
-
 ### How do I pass pointers and arrays?
 
 OpenTK includes several method overloads for every OpenGL/CL/AL function that requires a pointer:  These overloads are designed to make working with the functions as natural as possible in .NET while still providing high performance.

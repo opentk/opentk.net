@@ -10,8 +10,8 @@ https://github.com/opentk/LearnOpenTK
 
 ### Chapters
 
-- [1. Getting Started](chapter1)
-- [2. Lighting](chapter2)
+- [1. Getting Started](chapter1/index.md)
+- [2. Lighting](chapter2/index.md)
 
 
 ### Credit

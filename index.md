@@ -19,11 +19,11 @@ OpenTK is not a game engine, nor does it try to be one:  It offers a useful set 
 
 ### Help and Support
 
-If you have a question or want to know how to get started, check our extensive [FAQ](faq.html), or try our tutorials for [OpenTK 3](https://opentk.net/learn/index.html) and [OpenTK 4](https://github.com/opentk/LearnOpenTK).
+If you have a question or want to know how to get started, check our extensive [FAQ](faq.md), or try our tutorials for [OpenTK 4 and OpenTK 3](learn/index.md).
 
 The OpenTK source code is available [on GitHub](https://github.com/opentk), and the latest build can be found [on Nuget](https://www.nuget.org/packages/OpenTK/).  If you find a bug or defect, please let us know with a [GitHub issue](https://github.com/opentk/opentk/issues).
 
-### Project status (2021-08-11)
+### Project status (2023-04-11)
 
 OpenTK 3 (.NET framework) is getting incoming PRs merged and released. Feel free to submit a PR! 🙂
 

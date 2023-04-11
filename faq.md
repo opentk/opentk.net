@@ -160,11 +160,11 @@ namespace MyOpenTKExample
         
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
+            base.OnUpdateFrame(e);
+
 			// This gets called every 1/60 of a second.
             if (KeyboardState.IsKeyDown(Keys.Escape))
                 Close();
-            
-            base.OnUpdateFrame(e);
         }
         
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -210,7 +210,7 @@ There is also a special enum type, `All`, that contains *all* of the GL constant
 
 ### Where do I start with OpenGL?
 
-Check out [our tutorial here](https://opentk.net/learn/index.html), which will teach you how to build a basic working program that can draw simple objects.  You can learn more about OpenGL in depth over at [Learn OpenGL](https://learnopengl.com/); our tutorials are based on theirs.
+Check out [our tutorial here](learn/index.md), which will teach you how to build a basic working program that can draw simple objects.  You can learn more about OpenGL in depth over at [Learn OpenGL](https://learnopengl.com/); our tutorials are based on theirs.
 
 ### What’s the difference between OpenGL and OpenGL ES?
 
@@ -220,11 +220,11 @@ But typically, if you’re coding for desktop PCs or Macs, you’ll want to use 
 
 ### How do I load textures?
 
-That’s mostly outside the scope of this FAQ, but there are a variety of techniques for loading images from files in .NET, and once the image is loaded into main memory, you then use one of the various GL texture functions to load it into the GPU, like `GL.TexImage2D()`.  For more details, read through the section on [loading and creating textures](https://opentk.net/learn/chapter1/5-textures.html) in our tutorial, derived from the [tutorial on textures](https://learnopengl.com/Getting-started/Textures) at [Learn OpenGL](https://learnopengl.com).
+That’s mostly outside the scope of this FAQ, but there are a variety of techniques for loading images from files in .NET, and once the image is loaded into main memory, you then use one of the various GL texture functions to load it into the GPU, like `GL.TexImage2D()`.  For more details, read through the section on [loading and creating textures](learn/chapter1/5-textures.md) in our tutorial, derived from the [tutorial on textures](https://learnopengl.com/Getting-started/Textures) at [Learn OpenGL](https://learnopengl.com).
 
 ### How do I create shaders?
 
-That’s outside the scope of this FAQ, but there’s a [tutorial on shaders and GLSL](https://opentk.net/learn/chapter1/4-shaders.html) as part of our lessons here, derived from the [tutorial on shaders and GLSL](https://learnopengl.com/Getting-started/Shaders) at [Learn OpenGL](https://learnopengl.com).
+That’s outside the scope of this FAQ, but there’s a [tutorial on shaders and GLSL](learn/chapter1/4-shaders.md) as part of our lessons here, derived from the [tutorial on shaders and GLSL](https://learnopengl.com/Getting-started/Shaders) at [Learn OpenGL](https://learnopengl.com).
 
 ### How do I handle errors?
 
@@ -260,7 +260,11 @@ Arguably, throwing exceptions is a better way to handle errors than aborting.
 
 #### That seems like a lot of if-statements; is there a better way?
 
-OpenGL 4.3+ offers a new technique, called a _debug message callback_.  (Many older OpenGL drivers also support this via the `KHR_debug` extension.)  The general idea behind this is to “register” a _debug callback_ function with OpenGL; any time OpenGL encounters an error, it will call your function immediately, and pass useful things to it like an error message.  First, you’ll need to declare an error-handling method that OpenGL can call, something like this:
+OpenGL 4.3+ offers a new technique, called a _debug message callback_.  (Many older OpenGL drivers also support this via the `KHR_debug` extension.)  The general idea behind this is to “register” a _debug callback_ function with OpenGL; any time OpenGL encounters an error, it will call your function and pass useful things to it like an error message.
+
+Read more about how to hook this up in our [learn article]().
+
+First, you’ll need to declare an error-handling method that OpenGL can call, something like this:
 
 ```c#
 private static void DebugCallback(DebugSource source, DebugType type, int id,
@@ -439,12 +443,12 @@ The same way you would with OpenGL in C!  The semantics are the same — only th
 
 Rendering your first triangle can be challenging just because there are many new ideas and new concepts to learn.  It’ll take some code, and some learning, and some patience, but you can do it!
 
-We have some [introductory tutorials](https://opentk.net/learn/index.html) that should help you get your first project off the ground.  There are a few major parts to drawing your first triangle:
+We have some [introductory tutorials](learn/index.md) that should help you get your first project off the ground.  There are a few major parts to drawing your first triangle:
 
-- You’ll need to first [create a window](https://opentk.net/learn/chapter1/1-creating-a-window.html) (there’s a [quick example above](#How-do-I-create-a-window-using-OpenTK)).
+- You’ll need to first [create a window](learn/chapter1/1-creating-a-window.md) (there’s a [quick example above](#How-do-I-create-a-window-using-OpenTK)).
 - You’ll need to fill some [buffers](#How-do-shadersbuffersvertex-arraysetc-work) with the data for your triangle — you’ll need at least a VBO and vertex attributes.
-- You’ll need to create and load some [shaders](https://opentk.net/learn/chapter1/4-shaders.html) — at least a simple vertex shader and a simple fragment shader.
-- Finally, in your window’s render phase, you’ll need to tell OpenGL to [use your shaders to draw the triangle data in your buffers](https://opentk.net/learn/chapter1/2-hello-triangle.html).
+- You’ll need to create and load some [shaders](learn/chapter1/4-shaders.md) — at least a simple vertex shader and a simple fragment shader.
+- Finally, in your window’s render phase, you’ll need to tell OpenGL to [use your shaders to draw the triangle data in your buffers](learn/chapter1/2-hello-triangle.md).
 
 ### How do I draw things more complex than a single triangle?
 
@@ -456,7 +460,7 @@ So once you can render a single triangle, you just use the same techniques to re
 
 ### How do shaders/buffers/vertex arrays/etc. work?
 
-This is a common question when you’re new to modern OpenGL — there’s a lot of new terminology, and it’s very confusing!  We recommend reading some of the [introductory articles at Learn OpenGL](https://learnopengl.com/Getting-started/Hello-Triangle) (and some of our similar [articles converted to C#](https://opentk.net/learn/chapter1/2-hello-triangle.html)) to understand what all these strange concepts are and how they fit together.
+This is a common question when you’re new to modern OpenGL — there’s a lot of new terminology, and it’s very confusing!  We recommend reading some of the [introductory articles at Learn OpenGL](https://learnopengl.com/Getting-started/Hello-Triangle) (and some of our similar [articles converted to C#](learn/chapter1/2-hello-triangle.md)) to understand what all these strange concepts are and how they fit together.
 
 But the short short *short* explanations for the mort important terms are:
 

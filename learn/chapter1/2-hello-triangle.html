@@ -97,17 +97,17 @@
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_onload-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_onload-opentk3" data-tab="onload-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S_onload-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_onload-opentk4" data-tab="onload-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_onload-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_onload-opentk4" data-tab="onload-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S_onload-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_onload-opentk3" data-tab="onload-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S_onload-opentk3" role="tabpanel" data-tab="onload-opentk3">
+<section id="tabpanel_bHGHmlrG6S_onload-opentk4" role="tabpanel" data-tab="onload-opentk4">
 
-<pre><code class="lang-cs">protected override void OnLoad(EventArgs e)
+<pre><code class="lang-cs">protected override void OnLoad()
 {
-    base.OnLoad(e);
+    base.OnLoad();
 
     GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
@@ -115,11 +115,11 @@
 }
 </code></pre>
 </section>
-<section id="tabpanel_bHGHmlrG6S_onload-opentk4" role="tabpanel" data-tab="onload-opentk4" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S_onload-opentk3" role="tabpanel" data-tab="onload-opentk3" aria-hidden="true" hidden="hidden">
 
-<pre><code class="lang-cs">protected override void OnLoad()
+<pre><code class="lang-cs">protected override void OnLoad(EventArgs e)
 {
-    base.OnLoad();
+    base.OnLoad(e);
 
     GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
@@ -135,27 +135,13 @@
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S-1">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-1_onrender-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_onrender-opentk3" data-tab="onrender-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S-1_onrender-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_onrender-opentk4" data-tab="onrender-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-1_onrender-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_onrender-opentk4" data-tab="onrender-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S-1_onrender-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_onrender-opentk3" data-tab="onrender-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S-1_onrender-opentk3" role="tabpanel" data-tab="onrender-opentk3">
-
-<pre><code class="lang-cs">protected override void OnRenderFrame(FrameEventArgs e)
-{
-    base.OnRenderFrame(e);
-
-    GL.Clear(ClearBufferMask.ColorBufferBit);
-
-    //Code goes here.
-
-    Context.SwapBuffers();
-}
-</code></pre>
-</section>
-<section id="tabpanel_bHGHmlrG6S-1_onrender-opentk4" role="tabpanel" data-tab="onrender-opentk4" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-1_onrender-opentk4" role="tabpanel" data-tab="onrender-opentk4">
 
 <pre><code class="lang-cs">protected override void OnRenderFrame(FrameEventArgs e)
 {
@@ -169,6 +155,20 @@
 }
 </code></pre>
 </section>
+<section id="tabpanel_bHGHmlrG6S-1_onrender-opentk3" role="tabpanel" data-tab="onrender-opentk3" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnRenderFrame(FrameEventArgs e)
+{
+    base.OnRenderFrame(e);
+
+    GL.Clear(ClearBufferMask.ColorBufferBit);
+
+    //Code goes here.
+
+    Context.SwapBuffers();
+}
+</code></pre>
+</section>
 </div>
 
 <p>We have two calls here. Firstly, <code>GL.Clear</code> clears the screen, using the color set in OnLoad. This should always be the first function called when rendering.</p>
@@ -177,29 +177,29 @@
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-2_resize-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_resize-opentk3" data-tab="resize-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S-2_resize-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_resize-opentk4" data-tab="resize-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-2_resize-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_resize-opentk4" data-tab="resize-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S-2_resize-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_resize-opentk3" data-tab="resize-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S-2_resize-opentk3" role="tabpanel" data-tab="resize-opentk3">
-
-<pre><code class="lang-cs">protected override void OnResize(EventArgs e)
-{
-    base.OnResize(e);
-
-    GL.Viewport(0, 0, Width, Height);
-}
-</code></pre>
-</section>
-<section id="tabpanel_bHGHmlrG6S-2_resize-opentk4" role="tabpanel" data-tab="resize-opentk4" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-2_resize-opentk4" role="tabpanel" data-tab="resize-opentk4">
 
 <pre><code class="lang-cs">protected override void OnResize(ResizeEventArgs e)
 {
     base.OnResize(e);
 
     GL.Viewport(0, 0, e.Width, e.Height);
+}
+</code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-2_resize-opentk3" role="tabpanel" data-tab="resize-opentk3" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnResize(EventArgs e)
+{
+    base.OnResize(e);
+
+    GL.Viewport(0, 0, Width, Height);
 }
 </code></pre>
 </section>

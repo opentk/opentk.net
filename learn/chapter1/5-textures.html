@@ -153,13 +153,36 @@ GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, 
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_load-texture-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_load-texture-opentk3" data-tab="load-texture-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S_load-texture-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_load-texture-opentk4" data-tab="load-texture-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_load-texture-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_load-texture-opentk4" data-tab="load-texture-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S_load-texture-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_load-texture-opentk3" data-tab="load-texture-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S_load-texture-opentk3" role="tabpanel" data-tab="load-texture-opentk3">
+<section id="tabpanel_bHGHmlrG6S_load-texture-opentk4" role="tabpanel" data-tab="load-texture-opentk4">
+<h3 id="stb_imageh-and-stbimagesharp">stb_image.h and StbImageSharp</h3>
+<p><a href="https://github.com/nothings/stb/blob/master/stb_image.h"><code>stb_image.h</code></a> is an incredibly widespread library used in c to load images for a number of common formats (png, jpeg, gif etc). There is a port of the project to C# available on nuget in the form of <a href="https://www.nuget.org/packages/StbImageSharp"><code>StbImageSharp</code></a>.</p>
+<p>For the following section on textures, we'll use an <a href="textures/container.jpg">image of a wooden crate</a>.</p>
+<p>Create a new file your project, <code>Texture.cs</code>. Put the following <code>using</code> statements at the top:</p>
+<pre><code class="lang-cs">using System;
+using OpenTK.Graphics.OpenGL4;
+using StbImageSharp;
+</code></pre>
+<p>Create a class, <code>Texture</code>, and add an int named Handle as a property. The constructor should take one argument: a path to the image file.</p>
+<p>In the constructor, write the line <code>Handle = GL.GenTexture();</code>. This will generate a blank texture for us to use.</p>
+<p>Next, add the function <code>Use</code> to your code, containing the line <code>GL.BindTexture(TextureTarget.Texture2D, Handle);</code>. Call that in your constructor just after generating the texture.</p>
+<pre><code class="lang-cs">// stb_image loads from the top-left pixel, whereas OpenGL loads from the bottom-left, causing the texture to be flipped vertically.
+// This will correct that, making the texture display properly.
+StbImage.stbi_set_flip_vertically_on_load(1);
+
+// Load the image.
+ImageResult image = ImageResult.FromStream(File.OpenRead(path), ColorComponents.RedGreenBlueAlpha);
+</code></pre>
+<p>Now that that's done, it's time to upload our texture.</p>
+<pre><code class="lang-cs">GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
+</code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S_load-texture-opentk3" role="tabpanel" data-tab="load-texture-opentk3" aria-hidden="true" hidden="hidden">
 <h3 id="imagesharp">ImageSharp</h3>
 <p>ImageSharp is a very popular image loading library by SixLabors that is able to load most popular file formats and is easy to integrate in your project(s). You can add ImageSharp to your project from Nuget.</p>
 <p>For the following section on textures, we'll use an <a href="textures/container.jpg">image of a wooden crate</a>.</p>
@@ -190,29 +213,6 @@ image.CopyPixelDataTo(pixels);
 <p>Now that we have a byte array representing our pixels, we have to set the wrap and filter modes. For now, just go with Linear and Repeat.</p>
 <p>Now that that's done, it's time to upload our texture.</p>
 <pre><code class="lang-cs">GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels);
-</code></pre>
-</section>
-<section id="tabpanel_bHGHmlrG6S_load-texture-opentk4" role="tabpanel" data-tab="load-texture-opentk4" aria-hidden="true" hidden="hidden">
-<h3 id="stb_imageh-and-stbimagesharp">stb_image.h and StbImageSharp</h3>
-<p><a href="https://github.com/nothings/stb/blob/master/stb_image.h"><code>stb_image.h</code></a> is an incredibly widespread library used in c to load images for a number of common formats (png, jpeg, gif etc). There is a port of the project to C# available on nuget in the form of <a href="https://www.nuget.org/packages/StbImageSharp"><code>StbImageSharp</code></a>.</p>
-<p>For the following section on textures, we'll use an <a href="textures/container.jpg">image of a wooden crate</a>.</p>
-<p>Create a new file your project, <code>Texture.cs</code>. Put the following <code>using</code> statements at the top:</p>
-<pre><code class="lang-cs">using System;
-using OpenTK.Graphics.OpenGL4;
-using StbImageSharp;
-</code></pre>
-<p>Create a class, <code>Texture</code>, and add an int named Handle as a property. The constructor should take one argument: a path to the image file.</p>
-<p>In the constructor, write the line <code>Handle = GL.GenTexture();</code>. This will generate a blank texture for us to use.</p>
-<p>Next, add the function <code>Use</code> to your code, containing the line <code>GL.BindTexture(TextureTarget.Texture2D, Handle);</code>. Call that in your constructor just after generating the texture.</p>
-<pre><code class="lang-cs">// stb_image loads from the top-left pixel, whereas OpenGL loads from the bottom-left, causing the texture to be flipped vertically.
-// This will correct that, making the texture display properly.
-StbImage.stbi_set_flip_vertically_on_load(1);
-
-// Load the image.
-ImageResult image = ImageResult.FromStream(File.OpenRead(path), ColorComponents.RedGreenBlueAlpha);
-</code></pre>
-<p>Now that that's done, it's time to upload our texture.</p>
-<pre><code class="lang-cs">GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
 </code></pre>
 </section>
 </div>

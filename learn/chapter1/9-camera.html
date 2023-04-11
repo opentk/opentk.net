@@ -132,58 +132,13 @@ Vector3 up = new Vector3(0.0f, 1.0f,  0.0f);
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_input-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_input-opentk3" data-tab="input-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S_input-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_input-opentk4" data-tab="input-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S_input-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S_input-opentk4" data-tab="input-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S_input-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S_input-opentk3" data-tab="input-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S_input-opentk3" role="tabpanel" data-tab="input-opentk3">
-
-<pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
-{
-    if (!Focused) // check to see if the window is focused
-    {
-        return;
-    }
-
-    KeyboardState input = Keyboard.GetState();
-
-    //...
-
-    if (input.IsKeyDown(Key.W))
-    {
-        position += front * speed; //Forward 
-    }
-
-    if (input.IsKeyDown(Key.S))
-    {
-        position -= front * speed; //Backwards
-    }
-
-    if (input.IsKeyDown(Key.A))
-    {
-        position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Left
-    }
-
-    if (input.IsKeyDown(Key.D))
-    {
-        position += Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Right
-    }
-
-    if (input.IsKeyDown(Key.Space))
-    {
-        position += up * speed; //Up 
-    }
-
-    if (input.IsKeyDown(Key.LShift))
-    {
-        position -= up * speed; //Down
-    }
-}
-</code></pre>
-</section>
-<section id="tabpanel_bHGHmlrG6S_input-opentk4" role="tabpanel" data-tab="input-opentk4" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S_input-opentk4" role="tabpanel" data-tab="input-opentk4">
 
 <pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
 {
@@ -228,6 +183,51 @@ Vector3 up = new Vector3(0.0f, 1.0f,  0.0f);
 }
 </code></pre>
 </section>
+<section id="tabpanel_bHGHmlrG6S_input-opentk3" role="tabpanel" data-tab="input-opentk3" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnUpdateFrame(FrameEventArgs e)
+{
+    if (!Focused) // check to see if the window is focused
+    {
+        return;
+    }
+
+    KeyboardState input = Keyboard.GetState();
+
+    //...
+
+    if (input.IsKeyDown(Key.W))
+    {
+        position += front * speed; //Forward 
+    }
+
+    if (input.IsKeyDown(Key.S))
+    {
+        position -= front * speed; //Backwards
+    }
+
+    if (input.IsKeyDown(Key.A))
+    {
+        position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Left
+    }
+
+    if (input.IsKeyDown(Key.D))
+    {
+        position += Vector3.Normalize(Vector3.Cross(front, up)) * speed; //Right
+    }
+
+    if (input.IsKeyDown(Key.Space))
+    {
+        position += up * speed; //Up 
+    }
+
+    if (input.IsKeyDown(Key.LShift))
+    {
+        position -= up * speed; //Down
+    }
+}
+</code></pre>
+</section>
 </div>
 
 <blockquote>
@@ -246,46 +246,13 @@ Vector3 up = new Vector3(0.0f, 1.0f,  0.0f);
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S-1">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" data-tab="delta-time-input-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" data-tab="delta-time-input-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" data-tab="delta-time-input-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" data-tab="delta-time-input-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" role="tabpanel" data-tab="delta-time-input-opentk3">
-
-<pre><code class="lang-cs">if (input.IsKeyDown(Key.W))
-{
-    position += front * speed * (float)e.Time; //Forward 
-}
-
-if (input.IsKeyDown(Key.S))
-{
-    position -= front * speed * (float)e.Time; //Backwards
-}
-
-if (input.IsKeyDown(Key.A))
-{
-    position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Left
-}
-
-if (input.IsKeyDown(Key.D))
-{
-    position += Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Right
-}
-
-if (input.IsKeyDown(Key.Space))
-{
-    position += up * speed * (float)e.Time; //Up 
-}
-
-if (input.IsKeyDown(Key.LShift))
-{
-    position -= up * speed * (float)e.Time; //Down
-} 
-</code></pre>
-</section>
-<section id="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" role="tabpanel" data-tab="delta-time-input-opentk4" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk4" role="tabpanel" data-tab="delta-time-input-opentk4">
 
 <pre><code class="lang-cs">if (input.IsKeyDown(Keys.W))
 {
@@ -313,6 +280,39 @@ if (input.IsKeyDown(Keys.Space))
 }
 
 if (input.IsKeyDown(Keys.LeftShift))
+{
+    position -= up * speed * (float)e.Time; //Down
+} 
+</code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-1_delta-time-input-opentk3" role="tabpanel" data-tab="delta-time-input-opentk3" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">if (input.IsKeyDown(Key.W))
+{
+    position += front * speed * (float)e.Time; //Forward 
+}
+
+if (input.IsKeyDown(Key.S))
+{
+    position -= front * speed * (float)e.Time; //Backwards
+}
+
+if (input.IsKeyDown(Key.A))
+{
+    position -= Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Left
+}
+
+if (input.IsKeyDown(Key.D))
+{
+    position += Vector3.Normalize(Vector3.Cross(front, up)) * speed * (float)e.Time; //Right
+}
+
+if (input.IsKeyDown(Key.Space))
+{
+    position += up * speed * (float)e.Time; //Up 
+}
+
+if (input.IsKeyDown(Key.LShift))
 {
     position -= up * speed * (float)e.Time; //Down
 } 
@@ -357,21 +357,21 @@ front.Z = (float)Math.Cos(MathHelper.DegreesToRadians(Pitch)) * (float)Math.Sin(
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" data-tab="cursor-mode-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" data-tab="cursor-mode-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" data-tab="cursor-mode-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" data-tab="cursor-mode-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" role="tabpanel" data-tab="cursor-mode-opentk3">
+<section id="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" role="tabpanel" data-tab="cursor-mode-opentk4">
+
+<pre><code class="lang-cs">CursorState = CursorState.Grabbed;
+</code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk3" role="tabpanel" data-tab="cursor-mode-opentk3" aria-hidden="true" hidden="hidden">
 
 <pre><code class="lang-cs">CursorVisible = false;
 CursorGrabbed = true;
-</code></pre>
-</section>
-<section id="tabpanel_bHGHmlrG6S-2_cursor-mode-opentk4" role="tabpanel" data-tab="cursor-mode-opentk4" aria-hidden="true" hidden="hidden">
-
-<pre><code class="lang-cs">CursorState = CursorState.Grabbed;
 </code></pre>
 </section>
 </div>
@@ -472,32 +472,32 @@ else if (focused) { // check to see if the window is focused
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S-3">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" data-tab="mouse-move-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" data-tab="mouse-move-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" data-tab="mouse-move-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" data-tab="mouse-move-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" role="tabpanel" data-tab="mouse-move-opentk3">
-
-<pre><code class="lang-cs">protected override void OnMouseMove(MouseMoveEventArgs e)
-{
-    base.OnMouseMove(e);
-
-    if (Focused) // check to see if the window is focused  
-    {
-        Mouse.SetPosition(e.X + Width/2f, e.Y + Height/2f);
-    }
-}
-</code></pre>
-</section>
-<section id="tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" role="tabpanel" data-tab="mouse-move-opentk4" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-3_mouse-move-opentk4" role="tabpanel" data-tab="mouse-move-opentk4">
 
 <pre><code class="lang-cs">protected override void OnMouseMove(MouseMoveEventArgs e)
 {
     base.OnMouseMove(e);
 
     if (IsFocused) // check to see if the window is focused  
+    {
+        Mouse.SetPosition(e.X + Width/2f, e.Y + Height/2f);
+    }
+}
+</code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-3_mouse-move-opentk3" role="tabpanel" data-tab="mouse-move-opentk3" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnMouseMove(MouseMoveEventArgs e)
+{
+    base.OnMouseMove(e);
+
+    if (Focused) // check to see if the window is focused  
     {
         Mouse.SetPosition(e.X + Width/2f, e.Y + Height/2f);
     }
@@ -513,34 +513,13 @@ else if (focused) { // check to see if the window is focused
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S-4">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-4_scroll-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-4_scroll-opentk3" data-tab="scroll-opentk3" tabindex="0" aria-selected="true">OpenTK 3</a>
+<a href="#tabpanel_bHGHmlrG6S-4_scroll-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-4_scroll-opentk4" data-tab="scroll-opentk4" tabindex="0" aria-selected="true">OpenTK 4</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_bHGHmlrG6S-4_scroll-opentk4" role="tab" aria-controls="tabpanel_bHGHmlrG6S-4_scroll-opentk4" data-tab="scroll-opentk4" tabindex="-1">OpenTK 4</a>
+<a href="#tabpanel_bHGHmlrG6S-4_scroll-opentk3" role="tab" aria-controls="tabpanel_bHGHmlrG6S-4_scroll-opentk3" data-tab="scroll-opentk3" tabindex="-1">OpenTK 3</a>
 </li>
 </ul>
-<section id="tabpanel_bHGHmlrG6S-4_scroll-opentk3" role="tabpanel" data-tab="scroll-opentk3">
-
-<pre><code class="lang-cs">protected override void OnMouseWheel(MouseWheelEventArgs e)
-{
-    base.OnMouseWheel(e);
-
-    if (value &gt;= 45.0f)
-    {
-        _fov = 45.0f;
-    }
-    else if (value &lt;= 1.0f)
-    {
-        _fov = 1.0f;
-    }
-    else
-    {
-        _fov -= e.DeltaPrecise;
-    }
-}
-</code></pre>
-</section>
-<section id="tabpanel_bHGHmlrG6S-4_scroll-opentk4" role="tabpanel" data-tab="scroll-opentk4" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_bHGHmlrG6S-4_scroll-opentk4" role="tabpanel" data-tab="scroll-opentk4">
 
 <pre><code class="lang-cs">protected override void OnMouseWheel(MouseWheelEventArgs e)
 {
@@ -557,6 +536,27 @@ else if (focused) { // check to see if the window is focused
     else
     {
         _fov -= e.OffsetY;
+    }
+}
+</code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S-4_scroll-opentk3" role="tabpanel" data-tab="scroll-opentk3" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">protected override void OnMouseWheel(MouseWheelEventArgs e)
+{
+    base.OnMouseWheel(e);
+
+    if (value &gt;= 45.0f)
+    {
+        _fov = 45.0f;
+    }
+    else if (value &lt;= 1.0f)
+    {
+        _fov = 1.0f;
+    }
+    else
+    {
+        _fov -= e.DeltaPrecise;
     }
 }
 </code></pre>

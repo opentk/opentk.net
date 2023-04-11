@@ -70,7 +70,7 @@
 <h2 id="basics--requirements">Basics &amp; Requirements</h2>
 
 <h3 id="what-is-opentk">What is OpenTK?</h3>
-<p>OpenTK is a library that provides high-speed access to native <a href="#What-is-OpenGL">OpenGL</a>, <a href="#What-is-OpenCL">OpenCL</a>, and <a href="#What-is-OpenAL">OpenAL</a> for .NET programs.  OpenTK aims to make working with OpenGL, OpenCL, and OpenAL in .NET-supported languages like C# similar in both performance and feel to the equivalent C code, while still running in a managed (and safe!) environment.</p>
+<p>OpenTK is a library that provides high-speed access to native <a href="#what-is-opengl">OpenGL</a>, <a href="#what-is-opencl">OpenCL</a>, and <a href="#what-is-openal">OpenAL</a> for .NET programs.  OpenTK aims to make working with OpenGL, OpenCL, and OpenAL in .NET-supported languages like C# similar in both performance and feel to the equivalent C code, while still running in a managed (and safe!) environment.</p>
 <p>Note that OpenTK is <em>not</em> a high-level library:  It’s not a game engine, or a framework, or a full renderer, or a complete audio system by itself.  Instead, it’s the low-level foundation on which you can <em>build</em> those kinds of things.  If you want a framework or a renderer or a game engine that’s already built, there are lots of those elsewhere on the Internet.</p>
 <p>OpenTK also includes a convenient math library for common graphics types like vectors and matrices, so that you don’t have to implement those yourself or find another library to provide them.  These types are designed to be very fast and flexible, and they include considerable functionality out-of-the-box too.</p>
 <h4 id="what-is-opengl">What is OpenGL?</h4>
@@ -126,11 +126,11 @@
 <p>We take great pains to make it as efficient as possible.  However, keep in mind that the underlying runtimes (.NET/Mono) use both JIT compilation and garbage collection, which can complicate the definition of “fast.”  Still, we place significant emphasis on performance, so if you believe something could run faster, please <a href="https://github.com/opentk/opentk/issues">open an issue on our GitHub</a>!</p>
 <h3 id="does-opentk-support">Does OpenTK support...</h3>
 <h4 id="vulkan-or-metal">Vulkan or Metal?</h4>
-<p>OpenTK does not currently support <a href="https://www.vulkan.org/">Vulkan</a> or <a href="https://developer.apple.com/metal/">Metal</a>.  OpenTK 5 may not either, but the changes for OpenTK 5 may make it easier to support Vulkan in the future.  Feel free to submit a pull request and <a href="#How-can-I-help">help out</a>!</p>
+<p>OpenTK does not currently support <a href="https://www.vulkan.org/">Vulkan</a> or <a href="https://developer.apple.com/metal/">Metal</a>.  OpenTK 5 may not either, but the changes for OpenTK 5 may make it easier to support Vulkan in the future.  Feel free to submit a pull request and <a href="#how-can-i-help">help out</a>!</p>
 <h4 id="directx-or-direct3d">DirectX or Direct3D?</h4>
 <p>OpenTK is focused on cross-platform, portable, open standards.  There are other libraries that support DirectX if you want to exclusively target Microsoft platforms.</p>
 <h4 id="openvg-openvx-openxr">OpenVG? OpenVX? OpenXR?</h4>
-<p>OpenTK does not currently support the Khronos group’s other open standards.  Feel free to submit a pull request and <a href="#How-can-I-help">help out</a>!</p>
+<p>OpenTK does not currently support the Khronos group’s other open standards.  Feel free to submit a pull request and <a href="#how-can-i-help">help out</a>!</p>
 <h2 id="installing-and-using-opentk">Installing and Using OpenTK</h2>
 <h3 id="how-do-i-get-opentk">How do I get OpenTK?</h3>
 <p>OpenTK is distributed as a Nuget package.  The release <a href="https://www.nuget.org/packages/OpenTK/">Nuget package</a> can be found on <a href="https://nuget.org">nuget.org</a>, and it can be installed via Nuget using your IDE, or via the <code>nuget</code> command-line tool.</p>
@@ -156,7 +156,7 @@
 <p>Which ones to use depends on which flavors of OpenGL/CL/AL you’re targeting.  We generally recommend with OpenGL that you should use <code>OpenGL4</code> unless you need the legacy fixed-function pipeline (FFP); the <code>OpenGL4</code> namespace works for all OpenGL versions, but it excludes the FFP functions and their overhead.  (In OpenTK 5, we plan to rename these namespaces to make this distinction more obvious.)</p>
 <h3 id="how-do-i-create-a-window-using-opentk">How do I create a window using OpenTK?</h3>
 <p>There are a lot of older, outdated explanations for this across the Internet.  For OpenTK 4+, you’ll want to inherit a class from <code>NativeWindow</code> or <code>GameWindow</code>, instantiate your custom window, and then poll for events.  Here’s a simple, complete, working example <code>Program.cs</code> that uses <code>GameWindow</code>:</p>
-<pre><code class="lang-c#">using OpenTK.Mathematics;
+<pre><code class="lang-cs">using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
 
 namespace MyOpenTKExample
@@ -189,11 +189,11 @@ namespace MyOpenTKExample
         
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
+            base.OnUpdateFrame(e);
+
 			// This gets called every 1/60 of a second.
             if (KeyboardState.IsKeyDown(Keys.Escape))
                 Close();
-            
-            base.OnUpdateFrame(e);
         }
         
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -219,7 +219,7 @@ namespace MyOpenTKExample
 </ul>
 <p>As you can see, the programming models are nearly identical, by design:  If you know how to use OpenGL/OpenCL/OpenAL, you know how to use OpenTK.</p>
 <p><strong>Arrays and pointers</strong></p>
-<p>Passing arrays from .NET to OpenGL/CL/AL (or to any C library) is a complex topic, but OpenTK has built-in support for it:  See the section below on “<a href="#How-do-I-pass-pointers-and-arrays">How do I pass pointers and arrays?</a>”.</p>
+<p>Passing arrays from .NET to OpenGL/CL/AL (or to any C library) is a complex topic, but OpenTK has built-in support for it:  See the section below on “<a href="#how-do-i-pass-pointers-and-arrays">How do I pass pointers and arrays?</a>”.</p>
 <p><strong>Constant symbols</strong></p>
 <p>Note in the third example that the constants change syntax slightly:  They aren’t global <code>#define</code> directives as in C, but instead have some minor alterations to make them more .NET-friendly:</p>
 <ul>
@@ -229,14 +229,14 @@ namespace MyOpenTKExample
 </ul>
 <p>There is also a special enum type, <code>All</code>, that contains <em>all</em> of the GL constants; this can simplify porting code from other languages, and it ensures that all of the OpenGL constants are available.  <code>All</code> should be avoided in favor of more specialized enum types where possible (but it isn't <em>always</em> possible, so don't forget you can cast from <code>All</code> to <code>int</code> or to the enum type you need!).</p>
 <h3 id="where-do-i-start-with-opengl">Where do I start with OpenGL?</h3>
-<p>Check out <a href="https://opentk.net/learn/index.html">our tutorial here</a>, which will teach you how to build a basic working program that can draw simple objects.  You can learn more about OpenGL in depth over at <a href="https://learnopengl.com/">Learn OpenGL</a>; our tutorials are based on theirs.</p>
+<p>Check out <a href="learn/index.html">our tutorial here</a>, which will teach you how to build a basic working program that can draw simple objects.  You can learn more about OpenGL in depth over at <a href="https://learnopengl.com/">Learn OpenGL</a>; our tutorials are based on theirs.</p>
 <h3 id="whats-the-difference-between-opengl-and-opengl-es">What’s the difference between OpenGL and OpenGL ES?</h3>
 <p>OpenGL ES is “OpenGL for Embedded Systems.”  It’s a subset of OpenGL, designed for low-power and mobile devices.  It has many similarities with modern OpenGL, especially OpenGL ES 2.0 and later, but it typically strips out lesser-used functionality.  However, OpenGL ES is not a <em>proper</em> subset of OpenGL, so an exact comparison between them is difficult.</p>
 <p>But typically, if you’re coding for desktop PCs or Macs, you’ll want to use OpenGL 4.x; while if you’re targeting a mobile phone or a gaming console, you’ll want to use the newest version of OpenGL ES that’s supported on it.</p>
 <h3 id="how-do-i-load-textures">How do I load textures?</h3>
-<p>That’s mostly outside the scope of this FAQ, but there are a variety of techniques for loading images from files in .NET, and once the image is loaded into main memory, you then use one of the various GL texture functions to load it into the GPU, like <code>GL.TexImage2D()</code>.  For more details, read through the section on <a href="https://opentk.net/learn/chapter1/5-textures.html">loading and creating textures</a> in our tutorial, derived from the <a href="https://learnopengl.com/Getting-started/Textures">tutorial on textures</a> at <a href="https://learnopengl.com">Learn OpenGL</a>.</p>
+<p>That’s mostly outside the scope of this FAQ, but there are a variety of techniques for loading images from files in .NET, and once the image is loaded into main memory, you then use one of the various GL texture functions to load it into the GPU, like <code>GL.TexImage2D()</code>.  For more details, read through the section on <a href="learn/chapter1/5-textures.html">loading and creating textures</a> in our tutorial, derived from the <a href="https://learnopengl.com/Getting-started/Textures">tutorial on textures</a> at <a href="https://learnopengl.com">Learn OpenGL</a>.</p>
 <h3 id="how-do-i-create-shaders">How do I create shaders?</h3>
-<p>That’s outside the scope of this FAQ, but there’s a <a href="https://opentk.net/learn/chapter1/4-shaders.html">tutorial on shaders and GLSL</a> as part of our lessons here, derived from the <a href="https://learnopengl.com/Getting-started/Shaders">tutorial on shaders and GLSL</a> at <a href="https://learnopengl.com">Learn OpenGL</a>.</p>
+<p>That’s outside the scope of this FAQ, but there’s a <a href="learn/chapter1/4-shaders.html">tutorial on shaders and GLSL</a> as part of our lessons here, derived from the <a href="https://learnopengl.com/Getting-started/Shaders">tutorial on shaders and GLSL</a> at <a href="https://learnopengl.com">Learn OpenGL</a>.</p>
 <h3 id="how-do-i-handle-errors">How do I handle errors?</h3>
 <p>The same way as in OpenGL/CL/AL!  OpenTK exposes the same <code>glError()</code> functions, so you can test for errors in C# the same way you would in C.  Here’s a simple example:</p>
 <p><em>Example code in C:</em></p>
@@ -249,7 +249,7 @@ if (errorCode) {
 }
 </code></pre>
 <p><em>C# equivalent:</em></p>
-<pre><code class="lang-c#">int shader = GL.CreateShader(ShaderType.FragmentShader);
+<pre><code class="lang-cs">int shader = GL.CreateShader(ShaderType.FragmentShader);
 
 ErrorCode errorCode = GL.GetError();
 if (errorCode != ErrorCode.NoError)
@@ -260,31 +260,8 @@ if (errorCode != ErrorCode.NoError)
 <p>Arguably, throwing exceptions is a better way to handle errors than aborting.</p>
 <p><code>Gl.GetError()</code> in OpenTK reads errors from a queue, just like <code>glGetError()</code> does — it’s just a passthrough to the same underlying error state.</p>
 <h4 id="that-seems-like-a-lot-of-if-statements-is-there-a-better-way">That seems like a lot of if-statements; is there a better way?</h4>
-<p>OpenGL 4.3+ offers a new technique, called a <em>debug message callback</em>.  (Many older OpenGL drivers also support this via the <code>KHR_debug</code> extension.)  The general idea behind this is to “register” a <em>debug callback</em> function with OpenGL; any time OpenGL encounters an error, it will call your function immediately, and pass useful things to it like an error message.  First, you’ll need to declare an error-handling method that OpenGL can call, something like this:</p>
-<pre><code class="lang-c#">private static void DebugCallback(DebugSource source, DebugType type, int id,
-    DebugSeverity severity, int length, IntPtr message, IntPtr userParam)
-{
-    string messageString = Marshal.PtrToStringAnsi(message, length);
-    Console.WriteLine($&quot;{severity} {type} | {messageString}&quot;);
-
-    if (type == DebugType.DebugTypeError)
-        throw new Exception(messageString);
-}
-</code></pre>
-<p>Next, you’ll need to create a delegate from it as a handle that the GC can’t collect, and then register the resulting function with OpenGL:</p>
-<pre><code class="lang-c#">private static DebugProc _debugProcCallback = DebugCallback;
-private static GCHandle _debugProcCallbackHandle;
-
-...
-    
-_debugProcCallbackHandle = GCHandle.Alloc(_debugProcCallback);
-
-GL.DebugMessageCallback(_debugProcCallback, IntPtr.Zero);
-GL.Enable(EnableCap.DebugOutput);
-GL.Enable(EnableCap.DebugOutputSynchronous);
-</code></pre>
-<p>Vassalware, a member of the OpenTK Team, has a <a href="https://gist.github.com/Vassalware/d47ff5e60580caf2cbbf0f31aa20af5d">more extensive discussion of this technique</a>.</p>
-<p>Note that to use this technique, you may need to change your <code>NativeWindowSettings</code> to update the API version of OpenGL to 4.3 or higher; or you may need to check if your drivers support the <code>KHR_debug</code> extension.</p>
+<p>OpenGL 4.3+ offers a new technique, called a <em>debug message callback</em>.  (Many older OpenGL drivers also support this via the <code>KHR_debug</code> extension.)  The general idea behind this is to “register” a <em>debug callback</em> function with OpenGL; any time OpenGL encounters an error, it will call your function and pass useful things to it like an error message.</p>
+<p>Read more about how to hook this up in our <a href="learn/appendix_opengl/debug_callback.html">learn article</a>.</p>
 <h3 id="how-do-i-pass-pointers-and-arrays">How do I pass pointers and arrays?</h3>
 <p>OpenTK includes several method overloads for every OpenGL/CL/AL function that requires a pointer:  These overloads are designed to make working with the functions as natural as possible in .NET while still providing high performance.</p>
 <p>So, for example, consider <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml"><code>glBufferData()</code></a>.  This OpenGL function takes four parameters:</p>
@@ -292,7 +269,7 @@ GL.Enable(EnableCap.DebugOutputSynchronous);
 </code></pre>
 <p>The C form of this requires you to pass an array of <code>data</code> that could be composed from a variety of different data structures; so how can we invoke this function in .NET?</p>
 <p>OpenTK exposes this single function with a dozen different overloads on the <code>GL</code> class!</p>
-<pre><code class="lang-C#">1. void BufferData&lt;T&gt;(BufferTarget target, int size, T[] data, BufferUsageHint usage)
+<pre><code class="lang-cs">1. void BufferData&lt;T&gt;(BufferTarget target, int size, T[] data, BufferUsageHint usage)
 2. void BufferData&lt;T&gt;(BufferTarget target, int size, T[,] data, BufferUsageHint usage)
 3. void BufferData&lt;T&gt;(BufferTarget target, int size, T[,,] data, BufferUsageHint usage)
 4. void BufferData&lt;T&gt;(BufferTarget target, int size, ref T data, BufferUsageHint usage)
@@ -320,7 +297,7 @@ GL.Enable(EnableCap.DebugOutputSynchronous);
 glBufferData(GL_TEXTURE_BUFFER, bufferSize, data, GL_STATIC_DRAW);
 </code></pre>
 <p><em>C# equivalent:</em></p>
-<pre><code class="lang-c#">byte[] data = new byte[bufferSize];
+<pre><code class="lang-cs">byte[] data = new byte[bufferSize];
 ...
 GL.BufferData(BufferTarget.TextureBuffer, bufferSize, data, BufferUsageHint.StaticDraw);
 </code></pre>
@@ -332,7 +309,7 @@ GL.BufferData(BufferTarget.TextureBuffer, bufferSize, data, BufferUsageHint.Stat
 glBufferData(GL_TEXTURE_BUFFER, bufferSize, data, GL_STATIC_DRAW);
 </code></pre>
 <p><em>C# equivalent:</em></p>
-<pre><code class="lang-c#">MyStruct data;
+<pre><code class="lang-cs">MyStruct data;
 ...
 GL.BufferData(BufferTarget.TextureBuffer, bufferSize, data, BufferUsageHint.StaticDraw);
 </code></pre>
@@ -344,7 +321,7 @@ GL.BufferData(BufferTarget.TextureBuffer, bufferSize, data, BufferUsageHint.Stat
 glBufferData(GL_TEXTURE_BUFFER, bufferSize, data, GL_STATIC_DRAW);
 </code></pre>
 <p><em>C# equivalent:</em></p>
-<pre><code class="lang-c#">byte[] data = new byte[bufferSize];
+<pre><code class="lang-cs">byte[] data = new byte[bufferSize];
 ...
 unsafe
 {
@@ -380,19 +357,19 @@ unsafe
 <h3 id="how-do-i-render-my-first-triangle">How do I render my first triangle?</h3>
 <p>The same way you would with OpenGL in C!  The semantics are the same — only the syntax is different, since you’ll likely be doing it in C#, not C.</p>
 <p>Rendering your first triangle can be challenging just because there are many new ideas and new concepts to learn.  It’ll take some code, and some learning, and some patience, but you can do it!</p>
-<p>We have some <a href="https://opentk.net/learn/index.html">introductory tutorials</a> that should help you get your first project off the ground.  There are a few major parts to drawing your first triangle:</p>
+<p>We have some <a href="learn/index.html">introductory tutorials</a> that should help you get your first project off the ground.  There are a few major parts to drawing your first triangle:</p>
 <ul>
-<li>You’ll need to first <a href="https://opentk.net/learn/chapter1/1-creating-a-window.html">create a window</a> (there’s a <a href="#How-do-I-create-a-window-using-OpenTK">quick example above</a>).</li>
-<li>You’ll need to fill some <a href="#How-do-shadersbuffersvertex-arraysetc-work">buffers</a> with the data for your triangle — you’ll need at least a VBO and vertex attributes.</li>
-<li>You’ll need to create and load some <a href="https://opentk.net/learn/chapter1/4-shaders.html">shaders</a> — at least a simple vertex shader and a simple fragment shader.</li>
-<li>Finally, in your window’s render phase, you’ll need to tell OpenGL to <a href="https://opentk.net/learn/chapter1/2-hello-triangle.html">use your shaders to draw the triangle data in your buffers</a>.</li>
+<li>You’ll need to first <a href="learn/chapter1/1-creating-a-window.html">create a window</a> (there’s a <a href="#how-do-i-create-a-window-using-opentk">quick example above</a>).</li>
+<li>You’ll need to fill some <a href="#how-do-shadersbuffersvertex-arraysetc-work">buffers</a> with the data for your triangle — you’ll need at least a VBO and vertex attributes.</li>
+<li>You’ll need to create and load some <a href="learn/chapter1/4-shaders.html">shaders</a> — at least a simple vertex shader and a simple fragment shader.</li>
+<li>Finally, in your window’s render phase, you’ll need to tell OpenGL to <a href="learn/chapter1/2-hello-triangle.html">use your shaders to draw the triangle data in your buffers</a>.</li>
 </ul>
 <h3 id="how-do-i-draw-things-more-complex-than-a-single-triangle">How do I draw things more complex than a single triangle?</h3>
 <p><em>Lots</em> of triangles!</p>
-<p>OpenGL has always supported things like triangle strips and triangle fans (and their modern equivalent, the <a href="#How-do-shadersbuffersvertex-arraysetc-work">EBO</a>) to make it easy to render “more complex polygons”, but even the most complex graphical scene is really broken down into just lots and lots of triangles.  A rectangle, for example, is just two triangles that share an edge.  A pentagon can be made from three triangles, and a hexagon can be made from four.  A cube is made up of six rectangles — or twelve triangles.</p>
+<p>OpenGL has always supported things like triangle strips and triangle fans (and their modern equivalent, the <a href="#how-do-shadersbuffersvertex-arraysetc-work">EBO</a>) to make it easy to render “more complex polygons”, but even the most complex graphical scene is really broken down into just lots and lots of triangles.  A rectangle, for example, is just two triangles that share an edge.  A pentagon can be made from three triangles, and a hexagon can be made from four.  A cube is made up of six rectangles — or twelve triangles.</p>
 <p>So once you can render a single triangle, you just use the same techniques to render <em>more</em> of them, with different colors, textures, and positions, to make anything you can imagine.</p>
 <h3 id="how-do-shadersbuffersvertex-arraysetc-work">How do shaders/buffers/vertex arrays/etc. work?</h3>
-<p>This is a common question when you’re new to modern OpenGL — there’s a lot of new terminology, and it’s very confusing!  We recommend reading some of the <a href="https://learnopengl.com/Getting-started/Hello-Triangle">introductory articles at Learn OpenGL</a> (and some of our similar <a href="https://opentk.net/learn/chapter1/2-hello-triangle.html">articles converted to C#</a>) to understand what all these strange concepts are and how they fit together.</p>
+<p>This is a common question when you’re new to modern OpenGL — there’s a lot of new terminology, and it’s very confusing!  We recommend reading some of the <a href="https://learnopengl.com/Getting-started/Hello-Triangle">introductory articles at Learn OpenGL</a> (and some of our similar <a href="learn/chapter1/2-hello-triangle.html">articles converted to C#</a>) to understand what all these strange concepts are and how they fit together.</p>
 <p>But the short short <em>short</em> explanations for the mort important terms are:</p>
 <ul>
 <li><p><em>Triangles</em> are what your GPU actually knows how to draw.</p>
@@ -425,7 +402,7 @@ unsafe
 <p>Modern OpenGL doesn’t use things like <code>glBegin()</code> and <code>glDrawTriangle()</code> — even though those kinds of functions were easy to use, they didn’t scale well.  Modern OpenGL uses shaders and buffers instead, which can handle much more complex rendering than the older OpenGL fixed-function pipeline did.</p>
 <p>If you’re trying to use the old FFP functions, they’re <em>exposed</em> by OpenTK, but they won’t work out-of-the-box, because you need to turn on <em>compatibility mode</em> to enable them.</p>
 <p>When creating a <code>NativeWindow</code>, you pass a <code>NativeWindowSettings</code> object to describe what kind of OpenGL context you need.  To enable <em>compatibility mode</em>, you change the <code>ContextProfile</code> of the <code>NativeWindowSettings</code>:</p>
-<pre><code class="lang-c#">var nativeWindowSettings = new NativeWindowSettings
+<pre><code class="lang-cs">var nativeWindowSettings = new NativeWindowSettings
 {
     ...
     ContextProfile = ContextProfile.Compatibility
@@ -434,16 +411,16 @@ unsafe
 <p>This will provide access to the older FFP functions, at a small cost in memory overhead and performance. (But if you’re concerned about performance, you shouldn’t be using the FFP anyway!)</p>
 <h3 id="how-do-i-center-my-window-on-the-screen">How do I center my window on the screen?</h3>
 <p>OpenTK 4.4 adds support for centering a <code>NativeWindow</code> or <code>GameWindow</code> directly:</p>
-<pre><code class="lang-c#">myWindow.CenterWindow();
+<pre><code class="lang-cs">myWindow.CenterWindow();
 </code></pre>
 <p>You can also center-and-resize the window as a single operation, which is a common need when an application starts:</p>
-<pre><code class="lang-c#">myWindow.CenterWindow(new Vector2i(800, 600));
+<pre><code class="lang-cs">myWindow.CenterWindow(new Vector2i(800, 600));
 </code></pre>
 <p>This overload avoids flicker if you need to both move <em>and</em> resize the window.</p>
 <p>For OpenTK 4.x prior to OpenTK 4.4, you need to query the window’s <code>Monitor</code> information and reposition the window manually, as described <a href="https://github.com/opentk/opentk/issues/1213#issuecomment-742068414">here</a>.  For OpenTK 3.x, you will need to manually position the window relative to its given <code>DisplayDevice</code>.</p>
 <h3 id="how-can-i-control-the-initial-appearance-of-my-window">How can I control the initial appearance of my window?</h3>
 <p>The <code>NativeWindowSettings</code> class, an instance of which you must pass to your window’s constructor, contains many properties for controlling how your window initially appears (or doesn’t appear).  Here are the major properties you might want to use to control how your window looks and behaves:</p>
-<pre><code class="lang-c#">public class NativeWindowSettings
+<pre><code class="lang-cs">public class NativeWindowSettings
 {
     public string Title { get; set; }              // Text for the title bar
     public WindowIcon Icon { get; set; }           // Array of images of various sizes
@@ -461,7 +438,7 @@ unsafe
 </code></pre>
 <p>A number of these, like <code>Location</code> and <code>Size</code> and <code>WindowState</code> and <code>IsFullscreen</code>, are re-exposed after the window is constructed as properties on the window itself, so you can use the equivalent window properties to update your window’s appearance and state as well.</p>
 <p>If you want to delay your window’s position/layout until after it has been constructed and important data for it has been loaded (like its position), a common pattern is something like this:</p>
-<pre><code class="lang-c#">var nativeSettings = new NativeWindowSettings { StartVisible = false };
+<pre><code class="lang-cs">var nativeSettings = new NativeWindowSettings { StartVisible = false };
 using (var myWindow = new MyWindow(nativeSettings, gameSettings))
 {
     myWindow.Run();
@@ -501,7 +478,7 @@ public class MyWindow : GameWindow
 <p>If you’re making a game, you probably want to use <code>GameWindow</code> as your base class.  Otherwise, you probably want to use <code>NativeWindow</code>.</p>
 <h3 id="how-do-i-add-a-main-loop-or-run-method-to-nativewindow">How do I add a “main loop” or “Run” method to NativeWindow?</h3>
 <p><code>NativeWindow</code> contains minimal functionality, and unlike <code>GameWindow</code>, it doesn’t include a <code>Run()</code> method.  The bare minimum of a <code>Run()</code> method is simply this much:</p>
-<pre><code class="lang-c#">public void Run(MyWindow myWindow)
+<pre><code class="lang-cs">public void Run(MyWindow myWindow)
 {
     while (true)
     {
@@ -515,7 +492,7 @@ public class MyWindow : GameWindow
 </code></pre>
 <p>Which is to say:  A <code>Run()</code> method, at its core, consists of a loop that alternates between invoking <code>ProcessEvents()</code> to handle keyboard and mouse input and window management; and then updating state and drawing a frame.  A good implementation of a <code>Run()</code> method would yield the CPU after each frame, respond to window-close events, and the loop should exit when the program is done — but the example above is enough to be usable for very simple programs.</p>
 <p>For comparison, the <a href="https://github.com/opentk/opentk/blob/master/src/OpenTK.Windowing.Desktop/GameWindow.cs"><code>Run()</code> method in <code>GameWindow</code></a> looks something like this (with many parts omitted for brevity):</p>
-<pre><code class="lang-c#">public virtual unsafe void Run()
+<pre><code class="lang-cs">public virtual unsafe void Run()
 {
     Context.MakeCurrent();
     OnLoad();
@@ -538,7 +515,7 @@ public class MyWindow : GameWindow
 <h3 id="whats-the-relationship-between-opentk-and-glfw">What’s the relationship between OpenTK and GLFW?</h3>
 <p>OpenTK 4.x+ uses the <a href="https://www.glfw.org/">GLFW</a> C++ library to provide cross-platform backend support:  GLFW is responsible for opening windows, handling input, and handling as much as possible of the OS dependencies in a portable way.  There’s no reason for us to implement a portability layer when a good, well-supported one already exists.</p>
 <p>As an example, consider the <code>NativeWindow.Title</code> property, which lets you read and update the window’s title.  Here’s its entire implementation, verbatim:</p>
-<pre><code class="lang-c#">public string Title
+<pre><code class="lang-cs">public string Title
 {
     get =&gt; _title;
     set
@@ -590,7 +567,7 @@ public class MyWindow : GameWindow
       </footer>
     </div>
 
-    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="styles/docfx.js"></script>
     <script type="text/javascript" src="styles/main.js"></script>
   </body>

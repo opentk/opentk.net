@@ -140,4 +140,4 @@ Vector3 diffuseColor = lightColor * new Vector3(0.5f);
 _lightingShader.SetVector3("light.ambient",  ambientColor);
 _lightingShader.SetVector3("light.diffuse",  diffuseColor); // darken the light a bit to fit the scene
 ```
-Try and experiment with several lighting and material values and see how they affect the visual output. You can find the source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/3%20-%20Materials).
+Try and experiment with several lighting and material values and see how they affect the visual output. You can find the source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/3-Materials).

@@ -81,7 +81,7 @@ If you'd now compile the application and fly through the scene it looks like the
 
 ![Light casters directional](img/5-light_casters_directional_light.png)
 
-You can find the full source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20directional%20lights).
+You can find the full source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/5-LightCasters-DirectionalLights).
 
 ## Point lights
 Directional lights are great for global lights that illuminate the entire scene, but aside from a directional light we usually also want several **point lights** scattered throughout the scene. A point light is a light source with a given position somewhere in a world that illuminates in all directions where the light rays fade out over distance. Think of light bulbs and torches as light casters that act as a point light.
@@ -162,7 +162,7 @@ If you'd run the application you'd get something like this:
 
 ![Light casters point light](img/5-light_casters_point_light.png)
 
-You can see that right now only the front containers are lit with the closest container being the brightest. The containers in the back are not lit at all since they're too far from the light source. You can find the source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20point%20lights).
+You can see that right now only the front containers are lit with the closest container being the brightest. The containers in the back are not lit at all since they're too far from the light source. You can find the source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/5-LightCasters-PointLights).
 
 A point light is thus a light source with a configurable location and attenuation applied to its lighting calculations. Yet another type of light for our lighting arsenal.
 
@@ -267,6 +267,6 @@ Make sure you add the **outerCutOff** value to the **Light** struct and set its 
 
 ![Light casters spotlight](img/5-light_casters_spotlight.png)
 
-Ahhh, that's much better. Play around with the inner and outer cutoff angles and try to create a spotlight that better suits your needs. You can find the source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/5%20-%20Light%20casters%20-%20spotlight).
+Ahhh, that's much better. Play around with the inner and outer cutoff angles and try to create a spotlight that better suits your needs. You can find the source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/5-LightCasters-Spotlight).
 
 Such a flashlight/spotlight type of lamp is perfect for horror games and combined with directional and point lights the environment will really start to light up. In the next tutorial we'll combine all the lights and tricks we've discussed so far.

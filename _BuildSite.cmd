@@ -1,2 +1,2 @@
-docfx build
+dotnet docfx build
 pause

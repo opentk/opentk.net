@@ -164,9 +164,8 @@ protected override void OnUpdateFrame(FrameEventArgs e)
 ```cs
 //Get the state of the keyboard this frame
 // 'KeyboardState' is a property of GameWindow
-KeyboardState input = KeyboardState;
 
-if (input.IsKeyDown(Keys.Escape))
+if (KeyboardState.IsKeyDown(Keys.Escape))
 {
     Close();
 }
@@ -179,9 +178,7 @@ protected override void OnUpdateFrame(FrameEventArgs e)
 {
     base.OnUpdateFrame(e);
 
-    KeyboardState input = KeyboardState;
-
-    if (input.IsKeyDown(Keys.Escape))
+    if (KeyboardState.IsKeyDown(Keys.Escape))
     {
         Close();
     }

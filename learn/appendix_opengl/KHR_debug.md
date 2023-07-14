@@ -46,6 +46,55 @@ GameWindow window = new GameWindow(
 ***
 <br/>
 
+Object Label API
+----------------
+The object label API allows you to give custom labels to OpenGL objects. These
+labels are then displayed in the debug messages and graphics debuggers.
+Immensely more descriptive than the number assigned by the OpenGL context for
+each OpenGL object or a pointer.
+
+```cs
+/* Label named objects (i.e. objects with handles). */
+void GL.ObjectLabel(
+    ObjectLabelIdentifier identifier,   /* Object family, e.g. a buffer or a texture. */
+    int handle,     /* The object handle. */
+    int length,     /* Length of the label, or -1 for automatic length. */
+    string label    /* The label to give the object. */
+);
+
+/* Label pointer objects (almost exclusively for naming sync objects)*/
+void GL.ObjectPtrLabel(
+    IntPtr pointer, /* The pointer to label. */
+    int length,     /* Length of the label, or -1 for automatic length. */
+    string label    /* The label to give to the pointer. */
+);
+```
+
+Debug Group API
+---------------
+The debug group API allows you to group some commands under a label. These
+labels are then displayed by graphics debuggers in a tree fashion. This provides
+additional visual aid and context clues when reading large command lists when
+trying to figure out what went wrong.
+
+```cs
+/* Pushes a new frame onto the debug group stack. */
+void GL.PushDebugGroup(
+    DebugSourceExternal source, /* The source of the message. */
+    int id,         /* An ID to give the message. This is for your own use. */
+    int length,     /* Length of the message, use -1 for automatic length. */
+    string message  /* The label message to group following calls. */
+);
+
+/* Pops a previously pushed debug group from the stack. */
+void GL.PopDebugGroup();
+```
+
+#### Associated Gets
+| Get Function | Get Enum | Initial Value | Description |
+|--------------|----------|---------------|-------------|
+| `GL.GetInteger` | `All.DebugGroupStackDepth` | 1 | The number of frames in the debug group stack. |
+
 Debug Message API
 -----------------
 The debug message API provides functionality for sending and receiving debug
@@ -172,55 +221,6 @@ int GL.GetDebugMessageLog(
 |--------------|----------|---------------|-------------|
 | `GL.GetInteger` | `All.DebugLoggedMessages` | 0 | The number of messages currently in the debug log. |
 | `GL.GetInteger` | `All.DebugNextLoggedMessageLength` | 0 | Length of the next log message in queue. |
-
-Object Label API
-----------------
-The object label API allows you to give custom labels to OpenGL objects. These
-labels are then displayed in the debug messages and graphics debuggers.
-Immensely more descriptive than the number assigned by the OpenGL context for
-each OpenGL object or a pointer.
-
-```cs
-/* Label named objects (i.e. objects with handles). */
-void GL.ObjectLabel(
-    ObjectLabelIdentifier identifier,   /* Object family, e.g. a buffer or a texture. */
-    int handle,     /* The object handle. */
-    int length,     /* Length of the label, or -1 for automatic length. */
-    string label    /* The label to give the object. */
-);
-
-/* Label pointer objects (almost exclusively for naming sync objects)*/
-void GL.ObjectPtrLabel(
-    IntPtr pointer, /* The pointer to label. */
-    int length,     /* Length of the label, or -1 for automatic length. */
-    string label    /* The label to give to the pointer. */
-);
-```
-
-Debug Group API
----------------
-The debug group API allows you to group some commands under a label. These
-labels are then displayed by graphics debuggers in a tree fashion. This provides
-additional visual aid and context clues when reading large command lists when
-trying to figure out what went wrong.
-
-```cs
-/* Pushes a new frame onto the debug group stack. */
-void GL.PushDebugGroup(
-    DebugSourceExternal source, /* The source of the message. */
-    int id,         /* An ID to give the message. This is for your own use. */
-    int length,     /* Length of the message, use -1 for automatic length. */
-    string message  /* The label message to group following calls. */
-);
-
-/* Pops a previously pushed debug group from the stack. */
-void GL.PopDebugGroup();
-```
-
-#### Associated Gets
-| Get Function | Get Enum | Initial Value | Description |
-|--------------|----------|---------------|-------------|
-| `GL.GetInteger` | `All.DebugGroupStackDepth` | 1 | The number of frames in the debug group stack. |
 
 Screenshots
 -----------

@@ -6,7 +6,10 @@
 <script>
     lightbox.option({
       'disableScrolling': true,
-      'wrapAround': true
+      'wrapAround': true,
+      'fadeDuration': 200,
+      'imageFadeDuration': 200,
+      'resizeDuration': 200,
     })
 </script>
 

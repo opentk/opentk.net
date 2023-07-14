@@ -52,9 +52,37 @@ The debug message API provides functionality for sending and receiving debug
 messages to applications using OpenGL.
 
 ### `GL.DebugMessageCallback()`
+**See the main [Debug Callback](debug_callback.md) article.**
+
 This function allows you to set the callback that will receive debug messages.
-It is only mentioned here as it has been extensively described in the
-[Debug Callback](debug_callback.md) article.
+The gist of the function is that you can store a function pointer that will be
+called when a debug message is enqeueud. It replaces the
+[`GL.DebugMessageLog()`](#glgetdebugmessagelog) API.
+
+```cs
+GL.DebugMessageCallback(DebugMessageDelegate, IntPtr.Zero);
+GL.Enable(EnableCap.DebugOutput);
+```
+
+#### Additional Enables
+These additional enables are introduced to the API which allows you to control
+the debug messaging with `GL.Enable()` and `GL.Disable()`.
+
+| EnableCap | Description |
+|:----------|:------------|
+| `EnableCap.DebugOutput` | Enable or disable debug message generation. If disabled, inhibits sending messages to your callback. |
+| `EnableCap.DebugOutputSynchronous` | When enabled, debug messages are sent only to the thread that generated the message. Useful when debugging and viewing the callstack. Hinders performance. |
+
+#### Associated Gets
+This extension has the following new gets associated with it.
+
+| Get Function | Get Enum | Initial Value | Description |
+|--------------|----------|---------------|-------------|
+| `GL.GetPointer` | `GetPointervPName.DebugCallbackFunction` | `null` | Pointer to the debug callback function you provided. |
+| `GL.GetPointer` | `GetPointervPName.DebugCallbackUserParam` | `null` | The user param value you provided to the debug callback function. |
+| `GL.IsEnabled`  | `EnableCap.DebugOutput` | `false` | Is debug output enabled? |
+| `GL.IsEnabled`  | `EnableCap.DebugOutputSynchronous` | `false` | Is debug output synchronous? |
+
 
 ### `GL.DebugMessageControl()`
 This function allows you to control the debugging messages that will be received
@@ -139,14 +167,11 @@ int GL.GetDebugMessageLog(
 > at once. This overload is not shown for brevity sake, but the order of the
 > parameters and their purposes are equivalent.
 
-### Additional Enables
-These additional enables are introduced to the API which allows you to control
-the debug messaging with `GL.Enable()` and `GL.Disable()`.
-
-| EnableCap | Description |
-|:----------|:------------|
-| `EnableCap.DebugOutput` | Enable or disable debug message generation. If disabled, inhibits sending messages to your callback. |
-| `EnableCap.DebugOutputSynchronous` | When enabled, debug messages are sent only to the thread that generated the message. Useful when debugging and viewing the callstack. Hinders performance. |
+#### Associated Gets
+| Get Function | Get Enum | Initial Value | Description |
+|--------------|----------|---------------|-------------|
+| `GL.GetInteger` | `All.DebugLoggedMessages` | 0 | The number of messages currently in the debug log. |
+| `GL.GetInteger` | `All.DebugNextLoggedMessageLength` | 0 | Length of the next log message in queue. |
 
 Object Label API
 ----------------
@@ -192,19 +217,10 @@ void GL.PushDebugGroup(
 void GL.PopDebugGroup();
 ```
 
-Associated new Gets
--------------------
-This extension has the following new gets associated with it.
-
+#### Associated Gets
 | Get Function | Get Enum | Initial Value | Description |
 |--------------|----------|---------------|-------------|
-| `GL.GetPointer` | `GetPointervPName.DebugCallbackFunction` | `null` | The debug callback function you provided. |
-| `GL.GetPointer` | `GetPointervPName.DebugCallbackUserParam` | `null` | The user param value you provided to the debug callback function. |
-| `GL.GetInteger` | `All.DebugLoggedMessages` | 0 | The number of messages currently in the debug log. |
-| `GL.GetInteger` | `All.DebugNextLoggedMessageLength` | 0 | Length of the next log message in queue. |
 | `GL.GetInteger` | `All.DebugGroupStackDepth` | 1 | The number of frames in the debug group stack. |
-| `GL.IsEnabled`  | `EnableCap.DebugOutput` | `false` | Is debug output enabled? |
-| `GL.IsEnabled`  | `EnableCap.DebugOutputSynchronous` | `false` | Is debug output synchronous? |
 
 Screenshots
 -----------

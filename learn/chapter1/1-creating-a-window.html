@@ -216,9 +216,8 @@ using (Game game = new Game(800, 600, &quot;LearnOpenTK&quot;))
 
 <pre><code class="lang-cs">//Get the state of the keyboard this frame
 // 'KeyboardState' is a property of GameWindow
-KeyboardState input = KeyboardState;
 
-if (input.IsKeyDown(Keys.Escape))
+if (KeyboardState.IsKeyDown(Keys.Escape))
 {
     Close();
 }
@@ -228,9 +227,7 @@ if (input.IsKeyDown(Keys.Escape))
 {
     base.OnUpdateFrame(e);
 
-    KeyboardState input = KeyboardState;
-
-    if (input.IsKeyDown(Keys.Escape))
+    if (KeyboardState.IsKeyDown(Keys.Escape))
     {
         Close();
     }

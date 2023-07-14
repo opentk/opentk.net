@@ -9,13 +9,42 @@ before reading this as it provides better context into this extension.
 For versions of OpenGL later than 4.3 or if the extension is present you can
 directly use the function as defined in the `GL` class. For OpenGLES contexts
 use the `GL.Khr` class. The subclass version is a drop-in replacement for the
-core version for ES contexts. This extension only works when the context has
-the "Debug" flag set.
+core version for ES contexts. This extension only works when the OpenGL context
+has the "Debug" flag set. This is different from building and running your
+application in debug mode under your IDE. This is how you can tell OpenTK to
+create a context with the debug flag set.
 
-> [!NOTE]
-> The `length` parameter for most of the functions given are intended for C
-> users and is in ASCII characters, not UTF-16 characters. Prefer to use C#
-> string API and pass `-1` for the length instead.
+# [OpenTK 4.0](#tab/debug-context-4)
+```cs
+using OpenTK;
+using OpenTK.Windowing.Desktop;
+
+// ...
+
+GameWindow window = new GameWindow(
+    GameWindowSettings.Default,
+    new NativeWindowSettings() {
+        Flags = ContextFlags.Debug
+    });
+```
+# [OpenTK 3.0](#tab/debug-context-3)
+```cs
+using OpenTK;
+using OpenTK.Graphics;
+
+// ...
+
+GameWindow window = new GameWindow(
+    width, height,                  // Window width.
+    GraphicsMode.Default,           // Context graphics mode.
+    title,                          // Window title.
+    GameWindowFlags.Default,        // GameWindow flags.
+    DisplayDevice.Default,          // The display to create the window in.
+    3, 3,                           // OpenGL context version major then minor.
+    GraphicsContextFlags.Debug);    // OpenGL context flags.
+```
+***
+<br/>
 
 Debug Message API
 -----------------
@@ -69,23 +98,46 @@ void GL.DebugMessageInsert(
 );
 ```
 
+> [!WARNING]
+> The `length` parameter for most of the functions given are intended for C
+> users and is in ASCII characters, not UTF-16 characters. This causes a small
+> disparity between the length of a string in C#, and it's length in bytes after
+> marshalling between UTF-16 and ASCII/UTF-8 characters.
+>
+> Although in some cases (particularly where only 7-bit ASCII characters are
+> used) the number of characters in the C# string and the number of characters
+> in the C string are going to match, the most appropriate way would be to
+> measure the length of the string in bytes using
+> `System.Text.Encoding.UTF8.GetByteCount()`. However, that still takes
+> significant time and effort, so you might just want to use `-1` instead.
+>
+> Using `-1` is allowed by the extension as the length of a string, where the
+> graphics driver will calculate the length of the null terminated C string
+> itself.
+
 ### `GL.GetDebugMessageLog()`
-In the abscense of a debug message callback, this function can be used to
-retreive debug messages that have been enqueued by the OpenGL context.
+In the absense of a debug message callback, this function can be used to
+retreive debug messages that have been enqueued by the OpenGL context. The
+messages are retrieved in FIFO (first-in-first-out) fashion.
+
 ```cs
 int GL.GetDebugMessageLog(
-    int number,                 /* Number of messages to retreive. */
+    int count,                  /* Number of messages to retreive. */
     int bufferSize,             /* Message buffer size. */
-    out DebugSource sources,    /* Retreived message sources. */
-    out DebugType types,        /* Retreived message types. */
-    out int ids,                /* Retreived message IDs. */
-    out DebugSeverity severity, /* Retreived message severities */
-    out int length,             /* Retreived message lengths. */
-    out string message          /* Retreived messages. */
+    out DebugSource sources,    /* Retrieved message sources. */
+    out DebugType types,        /* Retrieved message types. */
+    out int ids,                /* Retrieved message IDs. */
+    out DebugSeverity severity, /* Retrieved message severities */
+    out int length,             /* Retrieved message lengths. */
+    out string message          /* Retrieved messages. */
 );  /* Returns: The number of messages retreived. */
-
-/* Note: an array overload also exists. */
 ```
+
+> [!NOTE]
+> The `out` overload will only work if you if the `count` parameter is `1`.
+> You should use the array overload if you want to capture many debug messages
+> at once. This overload is not shown for brevity sake, but the order of the
+> parameters and their purposes are equivalent.
 
 ### Additional Enables
 These additional enables are introduced to the API which allows you to control
@@ -112,7 +164,7 @@ void GL.ObjectLabel(
     string label    /* The label to give the object. */
 );
 
-/* Label pointer objects */
+/* Label pointer objects (almost exclusively for naming sync objects)*/
 void GL.ObjectPtrLabel(
     IntPtr pointer, /* The pointer to label. */
     int length,     /* Length of the label, or -1 for automatic length. */

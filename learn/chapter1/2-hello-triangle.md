@@ -155,7 +155,7 @@ Your NDC coordinates will then be transformed to screen-space coordinates via th
 
 With the vertex data defined we'd like to send it as input to the first process of the graphics pipeline: the vertex shader. This is done by creating memory on the GPU where we store the vertex data, configure how OpenGL should interpret the memory and specify how to send the data to the graphics card. The vertex shader then processes as much vertices as we tell it to from its memory.
 
-We manage this memory via so called vertex buffer objects (VBO) that can store a large number of vertices in the GPU's memory. The advantage of using those buffer objects is that we can send large batches of data all at once to the graphics card without having to send data a vertex a time. Sending data to the graphics card from the CPU is relatively slow, so wherever we can, we try to send as much data as possible at once. Once the data is in the graphics card's memory the vertex shader has almost instant access to the vertices making it extremely fast.
+We manage this memory via so called vertex buffer objects (VBO) that can store a large number of vertices in the GPU's memory. The advantage of using those buffer objects is that we can send large batches of data all at once to the graphics card without having to send data one vertex at a time. Sending data to the graphics card from the CPU is relatively slow, so wherever we can, we try to send as much data as possible at once. Once the data is in the graphics card's memory the vertex shader has almost instant access to the vertices making it extremely fast.
 
 A vertex buffer object is our first occurrence of an OpenGL object as we've discussed in the OpenGL tutorial. Just like any object in OpenGL this buffer has a unique ID corresponding to that buffer, so we can generate one with a buffer ID using the `GL.GenBuffers` function.
 
@@ -369,7 +369,10 @@ protected virtual void Dispose(bool disposing)
 
 ~Shader()
 {
-    GL.DeleteProgram(Handle);
+    if (disposedValue == false)
+    {
+        Console.WriteLine("GPU Resource leak! Did you forget to call Dispose()?");
+    }
 }
 
 
@@ -389,6 +392,16 @@ Try running; if nothing prints to console, your shaders have compiled correctly!
 ## Linking Vertex Attributes
 
 The vertex shader allows us to specify any input we want in the form of vertex attributes. While this allows for great flexibility, it does mean we have to manually specify what part of our input data goes to which vertex attribute in the vertex shader. This means we have to specify how OpenGL should interpret the vertex data before rendering.
+
+This format information is stored in what is called a Vertex Array Object (VAO). The VAO contains information about the vertex format and what buffers to read from. We will discuss this more shortly, but to get started we create a VAO and bind it like follows:
+
+```cs
+int VertexArrayObject = GL.GenVertexArray();
+GL.BindVertexArray(VertexArrayObject);
+```
+
+With the VAO created and bound, we can start specifying the vertex format and data buffers.
+To do this we first need to take a look at the format of our vertex buffer.
 
 Our vertex buffer data is formatted as follows:
 ![Vertex attribute pointer setup of OpenGL VBO](img/2-vertex_attribute_pointer.png)
@@ -498,7 +511,7 @@ Now try to compile the code and work your way backwards if any errors popped up.
 
 ![An image of a basic triangle rendered in modern OpenGL](img/2-hellotriangle.png)
 
-The source code for the complete program can be found [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%201/2%20-%20Hello%20Triangle).
+The source code for the complete program can be found [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter1/2-HelloTriangle).
 
 If your output does not look the same you probably did something wrong along the way so check the complete source code, see if you missed anything or ask in our official Discord server.
 

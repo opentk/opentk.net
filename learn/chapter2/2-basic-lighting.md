@@ -141,7 +141,7 @@ If your application (and shaders) compiled successfully you should see something
 
 You can see that with diffuse lighting the cube starts to look like an actual cube again. Try visualizing the normal vectors in your head and move around the cube to see that the larger the angle between them and the light's direction, the darker a fragment becomes.
 
-Feel free to compare your source code with the complete source code [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/2%20-%20Basic%20lighting) if you're stuck.
+Feel free to compare your source code with the complete source code [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/2-BasicLighting) if you're stuck.
 
 ### One last thing
 As of now we've been passing the normal vectors directly from the vertex shader to the fragment shader. However, the calculations we've been doing in the fragment shader are all done in world space coordinates, so shouldn't we transform the normal vectors to world space coordinates as well? Basically yes, but it's not as simple as simply multiplying it with a model matrix.
@@ -219,7 +219,7 @@ FragColor = vec4(result, 1.0);
 We now calculated all the lighting components of the Phong lighting model. Based on your point of view you should see something like this:
 
 
-You can find the complete source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter%202/2%20-%20Basic%20lighting).
+You can find the complete source code of the application [here](https://github.com/opentk/LearnOpenTK/tree/master/Chapter2/2-BasicLighting).
 
 >In the earlier days of lighting shaders, developers used to implement the Phong lighting model in the vertex shader. The advantage of doing lighting in the vertex shader is that it is a lot more efficient since there are generally a lot less vertices than fragments, so the (expensive) lighting calculations are done less frequently. However, the resulting color value in the vertex shader is the resulting lighting color of that vertex only and the color values of the surrounding fragments are then the result of interpolated lighting colors. The result was that the lighting was not very realistic unless large amounts of vertices were used. When the Phong lighting model is implemented in the vertex shader it is called Gouraud shading instead of Phong shading. Note that due to the interpolation the lighting looks a bit off. The Phong shading gives much smoother lighting results:
 

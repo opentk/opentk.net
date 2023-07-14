@@ -201,13 +201,24 @@ messages are retrieved in FIFO (first-in-first-out) fashion.
 int GL.GetDebugMessageLog(
     int count,                  /* Number of messages to retreive. */
     int bufferSize,             /* Message buffer size. */
-    out DebugSource sources,    /* Retrieved message sources. */
-    out DebugType types,        /* Retrieved message types. */
-    out int ids,                /* Retrieved message IDs. */
-    out DebugSeverity severity, /* Retrieved message severities */
-    out int length,             /* Retrieved message lengths. */
-    out string message          /* Retrieved messages. */
+    DebugSource[] source,       /* Retrieved message sources. */
+    DebugType[] type,           /* Retrieved message types. */
+    int[] id,                   /* Retrieved message IDs. */
+    DebugSeverity[] severity,   /* Retrieved message severities */
+    int[] length,               /* Retrieved message lengths. */
+    string[] message            /* Retrieved messages. */
 );  /* Returns: The number of messages retreived. */
+
+int GL.GetDebugMessageLog(
+    int count,                  /* Number of messages to retreive. Must be 1. */
+    int bufferSize,             /* Message buffer size. */
+    out DebugSource source,     /* Retrieved message source. */
+    out DebugType type,         /* Retrieved message type. */
+    out int id,                 /* Retrieved message ID. */
+    out DebugSeverity severity, /* Retrieved message severity */
+    out int length,             /* Retrieved message length. */
+    out string message          /* Retrieved messages. */
+);  /* Returns: The number of messages retreived. Should be 1. */
 ```
 
 > [!NOTE]

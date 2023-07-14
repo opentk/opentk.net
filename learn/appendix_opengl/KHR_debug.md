@@ -1,3 +1,46 @@
+<!-- Include lightbox2 and its dependencies. -->
+<link href=" https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css " rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
+
+
+<script>
+    lightbox.option({
+      'disableScrolling': true,
+      'wrapAround': true
+    })
+</script>
+
+
+
+<!-- Small bit of css to make the galleries not absolute garbage. -->
+<style>
+    div.gallery {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div.gallery a {
+        border: 2px solid steelblue;
+        border-radius: 4px;
+        box-shadow: 2px 2px 4px gray;
+        display: block;
+        height: 100%;
+        margin: 4pt;
+        padding: 2pt;
+    }
+
+    div.gallery a * {
+        margin: auto;
+        display: block;
+    }
+
+    div.gallery a p {
+        margin-top: 2pt;
+    }
+</style>
+
 KHR_debug Extension
 ===================
 `KHR_debug` is an extension that provides additional functions to the OpenGL API
@@ -70,6 +113,24 @@ void GL.ObjectPtrLabel(
 );
 ```
 
+_Here are a few examples of object labels in different OpenGL debugging
+software._
+
+<div class="gallery">
+    <a href="KHR_debug/objectLabel/rdoc_inspector.png" data-lightbox="objectLabel" data-title="Renderdoc Inspector">
+        <img src="KHR_debug/objectLabel/rdoc_inspector.thumb.png">
+        <p>Renderdoc Inspector</p>
+    </a>
+    <a href="KHR_debug/objectLabel/rdoc_resources.png" data-lightbox="objectLabel" data-title="Renderdoc Resource List">
+        <img src="KHR_debug/objectLabel/rdoc_resources.thumb.png">
+        <p>Renderdoc Resource List</p>
+    </a>
+    <a href="KHR_debug/objectLabel/nsight_browser.png" data-lightbox="objectLabel" data-title="Nsight Object Browser">
+        <img src="KHR_debug/objectLabel/nsight_browser.thumb.png">
+        <p>Nsight Object Browser</p>
+    </a>
+</div>
+
 Debug Group API
 ---------------
 The debug group API allows you to group some commands under a label. These
@@ -89,6 +150,27 @@ void GL.PushDebugGroup(
 /* Pops a previously pushed debug group from the stack. */
 void GL.PopDebugGroup();
 ```
+
+_Here are a few examples of debug groups in different OpenGL debugging
+software._
+<div class="gallery">
+    <a href="KHR_debug/debugGroup/rdoc_timeline.png" data-lightbox="debugGroup" data-title="Renderdoc Timeline">
+        <img src="KHR_debug/debugGroup/rdoc_timeline.thumb.png">
+        <p>Renderdoc Timeline</p>
+    </a>
+    <a href="KHR_debug/debugGroup/rdoc_event.png" data-lightbox="debugGroup" data-title="Renderdoc Event Browser">
+        <img src="KHR_debug/debugGroup/rdoc_event.thumb.png">
+        <p>Renderdoc Event Browser</p>
+    </a>
+    <a href="KHR_debug/debugGroup/nsight_profiler.png" data-lightbox="debugGroup" data-title="Nsight Profiler">
+        <img src="KHR_debug/debugGroup/nsight_profiler.thumb.png">
+        <p>Nsight Profiler</p>
+    </a>
+    <a href="KHR_debug/debugGroup/nsight_events.png" data-lightbox="debugGroup" data-title="Nsight Event Window">
+        <img src="KHR_debug/debugGroup/nsight_events.thumb.png">
+        <p>Nsight Event Window</p>
+    </a>
+</div>
 
 #### Associated Gets
 | Get Function | Get Enum | Initial Value | Description |
@@ -232,40 +314,6 @@ int GL.GetDebugMessageLog(
 |--------------|----------|---------------|-------------|
 | `GL.GetInteger` | `All.DebugLoggedMessages` | 0 | The number of messages currently in the debug log. |
 | `GL.GetInteger` | `All.DebugNextLoggedMessageLength` | 0 | Length of the next log message in queue. |
-
-Screenshots
------------
-
-### Renderdoc
-<div class="figure">
-<img src="KHR_debug/renderdoc_object_labels.png" alt="Screenshot of Renderdoc displaying custom resource names." title="Object labels in Renderdoc Resource List (left) and API Inspector (right)">
-<p>Object labels in Renderdoc Resource List (left) and API Inspector (right)</p>
-</div>
-
-<div class="figure">
-<img src="KHR_debug/renderdoc_debug_groups.png" alt="Screenshot of renderdoc displaying debug groups." title="Debug groups in Renderdoc Event Browser (top) and Timeline (bottom)">
-<p>Debug groups in Renderdoc Event Browser (top) and Timeline (bottom)</p>
-</div>
-
-### Nvidia Nsight
-<div class="figure">
-<img src="KHR_debug/nsight_object_labels.png" alt="Screenshot of Nvidia Nsight displaying custom resource names." title="Object labels in Nsight Object Browser.">
-<p>Object labels in Nsight Object Browser.</p>
-</div>
-
-<div class="figure">
-<img src="KHR_debug/nsight_debug_groups.png" alt="Screenshot of Nvidia Nsight displaying debug groups." title="Debug groups in Nvidia Nsight Events list (left) and Range Profiler (top-right)">
-<p>Debug groups in Nvidia Nsight Events list (left) and Range Profiler (top-right)</p>
-</div>
-
-<!-- I don't like putting inline css here but here we are. -->
-<style>
-    div.figure {
-        padding: 4pt;
-        text-align: center;
-        align: center;
-    }
-</style>
 
 References
 ----------

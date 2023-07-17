@@ -122,46 +122,13 @@
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="OpenTK.html">OpenTK</a>.<a class="xref" href="OpenTK.Audio.html">Audio</a>.<a class="xref" href="OpenTK.Audio.OpenAL.html">OpenAL</a></h6>
-  <h6><strong>Assembly</strong>: OpenTK.OpenAL.dll</h6>
+  <h6><strong>Assembly</strong>: OpenTK.Audio.OpenAL.dll</h6>
   <h5 id="OpenTK_Audio_OpenAL_AL_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class AL : ALBase</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
-  <a id="OpenTK_Audio_OpenAL_AL_BindBufferToSource_" data-uid="OpenTK.Audio.OpenAL.AL.BindBufferToSource*"></a>
-  <h4 id="OpenTK_Audio_OpenAL_AL_BindBufferToSource_System_Int32_System_Int32_" data-uid="OpenTK.Audio.OpenAL.AL.BindBufferToSource(System.Int32,System.Int32)">BindBufferToSource(int, int)</h4>
-  <div class="markdown level1 summary"><p>(Helper) Binds a Buffer to a Source handle.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void BindBufferToSource(int source, int buffer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">source</span></td>
-        <td><p>Source name to attach the Buffer to.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>Buffer name which is attached to the Source.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <a id="OpenTK_Audio_OpenAL_AL_BufferData_" data-uid="OpenTK.Audio.OpenAL.AL.BufferData*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_BufferData_System_Int32_OpenTK_Audio_OpenAL_ALFormat_System_Byte__System_Int32_System_Int32_" data-uid="OpenTK.Audio.OpenAL.AL.BufferData(System.Int32,OpenTK.Audio.OpenAL.ALFormat,System.Byte@,System.Int32,System.Int32)">BufferData(int, ALFormat, ref byte, int, int)</h4>
   <div class="markdown level1 summary"><p>This function fills a buffer with audio buffer. All the pre-defined formats are PCM buffer, but this function may be used by extensions to load other buffer types as well.</p>
@@ -1610,6 +1577,55 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Audio_OpenAL_AL_GetBuffer_" data-uid="OpenTK.Audio.OpenAL.AL.GetBuffer*"></a>
+  <h4 id="OpenTK_Audio_OpenAL_AL_GetBuffer_System_Int32_OpenTK_Audio_OpenAL_ALGetBufferi_" data-uid="OpenTK.Audio.OpenAL.AL.GetBuffer(System.Int32,OpenTK.Audio.OpenAL.ALGetBufferi)">GetBuffer(int, ALGetBufferi)</h4>
+  <div class="markdown level1 summary"><p>This function retrieves an integer property of a buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetBuffer(int bid, ALGetBufferi param)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">bid</span></td>
+        <td><p>Buffer name whose attribute is being retrieved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALGetBufferi.html">ALGetBufferi</a></td>
+        <td><span class="parametername">param</span></td>
+        <td><p>The name of the attribute to be retrieved: ALGetBufferi.Frequency, Bits, Channels, Size, and the currently hidden AL_DATA (dangerous).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>An int to hold the retrieved buffer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Audio_OpenAL_AL_GetDistanceModel_" data-uid="OpenTK.Audio.OpenAL.AL.GetDistanceModel*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_GetDistanceModel" data-uid="OpenTK.Audio.OpenAL.AL.GetDistanceModel">GetDistanceModel()</h4>
   <div class="markdown level1 summary"><p>Returns the <a class="xref" href="OpenTK.Audio.OpenAL.ALDistanceModel.html">ALDistanceModel</a> of the current context.</p>
@@ -1748,7 +1764,7 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
   </table>
   <a id="OpenTK_Audio_OpenAL_AL_GetListener_" data-uid="OpenTK.Audio.OpenAL.AL.GetListener*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_GetListener_OpenTK_Audio_OpenAL_ALListener3f_OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Audio.OpenAL.AL.GetListener(OpenTK.Audio.OpenAL.ALListener3f,OpenTK.Mathematics.Vector3@)">GetListener(ALListener3f, out Vector3)</h4>
-  <div class="markdown level1 summary"><p>This function retrieves a Math.Vector3 from a property of the listener.</p>
+  <div class="markdown level1 summary"><p>This function retrieves a <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> from a property of the listener.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1774,7 +1790,7 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
         <td><span class="parametername">values</span></td>
-        <td><p>A Math.Vector3 to hold the three floats being retrieved.</p>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> to hold the three floats being retrieved.</p>
 </td>
       </tr>
     </tbody>
@@ -1825,6 +1841,49 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
     </tbody>
   </table>
   <a id="OpenTK_Audio_OpenAL_AL_GetListener_" data-uid="OpenTK.Audio.OpenAL.AL.GetListener*"></a>
+  <h4 id="OpenTK_Audio_OpenAL_AL_GetListener_OpenTK_Audio_OpenAL_ALListener3f_" data-uid="OpenTK.Audio.OpenAL.AL.GetListener(OpenTK.Audio.OpenAL.ALListener3f)">GetListener(ALListener3f)</h4>
+  <div class="markdown level1 summary"><p>This function retrieves a <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> from a property of the listener.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 GetListener(ALListener3f param)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALListener3f.html">ALListener3f</a></td>
+        <td><span class="parametername">param</span></td>
+        <td><p>The name of the attribute to be retrieved: ALListener3f.Position, ALListener3f.Velocity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> to hold the three floats being retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Audio_OpenAL_AL_GetListener_" data-uid="OpenTK.Audio.OpenAL.AL.GetListener*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_GetListener_OpenTK_Audio_OpenAL_ALListenerf_System_Single__" data-uid="OpenTK.Audio.OpenAL.AL.GetListener(OpenTK.Audio.OpenAL.ALListenerf,System.Single@)">GetListener(ALListenerf, out float)</h4>
   <div class="markdown level1 summary"><p>This function retrieves a floating-point property of the listener.</p>
 </div>
@@ -1858,8 +1917,51 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
     </tbody>
   </table>
   <a id="OpenTK_Audio_OpenAL_AL_GetListener_" data-uid="OpenTK.Audio.OpenAL.AL.GetListener*"></a>
+  <h4 id="OpenTK_Audio_OpenAL_AL_GetListener_OpenTK_Audio_OpenAL_ALListenerf_" data-uid="OpenTK.Audio.OpenAL.AL.GetListener(OpenTK.Audio.OpenAL.ALListenerf)">GetListener(ALListenerf)</h4>
+  <div class="markdown level1 summary"><p>This function retrieves a floating-point property of the listener.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetListener(ALListenerf param)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALListenerf.html">ALListenerf</a></td>
+        <td><span class="parametername">param</span></td>
+        <td><p>the name of the attribute to be retrieved: ALListenerf.Gain.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><p>The floating-point value being retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Audio_OpenAL_AL_GetListener_" data-uid="OpenTK.Audio.OpenAL.AL.GetListener*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_GetListener_OpenTK_Audio_OpenAL_ALListenerfv_OpenTK_Mathematics_Vector3__OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Audio.OpenAL.AL.GetListener(OpenTK.Audio.OpenAL.ALListenerfv,OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)">GetListener(ALListenerfv, out Vector3, out Vector3)</h4>
-  <div class="markdown level1 summary"><p>This function retrieves two Math.Vector3 properties of the listener.</p>
+  <div class="markdown level1 summary"><p>This function retrieves two <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> properties of the listener.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1885,13 +1987,13 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
         <td><span class="parametername">at</span></td>
-        <td><p>A Math.Vector3 for the At-Vector.</p>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> for the At-Vector.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
         <td><span class="parametername">up</span></td>
-        <td><p>A Math.Vector3 for the Up-Vector.</p>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> for the Up-Vector.</p>
 </td>
       </tr>
     </tbody>
@@ -2078,6 +2180,55 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
     </tbody>
   </table>
   <a id="OpenTK_Audio_OpenAL_AL_GetSource_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource*"></a>
+  <h4 id="OpenTK_Audio_OpenAL_AL_GetSource_System_Int32_OpenTK_Audio_OpenAL_ALGetSourcei_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource(System.Int32,OpenTK.Audio.OpenAL.ALGetSourcei)">GetSource(int, ALGetSourcei)</h4>
+  <div class="markdown level1 summary"><p>This function retrieves an integer property of a source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetSource(int sid, ALGetSourcei param)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">sid</span></td>
+        <td><p>Source name whose attribute is being retrieved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALGetSourcei.html">ALGetSourcei</a></td>
+        <td><span class="parametername">param</span></td>
+        <td><p>The name of the attribute to retrieve: ALSourcei.SourceRelative, Buffer, SourceState, BuffersQueued, BuffersProcessed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>The integer value being retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Audio_OpenAL_AL_GetSource_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_GetSource_System_Int32_OpenTK_Audio_OpenAL_ALSource3f_OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Audio.OpenAL.AL.GetSource(System.Int32,OpenTK.Audio.OpenAL.ALSource3f,OpenTK.Mathematics.Vector3@)">GetSource(int, ALSource3f, out Vector3)</h4>
   <div class="markdown level1 summary"><p>This function retrieves three floating-point values representing a property of a source.</p>
 </div>
@@ -2111,7 +2262,7 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
         <td><span class="parametername">values</span></td>
-        <td><p>A Math.Vector3 to retrieve the values to.</p>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> to retrieve the values to.</p>
 </td>
       </tr>
     </tbody>
@@ -2168,6 +2319,55 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
     </tbody>
   </table>
   <a id="OpenTK_Audio_OpenAL_AL_GetSource_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource*"></a>
+  <h4 id="OpenTK_Audio_OpenAL_AL_GetSource_System_Int32_OpenTK_Audio_OpenAL_ALSource3f_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource(System.Int32,OpenTK.Audio.OpenAL.ALSource3f)">GetSource(int, ALSource3f)</h4>
+  <div class="markdown level1 summary"><p>This function retrieves three floating-point values representing a property of a source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 GetSource(int sid, ALSource3f param)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">sid</span></td>
+        <td><p>Source name whose attribute is being retrieved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALSource3f.html">ALSource3f</a></td>
+        <td><span class="parametername">param</span></td>
+        <td><p>The name of the attribute being retrieved: ALSource3f.Position, Velocity, Direction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> to with the received values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Audio_OpenAL_AL_GetSource_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_GetSource_System_Int32_OpenTK_Audio_OpenAL_ALSource3i_OpenTK_Mathematics_Vector3i__" data-uid="OpenTK.Audio.OpenAL.AL.GetSource(System.Int32,OpenTK.Audio.OpenAL.ALSource3i,OpenTK.Mathematics.Vector3i@)">GetSource(int, ALSource3i, out Vector3i)</h4>
   <div class="markdown level1 summary"><p>This function retrieves three integer-point values representing a property of a source.</p>
 </div>
@@ -2201,7 +2401,7 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3i.html">Vector3i</a></td>
         <td><span class="parametername">values</span></td>
-        <td><p>A Math.Vector3i to retrieve the values to.</p>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a>i to retrieve the values to.</p>
 </td>
       </tr>
     </tbody>
@@ -2258,6 +2458,55 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
     </tbody>
   </table>
   <a id="OpenTK_Audio_OpenAL_AL_GetSource_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource*"></a>
+  <h4 id="OpenTK_Audio_OpenAL_AL_GetSource_System_Int32_OpenTK_Audio_OpenAL_ALSource3i_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource(System.Int32,OpenTK.Audio.OpenAL.ALSource3i)">GetSource(int, ALSource3i)</h4>
+  <div class="markdown level1 summary"><p>This function retrieves three integer-point values representing a property of a source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3i GetSource(int sid, ALSource3i param)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">sid</span></td>
+        <td><p>Source name whose attribute is being retrieved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALSource3i.html">ALSource3i</a></td>
+        <td><span class="parametername">param</span></td>
+        <td><p>The name of the attribute being retrieved: ALSource3f.Position, Velocity, Direction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector3i.html">Vector3i</a></td>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3i.html">Vector3i</a> to retrieve the values to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Audio_OpenAL_AL_GetSource_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_GetSource_System_Int32_OpenTK_Audio_OpenAL_ALSourceb_System_Boolean__" data-uid="OpenTK.Audio.OpenAL.AL.GetSource(System.Int32,OpenTK.Audio.OpenAL.ALSourceb,System.Boolean@)">GetSource(int, ALSourceb, out bool)</h4>
   <div class="markdown level1 summary"><p>This function retrieves a bool property of a source.</p>
 </div>
@@ -2292,6 +2541,55 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">value</span></td>
         <td><p>A pointer to the bool value being retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Audio_OpenAL_AL_GetSource_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource*"></a>
+  <h4 id="OpenTK_Audio_OpenAL_AL_GetSource_System_Int32_OpenTK_Audio_OpenAL_ALSourceb_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource(System.Int32,OpenTK.Audio.OpenAL.ALSourceb)">GetSource(int, ALSourceb)</h4>
+  <div class="markdown level1 summary"><p>This function retrieves a bool property of a source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetSource(int sid, ALSourceb param)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">sid</span></td>
+        <td><p>Source name whose attribute is being retrieved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALSourceb.html">ALSourceb</a></td>
+        <td><span class="parametername">param</span></td>
+        <td><p>The name of the attribute to get: ALSourceb.SourceRelative, Looping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>A the bool value being retrieved.</p>
 </td>
       </tr>
     </tbody>
@@ -2335,14 +2633,14 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       </tr>
     </tbody>
   </table>
-  <a id="OpenTK_Audio_OpenAL_AL_GetSourceState_" data-uid="OpenTK.Audio.OpenAL.AL.GetSourceState*"></a>
-  <h4 id="OpenTK_Audio_OpenAL_AL_GetSourceState_System_Int32_" data-uid="OpenTK.Audio.OpenAL.AL.GetSourceState(System.Int32)">GetSourceState(int)</h4>
-  <div class="markdown level1 summary"><p>(Helper) Returns Source state information.</p>
+  <a id="OpenTK_Audio_OpenAL_AL_GetSource_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource*"></a>
+  <h4 id="OpenTK_Audio_OpenAL_AL_GetSource_System_Int32_OpenTK_Audio_OpenAL_ALSourcef_" data-uid="OpenTK.Audio.OpenAL.AL.GetSource(System.Int32,OpenTK.Audio.OpenAL.ALSourcef)">GetSource(int, ALSourcef)</h4>
+  <div class="markdown level1 summary"><p>This function retrieves a floating-point property of a source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ALSourceState GetSourceState(int sid)</code></pre>
+    <pre><code class="lang-csharp hljs">public static float GetSource(int sid, ALSourcef param)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2357,7 +2655,13 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">sid</span></td>
-        <td><p>The source to be queried.</p>
+        <td><p>Source name whose attribute is being retrieved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALSourcef.html">ALSourcef</a></td>
+        <td><span class="parametername">param</span></td>
+        <td><p>The name of the attribute to set: ALSourcef.Pitch, Gain, MinGain, MaxGain, MaxDistance, RolloffFactor, ConeOuterGain, ConeInnerAngle, ConeOuterAngle, SecOffset, ReferenceDistance, EfxAirAbsorptionFactor, EfxRoomRolloffFactor, EfxConeOuterGainHighFrequency.</p>
 </td>
       </tr>
     </tbody>
@@ -2372,51 +2676,8 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALSourceState.html">ALSourceState</a></td>
-        <td><p>state information from OpenAL.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="OpenTK_Audio_OpenAL_AL_GetSourceType_" data-uid="OpenTK.Audio.OpenAL.AL.GetSourceType*"></a>
-  <h4 id="OpenTK_Audio_OpenAL_AL_GetSourceType_System_Int32_" data-uid="OpenTK.Audio.OpenAL.AL.GetSourceType(System.Int32)">GetSourceType(int)</h4>
-  <div class="markdown level1 summary"><p>(Helper) Returns Source type information.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ALSourceType GetSourceType(int sid)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">sid</span></td>
-        <td><p>The source to be queried.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenTK.Audio.OpenAL.ALSourceType.html">ALSourceType</a></td>
-        <td><p>type information from OpenAL.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><p>The floating-point value being retrieved.</p>
 </td>
       </tr>
     </tbody>
@@ -2595,7 +2856,7 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
   </table>
   <a id="OpenTK_Audio_OpenAL_AL_Listener_" data-uid="OpenTK.Audio.OpenAL.AL.Listener*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_Listener_OpenTK_Audio_OpenAL_ALListener3f_OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Audio.OpenAL.AL.Listener(OpenTK.Audio.OpenAL.ALListener3f,OpenTK.Mathematics.Vector3@)">Listener(ALListener3f, ref Vector3)</h4>
-  <div class="markdown level1 summary"><p>This function sets a Math.Vector3 property for the listener.</p>
+  <div class="markdown level1 summary"><p>This function sets a <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> property for the listener.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2621,7 +2882,7 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
         <td><span class="parametername">values</span></td>
-        <td><p>The Math.Vector3 to set the attribute to.</p>
+        <td><p>The <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> to set the attribute to.</p>
 </td>
       </tr>
     </tbody>
@@ -2706,7 +2967,7 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
   </table>
   <a id="OpenTK_Audio_OpenAL_AL_Listener_" data-uid="OpenTK.Audio.OpenAL.AL.Listener*"></a>
   <h4 id="OpenTK_Audio_OpenAL_AL_Listener_OpenTK_Audio_OpenAL_ALListenerfv_OpenTK_Mathematics_Vector3__OpenTK_Mathematics_Vector3__" data-uid="OpenTK.Audio.OpenAL.AL.Listener(OpenTK.Audio.OpenAL.ALListenerfv,OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)">Listener(ALListenerfv, ref Vector3, ref Vector3)</h4>
-  <div class="markdown level1 summary"><p>This function sets two Math.Vector3 properties of the listener.</p>
+  <div class="markdown level1 summary"><p>This function sets two <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> properties of the listener.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2732,13 +2993,13 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
         <td><span class="parametername">at</span></td>
-        <td><p>A Math.Vector3 for the At-Vector.</p>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> for the At-Vector.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
         <td><span class="parametername">up</span></td>
-        <td><p>A Math.Vector3 for the Up-Vector.</p>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> for the Up-Vector.</p>
 </td>
       </tr>
     </tbody>
@@ -2876,7 +3137,7 @@ gain = (distance / ALSourcef.ReferenceDistance) ^ (- ALSourcef.RolloffFactor)</p
       <tr>
         <td><a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a></td>
         <td><span class="parametername">values</span></td>
-        <td><p>A Math.Vector3 which the attribute will be set to.</p>
+        <td><p>A <a class="xref" href="OpenTK.Mathematics.Vector3.html">Vector3</a> which the attribute will be set to.</p>
 </td>
       </tr>
     </tbody>

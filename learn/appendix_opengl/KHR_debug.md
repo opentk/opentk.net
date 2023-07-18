@@ -116,6 +116,23 @@ void GL.ObjectPtrLabel(
 );
 ```
 
+> [!WARNING]
+> The `length` parameter for most of the functions given are intended for C
+> users and is in ASCII characters, not UTF-16 characters. This causes a small
+> disparity between the length of a string in C#, and it's length in bytes after
+> marshalling between UTF-16 and ASCII/UTF-8 characters.
+>
+> Although in some cases (particularly where only 7-bit ASCII characters are
+> used) the number of characters in the C# string and the number of characters
+> in the C string are going to match, the most appropriate way would be to
+> measure the length of the string in bytes using
+> `System.Text.Encoding.UTF8.GetByteCount()`. However, that still takes
+> significant time and effort, so you might just want to use `-1` instead.
+>
+> Using `-1` is allowed by the extension as the length of a string, where the
+> graphics driver will calculate the length of the null terminated C string
+> itself.
+
 _Here are a few examples of object labels in different OpenGL debugging
 software._
 
@@ -259,23 +276,6 @@ void GL.DebugMessageInsert(
     string message              /* The message to insert. */
 );
 ```
-
-> [!WARNING]
-> The `length` parameter for most of the functions given are intended for C
-> users and is in ASCII characters, not UTF-16 characters. This causes a small
-> disparity between the length of a string in C#, and it's length in bytes after
-> marshalling between UTF-16 and ASCII/UTF-8 characters.
->
-> Although in some cases (particularly where only 7-bit ASCII characters are
-> used) the number of characters in the C# string and the number of characters
-> in the C string are going to match, the most appropriate way would be to
-> measure the length of the string in bytes using
-> `System.Text.Encoding.UTF8.GetByteCount()`. However, that still takes
-> significant time and effort, so you might just want to use `-1` instead.
->
-> Using `-1` is allowed by the extension as the length of a string, where the
-> graphics driver will calculate the length of the null terminated C string
-> itself.
 
 ### `GL.GetDebugMessageLog()`
 In the absense of a debug message callback, this function can be used to

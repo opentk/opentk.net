@@ -124,14 +124,11 @@ void GL.ObjectPtrLabel(
 >
 > Although in some cases (particularly where only 7-bit ASCII characters are
 > used) the number of characters in the C# string and the number of characters
-> in the C string are going to match, the most appropriate way would be to
-> measure the length of the string in bytes using
-> `System.Text.Encoding.UTF8.GetByteCount()`. However, that still takes
-> significant time and effort, so you might just want to use `-1` instead.
+> in the C string are going to match, it might not always be the case.
 >
 > Using `-1` is allowed by the extension as the length of a string, where the
 > graphics driver will calculate the length of the null terminated C string
-> itself.
+> itself. This applies for other functions in the extension too.
 
 _Here are a few examples of object labels in different OpenGL debugging
 software._

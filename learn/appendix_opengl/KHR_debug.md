@@ -320,5 +320,5 @@ int GL.GetDebugMessageLog(
 
 References
 ----------
-* [Debug Messages on Khronos MeadiaWiki](https://www.khronos.org/opengl/wiki/Debug_Output)
+* [Debug Messages on Khronos MediaWiki](https://www.khronos.org/opengl/wiki/Debug_Output)
 * [KHR_debug on Khronos Registry](https://registry.khronos.org/OpenGL/extensions/KHR/KHR_debug.txt)

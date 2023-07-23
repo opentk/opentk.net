@@ -94,7 +94,7 @@ To solve this issue OpenGL uses a concept called mipmaps that is basically a col
 
 ![Mipmaps](img/5-mipmaps.png)
 
-Creating a collection of mipmapped textures for each texture image is cumbersome to do manually, but luckily OpenGL is able to do all the work for us with a single call to `GL.GenerateMipmaps` after we've created a texture. Later in the texture tutorial you'll see use of this function.
+Creating a collection of mipmapped textures for each texture image is cumbersome to do manually, but luckily OpenGL is able to do all the work for us with a single call to `GL.GenerateMipmap(GenerateMipmapTarget.Texture2D)` after we've created a texture. Later in the texture tutorial you'll see use of this function.
 
 When switching between mipmaps levels during rendering OpenGL might show some artifacts like sharp edges visible between the two mipmap layers. Just like normal texture filtering, it is also possible to filter between mipmap levels using `Nearest` and `Linear` filtering for switching between mipmap levels. To specify the filtering method between mipmap levels we can replace the original filtering methods with one of the following four options:
 
@@ -228,7 +228,7 @@ The parameters for `TexImage2D` are as follows:
 
 The image is now generated!
 
-Optionally, we can generate mipmaps. This isn't necessary here, but just for reference, put the line `GL.GenerateMipmaps()` after `TexImage2D`. That's all you need to do!
+Optionally, we can generate mipmaps. This isn't necessary here, but just for reference, put the line `GL.GenerateMipmap(GenerateMipmapTarget.Texture2D)` after `TexImage2D`. That's all you need to do!
 
 ## Applying textures
 

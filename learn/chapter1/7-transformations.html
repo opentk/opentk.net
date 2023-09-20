@@ -241,7 +241,7 @@ In addition, OpenTK provides the function <code>MathHelper.DegreesToRadians</cod
 <pre><code class="lang-cs">Vector4 vec = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
 Matrix4 trans = Matrix4.CreateTranslation(1f, 1f, 0.0f);
 vec *= trans;
-Console.WriteLine(&quot;{0}, {1}, {2}&quot;, vec.x, vec.y, vec.z);
+Console.WriteLine(&quot;{0}, {1}, {2}&quot;, vec.X, vec.Y, vec.Z);
 </code></pre>
 <p>We first define a vector named vec using OpenTK's built-in vector class. Next we define a Matrix4 and explicitly initialize it  by calling the <code>Matrix4.CreateTranslation</code> function, which takes three floats and creates a translation matrix.</p>
 <p>Then we multiply our vector by the transformation matrix and output the result. If we still remember how matrix translation works then the resulting vector should be <strong>(1+1,0+1,0+0)</strong> which is <strong>(2,1,0)</strong>. This snippet of code outputs 210 so the translation matrix did its job.</p>

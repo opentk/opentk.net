@@ -134,7 +134,7 @@ GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, 
 <p>Imagine if we had a large room with thousands of objects, each with an attached texture. There will be objects far away that have the same high resolution texture attached as the objects close to the viewer. Since the objects are far away and probably only produce a few fragments, OpenGL has difficulties retrieving the right color value for its fragment from the high resolution texture, since it has to pick a texture color for a fragment that spans a large part of the texture. This will produce visible artifacts on small objects, not to mention the waste of memory to use high resolution textures on small objects.</p>
 <p>To solve this issue OpenGL uses a concept called mipmaps that is basically a collection of texture images where each subsequent texture is twice as small compared to the previous one. The idea behind mipmaps should be easy to understand: after a certain distance threshold from the viewer, OpenGL will use a different mipmap texture that best suits the distance to the object. Because the object is far away, the smaller resolution will not be noticeable to the user. Also, mipmaps have the added bonus feature that they're good for performance as well. Let's take a closer look at what a mipmapped texture looks like:</p>
 <p><img src="img/5-mipmaps.png" alt="Mipmaps"></p>
-<p>Creating a collection of mipmapped textures for each texture image is cumbersome to do manually, but luckily OpenGL is able to do all the work for us with a single call to <code>GL.GenerateMipmaps</code> after we've created a texture. Later in the texture tutorial you'll see use of this function.</p>
+<p>Creating a collection of mipmapped textures for each texture image is cumbersome to do manually, but luckily OpenGL is able to do all the work for us with a single call to <code>GL.GenerateMipmap(GenerateMipmapTarget.Texture2D)</code> after we've created a texture. Later in the texture tutorial you'll see use of this function.</p>
 <p>When switching between mipmaps levels during rendering OpenGL might show some artifacts like sharp edges visible between the two mipmap layers. Just like normal texture filtering, it is also possible to filter between mipmap levels using <code>Nearest</code> and <code>Linear</code> filtering for switching between mipmap levels. To specify the filtering method between mipmap levels we can replace the original filtering methods with one of the following four options:</p>
 <ul>
 <li><code>NearestMipmapNearest</code>: takes the nearest mipmap to match the pixel size and uses nearest neighbor interpolation for texture sampling.</li>
@@ -239,7 +239,7 @@ image.CopyPixelDataTo(pixels);
 </li>
 </ul>
 <p>The image is now generated!</p>
-<p>Optionally, we can generate mipmaps. This isn't necessary here, but just for reference, put the line <code>GL.GenerateMipmaps()</code> after <code>TexImage2D</code>. That's all you need to do!</p>
+<p>Optionally, we can generate mipmaps. This isn't necessary here, but just for reference, put the line <code>GL.GenerateMipmap(GenerateMipmapTarget.Texture2D)</code> after <code>TexImage2D</code>. That's all you need to do!</p>
 <h2 id="applying-textures">Applying textures</h2>
 <p>Now that our texture is created, we'll need to modify our shaders and vertices to use the texture.</p>
 <p>Firstly, replace the array of vertices with this:</p>

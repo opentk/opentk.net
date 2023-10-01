@@ -190,6 +190,19 @@ void GL.ObjectPtrLabel(
     string label    /* The label to give to the pointer. */
 );
 </code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>The <code>length</code> parameter for most of the functions given are intended for C
+users and is in ASCII characters, not UTF-16 characters. This causes a small
+disparity between the length of a string in C#, and it's length in bytes after
+marshalling between UTF-16 and ASCII/UTF-8 characters.</p>
+<p>Although in some cases (particularly where only 7-bit ASCII characters are
+used) the number of characters in the C# string and the number of characters
+in the C string are going to match, it might not always be the case.</p>
+<p>Using <code>-1</code> is allowed by the extension as the length of a string, where the
+graphics driver will calculate the length of the null terminated C string
+itself. This applies for other functions in the extension too.</p>
+</div>
 <p><em>Here are a few examples of object labels in different OpenGL debugging
 software.</em></p>
 <div class="gallery">
@@ -369,22 +382,6 @@ filter parameters.</p>
     string message              /* The message to insert. */
 );
 </code></pre>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>The <code>length</code> parameter for most of the functions given are intended for C
-users and is in ASCII characters, not UTF-16 characters. This causes a small
-disparity between the length of a string in C#, and it's length in bytes after
-marshalling between UTF-16 and ASCII/UTF-8 characters.</p>
-<p>Although in some cases (particularly where only 7-bit ASCII characters are
-used) the number of characters in the C# string and the number of characters
-in the C string are going to match, the most appropriate way would be to
-measure the length of the string in bytes using
-<code>System.Text.Encoding.UTF8.GetByteCount()</code>. However, that still takes
-significant time and effort, so you might just want to use <code>-1</code> instead.</p>
-<p>Using <code>-1</code> is allowed by the extension as the length of a string, where the
-graphics driver will calculate the length of the null terminated C string
-itself.</p>
-</div>
 <h3 id="glgetdebugmessagelog"><code>GL.GetDebugMessageLog()</code></h3>
 <p>In the absense of a debug message callback, this function can be used to
 retreive debug messages that have been enqueued by the OpenGL context. The
@@ -445,7 +442,7 @@ parameters and their purposes are equivalent.</p>
 </table>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://www.khronos.org/opengl/wiki/Debug_Output">Debug Messages on Khronos MeadiaWiki</a></li>
+<li><a href="https://www.khronos.org/opengl/wiki/Debug_Output">Debug Messages on Khronos MediaWiki</a></li>
 <li><a href="https://registry.khronos.org/OpenGL/extensions/KHR/KHR_debug.txt">KHR_debug on Khronos Registry</a></li>
 </ul>
 </article>

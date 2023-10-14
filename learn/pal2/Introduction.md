@@ -2,10 +2,10 @@
 
 > [!IMPORTANT]
 > PAL2 is under early development and many things might change in the future.
-Feedback is encouraged.
+Feedback is wanted!
 
 > [!IMPORTANT]
-> Currently PAL2 is basically feature complete on Windows, and many parts work on x11, and a macos backend is not implemented. There is an SDL backend that works on both Windows and linux, and should in theory work on macos but the SDL binaries nuget package doesn't have macos binaries yet. The final release will also support macos.
+> Currently PAL2 is basically feature complete on Windows, and many parts work on x11, and a few features work on macos. There is an SDL backend that works on both Windows and linux, and should in theory work on macos but the SDL binaries nuget package doesn't have macos binaries yet.
 
 ## Setup
 
@@ -50,7 +50,9 @@ This returns a handle to the window and the opengl context which is the main met
 When a window handle is created it is not visible by default, so we need to show the window. We also need to set the size we want the window to be shown with. This can be done by setting the window size and mode like so:
 
 ```cs
+// Set the size of the window
 windowComp.SetSize(window, 800, 600);
+// Bring the window out of the default Hidden window mode
 windowComp.SetMode(window, WindowMode.Normal);
 ```
 
@@ -63,20 +65,25 @@ openglComp.SetCurrentContext(glContext);
 GLLoader.LoadBindings(openglComp.GetBindingsContext(glContext));
 ```
 
-`SetCurrentContext` sets the given OpenGL context as the "current" context.
+[`IOpenGLComponent.SetCurrentContext`](xref:OpenTK.Core.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Core.Platform.OpenGLContextHandle)) sets the given OpenGL context as the "current" context.
 <!--FIXME: Say something about what "current" context even means.-->
-And `GLLoader.LoadBindings` loads all OpenGL functions.
+And [`GLLoader.LoadBindings`](xref:OpenTK.Graphics.GLLoader.LoadBindings(OpenTK.IBindingsContext)) loads all OpenGL functions.
 <!--FIXME: Say something about lazy loading?-->
 
 Now we want to set up our event loop so we can interact with our newly created window. Without any event processing most of the window functions will not happen and no window interaction will be possible.
 
 A simple event loop might look like the following:
 ```cs
-while (windowComp.IsWindowDestroyed(window) == false)
+while (true)
 {
     // This will process events for all windows and
     //  post those events to the event queue.
     windowComp.ProcessEvents();
+    // Check if the window was destroyed after processing events.
+    if (windowComp.IsWindowDestroyed(window))
+    {
+        break;
+    }
 
     // Render something here
 }
@@ -88,7 +95,7 @@ To render something to the window we can do the following:
 GL.ClearColor(new Color4<Rgba>(64 / 255f, 0, 127 / 255f, 255));
 GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
-windowComp.SwapBuffers(window);
+openglComp.SwapBuffers(glContext);
 ```
 
 The code shown so far will create a window and then process events while rendering to the window, but running the code there is one crucial flaw to the program. Closing the window doesn't work.
@@ -191,7 +198,7 @@ class Sample
             GL.ClearColor(new Color4<Rgba>(64 / 255f, 0, 127 / 255f, 255));
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
-            windowComp.SwapBuffers(Window);
+            openglComp.SwapBuffers(GLContext);
         }
     }
 
@@ -205,3 +212,7 @@ class Sample
     }
 }
 ```
+
+## What's next?
+
+Now that you have a basic program working you can look more into the different components of PAL2 here: [Components](Components.md) or alternatively read more about the different evens that PAL2 supports: [Event Handling](Event-Handling.md).

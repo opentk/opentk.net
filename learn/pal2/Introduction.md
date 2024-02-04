@@ -5,7 +5,7 @@
 Feedback is wanted!
 
 > [!IMPORTANT]
-> Currently PAL2 is basically feature complete on Windows, and many parts work on x11, and a few features work on macos. There is an SDL backend that works on both Windows and linux, and should in theory work on macos but the SDL binaries nuget package doesn't have macos binaries yet.
+> Currently PAL2 is basically feature complete on Windows, and many parts work on x11 and macos. There is an SDL backend that works on both Windows and linux, and should in theory work on macos but the SDL binaries nuget package doesn't have macos binaries yet.
 
 ## Setup
 

@@ -21,8 +21,8 @@ The following is a list of windows specific settings and functions.
 |--------|-----------|
 |`ShellComponent`| |
 |[`ShellComponent.SetImmersiveDarkMode`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetImmersiveDarkMode(OpenTK.Core.Platform.WindowHandle,System.Boolean))|Sets the `DWMWA_USE_IMMERSIVE_DARK_MODE` flag on the window causing the titlebar be rendered in dark mode colors. This is only officially supported from Window 11 Build 220000, but can sometimes work on Windows 10.|
-|[`ShellComponent.SetCaptionTextColor`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionTextColor(OpenTK.Core.Platform.WindowHandle,OpenTK.Color3{OpenTK.Rgb}))|Used to set the text color in the windows titlebar. This is only officially supported from Window 11 Build 220000, but can sometimes work on Windows 10.|
-|[`ShellComponent.SetCaptionColor`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor(OpenTK.Core.Platform.WindowHandle,OpenTK.Color3{OpenTK.Rgb}))|Used to set the color of the window titlebar. This is only officially supported from Window 11 Build 220000, but can sometimes work on Windows 10.|
+|[`ShellComponent.SetCaptionTextColor`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionTextColor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Color3{OpenTK.Mathematics.Rgb}))|Used to set the text color in the windows titlebar. This is only officially supported from Window 11 Build 220000, but can sometimes work on Windows 10.|
+|[`ShellComponent.SetCaptionColor`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Color3{OpenTK.Mathematics.Rgb}))|Used to set the color of the window titlebar. This is only officially supported from Window 11 Build 220000, but can sometimes work on Windows 10.|
 |`IconComponent`| |
 |[`IconComponent.CreateFromIcoFile`](xref:OpenTK.Platform.Native.Windows.IconComponent.CreateFromIcoFile(System.String))|Used to create an `IconHandle` from a `.ico` file. An icon created using this function will be able to dynamically pick resolution if the file contains multiple resolutions.|
 |[`IconComponent.CreateFromIcoResource(byte[])`](xref:OpenTK.Platform.Native.Windows.IconComponent.CreateFromIcoResource(System.Byte[]))|Used to create an `IconHandle` from a `.ico` file embedded as a `.resx` resource. An Icon created using this function will **not** be able to dynamically pick resolution.|
@@ -53,4 +53,19 @@ The following is a list of linux x11 specific settings and functions.
 |[`X11IconComponent.Create(int, int, IconImage[])`](xref:OpenTK.Platform.Native.X11.X11IconComponent.Create(System.Int32,System.Int32,OpenTK.Platform.Native.X11.X11IconComponent.IconImage[]))|Used to create multi-resolution icons.|
 
 # macOS
-Currently there are no macOS specific apis.
+The following is a list of macOS specific settings and functions.
+
+|Function|Description|
+|--------|-----------|
+|`MacOSWindowComponent`| |
+|[`MacOSWindowComponent.SetDockIcon`](xref:OpenTK.Platform.Native.macOS.MacOSWindowComponent.SetDockIcon(OpenTK.Core.Platform.WindowHandle,OpenTK.Core.Platform.IconHandle))|Sets the dock icon of the application|
+|`MacOSIconComponent`||
+|[`MacOSIconComponent.CreateSFSymbol`](xref:OpenTK.Platform.Native.macOS.MacOSIconComponent.CreateSFSymbol(System.String,System.String))|Creates a IconHandle from a SF symbol name.|
+|`MacOSDisplayComponent`||
+|[`MacOSDisplayComponent.GetSafeArea`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetSafeArea(OpenTK.Core.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@))|Gets the area of the screen that is not covered by things like camera housings.|
+|[`MacOSDisplayComponent.GetSafeLeftAuxArea`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetSafeLeftAuxArea(OpenTK.Core.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@))|Gets the visible area of the screen to the left of the camera housing or an empty area if there is no camera housing.|
+|[`MacOSDisplayComponent.GetSafeRightAuxArea`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetSafeRightAuxArea(OpenTK.Core.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@))|Gets the visible area of the screen to the right of the camera housing or an empty area of there is no camera housing.|
+|`MacOSCursorComponent`||
+|[`MacOSCursorComponent.Create(Frame[] frames, float delay)`](xref:OpenTK.Platform.Native.macOS.MacOSCursorComponent.Create(OpenTK.Platform.Native.macOS.MacOSCursorComponent.Frame[],System.Single))|Used to create an animated cursor.|
+|[`MacOSCursorComponent.IsAnimatedCursor`](xref:OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor(OpenTK.Core.Platform.CursorHandle))|Used to check if a given cursor is animated.|
+|[`MacOSCursorComponent.UpdateAnimation`](xref:OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation(OpenTK.Core.Platform.CursorHandle,System.Double))|Used to update the animation of a given cursor.|

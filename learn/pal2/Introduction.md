@@ -25,6 +25,26 @@ windowComp.Initialize(PalComponents.Window);
 openglComp.Initialize(PalComponents.OpenGL);
 ```
 
+## Logging
+
+All components in PAL2 have the ability to output diagnostic messages through an `ILogger` interface exposed as a `Logger` property of the component. This can be useful to find errors in the code and provide debug data that can be used to fix bugs in OpenTK.
+
+OpenTK provides an implementation of this interface called `ConsoleLogger` that writes out all debug messages to the console.
+
+We set the logger before we initialize the components so that we can get diagnostic messages during initialization too.
+
+```cs
+IWindowComponent windowComp = new PlatformComponents.CreateWindowComponent();
+IOpenGLComponent openglComp = new PlatformComponents.CreateOpenGLComponent();
+
+ConsoleLogger logger = new ConsoleLogger();
+windowComp.Logger = logger;
+openglComp.Logger = logger;
+
+windowComp.Initialize(PalComponents.Window);
+openglComp.Initialize(PalComponents.OpenGL);
+```
+
 ## Creating a window
 
 To create an OpenGL window using PAL2 all you need to do is the following:
@@ -162,6 +182,10 @@ class Sample
 
     public static void Main(string[] args)
     {
+        ConsoleLogger logger = new ConsoleLogger();
+        windowComp.Logger = logger;
+        openglComp.Logger = logger;
+
         windowComp.Initialize(PalComponents.Window);
         openglComp.Initialize(PalComponents.OpenGL);
 

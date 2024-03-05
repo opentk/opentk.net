@@ -97,20 +97,22 @@ We have two calls here. Firstly, `GL.Clear` clears the screen, using the color s
 
 Then, we have `Context.SwapBuffers`. Almost any modern OpenGL context is what's known as "double-buffered". Double-buffering means that there are two areas that OpenGL draws to. In essence: One area is displayed, while the other is being rendered to. Then, when you call SwapBuffers, the two are reversed. A single-buffered context could have issues such as screen tearing.
 
-Next, we have OnResize.
-
 # [OpenTK 4](#tab/resize-opentk4)
+Next, we have OnFramebufferResize.
 
 ```cs
-protected override void OnResize(ResizeEventArgs e)
+protected override void OnFramebufferResize(ResizeEventArgs e)
 {
-    base.OnResize(e);
+    base.OnFramebufferResize(e);
 
     GL.Viewport(0, 0, e.Width, e.Height);
 }
 ```
 
+This function runs every time the windows framebuffer gets resized. When this happens the NDC to window coordinate transformation is not automatically updated, causing rendering be done at the old framebuffer size. With `GL.Viewport` we can update this transformation so that we correctly render to the entire framebuffer.
+
 # [OpenTK 3](#tab/resize-opentk3)
+Next, we have OnResize.
 
 ```cs
 protected override void OnResize(EventArgs e)
@@ -121,9 +123,8 @@ protected override void OnResize(EventArgs e)
 }
 ```
 
+This function runs every time the window gets resized. When this happens the NDC to window coordinate transformation is not automatically updated, causing rendering be done at the old framebuffer size. With `GL.Viewport` we can update this transformation so that we correctly render to the entire framebuffer.
 ***
-
-This function runs every time the window gets resized. `GL.Viewport` maps the NDC to the window. OnResize isn't super important, and no code is going to be added here outside of what we've already put down.
 
 ## Vertex input
 

@@ -232,6 +232,31 @@
   <div class="markdown level1 remarks"><p>Set to <code>null</code> disable aspect ratio locking.
 If you set size limits and an aspect ratio lock that conflict, the results are undefined.</p>
 </div>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_AutoIconify_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.AutoIconify*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_AutoIconify" data-uid="OpenTK.Windowing.Desktop.NativeWindow.AutoIconify">AutoIconify</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the application window will be minimized if the
+focus changes while the window is in fullscreen mode. The default value is <code>true</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AutoIconify { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_Bounds_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.Bounds*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_Bounds" data-uid="OpenTK.Windowing.Desktop.NativeWindow.Bounds">Bounds</h4>
   <div class="markdown level1 summary"><p>Gets or sets a <a class="xref" href="OpenTK.Mathematics.Box2i.html">Box2i</a> structure the contains the external bounds of this window,
@@ -498,6 +523,30 @@ The internal bounds include the drawing area of the window, but exclude the titl
     <tbody>
       <tr>
         <td><a class="xref" href="OpenTK.Windowing.Common.ContextFlags.html">ContextFlags</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_FramebufferSize_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_FramebufferSize" data-uid="OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize">FramebufferSize</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="OpenTK.Mathematics.Vector2i.html">Vector2i</a> structure that contains the framebuffer size of this window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2i FramebufferSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Vector2i.html">Vector2i</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1181,7 +1230,7 @@ Check <a class="xref" href="OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Wi
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void Dispose()</code></pre>
   </div>
   <a id="OpenTK_Windowing_Desktop_NativeWindow_Dispose_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.Dispose*"></a>
   <h4 id="OpenTK_Windowing_Desktop_NativeWindow_Dispose_System_Boolean_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -1592,6 +1641,33 @@ Do not call this function if you are calling <see cref="!:ProcessEvents()"></see
         <td><a class="xref" href="OpenTK.Windowing.Common.FocusedChangedEventArgs.html">FocusedChangedEventArgs</a></td>
         <td><span class="parametername">e</span></td>
         <td><p>A <a class="xref" href="OpenTK.Windowing.Common.FocusedChangedEventArgs.html">FocusedChangedEventArgs</a> that contains the event data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Windowing_Desktop_NativeWindow_OnFramebufferResize_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize*"></a>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_OnFramebufferResize_OpenTK_Windowing_Common_FramebufferResizeEventArgs_" data-uid="OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)">OnFramebufferResize(FramebufferResizeEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Raises the FramebufferResize event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnFramebufferResize(FramebufferResizeEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Windowing.Common.FramebufferResizeEventArgs.html">FramebufferResizeEventArgs</a></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>A <a class="xref" href="OpenTK.Windowing.Common.FramebufferResizeEventArgs.html">FramebufferResizeEventArgs</a> that contains the event data.</p>
 </td>
       </tr>
     </tbody>
@@ -2332,6 +2408,29 @@ be scaled correctly.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="OpenTK.Windowing.Common.FocusedChangedEventArgs.html">FocusedChangedEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="OpenTK_Windowing_Desktop_NativeWindow_FramebufferResize" data-uid="OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize">FramebufferResize</h4>
+  <div class="markdown level1 summary"><p>Occurs whenever the framebuffer is resized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;FramebufferResizeEventArgs&gt; FramebufferResize</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="OpenTK.Windowing.Common.FramebufferResizeEventArgs.html">FramebufferResizeEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

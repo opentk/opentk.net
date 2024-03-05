@@ -173,7 +173,6 @@
 
 <p>We have two calls here. Firstly, <code>GL.Clear</code> clears the screen, using the color set in OnLoad. This should always be the first function called when rendering.</p>
 <p>Then, we have <code>Context.SwapBuffers</code>. Almost any modern OpenGL context is what's known as &quot;double-buffered&quot;. Double-buffering means that there are two areas that OpenGL draws to. In essence: One area is displayed, while the other is being rendered to. Then, when you call SwapBuffers, the two are reversed. A single-buffered context could have issues such as screen tearing.</p>
-<p>Next, we have OnResize.</p>
 <div class="tabGroup" id="tabgroup_bHGHmlrG6S-2">
 <ul role="tablist">
 <li role="presentation">
@@ -185,16 +184,19 @@
 </ul>
 <section id="tabpanel_bHGHmlrG6S-2_resize-opentk4" role="tabpanel" data-tab="resize-opentk4">
 
-<pre><code class="lang-cs">protected override void OnResize(ResizeEventArgs e)
+<p>Next, we have OnFramebufferResize.</p>
+<pre><code class="lang-cs">protected override void OnFramebufferResize(ResizeEventArgs e)
 {
-    base.OnResize(e);
+    base.OnFramebufferResize(e);
 
     GL.Viewport(0, 0, e.Width, e.Height);
 }
 </code></pre>
+<p>This function runs every time the windows framebuffer gets resized. When this happens the NDC to window coordinate transformation is not automatically updated, causing rendering be done at the old framebuffer size. With <code>GL.Viewport</code> we can update this transformation so that we correctly render to the entire framebuffer.</p>
 </section>
 <section id="tabpanel_bHGHmlrG6S-2_resize-opentk3" role="tabpanel" data-tab="resize-opentk3" aria-hidden="true" hidden="hidden">
 
+<p>Next, we have OnResize.</p>
 <pre><code class="lang-cs">protected override void OnResize(EventArgs e)
 {
     base.OnResize(e);
@@ -202,10 +204,9 @@
     GL.Viewport(0, 0, Width, Height);
 }
 </code></pre>
+<p>This function runs every time the window gets resized. When this happens the NDC to window coordinate transformation is not automatically updated, causing rendering be done at the old framebuffer size. With <code>GL.Viewport</code> we can update this transformation so that we correctly render to the entire framebuffer.</p>
 </section>
 </div>
-
-<p>This function runs every time the window gets resized. <code>GL.Viewport</code> maps the NDC to the window. OnResize isn't super important, and no code is going to be added here outside of what we've already put down.</p>
 <h2 id="vertex-input">Vertex input</h2>
 <p>To start drawing something we have to first give OpenGL some input vertex data. OpenGL is a 3D graphics library so all coordinates that we specify in OpenGL are in 3D (x, y and z coordinate). OpenGL doesn't simply transform all your 3D coordinates to 2D pixels on your screen; OpenGL only processes 3D coordinates when they're in a specific range between -1.0 and 1.0 on all 3 axes (x, y and z). All coordinates within this so called normalized device coordinates range will end up visible on your screen (and all coordinates outside this region won't).</p>
 <p>Because we want to render a single triangle we want to specify a total of three vertices with each vertex having a 3D position. We define them in normalized device coordinates (the visible region of OpenGL) in a float array. Put this in your class as a property:</p>

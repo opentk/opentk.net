@@ -91,6 +91,40 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface IBindingsContext</code></pre>
   </div>
+  <h5 id="OpenTK_IBindingsContext_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>If you wish to use OpenTK OpenGL bindings in a custom environment see
+the example for a tutorial on its usage.</p>
+</div>
+  <h5 id="OpenTK_IBindingsContext_examples"><strong>Examples</strong></h5>
+  <p>In order to use this interface, you need to figure out how to load OpenGL
+function pointers in your custom environment. For example, if you are
+providing a custom window using SDL, you would use the C function
+<code>SDL_GL_GetProcAddress</code> to implement this interface.</p>
+<pre><code class="lang-csharp">using System;
+using System.Runtime.InteropServices;
+using OpenTK;
+using OpenTK.Graphics.OpenGL4;
+
+public class MySDLBindingsContext : IBindingsContext
+{
+    public IntPtr GetProcAddress(string procName)
+    {
+        [DllImport("SDL2")]
+        extern static IntPtr SDL_GL_GetProcAddress([MarshalAs(UnmanagedType.LPStr)] string procName);
+
+        return SDL_GL_GetProcAddress(procName);
+    }
+}
+
+/// ...
+
+// In order to load the bindings, call the following function with this
+// new class you implemented.
+GL.LoadBindings(new MySDLBindingsContext());</code></pre>
+<p>Do note that every OpenTK.Graphics.XXX namespace has its own pointer table.
+If you have mixed and matched the namespaces used in your project, you might
+run into exceptions telling you that the bindings are not loaded.</p>
+
   <h3 id="methods">Methods
 </h3>
   <a id="OpenTK_IBindingsContext_GetProcAddress_" data-uid="OpenTK.IBindingsContext.GetProcAddress*"></a>

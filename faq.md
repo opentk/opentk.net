@@ -72,6 +72,14 @@ But if you need to integrate OpenTK with an existing UI, it includes some packag
 
 - **OpenTK 3.x** contains its own WinForms-compatible `GLControl` component.
 
+### How do I use [Dear ImGui](https://github.com/ocornut/imgui) with OpenTK?
+
+To get started with Dear ImGui checkout the [sample repo created by NogginBops](https://github.com/NogginBops/ImGui.NET_OpenTK_Sample). Copy the source of `ImGuiController.cs` into your project to get going.
+
+> [!WARNING]
+> There is a nuget package called [`OpenTK.ImGui`](https://www.nuget.org/packages/OpenTK.ImGui) that should **NOT** be used. It's not up to date and is not created by NogginBops. It will not work.
+
+
 ### How fast is OpenTK?
 
 For a .NET library, OpenTK is *very* fast.  OpenTK 3 and 4 use hand-optimized IL assembly to minimize overhead when calling OpenGL functions, and OpenTK 5 is planned to use the new C# function pointers to accomplish the same thing.

@@ -1,0 +1,455 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Core.Utils
+  commentId: T:OpenTK.Core.Utils
+  id: Utils
+  parent: OpenTK.Core
+  children:
+  - OpenTK.Core.Utils.AccurateSleep(System.Double,System.Int32)
+  - OpenTK.Core.Utils.FromTszString(System.Char*,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: Utils
+  nameWithType: Utils
+  fullName: OpenTK.Core.Utils
+  type: Class
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/Utils.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Utils
+    path: opentk/src/OpenTK.Core/Utility/Utils.cs
+    startLine: 11
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core
+  summary: A collection of utility functions exposed by OpenTK.
+  example: []
+  syntax:
+    content: public static class Utils
+    content.vb: Public Module Utils
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: OpenTK.Core.Utils.AccurateSleep(System.Double,System.Int32)
+  commentId: M:OpenTK.Core.Utils.AccurateSleep(System.Double,System.Int32)
+  id: AccurateSleep(System.Double,System.Int32)
+  parent: OpenTK.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: AccurateSleep(double, int)
+  nameWithType: Utils.AccurateSleep(double, int)
+  fullName: OpenTK.Core.Utils.AccurateSleep(double, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/Utils.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: AccurateSleep
+    path: opentk/src/OpenTK.Core/Utility/Utils.cs
+    startLine: 28
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core
+  summary: >-
+    A method for accurate sleep times.
+
+    This function will favour accuracy over efficiency and spin wait if it's unsure a sleep will wake in time.
+
+
+    This is useful when implementing a run-loop with accurate timings.
+  remarks: >-
+    The details of this method is described in detail here:
+
+    <a href="https://blog.bearcats.nl/perfect-sleep-function/">https://blog.bearcats.nl/perfect-sleep-function/</a>.
+  example: []
+  syntax:
+    content: public static void AccurateSleep(double seconds, int expectedSchedulerPeriod)
+    parameters:
+    - id: seconds
+      type: System.Double
+      description: The number of seconds to sleep for.
+    - id: expectedSchedulerPeriod
+      type: System.Int32
+      description: >-
+        The expected scheduler period in milliseconds. Can also be seen as the expected sleep time of <code>Thread.Sleep(1)</code>. <br />
+
+        Set on windows using <code>timeBeginPeriod()</code>.
+    content.vb: Public Shared Sub AccurateSleep(seconds As Double, expectedSchedulerPeriod As Integer)
+  overload: OpenTK.Core.Utils.AccurateSleep*
+  nameWithType.vb: Utils.AccurateSleep(Double, Integer)
+  fullName.vb: OpenTK.Core.Utils.AccurateSleep(Double, Integer)
+  name.vb: AccurateSleep(Double, Integer)
+- uid: OpenTK.Core.Utils.FromTszString(System.Char*,System.Int32)
+  commentId: M:OpenTK.Core.Utils.FromTszString(System.Char*,System.Int32)
+  id: FromTszString(System.Char*,System.Int32)
+  parent: OpenTK.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: FromTszString(char*, int)
+  nameWithType: Utils.FromTszString(char*, int)
+  fullName: OpenTK.Core.Utils.FromTszString(char*, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/Utils.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: FromTszString
+    path: opentk/src/OpenTK.Core/Utility/Utils.cs
+    startLine: 51
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core
+  syntax:
+    content: public static string FromTszString(char* ptr, int max_length)
+    parameters:
+    - id: ptr
+      type: System.Char*
+    - id: max_length
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Shared Function FromTszString(ptr As Char*, max_length As Integer) As String
+  overload: OpenTK.Core.Utils.FromTszString*
+  nameWithType.vb: Utils.FromTszString(Char*, Integer)
+  fullName.vb: OpenTK.Core.Utils.FromTszString(Char*, Integer)
+  name.vb: FromTszString(Char*, Integer)
+references:
+- uid: OpenTK.Core
+  commentId: N:OpenTK.Core
+  href: OpenTK.html
+  name: OpenTK.Core
+  nameWithType: OpenTK.Core
+  fullName: OpenTK.Core
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Core.Utils.AccurateSleep*
+  commentId: Overload:OpenTK.Core.Utils.AccurateSleep
+  href: OpenTK.Core.Utils.html#OpenTK_Core_Utils_AccurateSleep_System_Double_System_Int32_
+  name: AccurateSleep
+  nameWithType: Utils.AccurateSleep
+  fullName: OpenTK.Core.Utils.AccurateSleep
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OpenTK.Core.Utils.FromTszString*
+  commentId: Overload:OpenTK.Core.Utils.FromTszString
+  href: OpenTK.Core.Utils.html#OpenTK_Core_Utils_FromTszString_System_Char__System_Int32_
+  name: FromTszString
+  nameWithType: Utils.FromTszString
+  fullName: OpenTK.Core.Utils.FromTszString
+- uid: System.Char*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char*
+  nameWithType: char*
+  fullName: char*
+  nameWithType.vb: Char*
+  fullName.vb: Char*
+  name.vb: Char*
+  spec.csharp:
+  - uid: System.Char
+    name: char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '*'
+  spec.vb:
+  - uid: System.Char
+    name: Char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '*'
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -19,6 +19,14 @@ as the extension [`ARB_debug_output`](https://registry.khronos.org/OpenGL/extens
 both `ARB_debug_output` extension and the 4.3+ API. `KHR_debug` however covers
 so much more than what was introduced in the original extension.
 
+Here is an example of the type of messages you will receive from OpenGL when you
+have a debugging callback setup after some custom formatting.
+
+```
+[ERR 2023-02-16T16:37:18] (GL) DebugSourceApi/DebugTypeError (1281): GL_INVALID_VALUE error generated. ObjectLabel: unknown vertex array object <name>
+[WRN 2023-02-16T16:37:18] (GL) DebugSourceApi/DebugTypePerformance (131218): Program/shader state performance warning: Vertex shader in program 1 is being recompiled based on GL state.
+```
+
 First and foremost, you should create your OpenGL context with the Debug flag
 set. Without the debug flag OpenGL will not generate debugging messages nor
 send them to your callback function.

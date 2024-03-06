@@ -1,0 +1,120 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.IBindingsContext
+  commentId: T:OpenTK.IBindingsContext
+  id: IBindingsContext
+  parent: OpenTK
+  children:
+  - OpenTK.IBindingsContext.GetProcAddress(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IBindingsContext
+  nameWithType: IBindingsContext
+  fullName: OpenTK.IBindingsContext
+  type: Interface
+  source:
+    remote:
+      path: src/OpenTK.Core/Context/IBindingsContext.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: IBindingsContext
+    path: opentk/src/OpenTK.Core/Context/IBindingsContext.cs
+    startLine: 7
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK
+  summary: Provides methods for querying available functions in a bindings context.
+  example: []
+  syntax:
+    content: public interface IBindingsContext
+    content.vb: Public Interface IBindingsContext
+- uid: OpenTK.IBindingsContext.GetProcAddress(System.String)
+  commentId: M:OpenTK.IBindingsContext.GetProcAddress(System.String)
+  id: GetProcAddress(System.String)
+  parent: OpenTK.IBindingsContext
+  langs:
+  - csharp
+  - vb
+  name: GetProcAddress(string)
+  nameWithType: IBindingsContext.GetProcAddress(string)
+  fullName: OpenTK.IBindingsContext.GetProcAddress(string)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Context/IBindingsContext.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: GetProcAddress
+    path: opentk/src/OpenTK.Core/Context/IBindingsContext.cs
+    startLine: 22
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK
+  summary: Retrieves an unmanaged function pointer to the specified function on the specified bindings context.
+  remarks: >-
+    Note: some drivers are known to return non-zero values for unsupported functions.
+
+    Typical values include 1 and 2 - inheritors are advised to check for and ignore these
+
+    values.
+  example: []
+  syntax:
+    content: nint GetProcAddress(string procName)
+    parameters:
+    - id: procName
+      type: System.String
+      description: An ASCII-encoded string that defines the name of the function.
+    return:
+      type: System.IntPtr
+      description: >-
+        A <xref href="System.IntPtr" data-throw-if-not-resolved="false"></xref> that contains the address of procName or IntPtr.Zero,
+
+        if the function is not supported by the drivers.
+    content.vb: Function GetProcAddress(procName As String) As IntPtr
+  overload: OpenTK.IBindingsContext.GetProcAddress*
+  nameWithType.vb: IBindingsContext.GetProcAddress(String)
+  fullName.vb: OpenTK.IBindingsContext.GetProcAddress(String)
+  name.vb: GetProcAddress(String)
+references:
+- uid: OpenTK
+  commentId: N:OpenTK
+  href: OpenTK.html
+  name: OpenTK
+  nameWithType: OpenTK
+  fullName: OpenTK
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: OpenTK.IBindingsContext.GetProcAddress*
+  commentId: Overload:OpenTK.IBindingsContext.GetProcAddress
+  href: OpenTK.IBindingsContext.html#OpenTK_IBindingsContext_GetProcAddress_System_String_
+  name: GetProcAddress
+  nameWithType: IBindingsContext.GetProcAddress
+  fullName: OpenTK.IBindingsContext.GetProcAddress
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

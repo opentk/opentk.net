@@ -1,0 +1,467 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  id: ILogger
+  parent: OpenTK.Core.Utility
+  children:
+  - OpenTK.Core.Utility.ILogger.Filter
+  - OpenTK.Core.Utility.ILogger.Log(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
+  - OpenTK.Core.Utility.ILogger.LogDebug(System.String,System.String,System.Int32,System.String)
+  - OpenTK.Core.Utility.ILogger.LogError(System.String,System.String,System.Int32,System.String)
+  - OpenTK.Core.Utility.ILogger.LogInfo(System.String,System.String,System.Int32,System.String)
+  - OpenTK.Core.Utility.ILogger.LogInternal(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
+  - OpenTK.Core.Utility.ILogger.LogWarning(System.String,System.String,System.Int32,System.String)
+  langs:
+  - csharp
+  - vb
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+  type: Interface
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: ILogger
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 40
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: Interface used by OpenTK to be able to log diagnostic information.
+  example: []
+  syntax:
+    content: public interface ILogger
+    content.vb: Public Interface ILogger
+- uid: OpenTK.Core.Utility.ILogger.Filter
+  commentId: P:OpenTK.Core.Utility.ILogger.Filter
+  id: Filter
+  parent: OpenTK.Core.Utility.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Filter
+  nameWithType: ILogger.Filter
+  fullName: OpenTK.Core.Utility.ILogger.Filter
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Filter
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 46
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: >-
+    The filter level of the logger.
+
+    Messages that are below the filter level will not be logged.
+  example: []
+  syntax:
+    content: LogLevel Filter { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Core.Utility.LogLevel
+    content.vb: Property Filter As LogLevel
+  overload: OpenTK.Core.Utility.ILogger.Filter*
+- uid: OpenTK.Core.Utility.ILogger.LogInternal(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
+  commentId: M:OpenTK.Core.Utility.ILogger.LogInternal(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
+  id: LogInternal(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
+  parent: OpenTK.Core.Utility.ILogger
+  langs:
+  - csharp
+  - vb
+  name: LogInternal(string, LogLevel, string, int, string)
+  nameWithType: ILogger.LogInternal(string, LogLevel, string, int, string)
+  fullName: OpenTK.Core.Utility.ILogger.LogInternal(string, OpenTK.Core.Utility.LogLevel, string, int, string)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: LogInternal
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 57
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: >-
+    The internal logging function. An implementor only need to implement this function.
+
+    The implementation needs to take into consideration <xref href="OpenTK.Core.Utility.ILogger.Filter" data-throw-if-not-resolved="false"></xref> when logging.
+  example: []
+  syntax:
+    content: void LogInternal(string str, LogLevel level, string filePath, int lineNumber, string member)
+    parameters:
+    - id: str
+      type: System.String
+      description: The string to log.
+    - id: level
+      type: OpenTK.Core.Utility.LogLevel
+      description: The logging level.
+    - id: filePath
+      type: System.String
+      description: The callsite file name.
+    - id: lineNumber
+      type: System.Int32
+      description: The callsite line number.
+    - id: member
+      type: System.String
+      description: The member name at the callsite.
+    content.vb: Sub LogInternal(str As String, level As LogLevel, filePath As String, lineNumber As Integer, member As String)
+  overload: OpenTK.Core.Utility.ILogger.LogInternal*
+  nameWithType.vb: ILogger.LogInternal(String, LogLevel, String, Integer, String)
+  fullName.vb: OpenTK.Core.Utility.ILogger.LogInternal(String, OpenTK.Core.Utility.LogLevel, String, Integer, String)
+  name.vb: LogInternal(String, LogLevel, String, Integer, String)
+- uid: OpenTK.Core.Utility.ILogger.Log(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
+  commentId: M:OpenTK.Core.Utility.ILogger.Log(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
+  id: Log(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
+  parent: OpenTK.Core.Utility.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Log(string, LogLevel, string, int, string)
+  nameWithType: ILogger.Log(string, LogLevel, string, int, string)
+  fullName: OpenTK.Core.Utility.ILogger.Log(string, OpenTK.Core.Utility.LogLevel, string, int, string)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Log
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 67
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: Logs a message with a specific logging level.
+  example: []
+  syntax:
+    content: void Log(string str, LogLevel level, string filePath = null, int line = -1, string member = null)
+    parameters:
+    - id: str
+      type: System.String
+      description: The string to log.
+    - id: level
+      type: OpenTK.Core.Utility.LogLevel
+      description: The logging level.
+    - id: filePath
+      type: System.String
+      description: The callsite file name.
+    - id: line
+      type: System.Int32
+      description: The callsite line number.
+    - id: member
+      type: System.String
+      description: The member name at the callsite.
+    content.vb: Sub Log(str As String, level As LogLevel, filePath As String = Nothing, line As Integer = -1, member As String = Nothing)
+  overload: OpenTK.Core.Utility.ILogger.Log*
+  nameWithType.vb: ILogger.Log(String, LogLevel, String, Integer, String)
+  fullName.vb: OpenTK.Core.Utility.ILogger.Log(String, OpenTK.Core.Utility.LogLevel, String, Integer, String)
+  name.vb: Log(String, LogLevel, String, Integer, String)
+- uid: OpenTK.Core.Utility.ILogger.LogDebug(System.String,System.String,System.Int32,System.String)
+  commentId: M:OpenTK.Core.Utility.ILogger.LogDebug(System.String,System.String,System.Int32,System.String)
+  id: LogDebug(System.String,System.String,System.Int32,System.String)
+  parent: OpenTK.Core.Utility.ILogger
+  langs:
+  - csharp
+  - vb
+  name: LogDebug(string, string, int, string)
+  nameWithType: ILogger.LogDebug(string, string, int, string)
+  fullName: OpenTK.Core.Utility.ILogger.LogDebug(string, string, int, string)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: LogDebug
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 76
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: Logs a debug message.
+  example: []
+  syntax:
+    content: void LogDebug(string str, string filePath = null, int line = -1, string member = null)
+    parameters:
+    - id: str
+      type: System.String
+      description: The debug string to log.
+    - id: filePath
+      type: System.String
+      description: The callsite file name.
+    - id: line
+      type: System.Int32
+      description: The callsite line number.
+    - id: member
+      type: System.String
+      description: The member name at the callsite.
+    content.vb: Sub LogDebug(str As String, filePath As String = Nothing, line As Integer = -1, member As String = Nothing)
+  overload: OpenTK.Core.Utility.ILogger.LogDebug*
+  nameWithType.vb: ILogger.LogDebug(String, String, Integer, String)
+  fullName.vb: OpenTK.Core.Utility.ILogger.LogDebug(String, String, Integer, String)
+  name.vb: LogDebug(String, String, Integer, String)
+- uid: OpenTK.Core.Utility.ILogger.LogInfo(System.String,System.String,System.Int32,System.String)
+  commentId: M:OpenTK.Core.Utility.ILogger.LogInfo(System.String,System.String,System.Int32,System.String)
+  id: LogInfo(System.String,System.String,System.Int32,System.String)
+  parent: OpenTK.Core.Utility.ILogger
+  langs:
+  - csharp
+  - vb
+  name: LogInfo(string, string, int, string)
+  nameWithType: ILogger.LogInfo(string, string, int, string)
+  fullName: OpenTK.Core.Utility.ILogger.LogInfo(string, string, int, string)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: LogInfo
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 85
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: Log a message.
+  example: []
+  syntax:
+    content: void LogInfo(string str, string filePath = null, int line = -1, string member = null)
+    parameters:
+    - id: str
+      type: System.String
+      description: The message to log.
+    - id: filePath
+      type: System.String
+      description: The callsite file name.
+    - id: line
+      type: System.Int32
+      description: The callsite line number.
+    - id: member
+      type: System.String
+      description: The member name at the callsite.
+    content.vb: Sub LogInfo(str As String, filePath As String = Nothing, line As Integer = -1, member As String = Nothing)
+  overload: OpenTK.Core.Utility.ILogger.LogInfo*
+  nameWithType.vb: ILogger.LogInfo(String, String, Integer, String)
+  fullName.vb: OpenTK.Core.Utility.ILogger.LogInfo(String, String, Integer, String)
+  name.vb: LogInfo(String, String, Integer, String)
+- uid: OpenTK.Core.Utility.ILogger.LogWarning(System.String,System.String,System.Int32,System.String)
+  commentId: M:OpenTK.Core.Utility.ILogger.LogWarning(System.String,System.String,System.Int32,System.String)
+  id: LogWarning(System.String,System.String,System.Int32,System.String)
+  parent: OpenTK.Core.Utility.ILogger
+  langs:
+  - csharp
+  - vb
+  name: LogWarning(string, string, int, string)
+  nameWithType: ILogger.LogWarning(string, string, int, string)
+  fullName: OpenTK.Core.Utility.ILogger.LogWarning(string, string, int, string)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: LogWarning
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 94
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: Logs a warning.
+  example: []
+  syntax:
+    content: void LogWarning(string str, string filePath = null, int line = -1, string member = null)
+    parameters:
+    - id: str
+      type: System.String
+      description: The warning to log.
+    - id: filePath
+      type: System.String
+      description: The callsite file name.
+    - id: line
+      type: System.Int32
+      description: The callsite line number.
+    - id: member
+      type: System.String
+      description: The member name at the callsite.
+    content.vb: Sub LogWarning(str As String, filePath As String = Nothing, line As Integer = -1, member As String = Nothing)
+  overload: OpenTK.Core.Utility.ILogger.LogWarning*
+  nameWithType.vb: ILogger.LogWarning(String, String, Integer, String)
+  fullName.vb: OpenTK.Core.Utility.ILogger.LogWarning(String, String, Integer, String)
+  name.vb: LogWarning(String, String, Integer, String)
+- uid: OpenTK.Core.Utility.ILogger.LogError(System.String,System.String,System.Int32,System.String)
+  commentId: M:OpenTK.Core.Utility.ILogger.LogError(System.String,System.String,System.Int32,System.String)
+  id: LogError(System.String,System.String,System.Int32,System.String)
+  parent: OpenTK.Core.Utility.ILogger
+  langs:
+  - csharp
+  - vb
+  name: LogError(string, string, int, string)
+  nameWithType: ILogger.LogError(string, string, int, string)
+  fullName: OpenTK.Core.Utility.ILogger.LogError(string, string, int, string)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: LogError
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 103
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: Logs an error.
+  example: []
+  syntax:
+    content: void LogError(string str, string filePath = null, int line = -1, string member = null)
+    parameters:
+    - id: str
+      type: System.String
+      description: The error to log.
+    - id: filePath
+      type: System.String
+      description: The callsite file name.
+    - id: line
+      type: System.Int32
+      description: The callsite line number.
+    - id: member
+      type: System.String
+      description: The member name at the callsite.
+    content.vb: Sub LogError(str As String, filePath As String = Nothing, line As Integer = -1, member As String = Nothing)
+  overload: OpenTK.Core.Utility.ILogger.LogError*
+  nameWithType.vb: ILogger.LogError(String, String, Integer, String)
+  fullName.vb: OpenTK.Core.Utility.ILogger.LogError(String, String, Integer, String)
+  name.vb: LogError(String, String, Integer, String)
+references:
+- uid: OpenTK.Core.Utility
+  commentId: N:OpenTK.Core.Utility
+  href: OpenTK.html
+  name: OpenTK.Core.Utility
+  nameWithType: OpenTK.Core.Utility
+  fullName: OpenTK.Core.Utility
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  - name: .
+  - uid: OpenTK.Core.Utility
+    name: Utility
+    href: OpenTK.Core.Utility.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  - name: .
+  - uid: OpenTK.Core.Utility
+    name: Utility
+    href: OpenTK.Core.Utility.html
+- uid: OpenTK.Core.Utility.ILogger.Filter*
+  commentId: Overload:OpenTK.Core.Utility.ILogger.Filter
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_Filter
+  name: Filter
+  nameWithType: ILogger.Filter
+  fullName: OpenTK.Core.Utility.ILogger.Filter
+- uid: OpenTK.Core.Utility.LogLevel
+  commentId: T:OpenTK.Core.Utility.LogLevel
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.LogLevel.html
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: OpenTK.Core.Utility.LogLevel
+- uid: OpenTK.Core.Utility.ILogger.Filter
+  commentId: P:OpenTK.Core.Utility.ILogger.Filter
+  parent: OpenTK.Core.Utility.ILogger
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_Filter
+  name: Filter
+  nameWithType: ILogger.Filter
+  fullName: OpenTK.Core.Utility.ILogger.Filter
+- uid: OpenTK.Core.Utility.ILogger.LogInternal*
+  commentId: Overload:OpenTK.Core.Utility.ILogger.LogInternal
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_LogInternal_System_String_OpenTK_Core_Utility_LogLevel_System_String_System_Int32_System_String_
+  name: LogInternal
+  nameWithType: ILogger.LogInternal
+  fullName: OpenTK.Core.Utility.ILogger.LogInternal
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Core.Utility.ILogger.Log*
+  commentId: Overload:OpenTK.Core.Utility.ILogger.Log
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_Log_System_String_OpenTK_Core_Utility_LogLevel_System_String_System_Int32_System_String_
+  name: Log
+  nameWithType: ILogger.Log
+  fullName: OpenTK.Core.Utility.ILogger.Log
+- uid: OpenTK.Core.Utility.ILogger.LogDebug*
+  commentId: Overload:OpenTK.Core.Utility.ILogger.LogDebug
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_LogDebug_System_String_System_String_System_Int32_System_String_
+  name: LogDebug
+  nameWithType: ILogger.LogDebug
+  fullName: OpenTK.Core.Utility.ILogger.LogDebug
+- uid: OpenTK.Core.Utility.ILogger.LogInfo*
+  commentId: Overload:OpenTK.Core.Utility.ILogger.LogInfo
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_LogInfo_System_String_System_String_System_Int32_System_String_
+  name: LogInfo
+  nameWithType: ILogger.LogInfo
+  fullName: OpenTK.Core.Utility.ILogger.LogInfo
+- uid: OpenTK.Core.Utility.ILogger.LogWarning*
+  commentId: Overload:OpenTK.Core.Utility.ILogger.LogWarning
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_LogWarning_System_String_System_String_System_Int32_System_String_
+  name: LogWarning
+  nameWithType: ILogger.LogWarning
+  fullName: OpenTK.Core.Utility.ILogger.LogWarning
+- uid: OpenTK.Core.Utility.ILogger.LogError*
+  commentId: Overload:OpenTK.Core.Utility.ILogger.LogError
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_LogError_System_String_System_String_System_Int32_System_String_
+  name: LogError
+  nameWithType: ILogger.LogError
+  fullName: OpenTK.Core.Utility.ILogger.LogError

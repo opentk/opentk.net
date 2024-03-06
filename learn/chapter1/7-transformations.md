@@ -296,7 +296,7 @@ OpenTK provides its own mathematics library, so there's no need to add another o
 Vector4 vec = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
 Matrix4 trans = Matrix4.CreateTranslation(1f, 1f, 0.0f);
 vec *= trans;
-Console.WriteLine("{0}, {1}, {2}", vec.x, vec.y, vec.z);
+Console.WriteLine("{0}, {1}, {2}", vec.X, vec.Y, vec.Z);
 ```
 
 We first define a vector named vec using OpenTK's built-in vector class. Next we define a Matrix4 and explicitly initialize it  by calling the `Matrix4.CreateTranslation` function, which takes three floats and creates a translation matrix.

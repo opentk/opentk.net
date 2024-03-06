@@ -1,0 +1,600 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Core.Native.MarshalTk
+  commentId: T:OpenTK.Core.Native.MarshalTk
+  id: MarshalTk
+  parent: OpenTK.Core.Native
+  children:
+  - OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr,System.Int32)
+  - OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  - OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  - OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
+  - OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
+  langs:
+  - csharp
+  - vb
+  name: MarshalTk
+  nameWithType: MarshalTk
+  fullName: OpenTK.Core.Native.MarshalTk
+  type: Class
+  source:
+    remote:
+      path: src/OpenTK.Core/Native/MarshalTk.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: MarshalTk
+    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    startLine: 9
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: Contains extra marshalling utilities that aren't available in the normal Marshal class.
+  example: []
+  syntax:
+    content: public static class MarshalTk
+    content.vb: Public Module MarshalTk
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  id: MarshalPtrToString(System.IntPtr)
+  parent: OpenTK.Core.Native.MarshalTk
+  langs:
+  - csharp
+  - vb
+  name: MarshalPtrToString(nint)
+  nameWithType: MarshalTk.MarshalPtrToString(nint)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(nint)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Native/MarshalTk.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: MarshalPtrToString
+    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    startLine: 19
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: >-
+    Marshals a pointer to a null-terminated byte array to a new <code>System.String</code>.
+
+    This method supports OpenTK and is not intended to be called by user code.
+  example: []
+  syntax:
+    content: public static string MarshalPtrToString(nint ptr)
+    parameters:
+    - id: ptr
+      type: System.IntPtr
+      description: A pointer to a null-terminated byte array.
+    return:
+      type: System.String
+      description: A <code>System.String</code> with the data from <code class="paramref">ptr</code>.
+    content.vb: Public Shared Function MarshalPtrToString(ptr As IntPtr) As String
+  overload: OpenTK.Core.Native.MarshalTk.MarshalPtrToString*
+  nameWithType.vb: MarshalTk.MarshalPtrToString(IntPtr)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  name.vb: MarshalPtrToString(IntPtr)
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
+  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
+  id: MarshalStringToPtr(System.String)
+  parent: OpenTK.Core.Native.MarshalTk
+  langs:
+  - csharp
+  - vb
+  name: MarshalStringToPtr(string)
+  nameWithType: MarshalTk.MarshalStringToPtr(string)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(string)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Native/MarshalTk.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: MarshalStringToPtr
+    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    startLine: 50
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: >-
+    Marshal a <code>System.String</code> to unmanaged memory.
+
+    The resulting string is encoded in UTF8 and must be freed
+
+    with <code>FreeStringPtr</code>.
+  example: []
+  syntax:
+    content: public static nint MarshalStringToPtr(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: The <code>System.String</code> to marshal.
+    return:
+      type: System.IntPtr
+      description: >-
+        An unmanaged pointer containing the marshaled string.
+
+        This pointer must be freed with <code>FreeStringPtr</code>.
+    content.vb: Public Shared Function MarshalStringToPtr(str As String) As IntPtr
+  overload: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr*
+  nameWithType.vb: MarshalTk.MarshalStringToPtr(String)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(String)
+  name.vb: MarshalStringToPtr(String)
+- uid: OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  commentId: M:OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  id: FreeStringPtr(System.IntPtr)
+  parent: OpenTK.Core.Native.MarshalTk
+  langs:
+  - csharp
+  - vb
+  name: FreeStringPtr(nint)
+  nameWithType: MarshalTk.FreeStringPtr(nint)
+  fullName: OpenTK.Core.Native.MarshalTk.FreeStringPtr(nint)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Native/MarshalTk.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: FreeStringPtr
+    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    startLine: 85
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: Frees a marshaled string that allocated by <code>MarshalStringToPtr</code>.
+  example: []
+  syntax:
+    content: public static void FreeStringPtr(nint ptr)
+    parameters:
+    - id: ptr
+      type: System.IntPtr
+      description: An unmanaged pointer allocated with <code>MarshalStringToPtr</code>.
+    content.vb: Public Shared Sub FreeStringPtr(ptr As IntPtr)
+  overload: OpenTK.Core.Native.MarshalTk.FreeStringPtr*
+  nameWithType.vb: MarshalTk.FreeStringPtr(IntPtr)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  name.vb: FreeStringPtr(IntPtr)
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
+  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
+  id: MarshalStringArrayToPtr(System.String[])
+  parent: OpenTK.Core.Native.MarshalTk
+  langs:
+  - csharp
+  - vb
+  name: MarshalStringArrayToPtr(string[])
+  nameWithType: MarshalTk.MarshalStringArrayToPtr(string[])
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(string[])
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Native/MarshalTk.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: MarshalStringArrayToPtr
+    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    startLine: 96
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: >-
+    Marshals a <code>System.String</code> array to unmanaged memory by calling
+
+    Marshal.AllocHGlobal for each element.
+  example: []
+  syntax:
+    content: public static nint MarshalStringArrayToPtr(string[] strArray)
+    parameters:
+    - id: strArray
+      type: System.String[]
+      description: The string array to marshal.
+    return:
+      type: System.IntPtr
+      description: An unmanaged pointer to an array of null-terminated strings.
+    content.vb: Public Shared Function MarshalStringArrayToPtr(strArray As String()) As IntPtr
+  overload: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr*
+  nameWithType.vb: MarshalTk.MarshalStringArrayToPtr(String())
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(String())
+  name.vb: MarshalStringArrayToPtr(String())
+- uid: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr,System.Int32)
+  commentId: M:OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr,System.Int32)
+  id: FreeStringArrayPtr(System.IntPtr,System.Int32)
+  parent: OpenTK.Core.Native.MarshalTk
+  langs:
+  - csharp
+  - vb
+  name: FreeStringArrayPtr(nint, int)
+  nameWithType: MarshalTk.FreeStringArrayPtr(nint, int)
+  fullName: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(nint, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Native/MarshalTk.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: FreeStringArrayPtr
+    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    startLine: 137
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: Frees a marshaled string that allocated by <code>MarshalStringArrayToPtr</code>.
+  example: []
+  syntax:
+    content: public static void FreeStringArrayPtr(nint ptr, int length)
+    parameters:
+    - id: ptr
+      type: System.IntPtr
+      description: An unmanaged pointer allocated with <code>MarshalStringArrayToPtr</code>.
+    - id: length
+      type: System.Int32
+      description: The length of the string array.
+    content.vb: Public Shared Sub FreeStringArrayPtr(ptr As IntPtr, length As Integer)
+  overload: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr*
+  nameWithType.vb: MarshalTk.FreeStringArrayPtr(IntPtr, Integer)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr, Integer)
+  name.vb: FreeStringArrayPtr(IntPtr, Integer)
+references:
+- uid: OpenTK.Core.Native
+  commentId: N:OpenTK.Core.Native
+  href: OpenTK.html
+  name: OpenTK.Core.Native
+  nameWithType: OpenTK.Core.Native
+  fullName: OpenTK.Core.Native
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  - name: .
+  - uid: OpenTK.Core.Native
+    name: Native
+    href: OpenTK.Core.Native.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  - name: .
+  - uid: OpenTK.Core.Native
+    name: Native
+    href: OpenTK.Core.Native.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Core.Native.MarshalTk.MarshalPtrToString*
+  commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalPtrToString
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalPtrToString_System_IntPtr_
+  name: MarshalPtrToString
+  nameWithType: MarshalTk.MarshalPtrToString
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalPtrToString
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr*
+  commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalStringToPtr
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringToPtr_System_String_
+  name: MarshalStringToPtr
+  nameWithType: MarshalTk.MarshalStringToPtr
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr
+- uid: OpenTK.Core.Native.MarshalTk.FreeStringPtr*
+  commentId: Overload:OpenTK.Core.Native.MarshalTk.FreeStringPtr
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeStringPtr_System_IntPtr_
+  name: FreeStringPtr
+  nameWithType: MarshalTk.FreeStringPtr
+  fullName: OpenTK.Core.Native.MarshalTk.FreeStringPtr
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr*
+  commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToPtr_System_String___
+  name: MarshalStringArrayToPtr
+  nameWithType: MarshalTk.MarshalStringArrayToPtr
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr*
+  commentId: Overload:OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeStringArrayPtr_System_IntPtr_System_Int32_
+  name: FreeStringArrayPtr
+  nameWithType: MarshalTk.FreeStringArrayPtr
+  fullName: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

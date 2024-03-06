@@ -1,0 +1,122 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Core.Platform.HitTest
+  commentId: T:OpenTK.Core.Platform.HitTest
+  id: HitTest
+  parent: OpenTK.Core.Platform
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: HitTest
+  nameWithType: HitTest
+  fullName: OpenTK.Core.Platform.HitTest
+  type: Delegate
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HitTest
+    path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
+    startLine: 19
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: >-
+    A delegate for hit testing.
+
+
+    Hit testing is not always done in respone to the user clicking the mouse.
+
+    The operating system can do hit testing for any reason and doesn't need to be in respose to some user action.
+
+    It is recommended to keep this code efficient as it will be called often.
+  example: []
+  syntax:
+    content: public delegate HitType HitTest(WindowHandle handle, Vector2 position)
+    parameters:
+    - id: handle
+      type: OpenTK.Core.Platform.WindowHandle
+      description: A handle to the window that hit testing is being done on.
+    - id: position
+      type: OpenTK.Mathematics.Vector2
+      description: The position of where the hit test is being done, not always the position of the mouse. In client relative coordinates.
+    return:
+      type: OpenTK.Core.Platform.HitType
+      description: The result of the hit test.
+    content.vb: Public Delegate Function HitTest(handle As WindowHandle, position As Vector2) As HitType
+references:
+- uid: OpenTK.Core.Platform
+  commentId: N:OpenTK.Core.Platform
+  href: OpenTK.html
+  name: OpenTK.Core.Platform
+  nameWithType: OpenTK.Core.Platform
+  fullName: OpenTK.Core.Platform
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  - name: .
+  - uid: OpenTK.Core.Platform
+    name: Platform
+    href: OpenTK.Core.Platform.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  - name: .
+  - uid: OpenTK.Core.Platform
+    name: Platform
+    href: OpenTK.Core.Platform.html
+- uid: OpenTK.Core.Platform.WindowHandle
+  commentId: T:OpenTK.Core.Platform.WindowHandle
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.WindowHandle.html
+  name: WindowHandle
+  nameWithType: WindowHandle
+  fullName: OpenTK.Core.Platform.WindowHandle
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Vector2.html
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Core.Platform.HitType
+  commentId: T:OpenTK.Core.Platform.HitType
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.HitType.html
+  name: HitType
+  nameWithType: HitType
+  fullName: OpenTK.Core.Platform.HitType
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  href: OpenTK.html
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html

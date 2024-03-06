@@ -1,0 +1,517 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings
+  commentId: T:OpenTK.Windowing.Desktop.GameWindowSettings
+  id: GameWindowSettings
+  parent: OpenTK.Windowing.Desktop
+  children:
+  - OpenTK.Windowing.Desktop.GameWindowSettings.Default
+  - OpenTK.Windowing.Desktop.GameWindowSettings.IsMultiThreaded
+  - OpenTK.Windowing.Desktop.GameWindowSettings.RenderFrequency
+  - OpenTK.Windowing.Desktop.GameWindowSettings.UpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: GameWindowSettings
+  nameWithType: GameWindowSettings
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings
+  type: Class
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: GameWindowSettings
+    path: opentk/src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+    startLine: 17
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: <xref href="OpenTK.Windowing.Desktop.GameWindow" data-throw-if-not-resolved="false"></xref> related settings.
+  example: []
+  syntax:
+    content: public class GameWindowSettings
+    content.vb: Public Class GameWindowSettings
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings.Default
+  commentId: F:OpenTK.Windowing.Desktop.GameWindowSettings.Default
+  id: Default
+  parent: OpenTK.Windowing.Desktop.GameWindowSettings
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: GameWindowSettings.Default
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings.Default
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Default
+    path: opentk/src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+    startLine: 22
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: The default <xref href="OpenTK.Windowing.Desktop.GameWindowSettings" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static readonly GameWindowSettings Default
+    return:
+      type: OpenTK.Windowing.Desktop.GameWindowSettings
+    content.vb: Public Shared ReadOnly [Default] As GameWindowSettings
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings.IsMultiThreaded
+  commentId: P:OpenTK.Windowing.Desktop.GameWindowSettings.IsMultiThreaded
+  id: IsMultiThreaded
+  parent: OpenTK.Windowing.Desktop.GameWindowSettings
+  langs:
+  - csharp
+  - vb
+  name: IsMultiThreaded
+  nameWithType: GameWindowSettings.IsMultiThreaded
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings.IsMultiThreaded
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: IsMultiThreaded
+    path: opentk/src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+    startLine: 27
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: Gets or sets a value indicating whether the game window should use a separate thread for render events.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("There is not one size fits all multithreading solution, especially for OpenGL. This feature has been removed and will no longer work.", true)]
+
+      public bool IsMultiThreaded { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Obsolete("There is not one size fits all multithreading solution, especially for OpenGL. This feature has been removed and will no longer work.", True)>
+
+      Public Property IsMultiThreaded As Boolean
+  overload: OpenTK.Windowing.Desktop.GameWindowSettings.IsMultiThreaded*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: There is not one size fits all multithreading solution, especially for OpenGL. This feature has been removed and will no longer work.
+    - type: System.Boolean
+      value: true
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings.RenderFrequency
+  commentId: P:OpenTK.Windowing.Desktop.GameWindowSettings.RenderFrequency
+  id: RenderFrequency
+  parent: OpenTK.Windowing.Desktop.GameWindowSettings
+  langs:
+  - csharp
+  - vb
+  name: RenderFrequency
+  nameWithType: GameWindowSettings.RenderFrequency
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings.RenderFrequency
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: RenderFrequency
+    path: opentk/src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+    startLine: 40
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: Gets or sets a double representing the render frequency, in hertz.
+  remarks: " <p>\r\nA value of 0.0 indicates that RenderFrame events are generated at the maximum possible frequency (i.e. only\r\nlimited by the hardware's capabilities).\r\n </p>\r\n <p>Values lower than 1.0Hz are clamped to 0.0. Values higher than 500.0Hz are clamped to 200.0Hz.</p>"
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use UpdateFrame instead. We no longer support different update rates for OnUpdateFrame and OnRenderFrame.", true)]
+
+      public double RenderFrequency { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <Obsolete("Use UpdateFrame instead. We no longer support different update rates for OnUpdateFrame and OnRenderFrame.", True)>
+
+      Public Property RenderFrequency As Double
+  overload: OpenTK.Windowing.Desktop.GameWindowSettings.RenderFrequency*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: Use UpdateFrame instead. We no longer support different update rates for OnUpdateFrame and OnRenderFrame.
+    - type: System.Boolean
+      value: true
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings.UpdateFrequency
+  commentId: P:OpenTK.Windowing.Desktop.GameWindowSettings.UpdateFrequency
+  id: UpdateFrequency
+  parent: OpenTK.Windowing.Desktop.GameWindowSettings
+  langs:
+  - csharp
+  - vb
+  name: UpdateFrequency
+  nameWithType: GameWindowSettings.UpdateFrequency
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings.UpdateFrequency
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: UpdateFrequency
+    path: opentk/src/OpenTK.Windowing.Desktop/GameWindowSettings.cs
+    startLine: 53
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: Gets or sets a double representing the update frequency, in hertz.
+  remarks: " <p>\r\nA value of 0.0 indicates that UpdateFrame events are generated at the maximum possible frequency (i.e. only\r\nlimited by the hardware's capabilities).\r\n </p>\r\n <p>Values lower than 1.0Hz are clamped to 0.0. Values higher than 500.0Hz are clamped to 500.0Hz.</p>"
+  example: []
+  syntax:
+    content: public double UpdateFrequency { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property UpdateFrequency As Double
+  overload: OpenTK.Windowing.Desktop.GameWindowSettings.UpdateFrequency*
+references:
+- uid: OpenTK.Windowing.Desktop.GameWindow
+  commentId: T:OpenTK.Windowing.Desktop.GameWindow
+  href: OpenTK.Windowing.Desktop.GameWindow.html
+  name: GameWindow
+  nameWithType: GameWindow
+  fullName: OpenTK.Windowing.Desktop.GameWindow
+- uid: OpenTK.Windowing.Desktop
+  commentId: N:OpenTK.Windowing.Desktop
+  href: OpenTK.html
+  name: OpenTK.Windowing.Desktop
+  nameWithType: OpenTK.Windowing.Desktop
+  fullName: OpenTK.Windowing.Desktop
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Windowing
+    name: Windowing
+    href: OpenTK.Windowing.html
+  - name: .
+  - uid: OpenTK.Windowing.Desktop
+    name: Desktop
+    href: OpenTK.Windowing.Desktop.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Windowing
+    name: Windowing
+    href: OpenTK.Windowing.html
+  - name: .
+  - uid: OpenTK.Windowing.Desktop
+    name: Desktop
+    href: OpenTK.Windowing.Desktop.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings
+  commentId: T:OpenTK.Windowing.Desktop.GameWindowSettings
+  parent: OpenTK.Windowing.Desktop
+  href: OpenTK.Windowing.Desktop.GameWindowSettings.html
+  name: GameWindowSettings
+  nameWithType: GameWindowSettings
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings.IsMultiThreaded*
+  commentId: Overload:OpenTK.Windowing.Desktop.GameWindowSettings.IsMultiThreaded
+  href: OpenTK.Windowing.Desktop.GameWindowSettings.html#OpenTK_Windowing_Desktop_GameWindowSettings_IsMultiThreaded
+  name: IsMultiThreaded
+  nameWithType: GameWindowSettings.IsMultiThreaded
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings.IsMultiThreaded
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings.RenderFrequency*
+  commentId: Overload:OpenTK.Windowing.Desktop.GameWindowSettings.RenderFrequency
+  href: OpenTK.Windowing.Desktop.GameWindowSettings.html#OpenTK_Windowing_Desktop_GameWindowSettings_RenderFrequency
+  name: RenderFrequency
+  nameWithType: GameWindowSettings.RenderFrequency
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings.RenderFrequency
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: OpenTK.Windowing.Desktop.GameWindowSettings.UpdateFrequency*
+  commentId: Overload:OpenTK.Windowing.Desktop.GameWindowSettings.UpdateFrequency
+  href: OpenTK.Windowing.Desktop.GameWindowSettings.html#OpenTK_Windowing_Desktop_GameWindowSettings_UpdateFrequency
+  name: UpdateFrequency
+  nameWithType: GameWindowSettings.UpdateFrequency
+  fullName: OpenTK.Windowing.Desktop.GameWindowSettings.UpdateFrequency

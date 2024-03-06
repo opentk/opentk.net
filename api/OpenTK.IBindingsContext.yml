@@ -16,67 +16,16 @@ items:
   source:
     remote:
       path: src/OpenTK.Core/Context/IBindingsContext.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: IBindingsContext
     path: opentk/src/OpenTK.Core/Context/IBindingsContext.cs
-    startLine: 45
+    startLine: 7
   assemblies:
   - OpenTK.Core
   namespace: OpenTK
   summary: Provides methods for querying available functions in a bindings context.
-  remarks: >-
-    If you wish to use OpenTK OpenGL bindings in a custom environment see
-
-    the example for a tutorial on its usage.
-  example:
-  - >-
-    In order to use this interface, you need to figure out how to load OpenGL
-
-    function pointers in your custom environment. For example, if you are
-
-    providing a custom window using SDL, you would use the C function
-
-    <code>SDL_GL_GetProcAddress</code> to implement this interface.
-
-
-    <pre><code class="lang-csharp">using System;
-
-    using System.Runtime.InteropServices;
-
-    using OpenTK;
-
-    using OpenTK.Graphics.OpenGL4;
-
-
-    public class MySDLBindingsContext : IBindingsContext
-
-    {
-        public IntPtr GetProcAddress(string procName)
-        {
-            [DllImport("SDL2")]
-            extern static IntPtr SDL_GL_GetProcAddress([MarshalAs(UnmanagedType.LPStr)] string procName);
-
-            return SDL_GL_GetProcAddress(procName);
-        }
-    }
-
-
-    /// ...
-
-
-    // In order to load the bindings, call the following function with this
-
-    // new class you implemented.
-
-    GL.LoadBindings(new MySDLBindingsContext());</code></pre>
-
-
-    Do note that every OpenTK.Graphics.XXX namespace has its own pointer table.
-
-    If you have mixed and matched the namespaces used in your project, you might
-
-    run into exceptions telling you that the bindings are not loaded.
+  example: []
   syntax:
     content: public interface IBindingsContext
     content.vb: Public Interface IBindingsContext
@@ -94,11 +43,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Core/Context/IBindingsContext.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: GetProcAddress
     path: opentk/src/OpenTK.Core/Context/IBindingsContext.cs
-    startLine: 60
+    startLine: 22
   assemblies:
   - OpenTK.Core
   namespace: OpenTK
@@ -111,7 +60,7 @@ items:
     values.
   example: []
   syntax:
-    content: IntPtr GetProcAddress(string procName)
+    content: nint GetProcAddress(string procName)
     parameters:
     - id: procName
       type: System.String
@@ -139,12 +88,15 @@ references:
   parent: System
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: IntPtr
-  nameWithType: IntPtr
-  fullName: System.IntPtr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
 - uid: OpenTK.IBindingsContext.GetProcAddress*
   commentId: Overload:OpenTK.IBindingsContext.GetProcAddress
-  href: OpenTK.IBindingsContext.html#OpenTK.IBindingsContext.GetProcAddress(System.String)
+  href: OpenTK.IBindingsContext.html#OpenTK_IBindingsContext_GetProcAddress_System_String_
   name: GetProcAddress
   nameWithType: IBindingsContext.GetProcAddress
   fullName: OpenTK.IBindingsContext.GetProcAddress

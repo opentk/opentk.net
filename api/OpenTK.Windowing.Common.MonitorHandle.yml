@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.Common/MonitorHandle.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MonitorHandle
     path: opentk/src/OpenTK.Windowing.Common/MonitorHandle.cs
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.Common/MonitorHandle.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Pointer
     path: opentk/src/OpenTK.Windowing.Common/MonitorHandle.cs
@@ -63,7 +63,7 @@ items:
   summary: Gets a pointer to the underlying native Monitor.
   example: []
   syntax:
-    content: public IntPtr Pointer { get; }
+    content: public readonly nint Pointer { get; }
     parameters: []
     return:
       type: System.IntPtr
@@ -76,14 +76,14 @@ items:
   langs:
   - csharp
   - vb
-  name: MonitorHandle(IntPtr)
-  nameWithType: MonitorHandle.MonitorHandle(IntPtr)
-  fullName: OpenTK.Windowing.Common.MonitorHandle.MonitorHandle(System.IntPtr)
+  name: MonitorHandle(nint)
+  nameWithType: MonitorHandle.MonitorHandle(nint)
+  fullName: OpenTK.Windowing.Common.MonitorHandle.MonitorHandle(nint)
   type: Constructor
   source:
     remote:
       path: src/OpenTK.Windowing.Common/MonitorHandle.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Windowing.Common/MonitorHandle.cs
@@ -94,7 +94,7 @@ items:
   summary: Initializes a new instance of the <xref href="OpenTK.Windowing.Common.MonitorHandle" data-throw-if-not-resolved="false"></xref> struct.
   example: []
   syntax:
-    content: public MonitorHandle(IntPtr ptr)
+    content: public MonitorHandle(nint ptr)
     parameters:
     - id: ptr
       type: System.IntPtr
@@ -118,7 +118,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.Common/MonitorHandle.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToUnsafePtr
     path: opentk/src/OpenTK.Windowing.Common/MonitorHandle.cs
@@ -391,7 +391,7 @@ references:
   fullName: System
 - uid: OpenTK.Windowing.Common.MonitorHandle.Pointer*
   commentId: Overload:OpenTK.Windowing.Common.MonitorHandle.Pointer
-  href: OpenTK.Windowing.Common.MonitorHandle.html#OpenTK.Windowing.Common.MonitorHandle.Pointer
+  href: OpenTK.Windowing.Common.MonitorHandle.html#OpenTK_Windowing_Common_MonitorHandle_Pointer
   name: Pointer
   nameWithType: MonitorHandle.Pointer
   fullName: OpenTK.Windowing.Common.MonitorHandle.Pointer
@@ -400,9 +400,12 @@ references:
   parent: System
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: IntPtr
-  nameWithType: IntPtr
-  fullName: System.IntPtr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
 - uid: OpenTK.Windowing.Common.MonitorHandle
   commentId: T:OpenTK.Windowing.Common.MonitorHandle
   parent: OpenTK.Windowing.Common
@@ -412,7 +415,7 @@ references:
   fullName: OpenTK.Windowing.Common.MonitorHandle
 - uid: OpenTK.Windowing.Common.MonitorHandle.#ctor*
   commentId: Overload:OpenTK.Windowing.Common.MonitorHandle.#ctor
-  href: OpenTK.Windowing.Common.MonitorHandle.html#OpenTK.Windowing.Common.MonitorHandle.#ctor(System.IntPtr)
+  href: OpenTK.Windowing.Common.MonitorHandle.html#OpenTK_Windowing_Common_MonitorHandle__ctor_System_IntPtr_
   name: MonitorHandle
   nameWithType: MonitorHandle.MonitorHandle
   fullName: OpenTK.Windowing.Common.MonitorHandle.MonitorHandle
@@ -421,13 +424,13 @@ references:
   name.vb: New
 - uid: OpenTK.Windowing.Common.MonitorHandle.Pointer
   commentId: P:OpenTK.Windowing.Common.MonitorHandle.Pointer
-  href: OpenTK.Windowing.Common.MonitorHandle.html#OpenTK.Windowing.Common.MonitorHandle.Pointer
+  href: OpenTK.Windowing.Common.MonitorHandle.html#OpenTK_Windowing_Common_MonitorHandle_Pointer
   name: Pointer
   nameWithType: MonitorHandle.Pointer
   fullName: OpenTK.Windowing.Common.MonitorHandle.Pointer
 - uid: OpenTK.Windowing.Common.MonitorHandle.ToUnsafePtr*
   commentId: Overload:OpenTK.Windowing.Common.MonitorHandle.ToUnsafePtr
-  href: OpenTK.Windowing.Common.MonitorHandle.html#OpenTK.Windowing.Common.MonitorHandle.ToUnsafePtr``1
+  href: OpenTK.Windowing.Common.MonitorHandle.html#OpenTK_Windowing_Common_MonitorHandle_ToUnsafePtr__1
   name: ToUnsafePtr
   nameWithType: MonitorHandle.ToUnsafePtr
   fullName: OpenTK.Windowing.Common.MonitorHandle.ToUnsafePtr

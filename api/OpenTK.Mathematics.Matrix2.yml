@@ -11,14 +11,14 @@ items:
   - OpenTK.Mathematics.Matrix2.Add(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@)
   - OpenTK.Mathematics.Matrix2.Column0
   - OpenTK.Mathematics.Matrix2.Column1
-  - OpenTK.Mathematics.Matrix2.CreateRotation(System.Single,OpenTK.Mathematics.Matrix2@)
   - OpenTK.Mathematics.Matrix2.CreateRotation(System.Single)
-  - OpenTK.Mathematics.Matrix2.CreateScale(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Matrix2@)
+  - OpenTK.Mathematics.Matrix2.CreateRotation(System.Single,OpenTK.Mathematics.Matrix2@)
   - OpenTK.Mathematics.Matrix2.CreateScale(OpenTK.Mathematics.Vector2)
-  - OpenTK.Mathematics.Matrix2.CreateScale(System.Single,OpenTK.Mathematics.Matrix2@)
-  - OpenTK.Mathematics.Matrix2.CreateScale(System.Single,System.Single,OpenTK.Mathematics.Matrix2@)
-  - OpenTK.Mathematics.Matrix2.CreateScale(System.Single,System.Single)
+  - OpenTK.Mathematics.Matrix2.CreateScale(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Matrix2@)
   - OpenTK.Mathematics.Matrix2.CreateScale(System.Single)
+  - OpenTK.Mathematics.Matrix2.CreateScale(System.Single,OpenTK.Mathematics.Matrix2@)
+  - OpenTK.Mathematics.Matrix2.CreateScale(System.Single,System.Single)
+  - OpenTK.Mathematics.Matrix2.CreateScale(System.Single,System.Single,OpenTK.Mathematics.Matrix2@)
   - OpenTK.Mathematics.Matrix2.Determinant
   - OpenTK.Mathematics.Matrix2.Diagonal
   - OpenTK.Mathematics.Matrix2.Equals(OpenTK.Mathematics.Matrix2)
@@ -41,6 +41,19 @@ items:
   - OpenTK.Mathematics.Matrix2.Mult(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2x3@,OpenTK.Mathematics.Matrix2x3@)
   - OpenTK.Mathematics.Matrix2.Mult(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2x4@,OpenTK.Mathematics.Matrix2x4@)
   - OpenTK.Mathematics.Matrix2.Mult(OpenTK.Mathematics.Matrix2@,System.Single,OpenTK.Mathematics.Matrix2@)
+  - OpenTK.Mathematics.Matrix2.Row0
+  - OpenTK.Mathematics.Matrix2.Row1
+  - OpenTK.Mathematics.Matrix2.Subtract(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+  - OpenTK.Mathematics.Matrix2.Subtract(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@)
+  - OpenTK.Mathematics.Matrix2.ToString
+  - OpenTK.Mathematics.Matrix2.ToString(System.IFormatProvider)
+  - OpenTK.Mathematics.Matrix2.ToString(System.String)
+  - OpenTK.Mathematics.Matrix2.ToString(System.String,System.IFormatProvider)
+  - OpenTK.Mathematics.Matrix2.Trace
+  - OpenTK.Mathematics.Matrix2.Transpose
+  - OpenTK.Mathematics.Matrix2.Transpose(OpenTK.Mathematics.Matrix2)
+  - OpenTK.Mathematics.Matrix2.Transpose(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@)
+  - OpenTK.Mathematics.Matrix2.Zero
   - OpenTK.Mathematics.Matrix2.op_Addition(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
   - OpenTK.Mathematics.Matrix2.op_Equality(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
   - OpenTK.Mathematics.Matrix2.op_Inequality(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
@@ -50,19 +63,6 @@ items:
   - OpenTK.Mathematics.Matrix2.op_Multiply(OpenTK.Mathematics.Matrix2,System.Single)
   - OpenTK.Mathematics.Matrix2.op_Multiply(System.Single,OpenTK.Mathematics.Matrix2)
   - OpenTK.Mathematics.Matrix2.op_Subtraction(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
-  - OpenTK.Mathematics.Matrix2.Row0
-  - OpenTK.Mathematics.Matrix2.Row1
-  - OpenTK.Mathematics.Matrix2.Subtract(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
-  - OpenTK.Mathematics.Matrix2.Subtract(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@)
-  - OpenTK.Mathematics.Matrix2.ToString
-  - OpenTK.Mathematics.Matrix2.ToString(System.IFormatProvider)
-  - OpenTK.Mathematics.Matrix2.ToString(System.String,System.IFormatProvider)
-  - OpenTK.Mathematics.Matrix2.ToString(System.String)
-  - OpenTK.Mathematics.Matrix2.Trace
-  - OpenTK.Mathematics.Matrix2.Transpose
-  - OpenTK.Mathematics.Matrix2.Transpose(OpenTK.Mathematics.Matrix2)
-  - OpenTK.Mathematics.Matrix2.Transpose(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@)
-  - OpenTK.Mathematics.Matrix2.Zero
   langs:
   - csharp
   - vb
@@ -73,7 +73,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Matrix2
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -117,7 +117,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Row0
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -146,7 +146,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Row1
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -175,7 +175,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Identity
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -204,7 +204,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Zero
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -233,7 +233,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -271,7 +271,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -315,7 +315,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Determinant
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -346,7 +346,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Column0
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -377,7 +377,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Column1
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -408,7 +408,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: M11
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -439,7 +439,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: M12
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -470,7 +470,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: M21
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -501,7 +501,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: M22
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -532,7 +532,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Diagonal
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -563,7 +563,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Trace
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -594,7 +594,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: this[]
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -635,7 +635,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Transpose
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -663,7 +663,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -691,7 +691,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: CreateRotation
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -729,7 +729,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: CreateRotation
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -777,7 +777,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -815,7 +815,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -863,7 +863,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -901,7 +901,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -946,7 +946,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -987,7 +987,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1038,7 +1038,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1079,7 +1079,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1130,7 +1130,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1171,7 +1171,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1219,7 +1219,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1260,7 +1260,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1308,7 +1308,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1349,7 +1349,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1397,7 +1397,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Add
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1438,7 +1438,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Add
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1486,7 +1486,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Subtract
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1527,7 +1527,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Subtract
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1575,7 +1575,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1617,7 +1617,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1666,7 +1666,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Transpose
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1704,7 +1704,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Transpose
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1749,7 +1749,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1800,7 +1800,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1851,7 +1851,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1902,7 +1902,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -1953,7 +1953,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2004,7 +2004,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Addition
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2055,7 +2055,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Subtraction
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2106,7 +2106,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Equality
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2157,7 +2157,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Inequality
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2208,7 +2208,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2240,7 +2240,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2248,14 +2248,22 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
     content: public string ToString(string format)
     parameters:
     - id: format
       type: System.String
+      description: >-
+        The format to use.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(format As String) As String
   overload: OpenTK.Mathematics.Matrix2.ToString*
   nameWithType.vb: Matrix2.ToString(String)
@@ -2275,7 +2283,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2283,14 +2291,22 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
     content: public string ToString(IFormatProvider formatProvider)
     parameters:
     - id: formatProvider
       type: System.IFormatProvider
+      description: >-
+        The provider to use to format the value.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(formatProvider As IFormatProvider) As String
   overload: OpenTK.Mathematics.Matrix2.ToString*
 - uid: OpenTK.Mathematics.Matrix2.ToString(System.String,System.IFormatProvider)
@@ -2307,7 +2323,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2315,16 +2331,30 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
     content: public string ToString(string format, IFormatProvider formatProvider)
     parameters:
     - id: format
       type: System.String
+      description: >-
+        The format to use.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
+      description: >-
+        The provider to use to format the value.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(format As String, formatProvider As IFormatProvider) As String
   overload: OpenTK.Mathematics.Matrix2.ToString*
   implements:
@@ -2346,7 +2376,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: GetHashCode
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2378,7 +2408,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2427,7 +2457,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix2.cs
@@ -2700,7 +2730,7 @@ references:
   fullName: OpenTK.Mathematics.Matrix2
 - uid: OpenTK.Mathematics.Matrix2.#ctor*
   commentId: Overload:OpenTK.Mathematics.Matrix2.#ctor
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2__ctor_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: Matrix2
   nameWithType: Matrix2.Matrix2
   fullName: OpenTK.Mathematics.Matrix2.Matrix2
@@ -2720,61 +2750,61 @@ references:
   name.vb: Single
 - uid: OpenTK.Mathematics.Matrix2.Determinant*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Determinant
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Determinant
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Determinant
   name: Determinant
   nameWithType: Matrix2.Determinant
   fullName: OpenTK.Mathematics.Matrix2.Determinant
 - uid: OpenTK.Mathematics.Matrix2.Column0*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Column0
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Column0
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Column0
   name: Column0
   nameWithType: Matrix2.Column0
   fullName: OpenTK.Mathematics.Matrix2.Column0
 - uid: OpenTK.Mathematics.Matrix2.Column1*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Column1
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Column1
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Column1
   name: Column1
   nameWithType: Matrix2.Column1
   fullName: OpenTK.Mathematics.Matrix2.Column1
 - uid: OpenTK.Mathematics.Matrix2.M11*
   commentId: Overload:OpenTK.Mathematics.Matrix2.M11
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.M11
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_M11
   name: M11
   nameWithType: Matrix2.M11
   fullName: OpenTK.Mathematics.Matrix2.M11
 - uid: OpenTK.Mathematics.Matrix2.M12*
   commentId: Overload:OpenTK.Mathematics.Matrix2.M12
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.M12
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_M12
   name: M12
   nameWithType: Matrix2.M12
   fullName: OpenTK.Mathematics.Matrix2.M12
 - uid: OpenTK.Mathematics.Matrix2.M21*
   commentId: Overload:OpenTK.Mathematics.Matrix2.M21
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.M21
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_M21
   name: M21
   nameWithType: Matrix2.M21
   fullName: OpenTK.Mathematics.Matrix2.M21
 - uid: OpenTK.Mathematics.Matrix2.M22*
   commentId: Overload:OpenTK.Mathematics.Matrix2.M22
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.M22
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_M22
   name: M22
   nameWithType: Matrix2.M22
   fullName: OpenTK.Mathematics.Matrix2.M22
 - uid: OpenTK.Mathematics.Matrix2.Diagonal*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Diagonal
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Diagonal
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Diagonal
   name: Diagonal
   nameWithType: Matrix2.Diagonal
   fullName: OpenTK.Mathematics.Matrix2.Diagonal
 - uid: OpenTK.Mathematics.Matrix2.Trace*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Trace
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Trace
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Trace
   name: Trace
   nameWithType: Matrix2.Trace
   fullName: OpenTK.Mathematics.Matrix2.Trace
 - uid: OpenTK.Mathematics.Matrix2.Item*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Item
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Item(System.Int32,System.Int32)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Item_System_Int32_System_Int32_
   name: this
   nameWithType: Matrix2.this
   fullName: OpenTK.Mathematics.Matrix2.this
@@ -2794,31 +2824,31 @@ references:
   name.vb: Integer
 - uid: OpenTK.Mathematics.Matrix2.Transpose*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Transpose
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Transpose
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Transpose
   name: Transpose
   nameWithType: Matrix2.Transpose
   fullName: OpenTK.Mathematics.Matrix2.Transpose
 - uid: OpenTK.Mathematics.Matrix2.Invert*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Invert
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Invert
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Invert
   name: Invert
   nameWithType: Matrix2.Invert
   fullName: OpenTK.Mathematics.Matrix2.Invert
 - uid: OpenTK.Mathematics.Matrix2.CreateRotation*
   commentId: Overload:OpenTK.Mathematics.Matrix2.CreateRotation
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.CreateRotation(System.Single,OpenTK.Mathematics.Matrix2@)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_CreateRotation_System_Single_OpenTK_Mathematics_Matrix2__
   name: CreateRotation
   nameWithType: Matrix2.CreateRotation
   fullName: OpenTK.Mathematics.Matrix2.CreateRotation
 - uid: OpenTK.Mathematics.Matrix2.CreateScale*
   commentId: Overload:OpenTK.Mathematics.Matrix2.CreateScale
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.CreateScale(System.Single,OpenTK.Mathematics.Matrix2@)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_CreateScale_System_Single_OpenTK_Mathematics_Matrix2__
   name: CreateScale
   nameWithType: Matrix2.CreateScale
   fullName: OpenTK.Mathematics.Matrix2.CreateScale
 - uid: OpenTK.Mathematics.Matrix2.Mult*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Mult
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Mult(OpenTK.Mathematics.Matrix2@,System.Single,OpenTK.Mathematics.Matrix2@)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Mult_OpenTK_Mathematics_Matrix2__System_Single_OpenTK_Mathematics_Matrix2__
   name: Mult
   nameWithType: Matrix2.Mult
   fullName: OpenTK.Mathematics.Matrix2.Mult
@@ -2838,13 +2868,13 @@ references:
   fullName: OpenTK.Mathematics.Matrix2x4
 - uid: OpenTK.Mathematics.Matrix2.Add*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Add
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Add(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Add_OpenTK_Mathematics_Matrix2__OpenTK_Mathematics_Matrix2__OpenTK_Mathematics_Matrix2__
   name: Add
   nameWithType: Matrix2.Add
   fullName: OpenTK.Mathematics.Matrix2.Add
 - uid: OpenTK.Mathematics.Matrix2.Subtract*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Subtract
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Subtract(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Matrix2@)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Subtract_OpenTK_Mathematics_Matrix2__OpenTK_Mathematics_Matrix2__OpenTK_Mathematics_Matrix2__
   name: Subtract
   nameWithType: Matrix2.Subtract
   fullName: OpenTK.Mathematics.Matrix2.Subtract
@@ -2857,7 +2887,7 @@ references:
   fullName: System.InvalidOperationException
 - uid: OpenTK.Mathematics.Matrix2.op_Multiply*
   commentId: Overload:OpenTK.Mathematics.Matrix2.op_Multiply
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Multiply(System.Single,OpenTK.Mathematics.Matrix2)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Multiply_System_Single_OpenTK_Mathematics_Matrix2_
   name: operator *
   nameWithType: Matrix2.operator *
   fullName: OpenTK.Mathematics.Matrix2.operator *
@@ -2869,10 +2899,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Matrix2.op_Multiply*
     name: '*'
-    href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Multiply(System.Single,OpenTK.Mathematics.Matrix2)
+    href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Multiply_System_Single_OpenTK_Mathematics_Matrix2_
 - uid: OpenTK.Mathematics.Matrix2.op_Addition*
   commentId: Overload:OpenTK.Mathematics.Matrix2.op_Addition
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Addition(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Addition_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Matrix2_
   name: operator +
   nameWithType: Matrix2.operator +
   fullName: OpenTK.Mathematics.Matrix2.operator +
@@ -2884,10 +2914,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Matrix2.op_Addition*
     name: +
-    href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Addition(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+    href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Addition_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Matrix2_
 - uid: OpenTK.Mathematics.Matrix2.op_Subtraction*
   commentId: Overload:OpenTK.Mathematics.Matrix2.op_Subtraction
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Subtraction(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Subtraction_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Matrix2_
   name: operator -
   nameWithType: Matrix2.operator -
   fullName: OpenTK.Mathematics.Matrix2.operator -
@@ -2899,10 +2929,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Matrix2.op_Subtraction*
     name: '-'
-    href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Subtraction(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+    href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Subtraction_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Matrix2_
 - uid: OpenTK.Mathematics.Matrix2.op_Equality*
   commentId: Overload:OpenTK.Mathematics.Matrix2.op_Equality
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Equality(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Equality_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Matrix2_
   name: operator ==
   nameWithType: Matrix2.operator ==
   fullName: OpenTK.Mathematics.Matrix2.operator ==
@@ -2914,7 +2944,7 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Matrix2.op_Equality*
     name: ==
-    href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Equality(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+    href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Equality_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Matrix2_
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -2928,7 +2958,7 @@ references:
   name.vb: Boolean
 - uid: OpenTK.Mathematics.Matrix2.op_Inequality*
   commentId: Overload:OpenTK.Mathematics.Matrix2.op_Inequality
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Inequality(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Inequality_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Matrix2_
   name: operator !=
   nameWithType: Matrix2.operator !=
   fullName: OpenTK.Mathematics.Matrix2.operator !=
@@ -2940,7 +2970,7 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Matrix2.op_Inequality*
     name: '!='
-    href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.op_Inequality(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Matrix2)
+    href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_op_Inequality_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Matrix2_
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
   parent: System.ValueType
@@ -2965,7 +2995,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Matrix2.ToString*
   commentId: Overload:OpenTK.Mathematics.Matrix2.ToString
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.ToString
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_ToString
   name: ToString
   nameWithType: Matrix2.ToString
   fullName: OpenTK.Mathematics.Matrix2.ToString
@@ -3065,7 +3095,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Matrix2.GetHashCode*
   commentId: Overload:OpenTK.Mathematics.Matrix2.GetHashCode
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.GetHashCode
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_GetHashCode
   name: GetHashCode
   nameWithType: Matrix2.GetHashCode
   fullName: OpenTK.Mathematics.Matrix2.GetHashCode
@@ -3104,7 +3134,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Matrix2.Equals*
   commentId: Overload:OpenTK.Mathematics.Matrix2.Equals
-  href: OpenTK.Mathematics.Matrix2.html#OpenTK.Mathematics.Matrix2.Equals(System.Object)
+  href: OpenTK.Mathematics.Matrix2.html#OpenTK_Mathematics_Matrix2_Equals_System_Object_
   name: Equals
   nameWithType: Matrix2.Equals
   fullName: OpenTK.Mathematics.Matrix2.Equals
@@ -3112,7 +3142,7 @@ references:
   commentId: M:System.IEquatable{OpenTK.Mathematics.Matrix2}.Equals(OpenTK.Mathematics.Matrix2)
   parent: System.IEquatable{OpenTK.Mathematics.Matrix2}
   definition: System.IEquatable`1.Equals(`0)
-  href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.matrix2-.equals#system-iequatable((opentk-mathematics-matrix2))-equals(opentk-mathematics-matrix2)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   name: Equals(Matrix2)
   nameWithType: IEquatable<Matrix2>.Equals(Matrix2)
   fullName: System.IEquatable<OpenTK.Mathematics.Matrix2>.Equals(OpenTK.Mathematics.Matrix2)
@@ -3122,7 +3152,7 @@ references:
   - uid: System.IEquatable{OpenTK.Mathematics.Matrix2}.Equals(OpenTK.Mathematics.Matrix2)
     name: Equals
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.matrix2-.equals#system-iequatable((opentk-mathematics-matrix2))-equals(opentk-mathematics-matrix2)
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   - name: (
   - uid: OpenTK.Mathematics.Matrix2
     name: Matrix2
@@ -3132,7 +3162,7 @@ references:
   - uid: System.IEquatable{OpenTK.Mathematics.Matrix2}.Equals(OpenTK.Mathematics.Matrix2)
     name: Equals
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.matrix2-.equals#system-iequatable((opentk-mathematics-matrix2))-equals(opentk-mathematics-matrix2)
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   - name: (
   - uid: OpenTK.Mathematics.Matrix2
     name: Matrix2

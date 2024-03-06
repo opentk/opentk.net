@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MarshalTk
     path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
@@ -50,14 +50,14 @@ items:
   langs:
   - csharp
   - vb
-  name: MarshalPtrToString(IntPtr)
-  nameWithType: MarshalTk.MarshalPtrToString(IntPtr)
-  fullName: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  name: MarshalPtrToString(nint)
+  nameWithType: MarshalTk.MarshalPtrToString(nint)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(nint)
   type: Method
   source:
     remote:
       path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MarshalPtrToString
     path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
@@ -71,7 +71,7 @@ items:
     This method supports OpenTK and is not intended to be called by user code.
   example: []
   syntax:
-    content: public static string MarshalPtrToString(IntPtr ptr)
+    content: public static string MarshalPtrToString(nint ptr)
     parameters:
     - id: ptr
       type: System.IntPtr
@@ -81,6 +81,9 @@ items:
       description: A <code>System.String</code> with the data from <code class="paramref">ptr</code>.
     content.vb: Public Shared Function MarshalPtrToString(ptr As IntPtr) As String
   overload: OpenTK.Core.Native.MarshalTk.MarshalPtrToString*
+  nameWithType.vb: MarshalTk.MarshalPtrToString(IntPtr)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  name.vb: MarshalPtrToString(IntPtr)
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
   commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
   id: MarshalStringToPtr(System.String)
@@ -95,7 +98,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MarshalStringToPtr
     path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
@@ -111,7 +114,7 @@ items:
     with <code>FreeStringPtr</code>.
   example: []
   syntax:
-    content: public static IntPtr MarshalStringToPtr(string str)
+    content: public static nint MarshalStringToPtr(string str)
     parameters:
     - id: str
       type: System.String
@@ -134,14 +137,14 @@ items:
   langs:
   - csharp
   - vb
-  name: FreeStringPtr(IntPtr)
-  nameWithType: MarshalTk.FreeStringPtr(IntPtr)
-  fullName: OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  name: FreeStringPtr(nint)
+  nameWithType: MarshalTk.FreeStringPtr(nint)
+  fullName: OpenTK.Core.Native.MarshalTk.FreeStringPtr(nint)
   type: Method
   source:
     remote:
       path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: FreeStringPtr
     path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
@@ -152,13 +155,16 @@ items:
   summary: Frees a marshaled string that allocated by <code>MarshalStringToPtr</code>.
   example: []
   syntax:
-    content: public static void FreeStringPtr(IntPtr ptr)
+    content: public static void FreeStringPtr(nint ptr)
     parameters:
     - id: ptr
       type: System.IntPtr
       description: An unmanaged pointer allocated with <code>MarshalStringToPtr</code>.
     content.vb: Public Shared Sub FreeStringPtr(ptr As IntPtr)
   overload: OpenTK.Core.Native.MarshalTk.FreeStringPtr*
+  nameWithType.vb: MarshalTk.FreeStringPtr(IntPtr)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  name.vb: FreeStringPtr(IntPtr)
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
   commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
   id: MarshalStringArrayToPtr(System.String[])
@@ -173,7 +179,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MarshalStringArrayToPtr
     path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
@@ -187,7 +193,7 @@ items:
     Marshal.AllocHGlobal for each element.
   example: []
   syntax:
-    content: public static IntPtr MarshalStringArrayToPtr(string[] strArray)
+    content: public static nint MarshalStringArrayToPtr(string[] strArray)
     parameters:
     - id: strArray
       type: System.String[]
@@ -207,14 +213,14 @@ items:
   langs:
   - csharp
   - vb
-  name: FreeStringArrayPtr(IntPtr, int)
-  nameWithType: MarshalTk.FreeStringArrayPtr(IntPtr, int)
-  fullName: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr, int)
+  name: FreeStringArrayPtr(nint, int)
+  nameWithType: MarshalTk.FreeStringArrayPtr(nint, int)
+  fullName: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(nint, int)
   type: Method
   source:
     remote:
       path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: FreeStringArrayPtr
     path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
@@ -225,7 +231,7 @@ items:
   summary: Frees a marshaled string that allocated by <code>MarshalStringArrayToPtr</code>.
   example: []
   syntax:
-    content: public static void FreeStringArrayPtr(IntPtr ptr, int length)
+    content: public static void FreeStringArrayPtr(nint ptr, int length)
     parameters:
     - id: ptr
       type: System.IntPtr
@@ -508,7 +514,7 @@ references:
   fullName: System
 - uid: OpenTK.Core.Native.MarshalTk.MarshalPtrToString*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalPtrToString
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalPtrToString_System_IntPtr_
   name: MarshalPtrToString
   nameWithType: MarshalTk.MarshalPtrToString
   fullName: OpenTK.Core.Native.MarshalTk.MarshalPtrToString
@@ -517,9 +523,12 @@ references:
   parent: System
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: IntPtr
-  nameWithType: IntPtr
-  fullName: System.IntPtr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -533,19 +542,19 @@ references:
   name.vb: String
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalStringToPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringToPtr_System_String_
   name: MarshalStringToPtr
   nameWithType: MarshalTk.MarshalStringToPtr
   fullName: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr
 - uid: OpenTK.Core.Native.MarshalTk.FreeStringPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.FreeStringPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeStringPtr_System_IntPtr_
   name: FreeStringPtr
   nameWithType: MarshalTk.FreeStringPtr
   fullName: OpenTK.Core.Native.MarshalTk.FreeStringPtr
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToPtr_System_String___
   name: MarshalStringArrayToPtr
   nameWithType: MarshalTk.MarshalStringArrayToPtr
   fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr
@@ -574,7 +583,7 @@ references:
   - name: )
 - uid: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr,System.Int32)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeStringArrayPtr_System_IntPtr_System_Int32_
   name: FreeStringArrayPtr
   nameWithType: MarshalTk.FreeStringArrayPtr
   fullName: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr

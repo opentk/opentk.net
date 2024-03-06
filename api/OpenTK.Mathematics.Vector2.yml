@@ -5,8 +5,8 @@ items:
   id: Vector2
   parent: OpenTK.Mathematics
   children:
-  - OpenTK.Mathematics.Vector2.#ctor(System.Single,System.Single)
   - OpenTK.Mathematics.Vector2.#ctor(System.Single)
+  - OpenTK.Mathematics.Vector2.#ctor(System.Single,System.Single)
   - OpenTK.Mathematics.Vector2.Add(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
   - OpenTK.Mathematics.Vector2.Add(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@)
   - OpenTK.Mathematics.Vector2.BaryCentric(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,System.Single,System.Single)
@@ -51,11 +51,35 @@ items:
   - OpenTK.Mathematics.Vector2.Normalize
   - OpenTK.Mathematics.Vector2.Normalize(OpenTK.Mathematics.Vector2)
   - OpenTK.Mathematics.Vector2.Normalize(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@)
-  - OpenTK.Mathematics.Vector2.Normalized
   - OpenTK.Mathematics.Vector2.NormalizeFast
   - OpenTK.Mathematics.Vector2.NormalizeFast(OpenTK.Mathematics.Vector2)
   - OpenTK.Mathematics.Vector2.NormalizeFast(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@)
+  - OpenTK.Mathematics.Vector2.Normalized
   - OpenTK.Mathematics.Vector2.One
+  - OpenTK.Mathematics.Vector2.PerpDot(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  - OpenTK.Mathematics.Vector2.PerpDot(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@,System.Single@)
+  - OpenTK.Mathematics.Vector2.PerpendicularLeft
+  - OpenTK.Mathematics.Vector2.PerpendicularRight
+  - OpenTK.Mathematics.Vector2.PositiveInfinity
+  - OpenTK.Mathematics.Vector2.SizeInBytes
+  - OpenTK.Mathematics.Vector2.Subtract(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  - OpenTK.Mathematics.Vector2.Subtract(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@)
+  - OpenTK.Mathematics.Vector2.ToString
+  - OpenTK.Mathematics.Vector2.ToString(System.IFormatProvider)
+  - OpenTK.Mathematics.Vector2.ToString(System.String)
+  - OpenTK.Mathematics.Vector2.ToString(System.String,System.IFormatProvider)
+  - OpenTK.Mathematics.Vector2.Transform(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Quaternion)
+  - OpenTK.Mathematics.Vector2.Transform(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Vector2@)
+  - OpenTK.Mathematics.Vector2.TransformColumn(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Vector2)
+  - OpenTK.Mathematics.Vector2.TransformColumn(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@)
+  - OpenTK.Mathematics.Vector2.TransformRow(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Matrix2)
+  - OpenTK.Mathematics.Vector2.TransformRow(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Vector2@)
+  - OpenTK.Mathematics.Vector2.UnitX
+  - OpenTK.Mathematics.Vector2.UnitY
+  - OpenTK.Mathematics.Vector2.X
+  - OpenTK.Mathematics.Vector2.Y
+  - OpenTK.Mathematics.Vector2.Yx
+  - OpenTK.Mathematics.Vector2.Zero
   - OpenTK.Mathematics.Vector2.op_Addition(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
   - OpenTK.Mathematics.Vector2.op_Division(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
   - OpenTK.Mathematics.Vector2.op_Division(OpenTK.Mathematics.Vector2,System.Single)
@@ -75,30 +99,6 @@ items:
   - OpenTK.Mathematics.Vector2.op_Multiply(System.Single,OpenTK.Mathematics.Vector2)
   - OpenTK.Mathematics.Vector2.op_Subtraction(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
   - OpenTK.Mathematics.Vector2.op_UnaryNegation(OpenTK.Mathematics.Vector2)
-  - OpenTK.Mathematics.Vector2.PerpDot(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
-  - OpenTK.Mathematics.Vector2.PerpDot(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@,System.Single@)
-  - OpenTK.Mathematics.Vector2.PerpendicularLeft
-  - OpenTK.Mathematics.Vector2.PerpendicularRight
-  - OpenTK.Mathematics.Vector2.PositiveInfinity
-  - OpenTK.Mathematics.Vector2.SizeInBytes
-  - OpenTK.Mathematics.Vector2.Subtract(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
-  - OpenTK.Mathematics.Vector2.Subtract(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@)
-  - OpenTK.Mathematics.Vector2.ToString
-  - OpenTK.Mathematics.Vector2.ToString(System.IFormatProvider)
-  - OpenTK.Mathematics.Vector2.ToString(System.String,System.IFormatProvider)
-  - OpenTK.Mathematics.Vector2.ToString(System.String)
-  - OpenTK.Mathematics.Vector2.Transform(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Quaternion)
-  - OpenTK.Mathematics.Vector2.Transform(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Vector2@)
-  - OpenTK.Mathematics.Vector2.TransformColumn(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Vector2)
-  - OpenTK.Mathematics.Vector2.TransformColumn(OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Vector2@)
-  - OpenTK.Mathematics.Vector2.TransformRow(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Matrix2)
-  - OpenTK.Mathematics.Vector2.TransformRow(OpenTK.Mathematics.Vector2@,OpenTK.Mathematics.Matrix2@,OpenTK.Mathematics.Vector2@)
-  - OpenTK.Mathematics.Vector2.UnitX
-  - OpenTK.Mathematics.Vector2.UnitY
-  - OpenTK.Mathematics.Vector2.X
-  - OpenTK.Mathematics.Vector2.Y
-  - OpenTK.Mathematics.Vector2.Yx
-  - OpenTK.Mathematics.Vector2.Zero
   langs:
   - csharp
   - vb
@@ -109,7 +109,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Vector2
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -154,7 +154,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: X
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -183,7 +183,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Y
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -212,7 +212,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -247,7 +247,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -262,10 +262,10 @@ items:
     parameters:
     - id: x
       type: System.Single
-      description: The x coordinate of the net Vector2.
+      description: The x component of the Vector2.
     - id: y
       type: System.Single
-      description: The y coordinate of the net Vector2.
+      description: The y component of the Vector2.
     content.vb: Public Sub New(x As Single, y As Single)
   overload: OpenTK.Mathematics.Vector2.#ctor*
   nameWithType.vb: Vector2.New(Single, Single)
@@ -285,7 +285,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: this[]
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -326,7 +326,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Length
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -360,7 +360,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: LengthFast
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -398,7 +398,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: LengthSquared
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -436,7 +436,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: PerpendicularRight
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -467,7 +467,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: PerpendicularLeft
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -498,7 +498,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Normalized
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -529,7 +529,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Normalize
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -557,7 +557,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: NormalizeFast
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -585,7 +585,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: UnitX
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -614,7 +614,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: UnitY
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -643,7 +643,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Zero
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -672,7 +672,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: One
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -701,7 +701,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: PositiveInfinity
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -730,7 +730,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: NegativeInfinity
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -759,7 +759,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: SizeInBytes
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -788,7 +788,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Add
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -836,7 +836,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Add
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -877,7 +877,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Subtract
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -925,7 +925,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Subtract
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -966,7 +966,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1017,7 +1017,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1058,7 +1058,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1106,7 +1106,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1147,7 +1147,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Divide
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1198,7 +1198,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Divide
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1239,7 +1239,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Divide
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1287,7 +1287,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Divide
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1328,7 +1328,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ComponentMin
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1376,7 +1376,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ComponentMin
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1417,7 +1417,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ComponentMax
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1465,7 +1465,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ComponentMax
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1506,7 +1506,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MagnitudeMin
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1557,7 +1557,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MagnitudeMin
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1601,7 +1601,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MagnitudeMax
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1652,7 +1652,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: MagnitudeMax
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1696,7 +1696,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Clamp
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1747,7 +1747,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Clamp
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1791,7 +1791,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Distance
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1839,7 +1839,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Distance
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1880,7 +1880,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: DistanceSquared
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1928,7 +1928,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: DistanceSquared
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -1969,7 +1969,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Normalize
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2014,7 +2014,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Normalize
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2052,7 +2052,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: NormalizeFast
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2097,7 +2097,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: NormalizeFast
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2135,7 +2135,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Dot
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2183,7 +2183,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Dot
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2224,7 +2224,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: PerpDot
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2272,7 +2272,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: PerpDot
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2313,7 +2313,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Lerp
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2367,7 +2367,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Lerp
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2411,7 +2411,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Lerp
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2462,7 +2462,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Lerp
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2506,7 +2506,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: BaryCentric
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2566,7 +2566,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: BaryCentric
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2619,7 +2619,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: TransformRow
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2667,7 +2667,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: TransformRow
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2708,7 +2708,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Transform
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2756,7 +2756,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Transform
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2797,7 +2797,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: TransformColumn
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2845,7 +2845,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: TransformColumn
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2886,7 +2886,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Yx
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2917,7 +2917,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Addition
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -2968,7 +2968,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Subtraction
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3019,7 +3019,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_UnaryNegation
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3067,7 +3067,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3118,7 +3118,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3169,7 +3169,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3220,7 +3220,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3271,7 +3271,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3322,7 +3322,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3373,7 +3373,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Division
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3424,7 +3424,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Division
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3475,7 +3475,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Equality
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3516,7 +3516,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Inequality
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3557,7 +3557,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Implicit
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3608,7 +3608,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Implicit
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3656,7 +3656,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Explicit
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3704,7 +3704,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Explicit
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3752,7 +3752,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Explicit
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3800,7 +3800,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: op_Explicit
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3848,7 +3848,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3856,11 +3856,13 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Returns the fully qualified type name of this instance.
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
+      description: The fully qualified type name.
     content.vb: Public Overrides Function ToString() As String
   overridden: System.ValueType.ToString
   overload: OpenTK.Mathematics.Vector2.ToString*
@@ -3878,7 +3880,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3886,14 +3888,22 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
     content: public string ToString(string format)
     parameters:
     - id: format
       type: System.String
+      description: >-
+        The format to use.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(format As String) As String
   overload: OpenTK.Mathematics.Vector2.ToString*
   nameWithType.vb: Vector2.ToString(String)
@@ -3913,7 +3923,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3921,14 +3931,22 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
     content: public string ToString(IFormatProvider formatProvider)
     parameters:
     - id: formatProvider
       type: System.IFormatProvider
+      description: >-
+        The provider to use to format the value.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(formatProvider As IFormatProvider) As String
   overload: OpenTK.Mathematics.Vector2.ToString*
 - uid: OpenTK.Mathematics.Vector2.ToString(System.String,System.IFormatProvider)
@@ -3945,7 +3963,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3953,16 +3971,30 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
     content: public string ToString(string format, IFormatProvider formatProvider)
     parameters:
     - id: format
       type: System.String
+      description: >-
+        The format to use.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
+      description: >-
+        The provider to use to format the value.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(format As String, formatProvider As IFormatProvider) As String
   overload: OpenTK.Mathematics.Vector2.ToString*
   implements:
@@ -3984,7 +4016,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -3992,14 +4024,17 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Indicates whether this instance and a specified object are equal.
   example: []
   syntax:
     content: public override bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
+      description: The object to compare with the current instance.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function Equals(obj As Object) As Boolean
   overridden: System.ValueType.Equals(System.Object)
   overload: OpenTK.Mathematics.Vector2.Equals*
@@ -4020,7 +4055,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -4028,14 +4063,17 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Indicates whether the current object is equal to another object of the same type.
   example: []
   syntax:
     content: public bool Equals(Vector2 other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Vector2
+      description: An object to compare with this object.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function Equals(other As Vector2) As Boolean
   overload: OpenTK.Mathematics.Vector2.Equals*
   implements:
@@ -4054,7 +4092,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: GetHashCode
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -4062,11 +4100,13 @@ items:
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Returns the hash code for this instance.
   example: []
   syntax:
     content: public override int GetHashCode()
     return:
       type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.ValueType.GetHashCode
   overload: OpenTK.Mathematics.Vector2.GetHashCode*
@@ -4084,7 +4124,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Vector/Vector2.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: Deconstruct
     path: opentk/src/OpenTK.Mathematics/Vector/Vector2.cs
@@ -4362,7 +4402,7 @@ references:
   fullName: OpenTK.Mathematics.Vector2
 - uid: OpenTK.Mathematics.Vector2.#ctor*
   commentId: Overload:OpenTK.Mathematics.Vector2.#ctor
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.#ctor(System.Single)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2__ctor_System_Single_
   name: Vector2
   nameWithType: Vector2.Vector2
   fullName: OpenTK.Mathematics.Vector2.Vector2
@@ -4378,7 +4418,7 @@ references:
   fullName: System.IndexOutOfRangeException
 - uid: OpenTK.Mathematics.Vector2.Item*
   commentId: Overload:OpenTK.Mathematics.Vector2.Item
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Item(System.Int32)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Item_System_Int32_
   name: this
   nameWithType: Vector2.this
   fullName: OpenTK.Mathematics.Vector2.this
@@ -4398,163 +4438,163 @@ references:
   name.vb: Integer
 - uid: OpenTK.Mathematics.Vector2.LengthSquared
   commentId: P:OpenTK.Mathematics.Vector2.LengthSquared
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.LengthSquared
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_LengthSquared
   name: LengthSquared
   nameWithType: Vector2.LengthSquared
   fullName: OpenTK.Mathematics.Vector2.LengthSquared
 - uid: OpenTK.Mathematics.Vector2.LengthFast
   commentId: P:OpenTK.Mathematics.Vector2.LengthFast
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.LengthFast
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_LengthFast
   name: LengthFast
   nameWithType: Vector2.LengthFast
   fullName: OpenTK.Mathematics.Vector2.LengthFast
 - uid: OpenTK.Mathematics.Vector2.Length*
   commentId: Overload:OpenTK.Mathematics.Vector2.Length
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Length
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Length
   name: Length
   nameWithType: Vector2.Length
   fullName: OpenTK.Mathematics.Vector2.Length
 - uid: OpenTK.Mathematics.Vector2.Length
   commentId: P:OpenTK.Mathematics.Vector2.Length
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Length
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Length
   name: Length
   nameWithType: Vector2.Length
   fullName: OpenTK.Mathematics.Vector2.Length
 - uid: OpenTK.Mathematics.Vector2.LengthFast*
   commentId: Overload:OpenTK.Mathematics.Vector2.LengthFast
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.LengthFast
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_LengthFast
   name: LengthFast
   nameWithType: Vector2.LengthFast
   fullName: OpenTK.Mathematics.Vector2.LengthFast
 - uid: OpenTK.Mathematics.Vector2.LengthSquared*
   commentId: Overload:OpenTK.Mathematics.Vector2.LengthSquared
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.LengthSquared
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_LengthSquared
   name: LengthSquared
   nameWithType: Vector2.LengthSquared
   fullName: OpenTK.Mathematics.Vector2.LengthSquared
 - uid: OpenTK.Mathematics.Vector2.PerpendicularRight*
   commentId: Overload:OpenTK.Mathematics.Vector2.PerpendicularRight
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.PerpendicularRight
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_PerpendicularRight
   name: PerpendicularRight
   nameWithType: Vector2.PerpendicularRight
   fullName: OpenTK.Mathematics.Vector2.PerpendicularRight
 - uid: OpenTK.Mathematics.Vector2.PerpendicularLeft*
   commentId: Overload:OpenTK.Mathematics.Vector2.PerpendicularLeft
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.PerpendicularLeft
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_PerpendicularLeft
   name: PerpendicularLeft
   nameWithType: Vector2.PerpendicularLeft
   fullName: OpenTK.Mathematics.Vector2.PerpendicularLeft
 - uid: OpenTK.Mathematics.Vector2.Normalized*
   commentId: Overload:OpenTK.Mathematics.Vector2.Normalized
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Normalized
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Normalized
   name: Normalized
   nameWithType: Vector2.Normalized
   fullName: OpenTK.Mathematics.Vector2.Normalized
 - uid: OpenTK.Mathematics.Vector2.Normalize*
   commentId: Overload:OpenTK.Mathematics.Vector2.Normalize
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Normalize
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Normalize
   name: Normalize
   nameWithType: Vector2.Normalize
   fullName: OpenTK.Mathematics.Vector2.Normalize
 - uid: OpenTK.Mathematics.Vector2.NormalizeFast*
   commentId: Overload:OpenTK.Mathematics.Vector2.NormalizeFast
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.NormalizeFast
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_NormalizeFast
   name: NormalizeFast
   nameWithType: Vector2.NormalizeFast
   fullName: OpenTK.Mathematics.Vector2.NormalizeFast
 - uid: OpenTK.Mathematics.Vector2.Add*
   commentId: Overload:OpenTK.Mathematics.Vector2.Add
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Add(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Add_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: Add
   nameWithType: Vector2.Add
   fullName: OpenTK.Mathematics.Vector2.Add
 - uid: OpenTK.Mathematics.Vector2.Subtract*
   commentId: Overload:OpenTK.Mathematics.Vector2.Subtract
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Subtract(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Subtract_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: Subtract
   nameWithType: Vector2.Subtract
   fullName: OpenTK.Mathematics.Vector2.Subtract
 - uid: OpenTK.Mathematics.Vector2.Multiply*
   commentId: Overload:OpenTK.Mathematics.Vector2.Multiply
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Multiply(OpenTK.Mathematics.Vector2,System.Single)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Multiply_OpenTK_Mathematics_Vector2_System_Single_
   name: Multiply
   nameWithType: Vector2.Multiply
   fullName: OpenTK.Mathematics.Vector2.Multiply
 - uid: OpenTK.Mathematics.Vector2.Divide*
   commentId: Overload:OpenTK.Mathematics.Vector2.Divide
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Divide(OpenTK.Mathematics.Vector2,System.Single)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Divide_OpenTK_Mathematics_Vector2_System_Single_
   name: Divide
   nameWithType: Vector2.Divide
   fullName: OpenTK.Mathematics.Vector2.Divide
 - uid: OpenTK.Mathematics.Vector2.ComponentMin*
   commentId: Overload:OpenTK.Mathematics.Vector2.ComponentMin
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.ComponentMin(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_ComponentMin_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: ComponentMin
   nameWithType: Vector2.ComponentMin
   fullName: OpenTK.Mathematics.Vector2.ComponentMin
 - uid: OpenTK.Mathematics.Vector2.ComponentMax*
   commentId: Overload:OpenTK.Mathematics.Vector2.ComponentMax
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.ComponentMax(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_ComponentMax_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: ComponentMax
   nameWithType: Vector2.ComponentMax
   fullName: OpenTK.Mathematics.Vector2.ComponentMax
 - uid: OpenTK.Mathematics.Vector2.MagnitudeMin*
   commentId: Overload:OpenTK.Mathematics.Vector2.MagnitudeMin
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.MagnitudeMin(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_MagnitudeMin_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: MagnitudeMin
   nameWithType: Vector2.MagnitudeMin
   fullName: OpenTK.Mathematics.Vector2.MagnitudeMin
 - uid: OpenTK.Mathematics.Vector2.MagnitudeMax*
   commentId: Overload:OpenTK.Mathematics.Vector2.MagnitudeMax
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.MagnitudeMax(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_MagnitudeMax_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: MagnitudeMax
   nameWithType: Vector2.MagnitudeMax
   fullName: OpenTK.Mathematics.Vector2.MagnitudeMax
 - uid: OpenTK.Mathematics.Vector2.Clamp*
   commentId: Overload:OpenTK.Mathematics.Vector2.Clamp
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Clamp(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Clamp_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: Clamp
   nameWithType: Vector2.Clamp
   fullName: OpenTK.Mathematics.Vector2.Clamp
 - uid: OpenTK.Mathematics.Vector2.Distance*
   commentId: Overload:OpenTK.Mathematics.Vector2.Distance
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Distance(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Distance_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: Distance
   nameWithType: Vector2.Distance
   fullName: OpenTK.Mathematics.Vector2.Distance
 - uid: OpenTK.Mathematics.Vector2.DistanceSquared*
   commentId: Overload:OpenTK.Mathematics.Vector2.DistanceSquared
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.DistanceSquared(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_DistanceSquared_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: DistanceSquared
   nameWithType: Vector2.DistanceSquared
   fullName: OpenTK.Mathematics.Vector2.DistanceSquared
 - uid: OpenTK.Mathematics.Vector2.Dot*
   commentId: Overload:OpenTK.Mathematics.Vector2.Dot
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Dot(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Dot_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: Dot
   nameWithType: Vector2.Dot
   fullName: OpenTK.Mathematics.Vector2.Dot
 - uid: OpenTK.Mathematics.Vector2.PerpDot*
   commentId: Overload:OpenTK.Mathematics.Vector2.PerpDot
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.PerpDot(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_PerpDot_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: PerpDot
   nameWithType: Vector2.PerpDot
   fullName: OpenTK.Mathematics.Vector2.PerpDot
 - uid: OpenTK.Mathematics.Vector2.Lerp*
   commentId: Overload:OpenTK.Mathematics.Vector2.Lerp
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Lerp(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,System.Single)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Lerp_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_System_Single_
   name: Lerp
   nameWithType: Vector2.Lerp
   fullName: OpenTK.Mathematics.Vector2.Lerp
 - uid: OpenTK.Mathematics.Vector2.BaryCentric*
   commentId: Overload:OpenTK.Mathematics.Vector2.BaryCentric
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.BaryCentric(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,System.Single,System.Single)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_BaryCentric_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_System_Single_System_Single_
   name: BaryCentric
   nameWithType: Vector2.BaryCentric
   fullName: OpenTK.Mathematics.Vector2.BaryCentric
 - uid: OpenTK.Mathematics.Vector2.TransformRow*
   commentId: Overload:OpenTK.Mathematics.Vector2.TransformRow
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.TransformRow(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Matrix2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_TransformRow_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Matrix2_
   name: TransformRow
   nameWithType: Vector2.TransformRow
   fullName: OpenTK.Mathematics.Vector2.TransformRow
@@ -4567,7 +4607,7 @@ references:
   fullName: OpenTK.Mathematics.Matrix2
 - uid: OpenTK.Mathematics.Vector2.Transform*
   commentId: Overload:OpenTK.Mathematics.Vector2.Transform
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Transform(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Quaternion)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Transform_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Quaternion_
   name: Transform
   nameWithType: Vector2.Transform
   fullName: OpenTK.Mathematics.Vector2.Transform
@@ -4580,19 +4620,19 @@ references:
   fullName: OpenTK.Mathematics.Quaternion
 - uid: OpenTK.Mathematics.Vector2.TransformColumn*
   commentId: Overload:OpenTK.Mathematics.Vector2.TransformColumn
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.TransformColumn(OpenTK.Mathematics.Matrix2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_TransformColumn_OpenTK_Mathematics_Matrix2_OpenTK_Mathematics_Vector2_
   name: TransformColumn
   nameWithType: Vector2.TransformColumn
   fullName: OpenTK.Mathematics.Vector2.TransformColumn
 - uid: OpenTK.Mathematics.Vector2.Yx*
   commentId: Overload:OpenTK.Mathematics.Vector2.Yx
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Yx
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Yx
   name: Yx
   nameWithType: Vector2.Yx
   fullName: OpenTK.Mathematics.Vector2.Yx
 - uid: OpenTK.Mathematics.Vector2.op_Addition*
   commentId: Overload:OpenTK.Mathematics.Vector2.op_Addition
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Addition(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Addition_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: operator +
   nameWithType: Vector2.operator +
   fullName: OpenTK.Mathematics.Vector2.operator +
@@ -4604,10 +4644,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector2.op_Addition*
     name: +
-    href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Addition(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+    href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Addition_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
 - uid: OpenTK.Mathematics.Vector2.op_Subtraction*
   commentId: Overload:OpenTK.Mathematics.Vector2.op_Subtraction
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Subtraction(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Subtraction_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: operator -
   nameWithType: Vector2.operator -
   fullName: OpenTK.Mathematics.Vector2.operator -
@@ -4619,10 +4659,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector2.op_Subtraction*
     name: '-'
-    href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Subtraction(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+    href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Subtraction_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
 - uid: OpenTK.Mathematics.Vector2.op_UnaryNegation*
   commentId: Overload:OpenTK.Mathematics.Vector2.op_UnaryNegation
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_UnaryNegation(OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_UnaryNegation_OpenTK_Mathematics_Vector2_
   name: operator -
   nameWithType: Vector2.operator -
   fullName: OpenTK.Mathematics.Vector2.operator -
@@ -4634,10 +4674,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector2.op_UnaryNegation*
     name: '-'
-    href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_UnaryNegation(OpenTK.Mathematics.Vector2)
+    href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_UnaryNegation_OpenTK_Mathematics_Vector2_
 - uid: OpenTK.Mathematics.Vector2.op_Multiply*
   commentId: Overload:OpenTK.Mathematics.Vector2.op_Multiply
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Multiply(OpenTK.Mathematics.Vector2,System.Single)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Multiply_OpenTK_Mathematics_Vector2_System_Single_
   name: operator *
   nameWithType: Vector2.operator *
   fullName: OpenTK.Mathematics.Vector2.operator *
@@ -4649,10 +4689,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector2.op_Multiply*
     name: '*'
-    href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Multiply(OpenTK.Mathematics.Vector2,System.Single)
+    href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Multiply_OpenTK_Mathematics_Vector2_System_Single_
 - uid: OpenTK.Mathematics.Vector2.op_Division*
   commentId: Overload:OpenTK.Mathematics.Vector2.op_Division
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Division(OpenTK.Mathematics.Vector2,System.Single)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Division_OpenTK_Mathematics_Vector2_System_Single_
   name: operator /
   nameWithType: Vector2.operator /
   fullName: OpenTK.Mathematics.Vector2.operator /
@@ -4664,10 +4704,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector2.op_Division*
     name: /
-    href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Division(OpenTK.Mathematics.Vector2,System.Single)
+    href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Division_OpenTK_Mathematics_Vector2_System_Single_
 - uid: OpenTK.Mathematics.Vector2.op_Equality*
   commentId: Overload:OpenTK.Mathematics.Vector2.op_Equality
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Equality(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Equality_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: operator ==
   nameWithType: Vector2.operator ==
   fullName: OpenTK.Mathematics.Vector2.operator ==
@@ -4679,7 +4719,7 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector2.op_Equality*
     name: ==
-    href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Equality(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+    href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Equality_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -4693,7 +4733,7 @@ references:
   name.vb: Boolean
 - uid: OpenTK.Mathematics.Vector2.op_Inequality*
   commentId: Overload:OpenTK.Mathematics.Vector2.op_Inequality
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Inequality(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Inequality_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
   name: operator !=
   nameWithType: Vector2.operator !=
   fullName: OpenTK.Mathematics.Vector2.operator !=
@@ -4705,7 +4745,7 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector2.op_Inequality*
     name: '!='
-    href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.op_Inequality(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+    href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_op_Inequality_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
 - uid: OpenTK.Mathematics.Vector2.op_Implicit*
   commentId: Overload:OpenTK.Mathematics.Vector2.op_Implicit
   name: implicit operator
@@ -4894,7 +4934,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector2.ToString*
   commentId: Overload:OpenTK.Mathematics.Vector2.ToString
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.ToString
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_ToString
   name: ToString
   nameWithType: Vector2.ToString
   fullName: OpenTK.Mathematics.Vector2.ToString
@@ -5005,7 +5045,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector2.Equals*
   commentId: Overload:OpenTK.Mathematics.Vector2.Equals
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Equals(System.Object)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Equals_System_Object_
   name: Equals
   nameWithType: Vector2.Equals
   fullName: OpenTK.Mathematics.Vector2.Equals
@@ -5013,7 +5053,7 @@ references:
   commentId: M:System.IEquatable{OpenTK.Mathematics.Vector2}.Equals(OpenTK.Mathematics.Vector2)
   parent: System.IEquatable{OpenTK.Mathematics.Vector2}
   definition: System.IEquatable`1.Equals(`0)
-  href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector2-.equals#system-iequatable((opentk-mathematics-vector2))-equals(opentk-mathematics-vector2)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   name: Equals(Vector2)
   nameWithType: IEquatable<Vector2>.Equals(Vector2)
   fullName: System.IEquatable<OpenTK.Mathematics.Vector2>.Equals(OpenTK.Mathematics.Vector2)
@@ -5023,7 +5063,7 @@ references:
   - uid: System.IEquatable{OpenTK.Mathematics.Vector2}.Equals(OpenTK.Mathematics.Vector2)
     name: Equals
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector2-.equals#system-iequatable((opentk-mathematics-vector2))-equals(opentk-mathematics-vector2)
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   - name: (
   - uid: OpenTK.Mathematics.Vector2
     name: Vector2
@@ -5033,7 +5073,7 @@ references:
   - uid: System.IEquatable{OpenTK.Mathematics.Vector2}.Equals(OpenTK.Mathematics.Vector2)
     name: Equals
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector2-.equals#system-iequatable((opentk-mathematics-vector2))-equals(opentk-mathematics-vector2)
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   - name: (
   - uid: OpenTK.Mathematics.Vector2
     name: Vector2
@@ -5088,13 +5128,13 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector2.GetHashCode*
   commentId: Overload:OpenTK.Mathematics.Vector2.GetHashCode
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.GetHashCode
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_GetHashCode
   name: GetHashCode
   nameWithType: Vector2.GetHashCode
   fullName: OpenTK.Mathematics.Vector2.GetHashCode
 - uid: OpenTK.Mathematics.Vector2.Deconstruct*
   commentId: Overload:OpenTK.Mathematics.Vector2.Deconstruct
-  href: OpenTK.Mathematics.Vector2.html#OpenTK.Mathematics.Vector2.Deconstruct(System.Single@,System.Single@)
+  href: OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Deconstruct_System_Single__System_Single__
   name: Deconstruct
   nameWithType: Vector2.Deconstruct
   fullName: OpenTK.Mathematics.Vector2.Deconstruct

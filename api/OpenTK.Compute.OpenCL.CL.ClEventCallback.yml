@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: src/OpenTK.Compute/OpenCL/CL.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
+      branch: pal2-work
       repo: https://github.com/opentk/opentk.git
     id: ClEventCallback
     path: opentk/src/OpenTK.Compute/OpenCL/CL.cs
@@ -24,7 +24,7 @@ items:
   - OpenTK.Compute
   namespace: OpenTK.Compute.OpenCL
   syntax:
-    content: public delegate void CL.ClEventCallback(IntPtr waitEvent, IntPtr userData)
+    content: public delegate void CL.ClEventCallback(nint waitEvent, nint userData)
     parameters:
     - id: waitEvent
       type: System.IntPtr
@@ -67,9 +67,12 @@ references:
   parent: System
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: IntPtr
-  nameWithType: IntPtr
-  fullName: System.IntPtr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
 - uid: System
   commentId: N:System
   isExternal: true

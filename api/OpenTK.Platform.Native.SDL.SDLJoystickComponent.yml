@@ -10,7 +10,7 @@ items:
   - OpenTK.Platform.Native.SDL.SDLJoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
   - OpenTK.Platform.Native.SDL.SDLJoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
   - OpenTK.Platform.Native.SDL.SDLJoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
-  - OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.SDL.SDLJoystickComponent.IsConnected(System.Int32)
   - OpenTK.Platform.Native.SDL.SDLJoystickComponent.LeftDeadzone
   - OpenTK.Platform.Native.SDL.SDLJoystickComponent.Logger
@@ -154,16 +154,16 @@ items:
   overload: OpenTK.Platform.Native.SDL.SDLJoystickComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.SDL.SDLJoystickComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: SDLJoystickComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: SDLJoystickComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -176,18 +176,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.SDL.SDLJoystickComponent.LeftDeadzone
   commentId: P:OpenTK.Platform.Native.SDL.SDLJoystickComponent.LeftDeadzone
   id: LeftDeadzone
@@ -206,7 +206,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: LeftDeadzone
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 39
+    startLine: 34
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -239,7 +239,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: RightDeadzone
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 41
+    startLine: 36
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -272,7 +272,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: TriggerThreshold
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 43
+    startLine: 38
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -305,7 +305,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsConnected
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 46
+    startLine: 41
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -345,7 +345,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Open
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 53
+    startLine: 48
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -385,7 +385,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Close
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 69
+    startLine: 64
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -419,7 +419,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetGuid
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 78
+    startLine: 73
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -453,7 +453,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetName
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 91
+    startLine: 86
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -487,7 +487,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetAxis
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 106
+    startLine: 101
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -530,7 +530,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetButton
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 142
+    startLine: 137
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -570,7 +570,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetVibration
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 201
+    startLine: 196
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -611,7 +611,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: TryGetBatteryInfo
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLJoystickComponent.cs
-    startLine: 217
+    startLine: 212
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -1048,35 +1048,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize
-  href: OpenTK.Platform.Native.SDL.SDLJoystickComponent.html#OpenTK_Platform_Native_SDL_SDLJoystickComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.SDL.SDLJoystickComponent.html#OpenTK_Platform_Native_SDL_SDLJoystickComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: SDLJoystickComponent.Initialize
   fullName: OpenTK.Platform.Native.SDL.SDLJoystickComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.SDL.SDLJoystickComponent.LeftDeadzone*
   commentId: Overload:OpenTK.Platform.Native.SDL.SDLJoystickComponent.LeftDeadzone
   href: OpenTK.Platform.Native.SDL.SDLJoystickComponent.html#OpenTK_Platform_Native_SDL_SDLJoystickComponent_LeftDeadzone

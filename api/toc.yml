@@ -308,20 +308,28 @@ items:
     name: ClipboardUpdateEventArgs
   - uid: OpenTK.Core.Platform.CloseEventArgs
     name: CloseEventArgs
-  - uid: OpenTK.Core.Platform.ComponentSet
-    name: ComponentSet
   - uid: OpenTK.Core.Platform.ContextDepthBits
     name: ContextDepthBits
-  - uid: OpenTK.Core.Platform.ContextSettings
-    name: ContextSettings
+  - uid: OpenTK.Core.Platform.ContextPixelFormat
+    name: ContextPixelFormat
+  - uid: OpenTK.Core.Platform.ContextReleaseBehaviour
+    name: ContextReleaseBehaviour
+  - uid: OpenTK.Core.Platform.ContextResetNotificationStrategy
+    name: ContextResetNotificationStrategy
   - uid: OpenTK.Core.Platform.ContextStencilBits
     name: ContextStencilBits
+  - uid: OpenTK.Core.Platform.ContextSwapMethod
+    name: ContextSwapMethod
+  - uid: OpenTK.Core.Platform.ContextValueSelector
+    name: ContextValueSelector
   - uid: OpenTK.Core.Platform.ContextValues
     name: ContextValues
   - uid: OpenTK.Core.Platform.CursorCaptureMode
     name: CursorCaptureMode
   - uid: OpenTK.Core.Platform.CursorHandle
     name: CursorHandle
+  - uid: OpenTK.Core.Platform.DialogFileFilter
+    name: DialogFileFilter
   - uid: OpenTK.Core.Platform.DisplayConnectionChangedEventArgs
     name: DisplayConnectionChangedEventArgs
   - uid: OpenTK.Core.Platform.DisplayHandle
@@ -350,6 +358,8 @@ items:
     name: IClipboardComponent
   - uid: OpenTK.Core.Platform.ICursorComponent
     name: ICursorComponent
+  - uid: OpenTK.Core.Platform.IDialogComponent
+    name: IDialogComponent
   - uid: OpenTK.Core.Platform.IDisplayComponent
     name: IDisplayComponent
   - uid: OpenTK.Core.Platform.IIconComponent
@@ -404,6 +414,8 @@ items:
     name: MouseMoveEventArgs
   - uid: OpenTK.Core.Platform.MouseState
     name: MouseState
+  - uid: OpenTK.Core.Platform.OpenDialogOptions
+    name: OpenDialogOptions
   - uid: OpenTK.Core.Platform.OpenGLContextHandle
     name: OpenGLContextHandle
   - uid: OpenTK.Core.Platform.OpenGLGraphicsApiHints
@@ -428,6 +440,8 @@ items:
     name: PlatformException
   - uid: OpenTK.Core.Platform.PowerStateChangeEventArgs
     name: PowerStateChangeEventArgs
+  - uid: OpenTK.Core.Platform.SaveDialogOptions
+    name: SaveDialogOptions
   - uid: OpenTK.Core.Platform.Scancode
     name: Scancode
   - uid: OpenTK.Core.Platform.ScrollEventArgs
@@ -450,16 +464,18 @@ items:
     name: ThemeChangeEventArgs
   - uid: OpenTK.Core.Platform.ThemeInfo
     name: ThemeInfo
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
   - uid: OpenTK.Core.Platform.VideoMode
     name: VideoMode
   - uid: OpenTK.Core.Platform.WindowBorderStyle
     name: WindowBorderStyle
-  - uid: OpenTK.Core.Platform.WindowDpiChangeEventArgs
-    name: WindowDpiChangeEventArgs
   - uid: OpenTK.Core.Platform.WindowEventArgs
     name: WindowEventArgs
   - uid: OpenTK.Core.Platform.WindowEventHandler
     name: WindowEventHandler
+  - uid: OpenTK.Core.Platform.WindowFramebufferResizeEventArgs
+    name: WindowFramebufferResizeEventArgs
   - uid: OpenTK.Core.Platform.WindowHandle
     name: WindowHandle
   - uid: OpenTK.Core.Platform.WindowMode
@@ -470,6 +486,8 @@ items:
     name: WindowMoveEventArgs
   - uid: OpenTK.Core.Platform.WindowResizeEventArgs
     name: WindowResizeEventArgs
+  - uid: OpenTK.Core.Platform.WindowScaleChangeEventArgs
+    name: WindowScaleChangeEventArgs
 - uid: OpenTK.Core.Utility
   name: OpenTK.Core.Utility
   items:
@@ -477,6 +495,8 @@ items:
     name: ConsoleLogger
   - uid: OpenTK.Core.Utility.DebugFileLogger
     name: DebugFileLogger
+  - uid: OpenTK.Core.Utility.DebugLogger
+    name: DebugLogger
   - uid: OpenTK.Core.Utility.ILogger
     name: ILogger
   - uid: OpenTK.Core.Utility.LogLevel
@@ -500,6 +520,10 @@ items:
     name: GLLoader
   - uid: OpenTK.Graphics.GLSync
     name: GLSync
+  - uid: OpenTK.Graphics.GLXLoader
+    name: GLXLoader
+  - uid: OpenTK.Graphics.GLXLoader.BindingsContext
+    name: GLXLoader.BindingsContext
   - uid: OpenTK.Graphics.PerfQueryHandle
     name: PerfQueryHandle
   - uid: OpenTK.Graphics.ProgramHandle
@@ -522,6 +546,10 @@ items:
     name: TransformFeedbackHandle
   - uid: OpenTK.Graphics.VertexArrayHandle
     name: VertexArrayHandle
+  - uid: OpenTK.Graphics.WGLLoader
+    name: WGLLoader
+  - uid: OpenTK.Graphics.WGLLoader.BindingsContext
+    name: WGLLoader.BindingsContext
 - uid: OpenTK.Graphics.Egl
   name: OpenTK.Graphics.Egl
   items:
@@ -544,8 +572,6 @@ items:
     name: All
   - uid: OpenTK.Graphics.Glx.Colormap
     name: Colormap
-  - uid: OpenTK.Graphics.Glx.Display
-    name: Display
   - uid: OpenTK.Graphics.Glx.DisplayPtr
     name: DisplayPtr
   - uid: OpenTK.Graphics.Glx.Font
@@ -608,12 +634,12 @@ items:
     name: GlxPointers
   - uid: OpenTK.Graphics.Glx.Pixmap
     name: Pixmap
-  - uid: OpenTK.Graphics.Glx.Screen
-    name: Screen
+  - uid: OpenTK.Graphics.Glx.ScreenPtr
+    name: ScreenPtr
   - uid: OpenTK.Graphics.Glx.Window
     name: Window
-  - uid: OpenTK.Graphics.Glx.XVisualInfo
-    name: XVisualInfo
+  - uid: OpenTK.Graphics.Glx.XVisualInfoPtr
+    name: XVisualInfoPtr
 - uid: OpenTK.Graphics.Wgl
   name: OpenTK.Graphics.Wgl
   items:
@@ -834,8 +860,6 @@ items:
     name: PlatformComponents
   - uid: OpenTK.Platform.Native.Toolkit
     name: Toolkit
-  - uid: OpenTK.Platform.Native.ToolkitOptions
-    name: ToolkitOptions
 - uid: OpenTK.Platform.Native.ANGLE
   name: OpenTK.Platform.Native.ANGLE
   items:
@@ -871,6 +895,8 @@ items:
     name: ClipboardComponent
   - uid: OpenTK.Platform.Native.Windows.CursorComponent
     name: CursorComponent
+  - uid: OpenTK.Platform.Native.Windows.DialogComponent
+    name: DialogComponent
   - uid: OpenTK.Platform.Native.Windows.DisplayComponent
     name: DisplayComponent
   - uid: OpenTK.Platform.Native.Windows.IconComponent
@@ -885,6 +911,8 @@ items:
     name: OpenGLComponent
   - uid: OpenTK.Platform.Native.Windows.ShellComponent
     name: ShellComponent
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+    name: ShellComponent.CornerPrefernce
   - uid: OpenTK.Platform.Native.Windows.WindowComponent
     name: WindowComponent
 - uid: OpenTK.Platform.Native.X11
@@ -913,10 +941,14 @@ items:
 - uid: OpenTK.Platform.Native.macOS
   name: OpenTK.Platform.Native.macOS
   items:
+  - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent
+    name: MacOSClipboardComponent
   - uid: OpenTK.Platform.Native.macOS.MacOSCursorComponent
     name: MacOSCursorComponent
   - uid: OpenTK.Platform.Native.macOS.MacOSCursorComponent.Frame
     name: MacOSCursorComponent.Frame
+  - uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent
+    name: MacOSDialogComponent
   - uid: OpenTK.Platform.Native.macOS.MacOSDisplayComponent
     name: MacOSDisplayComponent
   - uid: OpenTK.Platform.Native.macOS.MacOSIconComponent
@@ -948,6 +980,8 @@ items:
     name: FocusedChangedEventArgs
   - uid: OpenTK.Windowing.Common.FrameEventArgs
     name: FrameEventArgs
+  - uid: OpenTK.Windowing.Common.FramebufferResizeEventArgs
+    name: FramebufferResizeEventArgs
   - uid: OpenTK.Windowing.Common.IGraphicsContext
     name: IGraphicsContext
   - uid: OpenTK.Windowing.Common.JoystickEventArgs

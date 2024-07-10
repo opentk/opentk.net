@@ -20,7 +20,7 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetVideoMode(OpenTK.Core.Platform.DisplayHandle,OpenTK.Core.Platform.VideoMode@)
   - OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetVirtualPosition(OpenTK.Core.Platform.DisplayHandle,System.Int32@,System.Int32@)
   - OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetWorkArea(OpenTK.Core.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@)
-  - OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.macOS.MacOSDisplayComponent.IsPrimary(OpenTK.Core.Platform.DisplayHandle)
   - OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Logger
   - OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Name
@@ -160,16 +160,16 @@ items:
   overload: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.macOS.MacOSDisplayComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: MacOSDisplayComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: MacOSDisplayComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -182,18 +182,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.CanGetVirtualPosition
   commentId: P:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.CanGetVirtualPosition
   id: CanGetVirtualPosition
@@ -212,7 +212,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanGetVirtualPosition
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 224
+    startLine: 207
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -245,7 +245,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetDisplayCount
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 227
+    startLine: 210
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -278,7 +278,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Open
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 233
+    startLine: 216
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -322,7 +322,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OpenPrimary
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 242
+    startLine: 225
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -355,7 +355,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Close
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 259
+    startLine: 242
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -393,7 +393,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsPrimary
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 266
+    startLine: 249
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -430,7 +430,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetName
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 273
+    startLine: 256
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -471,7 +471,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetVideoMode
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 280
+    startLine: 263
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -515,7 +515,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSupportedVideoModes
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 297
+    startLine: 280
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -556,7 +556,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetVirtualPosition
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 385
+    startLine: 368
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -606,7 +606,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetResolution
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 401
+    startLine: 384
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -653,7 +653,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetWorkArea
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 413
+    startLine: 396
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -696,7 +696,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSafeArea
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 430
+    startLine: 410
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -730,7 +730,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSafeLeftAuxArea
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 459
+    startLine: 439
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -778,7 +778,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSafeRightAuxArea
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 487
+    startLine: 470
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -826,7 +826,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetRefreshRate
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 507
+    startLine: 493
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -866,7 +866,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetDisplayScale
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 532
+    startLine: 518
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -909,7 +909,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetDirectDisplayID
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSDisplayComponent.cs
-    startLine: 550
+    startLine: 536
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -1342,35 +1342,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize
-  href: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.html#OpenTK_Platform_Native_macOS_MacOSDisplayComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.html#OpenTK_Platform_Native_macOS_MacOSDisplayComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: MacOSDisplayComponent.Initialize
   fullName: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.CanGetVirtualPosition*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.CanGetVirtualPosition
   href: OpenTK.Platform.Native.macOS.MacOSDisplayComponent.html#OpenTK_Platform_Native_macOS_MacOSDisplayComponent_CanGetVirtualPosition

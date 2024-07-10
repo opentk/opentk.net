@@ -9,6 +9,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.API
   - OpenTK.Windowing.Desktop.NativeWindow.APIVersion
   - OpenTK.Windowing.Desktop.NativeWindow.AspectRatio
+  - OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
   - OpenTK.Windowing.Desktop.NativeWindow.Bounds
   - OpenTK.Windowing.Desktop.NativeWindow.CenterWindow
   - OpenTK.Windowing.Desktop.NativeWindow.CenterWindow(OpenTK.Mathematics.Vector2i)
@@ -30,6 +31,8 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.Flags
   - OpenTK.Windowing.Desktop.NativeWindow.Focus
   - OpenTK.Windowing.Desktop.NativeWindow.FocusedChanged
+  - OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize
+  - OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
   - OpenTK.Windowing.Desktop.NativeWindow.HasTransparentFramebuffer
   - OpenTK.Windowing.Desktop.NativeWindow.Icon
   - OpenTK.Windowing.Desktop.NativeWindow.IsAnyKeyDown
@@ -69,6 +72,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.OnClosing(System.ComponentModel.CancelEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnFileDrop(OpenTK.Windowing.Common.FileDropEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnFocusedChanged(OpenTK.Windowing.Common.FocusedChangedEventArgs)
+  - OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnJoystickConnected(OpenTK.Windowing.Common.JoystickEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnKeyDown(OpenTK.Windowing.Common.KeyboardKeyEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnKeyUp(OpenTK.Windowing.Common.KeyboardKeyEventArgs)
@@ -396,6 +400,40 @@ items:
       description: The VSync state.
     content.vb: Public Property VSync As VSyncMode
   overload: OpenTK.Windowing.Desktop.NativeWindow.VSync*
+- uid: OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
+  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
+  id: AutoIconify
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  langs:
+  - csharp
+  - vb
+  name: AutoIconify
+  nameWithType: NativeWindow.AutoIconify
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/NativeWindow.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: AutoIconify
+    path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
+    startLine: 147
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: >-
+    Gets or sets a value indicating whether the application window will be minimized if the
+
+    focus changes while the window is in fullscreen mode. The default value is <code>true</code>.
+  example: []
+  syntax:
+    content: public bool AutoIconify { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AutoIconify As Boolean
+  overload: OpenTK.Windowing.Desktop.NativeWindow.AutoIconify*
 - uid: OpenTK.Windowing.Desktop.NativeWindow.Icon
   commentId: P:OpenTK.Windowing.Desktop.NativeWindow.Icon
   id: Icon
@@ -414,7 +452,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Icon
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 151
+    startLine: 171
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -451,7 +489,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsEventDriven
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 189
+    startLine: 209
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -487,7 +525,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ClipboardString
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 194
+    startLine: 214
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -518,7 +556,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Title
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 218
+    startLine: 238
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -549,7 +587,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: API
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 235
+    startLine: 255
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -580,7 +618,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Profile
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 240
+    startLine: 260
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -611,7 +649,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Flags
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 245
+    startLine: 265
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -642,7 +680,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: APIVersion
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 250
+    startLine: 270
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -673,7 +711,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Context
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 255
+    startLine: 275
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -704,7 +742,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CurrentMonitor
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 262
+    startLine: 282
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -735,7 +773,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsFocused
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 291
+    startLine: 311
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -766,7 +804,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Focus
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 299
+    startLine: 319
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -794,7 +832,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsVisible
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 309
+    startLine: 329
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -825,7 +863,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Exists
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 333
+    startLine: 353
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -856,7 +894,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsExiting
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 339
+    startLine: 359
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -890,7 +928,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: WindowState
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 346
+    startLine: 366
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -921,7 +959,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: WindowBorder
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 394
+    startLine: 414
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -952,7 +990,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Bounds
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 433
+    startLine: 453
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -988,7 +1026,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Location
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 451
+    startLine: 471
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1022,7 +1060,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ClientLocation
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 472
+    startLine: 492
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1056,7 +1094,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Size
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 492
+    startLine: 512
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1087,7 +1125,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ClientSize
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 517
+    startLine: 537
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1100,6 +1138,37 @@ items:
       type: OpenTK.Mathematics.Vector2i
     content.vb: Public Property ClientSize As Vector2i
   overload: OpenTK.Windowing.Desktop.NativeWindow.ClientSize*
+- uid: OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
+  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
+  id: FramebufferSize
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  langs:
+  - csharp
+  - vb
+  name: FramebufferSize
+  nameWithType: NativeWindow.FramebufferSize
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/NativeWindow.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: FramebufferSize
+    path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
+    startLine: 554
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: Gets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> structure that contains the framebuffer size of this window.
+  example: []
+  syntax:
+    content: public Vector2i FramebufferSize { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2i
+    content.vb: Public ReadOnly Property FramebufferSize As Vector2i
+  overload: OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize*
 - uid: OpenTK.Windowing.Desktop.NativeWindow.MinimumSize
   commentId: P:OpenTK.Windowing.Desktop.NativeWindow.MinimumSize
   id: MinimumSize
@@ -1118,7 +1187,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MinimumSize
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 538
+    startLine: 570
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1153,7 +1222,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MaximumSize
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 555
+    startLine: 587
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1188,7 +1257,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: AspectRatio
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 574
+    startLine: 606
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1223,7 +1292,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ClientRectangle
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 589
+    startLine: 621
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1259,7 +1328,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsFullscreen
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 603
+    startLine: 635
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1293,7 +1362,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Cursor
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 609
+    startLine: 641
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1325,7 +1394,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CursorState
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 658
+    startLine: 690
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1356,7 +1425,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: RawMouseInput
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 703
+    startLine: 735
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1392,7 +1461,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SupportsRawMouseInput
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 722
+    startLine: 754
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1423,7 +1492,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: HasTransparentFramebuffer
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 728
+    startLine: 760
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1457,7 +1526,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 734
+    startLine: 766
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1492,7 +1561,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Close
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1345
+    startLine: 1397
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1520,7 +1589,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MakeCurrent
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1359
+    startLine: 1411
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1548,7 +1617,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ProcessEvents
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1374
+    startLine: 1426
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1586,7 +1655,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ProcessWindowEvents
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1391
+    startLine: 1443
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1622,7 +1691,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: NewInputFrame
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1441
+    startLine: 1493
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1653,7 +1722,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: PointToClient
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1461
+    startLine: 1513
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1688,7 +1757,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: PointToScreen
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1475
+    startLine: 1527
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1723,7 +1792,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Move
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1483
+    startLine: 1535
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1752,7 +1821,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Resize
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1488
+    startLine: 1540
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1763,6 +1832,35 @@ items:
     return:
       type: System.Action{OpenTK.Windowing.Common.ResizeEventArgs}
     content.vb: Public Event Resize As Action(Of ResizeEventArgs)
+- uid: OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize
+  commentId: E:OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize
+  id: FramebufferResize
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  langs:
+  - csharp
+  - vb
+  name: FramebufferResize
+  nameWithType: NativeWindow.FramebufferResize
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize
+  type: Event
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/NativeWindow.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: FramebufferResize
+    path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
+    startLine: 1545
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: Occurs whenever the framebuffer is resized.
+  example: []
+  syntax:
+    content: public event Action<FramebufferResizeEventArgs> FramebufferResize
+    return:
+      type: System.Action{OpenTK.Windowing.Common.FramebufferResizeEventArgs}
+    content.vb: Public Event FramebufferResize As Action(Of FramebufferResizeEventArgs)
 - uid: OpenTK.Windowing.Desktop.NativeWindow.Refresh
   commentId: E:OpenTK.Windowing.Desktop.NativeWindow.Refresh
   id: Refresh
@@ -1781,7 +1879,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Refresh
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1493
+    startLine: 1550
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1810,7 +1908,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Closing
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1498
+    startLine: 1555
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1839,7 +1937,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Minimized
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1503
+    startLine: 1560
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1868,7 +1966,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Maximized
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1508
+    startLine: 1565
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1897,7 +1995,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: JoystickConnected
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1513
+    startLine: 1570
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1926,7 +2024,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: FocusedChanged
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1518
+    startLine: 1575
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1955,7 +2053,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: KeyDown
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1523
+    startLine: 1580
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1984,7 +2082,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: TextInput
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1528
+    startLine: 1585
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2013,7 +2111,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: KeyUp
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1533
+    startLine: 1590
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2042,7 +2140,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MouseLeave
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1539
+    startLine: 1596
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2071,7 +2169,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MouseEnter
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1545
+    startLine: 1602
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2100,7 +2198,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MouseDown
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1550
+    startLine: 1607
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2129,7 +2227,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MouseUp
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1555
+    startLine: 1612
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2158,7 +2256,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MouseMove
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1560
+    startLine: 1617
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2187,7 +2285,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MouseWheel
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1565
+    startLine: 1622
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2216,7 +2314,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: FileDrop
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1570
+    startLine: 1627
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2245,7 +2343,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsKeyDown
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1577
+    startLine: 1634
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2280,7 +2378,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsKeyPressed
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1590
+    startLine: 1647
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2316,7 +2414,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsKeyReleased
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1603
+    startLine: 1660
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2352,7 +2450,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsMouseButtonDown
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1613
+    startLine: 1670
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2387,7 +2485,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsMouseButtonPressed
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1626
+    startLine: 1683
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2423,7 +2521,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsMouseButtonReleased
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1639
+    startLine: 1696
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2459,7 +2557,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: TryGetCurrentMonitorScale
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1650
+    startLine: 1707
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2500,7 +2598,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: TryGetCurrentMonitorDpi
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1669
+    startLine: 1726
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2547,7 +2645,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: TryGetCurrentMonitorDpiRaw
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1688
+    startLine: 1745
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2594,7 +2692,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMove
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1700
+    startLine: 1757
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2626,7 +2724,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnResize
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1709
+    startLine: 1766
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2640,6 +2738,38 @@ items:
       description: A <xref href="OpenTK.Windowing.Common.ResizeEventArgs" data-throw-if-not-resolved="false"></xref> that contains the event data.
     content.vb: Protected Overridable Sub OnResize(e As ResizeEventArgs)
   overload: OpenTK.Windowing.Desktop.NativeWindow.OnResize*
+- uid: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+  commentId: M:OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+  id: OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  langs:
+  - csharp
+  - vb
+  name: OnFramebufferResize(FramebufferResizeEventArgs)
+  nameWithType: NativeWindow.OnFramebufferResize(FramebufferResizeEventArgs)
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/NativeWindow.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: OnFramebufferResize
+    path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
+    startLine: 1775
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: Raises the FramebufferResize event.
+  example: []
+  syntax:
+    content: protected virtual void OnFramebufferResize(FramebufferResizeEventArgs e)
+    parameters:
+    - id: e
+      type: OpenTK.Windowing.Common.FramebufferResizeEventArgs
+      description: A <xref href="OpenTK.Windowing.Common.FramebufferResizeEventArgs" data-throw-if-not-resolved="false"></xref> that contains the event data.
+    content.vb: Protected Overridable Sub OnFramebufferResize(e As FramebufferResizeEventArgs)
+  overload: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize*
 - uid: OpenTK.Windowing.Desktop.NativeWindow.OnRefresh
   commentId: M:OpenTK.Windowing.Desktop.NativeWindow.OnRefresh
   id: OnRefresh
@@ -2658,7 +2788,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnRefresh
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1717
+    startLine: 1783
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2686,7 +2816,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnClosing
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1726
+    startLine: 1792
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2718,7 +2848,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnJoystickConnected
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1735
+    startLine: 1801
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2750,7 +2880,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnFocusedChanged
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1744
+    startLine: 1810
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2782,7 +2912,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnKeyDown
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1755
+    startLine: 1821
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2814,7 +2944,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnTextInput
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1764
+    startLine: 1830
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2846,7 +2976,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnKeyUp
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1773
+    startLine: 1839
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2878,7 +3008,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMouseLeave
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1781
+    startLine: 1847
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2906,7 +3036,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMouseEnter
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1789
+    startLine: 1855
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2934,7 +3064,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMouseDown
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1798
+    startLine: 1864
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2966,7 +3096,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMouseUp
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1807
+    startLine: 1873
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2998,7 +3128,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMouseMove
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1816
+    startLine: 1882
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3030,7 +3160,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMouseWheel
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1825
+    startLine: 1891
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3062,7 +3192,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMinimized
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1835
+    startLine: 1901
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3097,7 +3227,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnMaximized
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1847
+    startLine: 1913
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3132,7 +3262,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnFileDrop
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1858
+    startLine: 1924
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3164,7 +3294,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Dispose
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1866
+    startLine: 1932
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3198,7 +3328,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Finalize
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1894
+    startLine: 1960
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3229,15 +3359,15 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Dispose
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1900
+    startLine: 1966
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
   summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
   example: []
   syntax:
-    content: public void Dispose()
-    content.vb: Public Sub Dispose()
+    content: public virtual void Dispose()
+    content.vb: Public Overridable Sub Dispose()
   overload: OpenTK.Windowing.Desktop.NativeWindow.Dispose*
   implements:
   - System.IDisposable.Dispose
@@ -3259,7 +3389,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CenterWindow
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1930
+    startLine: 1996
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3287,7 +3417,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CenterWindow
     path: opentk/src/OpenTK.Windowing.Desktop/NativeWindow.cs
-    startLine: 1936
+    startLine: 2002
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3879,6 +4009,12 @@ references:
   - uid: OpenTK.Windowing.Common
     name: Common
     href: OpenTK.Windowing.Common.html
+- uid: OpenTK.Windowing.Desktop.NativeWindow.AutoIconify*
+  commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_AutoIconify
+  name: AutoIconify
+  nameWithType: NativeWindow.AutoIconify
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
 - uid: OpenTK.Windowing.Common.Input.WindowIcon
   commentId: T:OpenTK.Windowing.Common.Input.WindowIcon
   parent: OpenTK.Windowing.Common.Input
@@ -4152,6 +4288,12 @@ references:
   name: ClientSize
   nameWithType: NativeWindow.ClientSize
   fullName: OpenTK.Windowing.Desktop.NativeWindow.ClientSize
+- uid: OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize*
+  commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_FramebufferSize
+  name: FramebufferSize
+  nameWithType: NativeWindow.FramebufferSize
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
 - uid: OpenTK.Windowing.Desktop.NativeWindow.MinimumSize*
   commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.MinimumSize
   href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_MinimumSize
@@ -4580,6 +4722,39 @@ references:
   - uid: OpenTK.Windowing.Common.ResizeEventArgs
     name: ResizeEventArgs
     href: OpenTK.Windowing.Common.ResizeEventArgs.html
+  - name: )
+- uid: System.Action{OpenTK.Windowing.Common.FramebufferResizeEventArgs}
+  commentId: T:System.Action{OpenTK.Windowing.Common.FramebufferResizeEventArgs}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<FramebufferResizeEventArgs>
+  nameWithType: Action<FramebufferResizeEventArgs>
+  fullName: System.Action<OpenTK.Windowing.Common.FramebufferResizeEventArgs>
+  nameWithType.vb: Action(Of FramebufferResizeEventArgs)
+  fullName.vb: System.Action(Of OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+  name.vb: Action(Of FramebufferResizeEventArgs)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: OpenTK.Windowing.Common.FramebufferResizeEventArgs
+    name: FramebufferResizeEventArgs
+    href: OpenTK.Windowing.Common.FramebufferResizeEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Windowing.Common.FramebufferResizeEventArgs
+    name: FramebufferResizeEventArgs
+    href: OpenTK.Windowing.Common.FramebufferResizeEventArgs.html
   - name: )
 - uid: System.Action
   commentId: T:System.Action
@@ -5134,6 +5309,19 @@ references:
   name: OnResize
   nameWithType: NativeWindow.OnResize
   fullName: OpenTK.Windowing.Desktop.NativeWindow.OnResize
+- uid: OpenTK.Windowing.Common.FramebufferResizeEventArgs
+  commentId: T:OpenTK.Windowing.Common.FramebufferResizeEventArgs
+  parent: OpenTK.Windowing.Common
+  href: OpenTK.Windowing.Common.FramebufferResizeEventArgs.html
+  name: FramebufferResizeEventArgs
+  nameWithType: FramebufferResizeEventArgs
+  fullName: OpenTK.Windowing.Common.FramebufferResizeEventArgs
+- uid: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize*
+  commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_OnFramebufferResize_OpenTK_Windowing_Common_FramebufferResizeEventArgs_
+  name: OnFramebufferResize
+  nameWithType: NativeWindow.OnFramebufferResize
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize
 - uid: OpenTK.Windowing.Desktop.NativeWindow.Refresh
   commentId: E:OpenTK.Windowing.Desktop.NativeWindow.Refresh
   parent: OpenTK.Windowing.Desktop.NativeWindow

@@ -20,15 +20,18 @@ items:
   - OpenTK.Core.Platform.IWindowComponent.GetClientSize(OpenTK.Core.Platform.WindowHandle,System.Int32@,System.Int32@)
   - OpenTK.Core.Platform.IWindowComponent.GetCursorCaptureMode(OpenTK.Core.Platform.WindowHandle)
   - OpenTK.Core.Platform.IWindowComponent.GetDisplay(OpenTK.Core.Platform.WindowHandle)
+  - OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize(OpenTK.Core.Platform.WindowHandle,System.Int32@,System.Int32@)
   - OpenTK.Core.Platform.IWindowComponent.GetFullscreenDisplay(OpenTK.Core.Platform.WindowHandle,OpenTK.Core.Platform.DisplayHandle@)
   - OpenTK.Core.Platform.IWindowComponent.GetIcon(OpenTK.Core.Platform.WindowHandle)
   - OpenTK.Core.Platform.IWindowComponent.GetMaxClientSize(OpenTK.Core.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   - OpenTK.Core.Platform.IWindowComponent.GetMinClientSize(OpenTK.Core.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   - OpenTK.Core.Platform.IWindowComponent.GetMode(OpenTK.Core.Platform.WindowHandle)
   - OpenTK.Core.Platform.IWindowComponent.GetPosition(OpenTK.Core.Platform.WindowHandle,System.Int32@,System.Int32@)
+  - OpenTK.Core.Platform.IWindowComponent.GetScaleFactor(OpenTK.Core.Platform.WindowHandle,System.Single@,System.Single@)
   - OpenTK.Core.Platform.IWindowComponent.GetSize(OpenTK.Core.Platform.WindowHandle,System.Int32@,System.Int32@)
   - OpenTK.Core.Platform.IWindowComponent.GetTitle(OpenTK.Core.Platform.WindowHandle)
   - OpenTK.Core.Platform.IWindowComponent.IsAlwaysOnTop(OpenTK.Core.Platform.WindowHandle)
+  - OpenTK.Core.Platform.IWindowComponent.IsFocused(OpenTK.Core.Platform.WindowHandle)
   - OpenTK.Core.Platform.IWindowComponent.IsWindowDestroyed(OpenTK.Core.Platform.WindowHandle)
   - OpenTK.Core.Platform.IWindowComponent.ProcessEvents(System.Boolean)
   - OpenTK.Core.Platform.IWindowComponent.RequestAttention(OpenTK.Core.Platform.WindowHandle)
@@ -81,7 +84,7 @@ items:
   - OpenTK.Core.Platform.IPalComponent.Name
   - OpenTK.Core.Platform.IPalComponent.Provides
   - OpenTK.Core.Platform.IPalComponent.Logger
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Core.Platform.IWindowComponent.CanSetIcon
   commentId: P:OpenTK.Core.Platform.IWindowComponent.CanSetIcon
   id: CanSetIcon
@@ -1153,6 +1156,50 @@ items:
   nameWithType.vb: IWindowComponent.SetClientBounds(WindowHandle, Integer, Integer, Integer, Integer)
   fullName.vb: OpenTK.Core.Platform.IWindowComponent.SetClientBounds(OpenTK.Core.Platform.WindowHandle, Integer, Integer, Integer, Integer)
   name.vb: SetClientBounds(WindowHandle, Integer, Integer, Integer, Integer)
+- uid: OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize(OpenTK.Core.Platform.WindowHandle,System.Int32@,System.Int32@)
+  commentId: M:OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize(OpenTK.Core.Platform.WindowHandle,System.Int32@,System.Int32@)
+  id: GetFramebufferSize(OpenTK.Core.Platform.WindowHandle,System.Int32@,System.Int32@)
+  parent: OpenTK.Core.Platform.IWindowComponent
+  langs:
+  - csharp
+  - vb
+  name: GetFramebufferSize(WindowHandle, out int, out int)
+  nameWithType: IWindowComponent.GetFramebufferSize(WindowHandle, out int, out int)
+  fullName: OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize(OpenTK.Core.Platform.WindowHandle, out int, out int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: GetFramebufferSize
+    path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
+    startLine: 251
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: >-
+    Get the size of the window framebuffer in pixels.
+
+    Use this value when calls to graphics APIs that want pixels, e.g. GL.Viewport().
+  example: []
+  syntax:
+    content: void GetFramebufferSize(WindowHandle handle, out int width, out int height)
+    parameters:
+    - id: handle
+      type: OpenTK.Core.Platform.WindowHandle
+      description: Handle to a window.
+    - id: width
+      type: System.Int32
+      description: Width in pixels of the window framebuffer.
+    - id: height
+      type: System.Int32
+      description: Height in pixels of the window framebuffer.
+    content.vb: Sub GetFramebufferSize(handle As WindowHandle, width As Integer, height As Integer)
+  overload: OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize*
+  nameWithType.vb: IWindowComponent.GetFramebufferSize(WindowHandle, Integer, Integer)
+  fullName.vb: OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize(OpenTK.Core.Platform.WindowHandle, Integer, Integer)
+  name.vb: GetFramebufferSize(WindowHandle, Integer, Integer)
 - uid: OpenTK.Core.Platform.IWindowComponent.GetMaxClientSize(OpenTK.Core.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   commentId: M:OpenTK.Core.Platform.IWindowComponent.GetMaxClientSize(OpenTK.Core.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   id: GetMaxClientSize(OpenTK.Core.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
@@ -1171,7 +1218,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetMaxClientSize
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 250
+    startLine: 259
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1212,7 +1259,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetMaxClientSize
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 258
+    startLine: 267
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1253,7 +1300,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetMinClientSize
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 266
+    startLine: 275
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1294,7 +1341,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetMinClientSize
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 274
+    startLine: 283
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1335,7 +1382,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetDisplay
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 285
+    startLine: 294
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1377,7 +1424,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetMode
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 293
+    startLine: 302
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1416,7 +1463,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetMode
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 311
+    startLine: 320
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1469,7 +1516,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetFullscreenDisplay
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 322
+    startLine: 331
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1511,7 +1558,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetFullscreenDisplay
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 335
+    startLine: 344
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1555,7 +1602,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetFullscreenDisplay
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 343
+    startLine: 352
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1596,7 +1643,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetBorderStyle
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 351
+    startLine: 360
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1635,7 +1682,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetBorderStyle
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 363
+    startLine: 372
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1680,7 +1727,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetAlwaysOnTop
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 370
+    startLine: 379
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1718,7 +1765,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsAlwaysOnTop
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 377
+    startLine: 386
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1753,7 +1800,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetHitTestCallback
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 389
+    startLine: 398
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1801,7 +1848,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetCursor
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 402
+    startLine: 411
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1846,7 +1893,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetCursorCaptureMode
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 409
+    startLine: 418
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1881,7 +1928,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetCursorCaptureMode
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 417
+    startLine: 426
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1901,6 +1948,41 @@ items:
       description: The cursor capture mode.
     content.vb: Sub SetCursorCaptureMode(handle As WindowHandle, mode As CursorCaptureMode)
   overload: OpenTK.Core.Platform.IWindowComponent.SetCursorCaptureMode*
+- uid: OpenTK.Core.Platform.IWindowComponent.IsFocused(OpenTK.Core.Platform.WindowHandle)
+  commentId: M:OpenTK.Core.Platform.IWindowComponent.IsFocused(OpenTK.Core.Platform.WindowHandle)
+  id: IsFocused(OpenTK.Core.Platform.WindowHandle)
+  parent: OpenTK.Core.Platform.IWindowComponent
+  langs:
+  - csharp
+  - vb
+  name: IsFocused(WindowHandle)
+  nameWithType: IWindowComponent.IsFocused(WindowHandle)
+  fullName: OpenTK.Core.Platform.IWindowComponent.IsFocused(OpenTK.Core.Platform.WindowHandle)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: IsFocused
+    path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
+    startLine: 433
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: Returns true if the given window has input focus.
+  example: []
+  syntax:
+    content: bool IsFocused(WindowHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Core.Platform.WindowHandle
+      description: Handle to a window.
+    return:
+      type: System.Boolean
+      description: If the window has input focus.
+    content.vb: Function IsFocused(handle As WindowHandle) As Boolean
+  overload: OpenTK.Core.Platform.IWindowComponent.IsFocused*
 - uid: OpenTK.Core.Platform.IWindowComponent.FocusWindow(OpenTK.Core.Platform.WindowHandle)
   commentId: M:OpenTK.Core.Platform.IWindowComponent.FocusWindow(OpenTK.Core.Platform.WindowHandle)
   id: FocusWindow(OpenTK.Core.Platform.WindowHandle)
@@ -1919,7 +2001,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: FocusWindow
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 423
+    startLine: 439
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1951,7 +2033,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: RequestAttention
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 429
+    startLine: 445
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -1983,7 +2065,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ScreenToClient
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 440
+    startLine: 456
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -2030,7 +2112,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ClientToScreen
     path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
-    startLine: 451
+    startLine: 467
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -2059,6 +2141,50 @@ items:
   nameWithType.vb: IWindowComponent.ClientToScreen(WindowHandle, Integer, Integer, Integer, Integer)
   fullName.vb: OpenTK.Core.Platform.IWindowComponent.ClientToScreen(OpenTK.Core.Platform.WindowHandle, Integer, Integer, Integer, Integer)
   name.vb: ClientToScreen(WindowHandle, Integer, Integer, Integer, Integer)
+- uid: OpenTK.Core.Platform.IWindowComponent.GetScaleFactor(OpenTK.Core.Platform.WindowHandle,System.Single@,System.Single@)
+  commentId: M:OpenTK.Core.Platform.IWindowComponent.GetScaleFactor(OpenTK.Core.Platform.WindowHandle,System.Single@,System.Single@)
+  id: GetScaleFactor(OpenTK.Core.Platform.WindowHandle,System.Single@,System.Single@)
+  parent: OpenTK.Core.Platform.IWindowComponent
+  langs:
+  - csharp
+  - vb
+  name: GetScaleFactor(WindowHandle, out float, out float)
+  nameWithType: IWindowComponent.GetScaleFactor(WindowHandle, out float, out float)
+  fullName: OpenTK.Core.Platform.IWindowComponent.GetScaleFactor(OpenTK.Core.Platform.WindowHandle, out float, out float)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: GetScaleFactor
+    path: opentk/src/OpenTK.Core/Platform/Interfaces/IWindowComponent.cs
+    startLine: 476
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: Returns the current scale factor of this window.
+  example: []
+  syntax:
+    content: void GetScaleFactor(WindowHandle handle, out float scaleX, out float scaleY)
+    parameters:
+    - id: handle
+      type: OpenTK.Core.Platform.WindowHandle
+      description: The window handle.
+    - id: scaleX
+      type: System.Single
+      description: The x scale factor of the window.
+    - id: scaleY
+      type: System.Single
+      description: The y scale factor of the window.
+    content.vb: Sub GetScaleFactor(handle As WindowHandle, scaleX As Single, scaleY As Single)
+  overload: OpenTK.Core.Platform.IWindowComponent.GetScaleFactor*
+  seealso:
+  - linkId: OpenTK.Core.Platform.WindowScaleChangeEventArgs
+    commentId: T:OpenTK.Core.Platform.WindowScaleChangeEventArgs
+  nameWithType.vb: IWindowComponent.GetScaleFactor(WindowHandle, Single, Single)
+  fullName.vb: OpenTK.Core.Platform.IWindowComponent.GetScaleFactor(OpenTK.Core.Platform.WindowHandle, Single, Single)
+  name.vb: GetScaleFactor(WindowHandle, Single, Single)
 references:
 - uid: OpenTK.Core.Platform
   commentId: N:OpenTK.Core.Platform
@@ -2111,30 +2237,30 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
 - uid: OpenTK.Core.Platform.IPalComponent
   commentId: T:OpenTK.Core.Platform.IPalComponent
@@ -2589,6 +2715,12 @@ references:
   name: SetClientBounds
   nameWithType: IWindowComponent.SetClientBounds
   fullName: OpenTK.Core.Platform.IWindowComponent.SetClientBounds
+- uid: OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize*
+  commentId: Overload:OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize
+  href: OpenTK.Core.Platform.IWindowComponent.html#OpenTK_Core_Platform_IWindowComponent_GetFramebufferSize_OpenTK_Core_Platform_WindowHandle_System_Int32__System_Int32__
+  name: GetFramebufferSize
+  nameWithType: IWindowComponent.GetFramebufferSize
+  fullName: OpenTK.Core.Platform.IWindowComponent.GetFramebufferSize
 - uid: OpenTK.Core.Platform.IWindowComponent.GetMaxClientSize*
   commentId: Overload:OpenTK.Core.Platform.IWindowComponent.GetMaxClientSize
   href: OpenTK.Core.Platform.IWindowComponent.html#OpenTK_Core_Platform_IWindowComponent_GetMaxClientSize_OpenTK_Core_Platform_WindowHandle_System_Nullable_System_Int32___System_Nullable_System_Int32___
@@ -2985,6 +3117,12 @@ references:
   name: SetCursorCaptureMode
   nameWithType: IWindowComponent.SetCursorCaptureMode
   fullName: OpenTK.Core.Platform.IWindowComponent.SetCursorCaptureMode
+- uid: OpenTK.Core.Platform.IWindowComponent.IsFocused*
+  commentId: Overload:OpenTK.Core.Platform.IWindowComponent.IsFocused
+  href: OpenTK.Core.Platform.IWindowComponent.html#OpenTK_Core_Platform_IWindowComponent_IsFocused_OpenTK_Core_Platform_WindowHandle_
+  name: IsFocused
+  nameWithType: IWindowComponent.IsFocused
+  fullName: OpenTK.Core.Platform.IWindowComponent.IsFocused
 - uid: OpenTK.Core.Platform.IWindowComponent.FocusWindow*
   commentId: Overload:OpenTK.Core.Platform.IWindowComponent.FocusWindow
   href: OpenTK.Core.Platform.IWindowComponent.html#OpenTK_Core_Platform_IWindowComponent_FocusWindow_OpenTK_Core_Platform_WindowHandle_
@@ -3009,3 +3147,26 @@ references:
   name: ClientToScreen
   nameWithType: IWindowComponent.ClientToScreen
   fullName: OpenTK.Core.Platform.IWindowComponent.ClientToScreen
+- uid: OpenTK.Core.Platform.WindowScaleChangeEventArgs
+  commentId: T:OpenTK.Core.Platform.WindowScaleChangeEventArgs
+  href: OpenTK.Core.Platform.WindowScaleChangeEventArgs.html
+  name: WindowScaleChangeEventArgs
+  nameWithType: WindowScaleChangeEventArgs
+  fullName: OpenTK.Core.Platform.WindowScaleChangeEventArgs
+- uid: OpenTK.Core.Platform.IWindowComponent.GetScaleFactor*
+  commentId: Overload:OpenTK.Core.Platform.IWindowComponent.GetScaleFactor
+  href: OpenTK.Core.Platform.IWindowComponent.html#OpenTK_Core_Platform_IWindowComponent_GetScaleFactor_OpenTK_Core_Platform_WindowHandle_System_Single__System_Single__
+  name: GetScaleFactor
+  nameWithType: IWindowComponent.GetScaleFactor
+  fullName: OpenTK.Core.Platform.IWindowComponent.GetScaleFactor
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

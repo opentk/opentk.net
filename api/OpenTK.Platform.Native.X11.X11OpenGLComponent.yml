@@ -27,7 +27,7 @@ items:
   - OpenTK.Platform.Native.X11.X11OpenGLComponent.GetProcedureAddress(OpenTK.Core.Platform.OpenGLContextHandle,System.String)
   - OpenTK.Platform.Native.X11.X11OpenGLComponent.GetSharedContext(OpenTK.Core.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.X11.X11OpenGLComponent.GetSwapInterval
-  - OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.X11.X11OpenGLComponent.Logger
   - OpenTK.Platform.Native.X11.X11OpenGLComponent.Name
   - OpenTK.Platform.Native.X11.X11OpenGLComponent.Provides
@@ -48,7 +48,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: X11OpenGLComponent
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -86,7 +86,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Name
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -119,7 +119,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Provides
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 17
+    startLine: 18
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -152,7 +152,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Logger
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -167,16 +167,16 @@ items:
   overload: OpenTK.Platform.Native.X11.X11OpenGLComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.X11.X11OpenGLComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: X11OpenGLComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: X11OpenGLComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -185,22 +185,22 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Initialize
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 23
+    startLine: 24
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.X11.X11OpenGLComponent.CanShareContexts
   commentId: P:OpenTK.Platform.Native.X11.X11OpenGLComponent.CanShareContexts
   id: CanShareContexts
@@ -219,7 +219,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanShareContexts
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 102
+    startLine: 109
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -252,7 +252,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanCreateFromWindow
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 105
+    startLine: 112
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -285,7 +285,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanCreateFromSurface
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 108
+    startLine: 115
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -318,7 +318,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GLXVersion
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 110
+    startLine: 117
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -347,7 +347,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GLXExtensions
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 111
+    startLine: 118
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -376,7 +376,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GLXServerExtensions
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 112
+    startLine: 119
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -405,7 +405,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GLXClientExtensions
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 113
+    startLine: 120
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -434,7 +434,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GLXServerVendor
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 114
+    startLine: 121
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -463,7 +463,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GLXClientVendor
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 115
+    startLine: 122
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -492,7 +492,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GLXServerVersion
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 116
+    startLine: 123
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -521,7 +521,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GLXClientVersion
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 117
+    startLine: 124
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -550,7 +550,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromSurface
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 127
+    startLine: 139
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -583,7 +583,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromWindow
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 133
+    startLine: 145
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -620,7 +620,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: DestroyContext
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 192
+    startLine: 284
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -658,7 +658,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetBindingsContext
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 201
+    startLine: 293
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -695,7 +695,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetProcedureAddress
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 207
+    startLine: 299
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -742,7 +742,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetCurrentContext
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 214
+    startLine: 306
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -775,7 +775,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetCurrentContext
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 222
+    startLine: 314
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -815,7 +815,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSharedContext
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 237
+    startLine: 329
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -852,7 +852,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: EXT_swap_control_GetMaxSwapInterval
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 246
+    startLine: 338
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -885,7 +885,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetSwapInterval
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 267
+    startLine: 359
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -922,7 +922,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSwapInterval
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 313
+    startLine: 405
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -955,7 +955,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SwapBuffers
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 343
+    startLine: 435
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -989,7 +989,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetGLXContext
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 354
+    startLine: 446
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -1024,7 +1024,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetGLXWindow
     path: opentk/src/OpenTK.Platform.Native/X11/X11OpenGLComponent.cs
-    startLine: 366
+    startLine: 458
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -1457,35 +1457,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize
-  href: OpenTK.Platform.Native.X11.X11OpenGLComponent.html#OpenTK_Platform_Native_X11_X11OpenGLComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.X11.X11OpenGLComponent.html#OpenTK_Platform_Native_X11_X11OpenGLComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: X11OpenGLComponent.Initialize
   fullName: OpenTK.Platform.Native.X11.X11OpenGLComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.X11.X11OpenGLComponent.CanShareContexts*
   commentId: Overload:OpenTK.Platform.Native.X11.X11OpenGLComponent.CanShareContexts
   href: OpenTK.Platform.Native.X11.X11OpenGLComponent.html#OpenTK_Platform_Native_X11_X11OpenGLComponent_CanShareContexts

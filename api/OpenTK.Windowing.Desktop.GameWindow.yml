@@ -7,6 +7,7 @@ items:
   children:
   - OpenTK.Windowing.Desktop.GameWindow.#ctor(OpenTK.Windowing.Desktop.GameWindowSettings,OpenTK.Windowing.Desktop.NativeWindowSettings)
   - OpenTK.Windowing.Desktop.GameWindow.Close
+  - OpenTK.Windowing.Desktop.GameWindow.Dispose
   - OpenTK.Windowing.Desktop.GameWindow.ExpectedSchedulerPeriod
   - OpenTK.Windowing.Desktop.GameWindow.IsMultiThreaded
   - OpenTK.Windowing.Desktop.GameWindow.IsRunningSlowly
@@ -69,6 +70,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.IsAnyKeyDown
   - OpenTK.Windowing.Desktop.NativeWindow.IsAnyMouseButtonDown
   - OpenTK.Windowing.Desktop.NativeWindow.VSync
+  - OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
   - OpenTK.Windowing.Desktop.NativeWindow.Icon
   - OpenTK.Windowing.Desktop.NativeWindow.IsEventDriven
   - OpenTK.Windowing.Desktop.NativeWindow.ClipboardString
@@ -91,6 +93,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.ClientLocation
   - OpenTK.Windowing.Desktop.NativeWindow.Size
   - OpenTK.Windowing.Desktop.NativeWindow.ClientSize
+  - OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
   - OpenTK.Windowing.Desktop.NativeWindow.MinimumSize
   - OpenTK.Windowing.Desktop.NativeWindow.MaximumSize
   - OpenTK.Windowing.Desktop.NativeWindow.AspectRatio
@@ -109,6 +112,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.PointToScreen(OpenTK.Mathematics.Vector2i)
   - OpenTK.Windowing.Desktop.NativeWindow.Move
   - OpenTK.Windowing.Desktop.NativeWindow.Resize
+  - OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize
   - OpenTK.Windowing.Desktop.NativeWindow.Refresh
   - OpenTK.Windowing.Desktop.NativeWindow.Closing
   - OpenTK.Windowing.Desktop.NativeWindow.Minimized
@@ -136,6 +140,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.TryGetCurrentMonitorDpiRaw(System.Single@,System.Single@)
   - OpenTK.Windowing.Desktop.NativeWindow.OnMove(OpenTK.Windowing.Common.WindowPositionEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnResize(OpenTK.Windowing.Common.ResizeEventArgs)
+  - OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnRefresh
   - OpenTK.Windowing.Desktop.NativeWindow.OnClosing(System.ComponentModel.CancelEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnJoystickConnected(OpenTK.Windowing.Common.JoystickEventArgs)
@@ -153,7 +158,6 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.OnMaximized(OpenTK.Windowing.Common.MaximizedEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.OnFileDrop(OpenTK.Windowing.Common.FileDropEventArgs)
   - OpenTK.Windowing.Desktop.NativeWindow.Dispose(System.Boolean)
-  - OpenTK.Windowing.Desktop.NativeWindow.Dispose
   - OpenTK.Windowing.Desktop.NativeWindow.CenterWindow
   - OpenTK.Windowing.Desktop.NativeWindow.CenterWindow(OpenTK.Mathematics.Vector2i)
   - System.Object.Equals(System.Object)
@@ -633,7 +637,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 190
+    startLine: 194
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -677,7 +681,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Run
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 226
+    startLine: 231
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -717,7 +721,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SwapBuffers
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 341
+    startLine: 354
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -745,7 +749,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Close
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 352
+    startLine: 365
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -774,7 +778,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnRenderThreadStarted
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 360
+    startLine: 373
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -812,7 +816,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnLoad
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 369
+    startLine: 382
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -840,7 +844,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnUnload
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 377
+    startLine: 390
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -868,7 +872,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnUpdateFrame
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 386
+    startLine: 399
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -900,7 +904,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OnRenderFrame
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 395
+    startLine: 408
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -932,7 +936,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: TimeSinceLastUpdate
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 408
+    startLine: 421
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -967,7 +971,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ResetTimeSinceLastUpdate
     path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
-    startLine: 417
+    startLine: 430
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -980,6 +984,35 @@ items:
     content: public void ResetTimeSinceLastUpdate()
     content.vb: Public Sub ResetTimeSinceLastUpdate()
   overload: OpenTK.Windowing.Desktop.GameWindow.ResetTimeSinceLastUpdate*
+- uid: OpenTK.Windowing.Desktop.GameWindow.Dispose
+  commentId: M:OpenTK.Windowing.Desktop.GameWindow.Dispose
+  id: Dispose
+  parent: OpenTK.Windowing.Desktop.GameWindow
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: GameWindow.Dispose()
+  fullName: OpenTK.Windowing.Desktop.GameWindow.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/GameWindow.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Dispose
+    path: opentk/src/OpenTK.Windowing.Desktop/GameWindow.cs
+    startLine: 450
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public override void Dispose()
+    content.vb: Public Overrides Sub Dispose()
+  overridden: OpenTK.Windowing.Desktop.NativeWindow.Dispose
+  overload: OpenTK.Windowing.Desktop.GameWindow.Dispose*
 references:
 - uid: OpenTK.Windowing.Desktop.GameWindow
   commentId: T:OpenTK.Windowing.Desktop.GameWindow
@@ -1099,6 +1132,13 @@ references:
   name: VSync
   nameWithType: NativeWindow.VSync
   fullName: OpenTK.Windowing.Desktop.NativeWindow.VSync
+- uid: OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
+  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_AutoIconify
+  name: AutoIconify
+  nameWithType: NativeWindow.AutoIconify
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
 - uid: OpenTK.Windowing.Desktop.NativeWindow.Icon
   commentId: P:OpenTK.Windowing.Desktop.NativeWindow.Icon
   parent: OpenTK.Windowing.Desktop.NativeWindow
@@ -1265,6 +1305,13 @@ references:
   name: ClientSize
   nameWithType: NativeWindow.ClientSize
   fullName: OpenTK.Windowing.Desktop.NativeWindow.ClientSize
+- uid: OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
+  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_FramebufferSize
+  name: FramebufferSize
+  nameWithType: NativeWindow.FramebufferSize
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.FramebufferSize
 - uid: OpenTK.Windowing.Desktop.NativeWindow.MinimumSize
   commentId: P:OpenTK.Windowing.Desktop.NativeWindow.MinimumSize
   parent: OpenTK.Windowing.Desktop.NativeWindow
@@ -1499,6 +1546,13 @@ references:
   name: Resize
   nameWithType: NativeWindow.Resize
   fullName: OpenTK.Windowing.Desktop.NativeWindow.Resize
+- uid: OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize
+  commentId: E:OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_FramebufferResize
+  name: FramebufferResize
+  nameWithType: NativeWindow.FramebufferResize
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.FramebufferResize
 - uid: OpenTK.Windowing.Desktop.NativeWindow.Refresh
   commentId: E:OpenTK.Windowing.Desktop.NativeWindow.Refresh
   parent: OpenTK.Windowing.Desktop.NativeWindow
@@ -1952,6 +2006,31 @@ references:
     name: ResizeEventArgs
     href: OpenTK.Windowing.Common.ResizeEventArgs.html
   - name: )
+- uid: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+  commentId: M:OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_OnFramebufferResize_OpenTK_Windowing_Common_FramebufferResizeEventArgs_
+  name: OnFramebufferResize(FramebufferResizeEventArgs)
+  nameWithType: NativeWindow.OnFramebufferResize(FramebufferResizeEventArgs)
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+  spec.csharp:
+  - uid: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+    name: OnFramebufferResize
+    href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_OnFramebufferResize_OpenTK_Windowing_Common_FramebufferResizeEventArgs_
+  - name: (
+  - uid: OpenTK.Windowing.Common.FramebufferResizeEventArgs
+    name: FramebufferResizeEventArgs
+    href: OpenTK.Windowing.Common.FramebufferResizeEventArgs.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Windowing.Desktop.NativeWindow.OnFramebufferResize(OpenTK.Windowing.Common.FramebufferResizeEventArgs)
+    name: OnFramebufferResize
+    href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_OnFramebufferResize_OpenTK_Windowing_Common_FramebufferResizeEventArgs_
+  - name: (
+  - uid: OpenTK.Windowing.Common.FramebufferResizeEventArgs
+    name: FramebufferResizeEventArgs
+    href: OpenTK.Windowing.Common.FramebufferResizeEventArgs.html
+  - name: )
 - uid: OpenTK.Windowing.Desktop.NativeWindow.OnRefresh
   commentId: M:OpenTK.Windowing.Desktop.NativeWindow.OnRefresh
   parent: OpenTK.Windowing.Desktop.NativeWindow
@@ -2367,25 +2446,6 @@ references:
     name: Boolean
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: OpenTK.Windowing.Desktop.NativeWindow.Dispose
-  commentId: M:OpenTK.Windowing.Desktop.NativeWindow.Dispose
-  parent: OpenTK.Windowing.Desktop.NativeWindow
-  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_Dispose
-  name: Dispose()
-  nameWithType: NativeWindow.Dispose()
-  fullName: OpenTK.Windowing.Desktop.NativeWindow.Dispose()
-  spec.csharp:
-  - uid: OpenTK.Windowing.Desktop.NativeWindow.Dispose
-    name: Dispose
-    href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_Dispose
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Windowing.Desktop.NativeWindow.Dispose
-    name: Dispose
-    href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_Dispose
-  - name: (
   - name: )
 - uid: OpenTK.Windowing.Desktop.NativeWindow.CenterWindow
   commentId: M:OpenTK.Windowing.Desktop.NativeWindow.CenterWindow
@@ -3098,3 +3158,28 @@ references:
   name: ResetTimeSinceLastUpdate
   nameWithType: GameWindow.ResetTimeSinceLastUpdate
   fullName: OpenTK.Windowing.Desktop.GameWindow.ResetTimeSinceLastUpdate
+- uid: OpenTK.Windowing.Desktop.NativeWindow.Dispose
+  commentId: M:OpenTK.Windowing.Desktop.NativeWindow.Dispose
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_Dispose
+  name: Dispose()
+  nameWithType: NativeWindow.Dispose()
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.Dispose()
+  spec.csharp:
+  - uid: OpenTK.Windowing.Desktop.NativeWindow.Dispose
+    name: Dispose
+    href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_Dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Windowing.Desktop.NativeWindow.Dispose
+    name: Dispose
+    href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_Dispose
+  - name: (
+  - name: )
+- uid: OpenTK.Windowing.Desktop.GameWindow.Dispose*
+  commentId: Overload:OpenTK.Windowing.Desktop.GameWindow.Dispose
+  href: OpenTK.Windowing.Desktop.GameWindow.html#OpenTK_Windowing_Desktop_GameWindow_Dispose
+  name: Dispose
+  nameWithType: GameWindow.Dispose
+  fullName: OpenTK.Windowing.Desktop.GameWindow.Dispose

@@ -10,6 +10,7 @@ items:
   - OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.IOS
   - OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux
   - OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.MacOS
+  - OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.OverridePath
   - OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Windows
   langs:
   - csharp
@@ -44,6 +45,40 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.OverridePath
+  commentId: P:OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.OverridePath
+  id: OverridePath
+  parent: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer
+  langs:
+  - csharp
+  - vb
+  name: OverridePath
+  nameWithType: OpenCLLibraryNameContainer.OverridePath
+  fullName: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.OverridePath
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Compute/OpenCL/OpenCLLibraryNameContainer.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: OverridePath
+    path: opentk/src/OpenTK.Compute/OpenCL/OpenCLLibraryNameContainer.cs
+    startLine: 14
+  assemblies:
+  - OpenTK.Compute
+  namespace: OpenTK.Compute.OpenCL
+  summary: >-
+    Overrides any platform detection logic and directly searches for the OpenCL library using the provided path.
+
+    If this is <code>null</code> then no override will happen.
+  example: []
+  syntax:
+    content: public static string OverridePath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared Property OverridePath As String
+  overload: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.OverridePath*
 - uid: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux
   commentId: P:OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux
   id: Linux
@@ -62,12 +97,10 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Linux
     path: opentk/src/OpenTK.Compute/OpenCL/OpenCLLibraryNameContainer.cs
-    startLine: 13
+    startLine: 16
   assemblies:
   - OpenTK.Compute
   namespace: OpenTK.Compute.OpenCL
-  summary: Gets the library name to use on Linux.
-  example: []
   syntax:
     content: public string Linux { get; }
     parameters: []
@@ -93,7 +126,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MacOS
     path: opentk/src/OpenTK.Compute/OpenCL/OpenCLLibraryNameContainer.cs
-    startLine: 18
+    startLine: 21
   assemblies:
   - OpenTK.Compute
   namespace: OpenTK.Compute.OpenCL
@@ -124,7 +157,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Android
     path: opentk/src/OpenTK.Compute/OpenCL/OpenCLLibraryNameContainer.cs
-    startLine: 20
+    startLine: 23
   assemblies:
   - OpenTK.Compute
   namespace: OpenTK.Compute.OpenCL
@@ -153,7 +186,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IOS
     path: opentk/src/OpenTK.Compute/OpenCL/OpenCLLibraryNameContainer.cs
-    startLine: 25
+    startLine: 28
   assemblies:
   - OpenTK.Compute
   namespace: OpenTK.Compute.OpenCL
@@ -184,7 +217,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Windows
     path: opentk/src/OpenTK.Compute/OpenCL/OpenCLLibraryNameContainer.cs
-    startLine: 30
+    startLine: 33
   assemblies:
   - OpenTK.Compute
   namespace: OpenTK.Compute.OpenCL
@@ -215,7 +248,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetLibraryName
     path: opentk/src/OpenTK.Compute/OpenCL/OpenCLLibraryNameContainer.cs
-    startLine: 36
+    startLine: 39
   assemblies:
   - OpenTK.Compute
   namespace: OpenTK.Compute.OpenCL
@@ -496,12 +529,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux*
-  commentId: Overload:OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux
-  href: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.html#OpenTK_Compute_OpenCL_OpenCLLibraryNameContainer_Linux
-  name: Linux
-  nameWithType: OpenCLLibraryNameContainer.Linux
-  fullName: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux
+- uid: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.OverridePath*
+  commentId: Overload:OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.OverridePath
+  href: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.html#OpenTK_Compute_OpenCL_OpenCLLibraryNameContainer_OverridePath
+  name: OverridePath
+  nameWithType: OpenCLLibraryNameContainer.OverridePath
+  fullName: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.OverridePath
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -513,6 +546,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux*
+  commentId: Overload:OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux
+  href: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.html#OpenTK_Compute_OpenCL_OpenCLLibraryNameContainer_Linux
+  name: Linux
+  nameWithType: OpenCLLibraryNameContainer.Linux
+  fullName: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.Linux
 - uid: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.MacOS*
   commentId: Overload:OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.MacOS
   href: OpenTK.Compute.OpenCL.OpenCLLibraryNameContainer.html#OpenTK_Compute_OpenCL_OpenCLLibraryNameContainer_MacOS

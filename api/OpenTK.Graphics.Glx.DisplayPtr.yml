@@ -5,7 +5,10 @@ items:
   id: DisplayPtr
   parent: OpenTK.Graphics.Glx
   children:
+  - OpenTK.Graphics.Glx.DisplayPtr.#ctor(System.IntPtr)
   - OpenTK.Graphics.Glx.DisplayPtr.Value
+  - OpenTK.Graphics.Glx.DisplayPtr.op_Explicit(OpenTK.Graphics.Glx.DisplayPtr)~System.IntPtr
+  - OpenTK.Graphics.Glx.DisplayPtr.op_Explicit(System.IntPtr)~OpenTK.Graphics.Glx.DisplayPtr
   langs:
   - csharp
   - vb
@@ -20,10 +23,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: DisplayPtr
     path: opentk/src/OpenTK.Graphics/Types.cs
-    startLine: 51
+    startLine: 49
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
+  summary: Opaque struct pointer for X11 <code>Display*</code>.
+  example: []
   syntax:
     content: public struct DisplayPtr
     content.vb: Public Structure DisplayPtr
@@ -52,15 +57,120 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Value
     path: opentk/src/OpenTK.Graphics/Types.cs
-    startLine: 52
+    startLine: 54
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
+  summary: The underlying pointer value.
+  example: []
   syntax:
     content: public nint Value
     return:
       type: System.IntPtr
     content.vb: Public Value As IntPtr
+- uid: OpenTK.Graphics.Glx.DisplayPtr.#ctor(System.IntPtr)
+  commentId: M:OpenTK.Graphics.Glx.DisplayPtr.#ctor(System.IntPtr)
+  id: '#ctor(System.IntPtr)'
+  parent: OpenTK.Graphics.Glx.DisplayPtr
+  langs:
+  - csharp
+  - vb
+  name: DisplayPtr(nint)
+  nameWithType: DisplayPtr.DisplayPtr(nint)
+  fullName: OpenTK.Graphics.Glx.DisplayPtr.DisplayPtr(nint)
+  type: Constructor
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Types.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: .ctor
+    path: opentk/src/OpenTK.Graphics/Types.cs
+    startLine: 60
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: Constructs a new <code>Display*</code> wrapper struct from a <code>Display</code> pointer.
+  example: []
+  syntax:
+    content: public DisplayPtr(nint value)
+    parameters:
+    - id: value
+      type: System.IntPtr
+      description: The display pointer.
+    content.vb: Public Sub New(value As IntPtr)
+  overload: OpenTK.Graphics.Glx.DisplayPtr.#ctor*
+  nameWithType.vb: DisplayPtr.New(IntPtr)
+  fullName.vb: OpenTK.Graphics.Glx.DisplayPtr.New(System.IntPtr)
+  name.vb: New(IntPtr)
+- uid: OpenTK.Graphics.Glx.DisplayPtr.op_Explicit(OpenTK.Graphics.Glx.DisplayPtr)~System.IntPtr
+  commentId: M:OpenTK.Graphics.Glx.DisplayPtr.op_Explicit(OpenTK.Graphics.Glx.DisplayPtr)~System.IntPtr
+  id: op_Explicit(OpenTK.Graphics.Glx.DisplayPtr)~System.IntPtr
+  parent: OpenTK.Graphics.Glx.DisplayPtr
+  langs:
+  - csharp
+  - vb
+  name: explicit operator nint(DisplayPtr)
+  nameWithType: DisplayPtr.explicit operator nint(DisplayPtr)
+  fullName: OpenTK.Graphics.Glx.DisplayPtr.explicit operator nint(OpenTK.Graphics.Glx.DisplayPtr)
+  type: Operator
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Types.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: op_Explicit
+    path: opentk/src/OpenTK.Graphics/Types.cs
+    startLine: 65
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  syntax:
+    content: public static explicit operator nint(DisplayPtr handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Graphics.Glx.DisplayPtr
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Narrowing Operator CType(handle As DisplayPtr) As IntPtr
+  overload: OpenTK.Graphics.Glx.DisplayPtr.op_Explicit*
+  nameWithType.vb: DisplayPtr.CType(DisplayPtr)
+  fullName.vb: OpenTK.Graphics.Glx.DisplayPtr.CType(OpenTK.Graphics.Glx.DisplayPtr)
+  name.vb: CType(DisplayPtr)
+- uid: OpenTK.Graphics.Glx.DisplayPtr.op_Explicit(System.IntPtr)~OpenTK.Graphics.Glx.DisplayPtr
+  commentId: M:OpenTK.Graphics.Glx.DisplayPtr.op_Explicit(System.IntPtr)~OpenTK.Graphics.Glx.DisplayPtr
+  id: op_Explicit(System.IntPtr)~OpenTK.Graphics.Glx.DisplayPtr
+  parent: OpenTK.Graphics.Glx.DisplayPtr
+  langs:
+  - csharp
+  - vb
+  name: explicit operator DisplayPtr(nint)
+  nameWithType: DisplayPtr.explicit operator DisplayPtr(nint)
+  fullName: OpenTK.Graphics.Glx.DisplayPtr.explicit operator OpenTK.Graphics.Glx.DisplayPtr(nint)
+  type: Operator
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Types.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: op_Explicit
+    path: opentk/src/OpenTK.Graphics/Types.cs
+    startLine: 66
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  syntax:
+    content: public static explicit operator DisplayPtr(nint ptr)
+    parameters:
+    - id: ptr
+      type: System.IntPtr
+    return:
+      type: OpenTK.Graphics.Glx.DisplayPtr
+    content.vb: Public Shared Narrowing Operator CType(ptr As IntPtr) As DisplayPtr
+  overload: OpenTK.Graphics.Glx.DisplayPtr.op_Explicit*
+  nameWithType.vb: DisplayPtr.CType(IntPtr)
+  fullName.vb: OpenTK.Graphics.Glx.DisplayPtr.CType(System.IntPtr)
+  name.vb: CType(IntPtr)
 references:
 - uid: OpenTK.Graphics.Glx
   commentId: N:OpenTK.Graphics.Glx
@@ -320,3 +430,31 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
+- uid: OpenTK.Graphics.Glx.DisplayPtr.#ctor*
+  commentId: Overload:OpenTK.Graphics.Glx.DisplayPtr.#ctor
+  href: OpenTK.Graphics.Glx.DisplayPtr.html#OpenTK_Graphics_Glx_DisplayPtr__ctor_System_IntPtr_
+  name: DisplayPtr
+  nameWithType: DisplayPtr.DisplayPtr
+  fullName: OpenTK.Graphics.Glx.DisplayPtr.DisplayPtr
+  nameWithType.vb: DisplayPtr.New
+  fullName.vb: OpenTK.Graphics.Glx.DisplayPtr.New
+  name.vb: New
+- uid: OpenTK.Graphics.Glx.DisplayPtr.op_Explicit*
+  commentId: Overload:OpenTK.Graphics.Glx.DisplayPtr.op_Explicit
+  name: explicit operator
+  nameWithType: DisplayPtr.explicit operator
+  fullName: OpenTK.Graphics.Glx.DisplayPtr.explicit operator
+  nameWithType.vb: DisplayPtr.CType
+  fullName.vb: OpenTK.Graphics.Glx.DisplayPtr.CType
+  name.vb: CType
+  spec.csharp:
+  - name: explicit
+  - name: " "
+  - name: operator
+- uid: OpenTK.Graphics.Glx.DisplayPtr
+  commentId: T:OpenTK.Graphics.Glx.DisplayPtr
+  parent: OpenTK.Graphics.Glx
+  href: OpenTK.Graphics.Glx.DisplayPtr.html
+  name: DisplayPtr
+  nameWithType: DisplayPtr
+  fullName: OpenTK.Graphics.Glx.DisplayPtr

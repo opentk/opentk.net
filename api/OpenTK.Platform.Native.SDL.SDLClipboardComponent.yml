@@ -9,9 +9,8 @@ items:
   - OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardBitmap
   - OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardFiles
   - OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardFormat
-  - OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardHTML
   - OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardText
-  - OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.SDL.SDLClipboardComponent.Logger
   - OpenTK.Platform.Native.SDL.SDLClipboardComponent.Name
   - OpenTK.Platform.Native.SDL.SDLClipboardComponent.Provides
@@ -150,16 +149,16 @@ items:
   overload: OpenTK.Platform.Native.SDL.SDLClipboardComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.SDL.SDLClipboardComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: SDLClipboardComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: SDLClipboardComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -172,18 +171,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.SDL.SDLClipboardComponent.SupportedFormats
   commentId: P:OpenTK.Platform.Native.SDL.SDLClipboardComponent.SupportedFormats
   id: SupportedFormats
@@ -202,7 +201,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SupportedFormats
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-    startLine: 36
+    startLine: 32
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -235,7 +234,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardFormat
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-    startLine: 39
+    startLine: 35
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -268,7 +267,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetClipboardText
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-    startLine: 46
+    startLine: 42
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -305,7 +304,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardText
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-    startLine: 57
+    startLine: 53
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -341,7 +340,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardAudio
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-    startLine: 78
+    startLine: 74
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -377,7 +376,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardBitmap
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-    startLine: 84
+    startLine: 80
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -395,42 +394,6 @@ items:
   overload: OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardBitmap*
   implements:
   - OpenTK.Core.Platform.IClipboardComponent.GetClipboardBitmap
-- uid: OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardHTML
-  commentId: M:OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardHTML
-  id: GetClipboardHTML
-  parent: OpenTK.Platform.Native.SDL.SDLClipboardComponent
-  langs:
-  - csharp
-  - vb
-  name: GetClipboardHTML()
-  nameWithType: SDLClipboardComponent.GetClipboardHTML()
-  fullName: OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardHTML()
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
-    id: GetClipboardHTML
-    path: opentk/src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-    startLine: 90
-  assemblies:
-  - OpenTK.Platform.Native
-  namespace: OpenTK.Platform.Native.SDL
-  summary: >-
-    Gets the HTML string currently in the clipboard.
-
-    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Core.Platform.ClipboardFormat.HTML" data-throw-if-not-resolved="false"></xref> format.
-  example: []
-  syntax:
-    content: public string? GetClipboardHTML()
-    return:
-      type: System.String
-      description: The HTML string currently in the clipboard.
-    content.vb: Public Function GetClipboardHTML() As String
-  overload: OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardHTML*
-  implements:
-  - OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
 - uid: OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardFiles
   commentId: M:OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardFiles
   id: GetClipboardFiles
@@ -449,7 +412,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardFiles
     path: opentk/src/OpenTK.Platform.Native/SDL/SDLClipboardComponent.cs
-    startLine: 96
+    startLine: 86
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.SDL
@@ -883,35 +846,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize
-  href: OpenTK.Platform.Native.SDL.SDLClipboardComponent.html#OpenTK_Platform_Native_SDL_SDLClipboardComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.SDL.SDLClipboardComponent.html#OpenTK_Platform_Native_SDL_SDLClipboardComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: SDLClipboardComponent.Initialize
   fullName: OpenTK.Platform.Native.SDL.SDLClipboardComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.SDL.SDLClipboardComponent.SupportedFormats*
   commentId: Overload:OpenTK.Platform.Native.SDL.SDLClipboardComponent.SupportedFormats
   href: OpenTK.Platform.Native.SDL.SDLClipboardComponent.html#OpenTK_Platform_Native_SDL_SDLClipboardComponent_SupportedFormats
@@ -1199,37 +1169,6 @@ references:
   name: Bitmap
   nameWithType: Bitmap
   fullName: OpenTK.Core.Platform.Bitmap
-- uid: OpenTK.Core.Platform.ClipboardFormat.HTML
-  commentId: F:OpenTK.Core.Platform.ClipboardFormat.HTML
-  href: OpenTK.Core.Platform.ClipboardFormat.html#OpenTK_Core_Platform_ClipboardFormat_HTML
-  name: HTML
-  nameWithType: ClipboardFormat.HTML
-  fullName: OpenTK.Core.Platform.ClipboardFormat.HTML
-- uid: OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardHTML*
-  commentId: Overload:OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardHTML
-  href: OpenTK.Platform.Native.SDL.SDLClipboardComponent.html#OpenTK_Platform_Native_SDL_SDLClipboardComponent_GetClipboardHTML
-  name: GetClipboardHTML
-  nameWithType: SDLClipboardComponent.GetClipboardHTML
-  fullName: OpenTK.Platform.Native.SDL.SDLClipboardComponent.GetClipboardHTML
-- uid: OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
-  commentId: M:OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
-  parent: OpenTK.Core.Platform.IClipboardComponent
-  href: OpenTK.Core.Platform.IClipboardComponent.html#OpenTK_Core_Platform_IClipboardComponent_GetClipboardHTML
-  name: GetClipboardHTML()
-  nameWithType: IClipboardComponent.GetClipboardHTML()
-  fullName: OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML()
-  spec.csharp:
-  - uid: OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
-    name: GetClipboardHTML
-    href: OpenTK.Core.Platform.IClipboardComponent.html#OpenTK_Core_Platform_IClipboardComponent_GetClipboardHTML
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
-    name: GetClipboardHTML
-    href: OpenTK.Core.Platform.IClipboardComponent.html#OpenTK_Core_Platform_IClipboardComponent_GetClipboardHTML
-  - name: (
-  - name: )
 - uid: OpenTK.Core.Platform.ClipboardFormat.Files
   commentId: F:OpenTK.Core.Platform.ClipboardFormat.Files
   href: OpenTK.Core.Platform.ClipboardFormat.html#OpenTK_Core_Platform_ClipboardFormat_Files

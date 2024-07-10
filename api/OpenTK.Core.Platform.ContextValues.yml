@@ -5,16 +5,41 @@ items:
   id: ContextValues
   parent: OpenTK.Core.Platform
   children:
+  - OpenTK.Core.Platform.ContextValues.#ctor(System.UInt64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,OpenTK.Core.Platform.ContextPixelFormat,OpenTK.Core.Platform.ContextSwapMethod,System.Int32)
   - OpenTK.Core.Platform.ContextValues.AlphaBits
   - OpenTK.Core.Platform.ContextValues.BlueBits
+  - OpenTK.Core.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Core.Platform.ContextValues},OpenTK.Core.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
   - OpenTK.Core.Platform.ContextValues.DepthBits
   - OpenTK.Core.Platform.ContextValues.DoubleBuffered
+  - OpenTK.Core.Platform.ContextValues.Equals(OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.Equals(System.Object)
+  - OpenTK.Core.Platform.ContextValues.GetHashCode
   - OpenTK.Core.Platform.ContextValues.GreenBits
-  - OpenTK.Core.Platform.ContextValues.Multisample
+  - OpenTK.Core.Platform.ContextValues.HasEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasEqualDoubleBuffer(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasEqualMSAA(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasEqualPixelFormat(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasEqualSRGB(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasEqualSwapMethod(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasLessOrEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasLessOrEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.HasLessOrEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.ID
+  - OpenTK.Core.Platform.ContextValues.IsEqualExcludingID(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.PixelFormat
   - OpenTK.Core.Platform.ContextValues.RedBits
   - OpenTK.Core.Platform.ContextValues.SRGBFramebuffer
   - OpenTK.Core.Platform.ContextValues.Samples
   - OpenTK.Core.Platform.ContextValues.StencilBits
+  - OpenTK.Core.Platform.ContextValues.SwapMethod
+  - OpenTK.Core.Platform.ContextValues.ToString
+  - OpenTK.Core.Platform.ContextValues.op_Equality(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  - OpenTK.Core.Platform.ContextValues.op_Inequality(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
   langs:
   - csharp
   - vb
@@ -29,20 +54,46 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ContextValues
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 66
+    startLine: 18
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
   syntax:
-    content: public struct ContextValues
-    content.vb: Public Structure ContextValues
+    content: 'public struct ContextValues : IEquatable<ContextValues>'
+    content.vb: Public Structure ContextValues Implements IEquatable(Of ContextValues)
+  implements:
+  - System.IEquatable{OpenTK.Core.Platform.ContextValues}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
-  - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: OpenTK.Core.Platform.ContextValues.ID
+  commentId: F:OpenTK.Core.Platform.ContextValues.ID
+  id: ID
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: ContextValues.ID
+  fullName: OpenTK.Core.Platform.ContextValues.ID
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: ID
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 20
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public ulong ID
+    return:
+      type: System.UInt64
+    content.vb: Public ID As ULong
 - uid: OpenTK.Core.Platform.ContextValues.RedBits
   commentId: F:OpenTK.Core.Platform.ContextValues.RedBits
   id: RedBits
@@ -61,7 +112,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: RedBits
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 68
+    startLine: 22
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -88,7 +139,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GreenBits
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 69
+    startLine: 23
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -115,7 +166,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: BlueBits
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 70
+    startLine: 24
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -142,7 +193,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: AlphaBits
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 71
+    startLine: 25
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -169,7 +220,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: DepthBits
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 72
+    startLine: 26
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -196,7 +247,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: StencilBits
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 73
+    startLine: 27
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -223,7 +274,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: DoubleBuffered
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 74
+    startLine: 28
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -250,7 +301,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SRGBFramebuffer
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 75
+    startLine: 29
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -259,33 +310,60 @@ items:
     return:
       type: System.Boolean
     content.vb: Public SRGBFramebuffer As Boolean
-- uid: OpenTK.Core.Platform.ContextValues.Multisample
-  commentId: F:OpenTK.Core.Platform.ContextValues.Multisample
-  id: Multisample
+- uid: OpenTK.Core.Platform.ContextValues.PixelFormat
+  commentId: F:OpenTK.Core.Platform.ContextValues.PixelFormat
+  id: PixelFormat
   parent: OpenTK.Core.Platform.ContextValues
   langs:
   - csharp
   - vb
-  name: Multisample
-  nameWithType: ContextValues.Multisample
-  fullName: OpenTK.Core.Platform.ContextValues.Multisample
+  name: PixelFormat
+  nameWithType: ContextValues.PixelFormat
+  fullName: OpenTK.Core.Platform.ContextValues.PixelFormat
   type: Field
   source:
     remote:
       path: src/OpenTK.Core/Platform/ContextSettings.cs
       branch: pal2-work
       repo: https://github.com/opentk/opentk.git
-    id: Multisample
+    id: PixelFormat
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 76
+    startLine: 30
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
   syntax:
-    content: public bool Multisample
+    content: public ContextPixelFormat PixelFormat
     return:
-      type: System.Boolean
-    content.vb: Public Multisample As Boolean
+      type: OpenTK.Core.Platform.ContextPixelFormat
+    content.vb: Public PixelFormat As ContextPixelFormat
+- uid: OpenTK.Core.Platform.ContextValues.SwapMethod
+  commentId: F:OpenTK.Core.Platform.ContextValues.SwapMethod
+  id: SwapMethod
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: SwapMethod
+  nameWithType: ContextValues.SwapMethod
+  fullName: OpenTK.Core.Platform.ContextValues.SwapMethod
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: SwapMethod
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 31
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public ContextSwapMethod SwapMethod
+    return:
+      type: OpenTK.Core.Platform.ContextSwapMethod
+    content.vb: Public SwapMethod As ContextSwapMethod
 - uid: OpenTK.Core.Platform.ContextValues.Samples
   commentId: F:OpenTK.Core.Platform.ContextValues.Samples
   id: Samples
@@ -304,7 +382,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Samples
     path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
-    startLine: 77
+    startLine: 32
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -313,6 +391,816 @@ items:
     return:
       type: System.Int32
     content.vb: Public Samples As Integer
+- uid: OpenTK.Core.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Core.Platform.ContextValues},OpenTK.Core.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
+  commentId: M:OpenTK.Core.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Core.Platform.ContextValues},OpenTK.Core.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
+  id: DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Core.Platform.ContextValues},OpenTK.Core.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: DefaultValuesSelector(IReadOnlyList<ContextValues>, ContextValues, ILogger?)
+  nameWithType: ContextValues.DefaultValuesSelector(IReadOnlyList<ContextValues>, ContextValues, ILogger?)
+  fullName: OpenTK.Core.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList<OpenTK.Core.Platform.ContextValues>, OpenTK.Core.Platform.ContextValues, OpenTK.Core.Utility.ILogger?)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: DefaultValuesSelector
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 58
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: >-
+    Default context values selector. Prioritizes the requested values with a series of "relaxations" to find a close match.<br />
+
+    The relaxations are done in the following order:
+
+    <ol><li>If no exact match is found try find a format with a larger number of color, depth, or stencil bits.</li><li>If <xref href="OpenTK.Core.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == false is requested, <xref href="OpenTK.Core.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == true formats will be accepted.</li><li>If <xref href="OpenTK.Core.Platform.ContextValues.SwapMethod" data-throw-if-not-resolved="false"></xref> == <xref href="OpenTK.Core.Platform.ContextSwapMethod.Undefined" data-throw-if-not-resolved="false"></xref>, any swap method will be accepted.</li><li>If <xref href="OpenTK.Core.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == true, accept <xref href="OpenTK.Core.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == false formats.</li><li>Accept any <xref href="OpenTK.Core.Platform.ContextValues.PixelFormat" data-throw-if-not-resolved="false"></xref>.</li><li>Decrement <xref href="OpenTK.Core.Platform.ContextValues.Samples" data-throw-if-not-resolved="false"></xref> by one at a time until 0 and see if any alternative sample counts are possible.</li><li>Accept any <xref href="OpenTK.Core.Platform.ContextValues.SwapMethod" data-throw-if-not-resolved="false"></xref>.</li><li>Allow one of color bits (<xref href="OpenTK.Core.Platform.ContextValues.RedBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Core.Platform.ContextValues.GreenBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Core.Platform.ContextValues.BlueBits" data-throw-if-not-resolved="false"></xref>, and <xref href="OpenTK.Core.Platform.ContextValues.AlphaBits" data-throw-if-not-resolved="false"></xref>), <xref href="OpenTK.Core.Platform.ContextValues.DepthBits" data-throw-if-not-resolved="false"></xref>, or <xref href="OpenTK.Core.Platform.ContextValues.StencilBits" data-throw-if-not-resolved="false"></xref> to be lower than requested.</li><li>Allow two of color bits (<xref href="OpenTK.Core.Platform.ContextValues.RedBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Core.Platform.ContextValues.GreenBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Core.Platform.ContextValues.BlueBits" data-throw-if-not-resolved="false"></xref>, and <xref href="OpenTK.Core.Platform.ContextValues.AlphaBits" data-throw-if-not-resolved="false"></xref>), <xref href="OpenTK.Core.Platform.ContextValues.DepthBits" data-throw-if-not-resolved="false"></xref>, or <xref href="OpenTK.Core.Platform.ContextValues.StencilBits" data-throw-if-not-resolved="false"></xref> to be lower than requested.</li><li>Relax all bit requirements.</li><li>If all relaxations fail, select the first option in the list.</li></ol>
+  example: []
+  syntax:
+    content: public static int DefaultValuesSelector(IReadOnlyList<ContextValues> options, ContextValues requested, ILogger? logger)
+    parameters:
+    - id: options
+      type: System.Collections.Generic.IReadOnlyList{OpenTK.Core.Platform.ContextValues}
+      description: The possible context values.
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+      description: The requested context values.
+    - id: logger
+      type: OpenTK.Core.Utility.ILogger
+      description: A logger to use for logging.
+    return:
+      type: System.Int32
+      description: The index of the selected "best match" context values.
+    content.vb: Public Shared Function DefaultValuesSelector(options As IReadOnlyList(Of ContextValues), requested As ContextValues, logger As ILogger) As Integer
+  overload: OpenTK.Core.Platform.ContextValues.DefaultValuesSelector*
+  nameWithType.vb: ContextValues.DefaultValuesSelector(IReadOnlyList(Of ContextValues), ContextValues, ILogger)
+  fullName.vb: OpenTK.Core.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList(Of OpenTK.Core.Platform.ContextValues), OpenTK.Core.Platform.ContextValues, OpenTK.Core.Utility.ILogger)
+  name.vb: DefaultValuesSelector(IReadOnlyList(Of ContextValues), ContextValues, ILogger)
+- uid: OpenTK.Core.Platform.ContextValues.IsEqualExcludingID(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.IsEqualExcludingID(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: IsEqualExcludingID(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: IsEqualExcludingID(ContextValues, ContextValues)
+  nameWithType: ContextValues.IsEqualExcludingID(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.IsEqualExcludingID(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: IsEqualExcludingID
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 289
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool IsEqualExcludingID(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsEqualExcludingID([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.IsEqualExcludingID*
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualColorBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualColorBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualColorBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasEqualColorBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 304
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasEqualColorBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualColorBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasEqualColorBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasGreaterOrEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasGreaterOrEqualColorBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasGreaterOrEqualColorBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualColorBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasGreaterOrEqualColorBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 312
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasGreaterOrEqualColorBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasGreaterOrEqualColorBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualColorBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasLessOrEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasLessOrEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasLessOrEqualColorBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasLessOrEqualColorBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasLessOrEqualColorBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasLessOrEqualColorBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasLessOrEqualColorBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 320
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasLessOrEqualColorBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasLessOrEqualColorBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasLessOrEqualColorBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualDepthBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualDepthBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualDepthBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasEqualDepthBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 328
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasEqualDepthBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualDepthBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasEqualDepthBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasGreaterOrEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasGreaterOrEqualDepthBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasGreaterOrEqualDepthBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualDepthBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasGreaterOrEqualDepthBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 333
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasGreaterOrEqualDepthBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasGreaterOrEqualDepthBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualDepthBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasLessOrEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasLessOrEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasLessOrEqualDepthBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasLessOrEqualDepthBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasLessOrEqualDepthBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasLessOrEqualDepthBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasLessOrEqualDepthBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 338
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasLessOrEqualDepthBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasLessOrEqualDepthBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasLessOrEqualDepthBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualStencilBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualStencilBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualStencilBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasEqualStencilBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 343
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasEqualStencilBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualStencilBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasEqualStencilBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasGreaterOrEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasGreaterOrEqualStencilBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasGreaterOrEqualStencilBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualStencilBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasGreaterOrEqualStencilBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 348
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasGreaterOrEqualStencilBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasGreaterOrEqualStencilBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualStencilBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasLessOrEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasLessOrEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasLessOrEqualStencilBits(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasLessOrEqualStencilBits(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasLessOrEqualStencilBits(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasLessOrEqualStencilBits(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasLessOrEqualStencilBits
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 353
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasLessOrEqualStencilBits(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasLessOrEqualStencilBits([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasLessOrEqualStencilBits*
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualMSAA(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasEqualMSAA(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasEqualMSAA(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualMSAA(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualMSAA(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualMSAA(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasEqualMSAA
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 358
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasEqualMSAA(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualMSAA([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasEqualMSAA*
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualDoubleBuffer(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasEqualDoubleBuffer(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasEqualDoubleBuffer(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualDoubleBuffer(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualDoubleBuffer(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualDoubleBuffer(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasEqualDoubleBuffer
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 363
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasEqualDoubleBuffer(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualDoubleBuffer([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasEqualDoubleBuffer*
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualSRGB(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasEqualSRGB(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasEqualSRGB(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualSRGB(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualSRGB(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualSRGB(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasEqualSRGB
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 368
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasEqualSRGB(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualSRGB([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasEqualSRGB*
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualPixelFormat(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasEqualPixelFormat(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasEqualPixelFormat(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualPixelFormat(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualPixelFormat(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualPixelFormat(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasEqualPixelFormat
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 373
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasEqualPixelFormat(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualPixelFormat([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasEqualPixelFormat*
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualSwapMethod(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.HasEqualSwapMethod(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: HasEqualSwapMethod(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualSwapMethod(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualSwapMethod(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualSwapMethod(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: HasEqualSwapMethod
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 378
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool HasEqualSwapMethod(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Core.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualSwapMethod([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.HasEqualSwapMethod*
+- uid: OpenTK.Core.Platform.ContextValues.#ctor(System.UInt64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,OpenTK.Core.Platform.ContextPixelFormat,OpenTK.Core.Platform.ContextSwapMethod,System.Int32)
+  commentId: M:OpenTK.Core.Platform.ContextValues.#ctor(System.UInt64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,OpenTK.Core.Platform.ContextPixelFormat,OpenTK.Core.Platform.ContextSwapMethod,System.Int32)
+  id: '#ctor(System.UInt64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,OpenTK.Core.Platform.ContextPixelFormat,OpenTK.Core.Platform.ContextSwapMethod,System.Int32)'
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: ContextValues(ulong, int, int, int, int, int, int, bool, bool, ContextPixelFormat, ContextSwapMethod, int)
+  nameWithType: ContextValues.ContextValues(ulong, int, int, int, int, int, int, bool, bool, ContextPixelFormat, ContextSwapMethod, int)
+  fullName: OpenTK.Core.Platform.ContextValues.ContextValues(ulong, int, int, int, int, int, int, bool, bool, OpenTK.Core.Platform.ContextPixelFormat, OpenTK.Core.Platform.ContextSwapMethod, int)
+  type: Constructor
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: .ctor
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 383
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public ContextValues(ulong id, int redBits, int greenBits, int blueBits, int alphaBits, int depthBits, int stencilBits, bool doubleBuffered, bool sRGBFramebuffer, ContextPixelFormat pixelFormat, ContextSwapMethod swapMethod, int samples)
+    parameters:
+    - id: id
+      type: System.UInt64
+    - id: redBits
+      type: System.Int32
+    - id: greenBits
+      type: System.Int32
+    - id: blueBits
+      type: System.Int32
+    - id: alphaBits
+      type: System.Int32
+    - id: depthBits
+      type: System.Int32
+    - id: stencilBits
+      type: System.Int32
+    - id: doubleBuffered
+      type: System.Boolean
+    - id: sRGBFramebuffer
+      type: System.Boolean
+    - id: pixelFormat
+      type: OpenTK.Core.Platform.ContextPixelFormat
+    - id: swapMethod
+      type: OpenTK.Core.Platform.ContextSwapMethod
+    - id: samples
+      type: System.Int32
+    content.vb: Public Sub New(id As ULong, redBits As Integer, greenBits As Integer, blueBits As Integer, alphaBits As Integer, depthBits As Integer, stencilBits As Integer, doubleBuffered As Boolean, sRGBFramebuffer As Boolean, pixelFormat As ContextPixelFormat, swapMethod As ContextSwapMethod, samples As Integer)
+  overload: OpenTK.Core.Platform.ContextValues.#ctor*
+  nameWithType.vb: ContextValues.New(ULong, Integer, Integer, Integer, Integer, Integer, Integer, Boolean, Boolean, ContextPixelFormat, ContextSwapMethod, Integer)
+  fullName.vb: OpenTK.Core.Platform.ContextValues.New(ULong, Integer, Integer, Integer, Integer, Integer, Integer, Boolean, Boolean, OpenTK.Core.Platform.ContextPixelFormat, OpenTK.Core.Platform.ContextSwapMethod, Integer)
+  name.vb: New(ULong, Integer, Integer, Integer, Integer, Integer, Integer, Boolean, Boolean, ContextPixelFormat, ContextSwapMethod, Integer)
+- uid: OpenTK.Core.Platform.ContextValues.Equals(System.Object)
+  commentId: M:OpenTK.Core.Platform.ContextValues.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: ContextValues.Equals(object?)
+  fullName: OpenTK.Core.Platform.ContextValues.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Equals
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 399
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: OpenTK.Core.Platform.ContextValues.Equals*
+  nameWithType.vb: ContextValues.Equals(Object)
+  fullName.vb: OpenTK.Core.Platform.ContextValues.Equals(Object)
+  name.vb: Equals(Object)
+- uid: OpenTK.Core.Platform.ContextValues.Equals(OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.Equals(OpenTK.Core.Platform.ContextValues)
+  id: Equals(OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: Equals(ContextValues)
+  nameWithType: ContextValues.Equals(ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.Equals(OpenTK.Core.Platform.ContextValues)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Equals
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 404
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(ContextValues other)
+    parameters:
+    - id: other
+      type: OpenTK.Core.Platform.ContextValues
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.Equals*
+  implements:
+  - System.IEquatable{OpenTK.Core.Platform.ContextValues}.Equals(OpenTK.Core.Platform.ContextValues)
+- uid: OpenTK.Core.Platform.ContextValues.GetHashCode
+  commentId: M:OpenTK.Core.Platform.ContextValues.GetHashCode
+  id: GetHashCode
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ContextValues.GetHashCode()
+  fullName: OpenTK.Core.Platform.ContextValues.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: GetHashCode
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 420
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: OpenTK.Core.Platform.ContextValues.GetHashCode*
+- uid: OpenTK.Core.Platform.ContextValues.op_Equality(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.op_Equality(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: op_Equality(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: operator ==(ContextValues, ContextValues)
+  nameWithType: ContextValues.operator ==(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.operator ==(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Operator
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: op_Equality
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 438
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool operator ==(ContextValues left, ContextValues right)
+    parameters:
+    - id: left
+      type: OpenTK.Core.Platform.ContextValues
+    - id: right
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As ContextValues, right As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.op_Equality*
+  nameWithType.vb: ContextValues.=(ContextValues, ContextValues)
+  fullName.vb: OpenTK.Core.Platform.ContextValues.=(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  name.vb: =(ContextValues, ContextValues)
+- uid: OpenTK.Core.Platform.ContextValues.op_Inequality(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  commentId: M:OpenTK.Core.Platform.ContextValues.op_Inequality(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  id: op_Inequality(OpenTK.Core.Platform.ContextValues,OpenTK.Core.Platform.ContextValues)
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: operator !=(ContextValues, ContextValues)
+  nameWithType: ContextValues.operator !=(ContextValues, ContextValues)
+  fullName: OpenTK.Core.Platform.ContextValues.operator !=(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  type: Operator
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: op_Inequality
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 443
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  syntax:
+    content: public static bool operator !=(ContextValues left, ContextValues right)
+    parameters:
+    - id: left
+      type: OpenTK.Core.Platform.ContextValues
+    - id: right
+      type: OpenTK.Core.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As ContextValues, right As ContextValues) As Boolean
+  overload: OpenTK.Core.Platform.ContextValues.op_Inequality*
+  nameWithType.vb: ContextValues.<>(ContextValues, ContextValues)
+  fullName.vb: OpenTK.Core.Platform.ContextValues.<>(OpenTK.Core.Platform.ContextValues, OpenTK.Core.Platform.ContextValues)
+  name.vb: <>(ContextValues, ContextValues)
+- uid: OpenTK.Core.Platform.ContextValues.ToString
+  commentId: M:OpenTK.Core.Platform.ContextValues.ToString
+  id: ToString
+  parent: OpenTK.Core.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ContextValues.ToString()
+  fullName: OpenTK.Core.Platform.ContextValues.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/ContextSettings.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: ToString
+    path: opentk/src/OpenTK.Core/Platform/ContextSettings.cs
+    startLine: 448
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override readonly string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: OpenTK.Core.Platform.ContextValues.ToString*
 references:
 - uid: OpenTK.Core.Platform
   commentId: N:OpenTK.Core.Platform
@@ -344,82 +1232,38 @@ references:
   - uid: OpenTK.Core.Platform
     name: Platform
     href: OpenTK.Core.Platform.html
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{OpenTK.Core.Platform.ContextValues}
+  commentId: T:System.IEquatable{OpenTK.Core.Platform.ContextValues}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ContextValues>
+  nameWithType: IEquatable<ContextValues>
+  fullName: System.IEquatable<OpenTK.Core.Platform.ContextValues>
+  nameWithType.vb: IEquatable(Of ContextValues)
+  fullName.vb: System.IEquatable(Of OpenTK.Core.Platform.ContextValues)
+  name.vb: IEquatable(Of ContextValues)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: OpenTK.Core.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Core.Platform.ContextValues.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-- uid: System.ValueType.ToString
-  commentId: M:System.ValueType.ToString
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
-  name: ToString()
-  nameWithType: ValueType.ToString()
-  fullName: System.ValueType.ToString()
-  spec.csharp:
-  - uid: System.ValueType.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Core.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Core.Platform.ContextValues.html
   - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
@@ -535,14 +1379,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.ValueType
-  commentId: T:System.ValueType
-  parent: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype
-  name: ValueType
-  nameWithType: ValueType
-  fullName: System.ValueType
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -554,13 +1425,17 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -583,3 +1458,529 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: OpenTK.Core.Platform.ContextPixelFormat
+  commentId: T:OpenTK.Core.Platform.ContextPixelFormat
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ContextPixelFormat.html
+  name: ContextPixelFormat
+  nameWithType: ContextPixelFormat
+  fullName: OpenTK.Core.Platform.ContextPixelFormat
+- uid: OpenTK.Core.Platform.ContextSwapMethod
+  commentId: T:OpenTK.Core.Platform.ContextSwapMethod
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ContextSwapMethod.html
+  name: ContextSwapMethod
+  nameWithType: ContextSwapMethod
+  fullName: OpenTK.Core.Platform.ContextSwapMethod
+- uid: OpenTK.Core.Platform.ContextValues.SRGBFramebuffer
+  commentId: F:OpenTK.Core.Platform.ContextValues.SRGBFramebuffer
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_SRGBFramebuffer
+  name: SRGBFramebuffer
+  nameWithType: ContextValues.SRGBFramebuffer
+  fullName: OpenTK.Core.Platform.ContextValues.SRGBFramebuffer
+- uid: OpenTK.Core.Platform.ContextValues.SwapMethod
+  commentId: F:OpenTK.Core.Platform.ContextValues.SwapMethod
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_SwapMethod
+  name: SwapMethod
+  nameWithType: ContextValues.SwapMethod
+  fullName: OpenTK.Core.Platform.ContextValues.SwapMethod
+- uid: OpenTK.Core.Platform.ContextSwapMethod.Undefined
+  commentId: F:OpenTK.Core.Platform.ContextSwapMethod.Undefined
+  href: OpenTK.Core.Platform.ContextSwapMethod.html#OpenTK_Core_Platform_ContextSwapMethod_Undefined
+  name: Undefined
+  nameWithType: ContextSwapMethod.Undefined
+  fullName: OpenTK.Core.Platform.ContextSwapMethod.Undefined
+- uid: OpenTK.Core.Platform.ContextValues.PixelFormat
+  commentId: F:OpenTK.Core.Platform.ContextValues.PixelFormat
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_PixelFormat
+  name: PixelFormat
+  nameWithType: ContextValues.PixelFormat
+  fullName: OpenTK.Core.Platform.ContextValues.PixelFormat
+- uid: OpenTK.Core.Platform.ContextValues.Samples
+  commentId: F:OpenTK.Core.Platform.ContextValues.Samples
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_Samples
+  name: Samples
+  nameWithType: ContextValues.Samples
+  fullName: OpenTK.Core.Platform.ContextValues.Samples
+- uid: OpenTK.Core.Platform.ContextValues.RedBits
+  commentId: F:OpenTK.Core.Platform.ContextValues.RedBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_RedBits
+  name: RedBits
+  nameWithType: ContextValues.RedBits
+  fullName: OpenTK.Core.Platform.ContextValues.RedBits
+- uid: OpenTK.Core.Platform.ContextValues.GreenBits
+  commentId: F:OpenTK.Core.Platform.ContextValues.GreenBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_GreenBits
+  name: GreenBits
+  nameWithType: ContextValues.GreenBits
+  fullName: OpenTK.Core.Platform.ContextValues.GreenBits
+- uid: OpenTK.Core.Platform.ContextValues.BlueBits
+  commentId: F:OpenTK.Core.Platform.ContextValues.BlueBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_BlueBits
+  name: BlueBits
+  nameWithType: ContextValues.BlueBits
+  fullName: OpenTK.Core.Platform.ContextValues.BlueBits
+- uid: OpenTK.Core.Platform.ContextValues.AlphaBits
+  commentId: F:OpenTK.Core.Platform.ContextValues.AlphaBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_AlphaBits
+  name: AlphaBits
+  nameWithType: ContextValues.AlphaBits
+  fullName: OpenTK.Core.Platform.ContextValues.AlphaBits
+- uid: OpenTK.Core.Platform.ContextValues.DepthBits
+  commentId: F:OpenTK.Core.Platform.ContextValues.DepthBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_DepthBits
+  name: DepthBits
+  nameWithType: ContextValues.DepthBits
+  fullName: OpenTK.Core.Platform.ContextValues.DepthBits
+- uid: OpenTK.Core.Platform.ContextValues.StencilBits
+  commentId: F:OpenTK.Core.Platform.ContextValues.StencilBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_StencilBits
+  name: StencilBits
+  nameWithType: ContextValues.StencilBits
+  fullName: OpenTK.Core.Platform.ContextValues.StencilBits
+- uid: OpenTK.Core.Platform.ContextValues.DefaultValuesSelector*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.DefaultValuesSelector
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_DefaultValuesSelector_System_Collections_Generic_IReadOnlyList_OpenTK_Core_Platform_ContextValues__OpenTK_Core_Platform_ContextValues_OpenTK_Core_Utility_ILogger_
+  name: DefaultValuesSelector
+  nameWithType: ContextValues.DefaultValuesSelector
+  fullName: OpenTK.Core.Platform.ContextValues.DefaultValuesSelector
+- uid: System.Collections.Generic.IReadOnlyList{OpenTK.Core.Platform.ContextValues}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OpenTK.Core.Platform.ContextValues}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<ContextValues>
+  nameWithType: IReadOnlyList<ContextValues>
+  fullName: System.Collections.Generic.IReadOnlyList<OpenTK.Core.Platform.ContextValues>
+  nameWithType.vb: IReadOnlyList(Of ContextValues)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OpenTK.Core.Platform.ContextValues)
+  name.vb: IReadOnlyList(Of ContextValues)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OpenTK.Core.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Core.Platform.ContextValues.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Core.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Core.Platform.ContextValues.html
+  - name: )
+- uid: OpenTK.Core.Platform.ContextValues
+  commentId: T:OpenTK.Core.Platform.ContextValues
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ContextValues.html
+  name: ContextValues
+  nameWithType: ContextValues
+  fullName: OpenTK.Core.Platform.ContextValues
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OpenTK.Core.Utility
+  commentId: N:OpenTK.Core.Utility
+  href: OpenTK.html
+  name: OpenTK.Core.Utility
+  nameWithType: OpenTK.Core.Utility
+  fullName: OpenTK.Core.Utility
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  - name: .
+  - uid: OpenTK.Core.Utility
+    name: Utility
+    href: OpenTK.Core.Utility.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Core
+    name: Core
+    href: OpenTK.Core.html
+  - name: .
+  - uid: OpenTK.Core.Utility
+    name: Utility
+    href: OpenTK.Core.Utility.html
+- uid: OpenTK.Core.Platform.ContextValues.IsEqualExcludingID*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.IsEqualExcludingID
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_IsEqualExcludingID_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: IsEqualExcludingID
+  nameWithType: ContextValues.IsEqualExcludingID
+  fullName: OpenTK.Core.Platform.ContextValues.IsEqualExcludingID
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualColorBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasEqualColorBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasEqualColorBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasEqualColorBits
+  nameWithType: ContextValues.HasEqualColorBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualColorBits
+- uid: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualColorBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualColorBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasGreaterOrEqualColorBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasGreaterOrEqualColorBits
+  nameWithType: ContextValues.HasGreaterOrEqualColorBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualColorBits
+- uid: OpenTK.Core.Platform.ContextValues.HasLessOrEqualColorBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasLessOrEqualColorBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasLessOrEqualColorBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasLessOrEqualColorBits
+  nameWithType: ContextValues.HasLessOrEqualColorBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasLessOrEqualColorBits
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualDepthBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasEqualDepthBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasEqualDepthBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasEqualDepthBits
+  nameWithType: ContextValues.HasEqualDepthBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualDepthBits
+- uid: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualDepthBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualDepthBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasGreaterOrEqualDepthBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasGreaterOrEqualDepthBits
+  nameWithType: ContextValues.HasGreaterOrEqualDepthBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualDepthBits
+- uid: OpenTK.Core.Platform.ContextValues.HasLessOrEqualDepthBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasLessOrEqualDepthBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasLessOrEqualDepthBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasLessOrEqualDepthBits
+  nameWithType: ContextValues.HasLessOrEqualDepthBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasLessOrEqualDepthBits
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualStencilBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasEqualStencilBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasEqualStencilBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasEqualStencilBits
+  nameWithType: ContextValues.HasEqualStencilBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualStencilBits
+- uid: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualStencilBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualStencilBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasGreaterOrEqualStencilBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasGreaterOrEqualStencilBits
+  nameWithType: ContextValues.HasGreaterOrEqualStencilBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasGreaterOrEqualStencilBits
+- uid: OpenTK.Core.Platform.ContextValues.HasLessOrEqualStencilBits*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasLessOrEqualStencilBits
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasLessOrEqualStencilBits_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasLessOrEqualStencilBits
+  nameWithType: ContextValues.HasLessOrEqualStencilBits
+  fullName: OpenTK.Core.Platform.ContextValues.HasLessOrEqualStencilBits
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualMSAA*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasEqualMSAA
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasEqualMSAA_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasEqualMSAA
+  nameWithType: ContextValues.HasEqualMSAA
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualMSAA
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualDoubleBuffer*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasEqualDoubleBuffer
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasEqualDoubleBuffer_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasEqualDoubleBuffer
+  nameWithType: ContextValues.HasEqualDoubleBuffer
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualDoubleBuffer
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualSRGB*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasEqualSRGB
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasEqualSRGB_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasEqualSRGB
+  nameWithType: ContextValues.HasEqualSRGB
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualSRGB
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualPixelFormat*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasEqualPixelFormat
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasEqualPixelFormat_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasEqualPixelFormat
+  nameWithType: ContextValues.HasEqualPixelFormat
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualPixelFormat
+- uid: OpenTK.Core.Platform.ContextValues.HasEqualSwapMethod*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.HasEqualSwapMethod
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_HasEqualSwapMethod_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: HasEqualSwapMethod
+  nameWithType: ContextValues.HasEqualSwapMethod
+  fullName: OpenTK.Core.Platform.ContextValues.HasEqualSwapMethod
+- uid: OpenTK.Core.Platform.ContextValues.#ctor*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.#ctor
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues__ctor_System_UInt64_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_System_Boolean_OpenTK_Core_Platform_ContextPixelFormat_OpenTK_Core_Platform_ContextSwapMethod_System_Int32_
+  name: ContextValues
+  nameWithType: ContextValues.ContextValues
+  fullName: OpenTK.Core.Platform.ContextValues.ContextValues
+  nameWithType.vb: ContextValues.New
+  fullName.vb: OpenTK.Core.Platform.ContextValues.New
+  name.vb: New
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: OpenTK.Core.Platform.ContextValues.Equals*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.Equals
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_Equals_System_Object_
+  name: Equals
+  nameWithType: ContextValues.Equals
+  fullName: OpenTK.Core.Platform.ContextValues.Equals
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.IEquatable{OpenTK.Core.Platform.ContextValues}.Equals(OpenTK.Core.Platform.ContextValues)
+  commentId: M:System.IEquatable{OpenTK.Core.Platform.ContextValues}.Equals(OpenTK.Core.Platform.ContextValues)
+  parent: System.IEquatable{OpenTK.Core.Platform.ContextValues}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ContextValues)
+  nameWithType: IEquatable<ContextValues>.Equals(ContextValues)
+  fullName: System.IEquatable<OpenTK.Core.Platform.ContextValues>.Equals(OpenTK.Core.Platform.ContextValues)
+  nameWithType.vb: IEquatable(Of ContextValues).Equals(ContextValues)
+  fullName.vb: System.IEquatable(Of OpenTK.Core.Platform.ContextValues).Equals(OpenTK.Core.Platform.ContextValues)
+  spec.csharp:
+  - uid: System.IEquatable{OpenTK.Core.Platform.ContextValues}.Equals(OpenTK.Core.Platform.ContextValues)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: OpenTK.Core.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Core.Platform.ContextValues.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{OpenTK.Core.Platform.ContextValues}.Equals(OpenTK.Core.Platform.ContextValues)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: OpenTK.Core.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Core.Platform.ContextValues.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: OpenTK.Core.Platform.ContextValues.GetHashCode*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.GetHashCode
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_GetHashCode
+  name: GetHashCode
+  nameWithType: ContextValues.GetHashCode
+  fullName: OpenTK.Core.Platform.ContextValues.GetHashCode
+- uid: OpenTK.Core.Platform.ContextValues.op_Equality*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.op_Equality
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_op_Equality_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: operator ==
+  nameWithType: ContextValues.operator ==
+  fullName: OpenTK.Core.Platform.ContextValues.operator ==
+  nameWithType.vb: ContextValues.=
+  fullName.vb: OpenTK.Core.Platform.ContextValues.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: OpenTK.Core.Platform.ContextValues.op_Equality*
+    name: ==
+    href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_op_Equality_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+- uid: OpenTK.Core.Platform.ContextValues.op_Inequality*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.op_Inequality
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_op_Inequality_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+  name: operator !=
+  nameWithType: ContextValues.operator !=
+  fullName: OpenTK.Core.Platform.ContextValues.operator !=
+  nameWithType.vb: ContextValues.<>
+  fullName.vb: OpenTK.Core.Platform.ContextValues.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: OpenTK.Core.Platform.ContextValues.op_Inequality*
+    name: '!='
+    href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_op_Inequality_OpenTK_Core_Platform_ContextValues_OpenTK_Core_Platform_ContextValues_
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: OpenTK.Core.Platform.ContextValues.ToString*
+  commentId: Overload:OpenTK.Core.Platform.ContextValues.ToString
+  href: OpenTK.Core.Platform.ContextValues.html#OpenTK_Core_Platform_ContextValues_ToString
+  name: ToString
+  nameWithType: ContextValues.ToString
+  fullName: OpenTK.Core.Platform.ContextValues.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

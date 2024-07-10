@@ -17,7 +17,7 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetProcedureAddress(OpenTK.Core.Platform.OpenGLContextHandle,System.String)
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetSharedContext(OpenTK.Core.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetSwapInterval
-  - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Logger
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Name
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Provides
@@ -38,7 +38,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: MacOSOpenGLComponent
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 10
+    startLine: 11
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -76,7 +76,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Name
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 31
+    startLine: 34
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -109,7 +109,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Provides
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 34
+    startLine: 37
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -142,7 +142,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Logger
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 37
+    startLine: 40
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -157,16 +157,16 @@ items:
   overload: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: MacOSOpenGLComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: MacOSOpenGLComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -175,22 +175,22 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Initialize
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 40
+    startLine: 43
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.CanShareContexts
   commentId: P:OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.CanShareContexts
   id: CanShareContexts
@@ -209,7 +209,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanShareContexts
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 46
+    startLine: 49
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -242,7 +242,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanCreateFromWindow
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 49
+    startLine: 52
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -275,7 +275,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanCreateFromSurface
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 52
+    startLine: 55
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -308,7 +308,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromSurface
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 55
+    startLine: 58
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -341,7 +341,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromWindow
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 61
+    startLine: 227
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -378,7 +378,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: DestroyContext
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 194
+    startLine: 407
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -416,7 +416,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetBindingsContext
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 207
+    startLine: 420
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -453,7 +453,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetProcedureAddress
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 213
+    startLine: 426
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -500,7 +500,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetCurrentContext
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 220
+    startLine: 433
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -533,7 +533,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetCurrentContext
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 235
+    startLine: 448
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -573,7 +573,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSharedContext
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 252
+    startLine: 465
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -610,7 +610,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetSwapInterval
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 259
+    startLine: 472
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -647,7 +647,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSwapInterval
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 270
+    startLine: 483
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -680,7 +680,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SwapBuffers
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 284
+    startLine: 497
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -714,7 +714,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetNSOpenGLContext
     path: opentk/src/OpenTK.Platform.Native/macOS/MacOSOpenGLComponent.cs
-    startLine: 295
+    startLine: 508
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.macOS
@@ -1147,35 +1147,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize
-  href: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.html#OpenTK_Platform_Native_macOS_MacOSOpenGLComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.html#OpenTK_Platform_Native_macOS_MacOSOpenGLComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: MacOSOpenGLComponent.Initialize
   fullName: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.CanShareContexts*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.CanShareContexts
   href: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.html#OpenTK_Platform_Native_macOS_MacOSOpenGLComponent_CanShareContexts

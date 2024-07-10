@@ -15,7 +15,7 @@ items:
   - OpenTK.Platform.Native.Windows.IconComponent.GetBitmapByteSize(OpenTK.Core.Platform.IconHandle)
   - OpenTK.Platform.Native.Windows.IconComponent.GetBitmapData(OpenTK.Core.Platform.IconHandle,System.Span{System.Byte})
   - OpenTK.Platform.Native.Windows.IconComponent.GetSize(OpenTK.Core.Platform.IconHandle,System.Int32@,System.Int32@)
-  - OpenTK.Platform.Native.Windows.IconComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.Windows.IconComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Windows.IconComponent.Logger
   - OpenTK.Platform.Native.Windows.IconComponent.Name
   - OpenTK.Platform.Native.Windows.IconComponent.Provides
@@ -152,16 +152,16 @@ items:
   overload: OpenTK.Platform.Native.Windows.IconComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.Windows.IconComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.Windows.IconComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.Windows.IconComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.Windows.IconComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.Windows.IconComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: IconComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.Windows.IconComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: IconComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.Windows.IconComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -174,18 +174,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.IconComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.Windows.IconComponent.CanLoadSystemIcons
   commentId: P:OpenTK.Platform.Native.Windows.IconComponent.CanLoadSystemIcons
   id: CanLoadSystemIcons
@@ -204,7 +204,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanLoadSystemIcons
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 34
+    startLine: 30
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -240,7 +240,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Create
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 37
+    startLine: 33
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -283,7 +283,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Create
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 77
+    startLine: 73
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -329,7 +329,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromIcoFile
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 165
+    startLine: 161
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -367,7 +367,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromIcoResource
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 192
+    startLine: 188
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -408,7 +408,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromIcoResource
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 235
+    startLine: 231
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -458,7 +458,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Destroy
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 252
+    startLine: 248
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -496,7 +496,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSize
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 294
+    startLine: 290
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -543,7 +543,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetBitmapData
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 320
+    startLine: 316
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -577,7 +577,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetBitmapByteSize
     path: opentk/src/OpenTK.Platform.Native/Windows/IconComponent.cs
-    startLine: 446
+    startLine: 442
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -1006,35 +1006,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.Windows.IconComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.IconComponent.Initialize
-  href: OpenTK.Platform.Native.Windows.IconComponent.html#OpenTK_Platform_Native_Windows_IconComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.Windows.IconComponent.html#OpenTK_Platform_Native_Windows_IconComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: IconComponent.Initialize
   fullName: OpenTK.Platform.Native.Windows.IconComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Core.Platform.IIconComponent.Create(OpenTK.Core.Platform.SystemIconType)
   commentId: M:OpenTK.Core.Platform.IIconComponent.Create(OpenTK.Core.Platform.SystemIconType)
   parent: OpenTK.Core.Platform.IIconComponent

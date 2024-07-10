@@ -9,7 +9,7 @@ items:
   - OpenTK.Platform.Native.X11.X11ShellComponent.GetBatteryInfo(OpenTK.Core.Platform.BatteryInfo@)
   - OpenTK.Platform.Native.X11.X11ShellComponent.GetPreferredTheme
   - OpenTK.Platform.Native.X11.X11ShellComponent.GetSystemMemoryInformation
-  - OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.X11.X11ShellComponent.Logger
   - OpenTK.Platform.Native.X11.X11ShellComponent.Name
   - OpenTK.Platform.Native.X11.X11ShellComponent.Provides
@@ -146,16 +146,16 @@ items:
   overload: OpenTK.Platform.Native.X11.X11ShellComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.X11.X11ShellComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: X11ShellComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: X11ShellComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -168,18 +168,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(System.Boolean)
   commentId: M:OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(System.Boolean)
   id: AllowScreenSaver(System.Boolean)
@@ -198,7 +198,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: AllowScreenSaver
     path: opentk/src/OpenTK.Platform.Native/X11/X11ShellComponent.cs
-    startLine: 76
+    startLine: 69
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -242,7 +242,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetBatteryInfo
     path: opentk/src/OpenTK.Platform.Native/X11/X11ShellComponent.cs
-    startLine: 108
+    startLine: 101
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -284,7 +284,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetPreferredTheme
     path: opentk/src/OpenTK.Platform.Native/X11/X11ShellComponent.cs
-    startLine: 300
+    startLine: 293
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -317,7 +317,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSystemMemoryInformation
     path: opentk/src/OpenTK.Platform.Native/X11/X11ShellComponent.cs
-    startLine: 331
+    startLine: 324
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -748,35 +748,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.X11.X11ShellComponent.Initialize
-  href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: X11ShellComponent.Initialize
   fullName: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver*
   commentId: Overload:OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver
   href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_AllowScreenSaver_System_Boolean_

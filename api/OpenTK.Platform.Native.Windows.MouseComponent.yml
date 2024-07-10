@@ -8,7 +8,7 @@ items:
   - OpenTK.Platform.Native.Windows.MouseComponent.CanSetMousePosition
   - OpenTK.Platform.Native.Windows.MouseComponent.GetMouseState(OpenTK.Core.Platform.MouseState@)
   - OpenTK.Platform.Native.Windows.MouseComponent.GetPosition(System.Int32@,System.Int32@)
-  - OpenTK.Platform.Native.Windows.MouseComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.Windows.MouseComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Windows.MouseComponent.Logger
   - OpenTK.Platform.Native.Windows.MouseComponent.Name
   - OpenTK.Platform.Native.Windows.MouseComponent.Provides
@@ -146,16 +146,16 @@ items:
   overload: OpenTK.Platform.Native.Windows.MouseComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.Windows.MouseComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.Windows.MouseComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.Windows.MouseComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.Windows.MouseComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.Windows.MouseComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: MouseComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.Windows.MouseComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: MouseComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.Windows.MouseComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -168,18 +168,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.MouseComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.Windows.MouseComponent.CanSetMousePosition
   commentId: P:OpenTK.Platform.Native.Windows.MouseComponent.CanSetMousePosition
   id: CanSetMousePosition
@@ -198,7 +198,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanSetMousePosition
     path: opentk/src/OpenTK.Platform.Native/Windows/MouseComponent.cs
-    startLine: 34
+    startLine: 30
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -231,7 +231,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetPosition
     path: opentk/src/OpenTK.Platform.Native/Windows/MouseComponent.cs
-    startLine: 37
+    startLine: 33
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -271,7 +271,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetPosition
     path: opentk/src/OpenTK.Platform.Native/Windows/MouseComponent.cs
-    startLine: 53
+    startLine: 47
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -311,7 +311,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetMouseState
     path: opentk/src/OpenTK.Platform.Native/Windows/MouseComponent.cs
-    startLine: 79
+    startLine: 71
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -746,35 +746,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.Windows.MouseComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.MouseComponent.Initialize
-  href: OpenTK.Platform.Native.Windows.MouseComponent.html#OpenTK_Platform_Native_Windows_MouseComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.Windows.MouseComponent.html#OpenTK_Platform_Native_Windows_MouseComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: MouseComponent.Initialize
   fullName: OpenTK.Platform.Native.Windows.MouseComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.Windows.MouseComponent.CanSetMousePosition*
   commentId: Overload:OpenTK.Platform.Native.Windows.MouseComponent.CanSetMousePosition
   href: OpenTK.Platform.Native.Windows.MouseComponent.html#OpenTK_Platform_Native_Windows_MouseComponent_CanSetMousePosition

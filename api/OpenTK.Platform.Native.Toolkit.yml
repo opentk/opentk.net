@@ -7,9 +7,10 @@ items:
   children:
   - OpenTK.Platform.Native.Toolkit.Clipboard
   - OpenTK.Platform.Native.Toolkit.Cursor
+  - OpenTK.Platform.Native.Toolkit.Dialog
   - OpenTK.Platform.Native.Toolkit.Display
   - OpenTK.Platform.Native.Toolkit.Icon
-  - OpenTK.Platform.Native.Toolkit.Init(OpenTK.Platform.Native.ToolkitOptions)
+  - OpenTK.Platform.Native.Toolkit.Init(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Toolkit.Joystick
   - OpenTK.Platform.Native.Toolkit.Keyboard
   - OpenTK.Platform.Native.Toolkit.Mouse
@@ -31,10 +32,15 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Toolkit
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 19
+    startLine: 16
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: >-
+    Provides static access to all OpenTK platform abstraction interfaces.
+
+    This is the main way to access the OpenTK PAL2 api.
+  example: []
   syntax:
     content: public static class Toolkit
     content.vb: Public Module Toolkit
@@ -66,10 +72,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Window
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for creating, interacting with, and deleting windows.
+  example: []
   syntax:
     content: public static IWindowComponent Window { get; }
     parameters: []
@@ -95,10 +103,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Surface
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 35
+    startLine: 39
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for creating, interacting with, and deleting surfaces.
+  example: []
   syntax:
     content: public static ISurfaceComponent Surface { get; }
     parameters: []
@@ -124,10 +134,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OpenGL
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 37
+    startLine: 44
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for creating, interacting with, and deleting OpenGL contexts.
+  example: []
   syntax:
     content: public static IOpenGLComponent OpenGL { get; }
     parameters: []
@@ -153,10 +165,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Display
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 39
+    startLine: 49
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for querying information about displays attached to the system.
+  example: []
   syntax:
     content: public static IDisplayComponent Display { get; }
     parameters: []
@@ -182,10 +196,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Shell
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 41
+    startLine: 54
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for shell functions such as battery information, preferred theme, etc.
+  example: []
   syntax:
     content: public static IShellComponent Shell { get; }
     parameters: []
@@ -211,10 +227,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Mouse
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 43
+    startLine: 59
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for getting and setting the mouse position, and getting mouse button information.
+  example: []
   syntax:
     content: public static IMouseComponent Mouse { get; }
     parameters: []
@@ -240,10 +258,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Keyboard
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 45
+    startLine: 64
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for dealing with keyboard layouts, conversions between <xref href="OpenTK.Core.Platform.Key" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Core.Platform.Scancode" data-throw-if-not-resolved="false"></xref>, and IME.
+  example: []
   syntax:
     content: public static IKeyboardComponent Keyboard { get; }
     parameters: []
@@ -269,10 +289,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Cursor
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 47
+    startLine: 69
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for creating, interacting with, and deleting mouse cursor images.
+  example: []
   syntax:
     content: public static ICursorComponent Cursor { get; }
     parameters: []
@@ -298,10 +320,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Icon
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 49
+    startLine: 74
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for creating, interacting with, and deleting window icon images.
+  example: []
   syntax:
     content: public static IIconComponent Icon { get; }
     parameters: []
@@ -327,10 +351,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Clipboard
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 51
+    startLine: 79
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for getting and setting clipboard data.
+  example: []
   syntax:
     content: public static IClipboardComponent Clipboard { get; }
     parameters: []
@@ -356,10 +382,12 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Joystick
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 53
+    startLine: 84
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: Interface for getting joystick input.
+  example: []
   syntax:
     content: public static IJoystickComponent Joystick { get; }
     parameters: []
@@ -367,16 +395,47 @@ items:
       type: OpenTK.Core.Platform.IJoystickComponent
     content.vb: Public Shared ReadOnly Property Joystick As IJoystickComponent
   overload: OpenTK.Platform.Native.Toolkit.Joystick*
-- uid: OpenTK.Platform.Native.Toolkit.Init(OpenTK.Platform.Native.ToolkitOptions)
-  commentId: M:OpenTK.Platform.Native.Toolkit.Init(OpenTK.Platform.Native.ToolkitOptions)
-  id: Init(OpenTK.Platform.Native.ToolkitOptions)
+- uid: OpenTK.Platform.Native.Toolkit.Dialog
+  commentId: P:OpenTK.Platform.Native.Toolkit.Dialog
+  id: Dialog
+  parent: OpenTK.Platform.Native.Toolkit
+  langs:
+  - csharp
+  - vb
+  name: Dialog
+  nameWithType: Toolkit.Dialog
+  fullName: OpenTK.Platform.Native.Toolkit.Dialog
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Platform.Native/Toolkit.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Dialog
+    path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
+    startLine: 89
+  assemblies:
+  - OpenTK.Platform.Native
+  namespace: OpenTK.Platform.Native
+  summary: Interface for opening system dialogs such as file open dialogs.
+  example: []
+  syntax:
+    content: public static IDialogComponent Dialog { get; }
+    parameters: []
+    return:
+      type: OpenTK.Core.Platform.IDialogComponent
+    content.vb: Public Shared ReadOnly Property Dialog As IDialogComponent
+  overload: OpenTK.Platform.Native.Toolkit.Dialog*
+- uid: OpenTK.Platform.Native.Toolkit.Init(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.Toolkit.Init(OpenTK.Core.Platform.ToolkitOptions)
+  id: Init(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.Toolkit
   langs:
   - csharp
   - vb
   name: Init(ToolkitOptions)
   nameWithType: Toolkit.Init(ToolkitOptions)
-  fullName: OpenTK.Platform.Native.Toolkit.Init(OpenTK.Platform.Native.ToolkitOptions)
+  fullName: OpenTK.Platform.Native.Toolkit.Init(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -385,15 +444,21 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Init
     path: opentk/src/OpenTK.Platform.Native/Toolkit.cs
-    startLine: 55
+    startLine: 96
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native
+  summary: >-
+    Initialize OpenTK with the given settings.
+
+    This function must be called before trying to use the OpenTK api.
+  example: []
   syntax:
     content: public static void Init(ToolkitOptions options)
     parameters:
     - id: options
-      type: OpenTK.Platform.Native.ToolkitOptions
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize with.
     content.vb: Public Shared Sub Init(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Toolkit.Init*
 references:
@@ -772,6 +837,20 @@ references:
   name: IMouseComponent
   nameWithType: IMouseComponent
   fullName: OpenTK.Core.Platform.IMouseComponent
+- uid: OpenTK.Core.Platform.Key
+  commentId: T:OpenTK.Core.Platform.Key
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.Key.html
+  name: Key
+  nameWithType: Key
+  fullName: OpenTK.Core.Platform.Key
+- uid: OpenTK.Core.Platform.Scancode
+  commentId: T:OpenTK.Core.Platform.Scancode
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.Scancode.html
+  name: Scancode
+  nameWithType: Scancode
+  fullName: OpenTK.Core.Platform.Scancode
 - uid: OpenTK.Platform.Native.Toolkit.Keyboard*
   commentId: Overload:OpenTK.Platform.Native.Toolkit.Keyboard
   href: OpenTK.Platform.Native.Toolkit.html#OpenTK_Platform_Native_Toolkit_Keyboard
@@ -837,16 +916,29 @@ references:
   name: IJoystickComponent
   nameWithType: IJoystickComponent
   fullName: OpenTK.Core.Platform.IJoystickComponent
+- uid: OpenTK.Platform.Native.Toolkit.Dialog*
+  commentId: Overload:OpenTK.Platform.Native.Toolkit.Dialog
+  href: OpenTK.Platform.Native.Toolkit.html#OpenTK_Platform_Native_Toolkit_Dialog
+  name: Dialog
+  nameWithType: Toolkit.Dialog
+  fullName: OpenTK.Platform.Native.Toolkit.Dialog
+- uid: OpenTK.Core.Platform.IDialogComponent
+  commentId: T:OpenTK.Core.Platform.IDialogComponent
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.IDialogComponent.html
+  name: IDialogComponent
+  nameWithType: IDialogComponent
+  fullName: OpenTK.Core.Platform.IDialogComponent
 - uid: OpenTK.Platform.Native.Toolkit.Init*
   commentId: Overload:OpenTK.Platform.Native.Toolkit.Init
-  href: OpenTK.Platform.Native.Toolkit.html#OpenTK_Platform_Native_Toolkit_Init_OpenTK_Platform_Native_ToolkitOptions_
+  href: OpenTK.Platform.Native.Toolkit.html#OpenTK_Platform_Native_Toolkit_Init_OpenTK_Core_Platform_ToolkitOptions_
   name: Init
   nameWithType: Toolkit.Init
   fullName: OpenTK.Platform.Native.Toolkit.Init
-- uid: OpenTK.Platform.Native.ToolkitOptions
-  commentId: T:OpenTK.Platform.Native.ToolkitOptions
-  parent: OpenTK.Platform.Native
-  href: OpenTK.Platform.Native.ToolkitOptions.html
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
   name: ToolkitOptions
   nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.Native.ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions

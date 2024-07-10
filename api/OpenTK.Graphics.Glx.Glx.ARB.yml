@@ -5,8 +5,8 @@ items:
   id: Glx.ARB
   parent: OpenTK.Graphics.Glx
   children:
-  - OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
-  - OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
+  - OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
+  - OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
   - OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte*)
   - OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte@)
   langs:
@@ -23,7 +23,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ARB
     path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 380
+    startLine: 221
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -42,16 +42,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
-  commentId: M:OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
-  id: CreateContextAttribsARB(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
+- uid: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
+  commentId: M:OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
+  id: CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
   parent: OpenTK.Graphics.Glx.Glx.ARB
   langs:
   - csharp
   - vb
-  name: CreateContextAttribsARB(Display*, GLXFBConfig, GLXContext, bool, int*)
-  nameWithType: Glx.ARB.CreateContextAttribsARB(Display*, GLXFBConfig, GLXContext, bool, int*)
-  fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display*, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, bool, int*)
+  name: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, bool, int*)
+  nameWithType: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, bool, int*)
+  fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, bool, int*)
   type: Method
   source:
     remote:
@@ -67,10 +67,10 @@ items:
   summary: '<b>[requires: GLX_ARB_create_context]</b> <b>[entry point: <code>glXCreateContextAttribsARB</code>]</b><br />'
   example: []
   syntax:
-    content: public static GLXContext CreateContextAttribsARB(Display* dpy, GLXFBConfig config, GLXContext share_context, bool direct, int* attrib_list)
+    content: public static GLXContext CreateContextAttribsARB(DisplayPtr dpy, GLXFBConfig config, GLXContext share_context, bool direct, int* attrib_list)
     parameters:
     - id: dpy
-      type: OpenTK.Graphics.Glx.Display*
+      type: OpenTK.Graphics.Glx.DisplayPtr
     - id: config
       type: OpenTK.Graphics.Glx.GLXFBConfig
     - id: share_context
@@ -81,11 +81,11 @@ items:
       type: System.Int32*
     return:
       type: OpenTK.Graphics.Glx.GLXContext
-    content.vb: Public Shared Function CreateContextAttribsARB(dpy As Display*, config As GLXFBConfig, share_context As GLXContext, direct As Boolean, attrib_list As Integer*) As GLXContext
+    content.vb: Public Shared Function CreateContextAttribsARB(dpy As DisplayPtr, config As GLXFBConfig, share_context As GLXContext, direct As Boolean, attrib_list As Integer*) As GLXContext
   overload: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB*
-  nameWithType.vb: Glx.ARB.CreateContextAttribsARB(Display*, GLXFBConfig, GLXContext, Boolean, Integer*)
-  fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display*, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, Boolean, Integer*)
-  name.vb: CreateContextAttribsARB(Display*, GLXFBConfig, GLXContext, Boolean, Integer*)
+  nameWithType.vb: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, Integer*)
+  fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, Boolean, Integer*)
+  name.vb: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, Integer*)
 - uid: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte*)
   commentId: M:OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte*)
   id: GetProcAddressARB(System.Byte*)
@@ -122,16 +122,16 @@ items:
   nameWithType.vb: Glx.ARB.GetProcAddressARB(Byte*)
   fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(Byte*)
   name.vb: GetProcAddressARB(Byte*)
-- uid: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
-  commentId: M:OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
-  id: CreateContextAttribsARB(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
+- uid: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
+  commentId: M:OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
+  id: CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
   parent: OpenTK.Graphics.Glx.Glx.ARB
   langs:
   - csharp
   - vb
-  name: CreateContextAttribsARB(ref Display, GLXFBConfig, GLXContext, bool, in int)
-  nameWithType: Glx.ARB.CreateContextAttribsARB(ref Display, GLXFBConfig, GLXContext, bool, in int)
-  fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(ref OpenTK.Graphics.Glx.Display, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, bool, in int)
+  name: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, bool, in int)
+  nameWithType: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, bool, in int)
+  fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, bool, in int)
   type: Method
   source:
     remote:
@@ -140,7 +140,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateContextAttribsARB
     path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 383
+    startLine: 224
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -152,10 +152,10 @@ items:
     <br />
   example: []
   syntax:
-    content: public static GLXContext CreateContextAttribsARB(ref Display dpy, GLXFBConfig config, GLXContext share_context, bool direct, in int attrib_list)
+    content: public static GLXContext CreateContextAttribsARB(DisplayPtr dpy, GLXFBConfig config, GLXContext share_context, bool direct, in int attrib_list)
     parameters:
     - id: dpy
-      type: OpenTK.Graphics.Glx.Display
+      type: OpenTK.Graphics.Glx.DisplayPtr
     - id: config
       type: OpenTK.Graphics.Glx.GLXFBConfig
     - id: share_context
@@ -166,11 +166,11 @@ items:
       type: System.Int32
     return:
       type: OpenTK.Graphics.Glx.GLXContext
-    content.vb: Public Shared Function CreateContextAttribsARB(dpy As Display, config As GLXFBConfig, share_context As GLXContext, direct As Boolean, attrib_list As Integer) As GLXContext
+    content.vb: Public Shared Function CreateContextAttribsARB(dpy As DisplayPtr, config As GLXFBConfig, share_context As GLXContext, direct As Boolean, attrib_list As Integer) As GLXContext
   overload: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB*
-  nameWithType.vb: Glx.ARB.CreateContextAttribsARB(Display, GLXFBConfig, GLXContext, Boolean, Integer)
-  fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.Display, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, Boolean, Integer)
-  name.vb: CreateContextAttribsARB(Display, GLXFBConfig, GLXContext, Boolean, Integer)
+  nameWithType.vb: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, Integer)
+  fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, Boolean, Integer)
+  name.vb: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, Integer)
 - uid: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte@)
   commentId: M:OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte@)
   id: GetProcAddressARB(System.Byte@)
@@ -189,7 +189,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetProcAddressARB
     path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 394
+    startLine: 234
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -482,26 +482,17 @@ references:
   fullName: System
 - uid: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB*
   commentId: Overload:OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB
-  href: OpenTK.Graphics.Glx.Glx.ARB.html#OpenTK_Graphics_Glx_Glx_ARB_CreateContextAttribsARB_OpenTK_Graphics_Glx_Display__OpenTK_Graphics_Glx_GLXFBConfig_OpenTK_Graphics_Glx_GLXContext_System_Boolean_System_Int32__
+  href: OpenTK.Graphics.Glx.Glx.ARB.html#OpenTK_Graphics_Glx_Glx_ARB_CreateContextAttribsARB_OpenTK_Graphics_Glx_DisplayPtr_OpenTK_Graphics_Glx_GLXFBConfig_OpenTK_Graphics_Glx_GLXContext_System_Boolean_System_Int32__
   name: CreateContextAttribsARB
   nameWithType: Glx.ARB.CreateContextAttribsARB
   fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB
-- uid: OpenTK.Graphics.Glx.Display*
-  isExternal: true
-  href: OpenTK.Graphics.Glx.Display.html
-  name: Display*
-  nameWithType: Display*
-  fullName: OpenTK.Graphics.Glx.Display*
-  spec.csharp:
-  - uid: OpenTK.Graphics.Glx.Display
-    name: Display
-    href: OpenTK.Graphics.Glx.Display.html
-  - name: '*'
-  spec.vb:
-  - uid: OpenTK.Graphics.Glx.Display
-    name: Display
-    href: OpenTK.Graphics.Glx.Display.html
-  - name: '*'
+- uid: OpenTK.Graphics.Glx.DisplayPtr
+  commentId: T:OpenTK.Graphics.Glx.DisplayPtr
+  parent: OpenTK.Graphics.Glx
+  href: OpenTK.Graphics.Glx.DisplayPtr.html
+  name: DisplayPtr
+  nameWithType: DisplayPtr
+  fullName: OpenTK.Graphics.Glx.DisplayPtr
 - uid: OpenTK.Graphics.Glx.GLXFBConfig
   commentId: T:OpenTK.Graphics.Glx.GLXFBConfig
   parent: OpenTK.Graphics.Glx
@@ -586,13 +577,6 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
-- uid: OpenTK.Graphics.Glx.Display
-  commentId: T:OpenTK.Graphics.Glx.Display
-  parent: OpenTK.Graphics.Glx
-  href: OpenTK.Graphics.Glx.Display.html
-  name: Display
-  nameWithType: Display
-  fullName: OpenTK.Graphics.Glx.Display
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System

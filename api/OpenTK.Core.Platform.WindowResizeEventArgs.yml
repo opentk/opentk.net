@@ -5,7 +5,8 @@ items:
   id: WindowResizeEventArgs
   parent: OpenTK.Core.Platform
   children:
-  - OpenTK.Core.Platform.WindowResizeEventArgs.#ctor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Vector2i)
+  - OpenTK.Core.Platform.WindowResizeEventArgs.#ctor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  - OpenTK.Core.Platform.WindowResizeEventArgs.NewClientSize
   - OpenTK.Core.Platform.WindowResizeEventArgs.NewSize
   langs:
   - csharp
@@ -21,7 +22,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: WindowResizeEventArgs
     path: opentk/src/OpenTK.Core/Platform/WindowEventArgs.cs
-    startLine: 84
+    startLine: 86
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -62,7 +63,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: NewSize
     path: opentk/src/OpenTK.Core/Platform/WindowEventArgs.cs
-    startLine: 89
+    startLine: 91
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
@@ -75,16 +76,47 @@ items:
       type: OpenTK.Mathematics.Vector2i
     content.vb: Public Property NewSize As Vector2i
   overload: OpenTK.Core.Platform.WindowResizeEventArgs.NewSize*
-- uid: OpenTK.Core.Platform.WindowResizeEventArgs.#ctor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Vector2i)
-  commentId: M:OpenTK.Core.Platform.WindowResizeEventArgs.#ctor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Vector2i)
-  id: '#ctor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Vector2i)'
+- uid: OpenTK.Core.Platform.WindowResizeEventArgs.NewClientSize
+  commentId: P:OpenTK.Core.Platform.WindowResizeEventArgs.NewClientSize
+  id: NewClientSize
   parent: OpenTK.Core.Platform.WindowResizeEventArgs
   langs:
   - csharp
   - vb
-  name: WindowResizeEventArgs(WindowHandle, Vector2i)
-  nameWithType: WindowResizeEventArgs.WindowResizeEventArgs(WindowHandle, Vector2i)
-  fullName: OpenTK.Core.Platform.WindowResizeEventArgs.WindowResizeEventArgs(OpenTK.Core.Platform.WindowHandle, OpenTK.Mathematics.Vector2i)
+  name: NewClientSize
+  nameWithType: WindowResizeEventArgs.NewClientSize
+  fullName: OpenTK.Core.Platform.WindowResizeEventArgs.NewClientSize
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Core/Platform/WindowEventArgs.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: NewClientSize
+    path: opentk/src/OpenTK.Core/Platform/WindowEventArgs.cs
+    startLine: 96
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Platform
+  summary: The new client size of the window.
+  example: []
+  syntax:
+    content: public Vector2i NewClientSize { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2i
+    content.vb: Public Property NewClientSize As Vector2i
+  overload: OpenTK.Core.Platform.WindowResizeEventArgs.NewClientSize*
+- uid: OpenTK.Core.Platform.WindowResizeEventArgs.#ctor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Core.Platform.WindowResizeEventArgs.#ctor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  id: '#ctor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)'
+  parent: OpenTK.Core.Platform.WindowResizeEventArgs
+  langs:
+  - csharp
+  - vb
+  name: WindowResizeEventArgs(WindowHandle, Vector2i, Vector2i)
+  nameWithType: WindowResizeEventArgs.WindowResizeEventArgs(WindowHandle, Vector2i, Vector2i)
+  fullName: OpenTK.Core.Platform.WindowResizeEventArgs.WindowResizeEventArgs(OpenTK.Core.Platform.WindowHandle, OpenTK.Mathematics.Vector2i, OpenTK.Mathematics.Vector2i)
   type: Constructor
   source:
     remote:
@@ -93,14 +125,14 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Core/Platform/WindowEventArgs.cs
-    startLine: 97
+    startLine: 105
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
   summary: Initializes a new instance of the <xref href="OpenTK.Core.Platform.WindowResizeEventArgs" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public WindowResizeEventArgs(WindowHandle window, Vector2i newSize)
+    content: public WindowResizeEventArgs(WindowHandle window, Vector2i newSize, Vector2i newClientSize)
     parameters:
     - id: window
       type: OpenTK.Core.Platform.WindowHandle
@@ -108,11 +140,14 @@ items:
     - id: newSize
       type: OpenTK.Mathematics.Vector2i
       description: The new window size.
-    content.vb: Public Sub New(window As WindowHandle, newSize As Vector2i)
+    - id: newClientSize
+      type: OpenTK.Mathematics.Vector2i
+      description: The new client size of the window.
+    content.vb: Public Sub New(window As WindowHandle, newSize As Vector2i, newClientSize As Vector2i)
   overload: OpenTK.Core.Platform.WindowResizeEventArgs.#ctor*
-  nameWithType.vb: WindowResizeEventArgs.New(WindowHandle, Vector2i)
-  fullName.vb: OpenTK.Core.Platform.WindowResizeEventArgs.New(OpenTK.Core.Platform.WindowHandle, OpenTK.Mathematics.Vector2i)
-  name.vb: New(WindowHandle, Vector2i)
+  nameWithType.vb: WindowResizeEventArgs.New(WindowHandle, Vector2i, Vector2i)
+  fullName.vb: OpenTK.Core.Platform.WindowResizeEventArgs.New(OpenTK.Core.Platform.WindowHandle, OpenTK.Mathematics.Vector2i, OpenTK.Mathematics.Vector2i)
+  name.vb: New(WindowHandle, Vector2i, Vector2i)
 references:
 - uid: OpenTK.Core.Platform
   commentId: N:OpenTK.Core.Platform
@@ -446,6 +481,12 @@ references:
   - uid: OpenTK.Mathematics
     name: Mathematics
     href: OpenTK.Mathematics.html
+- uid: OpenTK.Core.Platform.WindowResizeEventArgs.NewClientSize*
+  commentId: Overload:OpenTK.Core.Platform.WindowResizeEventArgs.NewClientSize
+  href: OpenTK.Core.Platform.WindowResizeEventArgs.html#OpenTK_Core_Platform_WindowResizeEventArgs_NewClientSize
+  name: NewClientSize
+  nameWithType: WindowResizeEventArgs.NewClientSize
+  fullName: OpenTK.Core.Platform.WindowResizeEventArgs.NewClientSize
 - uid: OpenTK.Core.Platform.WindowResizeEventArgs
   commentId: T:OpenTK.Core.Platform.WindowResizeEventArgs
   href: OpenTK.Core.Platform.WindowResizeEventArgs.html
@@ -454,7 +495,7 @@ references:
   fullName: OpenTK.Core.Platform.WindowResizeEventArgs
 - uid: OpenTK.Core.Platform.WindowResizeEventArgs.#ctor*
   commentId: Overload:OpenTK.Core.Platform.WindowResizeEventArgs.#ctor
-  href: OpenTK.Core.Platform.WindowResizeEventArgs.html#OpenTK_Core_Platform_WindowResizeEventArgs__ctor_OpenTK_Core_Platform_WindowHandle_OpenTK_Mathematics_Vector2i_
+  href: OpenTK.Core.Platform.WindowResizeEventArgs.html#OpenTK_Core_Platform_WindowResizeEventArgs__ctor_OpenTK_Core_Platform_WindowHandle_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
   name: WindowResizeEventArgs
   nameWithType: WindowResizeEventArgs.WindowResizeEventArgs
   fullName: OpenTK.Core.Platform.WindowResizeEventArgs.WindowResizeEventArgs

@@ -11,9 +11,8 @@ items:
   - OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardBitmap
   - OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardFiles
   - OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardFormat
-  - OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardHTML
   - OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardText
-  - OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Windows.ClipboardComponent.Logger
   - OpenTK.Platform.Native.Windows.ClipboardComponent.Name
   - OpenTK.Platform.Native.Windows.ClipboardComponent.Provides
@@ -228,16 +227,16 @@ items:
       type: System.Nullable{System.Boolean}
     content.vb: Public Property CanUploadToCloudClipboard As Boolean?
   overload: OpenTK.Platform.Native.Windows.ClipboardComponent.CanUploadToCloudClipboard*
-- uid: OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.Windows.ClipboardComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: ClipboardComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: ClipboardComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -250,18 +249,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.Windows.ClipboardComponent.SupportedFormats
   commentId: P:OpenTK.Platform.Native.Windows.ClipboardComponent.SupportedFormats
   id: SupportedFormats
@@ -280,7 +279,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SupportedFormats
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 162
+    startLine: 147
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -313,7 +312,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardFormat
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 275
+    startLine: 254
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -346,7 +345,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetClipboardText
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 281
+    startLine: 260
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -383,7 +382,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetClipboardAudio
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 373
+    startLine: 352
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -413,7 +412,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetClipboardBitmap
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 471
+    startLine: 450
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -443,7 +442,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardText
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 569
+    startLine: 548
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -479,7 +478,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardAudio
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 629
+    startLine: 608
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -515,7 +514,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardBitmap
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 711
+    startLine: 690
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -533,42 +532,6 @@ items:
   overload: OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardBitmap*
   implements:
   - OpenTK.Core.Platform.IClipboardComponent.GetClipboardBitmap
-- uid: OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardHTML
-  commentId: M:OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardHTML
-  id: GetClipboardHTML
-  parent: OpenTK.Platform.Native.Windows.ClipboardComponent
-  langs:
-  - csharp
-  - vb
-  name: GetClipboardHTML()
-  nameWithType: ClipboardComponent.GetClipboardHTML()
-  fullName: OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardHTML()
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
-    id: GetClipboardHTML
-    path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 830
-  assemblies:
-  - OpenTK.Platform.Native
-  namespace: OpenTK.Platform.Native.Windows
-  summary: >-
-    Gets the HTML string currently in the clipboard.
-
-    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Core.Platform.ClipboardFormat.HTML" data-throw-if-not-resolved="false"></xref> format.
-  example: []
-  syntax:
-    content: public string? GetClipboardHTML()
-    return:
-      type: System.String
-      description: The HTML string currently in the clipboard.
-    content.vb: Public Function GetClipboardHTML() As String
-  overload: OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardHTML*
-  implements:
-  - OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
 - uid: OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardFiles
   commentId: M:OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardFiles
   id: GetClipboardFiles
@@ -587,7 +550,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetClipboardFiles
     path: opentk/src/OpenTK.Platform.Native/Windows/ClipboardComponent.cs
-    startLine: 896
+    startLine: 809
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -1084,35 +1047,42 @@ references:
   fullName: OpenTK.Platform.Native.Windows.ClipboardComponent.CanUploadToCloudClipboard
 - uid: OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize
-  href: OpenTK.Platform.Native.Windows.ClipboardComponent.html#OpenTK_Platform_Native_Windows_ClipboardComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.Windows.ClipboardComponent.html#OpenTK_Platform_Native_Windows_ClipboardComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: ClipboardComponent.Initialize
   fullName: OpenTK.Platform.Native.Windows.ClipboardComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.Windows.ClipboardComponent.SupportedFormats*
   commentId: Overload:OpenTK.Platform.Native.Windows.ClipboardComponent.SupportedFormats
   href: OpenTK.Platform.Native.Windows.ClipboardComponent.html#OpenTK_Platform_Native_Windows_ClipboardComponent_SupportedFormats
@@ -1410,37 +1380,6 @@ references:
   - uid: OpenTK.Core.Platform.IClipboardComponent.GetClipboardBitmap
     name: GetClipboardBitmap
     href: OpenTK.Core.Platform.IClipboardComponent.html#OpenTK_Core_Platform_IClipboardComponent_GetClipboardBitmap
-  - name: (
-  - name: )
-- uid: OpenTK.Core.Platform.ClipboardFormat.HTML
-  commentId: F:OpenTK.Core.Platform.ClipboardFormat.HTML
-  href: OpenTK.Core.Platform.ClipboardFormat.html#OpenTK_Core_Platform_ClipboardFormat_HTML
-  name: HTML
-  nameWithType: ClipboardFormat.HTML
-  fullName: OpenTK.Core.Platform.ClipboardFormat.HTML
-- uid: OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardHTML*
-  commentId: Overload:OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardHTML
-  href: OpenTK.Platform.Native.Windows.ClipboardComponent.html#OpenTK_Platform_Native_Windows_ClipboardComponent_GetClipboardHTML
-  name: GetClipboardHTML
-  nameWithType: ClipboardComponent.GetClipboardHTML
-  fullName: OpenTK.Platform.Native.Windows.ClipboardComponent.GetClipboardHTML
-- uid: OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
-  commentId: M:OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
-  parent: OpenTK.Core.Platform.IClipboardComponent
-  href: OpenTK.Core.Platform.IClipboardComponent.html#OpenTK_Core_Platform_IClipboardComponent_GetClipboardHTML
-  name: GetClipboardHTML()
-  nameWithType: IClipboardComponent.GetClipboardHTML()
-  fullName: OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML()
-  spec.csharp:
-  - uid: OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
-    name: GetClipboardHTML
-    href: OpenTK.Core.Platform.IClipboardComponent.html#OpenTK_Core_Platform_IClipboardComponent_GetClipboardHTML
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Core.Platform.IClipboardComponent.GetClipboardHTML
-    name: GetClipboardHTML
-    href: OpenTK.Core.Platform.IClipboardComponent.html#OpenTK_Core_Platform_IClipboardComponent_GetClipboardHTML
   - name: (
   - name: )
 - uid: OpenTK.Core.Platform.ClipboardFormat.Files

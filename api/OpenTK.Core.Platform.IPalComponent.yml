@@ -5,7 +5,7 @@ items:
   id: IPalComponent
   parent: OpenTK.Core.Platform
   children:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Core.Platform.IPalComponent.Logger
   - OpenTK.Core.Platform.IPalComponent.Name
   - OpenTK.Core.Platform.IPalComponent.Provides
@@ -125,16 +125,16 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Property Logger As ILogger
   overload: OpenTK.Core.Platform.IPalComponent.Logger*
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -147,15 +147,15 @@ items:
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Platform
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: void Initialize(PalComponents which)
+    content: void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Core.Platform.IPalComponent.Initialize*
 references:
 - uid: OpenTK.Core.Platform
@@ -270,7 +270,14 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Core.Platform.IPalComponent.Initialize*
   commentId: Overload:OpenTK.Core.Platform.IPalComponent.Initialize
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: IPalComponent.Initialize
   fullName: OpenTK.Core.Platform.IPalComponent.Initialize
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions

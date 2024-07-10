@@ -17,13 +17,14 @@ items:
   - OpenTK.Platform.Native.Windows.OpenGLComponent.GetProcedureAddress(OpenTK.Core.Platform.OpenGLContextHandle,System.String)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.GetSharedContext(OpenTK.Core.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.GetSwapInterval
-  - OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.Logger
   - OpenTK.Platform.Native.Windows.OpenGLComponent.Name
   - OpenTK.Platform.Native.Windows.OpenGLComponent.Provides
   - OpenTK.Platform.Native.Windows.OpenGLComponent.SetCurrentContext(OpenTK.Core.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.SetSwapInterval(System.Int32)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.SwapBuffers(OpenTK.Core.Platform.OpenGLContextHandle)
+  - OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable(OpenTK.Core.Platform.OpenGLContextHandle,System.Boolean)
   langs:
   - csharp
   - vb
@@ -38,7 +39,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OpenGLComponent
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 11
+    startLine: 26
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -76,7 +77,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Name
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 14
+    startLine: 29
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -109,7 +110,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Provides
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 17
+    startLine: 32
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -142,7 +143,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Logger
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 20
+    startLine: 35
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -157,16 +158,16 @@ items:
   overload: OpenTK.Platform.Native.Windows.OpenGLComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.Windows.OpenGLComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: OpenGLComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: OpenGLComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -175,22 +176,22 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Initialize
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 23
+    startLine: 38
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.Windows.OpenGLComponent.CanShareContexts
   commentId: P:OpenTK.Platform.Native.Windows.OpenGLComponent.CanShareContexts
   id: CanShareContexts
@@ -209,7 +210,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanShareContexts
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 201
+    startLine: 229
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -242,7 +243,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanCreateFromWindow
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 204
+    startLine: 232
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -275,7 +276,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanCreateFromSurface
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 207
+    startLine: 235
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -308,7 +309,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromSurface
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 210
+    startLine: 238
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -341,7 +342,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CreateFromWindow
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 216
+    startLine: 244
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -378,7 +379,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: DestroyContext
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 643
+    startLine: 849
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -416,7 +417,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetBindingsContext
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 658
+    startLine: 864
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -453,7 +454,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetProcedureAddress
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 664
+    startLine: 870
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -500,7 +501,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetCurrentContext
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 672
+    startLine: 878
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -533,7 +534,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetCurrentContext
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 686
+    startLine: 892
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -573,7 +574,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSharedContext
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 713
+    startLine: 919
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -610,7 +611,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetSwapInterval
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 720
+    startLine: 926
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -647,7 +648,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSwapInterval
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 745
+    startLine: 939
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -680,7 +681,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SwapBuffers
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 763
+    startLine: 957
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -696,6 +697,52 @@ items:
   overload: OpenTK.Platform.Native.Windows.OpenGLComponent.SwapBuffers*
   implements:
   - OpenTK.Core.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Core.Platform.OpenGLContextHandle)
+- uid: OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable(OpenTK.Core.Platform.OpenGLContextHandle,System.Boolean)
+  commentId: M:OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable(OpenTK.Core.Platform.OpenGLContextHandle,System.Boolean)
+  id: UseDwmFlushIfApplicable(OpenTK.Core.Platform.OpenGLContextHandle,System.Boolean)
+  parent: OpenTK.Platform.Native.Windows.OpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: UseDwmFlushIfApplicable(OpenGLContextHandle, bool)
+  nameWithType: OpenGLComponent.UseDwmFlushIfApplicable(OpenGLContextHandle, bool)
+  fullName: OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable(OpenTK.Core.Platform.OpenGLContextHandle, bool)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: UseDwmFlushIfApplicable
+    path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
+    startLine: 1003
+  assemblies:
+  - OpenTK.Platform.Native
+  namespace: OpenTK.Platform.Native.Windows
+  summary: >-
+    Sets whether calls to <xref href="OpenTK.Platform.Native.Windows.OpenGLComponent.SwapBuffers(OpenTK.Core.Platform.OpenGLContextHandle)" data-throw-if-not-resolved="false"></xref> should use <code>DwmFlush()</code> to sync if DWM compositing is enabled.
+
+    This can improve vsync performance on systems with multiple monitors using different refresh rates, but is likely to break in a multi-window scenario.
+
+    If using multiple windows, only one window should have this property set.
+
+
+    By default this value is set to <code>false</code>.
+  example: []
+  syntax:
+    content: public void UseDwmFlushIfApplicable(OpenGLContextHandle handle, bool enable)
+    parameters:
+    - id: handle
+      type: OpenTK.Core.Platform.OpenGLContextHandle
+      description: The OpenGL context that should <code>DwmFlush()</code> setting.
+    - id: enable
+      type: System.Boolean
+      description: Whether to enable <code>DwmFlush()</code> sync or not.
+    content.vb: Public Sub UseDwmFlushIfApplicable(handle As OpenGLContextHandle, enable As Boolean)
+  overload: OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable*
+  nameWithType.vb: OpenGLComponent.UseDwmFlushIfApplicable(OpenGLContextHandle, Boolean)
+  fullName.vb: OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable(OpenTK.Core.Platform.OpenGLContextHandle, Boolean)
+  name.vb: UseDwmFlushIfApplicable(OpenGLContextHandle, Boolean)
 - uid: OpenTK.Platform.Native.Windows.OpenGLComponent.GetHGLRC(OpenTK.Core.Platform.OpenGLContextHandle)
   commentId: M:OpenTK.Platform.Native.Windows.OpenGLComponent.GetHGLRC(OpenTK.Core.Platform.OpenGLContextHandle)
   id: GetHGLRC(OpenTK.Core.Platform.OpenGLContextHandle)
@@ -714,7 +761,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetHGLRC
     path: opentk/src/OpenTK.Platform.Native/Windows/OpenGLComponent.cs
-    startLine: 781
+    startLine: 1017
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -1152,35 +1199,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize
-  href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: OpenGLComponent.Initialize
   fullName: OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.Windows.OpenGLComponent.CanShareContexts*
   commentId: Overload:OpenTK.Platform.Native.Windows.OpenGLComponent.CanShareContexts
   href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_CanShareContexts
@@ -1632,6 +1686,36 @@ references:
     name: OpenGLContextHandle
     href: OpenTK.Core.Platform.OpenGLContextHandle.html
   - name: )
+- uid: OpenTK.Platform.Native.Windows.OpenGLComponent.SwapBuffers(OpenTK.Core.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.OpenGLComponent.SwapBuffers(OpenTK.Core.Platform.OpenGLContextHandle)
+  href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_SwapBuffers_OpenTK_Core_Platform_OpenGLContextHandle_
+  name: SwapBuffers(OpenGLContextHandle)
+  nameWithType: OpenGLComponent.SwapBuffers(OpenGLContextHandle)
+  fullName: OpenTK.Platform.Native.Windows.OpenGLComponent.SwapBuffers(OpenTK.Core.Platform.OpenGLContextHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.Native.Windows.OpenGLComponent.SwapBuffers(OpenTK.Core.Platform.OpenGLContextHandle)
+    name: SwapBuffers
+    href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_SwapBuffers_OpenTK_Core_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Core.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Core.Platform.OpenGLContextHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Native.Windows.OpenGLComponent.SwapBuffers(OpenTK.Core.Platform.OpenGLContextHandle)
+    name: SwapBuffers
+    href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_SwapBuffers_OpenTK_Core_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Core.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Core.Platform.OpenGLContextHandle.html
+  - name: )
+- uid: OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable*
+  commentId: Overload:OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable
+  href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_UseDwmFlushIfApplicable_OpenTK_Core_Platform_OpenGLContextHandle_System_Boolean_
+  name: UseDwmFlushIfApplicable
+  nameWithType: OpenGLComponent.UseDwmFlushIfApplicable
+  fullName: OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable
 - uid: OpenTK.Platform.Native.Windows.OpenGLComponent.GetHGLRC*
   commentId: Overload:OpenTK.Platform.Native.Windows.OpenGLComponent.GetHGLRC
   href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_GetHGLRC_OpenTK_Core_Platform_OpenGLContextHandle_

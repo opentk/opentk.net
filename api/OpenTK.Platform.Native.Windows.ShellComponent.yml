@@ -9,13 +9,14 @@ items:
   - OpenTK.Platform.Native.Windows.ShellComponent.GetBatteryInfo(OpenTK.Core.Platform.BatteryInfo@)
   - OpenTK.Platform.Native.Windows.ShellComponent.GetPreferredTheme
   - OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation
-  - OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Windows.ShellComponent.Logger
   - OpenTK.Platform.Native.Windows.ShellComponent.Name
   - OpenTK.Platform.Native.Windows.ShellComponent.Provides
   - OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Color3{OpenTK.Mathematics.Rgb})
   - OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionTextColor(OpenTK.Core.Platform.WindowHandle,OpenTK.Mathematics.Color3{OpenTK.Mathematics.Rgb})
   - OpenTK.Platform.Native.Windows.ShellComponent.SetImmersiveDarkMode(OpenTK.Core.Platform.WindowHandle,System.Boolean)
+  - OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Core.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
   langs:
   - csharp
   - vb
@@ -151,16 +152,16 @@ items:
   overload: OpenTK.Platform.Native.Windows.ShellComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.Windows.ShellComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: ShellComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: ShellComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -173,18 +174,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.ShellComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(System.Boolean)
   commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(System.Boolean)
   id: AllowScreenSaver(System.Boolean)
@@ -203,7 +204,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: AllowScreenSaver
     path: opentk/src/OpenTK.Platform.Native/Windows/ShellComponent.cs
-    startLine: 43
+    startLine: 38
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -247,7 +248,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetBatteryInfo
     path: opentk/src/OpenTK.Platform.Native/Windows/ShellComponent.cs
-    startLine: 49
+    startLine: 44
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -286,7 +287,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetPreferredTheme
     path: opentk/src/OpenTK.Platform.Native/Windows/ShellComponent.cs
-    startLine: 130
+    startLine: 125
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -319,7 +320,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetImmersiveDarkMode
     path: opentk/src/OpenTK.Platform.Native/Windows/ShellComponent.cs
-    startLine: 142
+    startLine: 139
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -357,11 +358,14 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetCaptionTextColor
     path: opentk/src/OpenTK.Platform.Native/Windows/ShellComponent.cs
-    startLine: 162
+    startLine: 213
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
-  summary: Sets the color of the windows caption bar text.
+  summary: >-
+    Works on Windows 11 only.
+
+    Sets the color of the windows caption bar text.
   example: []
   syntax:
     content: public void SetCaptionTextColor(WindowHandle handle, Color3<Rgb> color)
@@ -393,11 +397,14 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SetCaptionColor
     path: opentk/src/OpenTK.Platform.Native/Windows/ShellComponent.cs
-    startLine: 178
+    startLine: 230
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
-  summary: Sets the color of the windows caption bar.
+  summary: >-
+    Works on Windows 11 only.
+
+    Sets the color of the windows caption bar.
   example: []
   syntax:
     content: public void SetCaptionColor(WindowHandle handle, Color3<Rgb> color)
@@ -411,6 +418,42 @@ items:
   nameWithType.vb: ShellComponent.SetCaptionColor(WindowHandle, Color3(Of Rgb))
   fullName.vb: OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor(OpenTK.Core.Platform.WindowHandle, OpenTK.Mathematics.Color3(Of OpenTK.Mathematics.Rgb))
   name.vb: SetCaptionColor(WindowHandle, Color3(Of Rgb))
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Core.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
+  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Core.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
+  id: SetWindowCornerPreference(OpenTK.Core.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
+  parent: OpenTK.Platform.Native.Windows.ShellComponent
+  langs:
+  - csharp
+  - vb
+  name: SetWindowCornerPreference(WindowHandle, CornerPrefernce)
+  nameWithType: ShellComponent.SetWindowCornerPreference(WindowHandle, ShellComponent.CornerPrefernce)
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Core.Platform.WindowHandle, OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Platform.Native/Windows/ShellComponent.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: SetWindowCornerPreference
+    path: opentk/src/OpenTK.Platform.Native/Windows/ShellComponent.cs
+    startLine: 273
+  assemblies:
+  - OpenTK.Platform.Native
+  namespace: OpenTK.Platform.Native.Windows
+  summary: >-
+    Works on Windows 11 only.
+
+    Sets if the window should have rounded corners or not.
+  example: []
+  syntax:
+    content: public void SetWindowCornerPreference(WindowHandle handle, ShellComponent.CornerPrefernce preference)
+    parameters:
+    - id: handle
+      type: OpenTK.Core.Platform.WindowHandle
+    - id: preference
+      type: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+    content.vb: Public Sub SetWindowCornerPreference(handle As WindowHandle, preference As ShellComponent.CornerPrefernce)
+  overload: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference*
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation
   commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation
   id: GetSystemMemoryInformation
@@ -429,7 +472,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSystemMemoryInformation
     path: opentk/src/OpenTK.Platform.Native/Windows/ShellComponent.cs
-    startLine: 192
+    startLine: 287
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -860,35 +903,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.Initialize
-  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: ShellComponent.Initialize
   fullName: OpenTK.Platform.Native.Windows.ShellComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver
   href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_AllowScreenSaver_System_Boolean_
@@ -1129,6 +1179,35 @@ references:
   name: SetCaptionColor
   nameWithType: ShellComponent.SetCaptionColor
   fullName: OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference*
+  commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference
+  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_SetWindowCornerPreference_OpenTK_Core_Platform_WindowHandle_OpenTK_Platform_Native_Windows_ShellComponent_CornerPrefernce_
+  name: SetWindowCornerPreference
+  nameWithType: ShellComponent.SetWindowCornerPreference
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+  commentId: T:OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+  parent: OpenTK.Platform.Native.Windows
+  href: OpenTK.Platform.Native.Windows.ShellComponent.html
+  name: ShellComponent.CornerPrefernce
+  nameWithType: ShellComponent.CornerPrefernce
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+  spec.csharp:
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent
+    name: ShellComponent
+    href: OpenTK.Platform.Native.Windows.ShellComponent.html
+  - name: .
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+    name: CornerPrefernce
+    href: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce.html
+  spec.vb:
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent
+    name: ShellComponent
+    href: OpenTK.Platform.Native.Windows.ShellComponent.html
+  - name: .
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+    name: CornerPrefernce
+    href: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce.html
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation
   href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_GetSystemMemoryInformation

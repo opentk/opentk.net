@@ -12,13 +12,17 @@ items:
   - OpenTK.Core.Platform.ClipboardFormat
   - OpenTK.Core.Platform.ClipboardUpdateEventArgs
   - OpenTK.Core.Platform.CloseEventArgs
-  - OpenTK.Core.Platform.ComponentSet
   - OpenTK.Core.Platform.ContextDepthBits
-  - OpenTK.Core.Platform.ContextSettings
+  - OpenTK.Core.Platform.ContextPixelFormat
+  - OpenTK.Core.Platform.ContextReleaseBehaviour
+  - OpenTK.Core.Platform.ContextResetNotificationStrategy
   - OpenTK.Core.Platform.ContextStencilBits
+  - OpenTK.Core.Platform.ContextSwapMethod
+  - OpenTK.Core.Platform.ContextValueSelector
   - OpenTK.Core.Platform.ContextValues
   - OpenTK.Core.Platform.CursorCaptureMode
   - OpenTK.Core.Platform.CursorHandle
+  - OpenTK.Core.Platform.DialogFileFilter
   - OpenTK.Core.Platform.DisplayConnectionChangedEventArgs
   - OpenTK.Core.Platform.DisplayHandle
   - OpenTK.Core.Platform.DisplayResolution
@@ -33,6 +37,7 @@ items:
   - OpenTK.Core.Platform.HitType
   - OpenTK.Core.Platform.IClipboardComponent
   - OpenTK.Core.Platform.ICursorComponent
+  - OpenTK.Core.Platform.IDialogComponent
   - OpenTK.Core.Platform.IDisplayComponent
   - OpenTK.Core.Platform.IIconComponent
   - OpenTK.Core.Platform.IJoystickComponent
@@ -60,6 +65,7 @@ items:
   - OpenTK.Core.Platform.MouseHandle
   - OpenTK.Core.Platform.MouseMoveEventArgs
   - OpenTK.Core.Platform.MouseState
+  - OpenTK.Core.Platform.OpenDialogOptions
   - OpenTK.Core.Platform.OpenGLContextHandle
   - OpenTK.Core.Platform.OpenGLGraphicsApiHints
   - OpenTK.Core.Platform.OpenGLProfile
@@ -72,6 +78,7 @@ items:
   - OpenTK.Core.Platform.PlatformEventType
   - OpenTK.Core.Platform.PlatformException
   - OpenTK.Core.Platform.PowerStateChangeEventArgs
+  - OpenTK.Core.Platform.SaveDialogOptions
   - OpenTK.Core.Platform.Scancode
   - OpenTK.Core.Platform.ScrollEventArgs
   - OpenTK.Core.Platform.SurfaceHandle
@@ -83,16 +90,18 @@ items:
   - OpenTK.Core.Platform.TextInputEventArgs
   - OpenTK.Core.Platform.ThemeChangeEventArgs
   - OpenTK.Core.Platform.ThemeInfo
+  - OpenTK.Core.Platform.ToolkitOptions
   - OpenTK.Core.Platform.VideoMode
   - OpenTK.Core.Platform.WindowBorderStyle
-  - OpenTK.Core.Platform.WindowDpiChangeEventArgs
   - OpenTK.Core.Platform.WindowEventArgs
   - OpenTK.Core.Platform.WindowEventHandler
+  - OpenTK.Core.Platform.WindowFramebufferResizeEventArgs
   - OpenTK.Core.Platform.WindowHandle
   - OpenTK.Core.Platform.WindowMode
   - OpenTK.Core.Platform.WindowModeChangeEventArgs
   - OpenTK.Core.Platform.WindowMoveEventArgs
   - OpenTK.Core.Platform.WindowResizeEventArgs
+  - OpenTK.Core.Platform.WindowScaleChangeEventArgs
   langs:
   - csharp
   - vb
@@ -124,24 +133,34 @@ references:
   name: Bitmap
   nameWithType: Bitmap
   fullName: OpenTK.Core.Platform.Bitmap
-- uid: OpenTK.Core.Platform.ComponentSet
-  commentId: T:OpenTK.Core.Platform.ComponentSet
-  href: OpenTK.Core.Platform.ComponentSet.html
-  name: ComponentSet
-  nameWithType: ComponentSet
-  fullName: OpenTK.Core.Platform.ComponentSet
-- uid: OpenTK.Core.Platform.ContextSettings
-  commentId: T:OpenTK.Core.Platform.ContextSettings
-  href: OpenTK.Core.Platform.ContextSettings.html
-  name: ContextSettings
-  nameWithType: ContextSettings
-  fullName: OpenTK.Core.Platform.ContextSettings
+- uid: OpenTK.Core.Platform.ContextValueSelector
+  commentId: T:OpenTK.Core.Platform.ContextValueSelector
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ContextValueSelector.html
+  name: ContextValueSelector
+  nameWithType: ContextValueSelector
+  fullName: OpenTK.Core.Platform.ContextValueSelector
 - uid: OpenTK.Core.Platform.ContextValues
   commentId: T:OpenTK.Core.Platform.ContextValues
+  parent: OpenTK.Core.Platform
   href: OpenTK.Core.Platform.ContextValues.html
   name: ContextValues
   nameWithType: ContextValues
   fullName: OpenTK.Core.Platform.ContextValues
+- uid: OpenTK.Core.Platform.ContextPixelFormat
+  commentId: T:OpenTK.Core.Platform.ContextPixelFormat
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ContextPixelFormat.html
+  name: ContextPixelFormat
+  nameWithType: ContextPixelFormat
+  fullName: OpenTK.Core.Platform.ContextPixelFormat
+- uid: OpenTK.Core.Platform.ContextSwapMethod
+  commentId: T:OpenTK.Core.Platform.ContextSwapMethod
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ContextSwapMethod.html
+  name: ContextSwapMethod
+  nameWithType: ContextSwapMethod
+  fullName: OpenTK.Core.Platform.ContextSwapMethod
 - uid: OpenTK.Core.Platform.ContextDepthBits
   commentId: T:OpenTK.Core.Platform.ContextDepthBits
   parent: OpenTK.Core.Platform
@@ -156,6 +175,27 @@ references:
   name: ContextStencilBits
   nameWithType: ContextStencilBits
   fullName: OpenTK.Core.Platform.ContextStencilBits
+- uid: OpenTK.Core.Platform.ContextResetNotificationStrategy
+  commentId: T:OpenTK.Core.Platform.ContextResetNotificationStrategy
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ContextResetNotificationStrategy.html
+  name: ContextResetNotificationStrategy
+  nameWithType: ContextResetNotificationStrategy
+  fullName: OpenTK.Core.Platform.ContextResetNotificationStrategy
+- uid: OpenTK.Core.Platform.ContextReleaseBehaviour
+  commentId: T:OpenTK.Core.Platform.ContextReleaseBehaviour
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ContextReleaseBehaviour.html
+  name: ContextReleaseBehaviour
+  nameWithType: ContextReleaseBehaviour
+  fullName: OpenTK.Core.Platform.ContextReleaseBehaviour
+- uid: OpenTK.Core.Platform.DialogFileFilter
+  commentId: T:OpenTK.Core.Platform.DialogFileFilter
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.DialogFileFilter.html
+  name: DialogFileFilter
+  nameWithType: DialogFileFilter
+  fullName: OpenTK.Core.Platform.DialogFileFilter
 - uid: OpenTK.Core.Platform.DisplayResolution
   commentId: T:OpenTK.Core.Platform.DisplayResolution
   href: OpenTK.Core.Platform.DisplayResolution.html
@@ -239,6 +279,13 @@ references:
   name: MouseButtonFlags
   nameWithType: MouseButtonFlags
   fullName: OpenTK.Core.Platform.MouseButtonFlags
+- uid: OpenTK.Core.Platform.OpenDialogOptions
+  commentId: T:OpenTK.Core.Platform.OpenDialogOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.OpenDialogOptions.html
+  name: OpenDialogOptions
+  nameWithType: OpenDialogOptions
+  fullName: OpenTK.Core.Platform.OpenDialogOptions
 - uid: OpenTK.Core.Platform.OpenGLProfile
   commentId: T:OpenTK.Core.Platform.OpenGLProfile
   parent: OpenTK.Core.Platform
@@ -260,6 +307,13 @@ references:
   name: PlatformEventType
   nameWithType: PlatformEventType
   fullName: OpenTK.Core.Platform.PlatformEventType
+- uid: OpenTK.Core.Platform.SaveDialogOptions
+  commentId: T:OpenTK.Core.Platform.SaveDialogOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.SaveDialogOptions.html
+  name: SaveDialogOptions
+  nameWithType: SaveDialogOptions
+  fullName: OpenTK.Core.Platform.SaveDialogOptions
 - uid: OpenTK.Core.Platform.Scancode
   commentId: T:OpenTK.Core.Platform.Scancode
   parent: OpenTK.Core.Platform
@@ -427,6 +481,13 @@ references:
   name: ICursorComponent
   nameWithType: ICursorComponent
   fullName: OpenTK.Core.Platform.ICursorComponent
+- uid: OpenTK.Core.Platform.IDialogComponent
+  commentId: T:OpenTK.Core.Platform.IDialogComponent
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.IDialogComponent.html
+  name: IDialogComponent
+  nameWithType: IDialogComponent
+  fullName: OpenTK.Core.Platform.IDialogComponent
 - uid: OpenTK.Core.Platform.IDisplayComponent
   commentId: T:OpenTK.Core.Platform.IDisplayComponent
   parent: OpenTK.Core.Platform
@@ -550,6 +611,13 @@ references:
   name: SystemMemoryInfo
   nameWithType: SystemMemoryInfo
   fullName: OpenTK.Core.Platform.SystemMemoryInfo
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Core.Platform.VideoMode
   commentId: T:OpenTK.Core.Platform.VideoMode
   parent: OpenTK.Core.Platform
@@ -582,18 +650,24 @@ references:
   name: WindowResizeEventArgs
   nameWithType: WindowResizeEventArgs
   fullName: OpenTK.Core.Platform.WindowResizeEventArgs
+- uid: OpenTK.Core.Platform.WindowFramebufferResizeEventArgs
+  commentId: T:OpenTK.Core.Platform.WindowFramebufferResizeEventArgs
+  href: OpenTK.Core.Platform.WindowFramebufferResizeEventArgs.html
+  name: WindowFramebufferResizeEventArgs
+  nameWithType: WindowFramebufferResizeEventArgs
+  fullName: OpenTK.Core.Platform.WindowFramebufferResizeEventArgs
 - uid: OpenTK.Core.Platform.WindowModeChangeEventArgs
   commentId: T:OpenTK.Core.Platform.WindowModeChangeEventArgs
   href: OpenTK.Core.Platform.WindowModeChangeEventArgs.html
   name: WindowModeChangeEventArgs
   nameWithType: WindowModeChangeEventArgs
   fullName: OpenTK.Core.Platform.WindowModeChangeEventArgs
-- uid: OpenTK.Core.Platform.WindowDpiChangeEventArgs
-  commentId: T:OpenTK.Core.Platform.WindowDpiChangeEventArgs
-  href: OpenTK.Core.Platform.WindowDpiChangeEventArgs.html
-  name: WindowDpiChangeEventArgs
-  nameWithType: WindowDpiChangeEventArgs
-  fullName: OpenTK.Core.Platform.WindowDpiChangeEventArgs
+- uid: OpenTK.Core.Platform.WindowScaleChangeEventArgs
+  commentId: T:OpenTK.Core.Platform.WindowScaleChangeEventArgs
+  href: OpenTK.Core.Platform.WindowScaleChangeEventArgs.html
+  name: WindowScaleChangeEventArgs
+  nameWithType: WindowScaleChangeEventArgs
+  fullName: OpenTK.Core.Platform.WindowScaleChangeEventArgs
 - uid: OpenTK.Core.Platform.KeyDownEventArgs
   commentId: T:OpenTK.Core.Platform.KeyDownEventArgs
   href: OpenTK.Core.Platform.KeyDownEventArgs.html

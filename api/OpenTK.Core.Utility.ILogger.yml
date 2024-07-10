@@ -6,6 +6,7 @@ items:
   parent: OpenTK.Core.Utility
   children:
   - OpenTK.Core.Utility.ILogger.Filter
+  - OpenTK.Core.Utility.ILogger.Flush
   - OpenTK.Core.Utility.ILogger.Log(System.String,OpenTK.Core.Utility.LogLevel,System.String,System.Int32,System.String)
   - OpenTK.Core.Utility.ILogger.LogDebug(System.String,System.String,System.Int32,System.String)
   - OpenTK.Core.Utility.ILogger.LogError(System.String,System.String,System.Int32,System.String)
@@ -342,6 +343,39 @@ items:
   nameWithType.vb: ILogger.LogError(String, String, Integer, String)
   fullName.vb: OpenTK.Core.Utility.ILogger.LogError(String, String, Integer, String)
   name.vb: LogError(String, String, Integer, String)
+- uid: OpenTK.Core.Utility.ILogger.Flush
+  commentId: M:OpenTK.Core.Utility.ILogger.Flush
+  id: Flush
+  parent: OpenTK.Core.Utility.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Flush()
+  nameWithType: ILogger.Flush()
+  fullName: OpenTK.Core.Utility.ILogger.Flush()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Core/Utility/ILogger.cs
+      branch: pal2-work
+      repo: https://github.com/opentk/opentk.git
+    id: Flush
+    path: opentk/src/OpenTK.Core/Utility/ILogger.cs
+    startLine: 110
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Utility
+  summary: >-
+    Flushes any pending IO operations.
+
+    This is useful when e.g. the application is terminating
+
+    and the final log messages containing the termination reason needs to be written.
+  example: []
+  syntax:
+    content: void Flush()
+    content.vb: Sub Flush()
+  overload: OpenTK.Core.Utility.ILogger.Flush*
 references:
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
@@ -465,3 +499,9 @@ references:
   name: LogError
   nameWithType: ILogger.LogError
   fullName: OpenTK.Core.Utility.ILogger.LogError
+- uid: OpenTK.Core.Utility.ILogger.Flush*
+  commentId: Overload:OpenTK.Core.Utility.ILogger.Flush
+  href: OpenTK.Core.Utility.ILogger.html#OpenTK_Core_Utility_ILogger_Flush
+  name: Flush
+  nameWithType: ILogger.Flush
+  fullName: OpenTK.Core.Utility.ILogger.Flush

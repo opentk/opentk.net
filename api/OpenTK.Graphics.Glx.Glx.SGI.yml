@@ -5,13 +5,11 @@ items:
   id: Glx.SGI
   parent: OpenTK.Graphics.Glx
   children:
-  - OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.Window,System.Single)
-  - OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.Window,System.Single)
+  - OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.Window,System.Single)
   - OpenTK.Graphics.Glx.Glx.SGI.GetCurrentReadDrawableSGI
   - OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32*)
   - OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32@)
-  - OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
-  - OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
+  - OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
   - OpenTK.Graphics.Glx.Glx.SGI.SwapIntervalSGI(System.Int32)
   - OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32*)
   - OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32@)
@@ -29,7 +27,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: SGI
     path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 854
+    startLine: 481
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -48,16 +46,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.Window,System.Single)
-  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.Window,System.Single)
-  id: CushionSGI(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.Window,System.Single)
+- uid: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.Window,System.Single)
+  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.Window,System.Single)
+  id: CushionSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.Window,System.Single)
   parent: OpenTK.Graphics.Glx.Glx.SGI
   langs:
   - csharp
   - vb
-  name: CushionSGI(Display*, Window, float)
-  nameWithType: Glx.SGI.CushionSGI(Display*, Window, float)
-  fullName: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display*, OpenTK.Graphics.Glx.Window, float)
+  name: CushionSGI(DisplayPtr, Window, float)
+  nameWithType: Glx.SGI.CushionSGI(DisplayPtr, Window, float)
+  fullName: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.Window, float)
   type: Method
   source:
     remote:
@@ -73,19 +71,19 @@ items:
   summary: '<b>[requires: GLX_SGI_cushion]</b> <b>[entry point: <code>glXCushionSGI</code>]</b><br />'
   example: []
   syntax:
-    content: public static void CushionSGI(Display* dpy, Window window, float cushion)
+    content: public static void CushionSGI(DisplayPtr dpy, Window window, float cushion)
     parameters:
     - id: dpy
-      type: OpenTK.Graphics.Glx.Display*
+      type: OpenTK.Graphics.Glx.DisplayPtr
     - id: window
       type: OpenTK.Graphics.Glx.Window
     - id: cushion
       type: System.Single
-    content.vb: Public Shared Sub CushionSGI(dpy As Display*, window As Window, cushion As Single)
+    content.vb: Public Shared Sub CushionSGI(dpy As DisplayPtr, window As Window, cushion As Single)
   overload: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI*
-  nameWithType.vb: Glx.SGI.CushionSGI(Display*, Window, Single)
-  fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display*, OpenTK.Graphics.Glx.Window, Single)
-  name.vb: CushionSGI(Display*, Window, Single)
+  nameWithType.vb: Glx.SGI.CushionSGI(DisplayPtr, Window, Single)
+  fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.Window, Single)
+  name.vb: CushionSGI(DisplayPtr, Window, Single)
 - uid: OpenTK.Graphics.Glx.Glx.SGI.GetCurrentReadDrawableSGI
   commentId: M:OpenTK.Graphics.Glx.Glx.SGI.GetCurrentReadDrawableSGI
   id: GetCurrentReadDrawableSGI
@@ -152,16 +150,16 @@ items:
   nameWithType.vb: Glx.SGI.GetVideoSyncSGI(UInteger*)
   fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(UInteger*)
   name.vb: GetVideoSyncSGI(UInteger*)
-- uid: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
-  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
-  id: MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display*,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
+- uid: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
+  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
+  id: MakeCurrentReadSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
   parent: OpenTK.Graphics.Glx.Glx.SGI
   langs:
   - csharp
   - vb
-  name: MakeCurrentReadSGI(Display*, GLXDrawable, GLXDrawable, GLXContext)
-  nameWithType: Glx.SGI.MakeCurrentReadSGI(Display*, GLXDrawable, GLXDrawable, GLXContext)
-  fullName: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display*, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXContext)
+  name: MakeCurrentReadSGI(DisplayPtr, GLXDrawable, GLXDrawable, GLXContext)
+  nameWithType: Glx.SGI.MakeCurrentReadSGI(DisplayPtr, GLXDrawable, GLXDrawable, GLXContext)
+  fullName: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXContext)
   type: Method
   source:
     remote:
@@ -177,10 +175,10 @@ items:
   summary: '<b>[requires: GLX_SGI_make_current_read]</b> <b>[entry point: <code>glXMakeCurrentReadSGI</code>]</b><br />'
   example: []
   syntax:
-    content: public static bool MakeCurrentReadSGI(Display* dpy, GLXDrawable draw, GLXDrawable read, GLXContext ctx)
+    content: public static bool MakeCurrentReadSGI(DisplayPtr dpy, GLXDrawable draw, GLXDrawable read, GLXContext ctx)
     parameters:
     - id: dpy
-      type: OpenTK.Graphics.Glx.Display*
+      type: OpenTK.Graphics.Glx.DisplayPtr
     - id: draw
       type: OpenTK.Graphics.Glx.GLXDrawable
     - id: read
@@ -189,7 +187,7 @@ items:
       type: OpenTK.Graphics.Glx.GLXContext
     return:
       type: System.Boolean
-    content.vb: Public Shared Function MakeCurrentReadSGI(dpy As Display*, draw As GLXDrawable, read As GLXDrawable, ctx As GLXContext) As Boolean
+    content.vb: Public Shared Function MakeCurrentReadSGI(dpy As DisplayPtr, draw As GLXDrawable, read As GLXDrawable, ctx As GLXContext) As Boolean
   overload: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI*
 - uid: OpenTK.Graphics.Glx.Glx.SGI.SwapIntervalSGI(System.Int32)
   commentId: M:OpenTK.Graphics.Glx.Glx.SGI.SwapIntervalSGI(System.Int32)
@@ -267,49 +265,6 @@ items:
   nameWithType.vb: Glx.SGI.WaitVideoSyncSGI(Integer, Integer, UInteger*)
   fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(Integer, Integer, UInteger*)
   name.vb: WaitVideoSyncSGI(Integer, Integer, UInteger*)
-- uid: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.Window,System.Single)
-  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.Window,System.Single)
-  id: CushionSGI(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.Window,System.Single)
-  parent: OpenTK.Graphics.Glx.Glx.SGI
-  langs:
-  - csharp
-  - vb
-  name: CushionSGI(ref Display, Window, float)
-  nameWithType: Glx.SGI.CushionSGI(ref Display, Window, float)
-  fullName: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(ref OpenTK.Graphics.Glx.Display, OpenTK.Graphics.Glx.Window, float)
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
-    id: CushionSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 857
-  assemblies:
-  - OpenTK.Graphics
-  namespace: OpenTK.Graphics.Glx
-  summary: >-
-    <b>[requires: GLX_SGI_cushion]</b>
-
-    <b>[entry point: <code>glXCushionSGI</code>]</b>
-
-    <br />
-  example: []
-  syntax:
-    content: public static void CushionSGI(ref Display dpy, Window window, float cushion)
-    parameters:
-    - id: dpy
-      type: OpenTK.Graphics.Glx.Display
-    - id: window
-      type: OpenTK.Graphics.Glx.Window
-    - id: cushion
-      type: System.Single
-    content.vb: Public Shared Sub CushionSGI(dpy As Display, window As Window, cushion As Single)
-  overload: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI*
-  nameWithType.vb: Glx.SGI.CushionSGI(Display, Window, Single)
-  fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.Display, OpenTK.Graphics.Glx.Window, Single)
-  name.vb: CushionSGI(Display, Window, Single)
 - uid: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32@)
   commentId: M:OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32@)
   id: GetVideoSyncSGI(System.UInt32@)
@@ -328,7 +283,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetVideoSyncSGI
     path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 865
+    startLine: 484
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -351,53 +306,6 @@ items:
   nameWithType.vb: Glx.SGI.GetVideoSyncSGI(UInteger)
   fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(UInteger)
   name.vb: GetVideoSyncSGI(UInteger)
-- uid: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
-  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
-  id: MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display@,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
-  parent: OpenTK.Graphics.Glx.Glx.SGI
-  langs:
-  - csharp
-  - vb
-  name: MakeCurrentReadSGI(ref Display, GLXDrawable, GLXDrawable, GLXContext)
-  nameWithType: Glx.SGI.MakeCurrentReadSGI(ref Display, GLXDrawable, GLXDrawable, GLXContext)
-  fullName: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(ref OpenTK.Graphics.Glx.Display, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXContext)
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
-    id: MakeCurrentReadSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 875
-  assemblies:
-  - OpenTK.Graphics
-  namespace: OpenTK.Graphics.Glx
-  summary: >-
-    <b>[requires: GLX_SGI_make_current_read]</b>
-
-    <b>[entry point: <code>glXMakeCurrentReadSGI</code>]</b>
-
-    <br />
-  example: []
-  syntax:
-    content: public static bool MakeCurrentReadSGI(ref Display dpy, GLXDrawable draw, GLXDrawable read, GLXContext ctx)
-    parameters:
-    - id: dpy
-      type: OpenTK.Graphics.Glx.Display
-    - id: draw
-      type: OpenTK.Graphics.Glx.GLXDrawable
-    - id: read
-      type: OpenTK.Graphics.Glx.GLXDrawable
-    - id: ctx
-      type: OpenTK.Graphics.Glx.GLXContext
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Function MakeCurrentReadSGI(dpy As Display, draw As GLXDrawable, read As GLXDrawable, ctx As GLXContext) As Boolean
-  overload: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI*
-  nameWithType.vb: Glx.SGI.MakeCurrentReadSGI(Display, GLXDrawable, GLXDrawable, GLXContext)
-  fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.Display, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXContext)
-  name.vb: MakeCurrentReadSGI(Display, GLXDrawable, GLXDrawable, GLXContext)
 - uid: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32@)
   commentId: M:OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32@)
   id: WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32@)
@@ -416,7 +324,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: WaitVideoSyncSGI
     path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 885
+    startLine: 494
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -713,26 +621,17 @@ references:
   fullName: System
 - uid: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI*
   commentId: Overload:OpenTK.Graphics.Glx.Glx.SGI.CushionSGI
-  href: OpenTK.Graphics.Glx.Glx.SGI.html#OpenTK_Graphics_Glx_Glx_SGI_CushionSGI_OpenTK_Graphics_Glx_Display__OpenTK_Graphics_Glx_Window_System_Single_
+  href: OpenTK.Graphics.Glx.Glx.SGI.html#OpenTK_Graphics_Glx_Glx_SGI_CushionSGI_OpenTK_Graphics_Glx_DisplayPtr_OpenTK_Graphics_Glx_Window_System_Single_
   name: CushionSGI
   nameWithType: Glx.SGI.CushionSGI
   fullName: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI
-- uid: OpenTK.Graphics.Glx.Display*
-  isExternal: true
-  href: OpenTK.Graphics.Glx.Display.html
-  name: Display*
-  nameWithType: Display*
-  fullName: OpenTK.Graphics.Glx.Display*
-  spec.csharp:
-  - uid: OpenTK.Graphics.Glx.Display
-    name: Display
-    href: OpenTK.Graphics.Glx.Display.html
-  - name: '*'
-  spec.vb:
-  - uid: OpenTK.Graphics.Glx.Display
-    name: Display
-    href: OpenTK.Graphics.Glx.Display.html
-  - name: '*'
+- uid: OpenTK.Graphics.Glx.DisplayPtr
+  commentId: T:OpenTK.Graphics.Glx.DisplayPtr
+  parent: OpenTK.Graphics.Glx
+  href: OpenTK.Graphics.Glx.DisplayPtr.html
+  name: DisplayPtr
+  nameWithType: DisplayPtr
+  fullName: OpenTK.Graphics.Glx.DisplayPtr
 - uid: OpenTK.Graphics.Glx.Window
   commentId: T:OpenTK.Graphics.Glx.Window
   parent: OpenTK.Graphics.Glx
@@ -804,7 +703,7 @@ references:
   name.vb: Integer
 - uid: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI*
   commentId: Overload:OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI
-  href: OpenTK.Graphics.Glx.Glx.SGI.html#OpenTK_Graphics_Glx_Glx_SGI_MakeCurrentReadSGI_OpenTK_Graphics_Glx_Display__OpenTK_Graphics_Glx_GLXDrawable_OpenTK_Graphics_Glx_GLXDrawable_OpenTK_Graphics_Glx_GLXContext_
+  href: OpenTK.Graphics.Glx.Glx.SGI.html#OpenTK_Graphics_Glx_Glx_SGI_MakeCurrentReadSGI_OpenTK_Graphics_Glx_DisplayPtr_OpenTK_Graphics_Glx_GLXDrawable_OpenTK_Graphics_Glx_GLXDrawable_OpenTK_Graphics_Glx_GLXContext_
   name: MakeCurrentReadSGI
   nameWithType: Glx.SGI.MakeCurrentReadSGI
   fullName: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI
@@ -838,13 +737,6 @@ references:
   name: WaitVideoSyncSGI
   nameWithType: Glx.SGI.WaitVideoSyncSGI
   fullName: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI
-- uid: OpenTK.Graphics.Glx.Display
-  commentId: T:OpenTK.Graphics.Glx.Display
-  parent: OpenTK.Graphics.Glx
-  href: OpenTK.Graphics.Glx.Display.html
-  name: Display
-  nameWithType: Display
-  fullName: OpenTK.Graphics.Glx.Display
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

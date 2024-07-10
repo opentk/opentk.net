@@ -18,7 +18,7 @@ items:
   - OpenTK.Platform.Native.Windows.DisplayComponent.GetVideoMode(OpenTK.Core.Platform.DisplayHandle,OpenTK.Core.Platform.VideoMode@)
   - OpenTK.Platform.Native.Windows.DisplayComponent.GetVirtualPosition(OpenTK.Core.Platform.DisplayHandle,System.Int32@,System.Int32@)
   - OpenTK.Platform.Native.Windows.DisplayComponent.GetWorkArea(OpenTK.Core.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@)
-  - OpenTK.Platform.Native.Windows.DisplayComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.Windows.DisplayComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Windows.DisplayComponent.IsPrimary(OpenTK.Core.Platform.DisplayHandle)
   - OpenTK.Platform.Native.Windows.DisplayComponent.Logger
   - OpenTK.Platform.Native.Windows.DisplayComponent.Name
@@ -158,16 +158,16 @@ items:
   overload: OpenTK.Platform.Native.Windows.DisplayComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.Windows.DisplayComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.Windows.DisplayComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.Windows.DisplayComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.Windows.DisplayComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.Windows.DisplayComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: DisplayComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.Windows.DisplayComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: DisplayComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.Windows.DisplayComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -180,18 +180,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.DisplayComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.Windows.DisplayComponent.CanGetVirtualPosition
   commentId: P:OpenTK.Platform.Native.Windows.DisplayComponent.CanGetVirtualPosition
   id: CanGetVirtualPosition
@@ -210,7 +210,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanGetVirtualPosition
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 305
+    startLine: 299
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -243,7 +243,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetDisplayCount
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 308
+    startLine: 302
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -276,7 +276,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Open
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 325
+    startLine: 319
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -320,7 +320,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: OpenPrimary
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 334
+    startLine: 328
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -353,7 +353,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Close
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 348
+    startLine: 342
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -391,7 +391,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: IsPrimary
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 356
+    startLine: 350
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -428,7 +428,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetName
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 364
+    startLine: 358
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -469,7 +469,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetVideoMode
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 372
+    startLine: 366
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -513,7 +513,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSupportedVideoModes
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 384
+    startLine: 378
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -554,7 +554,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetVirtualPosition
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 413
+    startLine: 407
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -604,7 +604,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetResolution
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 422
+    startLine: 416
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -651,7 +651,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetWorkArea
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 431
+    startLine: 425
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -694,7 +694,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetRefreshRate
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 441
+    startLine: 435
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -734,7 +734,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetDisplayScale
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 449
+    startLine: 443
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -777,7 +777,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetAdapter
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 471
+    startLine: 465
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -812,7 +812,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetMonitor
     path: opentk/src/OpenTK.Platform.Native/Windows/DisplayComponent.cs
-    startLine: 483
+    startLine: 477
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.Windows
@@ -1245,35 +1245,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.Windows.DisplayComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.DisplayComponent.Initialize
-  href: OpenTK.Platform.Native.Windows.DisplayComponent.html#OpenTK_Platform_Native_Windows_DisplayComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.Windows.DisplayComponent.html#OpenTK_Platform_Native_Windows_DisplayComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: DisplayComponent.Initialize
   fullName: OpenTK.Platform.Native.Windows.DisplayComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.Windows.DisplayComponent.CanGetVirtualPosition*
   commentId: Overload:OpenTK.Platform.Native.Windows.DisplayComponent.CanGetVirtualPosition
   href: OpenTK.Platform.Native.Windows.DisplayComponent.html#OpenTK_Platform_Native_Windows_DisplayComponent_CanGetVirtualPosition

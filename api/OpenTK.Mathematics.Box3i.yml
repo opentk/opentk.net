@@ -1768,32 +1768,23 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Inflate
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 563
+    startLine: 564
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Inflate this Box3i to encapsulate a given point.
+  summary: >-
+    Inflates this Box3i by the given size in all directions. A negative size will shrink the box to a maximum of -HalfSize.
+
+    Use the <xref href="OpenTK.Mathematics.Box3i.Extend(OpenTK.Mathematics.Vector3i)" data-throw-if-not-resolved="false"></xref> method for the point-encapsulation functionality in OpenTK version 4.8.1 and earlier.
   example: []
   syntax:
-    content: >-
-      [Obsolete("Use Extend instead. This function will have it's implementation changed in the future.")]
-
-      public void Inflate(Vector3i point)
+    content: public void Inflate(Vector3i size)
     parameters:
-    - id: point
+    - id: size
       type: OpenTK.Mathematics.Vector3i
-      description: The point to query.
-    content.vb: >-
-      <Obsolete("Use Extend instead. This function will have it's implementation changed in the future.")>
-
-      Public Sub Inflate(point As Vector3i)
+      description: The size to inflate by.
+    content.vb: Public Sub Inflate(size As Vector3i)
   overload: OpenTK.Mathematics.Box3i.Inflate*
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Use Extend instead. This function will have it's implementation changed in the future.
 - uid: OpenTK.Mathematics.Box3i.Inflated(OpenTK.Mathematics.Vector3i)
   commentId: M:OpenTK.Mathematics.Box3i.Inflated(OpenTK.Mathematics.Vector3i)
   id: Inflated(OpenTK.Mathematics.Vector3i)
@@ -1812,42 +1803,36 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Inflated
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 575
+    startLine: 577
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Inflate this Box3i to encapsulate a given point.
+  summary: >-
+    Inflates this Box3i by the given size in all directions. A negative size will shrink the box to a maximum of -HalfSize.
+
+    Use the <xref href="OpenTK.Mathematics.Box3i.Extended(OpenTK.Mathematics.Vector3i)" data-throw-if-not-resolved="false"></xref> method for the point-encapsulation functionality in eOpenTK version 4.8.1 and earlier.
   example: []
   syntax:
     content: >-
       [Pure]
 
-      [Obsolete("Use Extended instead. This function will have it's implementation changed in the future.")]
-
-      public Box3i Inflated(Vector3i point)
+      public Box3i Inflated(Vector3i size)
     parameters:
-    - id: point
+    - id: size
       type: OpenTK.Mathematics.Vector3i
-      description: The point to query.
+      description: The size to inflate by.
     return:
       type: OpenTK.Mathematics.Box3i
       description: The inflated box.
     content.vb: >-
       <Pure>
 
-      <Obsolete("Use Extended instead. This function will have it's implementation changed in the future.")>
-
-      Public Function Inflated(point As Vector3i) As Box3i
+      Public Function Inflated(size As Vector3i) As Box3i
   overload: OpenTK.Mathematics.Box3i.Inflated*
   attributes:
   - type: System.Diagnostics.Contracts.PureAttribute
     ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
     arguments: []
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Use Extended instead. This function will have it's implementation changed in the future.
 - uid: OpenTK.Mathematics.Box3i.Extend(OpenTK.Mathematics.Vector3i)
   commentId: M:OpenTK.Mathematics.Box3i.Extend(OpenTK.Mathematics.Vector3i)
   id: Extend(OpenTK.Mathematics.Vector3i)
@@ -1866,7 +1851,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Extend
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 589
+    startLine: 590
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1898,7 +1883,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Extended
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 600
+    startLine: 601
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1943,7 +1928,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: op_Equality
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 614
+    startLine: 615
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1983,7 +1968,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: op_Inequality
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 624
+    startLine: 625
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2023,7 +2008,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 630
+    startLine: 631
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2062,7 +2047,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 636
+    startLine: 637
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2099,7 +2084,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetHashCode
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 643
+    startLine: 644
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2131,7 +2116,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 649
+    startLine: 650
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2163,7 +2148,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 655
+    startLine: 656
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2206,7 +2191,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 661
+    startLine: 662
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2246,7 +2231,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Geometry/Box3i.cs
-    startLine: 667
+    startLine: 668
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2803,12 +2788,60 @@ references:
   name: Scaled
   nameWithType: Box3i.Scaled
   fullName: OpenTK.Mathematics.Box3i.Scaled
+- uid: OpenTK.Mathematics.Box3i.Extend(OpenTK.Mathematics.Vector3i)
+  commentId: M:OpenTK.Mathematics.Box3i.Extend(OpenTK.Mathematics.Vector3i)
+  href: OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_Box3i_Extend_OpenTK_Mathematics_Vector3i_
+  name: Extend(Vector3i)
+  nameWithType: Box3i.Extend(Vector3i)
+  fullName: OpenTK.Mathematics.Box3i.Extend(OpenTK.Mathematics.Vector3i)
+  spec.csharp:
+  - uid: OpenTK.Mathematics.Box3i.Extend(OpenTK.Mathematics.Vector3i)
+    name: Extend
+    href: OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_Box3i_Extend_OpenTK_Mathematics_Vector3i_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3i
+    name: Vector3i
+    href: OpenTK.Mathematics.Vector3i.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Mathematics.Box3i.Extend(OpenTK.Mathematics.Vector3i)
+    name: Extend
+    href: OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_Box3i_Extend_OpenTK_Mathematics_Vector3i_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3i
+    name: Vector3i
+    href: OpenTK.Mathematics.Vector3i.html
+  - name: )
 - uid: OpenTK.Mathematics.Box3i.Inflate*
   commentId: Overload:OpenTK.Mathematics.Box3i.Inflate
   href: OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_Box3i_Inflate_OpenTK_Mathematics_Vector3i_
   name: Inflate
   nameWithType: Box3i.Inflate
   fullName: OpenTK.Mathematics.Box3i.Inflate
+- uid: OpenTK.Mathematics.Box3i.Extended(OpenTK.Mathematics.Vector3i)
+  commentId: M:OpenTK.Mathematics.Box3i.Extended(OpenTK.Mathematics.Vector3i)
+  href: OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_Box3i_Extended_OpenTK_Mathematics_Vector3i_
+  name: Extended(Vector3i)
+  nameWithType: Box3i.Extended(Vector3i)
+  fullName: OpenTK.Mathematics.Box3i.Extended(OpenTK.Mathematics.Vector3i)
+  spec.csharp:
+  - uid: OpenTK.Mathematics.Box3i.Extended(OpenTK.Mathematics.Vector3i)
+    name: Extended
+    href: OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_Box3i_Extended_OpenTK_Mathematics_Vector3i_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3i
+    name: Vector3i
+    href: OpenTK.Mathematics.Vector3i.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Mathematics.Box3i.Extended(OpenTK.Mathematics.Vector3i)
+    name: Extended
+    href: OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_Box3i_Extended_OpenTK_Mathematics_Vector3i_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3i
+    name: Vector3i
+    href: OpenTK.Mathematics.Vector3i.html
+  - name: )
 - uid: OpenTK.Mathematics.Box3i.Inflated*
   commentId: Overload:OpenTK.Mathematics.Box3i.Inflated
   href: OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_Box3i_Inflated_OpenTK_Mathematics_Vector3i_

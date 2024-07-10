@@ -11,7 +11,7 @@ items:
   - OpenTK.Platform.Native.X11.X11IconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
   - OpenTK.Platform.Native.X11.X11IconComponent.Destroy(OpenTK.Core.Platform.IconHandle)
   - OpenTK.Platform.Native.X11.X11IconComponent.GetSize(OpenTK.Core.Platform.IconHandle,System.Int32@,System.Int32@)
-  - OpenTK.Platform.Native.X11.X11IconComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Platform.Native.X11.X11IconComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.X11.X11IconComponent.Logger
   - OpenTK.Platform.Native.X11.X11IconComponent.Name
   - OpenTK.Platform.Native.X11.X11IconComponent.Provides
@@ -148,16 +148,16 @@ items:
   overload: OpenTK.Platform.Native.X11.X11IconComponent.Logger*
   implements:
   - OpenTK.Core.Platform.IPalComponent.Logger
-- uid: OpenTK.Platform.Native.X11.X11IconComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Platform.Native.X11.X11IconComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  id: Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Platform.Native.X11.X11IconComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.X11.X11IconComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.X11.X11IconComponent
   langs:
   - csharp
   - vb
-  name: Initialize(PalComponents)
-  nameWithType: X11IconComponent.Initialize(PalComponents)
-  fullName: OpenTK.Platform.Native.X11.X11IconComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  name: Initialize(ToolkitOptions)
+  nameWithType: X11IconComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.Native.X11.X11IconComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   type: Method
   source:
     remote:
@@ -170,18 +170,18 @@ items:
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
-  summary: Initialize the driver.
+  summary: Initialize the component.
   example: []
   syntax:
-    content: public void Initialize(PalComponents which)
+    content: public void Initialize(ToolkitOptions options)
     parameters:
-    - id: which
-      type: OpenTK.Core.Platform.PalComponents
-      description: Bitfield of which components the driver need to be initialized.
-    content.vb: Public Sub Initialize(which As PalComponents)
+    - id: options
+      type: OpenTK.Core.Platform.ToolkitOptions
+      description: The options to initialize the component with.
+    content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.X11.X11IconComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.X11.X11IconComponent.CanLoadSystemIcons
   commentId: P:OpenTK.Platform.Native.X11.X11IconComponent.CanLoadSystemIcons
   id: CanLoadSystemIcons
@@ -200,7 +200,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: CanLoadSystemIcons
     path: opentk/src/OpenTK.Platform.Native/X11/X11IconComponent.cs
-    startLine: 41
+    startLine: 37
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -236,7 +236,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Create
     path: opentk/src/OpenTK.Platform.Native/X11/X11IconComponent.cs
-    startLine: 44
+    startLine: 40
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -279,7 +279,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Create
     path: opentk/src/OpenTK.Platform.Native/X11/X11IconComponent.cs
-    startLine: 51
+    startLine: 47
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -325,7 +325,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Create
     path: opentk/src/OpenTK.Platform.Native/X11/X11IconComponent.cs
-    startLine: 70
+    startLine: 66
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -372,7 +372,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: Destroy
     path: opentk/src/OpenTK.Platform.Native/X11/X11IconComponent.cs
-    startLine: 78
+    startLine: 74
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -410,7 +410,7 @@ items:
       repo: https://github.com/opentk/opentk.git
     id: GetSize
     path: opentk/src/OpenTK.Platform.Native/X11/X11IconComponent.cs
-    startLine: 88
+    startLine: 84
   assemblies:
   - OpenTK.Platform.Native
   namespace: OpenTK.Platform.Native.X11
@@ -855,35 +855,42 @@ references:
     href: OpenTK.Core.Utility.html
 - uid: OpenTK.Platform.Native.X11.X11IconComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.X11.X11IconComponent.Initialize
-  href: OpenTK.Platform.Native.X11.X11IconComponent.html#OpenTK_Platform_Native_X11_X11IconComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+  href: OpenTK.Platform.Native.X11.X11IconComponent.html#OpenTK_Platform_Native_X11_X11IconComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: X11IconComponent.Initialize
   fullName: OpenTK.Platform.Native.X11.X11IconComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
-  name: Initialize(PalComponents)
-  nameWithType: IPalComponent.Initialize(PalComponents)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.PalComponents)
+  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_PalComponents_
+    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.PalComponents
-    name: PalComponents
-    href: OpenTK.Core.Platform.PalComponents.html
+  - uid: OpenTK.Core.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Core.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Core.Platform.ToolkitOptions
+  commentId: T:OpenTK.Core.Platform.ToolkitOptions
+  parent: OpenTK.Core.Platform
+  href: OpenTK.Core.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Core.Platform.ToolkitOptions
 - uid: OpenTK.Core.Platform.IIconComponent.Create(OpenTK.Core.Platform.SystemIconType)
   commentId: M:OpenTK.Core.Platform.IIconComponent.Create(OpenTK.Core.Platform.SystemIconType)
   parent: OpenTK.Core.Platform.IIconComponent

@@ -101,7 +101,7 @@ Then, we have `Context.SwapBuffers`. Almost any modern OpenGL context is what's 
 Next, we have OnFramebufferResize.
 
 ```cs
-protected override void OnFramebufferResize(ResizeEventArgs e)
+protected override void OnFramebufferResize(FramebufferResizeEventArgs e)
 {
     base.OnFramebufferResize(e);
 

@@ -17,7 +17,8 @@ OpenTK is not a game engine, nor does it try to be one:  It offers a useful set 
    - [OpenTK GLControl 3.x](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/v/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/) [![NuGet](https://img.shields.io/nuget/dt/OpenTK.GLControl.svg)](https://www.nuget.org/packages/OpenTK.GLControl/)
 - **OpenTK 5.x** is the next version of OpenTK. It brings a new OpenGL bindings generator, Vulkan bindings and a new alternative windowing API written completely in C# (called PAL2). We welcome any [contributions](https://github.com/opentk/opentk/)!
    - [OpenTK 5.x](https://www.nuget.org/packages/OpenTK/5.0.0-pre.10) (preview package)
-   - [OpenTK 5.x documentation](https://nogginbops.github.io/opentk.net/) (preview containing PAL2 tutorials)
+   - [OpenTK 5.x api documentation](https://nogginbops.github.io/opentk.net/api/index.html) (preview)
+   - [OpenTK 5.x PAL2 tutorials](https://nogginbops.github.io/opentk.net/learn/pal2/Introduction.html) (preview)
 
 ### Help and Support
 

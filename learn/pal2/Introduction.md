@@ -1,53 +1,50 @@
 # Platform Abstraction Layer 2
 
 > [!IMPORTANT]
-> PAL2 is under early development and many things might change in the future.
+> PAL2 is under development and many things might change in the future.
 Feedback is wanted!
 
 > [!IMPORTANT]
-> Currently PAL2 is basically feature complete on Windows, and many parts work on x11 and macos. There is an SDL backend that works on both Windows and linux, and should in theory work on macos but the SDL binaries nuget package doesn't have macos binaries yet.
+> Currently PAL2 is basically feature complete on Windows, and most parts work on x11 and macos. There is an slightly outdated SDL backend that works on both Windows and linux, and should in theory work on macos but the SDL binaries nuget package doesn't have macos binaries yet.
 
 ## Setup
 
 PAL2 exposes platform APIs through a number of interfaces used to abstract away the underlying operating system.
 
-The first of these interfaces we are going to see is `IWindowComponent` and `IOpenGLComponent` which allows the user to 
-create and interact with windows as well as initialize an OpenGL context and draw graphics to the window.
+Most of PAL2 is exposed through the `Toolkit` class. `Toolkit` contains a number of static properties that are the main interface for PAL2. `ToolkitOptions` contains a few configuration items should be set before calling `Toolkit.Init`.
 
-The following code initializes these interfaces with a platform dependent implementation (or throws `NotSupportedException` for not yet supported OSes).
 ```cs
-using OpenTK.Platform.Native;
+using OpenTK.Platform;
 
-IWindowComponent windowComp = new PlatformComponents.CreateWindowComponent();
-IOpenGLComponent openglComp = new PlatformComponents.CreateOpenGLComponent();
+ToolkitOptions options = new ToolkitOptions();
 
-windowComp.Initialize(PalComponents.Window);
-openglComp.Initialize(PalComponents.OpenGL);
+// ApplicationName is the name of the application
+// this is used on some platforms to show the application name.
+options.ApplicationName = "OpenTK tutorial";
+
+Toolkit.Init(options);
 ```
 
 ## Logging
 
-All components in PAL2 have the ability to output diagnostic messages through an `ILogger` interface exposed as a `Logger` property of the component. This can be useful to find errors in the code and provide debug data that can be used to fix bugs in OpenTK.
+PAL2 has the ability to output diagnostic messages through an `ILogger` interface exposed as a `Logger` property of `ToolkitOptions`. This can be useful to find errors in the code and provide debug data that can be used to fix bugs in OpenTK.
 
 OpenTK provides an implementation of this interface called `ConsoleLogger` that writes out all debug messages to the console.
-
-We set the logger before we initialize the components so that we can get diagnostic messages during initialization too.
-
 ```cs
-IWindowComponent windowComp = new PlatformComponents.CreateWindowComponent();
-IOpenGLComponent openglComp = new PlatformComponents.CreateOpenGLComponent();
+ToolkitOptions options = new ToolkitOptions();
 
-ConsoleLogger logger = new ConsoleLogger();
-windowComp.Logger = logger;
-openglComp.Logger = logger;
+// ApplicationName is the name of the application
+// this is used on some platforms to show the application name.
+options.ApplicationName = "OpenTK tutorial";
+// Set the logger to use
+options.Logger = new ConsoleLogger();
 
-windowComp.Initialize(PalComponents.Window);
-openglComp.Initialize(PalComponents.OpenGL);
+Toolkit.Init(options);
 ```
 
 ## Creating a window
 
-To create an OpenGL window using PAL2 all you need to do is the following:
+To create an OpenGL window using PAL2 we want to use the `Toolkit.Window` property to access the window functions in PAL2. `Toolkit.Window` contains a function called `Toolkit.Window.Create` which we will use to create a window, and `Toolkit.OpenGL.CreateFromWindow` can be used to create an OpenGL context from the created window.
 
 ```cs
 OpenGLGraphicsApiHints contextSettings = new OpenGLGraphicsApiHints()
@@ -60,32 +57,38 @@ OpenGLGraphicsApiHints contextSettings = new OpenGLGraphicsApiHints()
     StencilBits = ContextStencilBits.Stencil8,
 };
 
-WindowHandle window = windowComp.Create(contextSettings);
+WindowHandle window = Toolkit.Window.Create(contextSettings);
 
-OpenGLContextHandle glContext = openglComp.CreateFromWindow(window);
+OpenGLContextHandle glContext = Toolkit.OpenGL.CreateFromWindow(window);
 ```
 
-This returns a handle to the window and the opengl context which is the main method to interact with the window.
+This returns a handle to the window and the opengl context which is used to refer to the window and opengl context in pal2 functions.
 
 When a window handle is created it is not visible by default, so we need to show the window. We also need to set the size we want the window to be shown with. This can be done by setting the window size and mode like so:
 
 ```cs
+// Set the title of the window
+Toolkit.Window.SetTitle(window, "OpenTK window");
 // Set the size of the window
-windowComp.SetSize(window, 800, 600);
+Toolkit.Window.SetSize(window, 800, 600);
 // Bring the window out of the default Hidden window mode
-windowComp.SetMode(window, WindowMode.Normal);
+Toolkit.Window.SetMode(window, WindowMode.Normal);
 ```
 
-Before we can do any calls to OpenGL we need to do two things. 1. We need to set our created context as the "current" context and 2. Load all of the functions that OpenGL is going to use.
+Before we can do any calls to OpenGL we need to do two things. 
+
+1. We need to set our created context as the "current" context and 
+2. Load all of the functions that OpenGL is going to use.
+
 This can quite easily be done like follows:
 
 ```cs
 // The the current opengl context and load the bindings.
-openglComp.SetCurrentContext(glContext);
-GLLoader.LoadBindings(openglComp.GetBindingsContext(glContext));
+Toolkit.OpenGL.SetCurrentContext(glContext);
+GLLoader.LoadBindings(Toolkit.OpenGL.GetBindingsContext(glContext));
 ```
 
-[`IOpenGLComponent.SetCurrentContext`](xref:OpenTK.Core.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Core.Platform.OpenGLContextHandle)) sets the given OpenGL context as the "current" context.
+[`Toolkit.OpenGL.SetCurrentContext`](xref:OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)) sets the given OpenGL context as the "current" context.
 <!--FIXME: Say something about what "current" context even means.-->
 And [`GLLoader.LoadBindings`](xref:OpenTK.Graphics.GLLoader.LoadBindings(OpenTK.IBindingsContext)) loads all OpenGL functions.
 <!--FIXME: Say something about lazy loading?-->
@@ -98,9 +101,9 @@ while (true)
 {
     // This will process events for all windows and
     //  post those events to the event queue.
-    windowComp.ProcessEvents();
+    Toolkit.Window.ProcessEvents(false);
     // Check if the window was destroyed after processing events.
-    if (windowComp.IsWindowDestroyed(window))
+    if (Toolkit.Window.IsWindowDestroyed(window))
     {
         break;
     }
@@ -115,12 +118,12 @@ To render something to the window we can do the following:
 GL.ClearColor(new Color4<Rgba>(64 / 255f, 0, 127 / 255f, 255));
 GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
-openglComp.SwapBuffers(glContext);
+Tooklit.OpenGL.SwapBuffers(glContext);
 ```
 
 The code shown so far will create a window and then process events while rendering to the window, but running the code there is one crucial flaw to the program. Closing the window doesn't work.
 
-This is becase closing the window is an event that needs to be responeded to and as we are not handling any events, no action is taken when the user wants to quit the application. So lets fix that!
+This is becase closing the window is an event that needs to be responeded to, and as we are not handling any events no action is taken when the user wants to quit the application. So lets fix that!
 
 First step of handling events is to register a callback to the `EventQueue.EventRaised` event. Do this before creating the window like follows:
 
@@ -140,8 +143,8 @@ void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
 > [!WARNING]
 > The arguments of the event callback are likely to change.
 
-This callback gets a few arguments, the two we are interested in right now are `type` and `args`.
-`type` tells us the type of the argument we received and `args` contains data specific to the type of event.
+This callback gets a few arguments, the one we are interested in right now is `args`.
+`args` contains data specific to the type of event and we can pattern match on a specific args type to respond to a specific event.
 
 To handle the quit message we will do the following:
 
@@ -151,45 +154,40 @@ void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
     if (args is CloseEventArgs closeArgs)
     {
         // Destroy the window that the user wanted to close.
-        windowComp.Destroy(closeArgs.Window);
+        Toolkit.Window.Destroy(closeArgs.Window);
     }
 }
 ```
 
 We use pattern matching `is` on `args` to check if it is of type `CloseEventArgs`. `CloseEventArgs` contains a `window` property which tells us which window the user wanted to close.
-So to close the window we call `IWindowComponent.Destroy(WindowHandle)` to destroy the window.
+So to close the window we call `Toolkit.Window.Destroy(WindowHandle)` to destroy the window.
 
 This way of handling events generalizes to other event types. First check for the type of event, then cast the `EventArgs` to the type specific for this type of event which gives appropriate information for handling the event.
 
 The final code we end up with could look like the following:
 
 ```cs
-using OpenTK.Core.Platform;
+using OpenTK.Platform;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
-using OpenTK.Platform.Native;
+using OpenTK.Core.Utility;
+using System;
 
 namespace Pal2Sample;
 
 class Sample
 {
-    static IWindowComponent windowComp = new PlatformComponents.CreateWindowComponent();
-    static IOpenGLComponent openglComp = new PlatformComponents.CreateOpenGLComponent();
-
-    static WindowHandle Window;
-    static OpenGLContextHandle GLContext;
-
     public static void Main(string[] args)
     {
-        ConsoleLogger logger = new ConsoleLogger();
-        windowComp.Logger = logger;
-        openglComp.Logger = logger;
-
-        windowComp.Initialize(PalComponents.Window);
-        openglComp.Initialize(PalComponents.OpenGL);
-
         EventQueue.EventRaised += EventRaised;
+
+        ToolkitOptions options = new ToolkitOptions();
+
+        options.ApplicationName = "OpenTK tutorial";
+        options.Logger = new ConsoleLogger();
+
+        Toolkit.Init(options);
 
         OpenGLGraphicsApiHints contextSettings = new OpenGLGraphicsApiHints()
         {
@@ -201,28 +199,33 @@ class Sample
             StencilBits = ContextStencilBits.Stencil8,
         };
 
-        Window = windowComp.Create(contextSettings);
+        WindowHandle window = Toolkit.Window.Create(contextSettings);
 
-        GLContext = openglComp.CreateFromWindow(Window);
+        OpenGLContextHandle glContext = Toolkit.OpenGL.CreateFromWindow(window);
 
         // Show window
-        windowComp.SetSize(Window, 800, 600);
-        windowComp.SetMode(Window, WindowMode.Normal);
+        Toolkit.Window.SetTitle(window, "OpenTK window");
+        Toolkit.Window.SetSize(window, 800, 600);
+        Toolkit.Window.SetMode(window, WindowMode.Normal);
 
         // The the current opengl context and load the bindings.
-        openglComp.SetCurrentContext(GLContext);
-        GLLoader.LoadBindings(openglComp.GetBindingsContext(GLContext));
+        Toolkit.OpenGL.SetCurrentContext(glContext);
+        GLLoader.LoadBindings(Toolkit.OpenGL.GetBindingsContext(glContext));
 
-        while (windowComp.IsWindowDestroyed(Window) == false)
+        while (true)
         {
             // This will process events for all windows and
-            //  post those events to the event queue.
-            windowComp.ProcessEvents();
+            // post those events to the event queue.
+            Toolkit.Window.ProcessEvents(false);
+            if (Toolkit.Window.IsWindowDestroyed(window))
+            {
+                break;
+            }
 
             GL.ClearColor(new Color4<Rgba>(64 / 255f, 0, 127 / 255f, 255));
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
-            openglComp.SwapBuffers(GLContext);
+            Toolkit.OpenGL.SwapBuffers(glContext);
         }
     }
 
@@ -231,10 +234,11 @@ class Sample
         if (args is CloseEventArgs closeArgs)
         {
             // Destroy the window that the user wanted to close.
-            windowComp.Destroy(closeArgs.Window);
+            Toolkit.Window.Destroy(closeArgs.Window);
         }
     }
 }
+
 ```
 
 ## What's next?

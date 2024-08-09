@@ -5,14 +5,14 @@ items:
   id: JoystickComponent
   parent: OpenTK.Platform.Native.Windows
   children:
-  - OpenTK.Platform.Native.Windows.JoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes(OpenTK.Core.Platform.JoystickHandle)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons(OpenTK.Core.Platform.JoystickHandle)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.Close(OpenTK.Platform.JoystickHandle)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes(OpenTK.Platform.JoystickHandle)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons(OpenTK.Platform.JoystickHandle)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.Initialize(OpenTK.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected(System.Int32)
   - OpenTK.Platform.Native.Windows.JoystickComponent.LeftDeadzone
   - OpenTK.Platform.Native.Windows.JoystickComponent.Logger
@@ -20,11 +20,11 @@ items:
   - OpenTK.Platform.Native.Windows.JoystickComponent.Open(System.Int32)
   - OpenTK.Platform.Native.Windows.JoystickComponent.Provides
   - OpenTK.Platform.Native.Windows.JoystickComponent.RightDeadzone
-  - OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback(OpenTK.Core.Platform.JoystickHandle)
-  - OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Core.Platform.JoystickHandle)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback(OpenTK.Platform.JoystickHandle)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Platform.JoystickHandle)
   - OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold
-  - OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
   langs:
   - csharp
   - vb
@@ -33,17 +33,13 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent
   type: Class
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: JoystickComponent
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 22
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: Win32 implementation of <xref href="OpenTK.Core.Platform.IJoystickComponent" data-throw-if-not-resolved="false"></xref>.
+  summary: Win32 implementation of <xref href="OpenTK.Platform.IJoystickComponent" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: 'public class JoystickComponent : IJoystickComponent, IPalComponent'
@@ -51,8 +47,8 @@ items:
   inheritance:
   - System.Object
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent
-  - OpenTK.Core.Platform.IPalComponent
+  - OpenTK.Platform.IJoystickComponent
+  - OpenTK.Platform.IPalComponent
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -73,15 +69,11 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Name
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: Name
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 25
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Name of the abstraction layer component.
   example: []
@@ -93,7 +85,7 @@ items:
     content.vb: Public ReadOnly Property Name As String
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.Name*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Name
+  - OpenTK.Platform.IPalComponent.Name
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.Provides
   commentId: P:OpenTK.Platform.Native.Windows.JoystickComponent.Provides
   id: Provides
@@ -106,15 +98,11 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Provides
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: Provides
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 28
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Specifies which PAL components this object provides.
   example: []
@@ -122,11 +110,11 @@ items:
     content: public PalComponents Provides { get; }
     parameters: []
     return:
-      type: OpenTK.Core.Platform.PalComponents
+      type: OpenTK.Platform.PalComponents
     content.vb: Public ReadOnly Property Provides As PalComponents
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.Provides*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Provides
+  - OpenTK.Platform.IPalComponent.Provides
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.Logger
   commentId: P:OpenTK.Platform.Native.Windows.JoystickComponent.Logger
   id: Logger
@@ -139,15 +127,11 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Logger
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: Logger
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 31
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Provides a logger for this component.
   example: []
@@ -159,7 +143,7 @@ items:
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.Logger*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Logger
+  - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.LeftDeadzone
   commentId: P:OpenTK.Platform.Native.Windows.JoystickComponent.LeftDeadzone
   id: LeftDeadzone
@@ -172,15 +156,11 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.LeftDeadzone
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: LeftDeadzone
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 38
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: The recommended deadzone value for the left analog stick.
   example: []
@@ -192,7 +172,7 @@ items:
     content.vb: Public ReadOnly Property LeftDeadzone As Single
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.LeftDeadzone*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.LeftDeadzone
+  - OpenTK.Platform.IJoystickComponent.LeftDeadzone
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.RightDeadzone
   commentId: P:OpenTK.Platform.Native.Windows.JoystickComponent.RightDeadzone
   id: RightDeadzone
@@ -205,15 +185,11 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.RightDeadzone
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: RightDeadzone
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 41
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: The recommended deadzone value for the right analog stick.
   example: []
@@ -225,7 +201,7 @@ items:
     content.vb: Public ReadOnly Property RightDeadzone As Single
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.RightDeadzone*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.RightDeadzone
+  - OpenTK.Platform.IJoystickComponent.RightDeadzone
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold
   commentId: P:OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold
   id: TriggerThreshold
@@ -238,15 +214,11 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: TriggerThreshold
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 44
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: The recommended threshold for considering the left or right trigger pressed.
   example: []
@@ -258,28 +230,24 @@ items:
     content.vb: Public ReadOnly Property TriggerThreshold As Single
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.TriggerThreshold
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
-  id: Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  - OpenTK.Platform.IJoystickComponent.TriggerThreshold
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  id: Initialize(OpenTK.Platform.ToolkitOptions)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: Initialize(ToolkitOptions)
   nameWithType: JoystickComponent.Initialize(ToolkitOptions)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize(OpenTK.Platform.ToolkitOptions)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: Initialize
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 47
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Initialize the component.
   example: []
@@ -287,12 +255,12 @@ items:
     content: public void Initialize(ToolkitOptions options)
     parameters:
     - id: options
-      type: OpenTK.Core.Platform.ToolkitOptions
+      type: OpenTK.Platform.ToolkitOptions
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize*
   implements:
-  - OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected(System.Int32)
   commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected(System.Int32)
   id: IsConnected(System.Int32)
@@ -305,15 +273,11 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected(int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: IsConnected
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 110
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Checks wether a joystick with the specific index is present on the system or not.
   example: []
@@ -328,7 +292,7 @@ items:
     content.vb: Public Function IsConnected(deviceIndex As Integer) As Boolean
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.IsConnected(System.Int32)
+  - OpenTK.Platform.IJoystickComponent.IsConnected(System.Int32)
   nameWithType.vb: JoystickComponent.IsConnected(Integer)
   fullName.vb: OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected(Integer)
   name.vb: IsConnected(Integer)
@@ -344,15 +308,11 @@ items:
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Open(int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: Open
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 117
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Opens a handle to a specific joystick.
   example: []
@@ -362,36 +322,32 @@ items:
     - id: deviceIndex
       type: System.Int32
     return:
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
       description: The opened joystick handle.
     content.vb: Public Function Open(deviceIndex As Integer) As JoystickHandle
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.Open*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.Open(System.Int32)
+  - OpenTK.Platform.IJoystickComponent.Open(System.Int32)
   nameWithType.vb: JoystickComponent.Open(Integer)
   fullName.vb: OpenTK.Platform.Native.Windows.JoystickComponent.Open(Integer)
   name.vb: Open(Integer)
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
-  id: Close(OpenTK.Core.Platform.JoystickHandle)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.Close(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.Close(OpenTK.Platform.JoystickHandle)
+  id: Close(OpenTK.Platform.JoystickHandle)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: Close(JoystickHandle)
   nameWithType: JoystickComponent.Close(JoystickHandle)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Close(OpenTK.Platform.JoystickHandle)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: Close
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 125
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Closes a handle to a joystick.
   example: []
@@ -399,225 +355,197 @@ items:
     content: public void Close(JoystickHandle handle)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
       description: The joystick handle.
     content.vb: Public Sub Close(handle As JoystickHandle)
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.Close*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Core.Platform.JoystickHandle)
-  id: SupportsVibration(OpenTK.Core.Platform.JoystickHandle)
+  - OpenTK.Platform.IJoystickComponent.Close(OpenTK.Platform.JoystickHandle)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Platform.JoystickHandle)
+  id: SupportsVibration(OpenTK.Platform.JoystickHandle)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: SupportsVibration(JoystickHandle)
   nameWithType: JoystickComponent.SupportsVibration(JoystickHandle)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Platform.JoystickHandle)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: SupportsVibration
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 131
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   syntax:
     content: public bool SupportsVibration(JoystickHandle handle)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
     return:
       type: System.Boolean
     content.vb: Public Function SupportsVibration(handle As JoystickHandle) As Boolean
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration*
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
-  id: GetGuid(OpenTK.Core.Platform.JoystickHandle)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
+  id: GetGuid(OpenTK.Platform.JoystickHandle)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: GetGuid(JoystickHandle)
   nameWithType: JoystickComponent.GetGuid(JoystickHandle)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGuid
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 151
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   example: []
   syntax:
     content: public Guid GetGuid(JoystickHandle handle)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
     return:
       type: System.Guid
     content.vb: Public Function GetGuid(handle As JoystickHandle) As Guid
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
-  id: GetName(OpenTK.Core.Platform.JoystickHandle)
+  - OpenTK.Platform.IJoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
+  id: GetName(OpenTK.Platform.JoystickHandle)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: GetName(JoystickHandle)
   nameWithType: JoystickComponent.GetName(JoystickHandle)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetName
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 159
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   example: []
   syntax:
     content: public string GetName(JoystickHandle handle)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
     return:
       type: System.String
     content.vb: Public Function GetName(handle As JoystickHandle) As String
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.GetName*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons(OpenTK.Core.Platform.JoystickHandle)
-  id: GetNumberOfButtons(OpenTK.Core.Platform.JoystickHandle)
+  - OpenTK.Platform.IJoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons(OpenTK.Platform.JoystickHandle)
+  id: GetNumberOfButtons(OpenTK.Platform.JoystickHandle)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: GetNumberOfButtons(JoystickHandle)
   nameWithType: JoystickComponent.GetNumberOfButtons(JoystickHandle)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons(OpenTK.Platform.JoystickHandle)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetNumberOfButtons
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 166
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   syntax:
     content: public int GetNumberOfButtons(JoystickHandle handle)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
     return:
       type: System.Int32
     content.vb: Public Function GetNumberOfButtons(handle As JoystickHandle) As Integer
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons*
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes(OpenTK.Core.Platform.JoystickHandle)
-  id: GetNumberOfAxes(OpenTK.Core.Platform.JoystickHandle)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes(OpenTK.Platform.JoystickHandle)
+  id: GetNumberOfAxes(OpenTK.Platform.JoystickHandle)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: GetNumberOfAxes(JoystickHandle)
   nameWithType: JoystickComponent.GetNumberOfAxes(JoystickHandle)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes(OpenTK.Platform.JoystickHandle)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetNumberOfAxes
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 173
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   syntax:
     content: public int GetNumberOfAxes(JoystickHandle handle)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
     return:
       type: System.Int32
     content.vb: Public Function GetNumberOfAxes(handle As JoystickHandle) As Integer
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes*
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback(OpenTK.Core.Platform.JoystickHandle)
-  id: SupportsForceFeedback(OpenTK.Core.Platform.JoystickHandle)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback(OpenTK.Platform.JoystickHandle)
+  id: SupportsForceFeedback(OpenTK.Platform.JoystickHandle)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: SupportsForceFeedback(JoystickHandle)
   nameWithType: JoystickComponent.SupportsForceFeedback(JoystickHandle)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback(OpenTK.Platform.JoystickHandle)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: SupportsForceFeedback
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 180
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   syntax:
     content: public bool SupportsForceFeedback(JoystickHandle handle)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
     return:
       type: System.Boolean
     content.vb: Public Function SupportsForceFeedback(handle As JoystickHandle) As Boolean
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback*
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
-  id: GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
+  id: GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: GetAxis(JoystickHandle, JoystickAxis)
   nameWithType: JoystickComponent.GetAxis(JoystickHandle, JoystickAxis)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle, OpenTK.Core.Platform.JoystickAxis)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle, OpenTK.Platform.JoystickAxis)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetAxis
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 188
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: >-
     Gets the value of a specific joystick axis.
@@ -628,10 +556,10 @@ items:
     content: public float GetAxis(JoystickHandle handle, JoystickAxis axis)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
       description: A handle to a joystick.
     - id: axis
-      type: OpenTK.Core.Platform.JoystickAxis
+      type: OpenTK.Platform.JoystickAxis
       description: The joystick axis to get.
     return:
       type: System.Single
@@ -639,28 +567,24 @@ items:
     content.vb: Public Function GetAxis(handle As JoystickHandle, axis As JoystickAxis) As Single
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
-  id: GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
+  - OpenTK.Platform.IJoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
+  id: GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: GetButton(JoystickHandle, JoystickButton)
   nameWithType: JoystickComponent.GetButton(JoystickHandle, JoystickButton)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle, OpenTK.Core.Platform.JoystickButton)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetButton(OpenTK.Platform.JoystickHandle, OpenTK.Platform.JoystickButton)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetButton
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 230
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Get the pressed state of a specific joystick button.
   example: []
@@ -668,10 +592,10 @@ items:
     content: public bool GetButton(JoystickHandle handle, JoystickButton button)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
       description: A handle to a joystick.
     - id: button
-      type: OpenTK.Core.Platform.JoystickButton
+      type: OpenTK.Platform.JoystickButton
       description: The joystick button to get.
     return:
       type: System.Boolean
@@ -679,35 +603,31 @@ items:
     content.vb: Public Function GetButton(handle As JoystickHandle, button As JoystickButton) As Boolean
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.GetButton*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
-  id: SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
+  - OpenTK.Platform.IJoystickComponent.GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
+  id: SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: SetVibration(JoystickHandle, float, float)
   nameWithType: JoystickComponent.SetVibration(JoystickHandle, float, float)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle, float, float)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle, float, float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: SetVibration
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 266
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   example: []
   syntax:
     content: public bool SetVibration(JoystickHandle handle, float lowFrequenzyIntensity, float highFrequenzyIntensity)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
     - id: lowFrequenzyIntensity
       type: System.Single
     - id: highFrequenzyIntensity
@@ -717,57 +637,53 @@ items:
     content.vb: Public Function SetVibration(handle As JoystickHandle, lowFrequenzyIntensity As Single, highFrequenzyIntensity As Single) As Boolean
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
+  - OpenTK.Platform.IJoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
   nameWithType.vb: JoystickComponent.SetVibration(JoystickHandle, Single, Single)
-  fullName.vb: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle, Single, Single)
+  fullName.vb: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle, Single, Single)
   name.vb: SetVibration(JoystickHandle, Single, Single)
-- uid: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
-  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
-  id: TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
+  id: TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
   parent: OpenTK.Platform.Native.Windows.JoystickComponent
   langs:
   - csharp
   - vb
   name: TryGetBatteryInfo(JoystickHandle, out GamepadBatteryInfo)
   nameWithType: JoystickComponent.TryGetBatteryInfo(JoystickHandle, out GamepadBatteryInfo)
-  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle, out OpenTK.Core.Platform.GamepadBatteryInfo)
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle, out OpenTK.Platform.GamepadBatteryInfo)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: TryGetBatteryInfo
-    path: opentk/src/OpenTK.Platform.Native/Windows/JoystickComponent.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
     startLine: 281
   assemblies:
-  - OpenTK.Platform.Native
+  - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   example: []
   syntax:
     content: public bool TryGetBatteryInfo(JoystickHandle handle, out GamepadBatteryInfo batteryInfo)
     parameters:
     - id: handle
-      type: OpenTK.Core.Platform.JoystickHandle
+      type: OpenTK.Platform.JoystickHandle
     - id: batteryInfo
-      type: OpenTK.Core.Platform.GamepadBatteryInfo
+      type: OpenTK.Platform.GamepadBatteryInfo
     return:
       type: System.Boolean
     content.vb: Public Function TryGetBatteryInfo(handle As JoystickHandle, batteryInfo As GamepadBatteryInfo) As Boolean
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo*
   implements:
-  - OpenTK.Core.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
+  - OpenTK.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
   nameWithType.vb: JoystickComponent.TryGetBatteryInfo(JoystickHandle, GamepadBatteryInfo)
-  fullName.vb: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle, OpenTK.Core.Platform.GamepadBatteryInfo)
+  fullName.vb: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle, OpenTK.Platform.GamepadBatteryInfo)
   name.vb: TryGetBatteryInfo(JoystickHandle, GamepadBatteryInfo)
 references:
-- uid: OpenTK.Core.Platform.IJoystickComponent
-  commentId: T:OpenTK.Core.Platform.IJoystickComponent
-  parent: OpenTK.Core.Platform
-  href: OpenTK.Core.Platform.IJoystickComponent.html
+- uid: OpenTK.Platform.IJoystickComponent
+  commentId: T:OpenTK.Platform.IJoystickComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IJoystickComponent.html
   name: IJoystickComponent
   nameWithType: IJoystickComponent
-  fullName: OpenTK.Core.Platform.IJoystickComponent
+  fullName: OpenTK.Platform.IJoystickComponent
 - uid: OpenTK.Platform.Native.Windows
   commentId: N:OpenTK.Platform.Native.Windows
   href: OpenTK.html
@@ -817,13 +733,13 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: OpenTK.Core.Platform.IPalComponent
-  commentId: T:OpenTK.Core.Platform.IPalComponent
-  parent: OpenTK.Core.Platform
-  href: OpenTK.Core.Platform.IPalComponent.html
+- uid: OpenTK.Platform.IPalComponent
+  commentId: T:OpenTK.Platform.IPalComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IPalComponent.html
   name: IPalComponent
   nameWithType: IPalComponent
-  fullName: OpenTK.Core.Platform.IPalComponent
+  fullName: OpenTK.Platform.IPalComponent
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1043,36 +959,28 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
-- uid: OpenTK.Core.Platform
-  commentId: N:OpenTK.Core.Platform
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
   href: OpenTK.html
-  name: OpenTK.Core.Platform
-  nameWithType: OpenTK.Core.Platform
-  fullName: OpenTK.Core.Platform
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
   spec.csharp:
   - uid: OpenTK
     name: OpenTK
     href: OpenTK.html
   - name: .
-  - uid: OpenTK.Core
-    name: Core
-    href: OpenTK.Core.html
-  - name: .
-  - uid: OpenTK.Core.Platform
+  - uid: OpenTK.Platform
     name: Platform
-    href: OpenTK.Core.Platform.html
+    href: OpenTK.Platform.html
   spec.vb:
   - uid: OpenTK
     name: OpenTK
     href: OpenTK.html
   - name: .
-  - uid: OpenTK.Core
-    name: Core
-    href: OpenTK.Core.html
-  - name: .
-  - uid: OpenTK.Core.Platform
+  - uid: OpenTK.Platform
     name: Platform
-    href: OpenTK.Core.Platform.html
+    href: OpenTK.Platform.html
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1086,13 +994,13 @@ references:
   name: Name
   nameWithType: JoystickComponent.Name
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Name
-- uid: OpenTK.Core.Platform.IPalComponent.Name
-  commentId: P:OpenTK.Core.Platform.IPalComponent.Name
-  parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Name
+- uid: OpenTK.Platform.IPalComponent.Name
+  commentId: P:OpenTK.Platform.IPalComponent.Name
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Name
   name: Name
   nameWithType: IPalComponent.Name
-  fullName: OpenTK.Core.Platform.IPalComponent.Name
+  fullName: OpenTK.Platform.IPalComponent.Name
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -1110,33 +1018,33 @@ references:
   name: Provides
   nameWithType: JoystickComponent.Provides
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Provides
-- uid: OpenTK.Core.Platform.IPalComponent.Provides
-  commentId: P:OpenTK.Core.Platform.IPalComponent.Provides
-  parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Provides
+- uid: OpenTK.Platform.IPalComponent.Provides
+  commentId: P:OpenTK.Platform.IPalComponent.Provides
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Provides
   name: Provides
   nameWithType: IPalComponent.Provides
-  fullName: OpenTK.Core.Platform.IPalComponent.Provides
-- uid: OpenTK.Core.Platform.PalComponents
-  commentId: T:OpenTK.Core.Platform.PalComponents
-  parent: OpenTK.Core.Platform
-  href: OpenTK.Core.Platform.PalComponents.html
+  fullName: OpenTK.Platform.IPalComponent.Provides
+- uid: OpenTK.Platform.PalComponents
+  commentId: T:OpenTK.Platform.PalComponents
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.PalComponents.html
   name: PalComponents
   nameWithType: PalComponents
-  fullName: OpenTK.Core.Platform.PalComponents
+  fullName: OpenTK.Platform.PalComponents
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.Logger
   href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_Logger
   name: Logger
   nameWithType: JoystickComponent.Logger
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Logger
-- uid: OpenTK.Core.Platform.IPalComponent.Logger
-  commentId: P:OpenTK.Core.Platform.IPalComponent.Logger
-  parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Logger
+- uid: OpenTK.Platform.IPalComponent.Logger
+  commentId: P:OpenTK.Platform.IPalComponent.Logger
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Logger
   name: Logger
   nameWithType: IPalComponent.Logger
-  fullName: OpenTK.Core.Platform.IPalComponent.Logger
+  fullName: OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Core.Utility.ILogger
   commentId: T:OpenTK.Core.Utility.ILogger
   parent: OpenTK.Core.Utility
@@ -1180,13 +1088,13 @@ references:
   name: LeftDeadzone
   nameWithType: JoystickComponent.LeftDeadzone
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.LeftDeadzone
-- uid: OpenTK.Core.Platform.IJoystickComponent.LeftDeadzone
-  commentId: P:OpenTK.Core.Platform.IJoystickComponent.LeftDeadzone
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_LeftDeadzone
+- uid: OpenTK.Platform.IJoystickComponent.LeftDeadzone
+  commentId: P:OpenTK.Platform.IJoystickComponent.LeftDeadzone
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_LeftDeadzone
   name: LeftDeadzone
   nameWithType: IJoystickComponent.LeftDeadzone
-  fullName: OpenTK.Core.Platform.IJoystickComponent.LeftDeadzone
+  fullName: OpenTK.Platform.IJoystickComponent.LeftDeadzone
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -1204,85 +1112,85 @@ references:
   name: RightDeadzone
   nameWithType: JoystickComponent.RightDeadzone
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.RightDeadzone
-- uid: OpenTK.Core.Platform.IJoystickComponent.RightDeadzone
-  commentId: P:OpenTK.Core.Platform.IJoystickComponent.RightDeadzone
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_RightDeadzone
+- uid: OpenTK.Platform.IJoystickComponent.RightDeadzone
+  commentId: P:OpenTK.Platform.IJoystickComponent.RightDeadzone
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_RightDeadzone
   name: RightDeadzone
   nameWithType: IJoystickComponent.RightDeadzone
-  fullName: OpenTK.Core.Platform.IJoystickComponent.RightDeadzone
+  fullName: OpenTK.Platform.IJoystickComponent.RightDeadzone
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold
   href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_TriggerThreshold
   name: TriggerThreshold
   nameWithType: JoystickComponent.TriggerThreshold
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold
-- uid: OpenTK.Core.Platform.IJoystickComponent.TriggerThreshold
-  commentId: P:OpenTK.Core.Platform.IJoystickComponent.TriggerThreshold
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_TriggerThreshold
+- uid: OpenTK.Platform.IJoystickComponent.TriggerThreshold
+  commentId: P:OpenTK.Platform.IJoystickComponent.TriggerThreshold
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_TriggerThreshold
   name: TriggerThreshold
   nameWithType: IJoystickComponent.TriggerThreshold
-  fullName: OpenTK.Core.Platform.IJoystickComponent.TriggerThreshold
+  fullName: OpenTK.Platform.IJoystickComponent.TriggerThreshold
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.Initialize
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_Initialize_OpenTK_Platform_ToolkitOptions_
   name: Initialize
   nameWithType: JoystickComponent.Initialize
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize
-- uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
-  commentId: M:OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
-  parent: OpenTK.Core.Platform.IPalComponent
-  href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+- uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
   name: Initialize(ToolkitOptions)
   nameWithType: IPalComponent.Initialize(ToolkitOptions)
-  fullName: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  fullName: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.ToolkitOptions
+  - uid: OpenTK.Platform.ToolkitOptions
     name: ToolkitOptions
-    href: OpenTK.Core.Platform.ToolkitOptions.html
+    href: OpenTK.Platform.ToolkitOptions.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IPalComponent.Initialize(OpenTK.Core.Platform.ToolkitOptions)
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
     name: Initialize
-    href: OpenTK.Core.Platform.IPalComponent.html#OpenTK_Core_Platform_IPalComponent_Initialize_OpenTK_Core_Platform_ToolkitOptions_
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
   - name: (
-  - uid: OpenTK.Core.Platform.ToolkitOptions
+  - uid: OpenTK.Platform.ToolkitOptions
     name: ToolkitOptions
-    href: OpenTK.Core.Platform.ToolkitOptions.html
+    href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Core.Platform.ToolkitOptions
-  commentId: T:OpenTK.Core.Platform.ToolkitOptions
-  parent: OpenTK.Core.Platform
-  href: OpenTK.Core.Platform.ToolkitOptions.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
   name: ToolkitOptions
   nameWithType: ToolkitOptions
-  fullName: OpenTK.Core.Platform.ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected
   href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_IsConnected_System_Int32_
   name: IsConnected
   nameWithType: JoystickComponent.IsConnected
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected
-- uid: OpenTK.Core.Platform.IJoystickComponent.IsConnected(System.Int32)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.IsConnected(System.Int32)
-  parent: OpenTK.Core.Platform.IJoystickComponent
+- uid: OpenTK.Platform.IJoystickComponent.IsConnected(System.Int32)
+  commentId: M:OpenTK.Platform.IJoystickComponent.IsConnected(System.Int32)
+  parent: OpenTK.Platform.IJoystickComponent
   isExternal: true
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_IsConnected_System_Int32_
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_IsConnected_System_Int32_
   name: IsConnected(int)
   nameWithType: IJoystickComponent.IsConnected(int)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.IsConnected(int)
+  fullName: OpenTK.Platform.IJoystickComponent.IsConnected(int)
   nameWithType.vb: IJoystickComponent.IsConnected(Integer)
-  fullName.vb: OpenTK.Core.Platform.IJoystickComponent.IsConnected(Integer)
+  fullName.vb: OpenTK.Platform.IJoystickComponent.IsConnected(Integer)
   name.vb: IsConnected(Integer)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.IsConnected(System.Int32)
+  - uid: OpenTK.Platform.IJoystickComponent.IsConnected(System.Int32)
     name: IsConnected
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_IsConnected_System_Int32_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_IsConnected_System_Int32_
   - name: (
   - uid: System.Int32
     name: int
@@ -1290,9 +1198,9 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.IsConnected(System.Int32)
+  - uid: OpenTK.Platform.IJoystickComponent.IsConnected(System.Int32)
     name: IsConnected
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_IsConnected_System_Int32_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_IsConnected_System_Int32_
   - name: (
   - uid: System.Int32
     name: Integer
@@ -1327,21 +1235,21 @@ references:
   name: Open
   nameWithType: JoystickComponent.Open
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Open
-- uid: OpenTK.Core.Platform.IJoystickComponent.Open(System.Int32)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.Open(System.Int32)
-  parent: OpenTK.Core.Platform.IJoystickComponent
+- uid: OpenTK.Platform.IJoystickComponent.Open(System.Int32)
+  commentId: M:OpenTK.Platform.IJoystickComponent.Open(System.Int32)
+  parent: OpenTK.Platform.IJoystickComponent
   isExternal: true
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_Open_System_Int32_
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_Open_System_Int32_
   name: Open(int)
   nameWithType: IJoystickComponent.Open(int)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.Open(int)
+  fullName: OpenTK.Platform.IJoystickComponent.Open(int)
   nameWithType.vb: IJoystickComponent.Open(Integer)
-  fullName.vb: OpenTK.Core.Platform.IJoystickComponent.Open(Integer)
+  fullName.vb: OpenTK.Platform.IJoystickComponent.Open(Integer)
   name.vb: Open(Integer)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.Open(System.Int32)
+  - uid: OpenTK.Platform.IJoystickComponent.Open(System.Int32)
     name: Open
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_Open_System_Int32_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_Open_System_Int32_
   - name: (
   - uid: System.Int32
     name: int
@@ -1349,89 +1257,89 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.Open(System.Int32)
+  - uid: OpenTK.Platform.IJoystickComponent.Open(System.Int32)
     name: Open
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_Open_System_Int32_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_Open_System_Int32_
   - name: (
   - uid: System.Int32
     name: Integer
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: OpenTK.Core.Platform.JoystickHandle
-  commentId: T:OpenTK.Core.Platform.JoystickHandle
-  parent: OpenTK.Core.Platform
-  href: OpenTK.Core.Platform.JoystickHandle.html
+- uid: OpenTK.Platform.JoystickHandle
+  commentId: T:OpenTK.Platform.JoystickHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.JoystickHandle.html
   name: JoystickHandle
   nameWithType: JoystickHandle
-  fullName: OpenTK.Core.Platform.JoystickHandle
+  fullName: OpenTK.Platform.JoystickHandle
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.Close*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.Close
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_Close_OpenTK_Core_Platform_JoystickHandle_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_Close_OpenTK_Platform_JoystickHandle_
   name: Close
   nameWithType: JoystickComponent.Close
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Close
-- uid: OpenTK.Core.Platform.IJoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_Close_OpenTK_Core_Platform_JoystickHandle_
+- uid: OpenTK.Platform.IJoystickComponent.Close(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.IJoystickComponent.Close(OpenTK.Platform.JoystickHandle)
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_Close_OpenTK_Platform_JoystickHandle_
   name: Close(JoystickHandle)
   nameWithType: IJoystickComponent.Close(JoystickHandle)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.IJoystickComponent.Close(OpenTK.Platform.JoystickHandle)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
+  - uid: OpenTK.Platform.IJoystickComponent.Close(OpenTK.Platform.JoystickHandle)
     name: Close
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_Close_OpenTK_Core_Platform_JoystickHandle_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_Close_OpenTK_Platform_JoystickHandle_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.Close(OpenTK.Core.Platform.JoystickHandle)
+  - uid: OpenTK.Platform.IJoystickComponent.Close(OpenTK.Platform.JoystickHandle)
     name: Close
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_Close_OpenTK_Core_Platform_JoystickHandle_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_Close_OpenTK_Platform_JoystickHandle_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: )
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_SupportsVibration_OpenTK_Core_Platform_JoystickHandle_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_SupportsVibration_OpenTK_Platform_JoystickHandle_
   name: SupportsVibration
   nameWithType: JoystickComponent.SupportsVibration
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetGuid_OpenTK_Core_Platform_JoystickHandle_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetGuid_OpenTK_Platform_JoystickHandle_
   name: GetGuid
   nameWithType: JoystickComponent.GetGuid
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetGuid
-- uid: OpenTK.Core.Platform.IJoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetGuid_OpenTK_Core_Platform_JoystickHandle_
+- uid: OpenTK.Platform.IJoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.IJoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetGuid_OpenTK_Platform_JoystickHandle_
   name: GetGuid(JoystickHandle)
   nameWithType: IJoystickComponent.GetGuid(JoystickHandle)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.IJoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
+  - uid: OpenTK.Platform.IJoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
     name: GetGuid
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetGuid_OpenTK_Core_Platform_JoystickHandle_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetGuid_OpenTK_Platform_JoystickHandle_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.GetGuid(OpenTK.Core.Platform.JoystickHandle)
+  - uid: OpenTK.Platform.IJoystickComponent.GetGuid(OpenTK.Platform.JoystickHandle)
     name: GetGuid
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetGuid_OpenTK_Core_Platform_JoystickHandle_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetGuid_OpenTK_Platform_JoystickHandle_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: )
 - uid: System.Guid
   commentId: T:System.Guid
@@ -1443,174 +1351,174 @@ references:
   fullName: System.Guid
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetName*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.GetName
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetName_OpenTK_Core_Platform_JoystickHandle_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetName_OpenTK_Platform_JoystickHandle_
   name: GetName
   nameWithType: JoystickComponent.GetName
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetName
-- uid: OpenTK.Core.Platform.IJoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetName_OpenTK_Core_Platform_JoystickHandle_
+- uid: OpenTK.Platform.IJoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
+  commentId: M:OpenTK.Platform.IJoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetName_OpenTK_Platform_JoystickHandle_
   name: GetName(JoystickHandle)
   nameWithType: IJoystickComponent.GetName(JoystickHandle)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
+  fullName: OpenTK.Platform.IJoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
+  - uid: OpenTK.Platform.IJoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
     name: GetName
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetName_OpenTK_Core_Platform_JoystickHandle_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetName_OpenTK_Platform_JoystickHandle_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.GetName(OpenTK.Core.Platform.JoystickHandle)
+  - uid: OpenTK.Platform.IJoystickComponent.GetName(OpenTK.Platform.JoystickHandle)
     name: GetName
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetName_OpenTK_Core_Platform_JoystickHandle_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetName_OpenTK_Platform_JoystickHandle_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: )
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetNumberOfButtons_OpenTK_Core_Platform_JoystickHandle_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetNumberOfButtons_OpenTK_Platform_JoystickHandle_
   name: GetNumberOfButtons
   nameWithType: JoystickComponent.GetNumberOfButtons
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfButtons
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetNumberOfAxes_OpenTK_Core_Platform_JoystickHandle_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetNumberOfAxes_OpenTK_Platform_JoystickHandle_
   name: GetNumberOfAxes
   nameWithType: JoystickComponent.GetNumberOfAxes
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetNumberOfAxes
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_SupportsForceFeedback_OpenTK_Core_Platform_JoystickHandle_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_SupportsForceFeedback_OpenTK_Platform_JoystickHandle_
   name: SupportsForceFeedback
   nameWithType: JoystickComponent.SupportsForceFeedback
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SupportsForceFeedback
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetAxis_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_JoystickAxis_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetAxis_OpenTK_Platform_JoystickHandle_OpenTK_Platform_JoystickAxis_
   name: GetAxis
   nameWithType: JoystickComponent.GetAxis
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetAxis
-- uid: OpenTK.Core.Platform.IJoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetAxis_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_JoystickAxis_
+- uid: OpenTK.Platform.IJoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
+  commentId: M:OpenTK.Platform.IJoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetAxis_OpenTK_Platform_JoystickHandle_OpenTK_Platform_JoystickAxis_
   name: GetAxis(JoystickHandle, JoystickAxis)
   nameWithType: IJoystickComponent.GetAxis(JoystickHandle, JoystickAxis)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle, OpenTK.Core.Platform.JoystickAxis)
+  fullName: OpenTK.Platform.IJoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle, OpenTK.Platform.JoystickAxis)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
+  - uid: OpenTK.Platform.IJoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
     name: GetAxis
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetAxis_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_JoystickAxis_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetAxis_OpenTK_Platform_JoystickHandle_OpenTK_Platform_JoystickAxis_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: ','
   - name: " "
-  - uid: OpenTK.Core.Platform.JoystickAxis
+  - uid: OpenTK.Platform.JoystickAxis
     name: JoystickAxis
-    href: OpenTK.Core.Platform.JoystickAxis.html
+    href: OpenTK.Platform.JoystickAxis.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.GetAxis(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickAxis)
+  - uid: OpenTK.Platform.IJoystickComponent.GetAxis(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickAxis)
     name: GetAxis
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetAxis_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_JoystickAxis_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetAxis_OpenTK_Platform_JoystickHandle_OpenTK_Platform_JoystickAxis_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: ','
   - name: " "
-  - uid: OpenTK.Core.Platform.JoystickAxis
+  - uid: OpenTK.Platform.JoystickAxis
     name: JoystickAxis
-    href: OpenTK.Core.Platform.JoystickAxis.html
+    href: OpenTK.Platform.JoystickAxis.html
   - name: )
-- uid: OpenTK.Core.Platform.JoystickAxis
-  commentId: T:OpenTK.Core.Platform.JoystickAxis
-  parent: OpenTK.Core.Platform
-  href: OpenTK.Core.Platform.JoystickAxis.html
+- uid: OpenTK.Platform.JoystickAxis
+  commentId: T:OpenTK.Platform.JoystickAxis
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.JoystickAxis.html
   name: JoystickAxis
   nameWithType: JoystickAxis
-  fullName: OpenTK.Core.Platform.JoystickAxis
+  fullName: OpenTK.Platform.JoystickAxis
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.GetButton*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.GetButton
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetButton_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_JoystickButton_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_GetButton_OpenTK_Platform_JoystickHandle_OpenTK_Platform_JoystickButton_
   name: GetButton
   nameWithType: JoystickComponent.GetButton
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.GetButton
-- uid: OpenTK.Core.Platform.IJoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetButton_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_JoystickButton_
+- uid: OpenTK.Platform.IJoystickComponent.GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
+  commentId: M:OpenTK.Platform.IJoystickComponent.GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetButton_OpenTK_Platform_JoystickHandle_OpenTK_Platform_JoystickButton_
   name: GetButton(JoystickHandle, JoystickButton)
   nameWithType: IJoystickComponent.GetButton(JoystickHandle, JoystickButton)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle, OpenTK.Core.Platform.JoystickButton)
+  fullName: OpenTK.Platform.IJoystickComponent.GetButton(OpenTK.Platform.JoystickHandle, OpenTK.Platform.JoystickButton)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
+  - uid: OpenTK.Platform.IJoystickComponent.GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
     name: GetButton
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetButton_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_JoystickButton_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetButton_OpenTK_Platform_JoystickHandle_OpenTK_Platform_JoystickButton_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: ','
   - name: " "
-  - uid: OpenTK.Core.Platform.JoystickButton
+  - uid: OpenTK.Platform.JoystickButton
     name: JoystickButton
-    href: OpenTK.Core.Platform.JoystickButton.html
+    href: OpenTK.Platform.JoystickButton.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.GetButton(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.JoystickButton)
+  - uid: OpenTK.Platform.IJoystickComponent.GetButton(OpenTK.Platform.JoystickHandle,OpenTK.Platform.JoystickButton)
     name: GetButton
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_GetButton_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_JoystickButton_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_GetButton_OpenTK_Platform_JoystickHandle_OpenTK_Platform_JoystickButton_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: ','
   - name: " "
-  - uid: OpenTK.Core.Platform.JoystickButton
+  - uid: OpenTK.Platform.JoystickButton
     name: JoystickButton
-    href: OpenTK.Core.Platform.JoystickButton.html
+    href: OpenTK.Platform.JoystickButton.html
   - name: )
-- uid: OpenTK.Core.Platform.JoystickButton
-  commentId: T:OpenTK.Core.Platform.JoystickButton
-  parent: OpenTK.Core.Platform
-  href: OpenTK.Core.Platform.JoystickButton.html
+- uid: OpenTK.Platform.JoystickButton
+  commentId: T:OpenTK.Platform.JoystickButton
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.JoystickButton.html
   name: JoystickButton
   nameWithType: JoystickButton
-  fullName: OpenTK.Core.Platform.JoystickButton
+  fullName: OpenTK.Platform.JoystickButton
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_SetVibration_OpenTK_Core_Platform_JoystickHandle_System_Single_System_Single_
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_SetVibration_OpenTK_Platform_JoystickHandle_System_Single_System_Single_
   name: SetVibration
   nameWithType: JoystickComponent.SetVibration
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.SetVibration
-- uid: OpenTK.Core.Platform.IJoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
-  parent: OpenTK.Core.Platform.IJoystickComponent
+- uid: OpenTK.Platform.IJoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
+  commentId: M:OpenTK.Platform.IJoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
+  parent: OpenTK.Platform.IJoystickComponent
   isExternal: true
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_SetVibration_OpenTK_Core_Platform_JoystickHandle_System_Single_System_Single_
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_SetVibration_OpenTK_Platform_JoystickHandle_System_Single_System_Single_
   name: SetVibration(JoystickHandle, float, float)
   nameWithType: IJoystickComponent.SetVibration(JoystickHandle, float, float)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle, float, float)
+  fullName: OpenTK.Platform.IJoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle, float, float)
   nameWithType.vb: IJoystickComponent.SetVibration(JoystickHandle, Single, Single)
-  fullName.vb: OpenTK.Core.Platform.IJoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle, Single, Single)
+  fullName.vb: OpenTK.Platform.IJoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle, Single, Single)
   name.vb: SetVibration(JoystickHandle, Single, Single)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
+  - uid: OpenTK.Platform.IJoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
     name: SetVibration
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_SetVibration_OpenTK_Core_Platform_JoystickHandle_System_Single_System_Single_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_SetVibration_OpenTK_Platform_JoystickHandle_System_Single_System_Single_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: ','
   - name: " "
   - uid: System.Single
@@ -1625,13 +1533,13 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.single
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.SetVibration(OpenTK.Core.Platform.JoystickHandle,System.Single,System.Single)
+  - uid: OpenTK.Platform.IJoystickComponent.SetVibration(OpenTK.Platform.JoystickHandle,System.Single,System.Single)
     name: SetVibration
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_SetVibration_OpenTK_Core_Platform_JoystickHandle_System_Single_System_Single_
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_SetVibration_OpenTK_Platform_JoystickHandle_System_Single_System_Single_
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: ','
   - name: " "
   - uid: System.Single
@@ -1647,54 +1555,54 @@ references:
   - name: )
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo
-  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_TryGetBatteryInfo_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_GamepadBatteryInfo__
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_TryGetBatteryInfo_OpenTK_Platform_JoystickHandle_OpenTK_Platform_GamepadBatteryInfo__
   name: TryGetBatteryInfo
   nameWithType: JoystickComponent.TryGetBatteryInfo
   fullName: OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo
-- uid: OpenTK.Core.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
-  commentId: M:OpenTK.Core.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
-  parent: OpenTK.Core.Platform.IJoystickComponent
-  href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_TryGetBatteryInfo_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_GamepadBatteryInfo__
+- uid: OpenTK.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
+  commentId: M:OpenTK.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
+  parent: OpenTK.Platform.IJoystickComponent
+  href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_TryGetBatteryInfo_OpenTK_Platform_JoystickHandle_OpenTK_Platform_GamepadBatteryInfo__
   name: TryGetBatteryInfo(JoystickHandle, out GamepadBatteryInfo)
   nameWithType: IJoystickComponent.TryGetBatteryInfo(JoystickHandle, out GamepadBatteryInfo)
-  fullName: OpenTK.Core.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle, out OpenTK.Core.Platform.GamepadBatteryInfo)
+  fullName: OpenTK.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle, out OpenTK.Platform.GamepadBatteryInfo)
   nameWithType.vb: IJoystickComponent.TryGetBatteryInfo(JoystickHandle, GamepadBatteryInfo)
-  fullName.vb: OpenTK.Core.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle, OpenTK.Core.Platform.GamepadBatteryInfo)
+  fullName.vb: OpenTK.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle, OpenTK.Platform.GamepadBatteryInfo)
   name.vb: TryGetBatteryInfo(JoystickHandle, GamepadBatteryInfo)
   spec.csharp:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
+  - uid: OpenTK.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
     name: TryGetBatteryInfo
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_TryGetBatteryInfo_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_GamepadBatteryInfo__
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_TryGetBatteryInfo_OpenTK_Platform_JoystickHandle_OpenTK_Platform_GamepadBatteryInfo__
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: ','
   - name: " "
   - name: out
   - name: " "
-  - uid: OpenTK.Core.Platform.GamepadBatteryInfo
+  - uid: OpenTK.Platform.GamepadBatteryInfo
     name: GamepadBatteryInfo
-    href: OpenTK.Core.Platform.GamepadBatteryInfo.html
+    href: OpenTK.Platform.GamepadBatteryInfo.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Core.Platform.JoystickHandle,OpenTK.Core.Platform.GamepadBatteryInfo@)
+  - uid: OpenTK.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
     name: TryGetBatteryInfo
-    href: OpenTK.Core.Platform.IJoystickComponent.html#OpenTK_Core_Platform_IJoystickComponent_TryGetBatteryInfo_OpenTK_Core_Platform_JoystickHandle_OpenTK_Core_Platform_GamepadBatteryInfo__
+    href: OpenTK.Platform.IJoystickComponent.html#OpenTK_Platform_IJoystickComponent_TryGetBatteryInfo_OpenTK_Platform_JoystickHandle_OpenTK_Platform_GamepadBatteryInfo__
   - name: (
-  - uid: OpenTK.Core.Platform.JoystickHandle
+  - uid: OpenTK.Platform.JoystickHandle
     name: JoystickHandle
-    href: OpenTK.Core.Platform.JoystickHandle.html
+    href: OpenTK.Platform.JoystickHandle.html
   - name: ','
   - name: " "
-  - uid: OpenTK.Core.Platform.GamepadBatteryInfo
+  - uid: OpenTK.Platform.GamepadBatteryInfo
     name: GamepadBatteryInfo
-    href: OpenTK.Core.Platform.GamepadBatteryInfo.html
+    href: OpenTK.Platform.GamepadBatteryInfo.html
   - name: )
-- uid: OpenTK.Core.Platform.GamepadBatteryInfo
-  commentId: T:OpenTK.Core.Platform.GamepadBatteryInfo
-  parent: OpenTK.Core.Platform
-  href: OpenTK.Core.Platform.GamepadBatteryInfo.html
+- uid: OpenTK.Platform.GamepadBatteryInfo
+  commentId: T:OpenTK.Platform.GamepadBatteryInfo
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.GamepadBatteryInfo.html
   name: GamepadBatteryInfo
   nameWithType: GamepadBatteryInfo
-  fullName: OpenTK.Core.Platform.GamepadBatteryInfo
+  fullName: OpenTK.Platform.GamepadBatteryInfo

@@ -7,8 +7,12 @@ items:
   children:
   - OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32*)
   - OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
+  - OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32[])
+  - OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.ReadOnlySpan{System.Int32})
   - OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte*)
   - OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte@)
+  - OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte[])
+  - OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.ReadOnlySpan{System.Byte})
   langs:
   - csharp
   - vb
@@ -17,13 +21,9 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.ARB
   type: Class
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: ARB
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 221
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 573
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -54,17 +54,18 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, bool, int*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CreateContextAttribsARB
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Native.cs
     startLine: 163
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
-  summary: '<b>[requires: GLX_ARB_create_context]</b> <b>[entry point: <code>glXCreateContextAttribsARB</code>]</b><br />'
+  summary: >-
+    <b>[requires: GLX_ARB_create_context]</b>
+
+    <b>[entry point: <code>glXCreateContextAttribsARB</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static GLXContext CreateContextAttribsARB(DisplayPtr dpy, GLXFBConfig config, GLXContext share_context, bool direct, int* attrib_list)
@@ -98,17 +99,18 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(byte*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetProcAddressARB
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Native.cs
     startLine: 166
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
-  summary: '<b>[requires: GLX_ARB_get_proc_address]</b> <b>[entry point: <code>glXGetProcAddressARB</code>]</b><br />'
+  summary: >-
+    <b>[requires: GLX_ARB_get_proc_address]</b>
+
+    <b>[entry point: <code>glXGetProcAddressARB</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static nint GetProcAddressARB(byte* procName)
@@ -122,6 +124,96 @@ items:
   nameWithType.vb: Glx.ARB.GetProcAddressARB(Byte*)
   fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(Byte*)
   name.vb: GetProcAddressARB(Byte*)
+- uid: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.ReadOnlySpan{System.Int32})
+  commentId: M:OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.ReadOnlySpan{System.Int32})
+  id: CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.ReadOnlySpan{System.Int32})
+  parent: OpenTK.Graphics.Glx.Glx.ARB
+  langs:
+  - csharp
+  - vb
+  name: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, bool, ReadOnlySpan<int>)
+  nameWithType: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, bool, ReadOnlySpan<int>)
+  fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, bool, System.ReadOnlySpan<int>)
+  type: Method
+  source:
+    id: CreateContextAttribsARB
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 576
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: >-
+    <b>[requires: GLX_ARB_create_context]</b>
+
+    <b>[entry point: <code>glXCreateContextAttribsARB</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static GLXContext CreateContextAttribsARB(DisplayPtr dpy, GLXFBConfig config, GLXContext share_context, bool direct, ReadOnlySpan<int> attrib_list)
+    parameters:
+    - id: dpy
+      type: OpenTK.Graphics.Glx.DisplayPtr
+    - id: config
+      type: OpenTK.Graphics.Glx.GLXFBConfig
+    - id: share_context
+      type: OpenTK.Graphics.Glx.GLXContext
+    - id: direct
+      type: System.Boolean
+    - id: attrib_list
+      type: System.ReadOnlySpan{System.Int32}
+    return:
+      type: OpenTK.Graphics.Glx.GLXContext
+    content.vb: Public Shared Function CreateContextAttribsARB(dpy As DisplayPtr, config As GLXFBConfig, share_context As GLXContext, direct As Boolean, attrib_list As ReadOnlySpan(Of Integer)) As GLXContext
+  overload: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB*
+  nameWithType.vb: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, ReadOnlySpan(Of Integer))
+  fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, Boolean, System.ReadOnlySpan(Of Integer))
+  name.vb: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, ReadOnlySpan(Of Integer))
+- uid: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32[])
+  commentId: M:OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32[])
+  id: CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32[])
+  parent: OpenTK.Graphics.Glx.Glx.ARB
+  langs:
+  - csharp
+  - vb
+  name: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, bool, int[])
+  nameWithType: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, bool, int[])
+  fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, bool, int[])
+  type: Method
+  source:
+    id: CreateContextAttribsARB
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 586
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: >-
+    <b>[requires: GLX_ARB_create_context]</b>
+
+    <b>[entry point: <code>glXCreateContextAttribsARB</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static GLXContext CreateContextAttribsARB(DisplayPtr dpy, GLXFBConfig config, GLXContext share_context, bool direct, int[] attrib_list)
+    parameters:
+    - id: dpy
+      type: OpenTK.Graphics.Glx.DisplayPtr
+    - id: config
+      type: OpenTK.Graphics.Glx.GLXFBConfig
+    - id: share_context
+      type: OpenTK.Graphics.Glx.GLXContext
+    - id: direct
+      type: System.Boolean
+    - id: attrib_list
+      type: System.Int32[]
+    return:
+      type: OpenTK.Graphics.Glx.GLXContext
+    content.vb: Public Shared Function CreateContextAttribsARB(dpy As DisplayPtr, config As GLXFBConfig, share_context As GLXContext, direct As Boolean, attrib_list As Integer()) As GLXContext
+  overload: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB*
+  nameWithType.vb: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, Integer())
+  fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, Boolean, Integer())
+  name.vb: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, Integer())
 - uid: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
   commentId: M:OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
   id: CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXFBConfig,OpenTK.Graphics.Glx.GLXContext,System.Boolean,System.Int32@)
@@ -134,13 +226,9 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, bool, in int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CreateContextAttribsARB
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 224
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 596
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -171,6 +259,80 @@ items:
   nameWithType.vb: Glx.ARB.CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, Integer)
   fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.CreateContextAttribsARB(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXFBConfig, OpenTK.Graphics.Glx.GLXContext, Boolean, Integer)
   name.vb: CreateContextAttribsARB(DisplayPtr, GLXFBConfig, GLXContext, Boolean, Integer)
+- uid: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.ReadOnlySpan{System.Byte})
+  commentId: M:OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.ReadOnlySpan{System.Byte})
+  id: GetProcAddressARB(System.ReadOnlySpan{System.Byte})
+  parent: OpenTK.Graphics.Glx.Glx.ARB
+  langs:
+  - csharp
+  - vb
+  name: GetProcAddressARB(ReadOnlySpan<byte>)
+  nameWithType: Glx.ARB.GetProcAddressARB(ReadOnlySpan<byte>)
+  fullName: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.ReadOnlySpan<byte>)
+  type: Method
+  source:
+    id: GetProcAddressARB
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 606
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: >-
+    <b>[requires: GLX_ARB_get_proc_address]</b>
+
+    <b>[entry point: <code>glXGetProcAddressARB</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static nint GetProcAddressARB(ReadOnlySpan<byte> procName)
+    parameters:
+    - id: procName
+      type: System.ReadOnlySpan{System.Byte}
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Function GetProcAddressARB(procName As ReadOnlySpan(Of Byte)) As IntPtr
+  overload: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB*
+  nameWithType.vb: Glx.ARB.GetProcAddressARB(ReadOnlySpan(Of Byte))
+  fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.ReadOnlySpan(Of Byte))
+  name.vb: GetProcAddressARB(ReadOnlySpan(Of Byte))
+- uid: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte[])
+  commentId: M:OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte[])
+  id: GetProcAddressARB(System.Byte[])
+  parent: OpenTK.Graphics.Glx.Glx.ARB
+  langs:
+  - csharp
+  - vb
+  name: GetProcAddressARB(byte[])
+  nameWithType: Glx.ARB.GetProcAddressARB(byte[])
+  fullName: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(byte[])
+  type: Method
+  source:
+    id: GetProcAddressARB
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 616
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: >-
+    <b>[requires: GLX_ARB_get_proc_address]</b>
+
+    <b>[entry point: <code>glXGetProcAddressARB</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static nint GetProcAddressARB(byte[] procName)
+    parameters:
+    - id: procName
+      type: System.Byte[]
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Function GetProcAddressARB(procName As Byte()) As IntPtr
+  overload: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB*
+  nameWithType.vb: Glx.ARB.GetProcAddressARB(Byte())
+  fullName.vb: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(Byte())
+  name.vb: GetProcAddressARB(Byte())
 - uid: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte@)
   commentId: M:OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(System.Byte@)
   id: GetProcAddressARB(System.Byte@)
@@ -183,13 +345,9 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.ARB.GetProcAddressARB(in byte)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetProcAddressARB
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 234
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 626
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -577,6 +735,92 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
+- uid: System.ReadOnlySpan{System.Int32}
+  commentId: T:System.ReadOnlySpan{System.Int32}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<int>
+  nameWithType: ReadOnlySpan<int>
+  fullName: System.ReadOnlySpan<int>
+  nameWithType.vb: ReadOnlySpan(Of Integer)
+  fullName.vb: System.ReadOnlySpan(Of Integer)
+  name.vb: ReadOnlySpan(Of Integer)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -588,6 +832,64 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
 - uid: System.Byte
   commentId: T:System.Byte
   parent: System

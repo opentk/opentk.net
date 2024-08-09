@@ -7,12 +7,14 @@ items:
   children:
   - OpenTK.Graphics.Wgl.Wgl.EXT.BindDisplayColorTableEXT(System.UInt16)
   - OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32*,System.Single*,System.UInt32,System.Int32*,System.UInt32*)
-  - OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.Int32[],System.UInt32[])
-  - OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.Span{System.Int32},System.Span{System.UInt32})
   - OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.UInt32,System.Int32@,System.UInt32@)
+  - OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32[],System.Single[],System.UInt32,System.Int32[],System.UInt32@)
+  - OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.ReadOnlySpan{System.Int32},System.ReadOnlySpan{System.Single},System.UInt32,System.Span{System.Int32},System.UInt32@)
   - OpenTK.Graphics.Wgl.Wgl.EXT.CreateDisplayColorTableEXT(System.UInt16)
   - OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32*)
   - OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32@)
+  - OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32[])
+  - OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.ReadOnlySpan{System.Int32})
   - OpenTK.Graphics.Wgl.Wgl.EXT.DestroyDisplayColorTableEXT(System.UInt16)
   - OpenTK.Graphics.Wgl.Wgl.EXT.DestroyPbufferEXT(System.IntPtr)
   - OpenTK.Graphics.Wgl.Wgl.EXT.DestroyPbufferEXT_(System.IntPtr)
@@ -29,16 +31,14 @@ items:
   - OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribivEXT(System.IntPtr,System.Int32,System.Int32,System.UInt32,OpenTK.Graphics.Wgl.PixelFormatAttribute[],System.Int32[])
   - OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribivEXT(System.IntPtr,System.Int32,System.Int32,System.UInt32,System.Span{OpenTK.Graphics.Wgl.PixelFormatAttribute},System.Span{System.Int32})
   - OpenTK.Graphics.Wgl.Wgl.EXT.GetSwapIntervalEXT
-  - OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan{System.UInt16})
+  - OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan{System.UInt16},System.UInt32)
   - OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16*,System.UInt32)
   - OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16@,System.UInt32)
-  - OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16[])
+  - OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16[],System.UInt32)
   - OpenTK.Graphics.Wgl.Wgl.EXT.MakeContextCurrentEXT(System.IntPtr,System.IntPtr,System.IntPtr)
   - OpenTK.Graphics.Wgl.Wgl.EXT.MakeContextCurrentEXT_(System.IntPtr,System.IntPtr,System.IntPtr)
   - OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32*)
   - OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32@)
-  - OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32[])
-  - OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Span{System.Int32})
   - OpenTK.Graphics.Wgl.Wgl.EXT.ReleasePbufferDCEXT(System.IntPtr,System.IntPtr)
   - OpenTK.Graphics.Wgl.Wgl.EXT.SwapIntervalEXT(System.Int32)
   - OpenTK.Graphics.Wgl.Wgl.EXT.SwapIntervalEXT_(System.Int32)
@@ -50,13 +50,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT
   type: Class
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: EXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 780
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 704
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -87,17 +83,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.BindDisplayColorTableEXT(ushort)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: BindDisplayColorTableEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 192
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_display_color_table]</b> <b>[entry point: <code>wglBindDisplayColorTableEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_display_color_table]</b>
+
+    <b>[entry point: <code>wglBindDisplayColorTableEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static bool BindDisplayColorTableEXT(ushort id)
@@ -123,17 +120,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(nint, int*, float*, uint, int*, uint*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: ChoosePixelFormatEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 195
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_pixel_format]</b> <b>[entry point: <code>wglChoosePixelFormatEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_pixel_format]</b>
+
+    <b>[entry point: <code>wglChoosePixelFormatEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int ChoosePixelFormatEXT(nint hdc, int* piAttribIList, float* pfAttribFList, uint nMaxFormats, int* piFormats, uint* nNumFormats)
@@ -169,17 +167,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.CreateDisplayColorTableEXT(ushort)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CreateDisplayColorTableEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 198
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_display_color_table]</b> <b>[entry point: <code>wglCreateDisplayColorTableEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_display_color_table]</b>
+
+    <b>[entry point: <code>wglCreateDisplayColorTableEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static bool CreateDisplayColorTableEXT(ushort id)
@@ -205,17 +204,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(nint, int, int, int, int*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CreatePbufferEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 201
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_pbuffer]</b> <b>[entry point: <code>wglCreatePbufferEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_pbuffer]</b>
+
+    <b>[entry point: <code>wglCreatePbufferEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static nint CreatePbufferEXT(nint hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList)
@@ -249,17 +249,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.DestroyDisplayColorTableEXT(ushort)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: DestroyDisplayColorTableEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 204
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_display_color_table]</b> <b>[entry point: <code>wglDestroyDisplayColorTableEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_display_color_table]</b>
+
+    <b>[entry point: <code>wglDestroyDisplayColorTableEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static void DestroyDisplayColorTableEXT(ushort id)
@@ -283,17 +284,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.DestroyPbufferEXT_(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: DestroyPbufferEXT_
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 207
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_pbuffer]</b> <b>[entry point: <code>wglDestroyPbufferEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_pbuffer]</b>
+
+    <b>[entry point: <code>wglDestroyPbufferEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int DestroyPbufferEXT_(nint hPbuffer)
@@ -319,17 +321,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetCurrentReadDCEXT()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetCurrentReadDCEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 210
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_make_current_read]</b> <b>[entry point: <code>wglGetCurrentReadDCEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_make_current_read]</b>
+
+    <b>[entry point: <code>wglGetCurrentReadDCEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static nint GetCurrentReadDCEXT()
@@ -349,17 +352,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetExtensionsStringEXT_()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetExtensionsStringEXT_
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 213
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_extensions_string]</b> <b>[entry point: <code>wglGetExtensionsStringEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_extensions_string]</b>
+
+    <b>[entry point: <code>wglGetExtensionsStringEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static byte* GetExtensionsStringEXT_()
@@ -379,17 +383,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPbufferDCEXT(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPbufferDCEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 216
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_pbuffer]</b> <b>[entry point: <code>wglGetPbufferDCEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_pbuffer]</b>
+
+    <b>[entry point: <code>wglGetPbufferDCEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static nint GetPbufferDCEXT(nint hPbuffer)
@@ -415,17 +420,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribfvEXT(nint, int, int, uint, OpenTK.Graphics.Wgl.PixelFormatAttribute*, float*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPixelFormatAttribfvEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 219
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_pixel_format]</b> <b>[entry point: <code>wglGetPixelFormatAttribfvEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_pixel_format]</b>
+
+    <b>[entry point: <code>wglGetPixelFormatAttribfvEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int GetPixelFormatAttribfvEXT(nint hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, PixelFormatAttribute* piAttributes, float* pfValues)
@@ -461,17 +467,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribivEXT(nint, int, int, uint, OpenTK.Graphics.Wgl.PixelFormatAttribute*, int*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPixelFormatAttribivEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 222
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_pixel_format]</b> <b>[entry point: <code>wglGetPixelFormatAttribivEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_pixel_format]</b>
+
+    <b>[entry point: <code>wglGetPixelFormatAttribivEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int GetPixelFormatAttribivEXT(nint hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, PixelFormatAttribute* piAttributes, int* piValues)
@@ -507,17 +514,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetSwapIntervalEXT()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetSwapIntervalEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 225
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_swap_control]</b> <b>[entry point: <code>wglGetSwapIntervalEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_swap_control]</b>
+
+    <b>[entry point: <code>wglGetSwapIntervalEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int GetSwapIntervalEXT()
@@ -537,17 +545,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(ushort*, uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: LoadDisplayColorTableEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 228
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_display_color_table]</b> <b>[entry point: <code>wglLoadDisplayColorTableEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_display_color_table]</b>
+
+    <b>[entry point: <code>wglLoadDisplayColorTableEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static bool LoadDisplayColorTableEXT(ushort* table, uint length)
@@ -575,17 +584,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.MakeContextCurrentEXT_(nint, nint, nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: MakeContextCurrentEXT_
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 231
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_make_current_read]</b> <b>[entry point: <code>wglMakeContextCurrentEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_make_current_read]</b>
+
+    <b>[entry point: <code>wglMakeContextCurrentEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int MakeContextCurrentEXT_(nint hDrawDC, nint hReadDC, nint hglrc)
@@ -615,17 +625,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(nint, OpenTK.Graphics.Wgl.PBufferAttribute, int*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: QueryPbufferEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 234
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_pbuffer]</b> <b>[entry point: <code>wglQueryPbufferEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_pbuffer]</b>
+
+    <b>[entry point: <code>wglQueryPbufferEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int QueryPbufferEXT(nint hPbuffer, PBufferAttribute iAttribute, int* piValue)
@@ -655,17 +666,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.ReleasePbufferDCEXT(nint, nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: ReleasePbufferDCEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 237
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_pbuffer]</b> <b>[entry point: <code>wglReleasePbufferDCEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_pbuffer]</b>
+
+    <b>[entry point: <code>wglReleasePbufferDCEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int ReleasePbufferDCEXT(nint hPbuffer, nint hDC)
@@ -693,17 +705,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.SwapIntervalEXT_(int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: SwapIntervalEXT_
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 240
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_EXT_swap_control]</b> <b>[entry point: <code>wglSwapIntervalEXT</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_EXT_swap_control]</b>
+
+    <b>[entry point: <code>wglSwapIntervalEXT</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int SwapIntervalEXT_(int interval)
@@ -717,25 +730,21 @@ items:
   nameWithType.vb: Wgl.EXT.SwapIntervalEXT_(Integer)
   fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.SwapIntervalEXT_(Integer)
   name.vb: SwapIntervalEXT_(Integer)
-- uid: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.Span{System.Int32},System.Span{System.UInt32})
-  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.Span{System.Int32},System.Span{System.UInt32})
-  id: ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.Span{System.Int32},System.Span{System.UInt32})
+- uid: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.ReadOnlySpan{System.Int32},System.ReadOnlySpan{System.Single},System.UInt32,System.Span{System.Int32},System.UInt32@)
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.ReadOnlySpan{System.Int32},System.ReadOnlySpan{System.Single},System.UInt32,System.Span{System.Int32},System.UInt32@)
+  id: ChoosePixelFormatEXT(System.IntPtr,System.ReadOnlySpan{System.Int32},System.ReadOnlySpan{System.Single},System.UInt32,System.Span{System.Int32},System.UInt32@)
   parent: OpenTK.Graphics.Wgl.Wgl.EXT
   langs:
   - csharp
   - vb
-  name: ChoosePixelFormatEXT(nint, in int, in float, Span<int>, Span<uint>)
-  nameWithType: Wgl.EXT.ChoosePixelFormatEXT(nint, in int, in float, Span<int>, Span<uint>)
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(nint, in int, in float, System.Span<int>, System.Span<uint>)
+  name: ChoosePixelFormatEXT(nint, ReadOnlySpan<int>, ReadOnlySpan<float>, uint, Span<int>, out uint)
+  nameWithType: Wgl.EXT.ChoosePixelFormatEXT(nint, ReadOnlySpan<int>, ReadOnlySpan<float>, uint, Span<int>, out uint)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(nint, System.ReadOnlySpan<int>, System.ReadOnlySpan<float>, uint, System.Span<int>, out uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: ChoosePixelFormatEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 783
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 707
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -747,44 +756,42 @@ items:
     <br />
   example: []
   syntax:
-    content: public static bool ChoosePixelFormatEXT(nint hdc, in int piAttribIList, in float pfAttribFList, Span<int> piFormats, Span<uint> nNumFormats)
+    content: public static bool ChoosePixelFormatEXT(nint hdc, ReadOnlySpan<int> piAttribIList, ReadOnlySpan<float> pfAttribFList, uint nMaxFormats, Span<int> piFormats, out uint nNumFormats)
     parameters:
     - id: hdc
       type: System.IntPtr
     - id: piAttribIList
-      type: System.Int32
+      type: System.ReadOnlySpan{System.Int32}
     - id: pfAttribFList
-      type: System.Single
+      type: System.ReadOnlySpan{System.Single}
+    - id: nMaxFormats
+      type: System.UInt32
     - id: piFormats
       type: System.Span{System.Int32}
     - id: nNumFormats
-      type: System.Span{System.UInt32}
+      type: System.UInt32
     return:
       type: System.Boolean
-    content.vb: Public Shared Function ChoosePixelFormatEXT(hdc As IntPtr, piAttribIList As Integer, pfAttribFList As Single, piFormats As Span(Of Integer), nNumFormats As Span(Of UInteger)) As Boolean
+    content.vb: Public Shared Function ChoosePixelFormatEXT(hdc As IntPtr, piAttribIList As ReadOnlySpan(Of Integer), pfAttribFList As ReadOnlySpan(Of Single), nMaxFormats As UInteger, piFormats As Span(Of Integer), nNumFormats As UInteger) As Boolean
   overload: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT*
-  nameWithType.vb: Wgl.EXT.ChoosePixelFormatEXT(IntPtr, Integer, Single, Span(Of Integer), Span(Of UInteger))
-  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr, Integer, Single, System.Span(Of Integer), System.Span(Of UInteger))
-  name.vb: ChoosePixelFormatEXT(IntPtr, Integer, Single, Span(Of Integer), Span(Of UInteger))
-- uid: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.Int32[],System.UInt32[])
-  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.Int32[],System.UInt32[])
-  id: ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.Int32[],System.UInt32[])
+  nameWithType.vb: Wgl.EXT.ChoosePixelFormatEXT(IntPtr, ReadOnlySpan(Of Integer), ReadOnlySpan(Of Single), UInteger, Span(Of Integer), UInteger)
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr, System.ReadOnlySpan(Of Integer), System.ReadOnlySpan(Of Single), UInteger, System.Span(Of Integer), UInteger)
+  name.vb: ChoosePixelFormatEXT(IntPtr, ReadOnlySpan(Of Integer), ReadOnlySpan(Of Single), UInteger, Span(Of Integer), UInteger)
+- uid: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32[],System.Single[],System.UInt32,System.Int32[],System.UInt32@)
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32[],System.Single[],System.UInt32,System.Int32[],System.UInt32@)
+  id: ChoosePixelFormatEXT(System.IntPtr,System.Int32[],System.Single[],System.UInt32,System.Int32[],System.UInt32@)
   parent: OpenTK.Graphics.Wgl.Wgl.EXT
   langs:
   - csharp
   - vb
-  name: ChoosePixelFormatEXT(nint, in int, in float, int[], uint[])
-  nameWithType: Wgl.EXT.ChoosePixelFormatEXT(nint, in int, in float, int[], uint[])
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(nint, in int, in float, int[], uint[])
+  name: ChoosePixelFormatEXT(nint, int[], float[], uint, int[], out uint)
+  nameWithType: Wgl.EXT.ChoosePixelFormatEXT(nint, int[], float[], uint, int[], out uint)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(nint, int[], float[], uint, int[], out uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: ChoosePixelFormatEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 803
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 728
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -796,25 +803,27 @@ items:
     <br />
   example: []
   syntax:
-    content: public static bool ChoosePixelFormatEXT(nint hdc, in int piAttribIList, in float pfAttribFList, int[] piFormats, uint[] nNumFormats)
+    content: public static bool ChoosePixelFormatEXT(nint hdc, int[] piAttribIList, float[] pfAttribFList, uint nMaxFormats, int[] piFormats, out uint nNumFormats)
     parameters:
     - id: hdc
       type: System.IntPtr
     - id: piAttribIList
-      type: System.Int32
+      type: System.Int32[]
     - id: pfAttribFList
-      type: System.Single
+      type: System.Single[]
+    - id: nMaxFormats
+      type: System.UInt32
     - id: piFormats
       type: System.Int32[]
     - id: nNumFormats
-      type: System.UInt32[]
+      type: System.UInt32
     return:
       type: System.Boolean
-    content.vb: Public Shared Function ChoosePixelFormatEXT(hdc As IntPtr, piAttribIList As Integer, pfAttribFList As Single, piFormats As Integer(), nNumFormats As UInteger()) As Boolean
+    content.vb: Public Shared Function ChoosePixelFormatEXT(hdc As IntPtr, piAttribIList As Integer(), pfAttribFList As Single(), nMaxFormats As UInteger, piFormats As Integer(), nNumFormats As UInteger) As Boolean
   overload: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT*
-  nameWithType.vb: Wgl.EXT.ChoosePixelFormatEXT(IntPtr, Integer, Single, Integer(), UInteger())
-  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr, Integer, Single, Integer(), UInteger())
-  name.vb: ChoosePixelFormatEXT(IntPtr, Integer, Single, Integer(), UInteger())
+  nameWithType.vb: Wgl.EXT.ChoosePixelFormatEXT(IntPtr, Integer(), Single(), UInteger, Integer(), UInteger)
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr, Integer(), Single(), UInteger, Integer(), UInteger)
+  name.vb: ChoosePixelFormatEXT(IntPtr, Integer(), Single(), UInteger, Integer(), UInteger)
 - uid: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.UInt32,System.Int32@,System.UInt32@)
   commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.UInt32,System.Int32@,System.UInt32@)
   id: ChoosePixelFormatEXT(System.IntPtr,System.Int32@,System.Single@,System.UInt32,System.Int32@,System.UInt32@)
@@ -822,18 +831,14 @@ items:
   langs:
   - csharp
   - vb
-  name: ChoosePixelFormatEXT(nint, in int, in float, uint, ref int, ref uint)
-  nameWithType: Wgl.EXT.ChoosePixelFormatEXT(nint, in int, in float, uint, ref int, ref uint)
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(nint, in int, in float, uint, ref int, ref uint)
+  name: ChoosePixelFormatEXT(nint, in int, in float, uint, ref int, out uint)
+  nameWithType: Wgl.EXT.ChoosePixelFormatEXT(nint, in int, in float, uint, ref int, out uint)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(nint, in int, in float, uint, ref int, out uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: ChoosePixelFormatEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 823
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 749
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -845,7 +850,7 @@ items:
     <br />
   example: []
   syntax:
-    content: public static bool ChoosePixelFormatEXT(nint hdc, in int piAttribIList, in float pfAttribFList, uint nMaxFormats, ref int piFormats, ref uint nNumFormats)
+    content: public static bool ChoosePixelFormatEXT(nint hdc, in int piAttribIList, in float pfAttribFList, uint nMaxFormats, ref int piFormats, out uint nNumFormats)
     parameters:
     - id: hdc
       type: System.IntPtr
@@ -866,6 +871,96 @@ items:
   nameWithType.vb: Wgl.EXT.ChoosePixelFormatEXT(IntPtr, Integer, Single, UInteger, Integer, UInteger)
   fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.ChoosePixelFormatEXT(System.IntPtr, Integer, Single, UInteger, Integer, UInteger)
   name.vb: ChoosePixelFormatEXT(IntPtr, Integer, Single, UInteger, Integer, UInteger)
+- uid: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.ReadOnlySpan{System.Int32})
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.ReadOnlySpan{System.Int32})
+  id: CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.ReadOnlySpan{System.Int32})
+  parent: OpenTK.Graphics.Wgl.Wgl.EXT
+  langs:
+  - csharp
+  - vb
+  name: CreatePbufferEXT(nint, int, int, int, ReadOnlySpan<int>)
+  nameWithType: Wgl.EXT.CreatePbufferEXT(nint, int, int, int, ReadOnlySpan<int>)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(nint, int, int, int, System.ReadOnlySpan<int>)
+  type: Method
+  source:
+    id: CreatePbufferEXT
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 764
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Wgl
+  summary: >-
+    <b>[requires: WGL_EXT_pbuffer]</b>
+
+    <b>[entry point: <code>wglCreatePbufferEXT</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static nint CreatePbufferEXT(nint hDC, int iPixelFormat, int iWidth, int iHeight, ReadOnlySpan<int> piAttribList)
+    parameters:
+    - id: hDC
+      type: System.IntPtr
+    - id: iPixelFormat
+      type: System.Int32
+    - id: iWidth
+      type: System.Int32
+    - id: iHeight
+      type: System.Int32
+    - id: piAttribList
+      type: System.ReadOnlySpan{System.Int32}
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Function CreatePbufferEXT(hDC As IntPtr, iPixelFormat As Integer, iWidth As Integer, iHeight As Integer, piAttribList As ReadOnlySpan(Of Integer)) As IntPtr
+  overload: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT*
+  nameWithType.vb: Wgl.EXT.CreatePbufferEXT(IntPtr, Integer, Integer, Integer, ReadOnlySpan(Of Integer))
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr, Integer, Integer, Integer, System.ReadOnlySpan(Of Integer))
+  name.vb: CreatePbufferEXT(IntPtr, Integer, Integer, Integer, ReadOnlySpan(Of Integer))
+- uid: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32[])
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32[])
+  id: CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32[])
+  parent: OpenTK.Graphics.Wgl.Wgl.EXT
+  langs:
+  - csharp
+  - vb
+  name: CreatePbufferEXT(nint, int, int, int, int[])
+  nameWithType: Wgl.EXT.CreatePbufferEXT(nint, int, int, int, int[])
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(nint, int, int, int, int[])
+  type: Method
+  source:
+    id: CreatePbufferEXT
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 774
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Wgl
+  summary: >-
+    <b>[requires: WGL_EXT_pbuffer]</b>
+
+    <b>[entry point: <code>wglCreatePbufferEXT</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static nint CreatePbufferEXT(nint hDC, int iPixelFormat, int iWidth, int iHeight, int[] piAttribList)
+    parameters:
+    - id: hDC
+      type: System.IntPtr
+    - id: iPixelFormat
+      type: System.Int32
+    - id: iWidth
+      type: System.Int32
+    - id: iHeight
+      type: System.Int32
+    - id: piAttribList
+      type: System.Int32[]
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Function CreatePbufferEXT(hDC As IntPtr, iPixelFormat As Integer, iWidth As Integer, iHeight As Integer, piAttribList As Integer()) As IntPtr
+  overload: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT*
+  nameWithType.vb: Wgl.EXT.CreatePbufferEXT(IntPtr, Integer, Integer, Integer, Integer())
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr, Integer, Integer, Integer, Integer())
+  name.vb: CreatePbufferEXT(IntPtr, Integer, Integer, Integer, Integer())
 - uid: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32@)
   commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32@)
   id: CreatePbufferEXT(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32@)
@@ -878,13 +973,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.CreatePbufferEXT(nint, int, int, int, in int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CreatePbufferEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 838
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 784
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -927,13 +1018,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.DestroyPbufferEXT(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: DestroyPbufferEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 848
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 794
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -962,13 +1049,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetExtensionsStringEXT()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetExtensionsStringEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 857
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 803
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -991,13 +1074,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribfvEXT(nint, int, int, uint, System.Span<OpenTK.Graphics.Wgl.PixelFormatAttribute>, System.Span<float>)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPixelFormatAttribfvEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 866
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 812
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1042,13 +1121,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribfvEXT(nint, int, int, uint, OpenTK.Graphics.Wgl.PixelFormatAttribute[], float[])
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPixelFormatAttribfvEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 881
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 827
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1088,18 +1163,14 @@ items:
   langs:
   - csharp
   - vb
-  name: GetPixelFormatAttribfvEXT(nint, int, int, uint, ref PixelFormatAttribute, ref float)
-  nameWithType: Wgl.EXT.GetPixelFormatAttribfvEXT(nint, int, int, uint, ref PixelFormatAttribute, ref float)
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribfvEXT(nint, int, int, uint, ref OpenTK.Graphics.Wgl.PixelFormatAttribute, ref float)
+  name: GetPixelFormatAttribfvEXT(nint, int, int, uint, in PixelFormatAttribute, ref float)
+  nameWithType: Wgl.EXT.GetPixelFormatAttribfvEXT(nint, int, int, uint, in PixelFormatAttribute, ref float)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribfvEXT(nint, int, int, uint, in OpenTK.Graphics.Wgl.PixelFormatAttribute, ref float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPixelFormatAttribfvEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 896
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 842
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1111,7 +1182,7 @@ items:
     <br />
   example: []
   syntax:
-    content: public static bool GetPixelFormatAttribfvEXT(nint hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, ref PixelFormatAttribute piAttributes, ref float pfValues)
+    content: public static bool GetPixelFormatAttribfvEXT(nint hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, in PixelFormatAttribute piAttributes, ref float pfValues)
     parameters:
     - id: hdc
       type: System.IntPtr
@@ -1144,13 +1215,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribivEXT(nint, int, int, uint, System.Span<OpenTK.Graphics.Wgl.PixelFormatAttribute>, System.Span<int>)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPixelFormatAttribivEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 909
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 855
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1195,13 +1262,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribivEXT(nint, int, int, uint, OpenTK.Graphics.Wgl.PixelFormatAttribute[], int[])
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPixelFormatAttribivEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 924
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 870
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1241,18 +1304,14 @@ items:
   langs:
   - csharp
   - vb
-  name: GetPixelFormatAttribivEXT(nint, int, int, uint, ref PixelFormatAttribute, ref int)
-  nameWithType: Wgl.EXT.GetPixelFormatAttribivEXT(nint, int, int, uint, ref PixelFormatAttribute, ref int)
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribivEXT(nint, int, int, uint, ref OpenTK.Graphics.Wgl.PixelFormatAttribute, ref int)
+  name: GetPixelFormatAttribivEXT(nint, int, int, uint, in PixelFormatAttribute, ref int)
+  nameWithType: Wgl.EXT.GetPixelFormatAttribivEXT(nint, int, int, uint, in PixelFormatAttribute, ref int)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribivEXT(nint, int, int, uint, in OpenTK.Graphics.Wgl.PixelFormatAttribute, ref int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetPixelFormatAttribivEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 939
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 885
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1264,7 +1323,7 @@ items:
     <br />
   example: []
   syntax:
-    content: public static bool GetPixelFormatAttribivEXT(nint hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, ref PixelFormatAttribute piAttributes, ref int piValues)
+    content: public static bool GetPixelFormatAttribivEXT(nint hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, in PixelFormatAttribute piAttributes, ref int piValues)
     parameters:
     - id: hdc
       type: System.IntPtr
@@ -1285,25 +1344,21 @@ items:
   nameWithType.vb: Wgl.EXT.GetPixelFormatAttribivEXT(IntPtr, Integer, Integer, UInteger, PixelFormatAttribute, Integer)
   fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.GetPixelFormatAttribivEXT(System.IntPtr, Integer, Integer, UInteger, OpenTK.Graphics.Wgl.PixelFormatAttribute, Integer)
   name.vb: GetPixelFormatAttribivEXT(IntPtr, Integer, Integer, UInteger, PixelFormatAttribute, Integer)
-- uid: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan{System.UInt16})
-  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan{System.UInt16})
-  id: LoadDisplayColorTableEXT(System.ReadOnlySpan{System.UInt16})
+- uid: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan{System.UInt16},System.UInt32)
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan{System.UInt16},System.UInt32)
+  id: LoadDisplayColorTableEXT(System.ReadOnlySpan{System.UInt16},System.UInt32)
   parent: OpenTK.Graphics.Wgl.Wgl.EXT
   langs:
   - csharp
   - vb
-  name: LoadDisplayColorTableEXT(ReadOnlySpan<ushort>)
-  nameWithType: Wgl.EXT.LoadDisplayColorTableEXT(ReadOnlySpan<ushort>)
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan<ushort>)
+  name: LoadDisplayColorTableEXT(ReadOnlySpan<ushort>, uint)
+  nameWithType: Wgl.EXT.LoadDisplayColorTableEXT(ReadOnlySpan<ushort>, uint)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan<ushort>, uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: LoadDisplayColorTableEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 952
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 898
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1315,36 +1370,34 @@ items:
     <br />
   example: []
   syntax:
-    content: public static bool LoadDisplayColorTableEXT(ReadOnlySpan<ushort> table)
+    content: public static bool LoadDisplayColorTableEXT(ReadOnlySpan<ushort> table, uint length)
     parameters:
     - id: table
       type: System.ReadOnlySpan{System.UInt16}
+    - id: length
+      type: System.UInt32
     return:
       type: System.Boolean
-    content.vb: Public Shared Function LoadDisplayColorTableEXT(table As ReadOnlySpan(Of UShort)) As Boolean
+    content.vb: Public Shared Function LoadDisplayColorTableEXT(table As ReadOnlySpan(Of UShort), length As UInteger) As Boolean
   overload: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT*
-  nameWithType.vb: Wgl.EXT.LoadDisplayColorTableEXT(ReadOnlySpan(Of UShort))
-  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan(Of UShort))
-  name.vb: LoadDisplayColorTableEXT(ReadOnlySpan(Of UShort))
-- uid: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16[])
-  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16[])
-  id: LoadDisplayColorTableEXT(System.UInt16[])
+  nameWithType.vb: Wgl.EXT.LoadDisplayColorTableEXT(ReadOnlySpan(Of UShort), UInteger)
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.ReadOnlySpan(Of UShort), UInteger)
+  name.vb: LoadDisplayColorTableEXT(ReadOnlySpan(Of UShort), UInteger)
+- uid: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16[],System.UInt32)
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16[],System.UInt32)
+  id: LoadDisplayColorTableEXT(System.UInt16[],System.UInt32)
   parent: OpenTK.Graphics.Wgl.Wgl.EXT
   langs:
   - csharp
   - vb
-  name: LoadDisplayColorTableEXT(ushort[])
-  nameWithType: Wgl.EXT.LoadDisplayColorTableEXT(ushort[])
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(ushort[])
+  name: LoadDisplayColorTableEXT(ushort[], uint)
+  nameWithType: Wgl.EXT.LoadDisplayColorTableEXT(ushort[], uint)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(ushort[], uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: LoadDisplayColorTableEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 963
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 908
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1356,17 +1409,19 @@ items:
     <br />
   example: []
   syntax:
-    content: public static bool LoadDisplayColorTableEXT(ushort[] table)
+    content: public static bool LoadDisplayColorTableEXT(ushort[] table, uint length)
     parameters:
     - id: table
       type: System.UInt16[]
+    - id: length
+      type: System.UInt32
     return:
       type: System.Boolean
-    content.vb: Public Shared Function LoadDisplayColorTableEXT(table As UShort()) As Boolean
+    content.vb: Public Shared Function LoadDisplayColorTableEXT(table As UShort(), length As UInteger) As Boolean
   overload: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT*
-  nameWithType.vb: Wgl.EXT.LoadDisplayColorTableEXT(UShort())
-  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(UShort())
-  name.vb: LoadDisplayColorTableEXT(UShort())
+  nameWithType.vb: Wgl.EXT.LoadDisplayColorTableEXT(UShort(), UInteger)
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(UShort(), UInteger)
+  name.vb: LoadDisplayColorTableEXT(UShort(), UInteger)
 - uid: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16@,System.UInt32)
   commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(System.UInt16@,System.UInt32)
   id: LoadDisplayColorTableEXT(System.UInt16@,System.UInt32)
@@ -1379,13 +1434,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.LoadDisplayColorTableEXT(in ushort, uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: LoadDisplayColorTableEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 974
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 918
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1422,13 +1473,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.MakeContextCurrentEXT(nint, nint, nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: MakeContextCurrentEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 984
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 928
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1449,96 +1496,6 @@ items:
   nameWithType.vb: Wgl.EXT.MakeContextCurrentEXT(IntPtr, IntPtr, IntPtr)
   fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.MakeContextCurrentEXT(System.IntPtr, System.IntPtr, System.IntPtr)
   name.vb: MakeContextCurrentEXT(IntPtr, IntPtr, IntPtr)
-- uid: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Span{System.Int32})
-  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Span{System.Int32})
-  id: QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Span{System.Int32})
-  parent: OpenTK.Graphics.Wgl.Wgl.EXT
-  langs:
-  - csharp
-  - vb
-  name: QueryPbufferEXT(nint, PBufferAttribute, Span<int>)
-  nameWithType: Wgl.EXT.QueryPbufferEXT(nint, PBufferAttribute, Span<int>)
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(nint, OpenTK.Graphics.Wgl.PBufferAttribute, System.Span<int>)
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
-    id: QueryPbufferEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 993
-  assemblies:
-  - OpenTK.Graphics
-  namespace: OpenTK.Graphics.Wgl
-  summary: >-
-    <b>[requires: WGL_EXT_pbuffer]</b>
-
-    <b>[entry point: <code>wglQueryPbufferEXT</code>]</b>
-
-    <br />
-  example: []
-  syntax:
-    content: public static bool QueryPbufferEXT(nint hPbuffer, PBufferAttribute iAttribute, Span<int> piValue)
-    parameters:
-    - id: hPbuffer
-      type: System.IntPtr
-    - id: iAttribute
-      type: OpenTK.Graphics.Wgl.PBufferAttribute
-    - id: piValue
-      type: System.Span{System.Int32}
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Function QueryPbufferEXT(hPbuffer As IntPtr, iAttribute As PBufferAttribute, piValue As Span(Of Integer)) As Boolean
-  overload: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT*
-  nameWithType.vb: Wgl.EXT.QueryPbufferEXT(IntPtr, PBufferAttribute, Span(Of Integer))
-  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr, OpenTK.Graphics.Wgl.PBufferAttribute, System.Span(Of Integer))
-  name.vb: QueryPbufferEXT(IntPtr, PBufferAttribute, Span(Of Integer))
-- uid: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32[])
-  commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32[])
-  id: QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32[])
-  parent: OpenTK.Graphics.Wgl.Wgl.EXT
-  langs:
-  - csharp
-  - vb
-  name: QueryPbufferEXT(nint, PBufferAttribute, int[])
-  nameWithType: Wgl.EXT.QueryPbufferEXT(nint, PBufferAttribute, int[])
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(nint, OpenTK.Graphics.Wgl.PBufferAttribute, int[])
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
-    id: QueryPbufferEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 1005
-  assemblies:
-  - OpenTK.Graphics
-  namespace: OpenTK.Graphics.Wgl
-  summary: >-
-    <b>[requires: WGL_EXT_pbuffer]</b>
-
-    <b>[entry point: <code>wglQueryPbufferEXT</code>]</b>
-
-    <br />
-  example: []
-  syntax:
-    content: public static bool QueryPbufferEXT(nint hPbuffer, PBufferAttribute iAttribute, int[] piValue)
-    parameters:
-    - id: hPbuffer
-      type: System.IntPtr
-    - id: iAttribute
-      type: OpenTK.Graphics.Wgl.PBufferAttribute
-    - id: piValue
-      type: System.Int32[]
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Function QueryPbufferEXT(hPbuffer As IntPtr, iAttribute As PBufferAttribute, piValue As Integer()) As Boolean
-  overload: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT*
-  nameWithType.vb: Wgl.EXT.QueryPbufferEXT(IntPtr, PBufferAttribute, Integer())
-  fullName.vb: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr, OpenTK.Graphics.Wgl.PBufferAttribute, Integer())
-  name.vb: QueryPbufferEXT(IntPtr, PBufferAttribute, Integer())
 - uid: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32@)
   commentId: M:OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32@)
   id: QueryPbufferEXT(System.IntPtr,OpenTK.Graphics.Wgl.PBufferAttribute,System.Int32@)
@@ -1546,18 +1503,14 @@ items:
   langs:
   - csharp
   - vb
-  name: QueryPbufferEXT(nint, PBufferAttribute, ref int)
-  nameWithType: Wgl.EXT.QueryPbufferEXT(nint, PBufferAttribute, ref int)
-  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(nint, OpenTK.Graphics.Wgl.PBufferAttribute, ref int)
+  name: QueryPbufferEXT(nint, PBufferAttribute, out int)
+  nameWithType: Wgl.EXT.QueryPbufferEXT(nint, PBufferAttribute, out int)
+  fullName: OpenTK.Graphics.Wgl.Wgl.EXT.QueryPbufferEXT(nint, OpenTK.Graphics.Wgl.PBufferAttribute, out int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: QueryPbufferEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 1017
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 937
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1569,7 +1522,7 @@ items:
     <br />
   example: []
   syntax:
-    content: public static bool QueryPbufferEXT(nint hPbuffer, PBufferAttribute iAttribute, ref int piValue)
+    content: public static bool QueryPbufferEXT(nint hPbuffer, PBufferAttribute iAttribute, out int piValue)
     parameters:
     - id: hPbuffer
       type: System.IntPtr
@@ -1596,13 +1549,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.SwapIntervalEXT(int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: SwapIntervalEXT
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 1029
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 949
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -2172,17 +2121,76 @@ references:
   name: SwapIntervalEXT_
   nameWithType: Wgl.EXT.SwapIntervalEXT_
   fullName: OpenTK.Graphics.Wgl.Wgl.EXT.SwapIntervalEXT_
-- uid: System.Single
-  commentId: T:System.Single
+- uid: System.ReadOnlySpan{System.Int32}
+  commentId: T:System.ReadOnlySpan{System.Int32}
   parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<int>
+  nameWithType: ReadOnlySpan<int>
+  fullName: System.ReadOnlySpan<int>
+  nameWithType.vb: ReadOnlySpan(Of Integer)
+  fullName.vb: System.ReadOnlySpan(Of Integer)
+  name.vb: ReadOnlySpan(Of Integer)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ReadOnlySpan{System.Single}
+  commentId: T:System.ReadOnlySpan{System.Single}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<float>
+  nameWithType: ReadOnlySpan<float>
+  fullName: System.ReadOnlySpan<float>
+  nameWithType.vb: ReadOnlySpan(Of Single)
+  fullName.vb: System.ReadOnlySpan(Of Single)
+  name.vb: ReadOnlySpan(Of Single)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
 - uid: System.Span{System.Int32}
   commentId: T:System.Span{System.Int32}
   parent: System
@@ -2218,40 +2226,33 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: System.Span{System.UInt32}
-  commentId: T:System.Span{System.UInt32}
-  parent: System
-  definition: System.Span`1
-  href: https://learn.microsoft.com/dotnet/api/system.span-1
-  name: Span<uint>
-  nameWithType: Span<uint>
-  fullName: System.Span<uint>
-  nameWithType.vb: Span(Of UInteger)
-  fullName.vb: System.Span(Of UInteger)
-  name.vb: Span(Of UInteger)
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
   spec.csharp:
-  - uid: System.Span`1
-    name: Span
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.span-1
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
   - name: <
-  - uid: System.UInt32
-    name: uint
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: T
   - name: '>'
   spec.vb:
-  - uid: System.Span`1
-    name: Span
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.span-1
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
   - name: (
   - name: Of
   - name: " "
-  - uid: System.UInt32
-    name: UInteger
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: T
   - name: )
 - uid: System.Span`1
   commentId: T:System.Span`1
@@ -2304,29 +2305,40 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: (
   - name: )
-- uid: System.UInt32[]
+- uid: System.Single[]
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.uint32
-  name: uint[]
-  nameWithType: uint[]
-  fullName: uint[]
-  nameWithType.vb: UInteger()
-  fullName.vb: UInteger()
-  name.vb: UInteger()
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[]
+  nameWithType: float[]
+  fullName: float[]
+  nameWithType.vb: Single()
+  fullName.vb: Single()
+  name.vb: Single()
   spec.csharp:
-  - uid: System.UInt32
-    name: uint
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.uint32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: '['
   - name: ']'
   spec.vb:
-  - uid: System.UInt32
-    name: UInteger
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.uint32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: (
   - name: )
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 - uid: OpenTK.Graphics.Wgl.Wgl.EXT.DestroyPbufferEXT*
   commentId: Overload:OpenTK.Graphics.Wgl.Wgl.EXT.DestroyPbufferEXT
   href: OpenTK.Graphics.Wgl.Wgl.EXT.html#OpenTK_Graphics_Wgl_Wgl_EXT_DestroyPbufferEXT_System_IntPtr_
@@ -2439,29 +2451,6 @@ references:
     href: OpenTK.Graphics.Wgl.PixelFormatAttribute.html
   - name: (
   - name: )
-- uid: System.Single[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float[]
-  nameWithType: float[]
-  fullName: float[]
-  nameWithType.vb: Single()
-  fullName.vb: Single()
-  name.vb: Single()
-  spec.csharp:
-  - uid: System.Single
-    name: float
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.Single
-    name: Single
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: (
-  - name: )
 - uid: OpenTK.Graphics.Wgl.PixelFormatAttribute
   commentId: T:OpenTK.Graphics.Wgl.PixelFormatAttribute
   parent: OpenTK.Graphics.Wgl
@@ -2503,34 +2492,6 @@ references:
     name: UShort
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.uint16
-  - name: )
-- uid: System.ReadOnlySpan`1
-  commentId: T:System.ReadOnlySpan`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  name: ReadOnlySpan<T>
-  nameWithType: ReadOnlySpan<T>
-  fullName: System.ReadOnlySpan<T>
-  nameWithType.vb: ReadOnlySpan(Of T)
-  fullName.vb: System.ReadOnlySpan(Of T)
-  name.vb: ReadOnlySpan(Of T)
-  spec.csharp:
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
   - name: )
 - uid: System.UInt16[]
   isExternal: true

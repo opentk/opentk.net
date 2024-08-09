@@ -7,12 +7,16 @@ items:
   children:
   - OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.Window,System.Single)
   - OpenTK.Graphics.Glx.Glx.SGI.GetCurrentReadDrawableSGI
+  - OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.Span{System.UInt32})
   - OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32*)
   - OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32@)
+  - OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32[])
   - OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.DisplayPtr,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXDrawable,OpenTK.Graphics.Glx.GLXContext)
   - OpenTK.Graphics.Glx.Glx.SGI.SwapIntervalSGI(System.Int32)
+  - OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.Span{System.UInt32})
   - OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32*)
   - OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32@)
+  - OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32[])
   langs:
   - csharp
   - vb
@@ -21,13 +25,9 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI
   type: Class
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: SGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 481
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 1311
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -58,17 +58,18 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI.CushionSGI(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.Window, float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CushionSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Native.cs
     startLine: 330
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
-  summary: '<b>[requires: GLX_SGI_cushion]</b> <b>[entry point: <code>glXCushionSGI</code>]</b><br />'
+  summary: >-
+    <b>[requires: GLX_SGI_cushion]</b>
+
+    <b>[entry point: <code>glXCushionSGI</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static void CushionSGI(DisplayPtr dpy, Window window, float cushion)
@@ -96,17 +97,18 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI.GetCurrentReadDrawableSGI()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetCurrentReadDrawableSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Native.cs
     startLine: 333
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
-  summary: '<b>[requires: GLX_SGI_make_current_read]</b> <b>[entry point: <code>glXGetCurrentReadDrawableSGI</code>]</b><br />'
+  summary: >-
+    <b>[requires: GLX_SGI_make_current_read]</b>
+
+    <b>[entry point: <code>glXGetCurrentReadDrawableSGI</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static GLXDrawable GetCurrentReadDrawableSGI()
@@ -126,17 +128,18 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(uint*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetVideoSyncSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Native.cs
     startLine: 336
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
-  summary: '<b>[requires: GLX_SGI_video_sync]</b> <b>[entry point: <code>glXGetVideoSyncSGI</code>]</b><br />'
+  summary: >-
+    <b>[requires: GLX_SGI_video_sync]</b>
+
+    <b>[entry point: <code>glXGetVideoSyncSGI</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int GetVideoSyncSGI(uint* count)
@@ -162,17 +165,18 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI.MakeCurrentReadSGI(OpenTK.Graphics.Glx.DisplayPtr, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXDrawable, OpenTK.Graphics.Glx.GLXContext)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: MakeCurrentReadSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Native.cs
     startLine: 339
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
-  summary: '<b>[requires: GLX_SGI_make_current_read]</b> <b>[entry point: <code>glXMakeCurrentReadSGI</code>]</b><br />'
+  summary: >-
+    <b>[requires: GLX_SGI_make_current_read]</b>
+
+    <b>[entry point: <code>glXMakeCurrentReadSGI</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static bool MakeCurrentReadSGI(DisplayPtr dpy, GLXDrawable draw, GLXDrawable read, GLXContext ctx)
@@ -201,17 +205,18 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI.SwapIntervalSGI(int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: SwapIntervalSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Native.cs
     startLine: 342
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
-  summary: '<b>[requires: GLX_SGI_swap_control]</b> <b>[entry point: <code>glXSwapIntervalSGI</code>]</b><br />'
+  summary: >-
+    <b>[requires: GLX_SGI_swap_control]</b>
+
+    <b>[entry point: <code>glXSwapIntervalSGI</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int SwapIntervalSGI(int interval)
@@ -237,17 +242,18 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(int, int, uint*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: WaitVideoSyncSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Native.cs
     startLine: 345
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
-  summary: '<b>[requires: GLX_SGI_video_sync]</b> <b>[entry point: <code>glXWaitVideoSyncSGI</code>]</b><br />'
+  summary: >-
+    <b>[requires: GLX_SGI_video_sync]</b>
+
+    <b>[entry point: <code>glXWaitVideoSyncSGI</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int WaitVideoSyncSGI(int divisor, int remainder, uint* count)
@@ -265,6 +271,80 @@ items:
   nameWithType.vb: Glx.SGI.WaitVideoSyncSGI(Integer, Integer, UInteger*)
   fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(Integer, Integer, UInteger*)
   name.vb: WaitVideoSyncSGI(Integer, Integer, UInteger*)
+- uid: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.Span{System.UInt32})
+  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.Span{System.UInt32})
+  id: GetVideoSyncSGI(System.Span{System.UInt32})
+  parent: OpenTK.Graphics.Glx.Glx.SGI
+  langs:
+  - csharp
+  - vb
+  name: GetVideoSyncSGI(Span<uint>)
+  nameWithType: Glx.SGI.GetVideoSyncSGI(Span<uint>)
+  fullName: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.Span<uint>)
+  type: Method
+  source:
+    id: GetVideoSyncSGI
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 1314
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: >-
+    <b>[requires: GLX_SGI_video_sync]</b>
+
+    <b>[entry point: <code>glXGetVideoSyncSGI</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static int GetVideoSyncSGI(Span<uint> count)
+    parameters:
+    - id: count
+      type: System.Span{System.UInt32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetVideoSyncSGI(count As Span(Of UInteger)) As Integer
+  overload: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI*
+  nameWithType.vb: Glx.SGI.GetVideoSyncSGI(Span(Of UInteger))
+  fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.Span(Of UInteger))
+  name.vb: GetVideoSyncSGI(Span(Of UInteger))
+- uid: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32[])
+  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32[])
+  id: GetVideoSyncSGI(System.UInt32[])
+  parent: OpenTK.Graphics.Glx.Glx.SGI
+  langs:
+  - csharp
+  - vb
+  name: GetVideoSyncSGI(uint[])
+  nameWithType: Glx.SGI.GetVideoSyncSGI(uint[])
+  fullName: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(uint[])
+  type: Method
+  source:
+    id: GetVideoSyncSGI
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 1324
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: >-
+    <b>[requires: GLX_SGI_video_sync]</b>
+
+    <b>[entry point: <code>glXGetVideoSyncSGI</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static int GetVideoSyncSGI(uint[] count)
+    parameters:
+    - id: count
+      type: System.UInt32[]
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetVideoSyncSGI(count As UInteger()) As Integer
+  overload: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI*
+  nameWithType.vb: Glx.SGI.GetVideoSyncSGI(UInteger())
+  fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(UInteger())
+  name.vb: GetVideoSyncSGI(UInteger())
 - uid: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32@)
   commentId: M:OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(System.UInt32@)
   id: GetVideoSyncSGI(System.UInt32@)
@@ -277,13 +357,9 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(ref uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetVideoSyncSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 484
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 1334
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -306,6 +382,88 @@ items:
   nameWithType.vb: Glx.SGI.GetVideoSyncSGI(UInteger)
   fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.GetVideoSyncSGI(UInteger)
   name.vb: GetVideoSyncSGI(UInteger)
+- uid: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.Span{System.UInt32})
+  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.Span{System.UInt32})
+  id: WaitVideoSyncSGI(System.Int32,System.Int32,System.Span{System.UInt32})
+  parent: OpenTK.Graphics.Glx.Glx.SGI
+  langs:
+  - csharp
+  - vb
+  name: WaitVideoSyncSGI(int, int, Span<uint>)
+  nameWithType: Glx.SGI.WaitVideoSyncSGI(int, int, Span<uint>)
+  fullName: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(int, int, System.Span<uint>)
+  type: Method
+  source:
+    id: WaitVideoSyncSGI
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 1344
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: >-
+    <b>[requires: GLX_SGI_video_sync]</b>
+
+    <b>[entry point: <code>glXWaitVideoSyncSGI</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static int WaitVideoSyncSGI(int divisor, int remainder, Span<uint> count)
+    parameters:
+    - id: divisor
+      type: System.Int32
+    - id: remainder
+      type: System.Int32
+    - id: count
+      type: System.Span{System.UInt32}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function WaitVideoSyncSGI(divisor As Integer, remainder As Integer, count As Span(Of UInteger)) As Integer
+  overload: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI*
+  nameWithType.vb: Glx.SGI.WaitVideoSyncSGI(Integer, Integer, Span(Of UInteger))
+  fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(Integer, Integer, System.Span(Of UInteger))
+  name.vb: WaitVideoSyncSGI(Integer, Integer, Span(Of UInteger))
+- uid: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32[])
+  commentId: M:OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32[])
+  id: WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32[])
+  parent: OpenTK.Graphics.Glx.Glx.SGI
+  langs:
+  - csharp
+  - vb
+  name: WaitVideoSyncSGI(int, int, uint[])
+  nameWithType: Glx.SGI.WaitVideoSyncSGI(int, int, uint[])
+  fullName: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(int, int, uint[])
+  type: Method
+  source:
+    id: WaitVideoSyncSGI
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 1354
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Glx
+  summary: >-
+    <b>[requires: GLX_SGI_video_sync]</b>
+
+    <b>[entry point: <code>glXWaitVideoSyncSGI</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static int WaitVideoSyncSGI(int divisor, int remainder, uint[] count)
+    parameters:
+    - id: divisor
+      type: System.Int32
+    - id: remainder
+      type: System.Int32
+    - id: count
+      type: System.UInt32[]
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function WaitVideoSyncSGI(divisor As Integer, remainder As Integer, count As UInteger()) As Integer
+  overload: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI*
+  nameWithType.vb: Glx.SGI.WaitVideoSyncSGI(Integer, Integer, UInteger())
+  fullName.vb: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(Integer, Integer, UInteger())
+  name.vb: WaitVideoSyncSGI(Integer, Integer, UInteger())
 - uid: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32@)
   commentId: M:OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32@)
   id: WaitVideoSyncSGI(System.Int32,System.Int32,System.UInt32@)
@@ -318,13 +476,9 @@ items:
   fullName: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI(int, int, ref uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: WaitVideoSyncSGI
-    path: opentk/src/OpenTK.Graphics/Glx/GLX.Overloads.cs
-    startLine: 494
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Glx\GLX.Overloads.cs
+    startLine: 1364
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Glx
@@ -737,6 +891,92 @@ references:
   name: WaitVideoSyncSGI
   nameWithType: Glx.SGI.WaitVideoSyncSGI
   fullName: OpenTK.Graphics.Glx.Glx.SGI.WaitVideoSyncSGI
+- uid: System.Span{System.UInt32}
+  commentId: T:System.Span{System.UInt32}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<uint>
+  nameWithType: Span<uint>
+  fullName: System.Span<uint>
+  nameWithType.vb: Span(Of UInteger)
+  fullName.vb: System.Span(Of UInteger)
+  name.vb: Span(Of UInteger)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.UInt32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint[]
+  nameWithType: uint[]
+  fullName: uint[]
+  nameWithType.vb: UInteger()
+  fullName.vb: UInteger()
+  name.vb: UInteger()
+  spec.csharp:
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: (
+  - name: )
 - uid: System.UInt32
   commentId: T:System.UInt32
   parent: System

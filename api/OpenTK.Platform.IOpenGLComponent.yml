@@ -1,0 +1,765 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Platform.IOpenGLComponent
+  commentId: T:OpenTK.Platform.IOpenGLComponent
+  id: IOpenGLComponent
+  parent: OpenTK.Platform
+  children:
+  - OpenTK.Platform.IOpenGLComponent.CanCreateFromSurface
+  - OpenTK.Platform.IOpenGLComponent.CanCreateFromWindow
+  - OpenTK.Platform.IOpenGLComponent.CanShareContexts
+  - OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+  - OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.IOpenGLComponent.DestroyContext(OpenTK.Platform.OpenGLContextHandle)
+  - OpenTK.Platform.IOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
+  - OpenTK.Platform.IOpenGLComponent.GetCurrentContext
+  - OpenTK.Platform.IOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
+  - OpenTK.Platform.IOpenGLComponent.GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
+  - OpenTK.Platform.IOpenGLComponent.GetSwapInterval
+  - OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+  - OpenTK.Platform.IOpenGLComponent.SetSwapInterval(System.Int32)
+  - OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
+  langs:
+  - csharp
+  - vb
+  name: IOpenGLComponent
+  nameWithType: IOpenGLComponent
+  fullName: OpenTK.Platform.IOpenGLComponent
+  type: Interface
+  source:
+    id: IOpenGLComponent
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 10
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Interface for drivers which provide the PAL OpenGL Component.
+  example: []
+  syntax:
+    content: 'public interface IOpenGLComponent : IPalComponent'
+    content.vb: Public Interface IOpenGLComponent Inherits IPalComponent
+  inheritedMembers:
+  - OpenTK.Platform.IPalComponent.Name
+  - OpenTK.Platform.IPalComponent.Provides
+  - OpenTK.Platform.IPalComponent.Logger
+  - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.IOpenGLComponent.CanShareContexts
+  commentId: P:OpenTK.Platform.IOpenGLComponent.CanShareContexts
+  id: CanShareContexts
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: CanShareContexts
+  nameWithType: IOpenGLComponent.CanShareContexts
+  fullName: OpenTK.Platform.IOpenGLComponent.CanShareContexts
+  type: Property
+  source:
+    id: CanShareContexts
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 15
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: True if the component driver has the capability to share display lists between OpenGL contexts.
+  example: []
+  syntax:
+    content: bool CanShareContexts { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanShareContexts As Boolean
+  overload: OpenTK.Platform.IOpenGLComponent.CanShareContexts*
+- uid: OpenTK.Platform.IOpenGLComponent.CanCreateFromWindow
+  commentId: P:OpenTK.Platform.IOpenGLComponent.CanCreateFromWindow
+  id: CanCreateFromWindow
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: CanCreateFromWindow
+  nameWithType: IOpenGLComponent.CanCreateFromWindow
+  fullName: OpenTK.Platform.IOpenGLComponent.CanCreateFromWindow
+  type: Property
+  source:
+    id: CanCreateFromWindow
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 21
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: True if the component driver can create a context from windows using <xref href="OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: bool CanCreateFromWindow { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanCreateFromWindow As Boolean
+  overload: OpenTK.Platform.IOpenGLComponent.CanCreateFromWindow*
+  seealso:
+  - linkId: OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+    commentId: M:OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+- uid: OpenTK.Platform.IOpenGLComponent.CanCreateFromSurface
+  commentId: P:OpenTK.Platform.IOpenGLComponent.CanCreateFromSurface
+  id: CanCreateFromSurface
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: CanCreateFromSurface
+  nameWithType: IOpenGLComponent.CanCreateFromSurface
+  fullName: OpenTK.Platform.IOpenGLComponent.CanCreateFromSurface
+  type: Property
+  source:
+    id: CanCreateFromSurface
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 26
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: True if the component driver can create a context from surfaces using <xref href="OpenTK.Platform.IOpenGLComponent.CreateFromSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: bool CanCreateFromSurface { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanCreateFromSurface As Boolean
+  overload: OpenTK.Platform.IOpenGLComponent.CanCreateFromSurface*
+- uid: OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+  commentId: M:OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+  id: CreateFromSurface
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: CreateFromSurface()
+  nameWithType: IOpenGLComponent.CreateFromSurface()
+  fullName: OpenTK.Platform.IOpenGLComponent.CreateFromSurface()
+  type: Method
+  source:
+    id: CreateFromSurface
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 32
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Create and OpenGL context for a surface.
+  example: []
+  syntax:
+    content: OpenGLContextHandle CreateFromSurface()
+    return:
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: An OpenGL context handle.
+    content.vb: Function CreateFromSurface() As OpenGLContextHandle
+  overload: OpenTK.Platform.IOpenGLComponent.CreateFromSurface*
+- uid: OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+  id: CreateFromWindow(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: CreateFromWindow(WindowHandle)
+  nameWithType: IOpenGLComponent.CreateFromWindow(WindowHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+  type: Method
+  source:
+    id: CreateFromWindow
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 41
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Create an OpenGL context for a window.
+  example: []
+  syntax:
+    content: OpenGLContextHandle CreateFromWindow(WindowHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.WindowHandle
+      description: The window for which the OpenGL context should be created.
+    return:
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: An OpenGL context handle.
+    content.vb: Function CreateFromWindow(handle As WindowHandle) As OpenGLContextHandle
+  overload: OpenTK.Platform.IOpenGLComponent.CreateFromWindow*
+- uid: OpenTK.Platform.IOpenGLComponent.DestroyContext(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.DestroyContext(OpenTK.Platform.OpenGLContextHandle)
+  id: DestroyContext(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: DestroyContext(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.DestroyContext(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.DestroyContext(OpenTK.Platform.OpenGLContextHandle)
+  type: Method
+  source:
+    id: DestroyContext
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 48
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Destroy an OpenGL context.
+  example: []
+  syntax:
+    content: void DestroyContext(OpenGLContextHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the OpenGL context to destroy.
+    content.vb: Sub DestroyContext(handle As OpenGLContextHandle)
+  overload: OpenTK.Platform.IOpenGLComponent.DestroyContext*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: OpenGL context handle is null.
+- uid: OpenTK.Platform.IOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
+  id: GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetBindingsContext(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.GetBindingsContext(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
+  type: Method
+  source:
+    id: GetBindingsContext
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 55
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Gets a <xref href="OpenTK.IBindingsContext" data-throw-if-not-resolved="false"></xref> from an <xref href="OpenTK.Platform.OpenGLContextHandle" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: IBindingsContext GetBindingsContext(OpenGLContextHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: The handle to get a bindings context for.
+    return:
+      type: OpenTK.IBindingsContext
+      description: The created bindings context.
+    content.vb: Function GetBindingsContext(handle As OpenGLContextHandle) As IBindingsContext
+  overload: OpenTK.Platform.IOpenGLComponent.GetBindingsContext*
+- uid: OpenTK.Platform.IOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
+  id: GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetProcedureAddress(OpenGLContextHandle, string)
+  nameWithType: IOpenGLComponent.GetProcedureAddress(OpenGLContextHandle, string)
+  fullName: OpenTK.Platform.IOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle, string)
+  type: Method
+  source:
+    id: GetProcedureAddress
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 64
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the procedure address for an OpenGL command.
+  example: []
+  syntax:
+    content: nint GetProcedureAddress(OpenGLContextHandle handle, string procedureName)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to an OpenGL context.
+    - id: procedureName
+      type: System.String
+      description: Name of the OpenGL command.
+    return:
+      type: System.IntPtr
+      description: The procedure address to the OpenGL command.
+    content.vb: Function GetProcedureAddress(handle As OpenGLContextHandle, procedureName As String) As IntPtr
+  overload: OpenTK.Platform.IOpenGLComponent.GetProcedureAddress*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: OpenGL context handle or procedure name is null.
+  nameWithType.vb: IOpenGLComponent.GetProcedureAddress(OpenGLContextHandle, String)
+  fullName.vb: OpenTK.Platform.IOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle, String)
+  name.vb: GetProcedureAddress(OpenGLContextHandle, String)
+- uid: OpenTK.Platform.IOpenGLComponent.GetCurrentContext
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetCurrentContext
+  id: GetCurrentContext
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentContext()
+  nameWithType: IOpenGLComponent.GetCurrentContext()
+  fullName: OpenTK.Platform.IOpenGLComponent.GetCurrentContext()
+  type: Method
+  source:
+    id: GetCurrentContext
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 70
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the current OpenGL context for this thread.
+  example: []
+  syntax:
+    content: OpenGLContextHandle? GetCurrentContext()
+    return:
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the current OpenGL context, null if none are current.
+    content.vb: Function GetCurrentContext() As OpenGLContextHandle
+  overload: OpenTK.Platform.IOpenGLComponent.GetCurrentContext*
+- uid: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+  id: SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: SetCurrentContext(OpenGLContextHandle?)
+  nameWithType: IOpenGLComponent.SetCurrentContext(OpenGLContextHandle?)
+  fullName: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle?)
+  type: Method
+  source:
+    id: SetCurrentContext
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 78
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Set the current OpenGL context for this thread.
+  example: []
+  syntax:
+    content: bool SetCurrentContext(OpenGLContextHandle? handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the OpenGL context to make current, or null to make none current.
+    return:
+      type: System.Boolean
+      description: True when the OpenGL context is successfully made current.
+    content.vb: Function SetCurrentContext(handle As OpenGLContextHandle) As Boolean
+  overload: OpenTK.Platform.IOpenGLComponent.SetCurrentContext*
+  nameWithType.vb: IOpenGLComponent.SetCurrentContext(OpenGLContextHandle)
+  fullName.vb: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+  name.vb: SetCurrentContext(OpenGLContextHandle)
+- uid: OpenTK.Platform.IOpenGLComponent.GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
+  id: GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetSharedContext(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.GetSharedContext(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
+  type: Method
+  source:
+    id: GetSharedContext
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 85
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Gets the context which the given context shares display lists with.
+  example: []
+  syntax:
+    content: OpenGLContextHandle? GetSharedContext(OpenGLContextHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the OpenGL context.
+    return:
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the OpenGL context the given context shares display lists with.
+    content.vb: Function GetSharedContext(handle As OpenGLContextHandle) As OpenGLContextHandle
+  overload: OpenTK.Platform.IOpenGLComponent.GetSharedContext*
+- uid: OpenTK.Platform.IOpenGLComponent.SetSwapInterval(System.Int32)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.SetSwapInterval(System.Int32)
+  id: SetSwapInterval(System.Int32)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: SetSwapInterval(int)
+  nameWithType: IOpenGLComponent.SetSwapInterval(int)
+  fullName: OpenTK.Platform.IOpenGLComponent.SetSwapInterval(int)
+  type: Method
+  source:
+    id: SetSwapInterval
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 92
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Sets the swap interval of the current OpenGL context.
+  example: []
+  syntax:
+    content: void SetSwapInterval(int interval)
+    parameters:
+    - id: interval
+      type: System.Int32
+      description: The new swap interval.
+    content.vb: Sub SetSwapInterval(interval As Integer)
+  overload: OpenTK.Platform.IOpenGLComponent.SetSwapInterval*
+  nameWithType.vb: IOpenGLComponent.SetSwapInterval(Integer)
+  fullName.vb: OpenTK.Platform.IOpenGLComponent.SetSwapInterval(Integer)
+  name.vb: SetSwapInterval(Integer)
+- uid: OpenTK.Platform.IOpenGLComponent.GetSwapInterval
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetSwapInterval
+  id: GetSwapInterval
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetSwapInterval()
+  nameWithType: IOpenGLComponent.GetSwapInterval()
+  fullName: OpenTK.Platform.IOpenGLComponent.GetSwapInterval()
+  type: Method
+  source:
+    id: GetSwapInterval
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 99
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Gets the swap interval of the current OpenGL context.
+  example: []
+  syntax:
+    content: int GetSwapInterval()
+    return:
+      type: System.Int32
+      description: The current swap interval.
+    content.vb: Function GetSwapInterval() As Integer
+  overload: OpenTK.Platform.IOpenGLComponent.GetSwapInterval*
+- uid: OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
+  id: SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: SwapBuffers(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.SwapBuffers(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
+  type: Method
+  source:
+    id: SwapBuffers
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 105
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Swaps the buffer of the specified context.
+  example: []
+  syntax:
+    content: void SwapBuffers(OpenGLContextHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the context.
+    content.vb: Sub SwapBuffers(handle As OpenGLContextHandle)
+  overload: OpenTK.Platform.IOpenGLComponent.SwapBuffers*
+references:
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
+  href: OpenTK.html
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+- uid: OpenTK.Platform.IPalComponent.Name
+  commentId: P:OpenTK.Platform.IPalComponent.Name
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Name
+  name: Name
+  nameWithType: IPalComponent.Name
+  fullName: OpenTK.Platform.IPalComponent.Name
+- uid: OpenTK.Platform.IPalComponent.Provides
+  commentId: P:OpenTK.Platform.IPalComponent.Provides
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Provides
+  name: Provides
+  nameWithType: IPalComponent.Provides
+  fullName: OpenTK.Platform.IPalComponent.Provides
+- uid: OpenTK.Platform.IPalComponent.Logger
+  commentId: P:OpenTK.Platform.IPalComponent.Logger
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Logger
+  name: Logger
+  nameWithType: IPalComponent.Logger
+  fullName: OpenTK.Platform.IPalComponent.Logger
+- uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+- uid: OpenTK.Platform.IPalComponent
+  commentId: T:OpenTK.Platform.IPalComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IPalComponent.html
+  name: IPalComponent
+  nameWithType: IPalComponent
+  fullName: OpenTK.Platform.IPalComponent
+- uid: OpenTK.Platform.IOpenGLComponent.CanShareContexts*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.CanShareContexts
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CanShareContexts
+  name: CanShareContexts
+  nameWithType: IOpenGLComponent.CanShareContexts
+  fullName: OpenTK.Platform.IOpenGLComponent.CanShareContexts
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CreateFromWindow_OpenTK_Platform_WindowHandle_
+  name: CreateFromWindow(WindowHandle)
+  nameWithType: IOpenGLComponent.CreateFromWindow(WindowHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+    name: CreateFromWindow
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CreateFromWindow_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+    name: CreateFromWindow
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CreateFromWindow_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+- uid: OpenTK.Platform.IOpenGLComponent.CanCreateFromWindow*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.CanCreateFromWindow
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CanCreateFromWindow
+  name: CanCreateFromWindow
+  nameWithType: IOpenGLComponent.CanCreateFromWindow
+  fullName: OpenTK.Platform.IOpenGLComponent.CanCreateFromWindow
+- uid: OpenTK.Platform.IOpenGLComponent
+  commentId: T:OpenTK.Platform.IOpenGLComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IOpenGLComponent.html
+  name: IOpenGLComponent
+  nameWithType: IOpenGLComponent
+  fullName: OpenTK.Platform.IOpenGLComponent
+- uid: OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+  commentId: M:OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+  parent: OpenTK.Platform.IOpenGLComponent
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CreateFromSurface
+  name: CreateFromSurface()
+  nameWithType: IOpenGLComponent.CreateFromSurface()
+  fullName: OpenTK.Platform.IOpenGLComponent.CreateFromSurface()
+  spec.csharp:
+  - uid: OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+    name: CreateFromSurface
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CreateFromSurface
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+    name: CreateFromSurface
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CreateFromSurface
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.IOpenGLComponent.CanCreateFromSurface*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.CanCreateFromSurface
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CanCreateFromSurface
+  name: CanCreateFromSurface
+  nameWithType: IOpenGLComponent.CanCreateFromSurface
+  fullName: OpenTK.Platform.IOpenGLComponent.CanCreateFromSurface
+- uid: OpenTK.Platform.IOpenGLComponent.CreateFromSurface*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CreateFromSurface
+  name: CreateFromSurface
+  nameWithType: IOpenGLComponent.CreateFromSurface
+  fullName: OpenTK.Platform.IOpenGLComponent.CreateFromSurface
+- uid: OpenTK.Platform.OpenGLContextHandle
+  commentId: T:OpenTK.Platform.OpenGLContextHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.OpenGLContextHandle.html
+  name: OpenGLContextHandle
+  nameWithType: OpenGLContextHandle
+  fullName: OpenTK.Platform.OpenGLContextHandle
+- uid: OpenTK.Platform.IOpenGLComponent.CreateFromWindow*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.CreateFromWindow
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_CreateFromWindow_OpenTK_Platform_WindowHandle_
+  name: CreateFromWindow
+  nameWithType: IOpenGLComponent.CreateFromWindow
+  fullName: OpenTK.Platform.IOpenGLComponent.CreateFromWindow
+- uid: OpenTK.Platform.WindowHandle
+  commentId: T:OpenTK.Platform.WindowHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.WindowHandle.html
+  name: WindowHandle
+  nameWithType: WindowHandle
+  fullName: OpenTK.Platform.WindowHandle
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: OpenTK.Platform.IOpenGLComponent.DestroyContext*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.DestroyContext
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_DestroyContext_OpenTK_Platform_OpenGLContextHandle_
+  name: DestroyContext
+  nameWithType: IOpenGLComponent.DestroyContext
+  fullName: OpenTK.Platform.IOpenGLComponent.DestroyContext
+- uid: OpenTK.IBindingsContext
+  commentId: T:OpenTK.IBindingsContext
+  parent: OpenTK
+  href: OpenTK.IBindingsContext.html
+  name: IBindingsContext
+  nameWithType: IBindingsContext
+  fullName: OpenTK.IBindingsContext
+- uid: OpenTK.Platform.IOpenGLComponent.GetBindingsContext*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.GetBindingsContext
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetBindingsContext_OpenTK_Platform_OpenGLContextHandle_
+  name: GetBindingsContext
+  nameWithType: IOpenGLComponent.GetBindingsContext
+  fullName: OpenTK.Platform.IOpenGLComponent.GetBindingsContext
+- uid: OpenTK
+  commentId: N:OpenTK
+  href: OpenTK.html
+  name: OpenTK
+  nameWithType: OpenTK
+  fullName: OpenTK
+- uid: OpenTK.Platform.IOpenGLComponent.GetProcedureAddress*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.GetProcedureAddress
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetProcedureAddress_OpenTK_Platform_OpenGLContextHandle_System_String_
+  name: GetProcedureAddress
+  nameWithType: IOpenGLComponent.GetProcedureAddress
+  fullName: OpenTK.Platform.IOpenGLComponent.GetProcedureAddress
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: OpenTK.Platform.IOpenGLComponent.GetCurrentContext*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.GetCurrentContext
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetCurrentContext
+  name: GetCurrentContext
+  nameWithType: IOpenGLComponent.GetCurrentContext
+  fullName: OpenTK.Platform.IOpenGLComponent.GetCurrentContext
+- uid: OpenTK.Platform.IOpenGLComponent.SetCurrentContext*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.SetCurrentContext
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SetCurrentContext_OpenTK_Platform_OpenGLContextHandle_
+  name: SetCurrentContext
+  nameWithType: IOpenGLComponent.SetCurrentContext
+  fullName: OpenTK.Platform.IOpenGLComponent.SetCurrentContext
+- uid: OpenTK.Platform.IOpenGLComponent.GetSharedContext*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.GetSharedContext
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetSharedContext_OpenTK_Platform_OpenGLContextHandle_
+  name: GetSharedContext
+  nameWithType: IOpenGLComponent.GetSharedContext
+  fullName: OpenTK.Platform.IOpenGLComponent.GetSharedContext
+- uid: OpenTK.Platform.IOpenGLComponent.SetSwapInterval*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.SetSwapInterval
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SetSwapInterval_System_Int32_
+  name: SetSwapInterval
+  nameWithType: IOpenGLComponent.SetSwapInterval
+  fullName: OpenTK.Platform.IOpenGLComponent.SetSwapInterval
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OpenTK.Platform.IOpenGLComponent.GetSwapInterval*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.GetSwapInterval
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetSwapInterval
+  name: GetSwapInterval
+  nameWithType: IOpenGLComponent.GetSwapInterval
+  fullName: OpenTK.Platform.IOpenGLComponent.GetSwapInterval
+- uid: OpenTK.Platform.IOpenGLComponent.SwapBuffers*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.SwapBuffers
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SwapBuffers_OpenTK_Platform_OpenGLContextHandle_
+  name: SwapBuffers
+  nameWithType: IOpenGLComponent.SwapBuffers
+  fullName: OpenTK.Platform.IOpenGLComponent.SwapBuffers

@@ -9,14 +9,16 @@ items:
   - OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAMD(System.UInt32)
   - OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32*)
   - OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32@)
+  - OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32[])
+  - OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.ReadOnlySpan{System.Int32})
   - OpenTK.Graphics.Wgl.Wgl.AMD.DeleteAssociatedContextAMD(System.IntPtr)
   - OpenTK.Graphics.Wgl.Wgl.AMD.DeleteAssociatedContextAMD_(System.IntPtr)
   - OpenTK.Graphics.Wgl.Wgl.AMD.GetContextGPUIDAMD(System.IntPtr)
   - OpenTK.Graphics.Wgl.Wgl.AMD.GetCurrentAssociatedContextAMD
-  - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.Span{System.UInt32})
+  - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.Span{System.UInt32})
   - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.UInt32*)
   - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.UInt32@)
-  - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32[])
+  - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.UInt32[])
   - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUInfoAMD(System.UInt32,OpenTK.Graphics.Wgl.GPUPropertyAMD,OpenTK.Graphics.OpenGL.ScalarType,System.UInt32,System.IntPtr)
   - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUInfoAMD(System.UInt32,OpenTK.Graphics.Wgl.GPUPropertyAMD,OpenTK.Graphics.OpenGL.ScalarType,System.UInt32,System.Void*)
   - OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUInfoAMD``1(System.UInt32,OpenTK.Graphics.Wgl.GPUPropertyAMD,OpenTK.Graphics.OpenGL.ScalarType,System.UInt32,System.Span{``0})
@@ -32,13 +34,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD
   type: Class
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: AMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 377
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 265
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -69,17 +67,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.BlitContextFramebufferAMD(nint, int, int, int, int, int, int, int, int, OpenTK.Graphics.OpenGL.ClearBufferMask, OpenTK.Graphics.Wgl.All)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: BlitContextFramebufferAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 100
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglBlitContextFramebufferAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglBlitContextFramebufferAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static void BlitContextFramebufferAMD(nint dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, ClearBufferMask mask, All filter)
@@ -123,17 +122,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAMD(uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CreateAssociatedContextAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 103
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglCreateAssociatedContextAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglCreateAssociatedContextAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static nint CreateAssociatedContextAMD(uint id)
@@ -159,17 +159,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(uint, nint, int*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CreateAssociatedContextAttribsAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 106
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglCreateAssociatedContextAttribsAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglCreateAssociatedContextAttribsAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static nint CreateAssociatedContextAttribsAMD(uint id, nint hShareContext, int* attribList)
@@ -199,17 +200,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.DeleteAssociatedContextAMD_(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: DeleteAssociatedContextAMD_
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 109
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglDeleteAssociatedContextAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglDeleteAssociatedContextAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int DeleteAssociatedContextAMD_(nint hglrc)
@@ -235,17 +237,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetContextGPUIDAMD(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetContextGPUIDAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 112
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglGetContextGPUIDAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglGetContextGPUIDAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static uint GetContextGPUIDAMD(nint hglrc)
@@ -271,17 +274,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetCurrentAssociatedContextAMD()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetCurrentAssociatedContextAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 115
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglGetCurrentAssociatedContextAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglGetCurrentAssociatedContextAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static nint GetCurrentAssociatedContextAMD()
@@ -301,17 +305,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(uint, uint*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUIDsAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 118
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglGetGPUIDsAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglGetGPUIDsAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static uint GetGPUIDsAMD(uint maxCount, uint* ids)
@@ -339,17 +344,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUInfoAMD(uint, OpenTK.Graphics.Wgl.GPUPropertyAMD, OpenTK.Graphics.OpenGL.ScalarType, uint, void*)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUInfoAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 121
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglGetGPUInfoAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglGetGPUInfoAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int GetGPUInfoAMD(uint id, GPUPropertyAMD property, ScalarType dataType, uint size, void* data)
@@ -383,17 +389,18 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.MakeAssociatedContextCurrentAMD_(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Native.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: MakeAssociatedContextCurrentAMD_
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Native.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Native.cs
     startLine: 124
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
-  summary: '<b>[requires: WGL_AMD_gpu_association]</b> <b>[entry point: <code>wglMakeAssociatedContextCurrentAMD</code>]</b><br />'
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglMakeAssociatedContextCurrentAMD</code>]</b>
+
+    <br />
   example: []
   syntax:
     content: public static int MakeAssociatedContextCurrentAMD_(nint hglrc)
@@ -407,6 +414,88 @@ items:
   nameWithType.vb: Wgl.AMD.MakeAssociatedContextCurrentAMD_(IntPtr)
   fullName.vb: OpenTK.Graphics.Wgl.Wgl.AMD.MakeAssociatedContextCurrentAMD_(System.IntPtr)
   name.vb: MakeAssociatedContextCurrentAMD_(IntPtr)
+- uid: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.ReadOnlySpan{System.Int32})
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.ReadOnlySpan{System.Int32})
+  id: CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.ReadOnlySpan{System.Int32})
+  parent: OpenTK.Graphics.Wgl.Wgl.AMD
+  langs:
+  - csharp
+  - vb
+  name: CreateAssociatedContextAttribsAMD(uint, nint, ReadOnlySpan<int>)
+  nameWithType: Wgl.AMD.CreateAssociatedContextAttribsAMD(uint, nint, ReadOnlySpan<int>)
+  fullName: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(uint, nint, System.ReadOnlySpan<int>)
+  type: Method
+  source:
+    id: CreateAssociatedContextAttribsAMD
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 268
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Wgl
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglCreateAssociatedContextAttribsAMD</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static nint CreateAssociatedContextAttribsAMD(uint id, nint hShareContext, ReadOnlySpan<int> attribList)
+    parameters:
+    - id: id
+      type: System.UInt32
+    - id: hShareContext
+      type: System.IntPtr
+    - id: attribList
+      type: System.ReadOnlySpan{System.Int32}
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Function CreateAssociatedContextAttribsAMD(id As UInteger, hShareContext As IntPtr, attribList As ReadOnlySpan(Of Integer)) As IntPtr
+  overload: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD*
+  nameWithType.vb: Wgl.AMD.CreateAssociatedContextAttribsAMD(UInteger, IntPtr, ReadOnlySpan(Of Integer))
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(UInteger, System.IntPtr, System.ReadOnlySpan(Of Integer))
+  name.vb: CreateAssociatedContextAttribsAMD(UInteger, IntPtr, ReadOnlySpan(Of Integer))
+- uid: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32[])
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32[])
+  id: CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32[])
+  parent: OpenTK.Graphics.Wgl.Wgl.AMD
+  langs:
+  - csharp
+  - vb
+  name: CreateAssociatedContextAttribsAMD(uint, nint, int[])
+  nameWithType: Wgl.AMD.CreateAssociatedContextAttribsAMD(uint, nint, int[])
+  fullName: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(uint, nint, int[])
+  type: Method
+  source:
+    id: CreateAssociatedContextAttribsAMD
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 278
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Wgl
+  summary: >-
+    <b>[requires: WGL_AMD_gpu_association]</b>
+
+    <b>[entry point: <code>wglCreateAssociatedContextAttribsAMD</code>]</b>
+
+    <br />
+  example: []
+  syntax:
+    content: public static nint CreateAssociatedContextAttribsAMD(uint id, nint hShareContext, int[] attribList)
+    parameters:
+    - id: id
+      type: System.UInt32
+    - id: hShareContext
+      type: System.IntPtr
+    - id: attribList
+      type: System.Int32[]
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Function CreateAssociatedContextAttribsAMD(id As UInteger, hShareContext As IntPtr, attribList As Integer()) As IntPtr
+  overload: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD*
+  nameWithType.vb: Wgl.AMD.CreateAssociatedContextAttribsAMD(UInteger, IntPtr, Integer())
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(UInteger, System.IntPtr, Integer())
+  name.vb: CreateAssociatedContextAttribsAMD(UInteger, IntPtr, Integer())
 - uid: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32@)
   commentId: M:OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32@)
   id: CreateAssociatedContextAttribsAMD(System.UInt32,System.IntPtr,System.Int32@)
@@ -419,13 +508,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.CreateAssociatedContextAttribsAMD(uint, nint, in int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: CreateAssociatedContextAttribsAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 380
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 288
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -464,13 +549,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.DeleteAssociatedContextAMD(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: DeleteAssociatedContextAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 390
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 298
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -487,25 +568,21 @@ items:
   nameWithType.vb: Wgl.AMD.DeleteAssociatedContextAMD(IntPtr)
   fullName.vb: OpenTK.Graphics.Wgl.Wgl.AMD.DeleteAssociatedContextAMD(System.IntPtr)
   name.vb: DeleteAssociatedContextAMD(IntPtr)
-- uid: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.Span{System.UInt32})
-  commentId: M:OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.Span{System.UInt32})
-  id: GetGPUIDsAMD(System.Span{System.UInt32})
+- uid: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.Span{System.UInt32})
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.Span{System.UInt32})
+  id: GetGPUIDsAMD(System.UInt32,System.Span{System.UInt32})
   parent: OpenTK.Graphics.Wgl.Wgl.AMD
   langs:
   - csharp
   - vb
-  name: GetGPUIDsAMD(Span<uint>)
-  nameWithType: Wgl.AMD.GetGPUIDsAMD(Span<uint>)
-  fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.Span<uint>)
+  name: GetGPUIDsAMD(uint, Span<uint>)
+  nameWithType: Wgl.AMD.GetGPUIDsAMD(uint, Span<uint>)
+  fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(uint, System.Span<uint>)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUIDsAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 399
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 307
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -517,36 +594,34 @@ items:
     <br />
   example: []
   syntax:
-    content: public static uint GetGPUIDsAMD(Span<uint> ids)
+    content: public static uint GetGPUIDsAMD(uint maxCount, Span<uint> ids)
     parameters:
+    - id: maxCount
+      type: System.UInt32
     - id: ids
       type: System.Span{System.UInt32}
     return:
       type: System.UInt32
-    content.vb: Public Shared Function GetGPUIDsAMD(ids As Span(Of UInteger)) As UInteger
+    content.vb: Public Shared Function GetGPUIDsAMD(maxCount As UInteger, ids As Span(Of UInteger)) As UInteger
   overload: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD*
-  nameWithType.vb: Wgl.AMD.GetGPUIDsAMD(Span(Of UInteger))
-  fullName.vb: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.Span(Of UInteger))
-  name.vb: GetGPUIDsAMD(Span(Of UInteger))
-- uid: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32[])
-  commentId: M:OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32[])
-  id: GetGPUIDsAMD(System.UInt32[])
+  nameWithType.vb: Wgl.AMD.GetGPUIDsAMD(UInteger, Span(Of UInteger))
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(UInteger, System.Span(Of UInteger))
+  name.vb: GetGPUIDsAMD(UInteger, Span(Of UInteger))
+- uid: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.UInt32[])
+  commentId: M:OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.UInt32[])
+  id: GetGPUIDsAMD(System.UInt32,System.UInt32[])
   parent: OpenTK.Graphics.Wgl.Wgl.AMD
   langs:
   - csharp
   - vb
-  name: GetGPUIDsAMD(uint[])
-  nameWithType: Wgl.AMD.GetGPUIDsAMD(uint[])
-  fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(uint[])
+  name: GetGPUIDsAMD(uint, uint[])
+  nameWithType: Wgl.AMD.GetGPUIDsAMD(uint, uint[])
+  fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(uint, uint[])
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUIDsAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 410
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 317
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -558,17 +633,19 @@ items:
     <br />
   example: []
   syntax:
-    content: public static uint GetGPUIDsAMD(uint[] ids)
+    content: public static uint GetGPUIDsAMD(uint maxCount, uint[] ids)
     parameters:
+    - id: maxCount
+      type: System.UInt32
     - id: ids
       type: System.UInt32[]
     return:
       type: System.UInt32
-    content.vb: Public Shared Function GetGPUIDsAMD(ids As UInteger()) As UInteger
+    content.vb: Public Shared Function GetGPUIDsAMD(maxCount As UInteger, ids As UInteger()) As UInteger
   overload: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD*
-  nameWithType.vb: Wgl.AMD.GetGPUIDsAMD(UInteger())
-  fullName.vb: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(UInteger())
-  name.vb: GetGPUIDsAMD(UInteger())
+  nameWithType.vb: Wgl.AMD.GetGPUIDsAMD(UInteger, UInteger())
+  fullName.vb: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(UInteger, UInteger())
+  name.vb: GetGPUIDsAMD(UInteger, UInteger())
 - uid: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.UInt32@)
   commentId: M:OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(System.UInt32,System.UInt32@)
   id: GetGPUIDsAMD(System.UInt32,System.UInt32@)
@@ -581,13 +658,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUIDsAMD(uint, ref uint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUIDsAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 421
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 327
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -624,13 +697,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUInfoAMD(uint, OpenTK.Graphics.Wgl.GPUPropertyAMD, OpenTK.Graphics.OpenGL.ScalarType, uint, nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUInfoAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 431
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 337
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -673,13 +742,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUInfoAMD<T1>(uint, OpenTK.Graphics.Wgl.GPUPropertyAMD, OpenTK.Graphics.OpenGL.ScalarType, uint, System.Span<T1>)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUInfoAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 439
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 345
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -724,13 +789,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUInfoAMD<T1>(uint, OpenTK.Graphics.Wgl.GPUPropertyAMD, OpenTK.Graphics.OpenGL.ScalarType, uint, T1[])
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUInfoAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 450
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 356
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -775,13 +836,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.GetGPUInfoAMD<T1>(uint, OpenTK.Graphics.Wgl.GPUPropertyAMD, OpenTK.Graphics.OpenGL.ScalarType, uint, ref T1)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: GetGPUInfoAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 461
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 367
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -826,13 +883,9 @@ items:
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.MakeAssociatedContextCurrentAMD(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-      branch: pal2-work
-      repo: https://github.com/opentk/opentk.git
     id: MakeAssociatedContextCurrentAMD
-    path: opentk/src/OpenTK.Graphics/Wgl/WGL.Overloads.cs
-    startLine: 472
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\Wgl\WGL.Overloads.cs
+    startLine: 378
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Wgl
@@ -1325,6 +1378,92 @@ references:
   name: MakeAssociatedContextCurrentAMD_
   nameWithType: Wgl.AMD.MakeAssociatedContextCurrentAMD_
   fullName: OpenTK.Graphics.Wgl.Wgl.AMD.MakeAssociatedContextCurrentAMD_
+- uid: System.ReadOnlySpan{System.Int32}
+  commentId: T:System.ReadOnlySpan{System.Int32}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<int>
+  nameWithType: ReadOnlySpan<int>
+  fullName: System.ReadOnlySpan<int>
+  nameWithType.vb: ReadOnlySpan(Of Integer)
+  fullName.vb: System.ReadOnlySpan(Of Integer)
+  name.vb: ReadOnlySpan(Of Integer)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
 - uid: OpenTK.Graphics.Wgl.Wgl.AMD.DeleteAssociatedContextAMD*
   commentId: Overload:OpenTK.Graphics.Wgl.Wgl.AMD.DeleteAssociatedContextAMD
   href: OpenTK.Graphics.Wgl.Wgl.AMD.html#OpenTK_Graphics_Wgl_Wgl_AMD_DeleteAssociatedContextAMD_System_IntPtr_

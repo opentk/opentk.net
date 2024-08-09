@@ -1,0 +1,675 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Platform.IKeyboardComponent
+  commentId: T:OpenTK.Platform.IKeyboardComponent
+  id: IKeyboardComponent
+  parent: OpenTK.Platform
+  children:
+  - OpenTK.Platform.IKeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.IKeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
+  - OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+  - OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+  - OpenTK.Platform.IKeyboardComponent.GetKeyboardState(System.Boolean[])
+  - OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
+  - OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  - OpenTK.Platform.IKeyboardComponent.SupportsIme
+  - OpenTK.Platform.IKeyboardComponent.SupportsLayouts
+  langs:
+  - csharp
+  - vb
+  name: IKeyboardComponent
+  nameWithType: IKeyboardComponent
+  fullName: OpenTK.Platform.IKeyboardComponent
+  type: Interface
+  source:
+    id: IKeyboardComponent
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 7
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: PAL driver for global keyboard information.
+  example: []
+  syntax:
+    content: 'public interface IKeyboardComponent : IPalComponent'
+    content.vb: Public Interface IKeyboardComponent Inherits IPalComponent
+  inheritedMembers:
+  - OpenTK.Platform.IPalComponent.Name
+  - OpenTK.Platform.IPalComponent.Provides
+  - OpenTK.Platform.IPalComponent.Logger
+  - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.IKeyboardComponent.SupportsLayouts
+  commentId: P:OpenTK.Platform.IKeyboardComponent.SupportsLayouts
+  id: SupportsLayouts
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: SupportsLayouts
+  nameWithType: IKeyboardComponent.SupportsLayouts
+  fullName: OpenTK.Platform.IKeyboardComponent.SupportsLayouts
+  type: Property
+  source:
+    id: SupportsLayouts
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 16
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: True if the driver supports keyboard layout functions.
+  example: []
+  syntax:
+    content: bool SupportsLayouts { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property SupportsLayouts As Boolean
+  overload: OpenTK.Platform.IKeyboardComponent.SupportsLayouts*
+- uid: OpenTK.Platform.IKeyboardComponent.SupportsIme
+  commentId: P:OpenTK.Platform.IKeyboardComponent.SupportsIme
+  id: SupportsIme
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: SupportsIme
+  nameWithType: IKeyboardComponent.SupportsIme
+  fullName: OpenTK.Platform.IKeyboardComponent.SupportsIme
+  type: Property
+  source:
+    id: SupportsIme
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 21
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: True if the driver supports input method editor functions.
+  example: []
+  syntax:
+    content: bool SupportsIme { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property SupportsIme As Boolean
+  overload: OpenTK.Platform.IKeyboardComponent.SupportsIme*
+- uid: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
+  id: GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetActiveKeyboardLayout(WindowHandle?)
+  nameWithType: IKeyboardComponent.GetActiveKeyboardLayout(WindowHandle?)
+  fullName: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle?)
+  type: Method
+  source:
+    id: GetActiveKeyboardLayout
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 29
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the active keyboard layout.
+  example: []
+  syntax:
+    content: string GetActiveKeyboardLayout(WindowHandle? handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.WindowHandle
+      description: (optional) Handle to a window to query the layout for. Ignored on systems where keyboard layout is global.
+    return:
+      type: System.String
+      description: A string which describes the active keyboard layout.
+    content.vb: Function GetActiveKeyboardLayout(handle As WindowHandle) As String
+  overload: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout*
+  exceptions:
+  - type: OpenTK.Platform.PalNotImplementedException
+    commentId: T:OpenTK.Platform.PalNotImplementedException
+    description: Driver cannot query active keyboard layout.
+  nameWithType.vb: IKeyboardComponent.GetActiveKeyboardLayout(WindowHandle)
+  fullName.vb: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
+  name.vb: GetActiveKeyboardLayout(WindowHandle)
+- uid: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
+  id: GetAvailableKeyboardLayouts
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetAvailableKeyboardLayouts()
+  nameWithType: IKeyboardComponent.GetAvailableKeyboardLayouts()
+  fullName: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts()
+  type: Method
+  source:
+    id: GetAvailableKeyboardLayouts
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 35
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: See list of possible keyboard layouts for this system.
+  example: []
+  syntax:
+    content: string[] GetAvailableKeyboardLayouts()
+    return:
+      type: System.String[]
+      description: Array containing possible keyboard layouts.
+    content.vb: Function GetAvailableKeyboardLayouts() As String()
+  overload: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts*
+- uid: OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
+  id: GetScancodeFromKey(OpenTK.Platform.Key)
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetScancodeFromKey(Key)
+  nameWithType: IKeyboardComponent.GetScancodeFromKey(Key)
+  fullName: OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
+  type: Method
+  source:
+    id: GetScancodeFromKey
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 48
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Gets the <xref href="OpenTK.Platform.Scancode" data-throw-if-not-resolved="false"></xref> associated with the specified <xref href="OpenTK.Platform.Key" data-throw-if-not-resolved="false"></xref>.
+
+    The Key to Scancode mapping is not 1 to 1, multiple scancodes can produce the same key.
+
+    This function will return one of the scancodes that produce the key.
+
+    This function uses the current keyboard layout to determine the mapping.
+  example: []
+  syntax:
+    content: Scancode GetScancodeFromKey(Key key)
+    parameters:
+    - id: key
+      type: OpenTK.Platform.Key
+      description: The key.
+    return:
+      type: OpenTK.Platform.Scancode
+      description: >-
+        The <xref href="OpenTK.Platform.Scancode" data-throw-if-not-resolved="false"></xref> that produces the <xref href="OpenTK.Platform.Key" data-throw-if-not-resolved="false"></xref>
+
+        or <xref href="OpenTK.Platform.Scancode.Unknown" data-throw-if-not-resolved="false"></xref> if no scancode produces the key.
+    content.vb: Function GetScancodeFromKey(key As Key) As Scancode
+  overload: OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey*
+- uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+  id: GetKeyFromScancode(OpenTK.Platform.Scancode)
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetKeyFromScancode(Scancode)
+  nameWithType: IKeyboardComponent.GetKeyFromScancode(Scancode)
+  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+  type: Method
+  source:
+    id: GetKeyFromScancode
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 59
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Gets the <xref href="OpenTK.Platform.Key" data-throw-if-not-resolved="false"></xref> associated with the specidied <xref href="OpenTK.Platform.Scancode" data-throw-if-not-resolved="false"></xref>.
+
+    This function uses the current keyboard layout to determine the mapping.
+  example: []
+  syntax:
+    content: Key GetKeyFromScancode(Scancode scancode)
+    parameters:
+    - id: scancode
+      type: OpenTK.Platform.Scancode
+      description: The scancode.
+    return:
+      type: OpenTK.Platform.Key
+      description: >-
+        The <xref href="OpenTK.Platform.Key" data-throw-if-not-resolved="false"></xref> associated with the <xref href="OpenTK.Platform.Scancode" data-throw-if-not-resolved="false"></xref>
+
+        or <xref href="OpenTK.Platform.Key.Unknown" data-throw-if-not-resolved="false"></xref> if the scancode can't be mapped to a key.
+    content.vb: Function GetKeyFromScancode(scancode As Scancode) As Key
+  overload: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode*
+- uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardState(System.Boolean[])
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyboardState(System.Boolean[])
+  id: GetKeyboardState(System.Boolean[])
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetKeyboardState(bool[])
+  nameWithType: IKeyboardComponent.GetKeyboardState(bool[])
+  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyboardState(bool[])
+  type: Method
+  source:
+    id: GetKeyboardState
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 67
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Copies the current state of the keyboard into the specified array.
+
+    This array should be indexed using <xref href="OpenTK.Platform.Scancode" data-throw-if-not-resolved="false"></xref> values.
+
+    The length of this array should be an array able to hold all possible <xref href="OpenTK.Platform.Scancode" data-throw-if-not-resolved="false"></xref> values.
+  example: []
+  syntax:
+    content: void GetKeyboardState(bool[] keyboardState)
+    parameters:
+    - id: keyboardState
+      type: System.Boolean[]
+      description: An array to be filled with the keyboard state.
+    content.vb: Sub GetKeyboardState(keyboardState As Boolean())
+  overload: OpenTK.Platform.IKeyboardComponent.GetKeyboardState*
+  nameWithType.vb: IKeyboardComponent.GetKeyboardState(Boolean())
+  fullName.vb: OpenTK.Platform.IKeyboardComponent.GetKeyboardState(Boolean())
+  name.vb: GetKeyboardState(Boolean())
+- uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+  id: GetKeyboardModifiers
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetKeyboardModifiers()
+  nameWithType: IKeyboardComponent.GetKeyboardModifiers()
+  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers()
+  type: Method
+  source:
+    id: GetKeyboardModifiers
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 73
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Gets the current keyboard modifiers.
+  example: []
+  syntax:
+    content: KeyModifier GetKeyboardModifiers()
+    return:
+      type: OpenTK.Platform.KeyModifier
+      description: The current keyboard modifiers.
+    content.vb: Function GetKeyboardModifiers() As KeyModifier
+  overload: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers*
+- uid: OpenTK.Platform.IKeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
+  id: BeginIme(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: BeginIme(WindowHandle)
+  nameWithType: IKeyboardComponent.BeginIme(WindowHandle)
+  fullName: OpenTK.Platform.IKeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
+  type: Method
+  source:
+    id: BeginIme
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 81
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Invoke input method editor.
+  example: []
+  syntax:
+    content: void BeginIme(WindowHandle window)
+    parameters:
+    - id: window
+      type: OpenTK.Platform.WindowHandle
+      description: The window corresponding to this IME window.
+    content.vb: Sub BeginIme(window As WindowHandle)
+  overload: OpenTK.Platform.IKeyboardComponent.BeginIme*
+- uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: SetImeRectangle(WindowHandle, int, int, int, int)
+  nameWithType: IKeyboardComponent.SetImeRectangle(WindowHandle, int, int, int, int)
+  fullName: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, int, int, int, int)
+  type: Method
+  source:
+    id: SetImeRectangle
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 91
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Set the rectangle to which the IME interface will appear relative to.
+  example: []
+  syntax:
+    content: void SetImeRectangle(WindowHandle window, int x, int y, int width, int height)
+    parameters:
+    - id: window
+      type: OpenTK.Platform.WindowHandle
+      description: The window corresponding to this IME window.
+    - id: x
+      type: System.Int32
+      description: X coordinate of the rectangle in desktop coordinates.
+    - id: y
+      type: System.Int32
+      description: Y coordinate of the rectangle in desktop coordinates.
+    - id: width
+      type: System.Int32
+      description: Width of the rectangle in desktop units.
+    - id: height
+      type: System.Int32
+      description: Height of the rectangle in desktop units.
+    content.vb: Sub SetImeRectangle(window As WindowHandle, x As Integer, y As Integer, width As Integer, height As Integer)
+  overload: OpenTK.Platform.IKeyboardComponent.SetImeRectangle*
+  nameWithType.vb: IKeyboardComponent.SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
+  fullName.vb: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Integer, Integer, Integer, Integer)
+  name.vb: SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
+- uid: OpenTK.Platform.IKeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
+  id: EndIme(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: EndIme(WindowHandle)
+  nameWithType: IKeyboardComponent.EndIme(WindowHandle)
+  fullName: OpenTK.Platform.IKeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
+  type: Method
+  source:
+    id: EndIme
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IKeyboardComponent.cs
+    startLine: 97
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Finish input method editor.
+  example: []
+  syntax:
+    content: void EndIme(WindowHandle window)
+    parameters:
+    - id: window
+      type: OpenTK.Platform.WindowHandle
+      description: The window corresponding to this IME window.
+    content.vb: Sub EndIme(window As WindowHandle)
+  overload: OpenTK.Platform.IKeyboardComponent.EndIme*
+references:
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
+  href: OpenTK.html
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+- uid: OpenTK.Platform.IPalComponent.Name
+  commentId: P:OpenTK.Platform.IPalComponent.Name
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Name
+  name: Name
+  nameWithType: IPalComponent.Name
+  fullName: OpenTK.Platform.IPalComponent.Name
+- uid: OpenTK.Platform.IPalComponent.Provides
+  commentId: P:OpenTK.Platform.IPalComponent.Provides
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Provides
+  name: Provides
+  nameWithType: IPalComponent.Provides
+  fullName: OpenTK.Platform.IPalComponent.Provides
+- uid: OpenTK.Platform.IPalComponent.Logger
+  commentId: P:OpenTK.Platform.IPalComponent.Logger
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Logger
+  name: Logger
+  nameWithType: IPalComponent.Logger
+  fullName: OpenTK.Platform.IPalComponent.Logger
+- uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+- uid: OpenTK.Platform.IPalComponent
+  commentId: T:OpenTK.Platform.IPalComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IPalComponent.html
+  name: IPalComponent
+  nameWithType: IPalComponent
+  fullName: OpenTK.Platform.IPalComponent
+- uid: OpenTK.Platform.IKeyboardComponent.SupportsLayouts*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.SupportsLayouts
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SupportsLayouts
+  name: SupportsLayouts
+  nameWithType: IKeyboardComponent.SupportsLayouts
+  fullName: OpenTK.Platform.IKeyboardComponent.SupportsLayouts
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Platform.IKeyboardComponent.SupportsIme*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.SupportsIme
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SupportsIme
+  name: SupportsIme
+  nameWithType: IKeyboardComponent.SupportsIme
+  fullName: OpenTK.Platform.IKeyboardComponent.SupportsIme
+- uid: OpenTK.Platform.PalNotImplementedException
+  commentId: T:OpenTK.Platform.PalNotImplementedException
+  href: OpenTK.Platform.PalNotImplementedException.html
+  name: PalNotImplementedException
+  nameWithType: PalNotImplementedException
+  fullName: OpenTK.Platform.PalNotImplementedException
+- uid: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
+  name: GetActiveKeyboardLayout
+  nameWithType: IKeyboardComponent.GetActiveKeyboardLayout
+  fullName: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout
+- uid: OpenTK.Platform.WindowHandle
+  commentId: T:OpenTK.Platform.WindowHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.WindowHandle.html
+  name: WindowHandle
+  nameWithType: WindowHandle
+  fullName: OpenTK.Platform.WindowHandle
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetAvailableKeyboardLayouts
+  name: GetAvailableKeyboardLayouts
+  nameWithType: IKeyboardComponent.GetAvailableKeyboardLayouts
+  fullName: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Scancode
+  commentId: T:OpenTK.Platform.Scancode
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.Scancode.html
+  name: Scancode
+  nameWithType: Scancode
+  fullName: OpenTK.Platform.Scancode
+- uid: OpenTK.Platform.Key
+  commentId: T:OpenTK.Platform.Key
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.Key.html
+  name: Key
+  nameWithType: Key
+  fullName: OpenTK.Platform.Key
+- uid: OpenTK.Platform.Scancode.Unknown
+  commentId: F:OpenTK.Platform.Scancode.Unknown
+  href: OpenTK.Platform.Scancode.html#OpenTK_Platform_Scancode_Unknown
+  name: Unknown
+  nameWithType: Scancode.Unknown
+  fullName: OpenTK.Platform.Scancode.Unknown
+- uid: OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetScancodeFromKey_OpenTK_Platform_Key_
+  name: GetScancodeFromKey
+  nameWithType: IKeyboardComponent.GetScancodeFromKey
+  fullName: OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey
+- uid: OpenTK.Platform.Key.Unknown
+  commentId: F:OpenTK.Platform.Key.Unknown
+  href: OpenTK.Platform.Key.html#OpenTK_Platform_Key_Unknown
+  name: Unknown
+  nameWithType: Key.Unknown
+  fullName: OpenTK.Platform.Key.Unknown
+- uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyFromScancode_OpenTK_Platform_Scancode_
+  name: GetKeyFromScancode
+  nameWithType: IKeyboardComponent.GetKeyFromScancode
+  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode
+- uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardState*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.GetKeyboardState
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyboardState_System_Boolean___
+  name: GetKeyboardState
+  nameWithType: IKeyboardComponent.GetKeyboardState
+  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyboardState
+- uid: System.Boolean[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool[]
+  nameWithType: bool[]
+  fullName: bool[]
+  nameWithType.vb: Boolean()
+  fullName.vb: Boolean()
+  name.vb: Boolean()
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyboardModifiers
+  name: GetKeyboardModifiers
+  nameWithType: IKeyboardComponent.GetKeyboardModifiers
+  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+- uid: OpenTK.Platform.KeyModifier
+  commentId: T:OpenTK.Platform.KeyModifier
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.KeyModifier.html
+  name: KeyModifier
+  nameWithType: KeyModifier
+  fullName: OpenTK.Platform.KeyModifier
+- uid: OpenTK.Platform.IKeyboardComponent.BeginIme*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.BeginIme
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_BeginIme_OpenTK_Platform_WindowHandle_
+  name: BeginIme
+  nameWithType: IKeyboardComponent.BeginIme
+  fullName: OpenTK.Platform.IKeyboardComponent.BeginIme
+- uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.SetImeRectangle
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: SetImeRectangle
+  nameWithType: IKeyboardComponent.SetImeRectangle
+  fullName: OpenTK.Platform.IKeyboardComponent.SetImeRectangle
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OpenTK.Platform.IKeyboardComponent.EndIme*
+  commentId: Overload:OpenTK.Platform.IKeyboardComponent.EndIme
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_EndIme_OpenTK_Platform_WindowHandle_
+  name: EndIme
+  nameWithType: IKeyboardComponent.EndIme
+  fullName: OpenTK.Platform.IKeyboardComponent.EndIme

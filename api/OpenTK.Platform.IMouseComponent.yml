@@ -1,0 +1,592 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Platform.IMouseComponent
+  commentId: T:OpenTK.Platform.IMouseComponent
+  id: IMouseComponent
+  parent: OpenTK.Platform
+  children:
+  - OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  - OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+  - OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
+  - OpenTK.Platform.IMouseComponent.GetPosition(System.Int32@,System.Int32@)
+  - OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+  - OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  langs:
+  - csharp
+  - vb
+  name: IMouseComponent
+  nameWithType: IMouseComponent
+  fullName: OpenTK.Platform.IMouseComponent
+  type: Interface
+  source:
+    id: IMouseComponent
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
+    startLine: 31
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Base interface for drivers which implement the mouse component.
+  example: []
+  syntax:
+    content: 'public interface IMouseComponent : IPalComponent'
+    content.vb: Public Interface IMouseComponent Inherits IPalComponent
+  inheritedMembers:
+  - OpenTK.Platform.IPalComponent.Name
+  - OpenTK.Platform.IPalComponent.Provides
+  - OpenTK.Platform.IPalComponent.Logger
+  - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  commentId: P:OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  id: CanSetMousePosition
+  parent: OpenTK.Platform.IMouseComponent
+  langs:
+  - csharp
+  - vb
+  name: CanSetMousePosition
+  nameWithType: IMouseComponent.CanSetMousePosition
+  fullName: OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  type: Property
+  source:
+    id: CanSetMousePosition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
+    startLine: 37
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: If it's possible to set the position of the mouse using <xref href="OpenTK.Platform.IMouseComponent.SetPosition(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: bool CanSetMousePosition { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanSetMousePosition As Boolean
+  overload: OpenTK.Platform.IMouseComponent.CanSetMousePosition*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+    commentId: M:OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+- uid: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  commentId: P:OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  id: SupportsRawMouseMotion
+  parent: OpenTK.Platform.IMouseComponent
+  langs:
+  - csharp
+  - vb
+  name: SupportsRawMouseMotion
+  nameWithType: IMouseComponent.SupportsRawMouseMotion
+  fullName: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  type: Property
+  source:
+    id: SupportsRawMouseMotion
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
+    startLine: 47
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    If raw mouse motion is supported on this platform.
+
+    If this is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a><xref href="OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> should not be used.
+  example: []
+  syntax:
+    content: bool SupportsRawMouseMotion { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property SupportsRawMouseMotion As Boolean
+  overload: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+    commentId: M:OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  - linkId: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+    commentId: M:OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+- uid: OpenTK.Platform.IMouseComponent.GetPosition(System.Int32@,System.Int32@)
+  commentId: M:OpenTK.Platform.IMouseComponent.GetPosition(System.Int32@,System.Int32@)
+  id: GetPosition(System.Int32@,System.Int32@)
+  parent: OpenTK.Platform.IMouseComponent
+  langs:
+  - csharp
+  - vb
+  name: GetPosition(out int, out int)
+  nameWithType: IMouseComponent.GetPosition(out int, out int)
+  fullName: OpenTK.Platform.IMouseComponent.GetPosition(out int, out int)
+  type: Method
+  source:
+    id: GetPosition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
+    startLine: 58
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the mouse cursor position.
+  example: []
+  syntax:
+    content: void GetPosition(out int x, out int y)
+    parameters:
+    - id: x
+      type: System.Int32
+      description: X coordinate of the mouse in desktop space.
+    - id: y
+      type: System.Int32
+      description: Y coordinate of the mouse in desktop space.
+    content.vb: Sub GetPosition(x As Integer, y As Integer)
+  overload: OpenTK.Platform.IMouseComponent.GetPosition*
+  nameWithType.vb: IMouseComponent.GetPosition(Integer, Integer)
+  fullName.vb: OpenTK.Platform.IMouseComponent.GetPosition(Integer, Integer)
+  name.vb: GetPosition(Integer, Integer)
+- uid: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+  commentId: M:OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+  id: SetPosition(System.Int32,System.Int32)
+  parent: OpenTK.Platform.IMouseComponent
+  langs:
+  - csharp
+  - vb
+  name: SetPosition(int, int)
+  nameWithType: IMouseComponent.SetPosition(int, int)
+  fullName: OpenTK.Platform.IMouseComponent.SetPosition(int, int)
+  type: Method
+  source:
+    id: SetPosition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
+    startLine: 67
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Set the mouse cursor position.
+
+    Check that <xref href="OpenTK.Platform.IMouseComponent.CanSetMousePosition" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> before using this.
+  example: []
+  syntax:
+    content: void SetPosition(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+      description: X coordinate of the mouse in desktop space.
+    - id: y
+      type: System.Int32
+      description: Y coordinate of the mouse in desktop space.
+    content.vb: Sub SetPosition(x As Integer, y As Integer)
+  overload: OpenTK.Platform.IMouseComponent.SetPosition*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.CanSetMousePosition
+    commentId: P:OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  nameWithType.vb: IMouseComponent.SetPosition(Integer, Integer)
+  fullName.vb: OpenTK.Platform.IMouseComponent.SetPosition(Integer, Integer)
+  name.vb: SetPosition(Integer, Integer)
+- uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
+  commentId: M:OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
+  id: GetMouseState(OpenTK.Platform.MouseState@)
+  parent: OpenTK.Platform.IMouseComponent
+  langs:
+  - csharp
+  - vb
+  name: GetMouseState(out MouseState)
+  nameWithType: IMouseComponent.GetMouseState(out MouseState)
+  fullName: OpenTK.Platform.IMouseComponent.GetMouseState(out OpenTK.Platform.MouseState)
+  type: Method
+  source:
+    id: GetMouseState
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
+    startLine: 73
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Fills the <code class="paramref">state</code> struct with the current mouse state.
+  example: []
+  syntax:
+    content: void GetMouseState(out MouseState state)
+    parameters:
+    - id: state
+      type: OpenTK.Platform.MouseState
+      description: The current mouse state.
+    content.vb: Sub GetMouseState(state As MouseState)
+  overload: OpenTK.Platform.IMouseComponent.GetMouseState*
+  nameWithType.vb: IMouseComponent.GetMouseState(MouseState)
+  fullName.vb: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState)
+  name.vb: GetMouseState(MouseState)
+- uid: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  id: IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IMouseComponent
+  langs:
+  - csharp
+  - vb
+  name: IsRawMouseMotionEnabled(WindowHandle)
+  nameWithType: IMouseComponent.IsRawMouseMotionEnabled(WindowHandle)
+  fullName: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  type: Method
+  source:
+    id: IsRawMouseMotionEnabled
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
+    startLine: 82
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Returns whether raw mouse motion is enabled for the given window or not.
+
+    Check that <xref href="OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> before using this.
+  example: []
+  syntax:
+    content: bool IsRawMouseMotionEnabled(WindowHandle window)
+    parameters:
+    - id: window
+      type: OpenTK.Platform.WindowHandle
+      description: The window to query.
+    return:
+      type: System.Boolean
+      description: If raw mouse motion is enabled.
+    content.vb: Function IsRawMouseMotionEnabled(window As WindowHandle) As Boolean
+  overload: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+    commentId: P:OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+- uid: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+  commentId: M:OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+  id: EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+  parent: OpenTK.Platform.IMouseComponent
+  langs:
+  - csharp
+  - vb
+  name: EnableRawMouseMotion(WindowHandle, bool)
+  nameWithType: IMouseComponent.EnableRawMouseMotion(WindowHandle, bool)
+  fullName: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle, bool)
+  type: Method
+  source:
+    id: EnableRawMouseMotion
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
+    startLine: 93
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Enables or disables raw mouse motion for a specific window.
+
+    When raw mouse motion is enabled the window will receive <xref href="OpenTK.Platform.RawMouseMoveEventArgs" data-throw-if-not-resolved="false"></xref> events,
+
+    in addition to the normal <xref href="OpenTK.Platform.MouseMoveEventArgs" data-throw-if-not-resolved="false"></xref> events.
+
+    Check that <xref href="OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> before using this.
+  example: []
+  syntax:
+    content: void EnableRawMouseMotion(WindowHandle window, bool enable)
+    parameters:
+    - id: window
+      type: OpenTK.Platform.WindowHandle
+      description: The window to enable or disable raw mouse motion for.
+    - id: enable
+      type: System.Boolean
+      description: Whether to enable or disable raw mouse motion.
+    content.vb: Sub EnableRawMouseMotion(window As WindowHandle, enable As Boolean)
+  overload: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+    commentId: P:OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  nameWithType.vb: IMouseComponent.EnableRawMouseMotion(WindowHandle, Boolean)
+  fullName.vb: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle, Boolean)
+  name.vb: EnableRawMouseMotion(WindowHandle, Boolean)
+references:
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
+  href: OpenTK.html
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+- uid: OpenTK.Platform.IPalComponent.Name
+  commentId: P:OpenTK.Platform.IPalComponent.Name
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Name
+  name: Name
+  nameWithType: IPalComponent.Name
+  fullName: OpenTK.Platform.IPalComponent.Name
+- uid: OpenTK.Platform.IPalComponent.Provides
+  commentId: P:OpenTK.Platform.IPalComponent.Provides
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Provides
+  name: Provides
+  nameWithType: IPalComponent.Provides
+  fullName: OpenTK.Platform.IPalComponent.Provides
+- uid: OpenTK.Platform.IPalComponent.Logger
+  commentId: P:OpenTK.Platform.IPalComponent.Logger
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Logger
+  name: Logger
+  nameWithType: IPalComponent.Logger
+  fullName: OpenTK.Platform.IPalComponent.Logger
+- uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+- uid: OpenTK.Platform.IPalComponent
+  commentId: T:OpenTK.Platform.IPalComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IPalComponent.html
+  name: IPalComponent
+  nameWithType: IPalComponent
+  fullName: OpenTK.Platform.IPalComponent
+- uid: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+  commentId: M:OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+  parent: OpenTK.Platform.IMouseComponent
+  isExternal: true
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetPosition_System_Int32_System_Int32_
+  name: SetPosition(int, int)
+  nameWithType: IMouseComponent.SetPosition(int, int)
+  fullName: OpenTK.Platform.IMouseComponent.SetPosition(int, int)
+  nameWithType.vb: IMouseComponent.SetPosition(Integer, Integer)
+  fullName.vb: OpenTK.Platform.IMouseComponent.SetPosition(Integer, Integer)
+  name.vb: SetPosition(Integer, Integer)
+  spec.csharp:
+  - uid: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+    name: SetPosition
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetPosition_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+    name: SetPosition
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetPosition_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: OpenTK.Platform.IMouseComponent.CanSetMousePosition*
+  commentId: Overload:OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_CanSetMousePosition
+  name: CanSetMousePosition
+  nameWithType: IMouseComponent.CanSetMousePosition
+  fullName: OpenTK.Platform.IMouseComponent.CanSetMousePosition
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OpenTK.Platform.IMouseComponent
+  commentId: T:OpenTK.Platform.IMouseComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IMouseComponent.html
+  name: IMouseComponent
+  nameWithType: IMouseComponent
+  fullName: OpenTK.Platform.IMouseComponent
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IMouseComponent
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_IsRawMouseMotionEnabled_OpenTK_Platform_WindowHandle_
+  name: IsRawMouseMotionEnabled(WindowHandle)
+  nameWithType: IMouseComponent.IsRawMouseMotionEnabled(WindowHandle)
+  fullName: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+    name: IsRawMouseMotionEnabled
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_IsRawMouseMotionEnabled_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
+    name: IsRawMouseMotionEnabled
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_IsRawMouseMotionEnabled_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+- uid: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+  commentId: M:OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+  parent: OpenTK.Platform.IMouseComponent
+  isExternal: true
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_EnableRawMouseMotion_OpenTK_Platform_WindowHandle_System_Boolean_
+  name: EnableRawMouseMotion(WindowHandle, bool)
+  nameWithType: IMouseComponent.EnableRawMouseMotion(WindowHandle, bool)
+  fullName: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle, bool)
+  nameWithType.vb: IMouseComponent.EnableRawMouseMotion(WindowHandle, Boolean)
+  fullName.vb: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle, Boolean)
+  name.vb: EnableRawMouseMotion(WindowHandle, Boolean)
+  spec.csharp:
+  - uid: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+    name: EnableRawMouseMotion
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_EnableRawMouseMotion_OpenTK_Platform_WindowHandle_System_Boolean_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+    name: EnableRawMouseMotion
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_EnableRawMouseMotion_OpenTK_Platform_WindowHandle_System_Boolean_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion*
+  commentId: Overload:OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SupportsRawMouseMotion
+  name: SupportsRawMouseMotion
+  nameWithType: IMouseComponent.SupportsRawMouseMotion
+  fullName: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+- uid: OpenTK.Platform.IMouseComponent.GetPosition*
+  commentId: Overload:OpenTK.Platform.IMouseComponent.GetPosition
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetPosition_System_Int32__System_Int32__
+  name: GetPosition
+  nameWithType: IMouseComponent.GetPosition
+  fullName: OpenTK.Platform.IMouseComponent.GetPosition
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  commentId: P:OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  parent: OpenTK.Platform.IMouseComponent
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_CanSetMousePosition
+  name: CanSetMousePosition
+  nameWithType: IMouseComponent.CanSetMousePosition
+  fullName: OpenTK.Platform.IMouseComponent.CanSetMousePosition
+- uid: OpenTK.Platform.IMouseComponent.SetPosition*
+  commentId: Overload:OpenTK.Platform.IMouseComponent.SetPosition
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetPosition_System_Int32_System_Int32_
+  name: SetPosition
+  nameWithType: IMouseComponent.SetPosition
+  fullName: OpenTK.Platform.IMouseComponent.SetPosition
+- uid: OpenTK.Platform.IMouseComponent.GetMouseState*
+  commentId: Overload:OpenTK.Platform.IMouseComponent.GetMouseState
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_MouseState__
+  name: GetMouseState
+  nameWithType: IMouseComponent.GetMouseState
+  fullName: OpenTK.Platform.IMouseComponent.GetMouseState
+- uid: OpenTK.Platform.MouseState
+  commentId: T:OpenTK.Platform.MouseState
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.MouseState.html
+  name: MouseState
+  nameWithType: MouseState
+  fullName: OpenTK.Platform.MouseState
+- uid: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  commentId: P:OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  parent: OpenTK.Platform.IMouseComponent
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SupportsRawMouseMotion
+  name: SupportsRawMouseMotion
+  nameWithType: IMouseComponent.SupportsRawMouseMotion
+  fullName: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+- uid: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled*
+  commentId: Overload:OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_IsRawMouseMotionEnabled_OpenTK_Platform_WindowHandle_
+  name: IsRawMouseMotionEnabled
+  nameWithType: IMouseComponent.IsRawMouseMotionEnabled
+  fullName: OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled
+- uid: OpenTK.Platform.WindowHandle
+  commentId: T:OpenTK.Platform.WindowHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.WindowHandle.html
+  name: WindowHandle
+  nameWithType: WindowHandle
+  fullName: OpenTK.Platform.WindowHandle
+- uid: OpenTK.Platform.RawMouseMoveEventArgs
+  commentId: T:OpenTK.Platform.RawMouseMoveEventArgs
+  href: OpenTK.Platform.RawMouseMoveEventArgs.html
+  name: RawMouseMoveEventArgs
+  nameWithType: RawMouseMoveEventArgs
+  fullName: OpenTK.Platform.RawMouseMoveEventArgs
+- uid: OpenTK.Platform.MouseMoveEventArgs
+  commentId: T:OpenTK.Platform.MouseMoveEventArgs
+  href: OpenTK.Platform.MouseMoveEventArgs.html
+  name: MouseMoveEventArgs
+  nameWithType: MouseMoveEventArgs
+  fullName: OpenTK.Platform.MouseMoveEventArgs
+- uid: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion*
+  commentId: Overload:OpenTK.Platform.IMouseComponent.EnableRawMouseMotion
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_EnableRawMouseMotion_OpenTK_Platform_WindowHandle_System_Boolean_
+  name: EnableRawMouseMotion
+  nameWithType: IMouseComponent.EnableRawMouseMotion
+  fullName: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion

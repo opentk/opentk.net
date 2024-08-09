@@ -1,0 +1,703 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Platform.EventQueue
+  commentId: T:OpenTK.Platform.EventQueue
+  id: EventQueue
+  parent: OpenTK.Platform
+  children:
+  - OpenTK.Platform.EventQueue.DispatchEvents
+  - OpenTK.Platform.EventQueue.DispatchOne
+  - OpenTK.Platform.EventQueue.Dispose
+  - OpenTK.Platform.EventQueue.EventDispatched
+  - OpenTK.Platform.EventQueue.EventRaised
+  - OpenTK.Platform.EventQueue.FilteredHandle
+  - OpenTK.Platform.EventQueue.InQueue
+  - OpenTK.Platform.EventQueue.Raise(OpenTK.Platform.PalHandle,OpenTK.Platform.PlatformEventType,System.EventArgs)
+  - OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+  langs:
+  - csharp
+  - vb
+  name: EventQueue
+  nameWithType: EventQueue
+  fullName: OpenTK.Platform.EventQueue
+  type: Class
+  source:
+    id: EventQueue
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 19
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Event queue for interacting with platform events.
+  example: []
+  syntax:
+    content: 'public class EventQueue : IDisposable'
+    content.vb: Public Class EventQueue Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: OpenTK.Platform.EventQueue.FilteredHandle
+  commentId: P:OpenTK.Platform.EventQueue.FilteredHandle
+  id: FilteredHandle
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: FilteredHandle
+  nameWithType: EventQueue.FilteredHandle
+  fullName: OpenTK.Platform.EventQueue.FilteredHandle
+  type: Property
+  source:
+    id: FilteredHandle
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 34
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Indicates which handle the queue is filtered for.
+  example: []
+  syntax:
+    content: public PalHandle? FilteredHandle { get; }
+    parameters: []
+    return:
+      type: OpenTK.Platform.PalHandle
+    content.vb: Public ReadOnly Property FilteredHandle As PalHandle
+  overload: OpenTK.Platform.EventQueue.FilteredHandle*
+- uid: OpenTK.Platform.EventQueue.InQueue
+  commentId: P:OpenTK.Platform.EventQueue.InQueue
+  id: InQueue
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: InQueue
+  nameWithType: EventQueue.InQueue
+  fullName: OpenTK.Platform.EventQueue.InQueue
+  type: Property
+  source:
+    id: InQueue
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 39
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: The number of events currently in queue.
+  example: []
+  syntax:
+    content: public int InQueue { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property InQueue As Integer
+  overload: OpenTK.Platform.EventQueue.InQueue*
+- uid: OpenTK.Platform.EventQueue.EventDispatched
+  commentId: E:OpenTK.Platform.EventQueue.EventDispatched
+  id: EventDispatched
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: EventDispatched
+  nameWithType: EventQueue.EventDispatched
+  fullName: OpenTK.Platform.EventQueue.EventDispatched
+  type: Event
+  source:
+    id: EventDispatched
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 51
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Invoked when a queued event is dispatched.
+  example: []
+  syntax:
+    content: public event PlatformEventHandler? EventDispatched
+    return:
+      type: OpenTK.Platform.PlatformEventHandler
+    content.vb: Public Event EventDispatched As PlatformEventHandler
+- uid: OpenTK.Platform.EventQueue.DispatchOne
+  commentId: M:OpenTK.Platform.EventQueue.DispatchOne
+  id: DispatchOne
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: DispatchOne()
+  nameWithType: EventQueue.DispatchOne()
+  fullName: OpenTK.Platform.EventQueue.DispatchOne()
+  type: Method
+  source:
+    id: DispatchOne
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 69
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Dispatch one event from the queue, if available.
+  example: []
+  syntax:
+    content: public void DispatchOne()
+    content.vb: Public Sub DispatchOne()
+  overload: OpenTK.Platform.EventQueue.DispatchOne*
+- uid: OpenTK.Platform.EventQueue.DispatchEvents
+  commentId: M:OpenTK.Platform.EventQueue.DispatchEvents
+  id: DispatchEvents
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: DispatchEvents()
+  nameWithType: EventQueue.DispatchEvents()
+  fullName: OpenTK.Platform.EventQueue.DispatchEvents()
+  type: Method
+  source:
+    id: DispatchEvents
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 80
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Dispatch all the events from the queue.
+  example: []
+  syntax:
+    content: public void DispatchEvents()
+    content.vb: Public Sub DispatchEvents()
+  overload: OpenTK.Platform.EventQueue.DispatchEvents*
+- uid: OpenTK.Platform.EventQueue.Dispose
+  commentId: M:OpenTK.Platform.EventQueue.Dispose
+  id: Dispose
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: EventQueue.Dispose()
+  fullName: OpenTK.Platform.EventQueue.Dispose()
+  type: Method
+  source:
+    id: Dispose
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 109
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: OpenTK.Platform.EventQueue.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: OpenTK.Platform.EventQueue.EventRaised
+  commentId: E:OpenTK.Platform.EventQueue.EventRaised
+  id: EventRaised
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: EventRaised
+  nameWithType: EventQueue.EventRaised
+  fullName: OpenTK.Platform.EventQueue.EventRaised
+  type: Event
+  source:
+    id: EventRaised
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 118
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Invoke when an event is raised.
+  remarks: >-
+    This event handler is potentially called across threads. If thread safety is required,
+
+    or you would like to control when events are dispatched, use <xref href="OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)" data-throw-if-not-resolved="false"></xref> instead.
+  example: []
+  syntax:
+    content: public static event PlatformEventHandler? EventRaised
+    return:
+      type: OpenTK.Platform.PlatformEventHandler
+    content.vb: Public Shared Event EventRaised As PlatformEventHandler
+- uid: OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+  commentId: M:OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+  id: Subscribe(OpenTK.Platform.PalHandle)
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: Subscribe(PalHandle?)
+  nameWithType: EventQueue.Subscribe(PalHandle?)
+  fullName: OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle?)
+  type: Method
+  source:
+    id: Subscribe
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 142
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Subscribe to an instance of the event queue.
+  example: []
+  syntax:
+    content: public static EventQueue Subscribe(PalHandle? handle = null)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.PalHandle
+      description: Filter received events to the given handle.
+    return:
+      type: OpenTK.Platform.EventQueue
+      description: The queue instance.
+    content.vb: Public Shared Function Subscribe(handle As PalHandle = Nothing) As EventQueue
+  overload: OpenTK.Platform.EventQueue.Subscribe*
+  nameWithType.vb: EventQueue.Subscribe(PalHandle)
+  fullName.vb: OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+  name.vb: Subscribe(PalHandle)
+- uid: OpenTK.Platform.EventQueue.Raise(OpenTK.Platform.PalHandle,OpenTK.Platform.PlatformEventType,System.EventArgs)
+  commentId: M:OpenTK.Platform.EventQueue.Raise(OpenTK.Platform.PalHandle,OpenTK.Platform.PlatformEventType,System.EventArgs)
+  id: Raise(OpenTK.Platform.PalHandle,OpenTK.Platform.PlatformEventType,System.EventArgs)
+  parent: OpenTK.Platform.EventQueue
+  langs:
+  - csharp
+  - vb
+  name: Raise(PalHandle?, PlatformEventType, EventArgs)
+  nameWithType: EventQueue.Raise(PalHandle?, PlatformEventType, EventArgs)
+  fullName: OpenTK.Platform.EventQueue.Raise(OpenTK.Platform.PalHandle?, OpenTK.Platform.PlatformEventType, System.EventArgs)
+  type: Method
+  source:
+    id: Raise
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\EventQueue.cs
+    startLine: 153
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Raise an event.
+  example: []
+  syntax:
+    content: public static void Raise(PalHandle? handle, PlatformEventType type, EventArgs args)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.PalHandle
+      description: Handle generating the event.
+    - id: type
+      type: OpenTK.Platform.PlatformEventType
+      description: Type of the event.
+    - id: args
+      type: System.EventArgs
+      description: Arguments associated with the event.
+    content.vb: Public Shared Sub Raise(handle As PalHandle, type As PlatformEventType, args As EventArgs)
+  overload: OpenTK.Platform.EventQueue.Raise*
+  nameWithType.vb: EventQueue.Raise(PalHandle, PlatformEventType, EventArgs)
+  fullName.vb: OpenTK.Platform.EventQueue.Raise(OpenTK.Platform.PalHandle, OpenTK.Platform.PlatformEventType, System.EventArgs)
+  name.vb: Raise(PalHandle, PlatformEventType, EventArgs)
+references:
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
+  href: OpenTK.html
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Platform.EventQueue.FilteredHandle*
+  commentId: Overload:OpenTK.Platform.EventQueue.FilteredHandle
+  href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_FilteredHandle
+  name: FilteredHandle
+  nameWithType: EventQueue.FilteredHandle
+  fullName: OpenTK.Platform.EventQueue.FilteredHandle
+- uid: OpenTK.Platform.PalHandle
+  commentId: T:OpenTK.Platform.PalHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.PalHandle.html
+  name: PalHandle
+  nameWithType: PalHandle
+  fullName: OpenTK.Platform.PalHandle
+- uid: OpenTK.Platform.EventQueue.InQueue*
+  commentId: Overload:OpenTK.Platform.EventQueue.InQueue
+  href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_InQueue
+  name: InQueue
+  nameWithType: EventQueue.InQueue
+  fullName: OpenTK.Platform.EventQueue.InQueue
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OpenTK.Platform.PlatformEventHandler
+  commentId: T:OpenTK.Platform.PlatformEventHandler
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.PlatformEventHandler.html
+  name: PlatformEventHandler
+  nameWithType: PlatformEventHandler
+  fullName: OpenTK.Platform.PlatformEventHandler
+- uid: OpenTK.Platform.EventQueue.DispatchOne*
+  commentId: Overload:OpenTK.Platform.EventQueue.DispatchOne
+  href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_DispatchOne
+  name: DispatchOne
+  nameWithType: EventQueue.DispatchOne
+  fullName: OpenTK.Platform.EventQueue.DispatchOne
+- uid: OpenTK.Platform.EventQueue.DispatchEvents*
+  commentId: Overload:OpenTK.Platform.EventQueue.DispatchEvents
+  href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_DispatchEvents
+  name: DispatchEvents
+  nameWithType: EventQueue.DispatchEvents
+  fullName: OpenTK.Platform.EventQueue.DispatchEvents
+- uid: OpenTK.Platform.EventQueue.Dispose*
+  commentId: Overload:OpenTK.Platform.EventQueue.Dispose
+  href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_Dispose
+  name: Dispose
+  nameWithType: EventQueue.Dispose
+  fullName: OpenTK.Platform.EventQueue.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+  commentId: M:OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+  href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_Subscribe_OpenTK_Platform_PalHandle_
+  name: Subscribe(PalHandle)
+  nameWithType: EventQueue.Subscribe(PalHandle)
+  fullName: OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+    name: Subscribe
+    href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_Subscribe_OpenTK_Platform_PalHandle_
+  - name: (
+  - uid: OpenTK.Platform.PalHandle
+    name: PalHandle
+    href: OpenTK.Platform.PalHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.EventQueue.Subscribe(OpenTK.Platform.PalHandle)
+    name: Subscribe
+    href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_Subscribe_OpenTK_Platform_PalHandle_
+  - name: (
+  - uid: OpenTK.Platform.PalHandle
+    name: PalHandle
+    href: OpenTK.Platform.PalHandle.html
+  - name: )
+- uid: OpenTK.Platform.EventQueue.Subscribe*
+  commentId: Overload:OpenTK.Platform.EventQueue.Subscribe
+  href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_Subscribe_OpenTK_Platform_PalHandle_
+  name: Subscribe
+  nameWithType: EventQueue.Subscribe
+  fullName: OpenTK.Platform.EventQueue.Subscribe
+- uid: OpenTK.Platform.EventQueue
+  commentId: T:OpenTK.Platform.EventQueue
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.EventQueue.html
+  name: EventQueue
+  nameWithType: EventQueue
+  fullName: OpenTK.Platform.EventQueue
+- uid: OpenTK.Platform.EventQueue.Raise*
+  commentId: Overload:OpenTK.Platform.EventQueue.Raise
+  href: OpenTK.Platform.EventQueue.html#OpenTK_Platform_EventQueue_Raise_OpenTK_Platform_PalHandle_OpenTK_Platform_PlatformEventType_System_EventArgs_
+  name: Raise
+  nameWithType: EventQueue.Raise
+  fullName: OpenTK.Platform.EventQueue.Raise
+- uid: OpenTK.Platform.PlatformEventType
+  commentId: T:OpenTK.Platform.PlatformEventType
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.PlatformEventType.html
+  name: PlatformEventType
+  nameWithType: PlatformEventType
+  fullName: OpenTK.Platform.PlatformEventType
+- uid: System.EventArgs
+  commentId: T:System.EventArgs
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: System.EventArgs

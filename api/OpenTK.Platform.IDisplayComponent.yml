@@ -1,0 +1,894 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Platform.IDisplayComponent
+  commentId: T:OpenTK.Platform.IDisplayComponent
+  id: IDisplayComponent
+  parent: OpenTK.Platform
+  children:
+  - OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+  - OpenTK.Platform.IDisplayComponent.Close(OpenTK.Platform.DisplayHandle)
+  - OpenTK.Platform.IDisplayComponent.GetDisplayCount
+  - OpenTK.Platform.IDisplayComponent.GetDisplayScale(OpenTK.Platform.DisplayHandle,System.Single@,System.Single@)
+  - OpenTK.Platform.IDisplayComponent.GetName(OpenTK.Platform.DisplayHandle)
+  - OpenTK.Platform.IDisplayComponent.GetRefreshRate(OpenTK.Platform.DisplayHandle,System.Single@)
+  - OpenTK.Platform.IDisplayComponent.GetResolution(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  - OpenTK.Platform.IDisplayComponent.GetSupportedVideoModes(OpenTK.Platform.DisplayHandle)
+  - OpenTK.Platform.IDisplayComponent.GetVideoMode(OpenTK.Platform.DisplayHandle,OpenTK.Platform.VideoMode@)
+  - OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  - OpenTK.Platform.IDisplayComponent.GetWorkArea(OpenTK.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@)
+  - OpenTK.Platform.IDisplayComponent.IsPrimary(OpenTK.Platform.DisplayHandle)
+  - OpenTK.Platform.IDisplayComponent.Open(System.Int32)
+  - OpenTK.Platform.IDisplayComponent.OpenPrimary
+  langs:
+  - csharp
+  - vb
+  name: IDisplayComponent
+  nameWithType: IDisplayComponent
+  fullName: OpenTK.Platform.IDisplayComponent
+  type: Interface
+  source:
+    id: IDisplayComponent
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 8
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Interface for drivers which provide the display component.
+  example: []
+  syntax:
+    content: 'public interface IDisplayComponent : IPalComponent'
+    content.vb: Public Interface IDisplayComponent Inherits IPalComponent
+  inheritedMembers:
+  - OpenTK.Platform.IPalComponent.Name
+  - OpenTK.Platform.IPalComponent.Provides
+  - OpenTK.Platform.IPalComponent.Logger
+  - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+  commentId: P:OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+  id: CanGetVirtualPosition
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: CanGetVirtualPosition
+  nameWithType: IDisplayComponent.CanGetVirtualPosition
+  fullName: OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+  type: Property
+  source:
+    id: CanGetVirtualPosition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 15
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: True if the driver can get the virtual position of the display using <xref href="OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle%2cSystem.Int32%40%2cSystem.Int32%40)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: bool CanGetVirtualPosition { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanGetVirtualPosition As Boolean
+  overload: OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition*
+- uid: OpenTK.Platform.IDisplayComponent.GetDisplayCount
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetDisplayCount
+  id: GetDisplayCount
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetDisplayCount()
+  nameWithType: IDisplayComponent.GetDisplayCount()
+  fullName: OpenTK.Platform.IDisplayComponent.GetDisplayCount()
+  type: Method
+  source:
+    id: GetDisplayCount
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 21
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the number of available displays.
+  example: []
+  syntax:
+    content: int GetDisplayCount()
+    return:
+      type: System.Int32
+      description: Number of displays available.
+    content.vb: Function GetDisplayCount() As Integer
+  overload: OpenTK.Platform.IDisplayComponent.GetDisplayCount*
+- uid: OpenTK.Platform.IDisplayComponent.Open(System.Int32)
+  commentId: M:OpenTK.Platform.IDisplayComponent.Open(System.Int32)
+  id: Open(System.Int32)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: Open(int)
+  nameWithType: IDisplayComponent.Open(int)
+  fullName: OpenTK.Platform.IDisplayComponent.Open(int)
+  type: Method
+  source:
+    id: Open
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 34
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Create a display handle to the indexed display.
+  example: []
+  syntax:
+    content: DisplayHandle Open(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The display index to create a display handle to.
+    return:
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to the display.
+    content.vb: Function Open(index As Integer) As DisplayHandle
+  overload: OpenTK.Platform.IDisplayComponent.Open*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">index</code> is out of range.
+  nameWithType.vb: IDisplayComponent.Open(Integer)
+  fullName.vb: OpenTK.Platform.IDisplayComponent.Open(Integer)
+  name.vb: Open(Integer)
+- uid: OpenTK.Platform.IDisplayComponent.OpenPrimary
+  commentId: M:OpenTK.Platform.IDisplayComponent.OpenPrimary
+  id: OpenPrimary
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: OpenPrimary()
+  nameWithType: IDisplayComponent.OpenPrimary()
+  fullName: OpenTK.Platform.IDisplayComponent.OpenPrimary()
+  type: Method
+  source:
+    id: OpenPrimary
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 40
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Create a display handle to the primary display.
+  example: []
+  syntax:
+    content: DisplayHandle OpenPrimary()
+    return:
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to the primary display.
+    content.vb: Function OpenPrimary() As DisplayHandle
+  overload: OpenTK.Platform.IDisplayComponent.OpenPrimary*
+- uid: OpenTK.Platform.IDisplayComponent.Close(OpenTK.Platform.DisplayHandle)
+  commentId: M:OpenTK.Platform.IDisplayComponent.Close(OpenTK.Platform.DisplayHandle)
+  id: Close(OpenTK.Platform.DisplayHandle)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: Close(DisplayHandle)
+  nameWithType: IDisplayComponent.Close(DisplayHandle)
+  fullName: OpenTK.Platform.IDisplayComponent.Close(OpenTK.Platform.DisplayHandle)
+  type: Method
+  source:
+    id: Close
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 47
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Close a display handle.
+  example: []
+  syntax:
+    content: void Close(DisplayHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    content.vb: Sub Close(handle As DisplayHandle)
+  overload: OpenTK.Platform.IDisplayComponent.Close*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">handle</code> is null.
+- uid: OpenTK.Platform.IDisplayComponent.IsPrimary(OpenTK.Platform.DisplayHandle)
+  commentId: M:OpenTK.Platform.IDisplayComponent.IsPrimary(OpenTK.Platform.DisplayHandle)
+  id: IsPrimary(OpenTK.Platform.DisplayHandle)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: IsPrimary(DisplayHandle)
+  nameWithType: IDisplayComponent.IsPrimary(DisplayHandle)
+  fullName: OpenTK.Platform.IDisplayComponent.IsPrimary(OpenTK.Platform.DisplayHandle)
+  type: Method
+  source:
+    id: IsPrimary
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 54
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Checks if a display is the primary display or not.
+  example: []
+  syntax:
+    content: bool IsPrimary(DisplayHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: The display to check whether or not is the primary display.
+    return:
+      type: System.Boolean
+      description: If this display is the primary display.
+    content.vb: Function IsPrimary(handle As DisplayHandle) As Boolean
+  overload: OpenTK.Platform.IDisplayComponent.IsPrimary*
+- uid: OpenTK.Platform.IDisplayComponent.GetName(OpenTK.Platform.DisplayHandle)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetName(OpenTK.Platform.DisplayHandle)
+  id: GetName(OpenTK.Platform.DisplayHandle)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetName(DisplayHandle)
+  nameWithType: IDisplayComponent.GetName(DisplayHandle)
+  fullName: OpenTK.Platform.IDisplayComponent.GetName(OpenTK.Platform.DisplayHandle)
+  type: Method
+  source:
+    id: GetName
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 62
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the friendly name of a display.
+  example: []
+  syntax:
+    content: string GetName(DisplayHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    return:
+      type: System.String
+      description: Display name.
+    content.vb: Function GetName(handle As DisplayHandle) As String
+  overload: OpenTK.Platform.IDisplayComponent.GetName*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">handle</code> is null.
+- uid: OpenTK.Platform.IDisplayComponent.GetVideoMode(OpenTK.Platform.DisplayHandle,OpenTK.Platform.VideoMode@)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetVideoMode(OpenTK.Platform.DisplayHandle,OpenTK.Platform.VideoMode@)
+  id: GetVideoMode(OpenTK.Platform.DisplayHandle,OpenTK.Platform.VideoMode@)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetVideoMode(DisplayHandle, out VideoMode)
+  nameWithType: IDisplayComponent.GetVideoMode(DisplayHandle, out VideoMode)
+  fullName: OpenTK.Platform.IDisplayComponent.GetVideoMode(OpenTK.Platform.DisplayHandle, out OpenTK.Platform.VideoMode)
+  type: Method
+  source:
+    id: GetVideoMode
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 70
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the active video mode of a display.
+  example: []
+  syntax:
+    content: void GetVideoMode(DisplayHandle handle, out VideoMode mode)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    - id: mode
+      type: OpenTK.Platform.VideoMode
+      description: Active video mode of display.
+    content.vb: Sub GetVideoMode(handle As DisplayHandle, mode As VideoMode)
+  overload: OpenTK.Platform.IDisplayComponent.GetVideoMode*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">handle</code> is null.
+  nameWithType.vb: IDisplayComponent.GetVideoMode(DisplayHandle, VideoMode)
+  fullName.vb: OpenTK.Platform.IDisplayComponent.GetVideoMode(OpenTK.Platform.DisplayHandle, OpenTK.Platform.VideoMode)
+  name.vb: GetVideoMode(DisplayHandle, VideoMode)
+- uid: OpenTK.Platform.IDisplayComponent.GetSupportedVideoModes(OpenTK.Platform.DisplayHandle)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetSupportedVideoModes(OpenTK.Platform.DisplayHandle)
+  id: GetSupportedVideoModes(OpenTK.Platform.DisplayHandle)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetSupportedVideoModes(DisplayHandle)
+  nameWithType: IDisplayComponent.GetSupportedVideoModes(DisplayHandle)
+  fullName: OpenTK.Platform.IDisplayComponent.GetSupportedVideoModes(OpenTK.Platform.DisplayHandle)
+  type: Method
+  source:
+    id: GetSupportedVideoModes
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 78
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get all supported video modes for a specific display.
+  example: []
+  syntax:
+    content: VideoMode[] GetSupportedVideoModes(DisplayHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    return:
+      type: OpenTK.Platform.VideoMode[]
+      description: An array of all supported video modes.
+    content.vb: Function GetSupportedVideoModes(handle As DisplayHandle) As VideoMode()
+  overload: OpenTK.Platform.IDisplayComponent.GetSupportedVideoModes*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">handle</code> is null.
+- uid: OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  id: GetVirtualPosition(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetVirtualPosition(DisplayHandle, out int, out int)
+  nameWithType: IDisplayComponent.GetVirtualPosition(DisplayHandle, out int, out int)
+  fullName: OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle, out int, out int)
+  type: Method
+  source:
+    id: GetVirtualPosition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 88
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the position of the display in the virtual desktop.
+  example: []
+  syntax:
+    content: void GetVirtualPosition(DisplayHandle handle, out int x, out int y)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    - id: x
+      type: System.Int32
+      description: Virtual X coordinate of the display.
+    - id: y
+      type: System.Int32
+      description: Virtual Y coordinate of the display.
+    content.vb: Sub GetVirtualPosition(handle As DisplayHandle, x As Integer, y As Integer)
+  overload: OpenTK.Platform.IDisplayComponent.GetVirtualPosition*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">handle</code> is null.
+  - type: OpenTK.Platform.PalNotImplementedException
+    commentId: T:OpenTK.Platform.PalNotImplementedException
+    description: Driver cannot get display virtual position. See <xref href="OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition" data-throw-if-not-resolved="false"></xref>.
+  nameWithType.vb: IDisplayComponent.GetVirtualPosition(DisplayHandle, Integer, Integer)
+  fullName.vb: OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle, Integer, Integer)
+  name.vb: GetVirtualPosition(DisplayHandle, Integer, Integer)
+- uid: OpenTK.Platform.IDisplayComponent.GetResolution(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetResolution(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  id: GetResolution(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetResolution(DisplayHandle, out int, out int)
+  nameWithType: IDisplayComponent.GetResolution(DisplayHandle, out int, out int)
+  fullName: OpenTK.Platform.IDisplayComponent.GetResolution(OpenTK.Platform.DisplayHandle, out int, out int)
+  type: Method
+  source:
+    id: GetResolution
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 97
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the resolution of the specified display.
+  example: []
+  syntax:
+    content: void GetResolution(DisplayHandle handle, out int width, out int height)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    - id: width
+      type: System.Int32
+      description: The horizontal resolution of the display.
+    - id: height
+      type: System.Int32
+      description: The vertical resolution of the display.
+    content.vb: Sub GetResolution(handle As DisplayHandle, width As Integer, height As Integer)
+  overload: OpenTK.Platform.IDisplayComponent.GetResolution*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">handle</code> is null.
+  nameWithType.vb: IDisplayComponent.GetResolution(DisplayHandle, Integer, Integer)
+  fullName.vb: OpenTK.Platform.IDisplayComponent.GetResolution(OpenTK.Platform.DisplayHandle, Integer, Integer)
+  name.vb: GetResolution(DisplayHandle, Integer, Integer)
+- uid: OpenTK.Platform.IDisplayComponent.GetWorkArea(OpenTK.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetWorkArea(OpenTK.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@)
+  id: GetWorkArea(OpenTK.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetWorkArea(DisplayHandle, out Box2i)
+  nameWithType: IDisplayComponent.GetWorkArea(DisplayHandle, out Box2i)
+  fullName: OpenTK.Platform.IDisplayComponent.GetWorkArea(OpenTK.Platform.DisplayHandle, out OpenTK.Mathematics.Box2i)
+  type: Method
+  source:
+    id: GetWorkArea
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 105
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Get the work area of this display.
+
+    The work area is the area of the display that is not covered by task bars or menu bars.
+  example: []
+  syntax:
+    content: void GetWorkArea(DisplayHandle handle, out Box2i area)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    - id: area
+      type: OpenTK.Mathematics.Box2i
+      description: The work area of the display.
+    content.vb: Sub GetWorkArea(handle As DisplayHandle, area As Box2i)
+  overload: OpenTK.Platform.IDisplayComponent.GetWorkArea*
+  nameWithType.vb: IDisplayComponent.GetWorkArea(DisplayHandle, Box2i)
+  fullName.vb: OpenTK.Platform.IDisplayComponent.GetWorkArea(OpenTK.Platform.DisplayHandle, OpenTK.Mathematics.Box2i)
+  name.vb: GetWorkArea(DisplayHandle, Box2i)
+- uid: OpenTK.Platform.IDisplayComponent.GetRefreshRate(OpenTK.Platform.DisplayHandle,System.Single@)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetRefreshRate(OpenTK.Platform.DisplayHandle,System.Single@)
+  id: GetRefreshRate(OpenTK.Platform.DisplayHandle,System.Single@)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetRefreshRate(DisplayHandle, out float)
+  nameWithType: IDisplayComponent.GetRefreshRate(DisplayHandle, out float)
+  fullName: OpenTK.Platform.IDisplayComponent.GetRefreshRate(OpenTK.Platform.DisplayHandle, out float)
+  type: Method
+  source:
+    id: GetRefreshRate
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 112
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the refresh rate if the specified display.
+  example: []
+  syntax:
+    content: void GetRefreshRate(DisplayHandle handle, out float refreshRate)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    - id: refreshRate
+      type: System.Single
+      description: The refresh rate of the display.
+    content.vb: Sub GetRefreshRate(handle As DisplayHandle, refreshRate As Single)
+  overload: OpenTK.Platform.IDisplayComponent.GetRefreshRate*
+  nameWithType.vb: IDisplayComponent.GetRefreshRate(DisplayHandle, Single)
+  fullName.vb: OpenTK.Platform.IDisplayComponent.GetRefreshRate(OpenTK.Platform.DisplayHandle, Single)
+  name.vb: GetRefreshRate(DisplayHandle, Single)
+- uid: OpenTK.Platform.IDisplayComponent.GetDisplayScale(OpenTK.Platform.DisplayHandle,System.Single@,System.Single@)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetDisplayScale(OpenTK.Platform.DisplayHandle,System.Single@,System.Single@)
+  id: GetDisplayScale(OpenTK.Platform.DisplayHandle,System.Single@,System.Single@)
+  parent: OpenTK.Platform.IDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: GetDisplayScale(DisplayHandle, out float, out float)
+  nameWithType: IDisplayComponent.GetDisplayScale(DisplayHandle, out float, out float)
+  fullName: OpenTK.Platform.IDisplayComponent.GetDisplayScale(OpenTK.Platform.DisplayHandle, out float, out float)
+  type: Method
+  source:
+    id: GetDisplayScale
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDisplayComponent.cs
+    startLine: 120
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Get the scale of the display.
+  example: []
+  syntax:
+    content: void GetDisplayScale(DisplayHandle handle, out float scaleX, out float scaleY)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.DisplayHandle
+      description: Handle to a display.
+    - id: scaleX
+      type: System.Single
+      description: The X-axis scale of the monitor.
+    - id: scaleY
+      type: System.Single
+      description: The Y-axis scale of the monitor.
+    content.vb: Sub GetDisplayScale(handle As DisplayHandle, scaleX As Single, scaleY As Single)
+  overload: OpenTK.Platform.IDisplayComponent.GetDisplayScale*
+  nameWithType.vb: IDisplayComponent.GetDisplayScale(DisplayHandle, Single, Single)
+  fullName.vb: OpenTK.Platform.IDisplayComponent.GetDisplayScale(OpenTK.Platform.DisplayHandle, Single, Single)
+  name.vb: GetDisplayScale(DisplayHandle, Single, Single)
+references:
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
+  href: OpenTK.html
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+- uid: OpenTK.Platform.IPalComponent.Name
+  commentId: P:OpenTK.Platform.IPalComponent.Name
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Name
+  name: Name
+  nameWithType: IPalComponent.Name
+  fullName: OpenTK.Platform.IPalComponent.Name
+- uid: OpenTK.Platform.IPalComponent.Provides
+  commentId: P:OpenTK.Platform.IPalComponent.Provides
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Provides
+  name: Provides
+  nameWithType: IPalComponent.Provides
+  fullName: OpenTK.Platform.IPalComponent.Provides
+- uid: OpenTK.Platform.IPalComponent.Logger
+  commentId: P:OpenTK.Platform.IPalComponent.Logger
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Logger
+  name: Logger
+  nameWithType: IPalComponent.Logger
+  fullName: OpenTK.Platform.IPalComponent.Logger
+- uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+- uid: OpenTK.Platform.IPalComponent
+  commentId: T:OpenTK.Platform.IPalComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IPalComponent.html
+  name: IPalComponent
+  nameWithType: IPalComponent
+  fullName: OpenTK.Platform.IPalComponent
+- uid: OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  commentId: M:OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+  parent: OpenTK.Platform.IDisplayComponent
+  isExternal: true
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetVirtualPosition_OpenTK_Platform_DisplayHandle_System_Int32__System_Int32__
+  name: GetVirtualPosition(DisplayHandle, out int, out int)
+  nameWithType: IDisplayComponent.GetVirtualPosition(DisplayHandle, out int, out int)
+  fullName: OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle, out int, out int)
+  nameWithType.vb: IDisplayComponent.GetVirtualPosition(DisplayHandle, Integer, Integer)
+  fullName.vb: OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle, Integer, Integer)
+  name.vb: GetVirtualPosition(DisplayHandle, Integer, Integer)
+  spec.csharp:
+  - uid: OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+    name: GetVirtualPosition
+    href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetVirtualPosition_OpenTK_Platform_DisplayHandle_System_Int32__System_Int32__
+  - name: (
+  - uid: OpenTK.Platform.DisplayHandle
+    name: DisplayHandle
+    href: OpenTK.Platform.DisplayHandle.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IDisplayComponent.GetVirtualPosition(OpenTK.Platform.DisplayHandle,System.Int32@,System.Int32@)
+    name: GetVirtualPosition
+    href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetVirtualPosition_OpenTK_Platform_DisplayHandle_System_Int32__System_Int32__
+  - name: (
+  - uid: OpenTK.Platform.DisplayHandle
+    name: DisplayHandle
+    href: OpenTK.Platform.DisplayHandle.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_CanGetVirtualPosition
+  name: CanGetVirtualPosition
+  nameWithType: IDisplayComponent.CanGetVirtualPosition
+  fullName: OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OpenTK.Platform.IDisplayComponent
+  commentId: T:OpenTK.Platform.IDisplayComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IDisplayComponent.html
+  name: IDisplayComponent
+  nameWithType: IDisplayComponent
+  fullName: OpenTK.Platform.IDisplayComponent
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Platform.IDisplayComponent.GetDisplayCount*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetDisplayCount
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetDisplayCount
+  name: GetDisplayCount
+  nameWithType: IDisplayComponent.GetDisplayCount
+  fullName: OpenTK.Platform.IDisplayComponent.GetDisplayCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: OpenTK.Platform.IDisplayComponent.Open*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.Open
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_Open_System_Int32_
+  name: Open
+  nameWithType: IDisplayComponent.Open
+  fullName: OpenTK.Platform.IDisplayComponent.Open
+- uid: OpenTK.Platform.DisplayHandle
+  commentId: T:OpenTK.Platform.DisplayHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.DisplayHandle.html
+  name: DisplayHandle
+  nameWithType: DisplayHandle
+  fullName: OpenTK.Platform.DisplayHandle
+- uid: OpenTK.Platform.IDisplayComponent.OpenPrimary*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.OpenPrimary
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_OpenPrimary
+  name: OpenPrimary
+  nameWithType: IDisplayComponent.OpenPrimary
+  fullName: OpenTK.Platform.IDisplayComponent.OpenPrimary
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: OpenTK.Platform.IDisplayComponent.Close*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.Close
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_Close_OpenTK_Platform_DisplayHandle_
+  name: Close
+  nameWithType: IDisplayComponent.Close
+  fullName: OpenTK.Platform.IDisplayComponent.Close
+- uid: OpenTK.Platform.IDisplayComponent.IsPrimary*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.IsPrimary
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_IsPrimary_OpenTK_Platform_DisplayHandle_
+  name: IsPrimary
+  nameWithType: IDisplayComponent.IsPrimary
+  fullName: OpenTK.Platform.IDisplayComponent.IsPrimary
+- uid: OpenTK.Platform.IDisplayComponent.GetName*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetName
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetName_OpenTK_Platform_DisplayHandle_
+  name: GetName
+  nameWithType: IDisplayComponent.GetName
+  fullName: OpenTK.Platform.IDisplayComponent.GetName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OpenTK.Platform.IDisplayComponent.GetVideoMode*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetVideoMode
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetVideoMode_OpenTK_Platform_DisplayHandle_OpenTK_Platform_VideoMode__
+  name: GetVideoMode
+  nameWithType: IDisplayComponent.GetVideoMode
+  fullName: OpenTK.Platform.IDisplayComponent.GetVideoMode
+- uid: OpenTK.Platform.VideoMode
+  commentId: T:OpenTK.Platform.VideoMode
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.VideoMode.html
+  name: VideoMode
+  nameWithType: VideoMode
+  fullName: OpenTK.Platform.VideoMode
+- uid: OpenTK.Platform.IDisplayComponent.GetSupportedVideoModes*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetSupportedVideoModes
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetSupportedVideoModes_OpenTK_Platform_DisplayHandle_
+  name: GetSupportedVideoModes
+  nameWithType: IDisplayComponent.GetSupportedVideoModes
+  fullName: OpenTK.Platform.IDisplayComponent.GetSupportedVideoModes
+- uid: OpenTK.Platform.VideoMode[]
+  isExternal: true
+  href: OpenTK.Platform.VideoMode.html
+  name: VideoMode[]
+  nameWithType: VideoMode[]
+  fullName: OpenTK.Platform.VideoMode[]
+  nameWithType.vb: VideoMode()
+  fullName.vb: OpenTK.Platform.VideoMode()
+  name.vb: VideoMode()
+  spec.csharp:
+  - uid: OpenTK.Platform.VideoMode
+    name: VideoMode
+    href: OpenTK.Platform.VideoMode.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: OpenTK.Platform.VideoMode
+    name: VideoMode
+    href: OpenTK.Platform.VideoMode.html
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+  commentId: P:OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+  parent: OpenTK.Platform.IDisplayComponent
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_CanGetVirtualPosition
+  name: CanGetVirtualPosition
+  nameWithType: IDisplayComponent.CanGetVirtualPosition
+  fullName: OpenTK.Platform.IDisplayComponent.CanGetVirtualPosition
+- uid: OpenTK.Platform.PalNotImplementedException
+  commentId: T:OpenTK.Platform.PalNotImplementedException
+  href: OpenTK.Platform.PalNotImplementedException.html
+  name: PalNotImplementedException
+  nameWithType: PalNotImplementedException
+  fullName: OpenTK.Platform.PalNotImplementedException
+- uid: OpenTK.Platform.IDisplayComponent.GetVirtualPosition*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetVirtualPosition
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetVirtualPosition_OpenTK_Platform_DisplayHandle_System_Int32__System_Int32__
+  name: GetVirtualPosition
+  nameWithType: IDisplayComponent.GetVirtualPosition
+  fullName: OpenTK.Platform.IDisplayComponent.GetVirtualPosition
+- uid: OpenTK.Platform.IDisplayComponent.GetResolution*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetResolution
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetResolution_OpenTK_Platform_DisplayHandle_System_Int32__System_Int32__
+  name: GetResolution
+  nameWithType: IDisplayComponent.GetResolution
+  fullName: OpenTK.Platform.IDisplayComponent.GetResolution
+- uid: OpenTK.Platform.IDisplayComponent.GetWorkArea*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetWorkArea
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetWorkArea_OpenTK_Platform_DisplayHandle_OpenTK_Mathematics_Box2i__
+  name: GetWorkArea
+  nameWithType: IDisplayComponent.GetWorkArea
+  fullName: OpenTK.Platform.IDisplayComponent.GetWorkArea
+- uid: OpenTK.Mathematics.Box2i
+  commentId: T:OpenTK.Mathematics.Box2i
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Box2i.html
+  name: Box2i
+  nameWithType: Box2i
+  fullName: OpenTK.Mathematics.Box2i
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  href: OpenTK.html
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
+- uid: OpenTK.Platform.IDisplayComponent.GetRefreshRate*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetRefreshRate
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetRefreshRate_OpenTK_Platform_DisplayHandle_System_Single__
+  name: GetRefreshRate
+  nameWithType: IDisplayComponent.GetRefreshRate
+  fullName: OpenTK.Platform.IDisplayComponent.GetRefreshRate
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: OpenTK.Platform.IDisplayComponent.GetDisplayScale*
+  commentId: Overload:OpenTK.Platform.IDisplayComponent.GetDisplayScale
+  href: OpenTK.Platform.IDisplayComponent.html#OpenTK_Platform_IDisplayComponent_GetDisplayScale_OpenTK_Platform_DisplayHandle_System_Single__System_Single__
+  name: GetDisplayScale
+  nameWithType: IDisplayComponent.GetDisplayScale
+  fullName: OpenTK.Platform.IDisplayComponent.GetDisplayScale

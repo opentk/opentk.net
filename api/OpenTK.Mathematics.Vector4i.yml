@@ -5,12 +5,13 @@ items:
   id: Vector4i
   parent: OpenTK.Mathematics
   children:
-  - OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
-  - OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i)
+  - OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i,System.Int32,System.Int32)
   - OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector3i,System.Int32)
-  - OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector3i)
-  - OpenTK.Mathematics.Vector4i.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
   - OpenTK.Mathematics.Vector4i.#ctor(System.Int32)
+  - OpenTK.Mathematics.Vector4i.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+  - OpenTK.Mathematics.Vector4i.Abs
+  - OpenTK.Mathematics.Vector4i.Abs(OpenTK.Mathematics.Vector4i)
+  - OpenTK.Mathematics.Vector4i.Abs(OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@)
   - OpenTK.Mathematics.Vector4i.Add(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
   - OpenTK.Mathematics.Vector4i.Add(OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@)
   - OpenTK.Mathematics.Vector4i.Clamp(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
@@ -36,29 +37,13 @@ items:
   - OpenTK.Mathematics.Vector4i.Multiply(OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@)
   - OpenTK.Mathematics.Vector4i.Multiply(OpenTK.Mathematics.Vector4i@,System.Int32,OpenTK.Mathematics.Vector4i@)
   - OpenTK.Mathematics.Vector4i.One
-  - OpenTK.Mathematics.Vector4i.op_Addition(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
-  - OpenTK.Mathematics.Vector4i.op_Division(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
-  - OpenTK.Mathematics.Vector4i.op_Division(OpenTK.Mathematics.Vector4i,System.Int32)
-  - OpenTK.Mathematics.Vector4i.op_Equality(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
-  - OpenTK.Mathematics.Vector4i.op_Explicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4h
-  - OpenTK.Mathematics.Vector4i.op_Explicit(OpenTK.Mathematics.Vector4i)~System.Int32*
-  - OpenTK.Mathematics.Vector4i.op_Explicit(OpenTK.Mathematics.Vector4i)~System.IntPtr
-  - OpenTK.Mathematics.Vector4i.op_Implicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4
-  - OpenTK.Mathematics.Vector4i.op_Implicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4d
-  - OpenTK.Mathematics.Vector4i.op_Implicit(System.ValueTuple{System.Int32,System.Int32,System.Int32,System.Int32})~OpenTK.Mathematics.Vector4i
-  - OpenTK.Mathematics.Vector4i.op_Inequality(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
-  - OpenTK.Mathematics.Vector4i.op_Multiply(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
-  - OpenTK.Mathematics.Vector4i.op_Multiply(OpenTK.Mathematics.Vector4i,System.Int32)
-  - OpenTK.Mathematics.Vector4i.op_Multiply(System.Int32,OpenTK.Mathematics.Vector4i)
-  - OpenTK.Mathematics.Vector4i.op_Subtraction(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
-  - OpenTK.Mathematics.Vector4i.op_UnaryNegation(OpenTK.Mathematics.Vector4i)
   - OpenTK.Mathematics.Vector4i.SizeInBytes
   - OpenTK.Mathematics.Vector4i.Subtract(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
   - OpenTK.Mathematics.Vector4i.Subtract(OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@)
   - OpenTK.Mathematics.Vector4i.ToString
   - OpenTK.Mathematics.Vector4i.ToString(System.IFormatProvider)
-  - OpenTK.Mathematics.Vector4i.ToString(System.String,System.IFormatProvider)
   - OpenTK.Mathematics.Vector4i.ToString(System.String)
+  - OpenTK.Mathematics.Vector4i.ToString(System.String,System.IFormatProvider)
   - OpenTK.Mathematics.Vector4i.ToVector4
   - OpenTK.Mathematics.Vector4i.ToVector4(OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4@)
   - OpenTK.Mathematics.Vector4i.UnitW
@@ -133,6 +118,20 @@ items:
   - OpenTK.Mathematics.Vector4i.Zywx
   - OpenTK.Mathematics.Vector4i.Zyx
   - OpenTK.Mathematics.Vector4i.Zyxw
+  - OpenTK.Mathematics.Vector4i.op_Addition(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  - OpenTK.Mathematics.Vector4i.op_Division(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  - OpenTK.Mathematics.Vector4i.op_Division(OpenTK.Mathematics.Vector4i,System.Int32)
+  - OpenTK.Mathematics.Vector4i.op_Equality(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  - OpenTK.Mathematics.Vector4i.op_Explicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4h
+  - OpenTK.Mathematics.Vector4i.op_Implicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4
+  - OpenTK.Mathematics.Vector4i.op_Implicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4d
+  - OpenTK.Mathematics.Vector4i.op_Implicit(System.ValueTuple{System.Int32,System.Int32,System.Int32,System.Int32})~OpenTK.Mathematics.Vector4i
+  - OpenTK.Mathematics.Vector4i.op_Inequality(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  - OpenTK.Mathematics.Vector4i.op_Multiply(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  - OpenTK.Mathematics.Vector4i.op_Multiply(OpenTK.Mathematics.Vector4i,System.Int32)
+  - OpenTK.Mathematics.Vector4i.op_Multiply(System.Int32,OpenTK.Mathematics.Vector4i)
+  - OpenTK.Mathematics.Vector4i.op_Subtraction(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  - OpenTK.Mathematics.Vector4i.op_UnaryNegation(OpenTK.Mathematics.Vector4i)
   langs:
   - csharp
   - vb
@@ -141,12 +140,8 @@ items:
   fullName: OpenTK.Mathematics.Vector4i
   type: Struct
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Vector4i
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
     startLine: 24
   assemblies:
   - OpenTK.Mathematics
@@ -186,12 +181,8 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.X
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: X
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
     startLine: 31
   assemblies:
   - OpenTK.Mathematics
@@ -215,12 +206,8 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Y
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Y
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
     startLine: 36
   assemblies:
   - OpenTK.Mathematics
@@ -244,12 +231,8 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Z
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Z
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
     startLine: 41
   assemblies:
   - OpenTK.Mathematics
@@ -273,12 +256,8 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.W
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: W
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
     startLine: 46
   assemblies:
   - OpenTK.Mathematics
@@ -302,12 +281,8 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Vector4i(int)
   type: Constructor
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
     startLine: 52
   assemblies:
   - OpenTK.Mathematics
@@ -337,12 +312,8 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Vector4i(int, int, int, int)
   type: Constructor
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
     startLine: 67
   assemblies:
   - OpenTK.Mathematics
@@ -369,114 +340,43 @@ items:
   nameWithType.vb: Vector4i.New(Integer, Integer, Integer, Integer)
   fullName.vb: OpenTK.Mathematics.Vector4i.New(Integer, Integer, Integer, Integer)
   name.vb: New(Integer, Integer, Integer, Integer)
-- uid: OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i)
-  commentId: M:OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i)
-  id: '#ctor(OpenTK.Mathematics.Vector2i)'
+- uid: OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i,System.Int32,System.Int32)
+  commentId: M:OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i,System.Int32,System.Int32)
+  id: '#ctor(OpenTK.Mathematics.Vector2i,System.Int32,System.Int32)'
   parent: OpenTK.Mathematics.Vector4i
   langs:
   - csharp
   - vb
-  name: Vector4i(Vector2i)
-  nameWithType: Vector4i.Vector4i(Vector2i)
-  fullName: OpenTK.Mathematics.Vector4i.Vector4i(OpenTK.Mathematics.Vector2i)
+  name: Vector4i(Vector2i, int, int)
+  nameWithType: Vector4i.Vector4i(Vector2i, int, int)
+  fullName: OpenTK.Mathematics.Vector4i.Vector4i(OpenTK.Mathematics.Vector2i, int, int)
   type: Constructor
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 79
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 81
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> struct.
   example: []
   syntax:
-    content: public Vector4i(Vector2i v)
+    content: public Vector4i(Vector2i xy, int z = 0, int w = 0)
     parameters:
-    - id: v
+    - id: xy
       type: OpenTK.Mathematics.Vector2i
-      description: The <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> to copy components from.
-    content.vb: Public Sub New(v As Vector2i)
+      description: The x and y components of the Vector4i.
+    - id: z
+      type: System.Int32
+      description: The z component of the Vector4i.
+    - id: w
+      type: System.Int32
+      description: The w component of the Vector4i.
+    content.vb: Public Sub New(xy As Vector2i, z As Integer = 0, w As Integer = 0)
   overload: OpenTK.Mathematics.Vector4i.#ctor*
-  nameWithType.vb: Vector4i.New(Vector2i)
-  fullName.vb: OpenTK.Mathematics.Vector4i.New(OpenTK.Mathematics.Vector2i)
-  name.vb: New(Vector2i)
-- uid: OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
-  commentId: M:OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
-  id: '#ctor(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)'
-  parent: OpenTK.Mathematics.Vector4i
-  langs:
-  - csharp
-  - vb
-  name: Vector4i(Vector2i, Vector2i)
-  nameWithType: Vector4i.Vector4i(Vector2i, Vector2i)
-  fullName: OpenTK.Mathematics.Vector4i.Vector4i(OpenTK.Mathematics.Vector2i, OpenTK.Mathematics.Vector2i)
-  type: Constructor
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 92
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> struct.
-  example: []
-  syntax:
-    content: public Vector4i(Vector2i v1, Vector2i v2)
-    parameters:
-    - id: v1
-      type: OpenTK.Mathematics.Vector2i
-      description: The <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> to get the X and Y components for the Vector4.
-    - id: v2
-      type: OpenTK.Mathematics.Vector2i
-      description: The <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> to get the Z and W components for the Vector4.
-    content.vb: Public Sub New(v1 As Vector2i, v2 As Vector2i)
-  overload: OpenTK.Mathematics.Vector4i.#ctor*
-  nameWithType.vb: Vector4i.New(Vector2i, Vector2i)
-  fullName.vb: OpenTK.Mathematics.Vector4i.New(OpenTK.Mathematics.Vector2i, OpenTK.Mathematics.Vector2i)
-  name.vb: New(Vector2i, Vector2i)
-- uid: OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector3i)
-  commentId: M:OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector3i)
-  id: '#ctor(OpenTK.Mathematics.Vector3i)'
-  parent: OpenTK.Mathematics.Vector4i
-  langs:
-  - csharp
-  - vb
-  name: Vector4i(Vector3i)
-  nameWithType: Vector4i.Vector4i(Vector3i)
-  fullName: OpenTK.Mathematics.Vector4i.Vector4i(OpenTK.Mathematics.Vector3i)
-  type: Constructor
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 104
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> struct.
-  example: []
-  syntax:
-    content: public Vector4i(Vector3i v)
-    parameters:
-    - id: v
-      type: OpenTK.Mathematics.Vector3i
-      description: The <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> to copy components from.
-    content.vb: Public Sub New(v As Vector3i)
-  overload: OpenTK.Mathematics.Vector4i.#ctor*
-  nameWithType.vb: Vector4i.New(Vector3i)
-  fullName.vb: OpenTK.Mathematics.Vector4i.New(OpenTK.Mathematics.Vector3i)
-  name.vb: New(Vector3i)
+  nameWithType.vb: Vector4i.New(Vector2i, Integer, Integer)
+  fullName.vb: OpenTK.Mathematics.Vector4i.New(OpenTK.Mathematics.Vector2i, Integer, Integer)
+  name.vb: New(Vector2i, Integer, Integer)
 - uid: OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector3i,System.Int32)
   commentId: M:OpenTK.Mathematics.Vector4i.#ctor(OpenTK.Mathematics.Vector3i,System.Int32)
   id: '#ctor(OpenTK.Mathematics.Vector3i,System.Int32)'
@@ -489,28 +389,24 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Vector4i(OpenTK.Mathematics.Vector3i, int)
   type: Constructor
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 117
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 94
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> struct.
   example: []
   syntax:
-    content: public Vector4i(Vector3i v, int w)
+    content: public Vector4i(Vector3i xyz, int w = 0)
     parameters:
-    - id: v
+    - id: xyz
       type: OpenTK.Mathematics.Vector3i
-      description: The <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> to copy components from.
+      description: The x, y and z components of the Vector4i.
     - id: w
       type: System.Int32
-      description: The w component of the new Vector4.
-    content.vb: Public Sub New(v As Vector3i, w As Integer)
+      description: The w component of the Vector4i.
+    content.vb: Public Sub New(xyz As Vector3i, w As Integer = 0)
   overload: OpenTK.Mathematics.Vector4i.#ctor*
   nameWithType.vb: Vector4i.New(Vector3i, Integer)
   fullName.vb: OpenTK.Mathematics.Vector4i.New(OpenTK.Mathematics.Vector3i, Integer)
@@ -527,20 +423,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.this[int]
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: this[]
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 130
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 107
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at the index of the vector.
   example: []
   syntax:
-    content: public int this[int index] { get; set; }
+    content: public int this[int index] { readonly get; set; }
     parameters:
     - id: index
       type: System.Int32
@@ -568,20 +460,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ManhattanLength
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ManhattanLength
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 185
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 162
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the manhattan length of the vector.
   example: []
   syntax:
-    content: public int ManhattanLength { get; }
+    content: public readonly int ManhattanLength { get; }
     parameters: []
     return:
       type: System.Int32
@@ -599,20 +487,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.EuclideanLengthSquared
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: EuclideanLengthSquared
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 190
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 167
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the squared euclidean length of the vector.
   example: []
   syntax:
-    content: public int EuclideanLengthSquared { get; }
+    content: public readonly int EuclideanLengthSquared { get; }
     parameters: []
     return:
       type: System.Int32
@@ -630,25 +514,48 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.EuclideanLength
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: EuclideanLength
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 195
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 172
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the euclidean length of the vector.
   example: []
   syntax:
-    content: public float EuclideanLength { get; }
+    content: public readonly float EuclideanLength { get; }
     parameters: []
     return:
       type: System.Single
     content.vb: Public ReadOnly Property EuclideanLength As Single
   overload: OpenTK.Mathematics.Vector4i.EuclideanLength*
+- uid: OpenTK.Mathematics.Vector4i.Abs
+  commentId: M:OpenTK.Mathematics.Vector4i.Abs
+  id: Abs
+  parent: OpenTK.Mathematics.Vector4i
+  langs:
+  - csharp
+  - vb
+  name: Abs()
+  nameWithType: Vector4i.Abs()
+  fullName: OpenTK.Mathematics.Vector4i.Abs()
+  type: Method
+  source:
+    id: Abs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 178
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns a new vector that is the component-wise absolute value of the vector.
+  example: []
+  syntax:
+    content: public readonly Vector4i Abs()
+    return:
+      type: OpenTK.Mathematics.Vector4i
+      description: The component-wise absolute value vector.
+    content.vb: Public Function Abs() As Vector4i
+  overload: OpenTK.Mathematics.Vector4i.Abs*
 - uid: OpenTK.Mathematics.Vector4i.UnitX
   commentId: F:OpenTK.Mathematics.Vector4i.UnitX
   id: UnitX
@@ -661,13 +568,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.UnitX
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: UnitX
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 200
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 191
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -690,13 +593,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.UnitY
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: UnitY
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 205
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 196
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -719,13 +618,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.UnitZ
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: UnitZ
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 210
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 201
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -748,13 +643,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.UnitW
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: UnitW
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 215
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 206
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -777,13 +668,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zero
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zero
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 220
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 211
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -806,13 +693,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.One
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: One
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 225
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 216
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -835,13 +718,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.SizeInBytes
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: SizeInBytes
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 230
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 221
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -864,13 +743,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Add(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Add
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 238
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 229
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -912,13 +787,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Add(in OpenTK.Mathematics.Vector4i, in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Add
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 251
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 242
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -953,13 +824,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Subtract(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Subtract
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 265
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 256
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1001,13 +868,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Subtract(in OpenTK.Mathematics.Vector4i, in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Subtract
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 278
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 269
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1042,13 +905,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Multiply(OpenTK.Mathematics.Vector4i, int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 292
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 283
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1093,13 +952,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Multiply(in OpenTK.Mathematics.Vector4i, int, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 305
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 296
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1134,13 +989,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Multiply(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 319
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 310
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1182,13 +1033,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Multiply(in OpenTK.Mathematics.Vector4i, in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 332
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 323
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1223,13 +1070,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Divide(OpenTK.Mathematics.Vector4i, int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Divide
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 346
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 337
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1274,13 +1117,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Divide(in OpenTK.Mathematics.Vector4i, int, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Divide
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 359
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 350
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1315,13 +1154,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Divide(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Divide
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 373
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 364
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1363,13 +1198,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Divide(in OpenTK.Mathematics.Vector4i, in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Divide
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 386
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 377
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1404,13 +1235,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ComponentMin(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ComponentMin
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 400
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 391
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1452,13 +1279,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ComponentMin(in OpenTK.Mathematics.Vector4i, in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ComponentMin
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 417
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 408
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1493,13 +1316,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ComponentMax(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ComponentMax
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 431
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 422
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1541,13 +1360,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ComponentMax(in OpenTK.Mathematics.Vector4i, in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ComponentMax
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 448
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 439
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1582,13 +1397,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Clamp(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Clamp
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 463
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 454
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1633,13 +1444,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Clamp(in OpenTK.Mathematics.Vector4i, in OpenTK.Mathematics.Vector4i, in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Clamp
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 481
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 472
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1665,6 +1472,71 @@ items:
   nameWithType.vb: Vector4i.Clamp(Vector4i, Vector4i, Vector4i, Vector4i)
   fullName.vb: OpenTK.Mathematics.Vector4i.Clamp(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   name.vb: Clamp(Vector4i, Vector4i, Vector4i, Vector4i)
+- uid: OpenTK.Mathematics.Vector4i.Abs(OpenTK.Mathematics.Vector4i)
+  commentId: M:OpenTK.Mathematics.Vector4i.Abs(OpenTK.Mathematics.Vector4i)
+  id: Abs(OpenTK.Mathematics.Vector4i)
+  parent: OpenTK.Mathematics.Vector4i
+  langs:
+  - csharp
+  - vb
+  name: Abs(Vector4i)
+  nameWithType: Vector4i.Abs(Vector4i)
+  fullName: OpenTK.Mathematics.Vector4i.Abs(OpenTK.Mathematics.Vector4i)
+  type: Method
+  source:
+    id: Abs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 485
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Take the component-wise absolute value of a vector.
+  example: []
+  syntax:
+    content: public static Vector4i Abs(Vector4i vec)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector4i
+      description: The vector to apply component-wise absolute value to.
+    return:
+      type: OpenTK.Mathematics.Vector4i
+      description: The component-wise absolute value vector.
+    content.vb: Public Shared Function Abs(vec As Vector4i) As Vector4i
+  overload: OpenTK.Mathematics.Vector4i.Abs*
+- uid: OpenTK.Mathematics.Vector4i.Abs(OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@)
+  commentId: M:OpenTK.Mathematics.Vector4i.Abs(OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@)
+  id: Abs(OpenTK.Mathematics.Vector4i@,OpenTK.Mathematics.Vector4i@)
+  parent: OpenTK.Mathematics.Vector4i
+  langs:
+  - csharp
+  - vb
+  name: Abs(in Vector4i, out Vector4i)
+  nameWithType: Vector4i.Abs(in Vector4i, out Vector4i)
+  fullName: OpenTK.Mathematics.Vector4i.Abs(in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4i)
+  type: Method
+  source:
+    id: Abs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 499
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Take the component-wise absolute value of a vector.
+  example: []
+  syntax:
+    content: public static void Abs(in Vector4i vec, out Vector4i result)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector4i
+      description: The vector to apply component-wise absolute value to.
+    - id: result
+      type: OpenTK.Mathematics.Vector4i
+      description: The component-wise absolute value vector.
+    content.vb: Public Shared Sub Abs(vec As Vector4i, result As Vector4i)
+  overload: OpenTK.Mathematics.Vector4i.Abs*
+  nameWithType.vb: Vector4i.Abs(Vector4i, Vector4i)
+  fullName.vb: OpenTK.Mathematics.Vector4i.Abs(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
+  name.vb: Abs(Vector4i, Vector4i)
 - uid: OpenTK.Mathematics.Vector4i.Xy
   commentId: P:OpenTK.Mathematics.Vector4i.Xy
   id: Xy
@@ -1677,13 +1549,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 492
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 510
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1708,20 +1576,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 506
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 524
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the X and Z components of this instance.
   example: []
   syntax:
-    content: public Vector2i Xz { get; set; }
+    content: public Vector2i Xz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1739,20 +1603,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 520
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 538
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the X and W components of this instance.
   example: []
   syntax:
-    content: public Vector2i Xw { get; set; }
+    content: public Vector2i Xw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1770,20 +1630,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 534
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 552
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the Y and X components of this instance.
   example: []
   syntax:
-    content: public Vector2i Yx { get; set; }
+    content: public Vector2i Yx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1801,20 +1657,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 548
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 566
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the Y and Z components of this instance.
   example: []
   syntax:
-    content: public Vector2i Yz { get; set; }
+    content: public Vector2i Yz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1832,20 +1684,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 562
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 580
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the Y and W components of this instance.
   example: []
   syntax:
-    content: public Vector2i Yw { get; set; }
+    content: public Vector2i Yw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1863,20 +1711,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 576
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 594
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the Z and X components of this instance.
   example: []
   syntax:
-    content: public Vector2i Zx { get; set; }
+    content: public Vector2i Zx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1894,20 +1738,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 590
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 608
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the Z and Y components of this instance.
   example: []
   syntax:
-    content: public Vector2i Zy { get; set; }
+    content: public Vector2i Zy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1925,20 +1765,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 604
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 622
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the Z and W components of this instance.
   example: []
   syntax:
-    content: public Vector2i Zw { get; set; }
+    content: public Vector2i Zw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1956,20 +1792,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 618
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 636
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the W and X components of this instance.
   example: []
   syntax:
-    content: public Vector2i Wx { get; set; }
+    content: public Vector2i Wx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -1987,20 +1819,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 632
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 650
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the W and Y components of this instance.
   example: []
   syntax:
-    content: public Vector2i Wy { get; set; }
+    content: public Vector2i Wy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -2018,20 +1846,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 646
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 664
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector2i" data-throw-if-not-resolved="false"></xref> with the W and Z components of this instance.
   example: []
   syntax:
-    content: public Vector2i Wz { get; set; }
+    content: public Vector2i Wz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -2049,13 +1873,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xyz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xyz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 660
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 678
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2080,20 +1900,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xyw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xyw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 675
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 693
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the X, Y, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector3i Xyw { get; set; }
+    content: public Vector3i Xyw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2111,20 +1927,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xzy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xzy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 690
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 708
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the X, Z, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector3i Xzy { get; set; }
+    content: public Vector3i Xzy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2142,20 +1954,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xzw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xzw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 705
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 723
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the X, Z, and W components of this instance.
   example: []
   syntax:
-    content: public Vector3i Xzw { get; set; }
+    content: public Vector3i Xzw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2173,20 +1981,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xwy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xwy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 720
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 738
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the X, W, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector3i Xwy { get; set; }
+    content: public Vector3i Xwy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2204,20 +2008,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xwz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xwz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 735
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 753
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the X, W, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector3i Xwz { get; set; }
+    content: public Vector3i Xwz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2235,20 +2035,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yxz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yxz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 750
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 768
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Y, X, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector3i Yxz { get; set; }
+    content: public Vector3i Yxz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2266,20 +2062,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yxw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yxw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 765
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 783
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Y, X, and W components of this instance.
   example: []
   syntax:
-    content: public Vector3i Yxw { get; set; }
+    content: public Vector3i Yxw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2297,20 +2089,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yzx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yzx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 780
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 798
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Y, Z, and X components of this instance.
   example: []
   syntax:
-    content: public Vector3i Yzx { get; set; }
+    content: public Vector3i Yzx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2328,20 +2116,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yzw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yzw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 795
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 813
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Y, Z, and W components of this instance.
   example: []
   syntax:
-    content: public Vector3i Yzw { get; set; }
+    content: public Vector3i Yzw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2359,20 +2143,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Ywx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Ywx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 810
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 828
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Y, W, and X components of this instance.
   example: []
   syntax:
-    content: public Vector3i Ywx { get; set; }
+    content: public Vector3i Ywx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2390,20 +2170,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Ywz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Ywz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 825
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 843
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Y, W, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector3i Ywz { get; set; }
+    content: public Vector3i Ywz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2421,20 +2197,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zxy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zxy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 840
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 858
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Z, X, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector3i Zxy { get; set; }
+    content: public Vector3i Zxy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2452,20 +2224,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zxw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zxw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 855
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 873
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Z, X, and W components of this instance.
   example: []
   syntax:
-    content: public Vector3i Zxw { get; set; }
+    content: public Vector3i Zxw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2483,20 +2251,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zyx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zyx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 870
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 888
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Z, Y, and X components of this instance.
   example: []
   syntax:
-    content: public Vector3i Zyx { get; set; }
+    content: public Vector3i Zyx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2514,20 +2278,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zyw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zyw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 885
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 903
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Z, Y, and W components of this instance.
   example: []
   syntax:
-    content: public Vector3i Zyw { get; set; }
+    content: public Vector3i Zyw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2545,20 +2305,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zwx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zwx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 900
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 918
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Z, W, and X components of this instance.
   example: []
   syntax:
-    content: public Vector3i Zwx { get; set; }
+    content: public Vector3i Zwx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2576,20 +2332,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zwy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zwy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 915
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 933
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the Z, W, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector3i Zwy { get; set; }
+    content: public Vector3i Zwy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2607,20 +2359,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wxy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wxy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 930
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 948
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the W, X, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector3i Wxy { get; set; }
+    content: public Vector3i Wxy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2638,20 +2386,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wxz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wxz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 945
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 963
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the W, X, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector3i Wxz { get; set; }
+    content: public Vector3i Wxz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2669,20 +2413,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wyx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wyx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 960
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 978
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the W, Y, and X components of this instance.
   example: []
   syntax:
-    content: public Vector3i Wyx { get; set; }
+    content: public Vector3i Wyx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2700,20 +2440,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wyz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wyz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 975
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 993
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the W, Y, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector3i Wyz { get; set; }
+    content: public Vector3i Wyz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2731,20 +2467,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wzx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wzx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 990
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1008
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the W, Z, and X components of this instance.
   example: []
   syntax:
-    content: public Vector3i Wzx { get; set; }
+    content: public Vector3i Wzx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2762,20 +2494,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wzy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wzy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1005
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1023
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector3i" data-throw-if-not-resolved="false"></xref> with the W, Z, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector3i Wzy { get; set; }
+    content: public Vector3i Wzy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3i
@@ -2793,20 +2521,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xywz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xywz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1020
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1038
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the X, Y, W, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector4i Xywz { get; set; }
+    content: public Vector4i Xywz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -2824,20 +2548,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xzyw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xzyw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1036
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1054
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the X, Z, Y, and W components of this instance.
   example: []
   syntax:
-    content: public Vector4i Xzyw { get; set; }
+    content: public Vector4i Xzyw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -2855,20 +2575,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xzwy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xzwy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1052
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1070
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the X, Z, W, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector4i Xzwy { get; set; }
+    content: public Vector4i Xzwy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -2886,20 +2602,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xwyz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xwyz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1068
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1086
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the X, W, Y, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector4i Xwyz { get; set; }
+    content: public Vector4i Xwyz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -2917,20 +2629,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Xwzy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xwzy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1084
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1102
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the X, W, Z, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector4i Xwzy { get; set; }
+    content: public Vector4i Xwzy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -2948,20 +2656,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yxzw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yxzw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1100
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1118
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Y, X, Z, and W components of this instance.
   example: []
   syntax:
-    content: public Vector4i Yxzw { get; set; }
+    content: public Vector4i Yxzw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -2979,20 +2683,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yxwz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yxwz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1116
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1134
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Y, X, W, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector4i Yxwz { get; set; }
+    content: public Vector4i Yxwz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3010,20 +2710,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yyzw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yyzw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1132
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1150
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Y, Y, Z, and W components of this instance.
   example: []
   syntax:
-    content: public Vector4i Yyzw { get; set; }
+    content: public Vector4i Yyzw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3041,20 +2737,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yywz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yywz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1148
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1166
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Y, Y, W, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector4i Yywz { get; set; }
+    content: public Vector4i Yywz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3072,20 +2764,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yzxw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yzxw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1164
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1182
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Y, Z, X, and W components of this instance.
   example: []
   syntax:
-    content: public Vector4i Yzxw { get; set; }
+    content: public Vector4i Yzxw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3103,20 +2791,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Yzwx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yzwx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1180
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1198
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Y, Z, W, and X components of this instance.
   example: []
   syntax:
-    content: public Vector4i Yzwx { get; set; }
+    content: public Vector4i Yzwx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3134,20 +2818,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Ywxz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Ywxz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1196
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1214
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Y, W, X, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector4i Ywxz { get; set; }
+    content: public Vector4i Ywxz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3165,20 +2845,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Ywzx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Ywzx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1212
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1230
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Y, W, Z, and X components of this instance.
   example: []
   syntax:
-    content: public Vector4i Ywzx { get; set; }
+    content: public Vector4i Ywzx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3196,20 +2872,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zxyw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zxyw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1228
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1246
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Z, X, Y, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector4i Zxyw { get; set; }
+    content: public Vector4i Zxyw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3227,20 +2899,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zxwy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zxwy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1244
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1262
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Z, X, W, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector4i Zxwy { get; set; }
+    content: public Vector4i Zxwy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3258,20 +2926,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zyxw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zyxw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1260
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1278
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Z, Y, X, and W components of this instance.
   example: []
   syntax:
-    content: public Vector4i Zyxw { get; set; }
+    content: public Vector4i Zyxw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3289,20 +2953,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zywx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zywx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1276
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1294
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Z, Y, W, and X components of this instance.
   example: []
   syntax:
-    content: public Vector4i Zywx { get; set; }
+    content: public Vector4i Zywx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3320,20 +2980,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zwxy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zwxy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1292
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1310
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Z, W, X, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector4i Zwxy { get; set; }
+    content: public Vector4i Zwxy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3351,20 +3007,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zwyx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zwyx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1308
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1326
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Z, W, Y, and X components of this instance.
   example: []
   syntax:
-    content: public Vector4i Zwyx { get; set; }
+    content: public Vector4i Zwyx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3382,20 +3034,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Zwzy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zwzy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1324
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1342
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the Z, W, Z, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector4i Zwzy { get; set; }
+    content: public Vector4i Zwzy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3413,20 +3061,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wxyz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wxyz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1340
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1358
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the W, X, Y, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector4i Wxyz { get; set; }
+    content: public Vector4i Wxyz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3444,20 +3088,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wxzy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wxzy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1356
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1374
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the W, X, Z, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector4i Wxzy { get; set; }
+    content: public Vector4i Wxzy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3475,20 +3115,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wyxz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wyxz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1372
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1390
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the W, Y, X, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector4i Wyxz { get; set; }
+    content: public Vector4i Wyxz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3506,20 +3142,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wyzx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wyzx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1388
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1406
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the W, Y, Z, and X components of this instance.
   example: []
   syntax:
-    content: public Vector4i Wyzx { get; set; }
+    content: public Vector4i Wyzx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3537,20 +3169,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wzxy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wzxy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1404
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1422
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the W, Z, X, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector4i Wzxy { get; set; }
+    content: public Vector4i Wzxy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3568,20 +3196,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wzyx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wzyx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1420
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1438
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the W, Z, Y, and X components of this instance.
   example: []
   syntax:
-    content: public Vector4i Wzyx { get; set; }
+    content: public Vector4i Wzyx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3599,20 +3223,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Wzyw
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Wzyw
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1436
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1454
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets a <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> with the W, Z, Y, and W components of this instance.
   example: []
   syntax:
-    content: public Vector4i Wzyw { get; set; }
+    content: public Vector4i Wzyw { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4i
@@ -3630,20 +3250,16 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ToVector4()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToVector4
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1453
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1471
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets a <xref href="OpenTK.Mathematics.Vector4" data-throw-if-not-resolved="false"></xref> object with the same component values as the <xref href="OpenTK.Mathematics.Vector4i" data-throw-if-not-resolved="false"></xref> instance.
   example: []
   syntax:
-    content: public Vector4 ToVector4()
+    content: public readonly Vector4 ToVector4()
     return:
       type: OpenTK.Mathematics.Vector4
       description: The resulting <xref href="OpenTK.Mathematics.Vector4" data-throw-if-not-resolved="false"></xref> instance.
@@ -3661,13 +3277,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ToVector4(in OpenTK.Mathematics.Vector4i, out OpenTK.Mathematics.Vector4)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToVector4
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1463
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1481
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3699,13 +3311,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator +(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Addition
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1477
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1495
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3750,13 +3358,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator -(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Subtraction
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1493
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1511
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3801,13 +3405,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator -(OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_UnaryNegation
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1508
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1526
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3849,13 +3449,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator *(OpenTK.Mathematics.Vector4i, int)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1524
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1542
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3900,13 +3496,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator *(int, OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1540
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1558
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3951,13 +3543,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator *(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1556
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1574
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4002,13 +3590,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator /(OpenTK.Mathematics.Vector4i, int)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Division
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1572
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1590
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4053,13 +3637,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator /(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Division
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1588
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1606
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4104,13 +3684,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator ==(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Equality
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1604
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1622
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4145,13 +3721,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.operator !=(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Inequality
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1615
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1633
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4174,102 +3746,6 @@ items:
   nameWithType.vb: Vector4i.<>(Vector4i, Vector4i)
   fullName.vb: OpenTK.Mathematics.Vector4i.<>(OpenTK.Mathematics.Vector4i, OpenTK.Mathematics.Vector4i)
   name.vb: <>(Vector4i, Vector4i)
-- uid: OpenTK.Mathematics.Vector4i.op_Explicit(OpenTK.Mathematics.Vector4i)~System.Int32*
-  commentId: M:OpenTK.Mathematics.Vector4i.op_Explicit(OpenTK.Mathematics.Vector4i)~System.Int32*
-  id: op_Explicit(OpenTK.Mathematics.Vector4i)~System.Int32*
-  parent: OpenTK.Mathematics.Vector4i
-  langs:
-  - csharp
-  - vb
-  name: explicit operator int*(Vector4i)
-  nameWithType: Vector4i.explicit operator int*(Vector4i)
-  fullName: OpenTK.Mathematics.Vector4i.explicit operator int*(OpenTK.Mathematics.Vector4i)
-  type: Operator
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: op_Explicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1625
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Returns a pointer to the first element of the specified instance.
-  example: []
-  syntax:
-    content: >-
-      [Pure]
-
-      public static explicit operator int*(Vector4i v)
-    parameters:
-    - id: v
-      type: OpenTK.Mathematics.Vector4i
-      description: The instance.
-    return:
-      type: System.Int32*
-      description: A pointer to the first element of v.
-    content.vb: >-
-      <Pure>
-
-      Public Shared Narrowing Operator CType(v As Vector4i) As Integer*
-  overload: OpenTK.Mathematics.Vector4i.op_Explicit*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
-  nameWithType.vb: Vector4i.CType(Vector4i)
-  fullName.vb: OpenTK.Mathematics.Vector4i.CType(OpenTK.Mathematics.Vector4i)
-  name.vb: CType(Vector4i)
-- uid: OpenTK.Mathematics.Vector4i.op_Explicit(OpenTK.Mathematics.Vector4i)~System.IntPtr
-  commentId: M:OpenTK.Mathematics.Vector4i.op_Explicit(OpenTK.Mathematics.Vector4i)~System.IntPtr
-  id: op_Explicit(OpenTK.Mathematics.Vector4i)~System.IntPtr
-  parent: OpenTK.Mathematics.Vector4i
-  langs:
-  - csharp
-  - vb
-  name: explicit operator IntPtr(Vector4i)
-  nameWithType: Vector4i.explicit operator IntPtr(Vector4i)
-  fullName: OpenTK.Mathematics.Vector4i.explicit operator System.IntPtr(OpenTK.Mathematics.Vector4i)
-  type: Operator
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: op_Explicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1636
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Returns a pointer to the first element of the specified instance.
-  example: []
-  syntax:
-    content: >-
-      [Pure]
-
-      public static explicit operator IntPtr(Vector4i v)
-    parameters:
-    - id: v
-      type: OpenTK.Mathematics.Vector4i
-      description: The instance.
-    return:
-      type: System.IntPtr
-      description: A pointer to the first element of v.
-    content.vb: >-
-      <Pure>
-
-      Public Shared Narrowing Operator CType(v As Vector4i) As IntPtr
-  overload: OpenTK.Mathematics.Vector4i.op_Explicit*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
-  nameWithType.vb: Vector4i.CType(Vector4i)
-  fullName.vb: OpenTK.Mathematics.Vector4i.CType(OpenTK.Mathematics.Vector4i)
-  name.vb: CType(Vector4i)
 - uid: OpenTK.Mathematics.Vector4i.op_Implicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4
   commentId: M:OpenTK.Mathematics.Vector4i.op_Implicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4
   id: op_Implicit(OpenTK.Mathematics.Vector4i)~OpenTK.Mathematics.Vector4
@@ -4282,13 +3758,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.implicit operator OpenTK.Mathematics.Vector4(OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Implicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1650
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1643
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4330,13 +3802,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.implicit operator OpenTK.Mathematics.Vector4d(OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Implicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1661
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1654
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4378,13 +3846,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.explicit operator OpenTK.Mathematics.Vector4h(OpenTK.Mathematics.Vector4i)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Explicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1672
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1665
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4426,13 +3890,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.implicit operator OpenTK.Mathematics.Vector4i((int X, int Y, int Z, int W))
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Implicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1684
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1677
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4477,21 +3937,19 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ToString()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToString
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1691
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1684
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Returns the fully qualified type name of this instance.
   example: []
   syntax:
-    content: public override string ToString()
+    content: public override readonly string ToString()
     return:
       type: System.String
+      description: The fully qualified type name.
     content.vb: Public Overrides Function ToString() As String
   overridden: System.ValueType.ToString
   overload: OpenTK.Mathematics.Vector4i.ToString*
@@ -4507,24 +3965,28 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ToString(string)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToString
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1697
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1690
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(string format)
+    content: public readonly string ToString(string format)
     parameters:
     - id: format
       type: System.String
+      description: >-
+        The format to use.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(format As String) As String
   overload: OpenTK.Mathematics.Vector4i.ToString*
   nameWithType.vb: Vector4i.ToString(String)
@@ -4542,24 +4004,28 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ToString(System.IFormatProvider)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToString
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1703
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1696
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(IFormatProvider formatProvider)
+    content: public readonly string ToString(IFormatProvider formatProvider)
     parameters:
     - id: formatProvider
       type: System.IFormatProvider
+      description: >-
+        The provider to use to format the value.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(formatProvider As IFormatProvider) As String
   overload: OpenTK.Mathematics.Vector4i.ToString*
 - uid: OpenTK.Mathematics.Vector4i.ToString(System.String,System.IFormatProvider)
@@ -4574,26 +4040,36 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.ToString(string, System.IFormatProvider)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToString
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1709
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1702
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(string format, IFormatProvider formatProvider)
+    content: public readonly string ToString(string format, IFormatProvider formatProvider)
     parameters:
     - id: format
       type: System.String
+      description: >-
+        The format to use.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
+      description: >-
+        The provider to use to format the value.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(format As String, formatProvider As IFormatProvider) As String
   overload: OpenTK.Mathematics.Vector4i.ToString*
   implements:
@@ -4613,24 +4089,23 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Equals(object)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Equals
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1721
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1714
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Indicates whether this instance and a specified object are equal.
   example: []
   syntax:
-    content: public override bool Equals(object obj)
+    content: public override readonly bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
+      description: The object to compare with the current instance.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function Equals(obj As Object) As Boolean
   overridden: System.ValueType.Equals(System.Object)
   overload: OpenTK.Mathematics.Vector4i.Equals*
@@ -4649,24 +4124,23 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Equals(OpenTK.Mathematics.Vector4i)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Equals
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1727
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1720
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Indicates whether the current object is equal to another object of the same type.
   example: []
   syntax:
-    content: public bool Equals(Vector4i other)
+    content: public readonly bool Equals(Vector4i other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Vector4i
+      description: An object to compare with this object.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function Equals(other As Vector4i) As Boolean
   overload: OpenTK.Mathematics.Vector4i.Equals*
   implements:
@@ -4683,21 +4157,19 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.GetHashCode()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: GetHashCode
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1736
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1729
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Returns the hash code for this instance.
   example: []
   syntax:
-    content: public override int GetHashCode()
+    content: public override readonly int GetHashCode()
     return:
       type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.ValueType.GetHashCode
   overload: OpenTK.Mathematics.Vector4i.GetHashCode*
@@ -4713,13 +4185,9 @@ items:
   fullName: OpenTK.Mathematics.Vector4i.Deconstruct(out int, out int, out int, out int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector4i.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Deconstruct
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector4i.cs
-    startLine: 1748
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4i.cs
+    startLine: 1741
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4729,7 +4197,7 @@ items:
     content: >-
       [Pure]
 
-      public void Deconstruct(out int x, out int y, out int z, out int w)
+      public readonly void Deconstruct(out int x, out int y, out int z, out int w)
     parameters:
     - id: x
       type: System.Int32
@@ -4999,7 +4467,7 @@ references:
   fullName: OpenTK.Mathematics.Vector4i
 - uid: OpenTK.Mathematics.Vector4i.#ctor*
   commentId: Overload:OpenTK.Mathematics.Vector4i.#ctor
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.#ctor(System.Int32)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i__ctor_System_Int32_
   name: Vector4i
   nameWithType: Vector4i.Vector4i
   fullName: OpenTK.Mathematics.Vector4i.Vector4i
@@ -5029,7 +4497,7 @@ references:
   fullName: System.IndexOutOfRangeException
 - uid: OpenTK.Mathematics.Vector4i.Item*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Item
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Item(System.Int32)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Item_System_Int32_
   name: this
   nameWithType: Vector4i.this
   fullName: OpenTK.Mathematics.Vector4i.this
@@ -5038,19 +4506,19 @@ references:
   name.vb: this[]
 - uid: OpenTK.Mathematics.Vector4i.ManhattanLength*
   commentId: Overload:OpenTK.Mathematics.Vector4i.ManhattanLength
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.ManhattanLength
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_ManhattanLength
   name: ManhattanLength
   nameWithType: Vector4i.ManhattanLength
   fullName: OpenTK.Mathematics.Vector4i.ManhattanLength
 - uid: OpenTK.Mathematics.Vector4i.EuclideanLengthSquared*
   commentId: Overload:OpenTK.Mathematics.Vector4i.EuclideanLengthSquared
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.EuclideanLengthSquared
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_EuclideanLengthSquared
   name: EuclideanLengthSquared
   nameWithType: Vector4i.EuclideanLengthSquared
   fullName: OpenTK.Mathematics.Vector4i.EuclideanLengthSquared
 - uid: OpenTK.Mathematics.Vector4i.EuclideanLength*
   commentId: Overload:OpenTK.Mathematics.Vector4i.EuclideanLength
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.EuclideanLength
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_EuclideanLength
   name: EuclideanLength
   nameWithType: Vector4i.EuclideanLength
   fullName: OpenTK.Mathematics.Vector4i.EuclideanLength
@@ -5065,423 +4533,429 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: OpenTK.Mathematics.Vector4i.Abs*
+  commentId: Overload:OpenTK.Mathematics.Vector4i.Abs
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Abs
+  name: Abs
+  nameWithType: Vector4i.Abs
+  fullName: OpenTK.Mathematics.Vector4i.Abs
 - uid: OpenTK.Mathematics.Vector4i.Add*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Add
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Add(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Add_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: Add
   nameWithType: Vector4i.Add
   fullName: OpenTK.Mathematics.Vector4i.Add
 - uid: OpenTK.Mathematics.Vector4i.Subtract*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Subtract
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Subtract(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Subtract_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: Subtract
   nameWithType: Vector4i.Subtract
   fullName: OpenTK.Mathematics.Vector4i.Subtract
 - uid: OpenTK.Mathematics.Vector4i.Multiply*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Multiply
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Multiply(OpenTK.Mathematics.Vector4i,System.Int32)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Multiply_OpenTK_Mathematics_Vector4i_System_Int32_
   name: Multiply
   nameWithType: Vector4i.Multiply
   fullName: OpenTK.Mathematics.Vector4i.Multiply
 - uid: OpenTK.Mathematics.Vector4i.Divide*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Divide
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Divide(OpenTK.Mathematics.Vector4i,System.Int32)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Divide_OpenTK_Mathematics_Vector4i_System_Int32_
   name: Divide
   nameWithType: Vector4i.Divide
   fullName: OpenTK.Mathematics.Vector4i.Divide
 - uid: OpenTK.Mathematics.Vector4i.ComponentMin*
   commentId: Overload:OpenTK.Mathematics.Vector4i.ComponentMin
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.ComponentMin(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_ComponentMin_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: ComponentMin
   nameWithType: Vector4i.ComponentMin
   fullName: OpenTK.Mathematics.Vector4i.ComponentMin
 - uid: OpenTK.Mathematics.Vector4i.ComponentMax*
   commentId: Overload:OpenTK.Mathematics.Vector4i.ComponentMax
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.ComponentMax(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_ComponentMax_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: ComponentMax
   nameWithType: Vector4i.ComponentMax
   fullName: OpenTK.Mathematics.Vector4i.ComponentMax
 - uid: OpenTK.Mathematics.Vector4i.Clamp*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Clamp
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Clamp(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Clamp_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: Clamp
   nameWithType: Vector4i.Clamp
   fullName: OpenTK.Mathematics.Vector4i.Clamp
 - uid: OpenTK.Mathematics.Vector4i.Xy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xy
   name: Xy
   nameWithType: Vector4i.Xy
   fullName: OpenTK.Mathematics.Vector4i.Xy
 - uid: OpenTK.Mathematics.Vector4i.Xz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xz
   name: Xz
   nameWithType: Vector4i.Xz
   fullName: OpenTK.Mathematics.Vector4i.Xz
 - uid: OpenTK.Mathematics.Vector4i.Xw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xw
   name: Xw
   nameWithType: Vector4i.Xw
   fullName: OpenTK.Mathematics.Vector4i.Xw
 - uid: OpenTK.Mathematics.Vector4i.Yx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yx
   name: Yx
   nameWithType: Vector4i.Yx
   fullName: OpenTK.Mathematics.Vector4i.Yx
 - uid: OpenTK.Mathematics.Vector4i.Yz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yz
   name: Yz
   nameWithType: Vector4i.Yz
   fullName: OpenTK.Mathematics.Vector4i.Yz
 - uid: OpenTK.Mathematics.Vector4i.Yw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yw
   name: Yw
   nameWithType: Vector4i.Yw
   fullName: OpenTK.Mathematics.Vector4i.Yw
 - uid: OpenTK.Mathematics.Vector4i.Zx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zx
   name: Zx
   nameWithType: Vector4i.Zx
   fullName: OpenTK.Mathematics.Vector4i.Zx
 - uid: OpenTK.Mathematics.Vector4i.Zy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zy
   name: Zy
   nameWithType: Vector4i.Zy
   fullName: OpenTK.Mathematics.Vector4i.Zy
 - uid: OpenTK.Mathematics.Vector4i.Zw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zw
   name: Zw
   nameWithType: Vector4i.Zw
   fullName: OpenTK.Mathematics.Vector4i.Zw
 - uid: OpenTK.Mathematics.Vector4i.Wx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wx
   name: Wx
   nameWithType: Vector4i.Wx
   fullName: OpenTK.Mathematics.Vector4i.Wx
 - uid: OpenTK.Mathematics.Vector4i.Wy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wy
   name: Wy
   nameWithType: Vector4i.Wy
   fullName: OpenTK.Mathematics.Vector4i.Wy
 - uid: OpenTK.Mathematics.Vector4i.Wz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wz
   name: Wz
   nameWithType: Vector4i.Wz
   fullName: OpenTK.Mathematics.Vector4i.Wz
 - uid: OpenTK.Mathematics.Vector4i.Xyz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xyz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xyz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xyz
   name: Xyz
   nameWithType: Vector4i.Xyz
   fullName: OpenTK.Mathematics.Vector4i.Xyz
 - uid: OpenTK.Mathematics.Vector4i.Xyw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xyw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xyw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xyw
   name: Xyw
   nameWithType: Vector4i.Xyw
   fullName: OpenTK.Mathematics.Vector4i.Xyw
 - uid: OpenTK.Mathematics.Vector4i.Xzy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xzy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xzy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xzy
   name: Xzy
   nameWithType: Vector4i.Xzy
   fullName: OpenTK.Mathematics.Vector4i.Xzy
 - uid: OpenTK.Mathematics.Vector4i.Xzw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xzw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xzw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xzw
   name: Xzw
   nameWithType: Vector4i.Xzw
   fullName: OpenTK.Mathematics.Vector4i.Xzw
 - uid: OpenTK.Mathematics.Vector4i.Xwy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xwy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xwy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xwy
   name: Xwy
   nameWithType: Vector4i.Xwy
   fullName: OpenTK.Mathematics.Vector4i.Xwy
 - uid: OpenTK.Mathematics.Vector4i.Xwz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xwz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xwz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xwz
   name: Xwz
   nameWithType: Vector4i.Xwz
   fullName: OpenTK.Mathematics.Vector4i.Xwz
 - uid: OpenTK.Mathematics.Vector4i.Yxz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yxz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yxz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yxz
   name: Yxz
   nameWithType: Vector4i.Yxz
   fullName: OpenTK.Mathematics.Vector4i.Yxz
 - uid: OpenTK.Mathematics.Vector4i.Yxw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yxw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yxw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yxw
   name: Yxw
   nameWithType: Vector4i.Yxw
   fullName: OpenTK.Mathematics.Vector4i.Yxw
 - uid: OpenTK.Mathematics.Vector4i.Yzx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yzx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yzx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yzx
   name: Yzx
   nameWithType: Vector4i.Yzx
   fullName: OpenTK.Mathematics.Vector4i.Yzx
 - uid: OpenTK.Mathematics.Vector4i.Yzw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yzw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yzw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yzw
   name: Yzw
   nameWithType: Vector4i.Yzw
   fullName: OpenTK.Mathematics.Vector4i.Yzw
 - uid: OpenTK.Mathematics.Vector4i.Ywx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Ywx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Ywx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Ywx
   name: Ywx
   nameWithType: Vector4i.Ywx
   fullName: OpenTK.Mathematics.Vector4i.Ywx
 - uid: OpenTK.Mathematics.Vector4i.Ywz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Ywz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Ywz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Ywz
   name: Ywz
   nameWithType: Vector4i.Ywz
   fullName: OpenTK.Mathematics.Vector4i.Ywz
 - uid: OpenTK.Mathematics.Vector4i.Zxy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zxy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zxy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zxy
   name: Zxy
   nameWithType: Vector4i.Zxy
   fullName: OpenTK.Mathematics.Vector4i.Zxy
 - uid: OpenTK.Mathematics.Vector4i.Zxw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zxw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zxw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zxw
   name: Zxw
   nameWithType: Vector4i.Zxw
   fullName: OpenTK.Mathematics.Vector4i.Zxw
 - uid: OpenTK.Mathematics.Vector4i.Zyx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zyx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zyx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zyx
   name: Zyx
   nameWithType: Vector4i.Zyx
   fullName: OpenTK.Mathematics.Vector4i.Zyx
 - uid: OpenTK.Mathematics.Vector4i.Zyw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zyw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zyw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zyw
   name: Zyw
   nameWithType: Vector4i.Zyw
   fullName: OpenTK.Mathematics.Vector4i.Zyw
 - uid: OpenTK.Mathematics.Vector4i.Zwx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zwx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zwx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zwx
   name: Zwx
   nameWithType: Vector4i.Zwx
   fullName: OpenTK.Mathematics.Vector4i.Zwx
 - uid: OpenTK.Mathematics.Vector4i.Zwy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zwy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zwy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zwy
   name: Zwy
   nameWithType: Vector4i.Zwy
   fullName: OpenTK.Mathematics.Vector4i.Zwy
 - uid: OpenTK.Mathematics.Vector4i.Wxy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wxy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wxy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wxy
   name: Wxy
   nameWithType: Vector4i.Wxy
   fullName: OpenTK.Mathematics.Vector4i.Wxy
 - uid: OpenTK.Mathematics.Vector4i.Wxz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wxz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wxz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wxz
   name: Wxz
   nameWithType: Vector4i.Wxz
   fullName: OpenTK.Mathematics.Vector4i.Wxz
 - uid: OpenTK.Mathematics.Vector4i.Wyx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wyx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wyx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wyx
   name: Wyx
   nameWithType: Vector4i.Wyx
   fullName: OpenTK.Mathematics.Vector4i.Wyx
 - uid: OpenTK.Mathematics.Vector4i.Wyz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wyz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wyz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wyz
   name: Wyz
   nameWithType: Vector4i.Wyz
   fullName: OpenTK.Mathematics.Vector4i.Wyz
 - uid: OpenTK.Mathematics.Vector4i.Wzx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wzx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wzx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wzx
   name: Wzx
   nameWithType: Vector4i.Wzx
   fullName: OpenTK.Mathematics.Vector4i.Wzx
 - uid: OpenTK.Mathematics.Vector4i.Wzy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wzy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wzy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wzy
   name: Wzy
   nameWithType: Vector4i.Wzy
   fullName: OpenTK.Mathematics.Vector4i.Wzy
 - uid: OpenTK.Mathematics.Vector4i.Xywz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xywz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xywz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xywz
   name: Xywz
   nameWithType: Vector4i.Xywz
   fullName: OpenTK.Mathematics.Vector4i.Xywz
 - uid: OpenTK.Mathematics.Vector4i.Xzyw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xzyw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xzyw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xzyw
   name: Xzyw
   nameWithType: Vector4i.Xzyw
   fullName: OpenTK.Mathematics.Vector4i.Xzyw
 - uid: OpenTK.Mathematics.Vector4i.Xzwy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xzwy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xzwy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xzwy
   name: Xzwy
   nameWithType: Vector4i.Xzwy
   fullName: OpenTK.Mathematics.Vector4i.Xzwy
 - uid: OpenTK.Mathematics.Vector4i.Xwyz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xwyz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xwyz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xwyz
   name: Xwyz
   nameWithType: Vector4i.Xwyz
   fullName: OpenTK.Mathematics.Vector4i.Xwyz
 - uid: OpenTK.Mathematics.Vector4i.Xwzy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Xwzy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Xwzy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Xwzy
   name: Xwzy
   nameWithType: Vector4i.Xwzy
   fullName: OpenTK.Mathematics.Vector4i.Xwzy
 - uid: OpenTK.Mathematics.Vector4i.Yxzw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yxzw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yxzw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yxzw
   name: Yxzw
   nameWithType: Vector4i.Yxzw
   fullName: OpenTK.Mathematics.Vector4i.Yxzw
 - uid: OpenTK.Mathematics.Vector4i.Yxwz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yxwz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yxwz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yxwz
   name: Yxwz
   nameWithType: Vector4i.Yxwz
   fullName: OpenTK.Mathematics.Vector4i.Yxwz
 - uid: OpenTK.Mathematics.Vector4i.Yyzw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yyzw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yyzw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yyzw
   name: Yyzw
   nameWithType: Vector4i.Yyzw
   fullName: OpenTK.Mathematics.Vector4i.Yyzw
 - uid: OpenTK.Mathematics.Vector4i.Yywz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yywz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yywz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yywz
   name: Yywz
   nameWithType: Vector4i.Yywz
   fullName: OpenTK.Mathematics.Vector4i.Yywz
 - uid: OpenTK.Mathematics.Vector4i.Yzxw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yzxw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yzxw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yzxw
   name: Yzxw
   nameWithType: Vector4i.Yzxw
   fullName: OpenTK.Mathematics.Vector4i.Yzxw
 - uid: OpenTK.Mathematics.Vector4i.Yzwx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Yzwx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Yzwx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Yzwx
   name: Yzwx
   nameWithType: Vector4i.Yzwx
   fullName: OpenTK.Mathematics.Vector4i.Yzwx
 - uid: OpenTK.Mathematics.Vector4i.Ywxz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Ywxz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Ywxz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Ywxz
   name: Ywxz
   nameWithType: Vector4i.Ywxz
   fullName: OpenTK.Mathematics.Vector4i.Ywxz
 - uid: OpenTK.Mathematics.Vector4i.Ywzx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Ywzx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Ywzx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Ywzx
   name: Ywzx
   nameWithType: Vector4i.Ywzx
   fullName: OpenTK.Mathematics.Vector4i.Ywzx
 - uid: OpenTK.Mathematics.Vector4i.Zxyw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zxyw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zxyw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zxyw
   name: Zxyw
   nameWithType: Vector4i.Zxyw
   fullName: OpenTK.Mathematics.Vector4i.Zxyw
 - uid: OpenTK.Mathematics.Vector4i.Zxwy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zxwy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zxwy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zxwy
   name: Zxwy
   nameWithType: Vector4i.Zxwy
   fullName: OpenTK.Mathematics.Vector4i.Zxwy
 - uid: OpenTK.Mathematics.Vector4i.Zyxw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zyxw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zyxw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zyxw
   name: Zyxw
   nameWithType: Vector4i.Zyxw
   fullName: OpenTK.Mathematics.Vector4i.Zyxw
 - uid: OpenTK.Mathematics.Vector4i.Zywx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zywx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zywx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zywx
   name: Zywx
   nameWithType: Vector4i.Zywx
   fullName: OpenTK.Mathematics.Vector4i.Zywx
 - uid: OpenTK.Mathematics.Vector4i.Zwxy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zwxy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zwxy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zwxy
   name: Zwxy
   nameWithType: Vector4i.Zwxy
   fullName: OpenTK.Mathematics.Vector4i.Zwxy
 - uid: OpenTK.Mathematics.Vector4i.Zwyx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zwyx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zwyx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zwyx
   name: Zwyx
   nameWithType: Vector4i.Zwyx
   fullName: OpenTK.Mathematics.Vector4i.Zwyx
 - uid: OpenTK.Mathematics.Vector4i.Zwzy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Zwzy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Zwzy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Zwzy
   name: Zwzy
   nameWithType: Vector4i.Zwzy
   fullName: OpenTK.Mathematics.Vector4i.Zwzy
 - uid: OpenTK.Mathematics.Vector4i.Wxyz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wxyz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wxyz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wxyz
   name: Wxyz
   nameWithType: Vector4i.Wxyz
   fullName: OpenTK.Mathematics.Vector4i.Wxyz
 - uid: OpenTK.Mathematics.Vector4i.Wxzy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wxzy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wxzy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wxzy
   name: Wxzy
   nameWithType: Vector4i.Wxzy
   fullName: OpenTK.Mathematics.Vector4i.Wxzy
 - uid: OpenTK.Mathematics.Vector4i.Wyxz*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wyxz
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wyxz
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wyxz
   name: Wyxz
   nameWithType: Vector4i.Wyxz
   fullName: OpenTK.Mathematics.Vector4i.Wyxz
 - uid: OpenTK.Mathematics.Vector4i.Wyzx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wyzx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wyzx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wyzx
   name: Wyzx
   nameWithType: Vector4i.Wyzx
   fullName: OpenTK.Mathematics.Vector4i.Wyzx
 - uid: OpenTK.Mathematics.Vector4i.Wzxy*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wzxy
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wzxy
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wzxy
   name: Wzxy
   nameWithType: Vector4i.Wzxy
   fullName: OpenTK.Mathematics.Vector4i.Wzxy
 - uid: OpenTK.Mathematics.Vector4i.Wzyx*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wzyx
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wzyx
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wzyx
   name: Wzyx
   nameWithType: Vector4i.Wzyx
   fullName: OpenTK.Mathematics.Vector4i.Wzyx
 - uid: OpenTK.Mathematics.Vector4i.Wzyw*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Wzyw
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Wzyw
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Wzyw
   name: Wzyw
   nameWithType: Vector4i.Wzyw
   fullName: OpenTK.Mathematics.Vector4i.Wzyw
@@ -5494,13 +4968,13 @@ references:
   fullName: OpenTK.Mathematics.Vector4
 - uid: OpenTK.Mathematics.Vector4i.ToVector4*
   commentId: Overload:OpenTK.Mathematics.Vector4i.ToVector4
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.ToVector4
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_ToVector4
   name: ToVector4
   nameWithType: Vector4i.ToVector4
   fullName: OpenTK.Mathematics.Vector4i.ToVector4
 - uid: OpenTK.Mathematics.Vector4i.op_Addition*
   commentId: Overload:OpenTK.Mathematics.Vector4i.op_Addition
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Addition(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Addition_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: operator +
   nameWithType: Vector4i.operator +
   fullName: OpenTK.Mathematics.Vector4i.operator +
@@ -5512,10 +4986,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector4i.op_Addition*
     name: +
-    href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Addition(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+    href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Addition_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
 - uid: OpenTK.Mathematics.Vector4i.op_Subtraction*
   commentId: Overload:OpenTK.Mathematics.Vector4i.op_Subtraction
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Subtraction(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Subtraction_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: operator -
   nameWithType: Vector4i.operator -
   fullName: OpenTK.Mathematics.Vector4i.operator -
@@ -5527,10 +5001,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector4i.op_Subtraction*
     name: '-'
-    href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Subtraction(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+    href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Subtraction_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
 - uid: OpenTK.Mathematics.Vector4i.op_UnaryNegation*
   commentId: Overload:OpenTK.Mathematics.Vector4i.op_UnaryNegation
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_UnaryNegation(OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_UnaryNegation_OpenTK_Mathematics_Vector4i_
   name: operator -
   nameWithType: Vector4i.operator -
   fullName: OpenTK.Mathematics.Vector4i.operator -
@@ -5542,10 +5016,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector4i.op_UnaryNegation*
     name: '-'
-    href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_UnaryNegation(OpenTK.Mathematics.Vector4i)
+    href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_UnaryNegation_OpenTK_Mathematics_Vector4i_
 - uid: OpenTK.Mathematics.Vector4i.op_Multiply*
   commentId: Overload:OpenTK.Mathematics.Vector4i.op_Multiply
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Multiply(OpenTK.Mathematics.Vector4i,System.Int32)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Multiply_OpenTK_Mathematics_Vector4i_System_Int32_
   name: operator *
   nameWithType: Vector4i.operator *
   fullName: OpenTK.Mathematics.Vector4i.operator *
@@ -5557,10 +5031,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector4i.op_Multiply*
     name: '*'
-    href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Multiply(OpenTK.Mathematics.Vector4i,System.Int32)
+    href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Multiply_OpenTK_Mathematics_Vector4i_System_Int32_
 - uid: OpenTK.Mathematics.Vector4i.op_Division*
   commentId: Overload:OpenTK.Mathematics.Vector4i.op_Division
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Division(OpenTK.Mathematics.Vector4i,System.Int32)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Division_OpenTK_Mathematics_Vector4i_System_Int32_
   name: operator /
   nameWithType: Vector4i.operator /
   fullName: OpenTK.Mathematics.Vector4i.operator /
@@ -5572,10 +5046,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector4i.op_Division*
     name: /
-    href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Division(OpenTK.Mathematics.Vector4i,System.Int32)
+    href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Division_OpenTK_Mathematics_Vector4i_System_Int32_
 - uid: OpenTK.Mathematics.Vector4i.op_Equality*
   commentId: Overload:OpenTK.Mathematics.Vector4i.op_Equality
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Equality(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Equality_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: operator ==
   nameWithType: Vector4i.operator ==
   fullName: OpenTK.Mathematics.Vector4i.operator ==
@@ -5587,7 +5061,7 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector4i.op_Equality*
     name: ==
-    href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Equality(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+    href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Equality_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -5601,7 +5075,7 @@ references:
   name.vb: Boolean
 - uid: OpenTK.Mathematics.Vector4i.op_Inequality*
   commentId: Overload:OpenTK.Mathematics.Vector4i.op_Inequality
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Inequality(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Inequality_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
   name: operator !=
   nameWithType: Vector4i.operator !=
   fullName: OpenTK.Mathematics.Vector4i.operator !=
@@ -5613,48 +5087,7 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector4i.op_Inequality*
     name: '!='
-    href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.op_Inequality(OpenTK.Mathematics.Vector4i,OpenTK.Mathematics.Vector4i)
-- uid: OpenTK.Mathematics.Vector4i.op_Explicit*
-  commentId: Overload:OpenTK.Mathematics.Vector4i.op_Explicit
-  name: explicit operator
-  nameWithType: Vector4i.explicit operator
-  fullName: OpenTK.Mathematics.Vector4i.explicit operator
-  nameWithType.vb: Vector4i.CType
-  fullName.vb: OpenTK.Mathematics.Vector4i.CType
-  name.vb: CType
-  spec.csharp:
-  - name: explicit
-  - name: " "
-  - name: operator
-- uid: System.Int32*
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int*
-  nameWithType: int*
-  fullName: int*
-  nameWithType.vb: Integer*
-  fullName.vb: Integer*
-  name.vb: Integer*
-  spec.csharp:
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '*'
-  spec.vb:
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '*'
-- uid: System.IntPtr
-  commentId: T:System.IntPtr
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: IntPtr
-  nameWithType: IntPtr
-  fullName: System.IntPtr
+    href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_op_Inequality_OpenTK_Mathematics_Vector4i_OpenTK_Mathematics_Vector4i_
 - uid: OpenTK.Mathematics.Vector4i.op_Implicit*
   commentId: Overload:OpenTK.Mathematics.Vector4i.op_Implicit
   name: implicit operator
@@ -5674,6 +5107,18 @@ references:
   name: Vector4d
   nameWithType: Vector4d
   fullName: OpenTK.Mathematics.Vector4d
+- uid: OpenTK.Mathematics.Vector4i.op_Explicit*
+  commentId: Overload:OpenTK.Mathematics.Vector4i.op_Explicit
+  name: explicit operator
+  nameWithType: Vector4i.explicit operator
+  fullName: OpenTK.Mathematics.Vector4i.explicit operator
+  nameWithType.vb: Vector4i.CType
+  fullName.vb: OpenTK.Mathematics.Vector4i.CType
+  name.vb: CType
+  spec.csharp:
+  - name: explicit
+  - name: " "
+  - name: operator
 - uid: OpenTK.Mathematics.Vector4h
   commentId: T:OpenTK.Mathematics.Vector4h
   parent: OpenTK.Mathematics
@@ -5837,7 +5282,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector4i.ToString*
   commentId: Overload:OpenTK.Mathematics.Vector4i.ToString
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.ToString
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_ToString
   name: ToString
   nameWithType: Vector4i.ToString
   fullName: OpenTK.Mathematics.Vector4i.ToString
@@ -5948,7 +5393,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector4i.Equals*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Equals
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Equals(System.Object)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Equals_System_Object_
   name: Equals
   nameWithType: Vector4i.Equals
   fullName: OpenTK.Mathematics.Vector4i.Equals
@@ -5956,7 +5401,7 @@ references:
   commentId: M:System.IEquatable{OpenTK.Mathematics.Vector4i}.Equals(OpenTK.Mathematics.Vector4i)
   parent: System.IEquatable{OpenTK.Mathematics.Vector4i}
   definition: System.IEquatable`1.Equals(`0)
-  href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector4i-.equals#system-iequatable((opentk-mathematics-vector4i))-equals(opentk-mathematics-vector4i)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   name: Equals(Vector4i)
   nameWithType: IEquatable<Vector4i>.Equals(Vector4i)
   fullName: System.IEquatable<OpenTK.Mathematics.Vector4i>.Equals(OpenTK.Mathematics.Vector4i)
@@ -5966,7 +5411,7 @@ references:
   - uid: System.IEquatable{OpenTK.Mathematics.Vector4i}.Equals(OpenTK.Mathematics.Vector4i)
     name: Equals
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector4i-.equals#system-iequatable((opentk-mathematics-vector4i))-equals(opentk-mathematics-vector4i)
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   - name: (
   - uid: OpenTK.Mathematics.Vector4i
     name: Vector4i
@@ -5976,7 +5421,7 @@ references:
   - uid: System.IEquatable{OpenTK.Mathematics.Vector4i}.Equals(OpenTK.Mathematics.Vector4i)
     name: Equals
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector4i-.equals#system-iequatable((opentk-mathematics-vector4i))-equals(opentk-mathematics-vector4i)
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   - name: (
   - uid: OpenTK.Mathematics.Vector4i
     name: Vector4i
@@ -6031,13 +5476,13 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector4i.GetHashCode*
   commentId: Overload:OpenTK.Mathematics.Vector4i.GetHashCode
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.GetHashCode
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_GetHashCode
   name: GetHashCode
   nameWithType: Vector4i.GetHashCode
   fullName: OpenTK.Mathematics.Vector4i.GetHashCode
 - uid: OpenTK.Mathematics.Vector4i.Deconstruct*
   commentId: Overload:OpenTK.Mathematics.Vector4i.Deconstruct
-  href: OpenTK.Mathematics.Vector4i.html#OpenTK.Mathematics.Vector4i.Deconstruct(System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+  href: OpenTK.Mathematics.Vector4i.html#OpenTK_Mathematics_Vector4i_Deconstruct_System_Int32__System_Int32__System_Int32__System_Int32__
   name: Deconstruct
   nameWithType: Vector4i.Deconstruct
   fullName: OpenTK.Mathematics.Vector4i.Deconstruct

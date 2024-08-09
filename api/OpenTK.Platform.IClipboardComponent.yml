@@ -1,0 +1,585 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Platform.IClipboardComponent
+  commentId: T:OpenTK.Platform.IClipboardComponent
+  id: IClipboardComponent
+  parent: OpenTK.Platform
+  children:
+  - OpenTK.Platform.IClipboardComponent.GetClipboardAudio
+  - OpenTK.Platform.IClipboardComponent.GetClipboardBitmap
+  - OpenTK.Platform.IClipboardComponent.GetClipboardFiles
+  - OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  - OpenTK.Platform.IClipboardComponent.GetClipboardText
+  - OpenTK.Platform.IClipboardComponent.SetClipboardText(System.String)
+  - OpenTK.Platform.IClipboardComponent.SupportedFormats
+  langs:
+  - csharp
+  - vb
+  name: IClipboardComponent
+  nameWithType: IClipboardComponent
+  fullName: OpenTK.Platform.IClipboardComponent
+  type: Interface
+  source:
+    id: IClipboardComponent
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IClipboardComponent.cs
+    startLine: 14
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Interface for drivers which provide the clipboard component of the platform abstraction layer.
+  example: []
+  syntax:
+    content: 'public interface IClipboardComponent : IPalComponent'
+    content.vb: Public Interface IClipboardComponent Inherits IPalComponent
+  inheritedMembers:
+  - OpenTK.Platform.IPalComponent.Name
+  - OpenTK.Platform.IPalComponent.Provides
+  - OpenTK.Platform.IPalComponent.Logger
+  - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.IClipboardComponent.SupportedFormats
+  commentId: P:OpenTK.Platform.IClipboardComponent.SupportedFormats
+  id: SupportedFormats
+  parent: OpenTK.Platform.IClipboardComponent
+  langs:
+  - csharp
+  - vb
+  name: SupportedFormats
+  nameWithType: IClipboardComponent.SupportedFormats
+  fullName: OpenTK.Platform.IClipboardComponent.SupportedFormats
+  type: Property
+  source:
+    id: SupportedFormats
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IClipboardComponent.cs
+    startLine: 19
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: A list of formats that this clipboard component supports.
+  example: []
+  syntax:
+    content: IReadOnlyList<ClipboardFormat> SupportedFormats { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ClipboardFormat}
+    content.vb: ReadOnly Property SupportedFormats As IReadOnlyList(Of ClipboardFormat)
+  overload: OpenTK.Platform.IClipboardComponent.SupportedFormats*
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  id: GetClipboardFormat
+  parent: OpenTK.Platform.IClipboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetClipboardFormat()
+  nameWithType: IClipboardComponent.GetClipboardFormat()
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardFormat()
+  type: Method
+  source:
+    id: GetClipboardFormat
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IClipboardComponent.cs
+    startLine: 25
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Gets the format of the data currently in the clipboard.
+  example: []
+  syntax:
+    content: ClipboardFormat GetClipboardFormat()
+    return:
+      type: OpenTK.Platform.ClipboardFormat
+      description: The format of the data currently in the clipboard.
+    content.vb: Function GetClipboardFormat() As ClipboardFormat
+  overload: OpenTK.Platform.IClipboardComponent.GetClipboardFormat*
+- uid: OpenTK.Platform.IClipboardComponent.SetClipboardText(System.String)
+  commentId: M:OpenTK.Platform.IClipboardComponent.SetClipboardText(System.String)
+  id: SetClipboardText(System.String)
+  parent: OpenTK.Platform.IClipboardComponent
+  langs:
+  - csharp
+  - vb
+  name: SetClipboardText(string)
+  nameWithType: IClipboardComponent.SetClipboardText(string)
+  fullName: OpenTK.Platform.IClipboardComponent.SetClipboardText(string)
+  type: Method
+  source:
+    id: SetClipboardText
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IClipboardComponent.cs
+    startLine: 31
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Sets the string currently in the clipboard.
+  example: []
+  syntax:
+    content: void SetClipboardText(string text)
+    parameters:
+    - id: text
+      type: System.String
+      description: The text to put on the clipboard.
+    content.vb: Sub SetClipboardText(text As String)
+  overload: OpenTK.Platform.IClipboardComponent.SetClipboardText*
+  nameWithType.vb: IClipboardComponent.SetClipboardText(String)
+  fullName.vb: OpenTK.Platform.IClipboardComponent.SetClipboardText(String)
+  name.vb: SetClipboardText(String)
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardText
+  commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardText
+  id: GetClipboardText
+  parent: OpenTK.Platform.IClipboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetClipboardText()
+  nameWithType: IClipboardComponent.GetClipboardText()
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardText()
+  type: Method
+  source:
+    id: GetClipboardText
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IClipboardComponent.cs
+    startLine: 38
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Returns the string currently in the clipboard.
+
+    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Text" data-throw-if-not-resolved="false"></xref> format.
+  example: []
+  syntax:
+    content: string? GetClipboardText()
+    return:
+      type: System.String
+      description: The string currently in the clipboard, or null.
+    content.vb: Function GetClipboardText() As String
+  overload: OpenTK.Platform.IClipboardComponent.GetClipboardText*
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardAudio
+  commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardAudio
+  id: GetClipboardAudio
+  parent: OpenTK.Platform.IClipboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetClipboardAudio()
+  nameWithType: IClipboardComponent.GetClipboardAudio()
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardAudio()
+  type: Method
+  source:
+    id: GetClipboardAudio
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IClipboardComponent.cs
+    startLine: 45
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Gets the audio data currently in the clipboard.
+
+    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Audio" data-throw-if-not-resolved="false"></xref> format.
+  example: []
+  syntax:
+    content: AudioData? GetClipboardAudio()
+    return:
+      type: OpenTK.Platform.AudioData
+      description: The audio data currently in the clipboard.
+    content.vb: Function GetClipboardAudio() As AudioData
+  overload: OpenTK.Platform.IClipboardComponent.GetClipboardAudio*
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardBitmap
+  commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardBitmap
+  id: GetClipboardBitmap
+  parent: OpenTK.Platform.IClipboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetClipboardBitmap()
+  nameWithType: IClipboardComponent.GetClipboardBitmap()
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardBitmap()
+  type: Method
+  source:
+    id: GetClipboardBitmap
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IClipboardComponent.cs
+    startLine: 53
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Gets the bitmap currently in the clipboard.
+
+    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Bitmap" data-throw-if-not-resolved="false"></xref> format.
+  example: []
+  syntax:
+    content: Bitmap? GetClipboardBitmap()
+    return:
+      type: OpenTK.Platform.Bitmap
+      description: The bitmap currently in the clipboard.
+    content.vb: Function GetClipboardBitmap() As Bitmap
+  overload: OpenTK.Platform.IClipboardComponent.GetClipboardBitmap*
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardFiles
+  commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFiles
+  id: GetClipboardFiles
+  parent: OpenTK.Platform.IClipboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetClipboardFiles()
+  nameWithType: IClipboardComponent.GetClipboardFiles()
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardFiles()
+  type: Method
+  source:
+    id: GetClipboardFiles
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IClipboardComponent.cs
+    startLine: 60
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    Gets a list of files and directories currently in the clipboard.
+
+    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Files" data-throw-if-not-resolved="false"></xref> format.
+  example: []
+  syntax:
+    content: List<string>? GetClipboardFiles()
+    return:
+      type: System.Collections.Generic.List{System.String}
+      description: The list of files and directories currently in the clipboard.
+    content.vb: Function GetClipboardFiles() As List(Of String)
+  overload: OpenTK.Platform.IClipboardComponent.GetClipboardFiles*
+references:
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
+  href: OpenTK.html
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+- uid: OpenTK.Platform.IPalComponent.Name
+  commentId: P:OpenTK.Platform.IPalComponent.Name
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Name
+  name: Name
+  nameWithType: IPalComponent.Name
+  fullName: OpenTK.Platform.IPalComponent.Name
+- uid: OpenTK.Platform.IPalComponent.Provides
+  commentId: P:OpenTK.Platform.IPalComponent.Provides
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Provides
+  name: Provides
+  nameWithType: IPalComponent.Provides
+  fullName: OpenTK.Platform.IPalComponent.Provides
+- uid: OpenTK.Platform.IPalComponent.Logger
+  commentId: P:OpenTK.Platform.IPalComponent.Logger
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Logger
+  name: Logger
+  nameWithType: IPalComponent.Logger
+  fullName: OpenTK.Platform.IPalComponent.Logger
+- uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  name: Initialize(ToolkitOptions)
+  nameWithType: IPalComponent.Initialize(ToolkitOptions)
+  fullName: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+    name: Initialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+- uid: OpenTK.Platform.IPalComponent
+  commentId: T:OpenTK.Platform.IPalComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IPalComponent.html
+  name: IPalComponent
+  nameWithType: IPalComponent
+  fullName: OpenTK.Platform.IPalComponent
+- uid: OpenTK.Platform.IClipboardComponent.SupportedFormats*
+  commentId: Overload:OpenTK.Platform.IClipboardComponent.SupportedFormats
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_SupportedFormats
+  name: SupportedFormats
+  nameWithType: IClipboardComponent.SupportedFormats
+  fullName: OpenTK.Platform.IClipboardComponent.SupportedFormats
+- uid: System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ClipboardFormat}
+  commentId: T:System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ClipboardFormat}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<ClipboardFormat>
+  nameWithType: IReadOnlyList<ClipboardFormat>
+  fullName: System.Collections.Generic.IReadOnlyList<OpenTK.Platform.ClipboardFormat>
+  nameWithType.vb: IReadOnlyList(Of ClipboardFormat)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of OpenTK.Platform.ClipboardFormat)
+  name.vb: IReadOnlyList(Of ClipboardFormat)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OpenTK.Platform.ClipboardFormat
+    name: ClipboardFormat
+    href: OpenTK.Platform.ClipboardFormat.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Platform.ClipboardFormat
+    name: ClipboardFormat
+    href: OpenTK.Platform.ClipboardFormat.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardFormat*
+  commentId: Overload:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardFormat
+  name: GetClipboardFormat
+  nameWithType: IClipboardComponent.GetClipboardFormat
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+- uid: OpenTK.Platform.ClipboardFormat
+  commentId: T:OpenTK.Platform.ClipboardFormat
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ClipboardFormat.html
+  name: ClipboardFormat
+  nameWithType: ClipboardFormat
+  fullName: OpenTK.Platform.ClipboardFormat
+- uid: OpenTK.Platform.IClipboardComponent.SetClipboardText*
+  commentId: Overload:OpenTK.Platform.IClipboardComponent.SetClipboardText
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_SetClipboardText_System_String_
+  name: SetClipboardText
+  nameWithType: IClipboardComponent.SetClipboardText
+  fullName: OpenTK.Platform.IClipboardComponent.SetClipboardText
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Platform.ClipboardFormat.Text
+  commentId: F:OpenTK.Platform.ClipboardFormat.Text
+  href: OpenTK.Platform.ClipboardFormat.html#OpenTK_Platform_ClipboardFormat_Text
+  name: Text
+  nameWithType: ClipboardFormat.Text
+  fullName: OpenTK.Platform.ClipboardFormat.Text
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardText*
+  commentId: Overload:OpenTK.Platform.IClipboardComponent.GetClipboardText
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardText
+  name: GetClipboardText
+  nameWithType: IClipboardComponent.GetClipboardText
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardText
+- uid: OpenTK.Platform.ClipboardFormat.Audio
+  commentId: F:OpenTK.Platform.ClipboardFormat.Audio
+  href: OpenTK.Platform.ClipboardFormat.html#OpenTK_Platform_ClipboardFormat_Audio
+  name: Audio
+  nameWithType: ClipboardFormat.Audio
+  fullName: OpenTK.Platform.ClipboardFormat.Audio
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardAudio*
+  commentId: Overload:OpenTK.Platform.IClipboardComponent.GetClipboardAudio
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardAudio
+  name: GetClipboardAudio
+  nameWithType: IClipboardComponent.GetClipboardAudio
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardAudio
+- uid: OpenTK.Platform.AudioData
+  commentId: T:OpenTK.Platform.AudioData
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.AudioData.html
+  name: AudioData
+  nameWithType: AudioData
+  fullName: OpenTK.Platform.AudioData
+- uid: OpenTK.Platform.ClipboardFormat.Bitmap
+  commentId: F:OpenTK.Platform.ClipboardFormat.Bitmap
+  href: OpenTK.Platform.ClipboardFormat.html#OpenTK_Platform_ClipboardFormat_Bitmap
+  name: Bitmap
+  nameWithType: ClipboardFormat.Bitmap
+  fullName: OpenTK.Platform.ClipboardFormat.Bitmap
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardBitmap*
+  commentId: Overload:OpenTK.Platform.IClipboardComponent.GetClipboardBitmap
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardBitmap
+  name: GetClipboardBitmap
+  nameWithType: IClipboardComponent.GetClipboardBitmap
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardBitmap
+- uid: OpenTK.Platform.Bitmap
+  commentId: T:OpenTK.Platform.Bitmap
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.Bitmap.html
+  name: Bitmap
+  nameWithType: Bitmap
+  fullName: OpenTK.Platform.Bitmap
+- uid: OpenTK.Platform.ClipboardFormat.Files
+  commentId: F:OpenTK.Platform.ClipboardFormat.Files
+  href: OpenTK.Platform.ClipboardFormat.html#OpenTK_Platform_ClipboardFormat_Files
+  name: Files
+  nameWithType: ClipboardFormat.Files
+  fullName: OpenTK.Platform.ClipboardFormat.Files
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardFiles*
+  commentId: Overload:OpenTK.Platform.IClipboardComponent.GetClipboardFiles
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardFiles
+  name: GetClipboardFiles
+  nameWithType: IClipboardComponent.GetClipboardFiles
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardFiles
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

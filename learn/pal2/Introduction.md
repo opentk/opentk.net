@@ -118,7 +118,7 @@ To render something to the window we can do the following:
 GL.ClearColor(new Color4<Rgba>(64 / 255f, 0, 127 / 255f, 255));
 GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
-Tooklit.OpenGL.SwapBuffers(glContext);
+Toolkit.OpenGL.SwapBuffers(glContext);
 ```
 
 The code shown so far will create a window and then process events while rendering to the window, but running the code there is one crucial flaw to the program. Closing the window doesn't work.

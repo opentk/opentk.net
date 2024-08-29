@@ -6,7 +6,7 @@ The simplest way to set your application icon is through [`Toolkit.Window.SetIco
 
 Here are the guides for the different operating systems.
 - [Windows](#windows)
-- [macOS](#macOS)
+- [macOS](#macos)
 - [Linux](#linux)
 
 ## Windows

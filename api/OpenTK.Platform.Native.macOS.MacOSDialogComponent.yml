@@ -11,8 +11,12 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSDialogComponent.Name
   - OpenTK.Platform.Native.macOS.MacOSDialogComponent.Provides
   - OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBox(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
+  - OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow(System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
   - OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
+  - OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow(System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
   - OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  - OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow(System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  - OpenTK.Platform.Native.macOS.MacOSDialogComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -23,7 +27,7 @@ items:
   source:
     id: MacOSDialogComponent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 12
+    startLine: 14
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -57,7 +61,7 @@ items:
   source:
     id: Name
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 74
+    startLine: 88
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -86,7 +90,7 @@ items:
   source:
     id: Provides
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 77
+    startLine: 91
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -115,11 +119,11 @@ items:
   source:
     id: Logger
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 80
+    startLine: 94
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -128,6 +132,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -144,7 +153,7 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 83
+    startLine: 99
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -158,8 +167,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSDialogComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.macOS.MacOSDialogComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: MacOSDialogComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
+    startLine: 115
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.CanTargetFolders
   commentId: P:OpenTK.Platform.Native.macOS.MacOSDialogComponent.CanTargetFolders
   id: CanTargetFolders
@@ -174,14 +217,14 @@ items:
   source:
     id: CanTargetFolders
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 88
+    startLine: 215
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: >-
     If the value of this property is true <xref href="OpenTK.Platform.OpenDialogOptions.SelectDirectory" data-throw-if-not-resolved="false"></xref> will work.
 
-    Otherwise these flags will be ignored.
+    Otherwise this flag will be ignored.
   example: []
   syntax:
     content: public bool CanTargetFolders { get; }
@@ -191,6 +234,8 @@ items:
     content.vb: Public ReadOnly Property CanTargetFolders As Boolean
   overload: OpenTK.Platform.Native.macOS.MacOSDialogComponent.CanTargetFolders*
   seealso:
+  - linkId: OpenTK.Platform.Toolkit.Dialog
+    commentId: P:OpenTK.Platform.Toolkit.Dialog
   - linkId: OpenTK.Platform.OpenDialogOptions.SelectDirectory
     commentId: F:OpenTK.Platform.OpenDialogOptions.SelectDirectory
   - linkId: OpenTK.Platform.IDialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
@@ -211,11 +256,12 @@ items:
   source:
     id: ShowMessageBox
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 91
+    startLine: 218
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: Shows a modal message box.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
   example: []
   syntax:
     content: public MessageBoxButton ShowMessageBox(WindowHandle parent, string title, string content, MessageBoxType messageBoxType, IconHandle? customIcon = null)
@@ -228,7 +274,7 @@ items:
       description: The title of the dialog box.
     - id: content
       type: System.String
-      description: The content text of the dialog box.
+      description: The content text of the dialog box. This is the prompt to the user, explain what they should do.
     - id: messageBoxType
       type: OpenTK.Platform.MessageBoxType
       description: The type of message box. Determines button layout and default icon.
@@ -240,11 +286,73 @@ items:
       description: The pressed message box button.
     content.vb: Public Function ShowMessageBox(parent As WindowHandle, title As String, content As String, messageBoxType As MessageBoxType, customIcon As IconHandle = Nothing) As MessageBoxButton
   overload: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBox*
+  seealso:
+  - linkId: OpenTK.Platform.MessageBoxType
+    commentId: T:OpenTK.Platform.MessageBoxType
+  - linkId: OpenTK.Platform.MessageBoxButton
+    commentId: T:OpenTK.Platform.MessageBoxButton
+  - linkId: OpenTK.Platform.Toolkit.Icon
+    commentId: P:OpenTK.Platform.Toolkit.Icon
+  - linkId: OpenTK.Platform.IIconComponent
+    commentId: T:OpenTK.Platform.IIconComponent
   implements:
   - OpenTK.Platform.IDialogComponent.ShowMessageBox(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
   nameWithType.vb: MacOSDialogComponent.ShowMessageBox(WindowHandle, String, String, MessageBoxType, IconHandle)
   fullName.vb: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBox(OpenTK.Platform.WindowHandle, String, String, OpenTK.Platform.MessageBoxType, OpenTK.Platform.IconHandle)
   name.vb: ShowMessageBox(WindowHandle, String, String, MessageBoxType, IconHandle)
+- uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow(System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow(System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
+  id: ShowMessageBoxNoWindow(System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
+  parent: OpenTK.Platform.Native.macOS.MacOSDialogComponent
+  langs:
+  - csharp
+  - vb
+  name: ShowMessageBoxNoWindow(string, string, MessageBoxType, IconHandle?)
+  nameWithType: MacOSDialogComponent.ShowMessageBoxNoWindow(string, string, MessageBoxType, IconHandle?)
+  fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow(string, string, OpenTK.Platform.MessageBoxType, OpenTK.Platform.IconHandle?)
+  type: Method
+  source:
+    id: ShowMessageBoxNoWindow
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
+    startLine: 326
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Shows a modal message box not attached to any specific window.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
+  example: []
+  syntax:
+    content: public MessageBoxButton ShowMessageBoxNoWindow(string title, string content, MessageBoxType messageBoxType, IconHandle? customIcon = null)
+    parameters:
+    - id: title
+      type: System.String
+      description: The title of the dialog box.
+    - id: content
+      type: System.String
+      description: The content text of the dialog box. This is the prompt to the user, explain what they should do.
+    - id: messageBoxType
+      type: OpenTK.Platform.MessageBoxType
+      description: The type of message box. Determines button layout and default icon.
+    - id: customIcon
+      type: OpenTK.Platform.IconHandle
+      description: An optional custom icon to use instead of the default one.
+    return:
+      type: OpenTK.Platform.MessageBoxButton
+      description: The pressed message box button.
+    content.vb: Public Function ShowMessageBoxNoWindow(title As String, content As String, messageBoxType As MessageBoxType, customIcon As IconHandle = Nothing) As MessageBoxButton
+  overload: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow*
+  seealso:
+  - linkId: OpenTK.Platform.MessageBoxType
+    commentId: T:OpenTK.Platform.MessageBoxType
+  - linkId: OpenTK.Platform.MessageBoxButton
+    commentId: T:OpenTK.Platform.MessageBoxButton
+  - linkId: OpenTK.Platform.Toolkit.Icon
+    commentId: P:OpenTK.Platform.Toolkit.Icon
+  - linkId: OpenTK.Platform.IIconComponent
+    commentId: T:OpenTK.Platform.IIconComponent
+  nameWithType.vb: MacOSDialogComponent.ShowMessageBoxNoWindow(String, String, MessageBoxType, IconHandle)
+  fullName.vb: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow(String, String, OpenTK.Platform.MessageBoxType, OpenTK.Platform.IconHandle)
+  name.vb: ShowMessageBoxNoWindow(String, String, MessageBoxType, IconHandle)
 - uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
   commentId: M:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
   id: ShowOpenDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
@@ -259,11 +367,12 @@ items:
   source:
     id: ShowOpenDialog
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 222
+    startLine: 458
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: Shows a modal "open file/folder" dialog.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
   example: []
   syntax:
     content: public List<string>? ShowOpenDialog(WindowHandle parent, string title, string directory, DialogFileFilter[]? allowedExtensions, OpenDialogOptions options)
@@ -305,6 +414,62 @@ items:
   nameWithType.vb: MacOSDialogComponent.ShowOpenDialog(WindowHandle, String, String, DialogFileFilter(), OpenDialogOptions)
   fullName.vb: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle, String, String, OpenTK.Platform.DialogFileFilter(), OpenTK.Platform.OpenDialogOptions)
   name.vb: ShowOpenDialog(WindowHandle, String, String, DialogFileFilter(), OpenDialogOptions)
+- uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow(System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow(System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
+  id: ShowOpenDialogNoWindow(System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
+  parent: OpenTK.Platform.Native.macOS.MacOSDialogComponent
+  langs:
+  - csharp
+  - vb
+  name: ShowOpenDialogNoWindow(string, string, DialogFileFilter[]?, OpenDialogOptions)
+  nameWithType: MacOSDialogComponent.ShowOpenDialogNoWindow(string, string, DialogFileFilter[]?, OpenDialogOptions)
+  fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow(string, string, OpenTK.Platform.DialogFileFilter[]?, OpenTK.Platform.OpenDialogOptions)
+  type: Method
+  source:
+    id: ShowOpenDialogNoWindow
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
+    startLine: 520
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Shows a modal "open file/folder" dialog not attached to any specific window.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
+  example: []
+  syntax:
+    content: public List<string>? ShowOpenDialogNoWindow(string title, string directory, DialogFileFilter[]? allowedExtensions, OpenDialogOptions options)
+    parameters:
+    - id: title
+      type: System.String
+      description: The title of the dialog.
+    - id: directory
+      type: System.String
+      description: The start directory of the file dialog.
+    - id: allowedExtensions
+      type: OpenTK.Platform.DialogFileFilter[]
+      description: A list of file filters that filter valid files to open. See <xref href="OpenTK.Platform.DialogFileFilter" data-throw-if-not-resolved="false"></xref> for more info.
+    - id: options
+      type: OpenTK.Platform.OpenDialogOptions
+      description: Additional options for the file dialog (e.g. <xref href="OpenTK.Platform.OpenDialogOptions.AllowMultiSelect" data-throw-if-not-resolved="false"></xref> for allowing multiple files to be selected.)
+    return:
+      type: System.Collections.Generic.List{System.String}
+      description: >-
+        A list of selected files or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no files where selected.
+
+        If <xref href="OpenTK.Platform.OpenDialogOptions.AllowMultiSelect" data-throw-if-not-resolved="false"></xref> is not specified the list will only contain a single element.
+    content.vb: Public Function ShowOpenDialogNoWindow(title As String, directory As String, allowedExtensions As DialogFileFilter(), options As OpenDialogOptions) As List(Of String)
+  overload: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow*
+  seealso:
+  - linkId: OpenTK.Platform.DialogFileFilter
+    commentId: T:OpenTK.Platform.DialogFileFilter
+  - linkId: OpenTK.Platform.OpenDialogOptions
+    commentId: T:OpenTK.Platform.OpenDialogOptions
+  - linkId: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+    commentId: M:OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  - linkId: OpenTK.Platform.IDialogComponent.CanTargetFolders
+    commentId: P:OpenTK.Platform.IDialogComponent.CanTargetFolders
+  nameWithType.vb: MacOSDialogComponent.ShowOpenDialogNoWindow(String, String, DialogFileFilter(), OpenDialogOptions)
+  fullName.vb: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow(String, String, OpenTK.Platform.DialogFileFilter(), OpenTK.Platform.OpenDialogOptions)
+  name.vb: ShowOpenDialogNoWindow(String, String, DialogFileFilter(), OpenDialogOptions)
 - uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
   commentId: M:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
   id: ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
@@ -319,11 +484,12 @@ items:
   source:
     id: ShowSaveDialog
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
-    startLine: 281
+    startLine: 576
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: Shows a modal "save file" dialog.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
   example: []
   syntax:
     content: public string? ShowSaveDialog(WindowHandle parent, string title, string directory, DialogFileFilter[]? allowedExtensions, SaveDialogOptions options)
@@ -358,6 +524,62 @@ items:
   nameWithType.vb: MacOSDialogComponent.ShowSaveDialog(WindowHandle, String, String, DialogFileFilter(), SaveDialogOptions)
   fullName.vb: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle, String, String, OpenTK.Platform.DialogFileFilter(), OpenTK.Platform.SaveDialogOptions)
   name.vb: ShowSaveDialog(WindowHandle, String, String, DialogFileFilter(), SaveDialogOptions)
+- uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow(System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow(System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  id: ShowSaveDialogNoWindow(System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  parent: OpenTK.Platform.Native.macOS.MacOSDialogComponent
+  langs:
+  - csharp
+  - vb
+  name: ShowSaveDialogNoWindow(string, string, DialogFileFilter[]?, SaveDialogOptions)
+  nameWithType: MacOSDialogComponent.ShowSaveDialogNoWindow(string, string, DialogFileFilter[]?, SaveDialogOptions)
+  fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow(string, string, OpenTK.Platform.DialogFileFilter[]?, OpenTK.Platform.SaveDialogOptions)
+  type: Method
+  source:
+    id: ShowSaveDialogNoWindow
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSDialogComponent.cs
+    startLine: 617
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Shows a modal "save file" dialog not attached to any specific window.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
+  example: []
+  syntax:
+    content: public string? ShowSaveDialogNoWindow(string title, string directory, DialogFileFilter[]? allowedExtensions, SaveDialogOptions options)
+    parameters:
+    - id: title
+      type: System.String
+      description: The title of the dialog.
+    - id: directory
+      type: System.String
+      description: The start directory of the file dialog.
+    - id: allowedExtensions
+      type: OpenTK.Platform.DialogFileFilter[]
+      description: A list of file filters that filter valid files to open. See <xref href="OpenTK.Platform.DialogFileFilter" data-throw-if-not-resolved="false"></xref> for more info.
+    - id: options
+      type: OpenTK.Platform.SaveDialogOptions
+      description: Additional options for the file dialog (e.g. <xref href="OpenTK.Platform.OpenDialogOptions.AllowMultiSelect" data-throw-if-not-resolved="false"></xref> for allowing multiple files to be selected.)
+    return:
+      type: System.String
+      description: >-
+        A list of selected files or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no files where selected.
+
+        If <xref href="OpenTK.Platform.OpenDialogOptions.AllowMultiSelect" data-throw-if-not-resolved="false"></xref> is not specified the list will only contain a single element.
+    content.vb: Public Function ShowSaveDialogNoWindow(title As String, directory As String, allowedExtensions As DialogFileFilter(), options As SaveDialogOptions) As String
+  overload: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow*
+  seealso:
+  - linkId: OpenTK.Platform.DialogFileFilter
+    commentId: T:OpenTK.Platform.DialogFileFilter
+  - linkId: OpenTK.Platform.OpenDialogOptions
+    commentId: T:OpenTK.Platform.OpenDialogOptions
+  - linkId: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+    commentId: M:OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  - linkId: OpenTK.Platform.IDialogComponent.CanTargetFolders
+    commentId: P:OpenTK.Platform.IDialogComponent.CanTargetFolders
+  nameWithType.vb: MacOSDialogComponent.ShowSaveDialogNoWindow(String, String, DialogFileFilter(), SaveDialogOptions)
+  fullName.vb: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow(String, String, OpenTK.Platform.DialogFileFilter(), OpenTK.Platform.SaveDialogOptions)
+  name.vb: ShowSaveDialogNoWindow(String, String, DialogFileFilter(), SaveDialogOptions)
 references:
 - uid: OpenTK.Platform.Native.macOS
   commentId: N:OpenTK.Platform.Native.macOS
@@ -714,6 +936,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDialogComponent.Logger
   href: OpenTK.Platform.Native.macOS.MacOSDialogComponent.html#OpenTK_Platform_Native_macOS_MacOSDialogComponent_Logger
@@ -727,13 +962,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -764,6 +992,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDialogComponent.Initialize
   href: OpenTK.Platform.Native.macOS.MacOSDialogComponent.html#OpenTK_Platform_Native_macOS_MacOSDialogComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -795,13 +1054,55 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDialogComponent.Uninitialize
+  href: OpenTK.Platform.Native.macOS.MacOSDialogComponent.html#OpenTK_Platform_Native_macOS_MacOSDialogComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: MacOSDialogComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Toolkit.Dialog
+  commentId: P:OpenTK.Platform.Toolkit.Dialog
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Dialog
+  name: Dialog
+  nameWithType: Toolkit.Dialog
+  fullName: OpenTK.Platform.Toolkit.Dialog
 - uid: OpenTK.Platform.OpenDialogOptions.SelectDirectory
   commentId: F:OpenTK.Platform.OpenDialogOptions.SelectDirectory
   href: OpenTK.Platform.OpenDialogOptions.html#OpenTK_Platform_OpenDialogOptions_SelectDirectory
@@ -909,6 +1210,33 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: OpenTK.Platform.MessageBoxType
+  commentId: T:OpenTK.Platform.MessageBoxType
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.MessageBoxType.html
+  name: MessageBoxType
+  nameWithType: MessageBoxType
+  fullName: OpenTK.Platform.MessageBoxType
+- uid: OpenTK.Platform.MessageBoxButton
+  commentId: T:OpenTK.Platform.MessageBoxButton
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.MessageBoxButton.html
+  name: MessageBoxButton
+  nameWithType: MessageBoxButton
+  fullName: OpenTK.Platform.MessageBoxButton
+- uid: OpenTK.Platform.Toolkit.Icon
+  commentId: P:OpenTK.Platform.Toolkit.Icon
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Icon
+  name: Icon
+  nameWithType: Toolkit.Icon
+  fullName: OpenTK.Platform.Toolkit.Icon
+- uid: OpenTK.Platform.IIconComponent
+  commentId: T:OpenTK.Platform.IIconComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IIconComponent.html
+  name: IIconComponent
+  nameWithType: IIconComponent
+  fullName: OpenTK.Platform.IIconComponent
 - uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBox*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBox
   href: OpenTK.Platform.Native.macOS.MacOSDialogComponent.html#OpenTK_Platform_Native_macOS_MacOSDialogComponent_ShowMessageBox_OpenTK_Platform_WindowHandle_System_String_System_String_OpenTK_Platform_MessageBoxType_OpenTK_Platform_IconHandle_
@@ -995,13 +1323,6 @@ references:
   name: WindowHandle
   nameWithType: WindowHandle
   fullName: OpenTK.Platform.WindowHandle
-- uid: OpenTK.Platform.MessageBoxType
-  commentId: T:OpenTK.Platform.MessageBoxType
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.MessageBoxType.html
-  name: MessageBoxType
-  nameWithType: MessageBoxType
-  fullName: OpenTK.Platform.MessageBoxType
 - uid: OpenTK.Platform.IconHandle
   commentId: T:OpenTK.Platform.IconHandle
   parent: OpenTK.Platform
@@ -1009,13 +1330,12 @@ references:
   name: IconHandle
   nameWithType: IconHandle
   fullName: OpenTK.Platform.IconHandle
-- uid: OpenTK.Platform.MessageBoxButton
-  commentId: T:OpenTK.Platform.MessageBoxButton
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.MessageBoxButton.html
-  name: MessageBoxButton
-  nameWithType: MessageBoxButton
-  fullName: OpenTK.Platform.MessageBoxButton
+- uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow
+  href: OpenTK.Platform.Native.macOS.MacOSDialogComponent.html#OpenTK_Platform_Native_macOS_MacOSDialogComponent_ShowMessageBoxNoWindow_System_String_System_String_OpenTK_Platform_MessageBoxType_OpenTK_Platform_IconHandle_
+  name: ShowMessageBoxNoWindow
+  nameWithType: MacOSDialogComponent.ShowMessageBoxNoWindow
+  fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowMessageBoxNoWindow
 - uid: OpenTK.Platform.DialogFileFilter
   commentId: T:OpenTK.Platform.DialogFileFilter
   parent: OpenTK.Platform
@@ -1240,6 +1560,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow
+  href: OpenTK.Platform.Native.macOS.MacOSDialogComponent.html#OpenTK_Platform_Native_macOS_MacOSDialogComponent_ShowOpenDialogNoWindow_System_String_System_String_OpenTK_Platform_DialogFileFilter___OpenTK_Platform_OpenDialogOptions_
+  name: ShowOpenDialogNoWindow
+  nameWithType: MacOSDialogComponent.ShowOpenDialogNoWindow
+  fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowOpenDialogNoWindow
 - uid: OpenTK.Platform.SaveDialogOptions
   commentId: T:OpenTK.Platform.SaveDialogOptions
   parent: OpenTK.Platform
@@ -1253,3 +1579,9 @@ references:
   name: ShowSaveDialog
   nameWithType: MacOSDialogComponent.ShowSaveDialog
   fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialog
+- uid: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow
+  href: OpenTK.Platform.Native.macOS.MacOSDialogComponent.html#OpenTK_Platform_Native_macOS_MacOSDialogComponent_ShowSaveDialogNoWindow_System_String_System_String_OpenTK_Platform_DialogFileFilter___OpenTK_Platform_SaveDialogOptions_
+  name: ShowSaveDialogNoWindow
+  nameWithType: MacOSDialogComponent.ShowSaveDialogNoWindow
+  fullName: OpenTK.Platform.Native.macOS.MacOSDialogComponent.ShowSaveDialogNoWindow

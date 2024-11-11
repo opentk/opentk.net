@@ -24,6 +24,7 @@ items:
   - OpenTK.Platform.Native.SDL.SDLDisplayComponent.Open(System.Int32)
   - OpenTK.Platform.Native.SDL.SDLDisplayComponent.OpenPrimary
   - OpenTK.Platform.Native.SDL.SDLDisplayComponent.Provides
+  - OpenTK.Platform.Native.SDL.SDLDisplayComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -130,7 +131,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -139,6 +140,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -169,8 +175,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.SDL.SDLDisplayComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.SDL.SDLDisplayComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: SDLDisplayComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
+    startLine: 32
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.SDL
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.SDL.SDLDisplayComponent.CanSetVideoMode
   commentId: P:OpenTK.Platform.Native.SDL.SDLDisplayComponent.CanSetVideoMode
   id: CanSetVideoMode
@@ -185,7 +225,7 @@ items:
   source:
     id: CanSetVideoMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 32
+    startLine: 37
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -211,7 +251,7 @@ items:
   source:
     id: CanGetVirtualPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 35
+    startLine: 40
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -240,7 +280,7 @@ items:
   source:
     id: GetDisplayCount
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 58
+    startLine: 63
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -269,7 +309,7 @@ items:
   source:
     id: Open
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 64
+    startLine: 69
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -309,7 +349,7 @@ items:
   source:
     id: OpenPrimary
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 77
+    startLine: 82
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -338,7 +378,7 @@ items:
   source:
     id: Close
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 84
+    startLine: 89
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -372,7 +412,7 @@ items:
   source:
     id: IsPrimary
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 91
+    startLine: 96
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -405,7 +445,7 @@ items:
   source:
     id: GetName
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 100
+    startLine: 105
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -442,7 +482,7 @@ items:
   source:
     id: GetVideoMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 115
+    startLine: 120
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -482,7 +522,7 @@ items:
   source:
     id: GetSupportedVideoModes
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 131
+    startLine: 136
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -519,7 +559,7 @@ items:
   source:
     id: GetVirtualPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 154
+    startLine: 159
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -565,7 +605,7 @@ items:
   source:
     id: GetResolution
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 170
+    startLine: 175
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -608,7 +648,7 @@ items:
   source:
     id: GetWorkArea
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 186
+    startLine: 191
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -647,7 +687,7 @@ items:
   source:
     id: GetRefreshRate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 201
+    startLine: 206
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -683,7 +723,7 @@ items:
   source:
     id: GetDisplayScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLDisplayComponent.cs
-    startLine: 216
+    startLine: 221
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1064,6 +1104,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.SDL.SDLDisplayComponent.Logger
   href: OpenTK.Platform.Native.SDL.SDLDisplayComponent.html#OpenTK_Platform_Native_SDL_SDLDisplayComponent_Logger
@@ -1077,13 +1130,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -1114,6 +1160,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.SDL.SDLDisplayComponent.Initialize
   href: OpenTK.Platform.Native.SDL.SDLDisplayComponent.html#OpenTK_Platform_Native_SDL_SDLDisplayComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -1145,13 +1222,49 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.SDL.SDLDisplayComponent.Uninitialize
+  href: OpenTK.Platform.Native.SDL.SDLDisplayComponent.html#OpenTK_Platform_Native_SDL_SDLDisplayComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: SDLDisplayComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.SDL.SDLDisplayComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.SDL.SDLDisplayComponent.CanSetVideoMode*
   commentId: Overload:OpenTK.Platform.Native.SDL.SDLDisplayComponent.CanSetVideoMode
   href: OpenTK.Platform.Native.SDL.SDLDisplayComponent.html#OpenTK_Platform_Native_SDL_SDLDisplayComponent_CanSetVideoMode

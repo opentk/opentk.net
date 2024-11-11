@@ -25,6 +25,7 @@ items:
   - OpenTK.Platform.Native.Windows.JoystickComponent.SupportsVibration(OpenTK.Platform.JoystickHandle)
   - OpenTK.Platform.Native.Windows.JoystickComponent.TriggerThreshold
   - OpenTK.Platform.Native.Windows.JoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle,OpenTK.Platform.GamepadBatteryInfo@)
+  - OpenTK.Platform.Native.Windows.JoystickComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -133,7 +134,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -142,6 +143,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.LeftDeadzone
@@ -259,8 +265,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.Windows.JoystickComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: JoystickComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
+    startLine: 110
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.Windows
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.Windows.JoystickComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected(System.Int32)
   commentId: M:OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected(System.Int32)
   id: IsConnected(System.Int32)
@@ -275,7 +315,7 @@ items:
   source:
     id: IsConnected
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 110
+    startLine: 116
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -310,7 +350,7 @@ items:
   source:
     id: Open
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 117
+    startLine: 123
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -345,7 +385,7 @@ items:
   source:
     id: Close
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 125
+    startLine: 131
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -375,7 +415,7 @@ items:
   source:
     id: SupportsVibration
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 131
+    startLine: 137
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -402,7 +442,7 @@ items:
   source:
     id: GetGuid
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 151
+    startLine: 157
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -432,7 +472,7 @@ items:
   source:
     id: GetName
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 159
+    startLine: 165
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -462,7 +502,7 @@ items:
   source:
     id: GetNumberOfButtons
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 166
+    startLine: 172
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -489,7 +529,7 @@ items:
   source:
     id: GetNumberOfAxes
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 173
+    startLine: 179
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -516,7 +556,7 @@ items:
   source:
     id: SupportsForceFeedback
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 180
+    startLine: 186
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -543,7 +583,7 @@ items:
   source:
     id: GetAxis
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 188
+    startLine: 194
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -582,7 +622,7 @@ items:
   source:
     id: GetButton
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 230
+    startLine: 236
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -618,7 +658,7 @@ items:
   source:
     id: SetVibration
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 266
+    startLine: 272
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -655,7 +695,7 @@ items:
   source:
     id: TryGetBatteryInfo
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\JoystickComponent.cs
-    startLine: 281
+    startLine: 287
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -1032,6 +1072,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.Logger
   href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_Logger
@@ -1045,13 +1098,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -1132,6 +1178,37 @@ references:
   name: TriggerThreshold
   nameWithType: IJoystickComponent.TriggerThreshold
   fullName: OpenTK.Platform.IJoystickComponent.TriggerThreshold
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.Initialize
   href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -1163,13 +1240,49 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.Windows.JoystickComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.Uninitialize
+  href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: JoystickComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.Windows.JoystickComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected*
   commentId: Overload:OpenTK.Platform.Native.Windows.JoystickComponent.IsConnected
   href: OpenTK.Platform.Native.Windows.JoystickComponent.html#OpenTK_Platform_Native_Windows_JoystickComponent_IsConnected_System_Int32_

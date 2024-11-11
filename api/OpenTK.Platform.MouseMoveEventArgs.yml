@@ -6,7 +6,7 @@ items:
   parent: OpenTK.Platform
   children:
   - OpenTK.Platform.MouseMoveEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2)
-  - OpenTK.Platform.MouseMoveEventArgs.Position
+  - OpenTK.Platform.MouseMoveEventArgs.ClientPosition
   langs:
   - csharp
   - vb
@@ -17,7 +17,7 @@ items:
   source:
     id: MouseMoveEventArgs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 406
+    startLine: 402
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -40,33 +40,51 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: OpenTK.Platform.MouseMoveEventArgs.Position
-  commentId: P:OpenTK.Platform.MouseMoveEventArgs.Position
-  id: Position
+- uid: OpenTK.Platform.MouseMoveEventArgs.ClientPosition
+  commentId: P:OpenTK.Platform.MouseMoveEventArgs.ClientPosition
+  id: ClientPosition
   parent: OpenTK.Platform.MouseMoveEventArgs
   langs:
   - csharp
   - vb
-  name: Position
-  nameWithType: MouseMoveEventArgs.Position
-  fullName: OpenTK.Platform.MouseMoveEventArgs.Position
+  name: ClientPosition
+  nameWithType: MouseMoveEventArgs.ClientPosition
+  fullName: OpenTK.Platform.MouseMoveEventArgs.ClientPosition
   type: Property
   source:
-    id: Position
+    id: ClientPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
     startLine: 415
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
-  summary: The new position of the mouse cursor.
+  summary: >-
+    The new position of the mouse cursor in client coordinates.
+
+    Use <xref href="OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle%2cOpenTK.Mathematics.Vector2%2cOpenTK.Mathematics.Vector2%40)" data-throw-if-not-resolved="false"></xref> and
+
+    <xref href="OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle%2cOpenTK.Mathematics.Vector2%2cOpenTK.Mathematics.Vector2%40)" data-throw-if-not-resolved="false"></xref> to
+
+    convert to the respective coordinate spaces.
+
+    When using <xref href="OpenTK.Platform.CursorCaptureMode.Locked" data-throw-if-not-resolved="false"></xref> this property will contain a virtual mouse position
+
+    and will not correspond an actual location in client coordinates.
   example: []
   syntax:
-    content: public Vector2 Position { get; }
+    content: public Vector2 ClientPosition { get; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2
-    content.vb: Public Property Position As Vector2
-  overload: OpenTK.Platform.MouseMoveEventArgs.Position*
+    content.vb: Public Property ClientPosition As Vector2
+  overload: OpenTK.Platform.MouseMoveEventArgs.ClientPosition*
+  seealso:
+  - linkId: OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+    commentId: M:OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+  - linkId: OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+    commentId: M:OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+  - linkId: OpenTK.Platform.CursorCaptureMode.Locked
+    commentId: F:OpenTK.Platform.CursorCaptureMode.Locked
 - uid: OpenTK.Platform.MouseMoveEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2)
   commentId: M:OpenTK.Platform.MouseMoveEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2)
   id: '#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2)'
@@ -88,15 +106,15 @@ items:
   summary: Initializes a new instance of the <xref href="OpenTK.Platform.MouseMoveEventArgs" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public MouseMoveEventArgs(WindowHandle window, Vector2 position)
+    content: public MouseMoveEventArgs(WindowHandle window, Vector2 clientPosition)
     parameters:
     - id: window
       type: OpenTK.Platform.WindowHandle
       description: The window in which the mouse moved.
-    - id: position
+    - id: clientPosition
       type: OpenTK.Mathematics.Vector2
-      description: The mouse position.
-    content.vb: Public Sub New(window As WindowHandle, position As Vector2)
+      description: The mouse position in client coordinates.
+    content.vb: Public Sub New(window As WindowHandle, clientPosition As Vector2)
   overload: OpenTK.Platform.MouseMoveEventArgs.#ctor*
   nameWithType.vb: MouseMoveEventArgs.New(WindowHandle, Vector2)
   fullName.vb: OpenTK.Platform.MouseMoveEventArgs.New(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2)
@@ -391,12 +409,118 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: OpenTK.Platform.MouseMoveEventArgs.Position*
-  commentId: Overload:OpenTK.Platform.MouseMoveEventArgs.Position
-  href: OpenTK.Platform.MouseMoveEventArgs.html#OpenTK_Platform_MouseMoveEventArgs_Position
-  name: Position
-  nameWithType: MouseMoveEventArgs.Position
-  fullName: OpenTK.Platform.MouseMoveEventArgs.Position
+- uid: OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+  commentId: M:OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+  parent: OpenTK.Platform.IWindowComponent
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_ClientToScreen_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2__
+  name: ClientToScreen(WindowHandle, Vector2, out Vector2)
+  nameWithType: IWindowComponent.ClientToScreen(WindowHandle, Vector2, out Vector2)
+  fullName: OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2, out OpenTK.Mathematics.Vector2)
+  nameWithType.vb: IWindowComponent.ClientToScreen(WindowHandle, Vector2, Vector2)
+  fullName.vb: OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector2)
+  name.vb: ClientToScreen(WindowHandle, Vector2, Vector2)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+    name: ClientToScreen
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_ClientToScreen_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.ClientToScreen(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+    name: ClientToScreen
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_ClientToScreen_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+- uid: OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+  commentId: M:OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+  parent: OpenTK.Platform.IWindowComponent
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_ClientToFramebuffer_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2__
+  name: ClientToFramebuffer(WindowHandle, Vector2, out Vector2)
+  nameWithType: IWindowComponent.ClientToFramebuffer(WindowHandle, Vector2, out Vector2)
+  fullName: OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2, out OpenTK.Mathematics.Vector2)
+  nameWithType.vb: IWindowComponent.ClientToFramebuffer(WindowHandle, Vector2, Vector2)
+  fullName.vb: OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector2)
+  name.vb: ClientToFramebuffer(WindowHandle, Vector2, Vector2)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+    name: ClientToFramebuffer
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_ClientToFramebuffer_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.ClientToFramebuffer(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2@)
+    name: ClientToFramebuffer
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_ClientToFramebuffer_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+- uid: OpenTK.Platform.CursorCaptureMode.Locked
+  commentId: F:OpenTK.Platform.CursorCaptureMode.Locked
+  href: OpenTK.Platform.CursorCaptureMode.html#OpenTK_Platform_CursorCaptureMode_Locked
+  name: Locked
+  nameWithType: CursorCaptureMode.Locked
+  fullName: OpenTK.Platform.CursorCaptureMode.Locked
+- uid: OpenTK.Platform.MouseMoveEventArgs.ClientPosition*
+  commentId: Overload:OpenTK.Platform.MouseMoveEventArgs.ClientPosition
+  href: OpenTK.Platform.MouseMoveEventArgs.html#OpenTK_Platform_MouseMoveEventArgs_ClientPosition
+  name: ClientPosition
+  nameWithType: MouseMoveEventArgs.ClientPosition
+  fullName: OpenTK.Platform.MouseMoveEventArgs.ClientPosition
 - uid: OpenTK.Mathematics.Vector2
   commentId: T:OpenTK.Mathematics.Vector2
   parent: OpenTK.Mathematics
@@ -404,6 +528,13 @@ references:
   name: Vector2
   nameWithType: Vector2
   fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Platform.IWindowComponent
+  commentId: T:OpenTK.Platform.IWindowComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IWindowComponent.html
+  name: IWindowComponent
+  nameWithType: IWindowComponent
+  fullName: OpenTK.Platform.IWindowComponent
 - uid: OpenTK.Mathematics
   commentId: N:OpenTK.Mathematics
   href: OpenTK.html

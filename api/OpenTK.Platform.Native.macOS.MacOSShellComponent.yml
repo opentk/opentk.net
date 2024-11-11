@@ -5,14 +5,17 @@ items:
   id: MacOSShellComponent
   parent: OpenTK.Platform.Native.macOS
   children:
-  - OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(System.Boolean)
+  - OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(System.Boolean,System.String)
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.GetPreferredTheme
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.GetSystemMemoryInformation
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  - OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.Logger
+  - OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(System.String)
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.Name
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.Provides
+  - OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -57,11 +60,10 @@ items:
   source:
     id: Name
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 36
+    startLine: 37
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Name of the abstraction layer component.
   example: []
   syntax:
     content: public string Name { get; }
@@ -86,11 +88,10 @@ items:
   source:
     id: Provides
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 38
+    startLine: 40
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Specifies which PAL components this object provides.
   example: []
   syntax:
     content: public PalComponents Provides { get; }
@@ -115,11 +116,10 @@ items:
   source:
     id: Logger
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 40
+    startLine: 43
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Provides a logger for this component.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -144,62 +144,109 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 44
+    startLine: 50
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Initialize the component.
   example: []
   syntax:
     content: public void Initialize(ToolkitOptions options)
     parameters:
     - id: options
       type: OpenTK.Platform.ToolkitOptions
-      description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.Initialize*
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
-- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(System.Boolean)
-  commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(System.Boolean)
-  id: AllowScreenSaver(System.Boolean)
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize
+  id: Uninitialize
   parent: OpenTK.Platform.Native.macOS.MacOSShellComponent
   langs:
   - csharp
   - vb
-  name: AllowScreenSaver(bool)
-  nameWithType: MacOSShellComponent.AllowScreenSaver(bool)
-  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(bool)
+  name: Uninitialize()
+  nameWithType: MacOSShellComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
+    startLine: 62
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  id: AllowScreenSaver(System.Boolean,System.String)
+  parent: OpenTK.Platform.Native.macOS.MacOSShellComponent
+  langs:
+  - csharp
+  - vb
+  name: AllowScreenSaver(bool, string?)
+  nameWithType: MacOSShellComponent.AllowScreenSaver(bool, string?)
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(bool, string?)
   type: Method
   source:
     id: AllowScreenSaver
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 50
+    startLine: 68
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: >-
-    Sets whether or not a screensaver is allowed to draw on top of the window.
-
-    For games with long cutscenes it would be appropriate to set this to <code>false</code>,
-
-    while tools that act like normal applications should set this to <code>true</code>.
-
-    By default this setting is untouched.
   example: []
   syntax:
-    content: public void AllowScreenSaver(bool allow)
+    content: public void AllowScreenSaver(bool allow, string? disableReason)
     parameters:
     - id: allow
       type: System.Boolean
-      description: Whether to allow screensavers to appear while the application is running.
-    content.vb: Public Sub AllowScreenSaver(allow As Boolean)
+    - id: disableReason
+      type: System.String
+    content.vb: Public Sub AllowScreenSaver(allow As Boolean, disableReason As String)
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver*
   implements:
-  - OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
-  nameWithType.vb: MacOSShellComponent.AllowScreenSaver(Boolean)
-  fullName.vb: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(Boolean)
-  name.vb: AllowScreenSaver(Boolean)
+  - OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  nameWithType.vb: MacOSShellComponent.AllowScreenSaver(Boolean, String)
+  fullName.vb: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver(Boolean, String)
+  name.vb: AllowScreenSaver(Boolean, String)
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed
+  id: IsScreenSaverAllowed
+  parent: OpenTK.Platform.Native.macOS.MacOSShellComponent
+  langs:
+  - csharp
+  - vb
+  name: IsScreenSaverAllowed()
+  nameWithType: MacOSShellComponent.IsScreenSaverAllowed()
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed()
+  type: Method
+  source:
+    id: IsScreenSaverAllowed
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
+    startLine: 100
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  example: []
+  syntax:
+    content: public bool IsScreenSaverAllowed()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsScreenSaverAllowed() As Boolean
+  overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed*
+  implements:
+  - OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   id: GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
@@ -214,23 +261,18 @@ items:
   source:
     id: GetBatteryInfo
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 77
+    startLine: 106
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Gets the battery status of the computer.
   example: []
   syntax:
     content: public BatteryStatus GetBatteryInfo(out BatteryInfo batteryInfo)
     parameters:
     - id: batteryInfo
       type: OpenTK.Platform.BatteryInfo
-      description: >-
-        The battery status of the computer,
-            this is only filled with values when <xref href="OpenTK.Platform.BatteryStatus.HasSystemBattery" data-throw-if-not-resolved="false"></xref> is returned.
     return:
       type: OpenTK.Platform.BatteryStatus
-      description: Whether the computer has a battery or not, or if this function failed.
     content.vb: Public Function GetBatteryInfo(batteryInfo As BatteryInfo) As BatteryStatus
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo*
   implements:
@@ -252,17 +294,15 @@ items:
   source:
     id: GetPreferredTheme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 230
+    startLine: 260
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Gets the user preference for application theme.
   example: []
   syntax:
     content: public ThemeInfo GetPreferredTheme()
     return:
       type: OpenTK.Platform.ThemeInfo
-      description: The user set preferred theme.
     content.vb: Public Function GetPreferredTheme() As ThemeInfo
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetPreferredTheme*
   implements:
@@ -281,21 +321,55 @@ items:
   source:
     id: GetSystemMemoryInformation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 235
+    startLine: 266
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Gets information about the memory of the device and the current status.
   example: []
   syntax:
     content: public SystemMemoryInfo GetSystemMemoryInformation()
     return:
       type: OpenTK.Platform.SystemMemoryInfo
-      description: The memory info.
     content.vb: Public Function GetSystemMemoryInformation() As SystemMemoryInfo
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetSystemMemoryInformation*
   implements:
   - OpenTK.Platform.IShellComponent.GetSystemMemoryInformation
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(System.String)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(System.String)
+  id: NSLog(System.String)
+  parent: OpenTK.Platform.Native.macOS.MacOSShellComponent
+  langs:
+  - csharp
+  - vb
+  name: NSLog(string)
+  nameWithType: MacOSShellComponent.NSLog(string)
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(string)
+  type: Method
+  source:
+    id: NSLog
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
+    startLine: 309
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: >-
+    Calls <a href="https://developer.apple.com/documentation/foundation/1395275-nslog">NSLog</a> to log a message to the Apple System Log facility.
+
+    This can be useful when running your application as a bundle as stdout and stderr can't be used.
+
+    This function is static so that it can be used before <xref href="OpenTK.Platform.Toolkit" data-throw-if-not-resolved="false"></xref> has been initialized.
+  example: []
+  syntax:
+    content: public static void NSLog(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to print to the system log.
+    content.vb: Public Shared Sub NSLog(message As String)
+  overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog*
+  nameWithType.vb: MacOSShellComponent.NSLog(String)
+  fullName.vb: OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(String)
+  name.vb: NSLog(String)
 references:
 - uid: OpenTK.Platform.Native.macOS
   commentId: N:OpenTK.Platform.Native.macOS
@@ -740,42 +814,97 @@ references:
   name: ToolkitOptions
   nameWithType: ToolkitOptions
   fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: MacOSShellComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver
-  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_AllowScreenSaver_System_Boolean_
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_AllowScreenSaver_System_Boolean_System_String_
   name: AllowScreenSaver
   nameWithType: MacOSShellComponent.AllowScreenSaver
   fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver
-- uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
-  commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+- uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
   parent: OpenTK.Platform.IShellComponent
   isExternal: true
-  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
-  name: AllowScreenSaver(bool)
-  nameWithType: IShellComponent.AllowScreenSaver(bool)
-  fullName: OpenTK.Platform.IShellComponent.AllowScreenSaver(bool)
-  nameWithType.vb: IShellComponent.AllowScreenSaver(Boolean)
-  fullName.vb: OpenTK.Platform.IShellComponent.AllowScreenSaver(Boolean)
-  name.vb: AllowScreenSaver(Boolean)
+  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
+  name: AllowScreenSaver(bool, string)
+  nameWithType: IShellComponent.AllowScreenSaver(bool, string)
+  fullName: OpenTK.Platform.IShellComponent.AllowScreenSaver(bool, string)
+  nameWithType.vb: IShellComponent.AllowScreenSaver(Boolean, String)
+  fullName.vb: OpenTK.Platform.IShellComponent.AllowScreenSaver(Boolean, String)
+  name.vb: AllowScreenSaver(Boolean, String)
   spec.csharp:
-  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
     name: AllowScreenSaver
-    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
   - name: (
   - uid: System.Boolean
     name: bool
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
     name: AllowScreenSaver
-    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
   - name: (
   - uid: System.Boolean
     name: Boolean
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: System.Boolean
   commentId: T:System.Boolean
@@ -788,12 +917,31 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: OpenTK.Platform.BatteryStatus.HasSystemBattery
-  commentId: F:OpenTK.Platform.BatteryStatus.HasSystemBattery
-  href: OpenTK.Platform.BatteryStatus.html#OpenTK_Platform_BatteryStatus_HasSystemBattery
-  name: HasSystemBattery
-  nameWithType: BatteryStatus.HasSystemBattery
-  fullName: OpenTK.Platform.BatteryStatus.HasSystemBattery
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_IsScreenSaverAllowed
+  name: IsScreenSaverAllowed
+  nameWithType: MacOSShellComponent.IsScreenSaverAllowed
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed
+- uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+  commentId: M:OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+  parent: OpenTK.Platform.IShellComponent
+  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  name: IsScreenSaverAllowed()
+  nameWithType: IShellComponent.IsScreenSaverAllowed()
+  fullName: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed()
+  spec.csharp:
+  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    name: IsScreenSaverAllowed
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    name: IsScreenSaverAllowed
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo
   href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_GetBatteryInfo_OpenTK_Platform_BatteryInfo__
@@ -908,3 +1056,15 @@ references:
   name: SystemMemoryInfo
   nameWithType: SystemMemoryInfo
   fullName: OpenTK.Platform.SystemMemoryInfo
+- uid: OpenTK.Platform.Toolkit
+  commentId: T:OpenTK.Platform.Toolkit
+  href: OpenTK.Platform.Toolkit.html
+  name: Toolkit
+  nameWithType: Toolkit
+  fullName: OpenTK.Platform.Toolkit
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_NSLog_System_String_
+  name: NSLog
+  nameWithType: MacOSShellComponent.NSLog
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog

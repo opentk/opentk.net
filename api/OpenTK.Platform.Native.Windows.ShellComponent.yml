@@ -5,18 +5,20 @@ items:
   id: ShellComponent
   parent: OpenTK.Platform.Native.Windows
   children:
-  - OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(System.Boolean)
+  - OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(System.Boolean,System.String)
   - OpenTK.Platform.Native.Windows.ShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   - OpenTK.Platform.Native.Windows.ShellComponent.GetPreferredTheme
   - OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation
   - OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  - OpenTK.Platform.Native.Windows.ShellComponent.IsScreenSaverAllowed
   - OpenTK.Platform.Native.Windows.ShellComponent.Logger
   - OpenTK.Platform.Native.Windows.ShellComponent.Name
   - OpenTK.Platform.Native.Windows.ShellComponent.Provides
   - OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Color3{OpenTK.Mathematics.Rgb})
   - OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionTextColor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Color3{OpenTK.Mathematics.Rgb})
   - OpenTK.Platform.Native.Windows.ShellComponent.SetImmersiveDarkMode(OpenTK.Platform.WindowHandle,System.Boolean)
-  - OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
+  - OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference)
+  - OpenTK.Platform.Native.Windows.ShellComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -125,7 +127,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -134,6 +136,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.Windows.ShellComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -150,7 +157,7 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 31
+    startLine: 33
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -164,48 +171,129 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.ShellComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
-- uid: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(System.Boolean)
-  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(System.Boolean)
-  id: AllowScreenSaver(System.Boolean)
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.Uninitialize
+  id: Uninitialize
   parent: OpenTK.Platform.Native.Windows.ShellComponent
   langs:
   - csharp
   - vb
-  name: AllowScreenSaver(bool)
-  nameWithType: ShellComponent.AllowScreenSaver(bool)
-  fullName: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(bool)
+  name: Uninitialize()
+  nameWithType: ShellComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
+    startLine: 42
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.Windows
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.Windows.ShellComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  id: AllowScreenSaver(System.Boolean,System.String)
+  parent: OpenTK.Platform.Native.Windows.ShellComponent
+  langs:
+  - csharp
+  - vb
+  name: AllowScreenSaver(bool, string?)
+  nameWithType: ShellComponent.AllowScreenSaver(bool, string?)
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(bool, string?)
   type: Method
   source:
     id: AllowScreenSaver
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 38
+    startLine: 48
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: >-
     Sets whether or not a screensaver is allowed to draw on top of the window.
 
-    For games with long cutscenes it would be appropriate to set this to <code>false</code>,
+    For games with long cutscenes it would be appropriate to set this to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>,
 
-    while tools that act like normal applications should set this to <code>true</code>.
+    while tools that act like normal applications should set this to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 
     By default this setting is untouched.
   example: []
   syntax:
-    content: public void AllowScreenSaver(bool allow)
+    content: public void AllowScreenSaver(bool allow, string? disableReason)
     parameters:
     - id: allow
       type: System.Boolean
       description: Whether to allow screensavers to appear while the application is running.
-    content.vb: Public Sub AllowScreenSaver(allow As Boolean)
+    - id: disableReason
+      type: System.String
+      description: >-
+        A reason for why the screen saver is disabled.
+
+        This string should both contain the reason why the screen saver is disabed as well as the name of the
+
+        application so the user knows which application is preventing the screen saver from running.
+
+        If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is sent the following default message will be sent:
+
+        <pre><code class="lang-csharp">$"{ApplicationName} is is preventing screen saver."</code></pre>
+    content.vb: Public Sub AllowScreenSaver(allow As Boolean, disableReason As String)
   overload: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver*
+  seealso:
+  - linkId: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    commentId: M:OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
   implements:
-  - OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
-  nameWithType.vb: ShellComponent.AllowScreenSaver(Boolean)
-  fullName.vb: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(Boolean)
-  name.vb: AllowScreenSaver(Boolean)
+  - OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  nameWithType.vb: ShellComponent.AllowScreenSaver(Boolean, String)
+  fullName.vb: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver(Boolean, String)
+  name.vb: AllowScreenSaver(Boolean, String)
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.IsScreenSaverAllowed
+  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.IsScreenSaverAllowed
+  id: IsScreenSaverAllowed
+  parent: OpenTK.Platform.Native.Windows.ShellComponent
+  langs:
+  - csharp
+  - vb
+  name: IsScreenSaverAllowed()
+  nameWithType: ShellComponent.IsScreenSaverAllowed()
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.IsScreenSaverAllowed()
+  type: Method
+  source:
+    id: IsScreenSaverAllowed
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
+    startLine: 54
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.Windows
+  summary: Gets if the screen saver is allowed to run or not.
+  example: []
+  syntax:
+    content: public bool IsScreenSaverAllowed()
+    return:
+      type: System.Boolean
+      description: If the screen saver is allowed to run.
+    content.vb: Public Function IsScreenSaverAllowed() As Boolean
+  overload: OpenTK.Platform.Native.Windows.ShellComponent.IsScreenSaverAllowed*
+  seealso:
+  - linkId: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+    commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  implements:
+  - OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   id: GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
@@ -220,7 +308,7 @@ items:
   source:
     id: GetBatteryInfo
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 44
+    startLine: 61
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -255,7 +343,7 @@ items:
   source:
     id: GetPreferredTheme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 125
+    startLine: 142
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -268,6 +356,9 @@ items:
       description: The user set preferred theme.
     content.vb: Public Function GetPreferredTheme() As ThemeInfo
   overload: OpenTK.Platform.Native.Windows.ShellComponent.GetPreferredTheme*
+  seealso:
+  - linkId: OpenTK.Platform.ThemeChangeEventArgs
+    commentId: T:OpenTK.Platform.ThemeChangeEventArgs
   implements:
   - OpenTK.Platform.IShellComponent.GetPreferredTheme
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.SetImmersiveDarkMode(OpenTK.Platform.WindowHandle,System.Boolean)
@@ -284,7 +375,7 @@ items:
   source:
     id: SetImmersiveDarkMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 139
+    startLine: 156
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -318,7 +409,7 @@ items:
   source:
     id: SetCaptionTextColor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 213
+    startLine: 230
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -353,7 +444,7 @@ items:
   source:
     id: SetCaptionColor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 230
+    startLine: 247
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -374,21 +465,21 @@ items:
   nameWithType.vb: ShellComponent.SetCaptionColor(WindowHandle, Color3(Of Rgb))
   fullName.vb: OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Color3(Of OpenTK.Mathematics.Rgb))
   name.vb: SetCaptionColor(WindowHandle, Color3(Of Rgb))
-- uid: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
-  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
-  id: SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference)
+  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference)
+  id: SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference)
   parent: OpenTK.Platform.Native.Windows.ShellComponent
   langs:
   - csharp
   - vb
-  name: SetWindowCornerPreference(WindowHandle, CornerPrefernce)
-  nameWithType: ShellComponent.SetWindowCornerPreference(WindowHandle, ShellComponent.CornerPrefernce)
-  fullName: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle, OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce)
+  name: SetWindowCornerPreference(WindowHandle, CornerPreference)
+  nameWithType: ShellComponent.SetWindowCornerPreference(WindowHandle, ShellComponent.CornerPreference)
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle, OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference)
   type: Method
   source:
     id: SetWindowCornerPreference
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 273
+    startLine: 290
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -398,13 +489,13 @@ items:
     Sets if the window should have rounded corners or not.
   example: []
   syntax:
-    content: public void SetWindowCornerPreference(WindowHandle handle, ShellComponent.CornerPrefernce preference)
+    content: public void SetWindowCornerPreference(WindowHandle handle, ShellComponent.CornerPreference preference)
     parameters:
     - id: handle
       type: OpenTK.Platform.WindowHandle
     - id: preference
-      type: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
-    content.vb: Public Sub SetWindowCornerPreference(handle As WindowHandle, preference As ShellComponent.CornerPrefernce)
+      type: OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference
+    content.vb: Public Sub SetWindowCornerPreference(handle As WindowHandle, preference As ShellComponent.CornerPreference)
   overload: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference*
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation
   commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation
@@ -420,7 +511,7 @@ items:
   source:
     id: GetSystemMemoryInformation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\ShellComponent.cs
-    startLine: 287
+    startLine: 304
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -791,6 +882,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.Logger
   href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_Logger
@@ -804,13 +908,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -841,6 +938,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.Initialize
   href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -872,49 +1000,116 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.Uninitialize
+  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: ShellComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+  commentId: M:OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+  parent: OpenTK.Platform.IShellComponent
+  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  name: IsScreenSaverAllowed()
+  nameWithType: IShellComponent.IsScreenSaverAllowed()
+  fullName: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed()
+  spec.csharp:
+  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    name: IsScreenSaverAllowed
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    name: IsScreenSaverAllowed
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver
-  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_AllowScreenSaver_System_Boolean_
+  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_AllowScreenSaver_System_Boolean_System_String_
   name: AllowScreenSaver
   nameWithType: ShellComponent.AllowScreenSaver
   fullName: OpenTK.Platform.Native.Windows.ShellComponent.AllowScreenSaver
-- uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
-  commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+- uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
   parent: OpenTK.Platform.IShellComponent
   isExternal: true
-  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
-  name: AllowScreenSaver(bool)
-  nameWithType: IShellComponent.AllowScreenSaver(bool)
-  fullName: OpenTK.Platform.IShellComponent.AllowScreenSaver(bool)
-  nameWithType.vb: IShellComponent.AllowScreenSaver(Boolean)
-  fullName.vb: OpenTK.Platform.IShellComponent.AllowScreenSaver(Boolean)
-  name.vb: AllowScreenSaver(Boolean)
+  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
+  name: AllowScreenSaver(bool, string)
+  nameWithType: IShellComponent.AllowScreenSaver(bool, string)
+  fullName: OpenTK.Platform.IShellComponent.AllowScreenSaver(bool, string)
+  nameWithType.vb: IShellComponent.AllowScreenSaver(Boolean, String)
+  fullName.vb: OpenTK.Platform.IShellComponent.AllowScreenSaver(Boolean, String)
+  name.vb: AllowScreenSaver(Boolean, String)
   spec.csharp:
-  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
     name: AllowScreenSaver
-    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
   - name: (
   - uid: System.Boolean
     name: bool
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
     name: AllowScreenSaver
-    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
   - name: (
   - uid: System.Boolean
     name: Boolean
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: System.Boolean
   commentId: T:System.Boolean
@@ -927,6 +1122,12 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.IsScreenSaverAllowed*
+  commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.IsScreenSaverAllowed
+  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_IsScreenSaverAllowed
+  name: IsScreenSaverAllowed
+  nameWithType: ShellComponent.IsScreenSaverAllowed
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.IsScreenSaverAllowed
 - uid: OpenTK.Platform.BatteryStatus.HasSystemBattery
   commentId: F:OpenTK.Platform.BatteryStatus.HasSystemBattery
   href: OpenTK.Platform.BatteryStatus.html#OpenTK_Platform_BatteryStatus_HasSystemBattery
@@ -983,6 +1184,12 @@ references:
   name: BatteryStatus
   nameWithType: BatteryStatus
   fullName: OpenTK.Platform.BatteryStatus
+- uid: OpenTK.Platform.ThemeChangeEventArgs
+  commentId: T:OpenTK.Platform.ThemeChangeEventArgs
+  href: OpenTK.Platform.ThemeChangeEventArgs.html
+  name: ThemeChangeEventArgs
+  nameWithType: ThemeChangeEventArgs
+  fullName: OpenTK.Platform.ThemeChangeEventArgs
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.GetPreferredTheme*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.GetPreferredTheme
   href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_GetPreferredTheme
@@ -1121,33 +1328,33 @@ references:
   fullName: OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference
-  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_SetWindowCornerPreference_OpenTK_Platform_WindowHandle_OpenTK_Platform_Native_Windows_ShellComponent_CornerPrefernce_
+  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_SetWindowCornerPreference_OpenTK_Platform_WindowHandle_OpenTK_Platform_Native_Windows_ShellComponent_CornerPreference_
   name: SetWindowCornerPreference
   nameWithType: ShellComponent.SetWindowCornerPreference
   fullName: OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference
-- uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
-  commentId: T:OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference
+  commentId: T:OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference
   parent: OpenTK.Platform.Native.Windows
   href: OpenTK.Platform.Native.Windows.ShellComponent.html
-  name: ShellComponent.CornerPrefernce
-  nameWithType: ShellComponent.CornerPrefernce
-  fullName: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
+  name: ShellComponent.CornerPreference
+  nameWithType: ShellComponent.CornerPreference
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference
   spec.csharp:
   - uid: OpenTK.Platform.Native.Windows.ShellComponent
     name: ShellComponent
     href: OpenTK.Platform.Native.Windows.ShellComponent.html
   - name: .
-  - uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
-    name: CornerPrefernce
-    href: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce.html
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference
+    name: CornerPreference
+    href: OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference.html
   spec.vb:
   - uid: OpenTK.Platform.Native.Windows.ShellComponent
     name: ShellComponent
     href: OpenTK.Platform.Native.Windows.ShellComponent.html
   - name: .
-  - uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce
-    name: CornerPrefernce
-    href: OpenTK.Platform.Native.Windows.ShellComponent.CornerPrefernce.html
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference
+    name: CornerPreference
+    href: OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference.html
 - uid: OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation*
   commentId: Overload:OpenTK.Platform.Native.Windows.ShellComponent.GetSystemMemoryInformation
   href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_GetSystemMemoryInformation

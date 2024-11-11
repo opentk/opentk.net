@@ -26,6 +26,7 @@ items:
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SetSwapInterval(System.Int32)
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
+  - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -36,7 +37,7 @@ items:
   source:
     id: ANGLEOpenGLComponent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 15
+    startLine: 14
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -70,7 +71,7 @@ items:
   source:
     id: Name
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 18
+    startLine: 17
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -99,7 +100,7 @@ items:
   source:
     id: Provides
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 21
+    startLine: 20
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -128,11 +129,11 @@ items:
   source:
     id: Logger
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 24
+    startLine: 23
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -141,6 +142,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -157,7 +163,7 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 34
+    startLine: 33
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -171,8 +177,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: ANGLEOpenGLComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
+    startLine: 65
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.ANGLE
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.CanShareContexts
   commentId: P:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.CanShareContexts
   id: CanShareContexts
@@ -187,7 +227,7 @@ items:
   source:
     id: CanShareContexts
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 68
+    startLine: 71
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -216,7 +256,7 @@ items:
   source:
     id: CanCreateFromWindow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 71
+    startLine: 74
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -248,7 +288,7 @@ items:
   source:
     id: CanCreateFromSurface
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 74
+    startLine: 77
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -277,7 +317,7 @@ items:
   source:
     id: CreateFromSurface
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 77
+    startLine: 80
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -306,7 +346,7 @@ items:
   source:
     id: CreateFromWindow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 83
+    startLine: 86
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -323,6 +363,11 @@ items:
       description: An OpenGL context handle.
     content.vb: Public Function CreateFromWindow(handle As WindowHandle) As OpenGLContextHandle
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.CreateFromWindow*
+  seealso:
+  - linkId: OpenTK.Platform.IWindowComponent.Create(OpenTK.Platform.GraphicsApiHints)
+    commentId: M:OpenTK.Platform.IWindowComponent.Create(OpenTK.Platform.GraphicsApiHints)
+  - linkId: OpenTK.Platform.OpenGLGraphicsApiHints
+    commentId: T:OpenTK.Platform.OpenGLGraphicsApiHints
   implements:
   - OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.DestroyContext(OpenTK.Platform.OpenGLContextHandle)
@@ -339,7 +384,7 @@ items:
   source:
     id: DestroyContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 245
+    startLine: 249
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -353,10 +398,9 @@ items:
       description: Handle to the OpenGL context to destroy.
     content.vb: Public Sub DestroyContext(handle As OpenGLContextHandle)
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.DestroyContext*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: OpenGL context handle is null.
+  seealso:
+  - linkId: OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
+    commentId: M:OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
   implements:
   - OpenTK.Platform.IOpenGLComponent.DestroyContext(OpenTK.Platform.OpenGLContextHandle)
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
@@ -373,11 +417,14 @@ items:
   source:
     id: GetBindingsContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 265
+    startLine: 269
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
-  summary: Gets a <xref href="OpenTK.IBindingsContext" data-throw-if-not-resolved="false"></xref> from an <xref href="OpenTK.Platform.OpenGLContextHandle" data-throw-if-not-resolved="false"></xref>.
+  summary: >-
+    Gets a <xref href="OpenTK.IBindingsContext" data-throw-if-not-resolved="false"></xref> from an <xref href="OpenTK.Platform.OpenGLContextHandle" data-throw-if-not-resolved="false"></xref>.
+
+    Pass this to <xref href="OpenTK.Graphics.GLLoader.LoadBindings(OpenTK.IBindingsContext)" data-throw-if-not-resolved="false"></xref> to load the OpenGL bindings.
   example: []
   syntax:
     content: public IBindingsContext GetBindingsContext(OpenGLContextHandle handle)
@@ -390,6 +437,11 @@ items:
       description: The created bindings context.
     content.vb: Public Function GetBindingsContext(handle As OpenGLContextHandle) As IBindingsContext
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetBindingsContext*
+  seealso:
+  - linkId: OpenTK.Graphics.GLLoader
+    commentId: T:OpenTK.Graphics.GLLoader
+  - linkId: OpenTK.IBindingsContext
+    commentId: T:OpenTK.IBindingsContext
   implements:
   - OpenTK.Platform.IOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
@@ -406,7 +458,7 @@ items:
   source:
     id: GetProcedureAddress
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 272
+    startLine: 276
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -426,10 +478,6 @@ items:
       description: The procedure address to the OpenGL command.
     content.vb: Public Function GetProcedureAddress(handle As OpenGLContextHandle, procedureName As String) As IntPtr
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetProcedureAddress*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: OpenGL context handle or procedure name is null.
   implements:
   - OpenTK.Platform.IOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
   nameWithType.vb: ANGLEOpenGLComponent.GetProcedureAddress(OpenGLContextHandle, String)
@@ -449,7 +497,7 @@ items:
   source:
     id: GetCurrentContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 278
+    startLine: 282
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -459,9 +507,12 @@ items:
     content: public OpenGLContextHandle? GetCurrentContext()
     return:
       type: OpenTK.Platform.OpenGLContextHandle
-      description: Handle to the current OpenGL context, null if none are current.
+      description: Handle to the current OpenGL context, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no context is current.
     content.vb: Public Function GetCurrentContext() As OpenGLContextHandle
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetCurrentContext*
+  seealso:
+  - linkId: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+    commentId: M:OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
   implements:
   - OpenTK.Platform.IOpenGLComponent.GetCurrentContext
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
@@ -478,7 +529,7 @@ items:
   source:
     id: SetCurrentContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 292
+    startLine: 296
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -489,12 +540,15 @@ items:
     parameters:
     - id: handle
       type: OpenTK.Platform.OpenGLContextHandle
-      description: Handle to the OpenGL context to make current, or null to make none current.
+      description: Handle to the OpenGL context to make current, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to make no context current.
     return:
       type: System.Boolean
-      description: True when the OpenGL context is successfully made current.
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the OpenGL context is successfully made current.
     content.vb: Public Function SetCurrentContext(handle As OpenGLContextHandle) As Boolean
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SetCurrentContext*
+  seealso:
+  - linkId: OpenTK.Platform.IOpenGLComponent.GetCurrentContext
+    commentId: M:OpenTK.Platform.IOpenGLComponent.GetCurrentContext
   implements:
   - OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
   nameWithType.vb: ANGLEOpenGLComponent.SetCurrentContext(OpenGLContextHandle)
@@ -514,7 +568,7 @@ items:
   source:
     id: GetSharedContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 306
+    startLine: 310
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -531,6 +585,9 @@ items:
       description: Handle to the OpenGL context the given context shares display lists with.
     content.vb: Public Function GetSharedContext(handle As OpenGLContextHandle) As OpenGLContextHandle
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetSharedContext*
+  seealso:
+  - linkId: OpenTK.Platform.OpenGLGraphicsApiHints.SharedContext
+    commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.SharedContext
   implements:
   - OpenTK.Platform.IOpenGLComponent.GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SetSwapInterval(System.Int32)
@@ -547,7 +604,7 @@ items:
   source:
     id: SetSwapInterval
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 315
+    startLine: 317
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -580,17 +637,17 @@ items:
   source:
     id: GetSwapInterval
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 322
+    startLine: 332
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
-  summary: Gets the swap interval of the current OpenGL context.
+  summary: Gets the swap interval of the current OpenGL context, or <code>-1</code> if no context is current.
   example: []
   syntax:
     content: public int GetSwapInterval()
     return:
       type: System.Int32
-      description: The current swap interval.
+      description: The current swap interval, or <code>-1</code> if no context is current.
     content.vb: Public Function GetSwapInterval() As Integer
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetSwapInterval*
   implements:
@@ -609,7 +666,7 @@ items:
   source:
     id: SwapBuffers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 328
+    startLine: 339
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -623,6 +680,9 @@ items:
       description: Handle to the context.
     content.vb: Public Sub SwapBuffers(handle As OpenGLContextHandle)
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SwapBuffers*
+  seealso:
+  - linkId: OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
+    commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
   implements:
   - OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglDisplay
@@ -639,18 +699,18 @@ items:
   source:
     id: GetEglDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 338
+    startLine: 353
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
   summary: Returns the <code>EGLDisplay</code> used by OpenTK.
   example: []
   syntax:
-    content: public nint GetEglDisplay()
+    content: public EGLDisplay GetEglDisplay()
     return:
-      type: System.IntPtr
+      type: OpenTK.Graphics.Egl.EGLDisplay
       description: The <code>EGLDisplay</code> used by OpenTK.
-    content.vb: Public Function GetEglDisplay() As IntPtr
+    content.vb: Public Function GetEglDisplay() As EGLDisplay
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglDisplay*
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglContext(OpenTK.Platform.OpenGLContextHandle)
   commentId: M:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglContext(OpenTK.Platform.OpenGLContextHandle)
@@ -666,22 +726,22 @@ items:
   source:
     id: GetEglContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 348
+    startLine: 363
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
   summary: Returns the <code>EGLContext</code> associated with the specified context handle.
   example: []
   syntax:
-    content: public nint GetEglContext(OpenGLContextHandle handle)
+    content: public EGLContext GetEglContext(OpenGLContextHandle handle)
     parameters:
     - id: handle
       type: OpenTK.Platform.OpenGLContextHandle
       description: A handle to an OpenGL context to get the associated <code>EGLContext</code> from.
     return:
-      type: System.IntPtr
+      type: OpenTK.Graphics.Egl.EGLContext
       description: The <code>EGLContext</code> associated with the context handle.
-    content.vb: Public Function GetEglContext(handle As OpenGLContextHandle) As IntPtr
+    content.vb: Public Function GetEglContext(handle As OpenGLContextHandle) As EGLContext
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglContext*
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglSurface(OpenTK.Platform.OpenGLContextHandle)
   commentId: M:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglSurface(OpenTK.Platform.OpenGLContextHandle)
@@ -697,22 +757,22 @@ items:
   source:
     id: GetEglSurface
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 360
+    startLine: 375
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
   summary: Returns the <code>EGLSurface</code> associated with the specified context handle.
   example: []
   syntax:
-    content: public nint GetEglSurface(OpenGLContextHandle handle)
+    content: public EGLSurface GetEglSurface(OpenGLContextHandle handle)
     parameters:
     - id: handle
       type: OpenTK.Platform.OpenGLContextHandle
       description: A handle to an OpenGL context to get the associated <code>EGLSurface</code> from.
     return:
-      type: System.IntPtr
+      type: OpenTK.Graphics.Egl.EGLSurface
       description: The <code>EGLSurface</code> associated with the context handle.
-    content.vb: Public Function GetEglSurface(handle As OpenGLContextHandle) As IntPtr
+    content.vb: Public Function GetEglSurface(handle As OpenGLContextHandle) As EGLSurface
   overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglSurface*
 references:
 - uid: OpenTK.Platform.Native.ANGLE
@@ -1070,6 +1130,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Logger
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_Logger
@@ -1083,13 +1156,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -1120,6 +1186,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Initialize
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -1151,13 +1248,49 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Uninitialize
+  href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: ANGLEOpenGLComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.CanShareContexts*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.CanShareContexts
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_CanShareContexts
@@ -1265,6 +1398,38 @@ references:
   name: OpenGLContextHandle
   nameWithType: OpenGLContextHandle
   fullName: OpenTK.Platform.OpenGLContextHandle
+- uid: OpenTK.Platform.IWindowComponent.Create(OpenTK.Platform.GraphicsApiHints)
+  commentId: M:OpenTK.Platform.IWindowComponent.Create(OpenTK.Platform.GraphicsApiHints)
+  parent: OpenTK.Platform.IWindowComponent
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_Create_OpenTK_Platform_GraphicsApiHints_
+  name: Create(GraphicsApiHints)
+  nameWithType: IWindowComponent.Create(GraphicsApiHints)
+  fullName: OpenTK.Platform.IWindowComponent.Create(OpenTK.Platform.GraphicsApiHints)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.Create(OpenTK.Platform.GraphicsApiHints)
+    name: Create
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_Create_OpenTK_Platform_GraphicsApiHints_
+  - name: (
+  - uid: OpenTK.Platform.GraphicsApiHints
+    name: GraphicsApiHints
+    href: OpenTK.Platform.GraphicsApiHints.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.Create(OpenTK.Platform.GraphicsApiHints)
+    name: Create
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_Create_OpenTK_Platform_GraphicsApiHints_
+  - name: (
+  - uid: OpenTK.Platform.GraphicsApiHints
+    name: GraphicsApiHints
+    href: OpenTK.Platform.GraphicsApiHints.html
+  - name: )
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints
+  commentId: T:OpenTK.Platform.OpenGLGraphicsApiHints
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.OpenGLGraphicsApiHints.html
+  name: OpenGLGraphicsApiHints
+  nameWithType: OpenGLGraphicsApiHints
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.CreateFromWindow*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.CreateFromWindow
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_CreateFromWindow_OpenTK_Platform_WindowHandle_
@@ -1278,13 +1443,13 @@ references:
   name: WindowHandle
   nameWithType: WindowHandle
   fullName: OpenTK.Platform.WindowHandle
-- uid: System.ArgumentNullException
-  commentId: T:System.ArgumentNullException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
-  name: ArgumentNullException
-  nameWithType: ArgumentNullException
-  fullName: System.ArgumentNullException
+- uid: OpenTK.Platform.IWindowComponent
+  commentId: T:OpenTK.Platform.IWindowComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IWindowComponent.html
+  name: IWindowComponent
+  nameWithType: IWindowComponent
+  fullName: OpenTK.Platform.IWindowComponent
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.DestroyContext*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.DestroyContext
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_DestroyContext_OpenTK_Platform_OpenGLContextHandle_
@@ -1316,6 +1481,12 @@ references:
     name: OpenGLContextHandle
     href: OpenTK.Platform.OpenGLContextHandle.html
   - name: )
+- uid: OpenTK.Graphics.GLLoader
+  commentId: T:OpenTK.Graphics.GLLoader
+  href: OpenTK.Graphics.GLLoader.html
+  name: GLLoader
+  nameWithType: GLLoader
+  fullName: OpenTK.Graphics.GLLoader
 - uid: OpenTK.IBindingsContext
   commentId: T:OpenTK.IBindingsContext
   parent: OpenTK
@@ -1323,6 +1494,30 @@ references:
   name: IBindingsContext
   nameWithType: IBindingsContext
   fullName: OpenTK.IBindingsContext
+- uid: OpenTK.Graphics.GLLoader.LoadBindings(OpenTK.IBindingsContext)
+  commentId: M:OpenTK.Graphics.GLLoader.LoadBindings(OpenTK.IBindingsContext)
+  href: OpenTK.Graphics.GLLoader.html#OpenTK_Graphics_GLLoader_LoadBindings_OpenTK_IBindingsContext_
+  name: LoadBindings(IBindingsContext)
+  nameWithType: GLLoader.LoadBindings(IBindingsContext)
+  fullName: OpenTK.Graphics.GLLoader.LoadBindings(OpenTK.IBindingsContext)
+  spec.csharp:
+  - uid: OpenTK.Graphics.GLLoader.LoadBindings(OpenTK.IBindingsContext)
+    name: LoadBindings
+    href: OpenTK.Graphics.GLLoader.html#OpenTK_Graphics_GLLoader_LoadBindings_OpenTK_IBindingsContext_
+  - name: (
+  - uid: OpenTK.IBindingsContext
+    name: IBindingsContext
+    href: OpenTK.IBindingsContext.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Graphics.GLLoader.LoadBindings(OpenTK.IBindingsContext)
+    name: LoadBindings
+    href: OpenTK.Graphics.GLLoader.html#OpenTK_Graphics_GLLoader_LoadBindings_OpenTK_IBindingsContext_
+  - name: (
+  - uid: OpenTK.IBindingsContext
+    name: IBindingsContext
+    href: OpenTK.IBindingsContext.html
+  - name: )
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetBindingsContext*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetBindingsContext
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_GetBindingsContext_OpenTK_Platform_OpenGLContextHandle_
@@ -1418,6 +1613,31 @@ references:
   nameWithType.vb: IntPtr
   fullName.vb: System.IntPtr
   name.vb: IntPtr
+- uid: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SetCurrentContext_OpenTK_Platform_OpenGLContextHandle_
+  name: SetCurrentContext(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.SetCurrentContext(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+    name: SetCurrentContext
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SetCurrentContext_OpenTK_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Platform.OpenGLContextHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
+    name: SetCurrentContext
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SetCurrentContext_OpenTK_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Platform.OpenGLContextHandle.html
+  - name: )
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetCurrentContext*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetCurrentContext
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_GetCurrentContext
@@ -1449,31 +1669,12 @@ references:
   name: SetCurrentContext
   nameWithType: ANGLEOpenGLComponent.SetCurrentContext
   fullName: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SetCurrentContext
-- uid: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
-  commentId: M:OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
-  parent: OpenTK.Platform.IOpenGLComponent
-  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SetCurrentContext_OpenTK_Platform_OpenGLContextHandle_
-  name: SetCurrentContext(OpenGLContextHandle)
-  nameWithType: IOpenGLComponent.SetCurrentContext(OpenGLContextHandle)
-  fullName: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
-  spec.csharp:
-  - uid: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
-    name: SetCurrentContext
-    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SetCurrentContext_OpenTK_Platform_OpenGLContextHandle_
-  - name: (
-  - uid: OpenTK.Platform.OpenGLContextHandle
-    name: OpenGLContextHandle
-    href: OpenTK.Platform.OpenGLContextHandle.html
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
-    name: SetCurrentContext
-    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SetCurrentContext_OpenTK_Platform_OpenGLContextHandle_
-  - name: (
-  - uid: OpenTK.Platform.OpenGLContextHandle
-    name: OpenGLContextHandle
-    href: OpenTK.Platform.OpenGLContextHandle.html
-  - name: )
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints.SharedContext
+  commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.SharedContext
+  href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_SharedContext
+  name: SharedContext
+  nameWithType: OpenGLGraphicsApiHints.SharedContext
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.SharedContext
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetSharedContext*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetSharedContext
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_GetSharedContext_OpenTK_Platform_OpenGLContextHandle_
@@ -1578,6 +1779,12 @@ references:
     href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetSwapInterval
   - name: (
   - name: )
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
+  commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
+  href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_SwapMethod
+  name: SwapMethod
+  nameWithType: OpenGLGraphicsApiHints.SwapMethod
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SwapBuffers*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.SwapBuffers
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_SwapBuffers_OpenTK_Platform_OpenGLContextHandle_
@@ -1615,15 +1822,66 @@ references:
   name: GetEglDisplay
   nameWithType: ANGLEOpenGLComponent.GetEglDisplay
   fullName: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglDisplay
+- uid: OpenTK.Graphics.Egl.EGLDisplay
+  commentId: T:OpenTK.Graphics.Egl.EGLDisplay
+  parent: OpenTK.Graphics.Egl
+  href: OpenTK.Graphics.Egl.EGLDisplay.html
+  name: EGLDisplay
+  nameWithType: EGLDisplay
+  fullName: OpenTK.Graphics.Egl.EGLDisplay
+- uid: OpenTK.Graphics.Egl
+  commentId: N:OpenTK.Graphics.Egl
+  href: OpenTK.html
+  name: OpenTK.Graphics.Egl
+  nameWithType: OpenTK.Graphics.Egl
+  fullName: OpenTK.Graphics.Egl
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Graphics
+    name: Graphics
+    href: OpenTK.Graphics.html
+  - name: .
+  - uid: OpenTK.Graphics.Egl
+    name: Egl
+    href: OpenTK.Graphics.Egl.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Graphics
+    name: Graphics
+    href: OpenTK.Graphics.html
+  - name: .
+  - uid: OpenTK.Graphics.Egl
+    name: Egl
+    href: OpenTK.Graphics.Egl.html
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglContext*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglContext
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_GetEglContext_OpenTK_Platform_OpenGLContextHandle_
   name: GetEglContext
   nameWithType: ANGLEOpenGLComponent.GetEglContext
   fullName: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglContext
+- uid: OpenTK.Graphics.Egl.EGLContext
+  commentId: T:OpenTK.Graphics.Egl.EGLContext
+  parent: OpenTK.Graphics.Egl
+  href: OpenTK.Graphics.Egl.EGLContext.html
+  name: EGLContext
+  nameWithType: EGLContext
+  fullName: OpenTK.Graphics.Egl.EGLContext
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglSurface*
   commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglSurface
   href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_GetEglSurface_OpenTK_Platform_OpenGLContextHandle_
   name: GetEglSurface
   nameWithType: ANGLEOpenGLComponent.GetEglSurface
   fullName: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglSurface
+- uid: OpenTK.Graphics.Egl.EGLSurface
+  commentId: T:OpenTK.Graphics.Egl.EGLSurface
+  parent: OpenTK.Graphics.Egl
+  href: OpenTK.Graphics.Egl.EGLSurface.html
+  name: EGLSurface
+  nameWithType: EGLSurface
+  fullName: OpenTK.Graphics.Egl.EGLSurface

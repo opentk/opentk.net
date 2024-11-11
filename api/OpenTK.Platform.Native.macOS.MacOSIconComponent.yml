@@ -15,6 +15,7 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSIconComponent.Logger
   - OpenTK.Platform.Native.macOS.MacOSIconComponent.Name
   - OpenTK.Platform.Native.macOS.MacOSIconComponent.Provides
+  - OpenTK.Platform.Native.macOS.MacOSIconComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -121,7 +122,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -130,6 +131,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.macOS.MacOSIconComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -160,8 +166,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.macOS.MacOSIconComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSIconComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.macOS.MacOSIconComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: MacOSIconComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.macOS.MacOSIconComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSIconComponent.cs
+    startLine: 66
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.macOS.MacOSIconComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.CanLoadSystemIcons
   commentId: P:OpenTK.Platform.Native.macOS.MacOSIconComponent.CanLoadSystemIcons
   id: CanLoadSystemIcons
@@ -176,14 +216,14 @@ items:
   source:
     id: CanLoadSystemIcons
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSIconComponent.cs
-    startLine: 66
+    startLine: 71
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: >-
-    True if icon objects can be populated from common system icons.
+    If common system icons can be created.
 
-    If this is true, then <xref href="OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)" data-throw-if-not-resolved="false"></xref> will work, otherwise an exception will be thrown.
+    If this is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> then <xref href="OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)" data-throw-if-not-resolved="false"></xref> will work, otherwise an exception will be thrown.
   example: []
   syntax:
     content: public bool CanLoadSystemIcons { get; }
@@ -211,14 +251,14 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSIconComponent.cs
-    startLine: 69
+    startLine: 74
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: >-
     Load a system icon.
 
-    Only works if <xref href="OpenTK.Platform.IIconComponent.CanLoadSystemIcons" data-throw-if-not-resolved="false"></xref> is true.
+    Only works if <xref href="OpenTK.Platform.IIconComponent.CanLoadSystemIcons" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public IconHandle Create(SystemIconType systemIcon)
@@ -231,6 +271,10 @@ items:
       description: A handle to the created system icon.
     content.vb: Public Function Create(systemIcon As SystemIconType) As IconHandle
   overload: OpenTK.Platform.Native.macOS.MacOSIconComponent.Create*
+  exceptions:
+  - type: System.PlatformNotSupportedException
+    commentId: T:System.PlatformNotSupportedException
+    description: Platform does not implement this function. See <xref href="OpenTK.Platform.IIconComponent.CanLoadSystemIcons" data-throw-if-not-resolved="false"></xref>.
   seealso:
   - linkId: OpenTK.Platform.IIconComponent.CanLoadSystemIcons
     commentId: P:OpenTK.Platform.IIconComponent.CanLoadSystemIcons
@@ -250,7 +294,7 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSIconComponent.cs
-    startLine: 121
+    startLine: 126
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -267,12 +311,19 @@ items:
       description: Height of the bitmap.
     - id: data
       type: System.ReadOnlySpan{System.Byte}
-      description: Image data to load into icon.
+      description: Image data to load into icon in RGBA format.
     return:
       type: OpenTK.Platform.IconHandle
       description: A handle to the created icon.
     content.vb: Public Function Create(width As Integer, height As Integer, data As ReadOnlySpan(Of Byte)) As IconHandle
   overload: OpenTK.Platform.Native.macOS.MacOSIconComponent.Create*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: If <code class="paramref">width</code>, or <code class="paramref">height</code> are negative.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: <code class="paramref">data</code> is smaller than specified dimensions.
   implements:
   - OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
   nameWithType.vb: MacOSIconComponent.Create(Integer, Integer, ReadOnlySpan(Of Byte))
@@ -292,7 +343,7 @@ items:
   source:
     id: CreateSFSymbol
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSIconComponent.cs
-    startLine: 166
+    startLine: 176
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -329,7 +380,7 @@ items:
   source:
     id: Destroy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSIconComponent.cs
-    startLine: 194
+    startLine: 204
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -343,10 +394,11 @@ items:
       description: Handle to the icon object to destroy.
     content.vb: Public Sub Destroy(handle As IconHandle)
   overload: OpenTK.Platform.Native.macOS.MacOSIconComponent.Destroy*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: <code class="paramref">handle</code> is null.
+  seealso:
+  - linkId: OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)
+    commentId: M:OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)
+  - linkId: OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
+    commentId: M:OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
   implements:
   - OpenTK.Platform.IIconComponent.Destroy(OpenTK.Platform.IconHandle)
 - uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.GetSize(OpenTK.Platform.IconHandle,System.Int32@,System.Int32@)
@@ -363,7 +415,7 @@ items:
   source:
     id: GetSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSIconComponent.cs
-    startLine: 208
+    startLine: 218
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -383,10 +435,6 @@ items:
       description: Height of icon.
     content.vb: Public Sub GetSize(handle As IconHandle, width As Integer, height As Integer)
   overload: OpenTK.Platform.Native.macOS.MacOSIconComponent.GetSize*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: <code class="paramref">handle</code> is null.
   implements:
   - OpenTK.Platform.IIconComponent.GetSize(OpenTK.Platform.IconHandle,System.Int32@,System.Int32@)
   nameWithType.vb: MacOSIconComponent.GetSize(IconHandle, Integer, Integer)
@@ -748,6 +796,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSIconComponent.Logger
   href: OpenTK.Platform.Native.macOS.MacOSIconComponent.html#OpenTK_Platform_Native_macOS_MacOSIconComponent_Logger
@@ -761,13 +822,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -798,6 +852,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSIconComponent.Initialize
   href: OpenTK.Platform.Native.macOS.MacOSIconComponent.html#OpenTK_Platform_Native_macOS_MacOSIconComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -829,13 +914,49 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSIconComponent.Uninitialize
+  href: OpenTK.Platform.Native.macOS.MacOSIconComponent.html#OpenTK_Platform_Native_macOS_MacOSIconComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: MacOSIconComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.macOS.MacOSIconComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)
   commentId: M:OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)
   parent: OpenTK.Platform.IIconComponent
@@ -885,6 +1006,13 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: System.PlatformNotSupportedException
+  commentId: T:System.PlatformNotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.platformnotsupportedexception
+  name: PlatformNotSupportedException
+  nameWithType: PlatformNotSupportedException
+  fullName: System.PlatformNotSupportedException
 - uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.Create*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSIconComponent.Create
   href: OpenTK.Platform.Native.macOS.MacOSIconComponent.html#OpenTK_Platform_Native_macOS_MacOSIconComponent_Create_OpenTK_Platform_SystemIconType_
@@ -905,6 +1033,20 @@ references:
   name: IconHandle
   nameWithType: IconHandle
   fullName: OpenTK.Platform.IconHandle
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
 - uid: OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
   commentId: M:OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
   parent: OpenTK.Platform.IIconComponent
@@ -1054,13 +1196,6 @@ references:
   name: CreateSFSymbol
   nameWithType: MacOSIconComponent.CreateSFSymbol
   fullName: OpenTK.Platform.Native.macOS.MacOSIconComponent.CreateSFSymbol
-- uid: System.ArgumentNullException
-  commentId: T:System.ArgumentNullException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
-  name: ArgumentNullException
-  nameWithType: ArgumentNullException
-  fullName: System.ArgumentNullException
 - uid: OpenTK.Platform.Native.macOS.MacOSIconComponent.Destroy*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSIconComponent.Destroy
   href: OpenTK.Platform.Native.macOS.MacOSIconComponent.html#OpenTK_Platform_Native_macOS_MacOSIconComponent_Destroy_OpenTK_Platform_IconHandle_

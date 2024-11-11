@@ -27,6 +27,7 @@ items:
   - OpenTK.Platform.OpenGLGraphicsApiHints.Selector
   - OpenTK.Platform.OpenGLGraphicsApiHints.SharedContext
   - OpenTK.Platform.OpenGLGraphicsApiHints.StencilBits
+  - OpenTK.Platform.OpenGLGraphicsApiHints.SupportTransparentFramebufferX11
   - OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
   - OpenTK.Platform.OpenGLGraphicsApiHints.UseFlushControl
   - OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
@@ -729,7 +730,7 @@ items:
   source:
     id: Selector
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\OpenGLGraphicsApiHints.cs
-    startLine: 144
+    startLine: 145
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -742,6 +743,9 @@ items:
       type: OpenTK.Platform.ContextValueSelector
     content.vb: Public Property Selector As ContextValueSelector
   overload: OpenTK.Platform.OpenGLGraphicsApiHints.Selector*
+  seealso:
+  - linkId: OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
+    commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
 - uid: OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
   commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
   id: UseSelectorOnMacOS
@@ -756,7 +760,7 @@ items:
   source:
     id: UseSelectorOnMacOS
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\OpenGLGraphicsApiHints.cs
-    startLine: 150
+    startLine: 153
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -772,6 +776,50 @@ items:
       type: System.Boolean
     content.vb: Public Property UseSelectorOnMacOS As Boolean
   overload: OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS*
+  seealso:
+  - linkId: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+    commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+  - linkId: OpenTK.Platform.ContextValueSelector
+    commentId: T:OpenTK.Platform.ContextValueSelector
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints.SupportTransparentFramebufferX11
+  commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.SupportTransparentFramebufferX11
+  id: SupportTransparentFramebufferX11
+  parent: OpenTK.Platform.OpenGLGraphicsApiHints
+  langs:
+  - csharp
+  - vb
+  name: SupportTransparentFramebufferX11
+  nameWithType: OpenGLGraphicsApiHints.SupportTransparentFramebufferX11
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.SupportTransparentFramebufferX11
+  type: Property
+  source:
+    id: SupportTransparentFramebufferX11
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\OpenGLGraphicsApiHints.cs
+    startLine: 163
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    If the requested <xref href="OpenTK.Platform.ContextValues" data-throw-if-not-resolved="false"></xref> should have <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+
+    This only matters on Linux/X11 as other platforms always support framebuffer transparency.
+  example: []
+  syntax:
+    content: public bool SupportTransparentFramebufferX11 { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportTransparentFramebufferX11 As Boolean
+  overload: OpenTK.Platform.OpenGLGraphicsApiHints.SupportTransparentFramebufferX11*
+  seealso:
+  - linkId: OpenTK.Platform.ContextValues.SupportsFramebufferTransparency
+    commentId: F:OpenTK.Platform.ContextValues.SupportsFramebufferTransparency
+  - linkId: OpenTK.Platform.IWindowComponent.SupportsFramebufferTransparency(OpenTK.Platform.WindowHandle)
+    commentId: M:OpenTK.Platform.IWindowComponent.SupportsFramebufferTransparency(OpenTK.Platform.WindowHandle)
+  - linkId: OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle,OpenTK.Platform.WindowTransparencyMode,System.Single)
+    commentId: M:OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle,OpenTK.Platform.WindowTransparencyMode,System.Single)
+  - linkId: OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle,System.Single@)
+    commentId: M:OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle,System.Single@)
 - uid: OpenTK.Platform.OpenGLGraphicsApiHints.#ctor
   commentId: M:OpenTK.Platform.OpenGLGraphicsApiHints.#ctor
   id: '#ctor'
@@ -786,7 +834,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\OpenGLGraphicsApiHints.cs
-    startLine: 155
+    startLine: 168
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -813,7 +861,7 @@ items:
   source:
     id: Copy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\OpenGLGraphicsApiHints.cs
-    startLine: 163
+    startLine: 176
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1403,6 +1451,12 @@ references:
   name: OpenGLContextHandle
   nameWithType: OpenGLContextHandle
   fullName: OpenTK.Platform.OpenGLContextHandle
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
+  commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
+  href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_UseSelectorOnMacOS
+  name: UseSelectorOnMacOS
+  nameWithType: OpenGLGraphicsApiHints.UseSelectorOnMacOS
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
 - uid: OpenTK.Platform.OpenGLGraphicsApiHints.Selector*
   commentId: Overload:OpenTK.Platform.OpenGLGraphicsApiHints.Selector
   href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_Selector
@@ -1416,6 +1470,12 @@ references:
   name: ContextValueSelector
   nameWithType: ContextValueSelector
   fullName: OpenTK.Platform.ContextValueSelector
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+  commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+  href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_Selector
+  name: Selector
+  nameWithType: OpenGLGraphicsApiHints.Selector
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
 - uid: OpenTK.Platform.ContextValues
   commentId: T:OpenTK.Platform.ContextValues
   parent: OpenTK.Platform
@@ -1423,18 +1483,150 @@ references:
   name: ContextValues
   nameWithType: ContextValues
   fullName: OpenTK.Platform.ContextValues
-- uid: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
-  commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.Selector
-  href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_Selector
-  name: Selector
-  nameWithType: OpenGLGraphicsApiHints.Selector
-  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
 - uid: OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS*
   commentId: Overload:OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
   href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_UseSelectorOnMacOS
   name: UseSelectorOnMacOS
   nameWithType: OpenGLGraphicsApiHints.UseSelectorOnMacOS
   fullName: OpenTK.Platform.OpenGLGraphicsApiHints.UseSelectorOnMacOS
+- uid: OpenTK.Platform.ContextValues.SupportsFramebufferTransparency
+  commentId: F:OpenTK.Platform.ContextValues.SupportsFramebufferTransparency
+  href: OpenTK.Platform.ContextValues.html#OpenTK_Platform_ContextValues_SupportsFramebufferTransparency
+  name: SupportsFramebufferTransparency
+  nameWithType: ContextValues.SupportsFramebufferTransparency
+  fullName: OpenTK.Platform.ContextValues.SupportsFramebufferTransparency
+- uid: OpenTK.Platform.IWindowComponent.SupportsFramebufferTransparency(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IWindowComponent.SupportsFramebufferTransparency(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IWindowComponent
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SupportsFramebufferTransparency_OpenTK_Platform_WindowHandle_
+  name: SupportsFramebufferTransparency(WindowHandle)
+  nameWithType: IWindowComponent.SupportsFramebufferTransparency(WindowHandle)
+  fullName: OpenTK.Platform.IWindowComponent.SupportsFramebufferTransparency(OpenTK.Platform.WindowHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.SupportsFramebufferTransparency(OpenTK.Platform.WindowHandle)
+    name: SupportsFramebufferTransparency
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SupportsFramebufferTransparency_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.SupportsFramebufferTransparency(OpenTK.Platform.WindowHandle)
+    name: SupportsFramebufferTransparency
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SupportsFramebufferTransparency_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+- uid: OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle,OpenTK.Platform.WindowTransparencyMode,System.Single)
+  commentId: M:OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle,OpenTK.Platform.WindowTransparencyMode,System.Single)
+  parent: OpenTK.Platform.IWindowComponent
+  isExternal: true
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetTransparencyMode_OpenTK_Platform_WindowHandle_OpenTK_Platform_WindowTransparencyMode_System_Single_
+  name: SetTransparencyMode(WindowHandle, WindowTransparencyMode, float)
+  nameWithType: IWindowComponent.SetTransparencyMode(WindowHandle, WindowTransparencyMode, float)
+  fullName: OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle, OpenTK.Platform.WindowTransparencyMode, float)
+  nameWithType.vb: IWindowComponent.SetTransparencyMode(WindowHandle, WindowTransparencyMode, Single)
+  fullName.vb: OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle, OpenTK.Platform.WindowTransparencyMode, Single)
+  name.vb: SetTransparencyMode(WindowHandle, WindowTransparencyMode, Single)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle,OpenTK.Platform.WindowTransparencyMode,System.Single)
+    name: SetTransparencyMode
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetTransparencyMode_OpenTK_Platform_WindowHandle_OpenTK_Platform_WindowTransparencyMode_System_Single_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.WindowTransparencyMode
+    name: WindowTransparencyMode
+    href: OpenTK.Platform.WindowTransparencyMode.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle,OpenTK.Platform.WindowTransparencyMode,System.Single)
+    name: SetTransparencyMode
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetTransparencyMode_OpenTK_Platform_WindowHandle_OpenTK_Platform_WindowTransparencyMode_System_Single_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.WindowTransparencyMode
+    name: WindowTransparencyMode
+    href: OpenTK.Platform.WindowTransparencyMode.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle,System.Single@)
+  commentId: M:OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle,System.Single@)
+  parent: OpenTK.Platform.IWindowComponent
+  isExternal: true
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetTransparencyMode_OpenTK_Platform_WindowHandle_System_Single__
+  name: GetTransparencyMode(WindowHandle, out float)
+  nameWithType: IWindowComponent.GetTransparencyMode(WindowHandle, out float)
+  fullName: OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle, out float)
+  nameWithType.vb: IWindowComponent.GetTransparencyMode(WindowHandle, Single)
+  fullName.vb: OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle, Single)
+  name.vb: GetTransparencyMode(WindowHandle, Single)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle,System.Single@)
+    name: GetTransparencyMode
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetTransparencyMode_OpenTK_Platform_WindowHandle_System_Single__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle,System.Single@)
+    name: GetTransparencyMode
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetTransparencyMode_OpenTK_Platform_WindowHandle_System_Single__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints.SupportTransparentFramebufferX11*
+  commentId: Overload:OpenTK.Platform.OpenGLGraphicsApiHints.SupportTransparentFramebufferX11
+  href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_SupportTransparentFramebufferX11
+  name: SupportTransparentFramebufferX11
+  nameWithType: OpenGLGraphicsApiHints.SupportTransparentFramebufferX11
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.SupportTransparentFramebufferX11
+- uid: OpenTK.Platform.IWindowComponent
+  commentId: T:OpenTK.Platform.IWindowComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IWindowComponent.html
+  name: IWindowComponent
+  nameWithType: IWindowComponent
+  fullName: OpenTK.Platform.IWindowComponent
 - uid: OpenTK.Platform.OpenGLGraphicsApiHints
   commentId: T:OpenTK.Platform.OpenGLGraphicsApiHints
   parent: OpenTK.Platform

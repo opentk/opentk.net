@@ -18,7 +18,7 @@ items:
   source:
     id: MouseState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
-    startLine: 10
+    startLine: 11
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -27,6 +27,11 @@ items:
   syntax:
     content: public struct MouseState
     content.vb: Public Structure MouseState
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+    commentId: M:OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  - linkId: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+    commentId: M:OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
@@ -48,17 +53,20 @@ items:
   source:
     id: Position
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
-    startLine: 15
+    startLine: 17
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
-  summary: The mouse position in desktop coordinates.
+  summary: >-
+    The mouse position in either screen coordinates (if received from <xref href="OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState%40)" data-throw-if-not-resolved="false"></xref>),<br />
+
+    or window relative coordinates (if received from <xref href="OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle%2cOpenTK.Platform.MouseState%40)" data-throw-if-not-resolved="false"></xref>).
   example: []
   syntax:
-    content: public Vector2i Position
+    content: public Vector2 Position
     return:
-      type: OpenTK.Mathematics.Vector2i
-    content.vb: Public Position As Vector2i
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Position As Vector2
 - uid: OpenTK.Platform.MouseState.Scroll
   commentId: F:OpenTK.Platform.MouseState.Scroll
   id: Scroll
@@ -73,11 +81,16 @@ items:
   source:
     id: Scroll
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
-  summary: Virtual position of the scroll wheel.
+  summary: >-
+    Virtual position of the scroll wheel.
+
+    The absolute value of this variable has no intrinsic value,
+
+    it is differences in this value over time that indicate scroll wheel movement.
   example: []
   syntax:
     content: public Vector2 Scroll
@@ -98,7 +111,7 @@ items:
   source:
     id: PressedButtons
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IMouseComponent.cs
-    startLine: 25
+    startLine: 29
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -110,6 +123,76 @@ items:
       type: OpenTK.Platform.MouseButtonFlags
     content.vb: Public PressedButtons As MouseButtonFlags
 references:
+- uid: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  commentId: M:OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  parent: OpenTK.Platform.IMouseComponent
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalMouseState_OpenTK_Platform_MouseState__
+  name: GetGlobalMouseState(out MouseState)
+  nameWithType: IMouseComponent.GetGlobalMouseState(out MouseState)
+  fullName: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(out OpenTK.Platform.MouseState)
+  nameWithType.vb: IMouseComponent.GetGlobalMouseState(MouseState)
+  fullName.vb: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState)
+  name.vb: GetGlobalMouseState(MouseState)
+  spec.csharp:
+  - uid: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+    name: GetGlobalMouseState
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalMouseState_OpenTK_Platform_MouseState__
+  - name: (
+  - name: out
+  - name: " "
+  - uid: OpenTK.Platform.MouseState
+    name: MouseState
+    href: OpenTK.Platform.MouseState.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+    name: GetGlobalMouseState
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalMouseState_OpenTK_Platform_MouseState__
+  - name: (
+  - uid: OpenTK.Platform.MouseState
+    name: MouseState
+    href: OpenTK.Platform.MouseState.html
+  - name: )
+- uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+  commentId: M:OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+  parent: OpenTK.Platform.IMouseComponent
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseState__
+  name: GetMouseState(WindowHandle, out MouseState)
+  nameWithType: IMouseComponent.GetMouseState(WindowHandle, out MouseState)
+  fullName: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle, out OpenTK.Platform.MouseState)
+  nameWithType.vb: IMouseComponent.GetMouseState(WindowHandle, MouseState)
+  fullName.vb: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle, OpenTK.Platform.MouseState)
+  name.vb: GetMouseState(WindowHandle, MouseState)
+  spec.csharp:
+  - uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+    name: GetMouseState
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseState__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: OpenTK.Platform.MouseState
+    name: MouseState
+    href: OpenTK.Platform.MouseState.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+    name: GetMouseState
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseState__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.MouseState
+    name: MouseState
+    href: OpenTK.Platform.MouseState.html
+  - name: )
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
   href: OpenTK.html
@@ -323,6 +406,13 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: OpenTK.Platform.IMouseComponent
+  commentId: T:OpenTK.Platform.IMouseComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IMouseComponent.html
+  name: IMouseComponent
+  nameWithType: IMouseComponent
+  fullName: OpenTK.Platform.IMouseComponent
 - uid: System.ValueType
   commentId: T:System.ValueType
   parent: System
@@ -349,13 +439,13 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: OpenTK.Mathematics.Vector2i
-  commentId: T:OpenTK.Mathematics.Vector2i
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
   parent: OpenTK.Mathematics
-  href: OpenTK.Mathematics.Vector2i.html
-  name: Vector2i
-  nameWithType: Vector2i
-  fullName: OpenTK.Mathematics.Vector2i
+  href: OpenTK.Mathematics.Vector2.html
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
 - uid: OpenTK.Mathematics
   commentId: N:OpenTK.Mathematics
   href: OpenTK.html
@@ -378,13 +468,6 @@ references:
   - uid: OpenTK.Mathematics
     name: Mathematics
     href: OpenTK.Mathematics.html
-- uid: OpenTK.Mathematics.Vector2
-  commentId: T:OpenTK.Mathematics.Vector2
-  parent: OpenTK.Mathematics
-  href: OpenTK.Mathematics.Vector2.html
-  name: Vector2
-  nameWithType: Vector2
-  fullName: OpenTK.Mathematics.Vector2
 - uid: OpenTK.Platform.MouseButtonFlags
   commentId: T:OpenTK.Platform.MouseButtonFlags
   parent: OpenTK.Platform

@@ -9,6 +9,7 @@ items:
   - OpenTK.Platform.IPalComponent.Logger
   - OpenTK.Platform.IPalComponent.Name
   - OpenTK.Platform.IPalComponent.Provides
+  - OpenTK.Platform.IPalComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -96,11 +97,11 @@ items:
   source:
     id: Logger
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IPalComponent.cs
-    startLine: 50
+    startLine: 52
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: ILogger? Logger { get; set; }
@@ -109,6 +110,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Property Logger As ILogger
   overload: OpenTK.Platform.IPalComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
   commentId: M:OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
   id: Initialize(OpenTK.Platform.ToolkitOptions)
@@ -123,7 +129,7 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IPalComponent.cs
-    startLine: 56
+    startLine: 60
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -137,6 +143,38 @@ items:
       description: The options to initialize the component with.
     content.vb: Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.IPalComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IPalComponent.cs
+    startLine: 66
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: void Uninitialize()
+    content.vb: Sub Uninitialize()
+  overload: OpenTK.Platform.IPalComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
 references:
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
@@ -197,12 +235,6 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
-- uid: OpenTK.Platform.IPalComponent.Logger*
-  commentId: Overload:OpenTK.Platform.IPalComponent.Logger
-  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Logger
-  name: Logger
-  nameWithType: IPalComponent.Logger
-  fullName: OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Core.Utility.ILogger
   commentId: T:OpenTK.Core.Utility.ILogger
   parent: OpenTK.Core.Utility
@@ -210,6 +242,18 @@ references:
   name: ILogger
   nameWithType: ILogger
   fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
+- uid: OpenTK.Platform.IPalComponent.Logger*
+  commentId: Overload:OpenTK.Platform.IPalComponent.Logger
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Logger
+  name: Logger
+  nameWithType: IPalComponent.Logger
+  fullName: OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -240,12 +284,6 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
-- uid: OpenTK.Platform.IPalComponent.Initialize*
-  commentId: Overload:OpenTK.Platform.IPalComponent.Initialize
-  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
-  name: Initialize
-  nameWithType: IPalComponent.Initialize
-  fullName: OpenTK.Platform.IPalComponent.Initialize
 - uid: OpenTK.Platform.ToolkitOptions
   commentId: T:OpenTK.Platform.ToolkitOptions
   parent: OpenTK.Platform
@@ -253,3 +291,57 @@ references:
   name: ToolkitOptions
   nameWithType: ToolkitOptions
   fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+- uid: OpenTK.Platform.IPalComponent.Initialize*
+  commentId: Overload:OpenTK.Platform.IPalComponent.Initialize
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Initialize_OpenTK_Platform_ToolkitOptions_
+  name: Initialize
+  nameWithType: IPalComponent.Initialize
+  fullName: OpenTK.Platform.IPalComponent.Initialize
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.IPalComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.IPalComponent.Uninitialize
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: IPalComponent.Uninitialize
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize

@@ -20,20 +20,24 @@ items:
   source:
     id: IIconComponent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IIconComponent.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
-  summary: Interface for PAL drivers which provide the icon component.
+  summary: Interface creatiing and interacting with window icon images.
   example: []
   syntax:
     content: 'public interface IIconComponent : IPalComponent'
     content.vb: Public Interface IIconComponent Inherits IPalComponent
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Icon
+    commentId: P:OpenTK.Platform.Toolkit.Icon
   inheritedMembers:
   - OpenTK.Platform.IPalComponent.Name
   - OpenTK.Platform.IPalComponent.Provides
   - OpenTK.Platform.IPalComponent.Logger
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.IIconComponent.CanLoadSystemIcons
   commentId: P:OpenTK.Platform.IIconComponent.CanLoadSystemIcons
   id: CanLoadSystemIcons
@@ -48,14 +52,14 @@ items:
   source:
     id: CanLoadSystemIcons
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IIconComponent.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
   summary: >-
-    True if icon objects can be populated from common system icons.
+    If common system icons can be created.
 
-    If this is true, then <xref href="OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)" data-throw-if-not-resolved="false"></xref> will work, otherwise an exception will be thrown.
+    If this is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> then <xref href="OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)" data-throw-if-not-resolved="false"></xref> will work, otherwise an exception will be thrown.
   example: []
   syntax:
     content: bool CanLoadSystemIcons { get; }
@@ -81,14 +85,14 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IIconComponent.cs
-    startLine: 24
+    startLine: 26
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
   summary: >-
     Load a system icon.
 
-    Only works if <xref href="OpenTK.Platform.IIconComponent.CanLoadSystemIcons" data-throw-if-not-resolved="false"></xref> is true.
+    Only works if <xref href="OpenTK.Platform.IIconComponent.CanLoadSystemIcons" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: IconHandle Create(SystemIconType systemIcon)
@@ -101,6 +105,10 @@ items:
       description: A handle to the created system icon.
     content.vb: Function Create(systemIcon As SystemIconType) As IconHandle
   overload: OpenTK.Platform.IIconComponent.Create*
+  exceptions:
+  - type: System.PlatformNotSupportedException
+    commentId: T:System.PlatformNotSupportedException
+    description: Platform does not implement this function. See <xref href="OpenTK.Platform.IIconComponent.CanLoadSystemIcons" data-throw-if-not-resolved="false"></xref>.
   seealso:
   - linkId: OpenTK.Platform.IIconComponent.CanLoadSystemIcons
     commentId: P:OpenTK.Platform.IIconComponent.CanLoadSystemIcons
@@ -118,7 +126,7 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IIconComponent.cs
-    startLine: 34
+    startLine: 38
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -135,12 +143,19 @@ items:
       description: Height of the bitmap.
     - id: data
       type: System.ReadOnlySpan{System.Byte}
-      description: Image data to load into icon.
+      description: Image data to load into icon in RGBA format.
     return:
       type: OpenTK.Platform.IconHandle
       description: A handle to the created icon.
     content.vb: Function Create(width As Integer, height As Integer, data As ReadOnlySpan(Of Byte)) As IconHandle
   overload: OpenTK.Platform.IIconComponent.Create*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: If <code class="paramref">width</code>, or <code class="paramref">height</code> are negative.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: <code class="paramref">data</code> is smaller than specified dimensions.
   nameWithType.vb: IIconComponent.Create(Integer, Integer, ReadOnlySpan(Of Byte))
   fullName.vb: OpenTK.Platform.IIconComponent.Create(Integer, Integer, System.ReadOnlySpan(Of Byte))
   name.vb: Create(Integer, Integer, ReadOnlySpan(Of Byte))
@@ -158,7 +173,7 @@ items:
   source:
     id: Destroy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IIconComponent.cs
-    startLine: 41
+    startLine: 46
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -172,10 +187,11 @@ items:
       description: Handle to the icon object to destroy.
     content.vb: Sub Destroy(handle As IconHandle)
   overload: OpenTK.Platform.IIconComponent.Destroy*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: <code class="paramref">handle</code> is null.
+  seealso:
+  - linkId: OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)
+    commentId: M:OpenTK.Platform.IIconComponent.Create(OpenTK.Platform.SystemIconType)
+  - linkId: OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
+    commentId: M:OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
 - uid: OpenTK.Platform.IIconComponent.GetSize(OpenTK.Platform.IconHandle,System.Int32@,System.Int32@)
   commentId: M:OpenTK.Platform.IIconComponent.GetSize(OpenTK.Platform.IconHandle,System.Int32@,System.Int32@)
   id: GetSize(OpenTK.Platform.IconHandle,System.Int32@,System.Int32@)
@@ -190,7 +206,7 @@ items:
   source:
     id: GetSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IIconComponent.cs
-    startLine: 50
+    startLine: 54
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -210,14 +226,16 @@ items:
       description: Height of icon.
     content.vb: Sub GetSize(handle As IconHandle, width As Integer, height As Integer)
   overload: OpenTK.Platform.IIconComponent.GetSize*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: <code class="paramref">handle</code> is null.
   nameWithType.vb: IIconComponent.GetSize(IconHandle, Integer, Integer)
   fullName.vb: OpenTK.Platform.IIconComponent.GetSize(OpenTK.Platform.IconHandle, Integer, Integer)
   name.vb: GetSize(IconHandle, Integer, Integer)
 references:
+- uid: OpenTK.Platform.Toolkit.Icon
+  commentId: P:OpenTK.Platform.Toolkit.Icon
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Icon
+  name: Icon
+  nameWithType: Toolkit.Icon
+  fullName: OpenTK.Platform.Toolkit.Icon
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
   href: OpenTK.html
@@ -285,6 +303,25 @@ references:
   - uid: OpenTK.Platform.ToolkitOptions
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
   - name: )
 - uid: OpenTK.Platform.IPalComponent
   commentId: T:OpenTK.Platform.IPalComponent
@@ -356,6 +393,13 @@ references:
   name: CanLoadSystemIcons
   nameWithType: IIconComponent.CanLoadSystemIcons
   fullName: OpenTK.Platform.IIconComponent.CanLoadSystemIcons
+- uid: System.PlatformNotSupportedException
+  commentId: T:System.PlatformNotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.platformnotsupportedexception
+  name: PlatformNotSupportedException
+  nameWithType: PlatformNotSupportedException
+  fullName: System.PlatformNotSupportedException
 - uid: OpenTK.Platform.IIconComponent.Create*
   commentId: Overload:OpenTK.Platform.IIconComponent.Create
   href: OpenTK.Platform.IIconComponent.html#OpenTK_Platform_IIconComponent_Create_OpenTK_Platform_SystemIconType_
@@ -376,6 +420,20 @@ references:
   name: IconHandle
   nameWithType: IconHandle
   fullName: OpenTK.Platform.IconHandle
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -450,13 +508,75 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: System.ArgumentNullException
-  commentId: T:System.ArgumentNullException
+- uid: OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
+  commentId: M:OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
+  parent: OpenTK.Platform.IIconComponent
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
-  name: ArgumentNullException
-  nameWithType: ArgumentNullException
-  fullName: System.ArgumentNullException
+  href: OpenTK.Platform.IIconComponent.html#OpenTK_Platform_IIconComponent_Create_System_Int32_System_Int32_System_ReadOnlySpan_System_Byte__
+  name: Create(int, int, ReadOnlySpan<byte>)
+  nameWithType: IIconComponent.Create(int, int, ReadOnlySpan<byte>)
+  fullName: OpenTK.Platform.IIconComponent.Create(int, int, System.ReadOnlySpan<byte>)
+  nameWithType.vb: IIconComponent.Create(Integer, Integer, ReadOnlySpan(Of Byte))
+  fullName.vb: OpenTK.Platform.IIconComponent.Create(Integer, Integer, System.ReadOnlySpan(Of Byte))
+  name.vb: Create(Integer, Integer, ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
+    name: Create
+    href: OpenTK.Platform.IIconComponent.html#OpenTK_Platform_IIconComponent_Create_System_Int32_System_Int32_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IIconComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte})
+    name: Create
+    href: OpenTK.Platform.IIconComponent.html#OpenTK_Platform_IIconComponent_Create_System_Int32_System_Int32_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
 - uid: OpenTK.Platform.IIconComponent.Destroy*
   commentId: Overload:OpenTK.Platform.IIconComponent.Destroy
   href: OpenTK.Platform.IIconComponent.html#OpenTK_Platform_IIconComponent_Destroy_OpenTK_Platform_IconHandle_

@@ -18,6 +18,7 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)
   - OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardText(System.String)
   - OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SupportedFormats
+  - OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -124,7 +125,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -133,6 +134,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -163,8 +169,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.macOS.MacOSClipboardComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: MacOSClipboardComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
+    startLine: 81
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.CheckClipboardUpdate
   commentId: M:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.CheckClipboardUpdate
   id: CheckClipboardUpdate
@@ -179,7 +219,7 @@ items:
   source:
     id: CheckClipboardUpdate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 80
+    startLine: 86
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -203,7 +243,7 @@ items:
   source:
     id: SupportedFormats
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 90
+    startLine: 96
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -216,6 +256,11 @@ items:
       type: System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ClipboardFormat}
     content.vb: Public ReadOnly Property SupportedFormats As IReadOnlyList(Of ClipboardFormat)
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SupportedFormats*
+  seealso:
+  - linkId: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  - linkId: OpenTK.Platform.ClipboardFormat
+    commentId: T:OpenTK.Platform.ClipboardFormat
   implements:
   - OpenTK.Platform.IClipboardComponent.SupportedFormats
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardFormat
@@ -232,7 +277,7 @@ items:
   source:
     id: GetClipboardFormat
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 144
+    startLine: 150
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -245,6 +290,9 @@ items:
       description: The format of the data currently in the clipboard.
     content.vb: Public Function GetClipboardFormat() As ClipboardFormat
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardFormat*
+  seealso:
+  - linkId: OpenTK.Platform.ClipboardFormat
+    commentId: T:OpenTK.Platform.ClipboardFormat
   implements:
   - OpenTK.Platform.IClipboardComponent.GetClipboardFormat
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardText(System.String)
@@ -261,7 +309,7 @@ items:
   source:
     id: SetClipboardText
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 150
+    startLine: 156
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -272,9 +320,12 @@ items:
     parameters:
     - id: text
       type: System.String
-      description: The text to put on the clipboard.
+      description: The text to write to the clipboard.
     content.vb: Public Sub SetClipboardText(text As String)
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardText*
+  seealso:
+  - linkId: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
   implements:
   - OpenTK.Platform.IClipboardComponent.SetClipboardText(System.String)
   nameWithType.vb: MacOSClipboardComponent.SetClipboardText(String)
@@ -294,22 +345,25 @@ items:
   source:
     id: GetClipboardText
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 171
+    startLine: 177
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: >-
-    Returns the string currently in the clipboard.
+    Gets the string currently in the clipboard.
 
-    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Text" data-throw-if-not-resolved="false"></xref> format.
+    This function returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Text" data-throw-if-not-resolved="false"></xref> format.
   example: []
   syntax:
     content: public string? GetClipboardText()
     return:
       type: System.String
-      description: The string currently in the clipboard, or null.
+      description: The string currently in the clipboard, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     content.vb: Public Function GetClipboardText() As String
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardText*
+  seealso:
+  - linkId: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
   implements:
   - OpenTK.Platform.IClipboardComponent.GetClipboardText
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardAudio
@@ -326,22 +380,25 @@ items:
   source:
     id: GetClipboardAudio
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 184
+    startLine: 190
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: >-
     Gets the audio data currently in the clipboard.
 
-    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Audio" data-throw-if-not-resolved="false"></xref> format.
+    This function returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Audio" data-throw-if-not-resolved="false"></xref> format.
   example: []
   syntax:
     content: public AudioData? GetClipboardAudio()
     return:
       type: OpenTK.Platform.AudioData
-      description: The audio data currently in the clipboard.
+      description: The audio data currently in the clipboard, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     content.vb: Public Function GetClipboardAudio() As AudioData
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardAudio*
+  seealso:
+  - linkId: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
   implements:
   - OpenTK.Platform.IClipboardComponent.GetClipboardAudio
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)
@@ -358,11 +415,17 @@ items:
   source:
     id: SetClipboardBitmap
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 199
+    startLine: 202
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: Writes a bitmap to the clipboard.
+  remarks: >-
+    On linux clipboard bitmaps are defacto transferred as PNG data, as such a PNG encoder/decoder is needed to read and write bitmaps from the clipboard.
+
+    To enable this <xref href="OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)" data-throw-if-not-resolved="false"></xref> must be called with an object that implements the <xref href="OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec" data-throw-if-not-resolved="false"></xref> interface.
+
+    If this is not done, <xref href="OpenTK.Platform.IClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Platform.IClipboardComponent.GetClipboardBitmap" data-throw-if-not-resolved="false"></xref> will both throw an exception.
   example: []
   syntax:
     content: public void SetClipboardBitmap(Bitmap bitmap)
@@ -372,6 +435,15 @@ items:
       description: The bitmap to write to the clipboard.
     content.vb: Public Sub SetClipboardBitmap(bitmap As Bitmap)
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap*
+  seealso:
+  - linkId: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  - linkId: OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+    commentId: M:OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+  - linkId: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+    commentId: T:OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+  implements:
+  - OpenTK.Platform.IClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap
   commentId: M:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap
   id: GetClipboardBitmap
@@ -386,22 +458,35 @@ items:
   source:
     id: GetClipboardBitmap
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 255
+    startLine: 258
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: >-
     Gets the bitmap currently in the clipboard.
 
-    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Bitmap" data-throw-if-not-resolved="false"></xref> format.
+    This function returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Bitmap" data-throw-if-not-resolved="false"></xref> format.
+  remarks: >-
+    On linux clipboard bitmaps are defacto transferred as PNG data, as such a PNG encoder/decoder is needed to read and write bitmaps from the clipboard.
+
+    To enable this <xref href="OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)" data-throw-if-not-resolved="false"></xref> must be called with an object that implements the <xref href="OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec" data-throw-if-not-resolved="false"></xref> interface.
+
+    If this is not done, <xref href="OpenTK.Platform.IClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Platform.IClipboardComponent.GetClipboardBitmap" data-throw-if-not-resolved="false"></xref> will both throw an exception.
   example: []
   syntax:
     content: public Bitmap? GetClipboardBitmap()
     return:
       type: OpenTK.Platform.Bitmap
-      description: The bitmap currently in the clipboard.
+      description: The bitmap currently in the clipboard, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     content.vb: Public Function GetClipboardBitmap() As Bitmap
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap*
+  seealso:
+  - linkId: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  - linkId: OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+    commentId: M:OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+  - linkId: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+    commentId: T:OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
   implements:
   - OpenTK.Platform.IClipboardComponent.GetClipboardBitmap
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardFiles
@@ -418,22 +503,25 @@ items:
   source:
     id: GetClipboardFiles
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSClipboardComponent.cs
-    startLine: 301
+    startLine: 304
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: >-
     Gets a list of files and directories currently in the clipboard.
 
-    This function returns null if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Files" data-throw-if-not-resolved="false"></xref> format.
+    This function returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the current clipboard data doesn't have the <xref href="OpenTK.Platform.ClipboardFormat.Files" data-throw-if-not-resolved="false"></xref> format.
   example: []
   syntax:
     content: public List<string>? GetClipboardFiles()
     return:
       type: System.Collections.Generic.List{System.String}
-      description: The list of files and directories currently in the clipboard.
+      description: The list of files and directories currently in the clipboard, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     content.vb: Public Function GetClipboardFiles() As List(Of String)
   overload: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardFiles*
+  seealso:
+  - linkId: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
   implements:
   - OpenTK.Platform.IClipboardComponent.GetClipboardFiles
 references:
@@ -792,6 +880,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Logger
   href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_Logger
@@ -805,13 +906,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -842,6 +936,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Initialize
   href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -873,13 +998,49 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Uninitialize
+  href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: MacOSClipboardComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.CheckClipboardUpdate*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.CheckClipboardUpdate
   href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_CheckClipboardUpdate
@@ -897,6 +1058,32 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+  parent: OpenTK.Platform.IClipboardComponent
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardFormat
+  name: GetClipboardFormat()
+  nameWithType: IClipboardComponent.GetClipboardFormat()
+  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardFormat()
+  spec.csharp:
+  - uid: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    name: GetClipboardFormat
+    href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardFormat
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
+    name: GetClipboardFormat
+    href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardFormat
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.ClipboardFormat
+  commentId: T:OpenTK.Platform.ClipboardFormat
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ClipboardFormat.html
+  name: ClipboardFormat
+  nameWithType: ClipboardFormat
+  fullName: OpenTK.Platform.ClipboardFormat
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SupportedFormats*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SupportedFormats
   href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_SupportedFormats
@@ -1014,32 +1201,6 @@ references:
   name: GetClipboardFormat
   nameWithType: MacOSClipboardComponent.GetClipboardFormat
   fullName: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardFormat
-- uid: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
-  commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardFormat
-  parent: OpenTK.Platform.IClipboardComponent
-  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardFormat
-  name: GetClipboardFormat()
-  nameWithType: IClipboardComponent.GetClipboardFormat()
-  fullName: OpenTK.Platform.IClipboardComponent.GetClipboardFormat()
-  spec.csharp:
-  - uid: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
-    name: GetClipboardFormat
-    href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardFormat
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.IClipboardComponent.GetClipboardFormat
-    name: GetClipboardFormat
-    href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardFormat
-  - name: (
-  - name: )
-- uid: OpenTK.Platform.ClipboardFormat
-  commentId: T:OpenTK.Platform.ClipboardFormat
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ClipboardFormat.html
-  name: ClipboardFormat
-  nameWithType: ClipboardFormat
-  fullName: OpenTK.Platform.ClipboardFormat
 - uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardText*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardText
   href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_SetClipboardText_System_String_
@@ -1146,31 +1307,78 @@ references:
   name: AudioData
   nameWithType: AudioData
   fullName: OpenTK.Platform.AudioData
-- uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap*
-  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap
-  href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_SetClipboardBitmap_OpenTK_Platform_Bitmap_
-  name: SetClipboardBitmap
-  nameWithType: MacOSClipboardComponent.SetClipboardBitmap
-  fullName: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap
-- uid: OpenTK.Platform.Bitmap
-  commentId: T:OpenTK.Platform.Bitmap
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.Bitmap.html
-  name: Bitmap
-  nameWithType: Bitmap
-  fullName: OpenTK.Platform.Bitmap
-- uid: OpenTK.Platform.ClipboardFormat.Bitmap
-  commentId: F:OpenTK.Platform.ClipboardFormat.Bitmap
-  href: OpenTK.Platform.ClipboardFormat.html#OpenTK_Platform_ClipboardFormat_Bitmap
-  name: Bitmap
-  nameWithType: ClipboardFormat.Bitmap
-  fullName: OpenTK.Platform.ClipboardFormat.Bitmap
-- uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap*
-  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap
-  href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_GetClipboardBitmap
-  name: GetClipboardBitmap
-  nameWithType: MacOSClipboardComponent.GetClipboardBitmap
-  fullName: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap
+- uid: OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+  commentId: M:OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+  href: OpenTK.Platform.Native.X11.X11ClipboardComponent.html#OpenTK_Platform_Native_X11_X11ClipboardComponent_SetPngCodec_OpenTK_Platform_Native_X11_X11ClipboardComponent_IPngCodec_
+  name: SetPngCodec(IPngCodec)
+  nameWithType: X11ClipboardComponent.SetPngCodec(X11ClipboardComponent.IPngCodec)
+  fullName: OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+  spec.csharp:
+  - uid: OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+    name: SetPngCodec
+    href: OpenTK.Platform.Native.X11.X11ClipboardComponent.html#OpenTK_Platform_Native_X11_X11ClipboardComponent_SetPngCodec_OpenTK_Platform_Native_X11_X11ClipboardComponent_IPngCodec_
+  - name: (
+  - uid: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+    name: IPngCodec
+    href: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Native.X11.X11ClipboardComponent.SetPngCodec(OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec)
+    name: SetPngCodec
+    href: OpenTK.Platform.Native.X11.X11ClipboardComponent.html#OpenTK_Platform_Native_X11_X11ClipboardComponent_SetPngCodec_OpenTK_Platform_Native_X11_X11ClipboardComponent_IPngCodec_
+  - name: (
+  - uid: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+    name: IPngCodec
+    href: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec.html
+  - name: )
+- uid: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+  commentId: T:OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+  parent: OpenTK.Platform.Native.X11
+  href: OpenTK.Platform.Native.X11.X11ClipboardComponent.html
+  name: X11ClipboardComponent.IPngCodec
+  nameWithType: X11ClipboardComponent.IPngCodec
+  fullName: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+  spec.csharp:
+  - uid: OpenTK.Platform.Native.X11.X11ClipboardComponent
+    name: X11ClipboardComponent
+    href: OpenTK.Platform.Native.X11.X11ClipboardComponent.html
+  - name: .
+  - uid: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+    name: IPngCodec
+    href: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec.html
+  spec.vb:
+  - uid: OpenTK.Platform.Native.X11.X11ClipboardComponent
+    name: X11ClipboardComponent
+    href: OpenTK.Platform.Native.X11.X11ClipboardComponent.html
+  - name: .
+  - uid: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec
+    name: IPngCodec
+    href: OpenTK.Platform.Native.X11.X11ClipboardComponent.IPngCodec.html
+- uid: OpenTK.Platform.IClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)
+  commentId: M:OpenTK.Platform.IClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)
+  parent: OpenTK.Platform.IClipboardComponent
+  href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_SetClipboardBitmap_OpenTK_Platform_Bitmap_
+  name: SetClipboardBitmap(Bitmap)
+  nameWithType: IClipboardComponent.SetClipboardBitmap(Bitmap)
+  fullName: OpenTK.Platform.IClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)
+  spec.csharp:
+  - uid: OpenTK.Platform.IClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)
+    name: SetClipboardBitmap
+    href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_SetClipboardBitmap_OpenTK_Platform_Bitmap_
+  - name: (
+  - uid: OpenTK.Platform.Bitmap
+    name: Bitmap
+    href: OpenTK.Platform.Bitmap.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap)
+    name: SetClipboardBitmap
+    href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_SetClipboardBitmap_OpenTK_Platform_Bitmap_
+  - name: (
+  - uid: OpenTK.Platform.Bitmap
+    name: Bitmap
+    href: OpenTK.Platform.Bitmap.html
+  - name: )
 - uid: OpenTK.Platform.IClipboardComponent.GetClipboardBitmap
   commentId: M:OpenTK.Platform.IClipboardComponent.GetClipboardBitmap
   parent: OpenTK.Platform.IClipboardComponent
@@ -1190,6 +1398,69 @@ references:
     href: OpenTK.Platform.IClipboardComponent.html#OpenTK_Platform_IClipboardComponent_GetClipboardBitmap
   - name: (
   - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap
+  href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_SetClipboardBitmap_OpenTK_Platform_Bitmap_
+  name: SetClipboardBitmap
+  nameWithType: MacOSClipboardComponent.SetClipboardBitmap
+  fullName: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.SetClipboardBitmap
+- uid: OpenTK.Platform.Bitmap
+  commentId: T:OpenTK.Platform.Bitmap
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.Bitmap.html
+  name: Bitmap
+  nameWithType: Bitmap
+  fullName: OpenTK.Platform.Bitmap
+- uid: OpenTK.Platform.Native.X11
+  commentId: N:OpenTK.Platform.Native.X11
+  href: OpenTK.html
+  name: OpenTK.Platform.Native.X11
+  nameWithType: OpenTK.Platform.Native.X11
+  fullName: OpenTK.Platform.Native.X11
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  - name: .
+  - uid: OpenTK.Platform.Native
+    name: Native
+    href: OpenTK.Platform.Native.html
+  - name: .
+  - uid: OpenTK.Platform.Native.X11
+    name: X11
+    href: OpenTK.Platform.Native.X11.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  - name: .
+  - uid: OpenTK.Platform.Native
+    name: Native
+    href: OpenTK.Platform.Native.html
+  - name: .
+  - uid: OpenTK.Platform.Native.X11
+    name: X11
+    href: OpenTK.Platform.Native.X11.html
+- uid: OpenTK.Platform.ClipboardFormat.Bitmap
+  commentId: F:OpenTK.Platform.ClipboardFormat.Bitmap
+  href: OpenTK.Platform.ClipboardFormat.html#OpenTK_Platform_ClipboardFormat_Bitmap
+  name: Bitmap
+  nameWithType: ClipboardFormat.Bitmap
+  fullName: OpenTK.Platform.ClipboardFormat.Bitmap
+- uid: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap
+  href: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.html#OpenTK_Platform_Native_macOS_MacOSClipboardComponent_GetClipboardBitmap
+  name: GetClipboardBitmap
+  nameWithType: MacOSClipboardComponent.GetClipboardBitmap
+  fullName: OpenTK.Platform.Native.macOS.MacOSClipboardComponent.GetClipboardBitmap
 - uid: OpenTK.Platform.ClipboardFormat.Files
   commentId: F:OpenTK.Platform.ClipboardFormat.Files
   href: OpenTK.Platform.ClipboardFormat.html#OpenTK_Platform_ClipboardFormat_Files

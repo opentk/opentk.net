@@ -13,6 +13,7 @@ items:
   - OpenTK.Platform.Native.Windows.DialogComponent.ShowMessageBox(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
   - OpenTK.Platform.Native.Windows.DialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
   - OpenTK.Platform.Native.Windows.DialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  - OpenTK.Platform.Native.Windows.DialogComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -119,7 +120,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -128,6 +129,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.Windows.DialogComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.Windows.DialogComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -158,8 +164,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.DialogComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.Windows.DialogComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.Windows.DialogComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.Windows.DialogComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: DialogComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.Windows.DialogComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\DialogComponent.cs
+    startLine: 118
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.Windows
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.Windows.DialogComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.Windows.DialogComponent.CanTargetFolders
   commentId: P:OpenTK.Platform.Native.Windows.DialogComponent.CanTargetFolders
   id: CanTargetFolders
@@ -174,14 +214,14 @@ items:
   source:
     id: CanTargetFolders
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\DialogComponent.cs
-    startLine: 118
+    startLine: 136
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: >-
     If the value of this property is true <xref href="OpenTK.Platform.OpenDialogOptions.SelectDirectory" data-throw-if-not-resolved="false"></xref> will work.
 
-    Otherwise these flags will be ignored.
+    Otherwise this flag will be ignored.
   example: []
   syntax:
     content: public bool CanTargetFolders { get; }
@@ -191,6 +231,8 @@ items:
     content.vb: Public ReadOnly Property CanTargetFolders As Boolean
   overload: OpenTK.Platform.Native.Windows.DialogComponent.CanTargetFolders*
   seealso:
+  - linkId: OpenTK.Platform.Toolkit.Dialog
+    commentId: P:OpenTK.Platform.Toolkit.Dialog
   - linkId: OpenTK.Platform.OpenDialogOptions.SelectDirectory
     commentId: F:OpenTK.Platform.OpenDialogOptions.SelectDirectory
   - linkId: OpenTK.Platform.IDialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
@@ -211,11 +253,12 @@ items:
   source:
     id: ShowMessageBox
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\DialogComponent.cs
-    startLine: 121
+    startLine: 139
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Shows a modal message box.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
   example: []
   syntax:
     content: public MessageBoxButton ShowMessageBox(WindowHandle parent, string title, string content, MessageBoxType messageBoxType, IconHandle? customIcon = null)
@@ -228,7 +271,7 @@ items:
       description: The title of the dialog box.
     - id: content
       type: System.String
-      description: The content text of the dialog box.
+      description: The content text of the dialog box. This is the prompt to the user, explain what they should do.
     - id: messageBoxType
       type: OpenTK.Platform.MessageBoxType
       description: The type of message box. Determines button layout and default icon.
@@ -240,6 +283,15 @@ items:
       description: The pressed message box button.
     content.vb: Public Function ShowMessageBox(parent As WindowHandle, title As String, content As String, messageBoxType As MessageBoxType, customIcon As IconHandle = Nothing) As MessageBoxButton
   overload: OpenTK.Platform.Native.Windows.DialogComponent.ShowMessageBox*
+  seealso:
+  - linkId: OpenTK.Platform.MessageBoxType
+    commentId: T:OpenTK.Platform.MessageBoxType
+  - linkId: OpenTK.Platform.MessageBoxButton
+    commentId: T:OpenTK.Platform.MessageBoxButton
+  - linkId: OpenTK.Platform.Toolkit.Icon
+    commentId: P:OpenTK.Platform.Toolkit.Icon
+  - linkId: OpenTK.Platform.IIconComponent
+    commentId: T:OpenTK.Platform.IIconComponent
   implements:
   - OpenTK.Platform.IDialogComponent.ShowMessageBox(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
   nameWithType.vb: DialogComponent.ShowMessageBox(WindowHandle, String, String, MessageBoxType, IconHandle)
@@ -259,11 +311,12 @@ items:
   source:
     id: ShowOpenDialog
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\DialogComponent.cs
-    startLine: 324
+    startLine: 342
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Shows a modal "open file/folder" dialog.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
   example: []
   syntax:
     content: public List<string>? ShowOpenDialog(WindowHandle parent, string title, string directory, DialogFileFilter[]? allowedExtensions, OpenDialogOptions options)
@@ -319,11 +372,12 @@ items:
   source:
     id: ShowSaveDialog
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\DialogComponent.cs
-    startLine: 417
+    startLine: 435
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Shows a modal "save file" dialog.
+  remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
   example: []
   syntax:
     content: public string? ShowSaveDialog(WindowHandle parent, string title, string directory, DialogFileFilter[]? allowedExtensions, SaveDialogOptions options)
@@ -714,6 +768,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.Windows.DialogComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.Windows.DialogComponent.Logger
   href: OpenTK.Platform.Native.Windows.DialogComponent.html#OpenTK_Platform_Native_Windows_DialogComponent_Logger
@@ -727,13 +794,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -764,6 +824,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.Windows.DialogComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.DialogComponent.Initialize
   href: OpenTK.Platform.Native.Windows.DialogComponent.html#OpenTK_Platform_Native_Windows_DialogComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -795,13 +886,55 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.Windows.DialogComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.Windows.DialogComponent.Uninitialize
+  href: OpenTK.Platform.Native.Windows.DialogComponent.html#OpenTK_Platform_Native_Windows_DialogComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: DialogComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.Windows.DialogComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Toolkit.Dialog
+  commentId: P:OpenTK.Platform.Toolkit.Dialog
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Dialog
+  name: Dialog
+  nameWithType: Toolkit.Dialog
+  fullName: OpenTK.Platform.Toolkit.Dialog
 - uid: OpenTK.Platform.OpenDialogOptions.SelectDirectory
   commentId: F:OpenTK.Platform.OpenDialogOptions.SelectDirectory
   href: OpenTK.Platform.OpenDialogOptions.html#OpenTK_Platform_OpenDialogOptions_SelectDirectory
@@ -909,6 +1042,33 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: OpenTK.Platform.MessageBoxType
+  commentId: T:OpenTK.Platform.MessageBoxType
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.MessageBoxType.html
+  name: MessageBoxType
+  nameWithType: MessageBoxType
+  fullName: OpenTK.Platform.MessageBoxType
+- uid: OpenTK.Platform.MessageBoxButton
+  commentId: T:OpenTK.Platform.MessageBoxButton
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.MessageBoxButton.html
+  name: MessageBoxButton
+  nameWithType: MessageBoxButton
+  fullName: OpenTK.Platform.MessageBoxButton
+- uid: OpenTK.Platform.Toolkit.Icon
+  commentId: P:OpenTK.Platform.Toolkit.Icon
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Icon
+  name: Icon
+  nameWithType: Toolkit.Icon
+  fullName: OpenTK.Platform.Toolkit.Icon
+- uid: OpenTK.Platform.IIconComponent
+  commentId: T:OpenTK.Platform.IIconComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IIconComponent.html
+  name: IIconComponent
+  nameWithType: IIconComponent
+  fullName: OpenTK.Platform.IIconComponent
 - uid: OpenTK.Platform.Native.Windows.DialogComponent.ShowMessageBox*
   commentId: Overload:OpenTK.Platform.Native.Windows.DialogComponent.ShowMessageBox
   href: OpenTK.Platform.Native.Windows.DialogComponent.html#OpenTK_Platform_Native_Windows_DialogComponent_ShowMessageBox_OpenTK_Platform_WindowHandle_System_String_System_String_OpenTK_Platform_MessageBoxType_OpenTK_Platform_IconHandle_
@@ -995,13 +1155,6 @@ references:
   name: WindowHandle
   nameWithType: WindowHandle
   fullName: OpenTK.Platform.WindowHandle
-- uid: OpenTK.Platform.MessageBoxType
-  commentId: T:OpenTK.Platform.MessageBoxType
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.MessageBoxType.html
-  name: MessageBoxType
-  nameWithType: MessageBoxType
-  fullName: OpenTK.Platform.MessageBoxType
 - uid: OpenTK.Platform.IconHandle
   commentId: T:OpenTK.Platform.IconHandle
   parent: OpenTK.Platform
@@ -1009,13 +1162,6 @@ references:
   name: IconHandle
   nameWithType: IconHandle
   fullName: OpenTK.Platform.IconHandle
-- uid: OpenTK.Platform.MessageBoxButton
-  commentId: T:OpenTK.Platform.MessageBoxButton
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.MessageBoxButton.html
-  name: MessageBoxButton
-  nameWithType: MessageBoxButton
-  fullName: OpenTK.Platform.MessageBoxButton
 - uid: OpenTK.Platform.DialogFileFilter
   commentId: T:OpenTK.Platform.DialogFileFilter
   parent: OpenTK.Platform

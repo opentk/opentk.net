@@ -20,6 +20,7 @@ items:
   - OpenTK.Platform.Native.X11.X11KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
   - OpenTK.Platform.Native.X11.X11KeyboardComponent.SupportsIme
   - OpenTK.Platform.Native.X11.X11KeyboardComponent.SupportsLayouts
+  - OpenTK.Platform.Native.X11.X11KeyboardComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -126,7 +127,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -135,6 +136,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.X11.X11KeyboardComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -165,8 +171,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.X11.X11KeyboardComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.X11.X11KeyboardComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.X11.X11KeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: X11KeyboardComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.X11.X11KeyboardComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
+    startLine: 51
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.X11
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.X11.X11KeyboardComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.SupportsLayouts
   commentId: P:OpenTK.Platform.Native.X11.X11KeyboardComponent.SupportsLayouts
   id: SupportsLayouts
@@ -181,7 +221,7 @@ items:
   source:
     id: SupportsLayouts
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 408
+    startLine: 416
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -210,7 +250,7 @@ items:
   source:
     id: SupportsIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 411
+    startLine: 419
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -239,7 +279,7 @@ items:
   source:
     id: GetActiveKeyboardLayout
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 414
+    startLine: 422
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -279,7 +319,7 @@ items:
   source:
     id: GetAvailableKeyboardLayouts
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 422
+    startLine: 430
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -308,7 +348,7 @@ items:
   source:
     id: GetScancodeFromKey
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 430
+    startLine: 438
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -335,6 +375,9 @@ items:
         or <xref href="OpenTK.Platform.Scancode.Unknown" data-throw-if-not-resolved="false"></xref> if no scancode produces the key.
     content.vb: Public Function GetScancodeFromKey(key As Key) As Scancode
   overload: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetScancodeFromKey*
+  seealso:
+  - linkId: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+    commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
   implements:
   - OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
@@ -351,7 +394,7 @@ items:
   source:
     id: GetKeyFromScancode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 440
+    startLine: 448
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -374,6 +417,9 @@ items:
         or <xref href="OpenTK.Platform.Key.Unknown" data-throw-if-not-resolved="false"></xref> if the scancode can't be mapped to a key.
     content.vb: Public Function GetKeyFromScancode(scancode As Scancode) As Key
   overload: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyFromScancode*
+  seealso:
+  - linkId: OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
+    commentId: M:OpenTK.Platform.IKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
   implements:
   - OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyboardState(System.Boolean[])
@@ -390,7 +436,7 @@ items:
   source:
     id: GetKeyboardState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 451
+    startLine: 459
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -409,6 +455,9 @@ items:
       description: An array to be filled with the keyboard state.
     content.vb: Public Sub GetKeyboardState(keyboardState As Boolean())
   overload: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyboardState*
+  seealso:
+  - linkId: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+    commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
   implements:
   - OpenTK.Platform.IKeyboardComponent.GetKeyboardState(System.Boolean[])
   nameWithType.vb: X11KeyboardComponent.GetKeyboardState(Boolean())
@@ -428,7 +477,7 @@ items:
   source:
     id: GetKeyboardModifiers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 458
+    startLine: 466
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -441,6 +490,9 @@ items:
       description: The current keyboard modifiers.
     content.vb: Public Function GetKeyboardModifiers() As KeyModifier
   overload: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyboardModifiers*
+  seealso:
+  - linkId: OpenTK.Platform.IKeyboardComponent.GetKeyboardState(System.Boolean[])
+    commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyboardState(System.Boolean[])
   implements:
   - OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
@@ -457,7 +509,7 @@ items:
   source:
     id: BeginIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 472
+    startLine: 480
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -487,7 +539,7 @@ items:
   source:
     id: SetImeRectangle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 478
+    startLine: 486
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -532,7 +584,7 @@ items:
   source:
     id: EndIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11KeyboardComponent.cs
-    startLine: 484
+    startLine: 492
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -904,6 +956,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.X11.X11KeyboardComponent.Logger
   href: OpenTK.Platform.Native.X11.X11KeyboardComponent.html#OpenTK_Platform_Native_X11_X11KeyboardComponent_Logger
@@ -917,13 +982,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -954,6 +1012,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.X11.X11KeyboardComponent.Initialize
   href: OpenTK.Platform.Native.X11.X11KeyboardComponent.html#OpenTK_Platform_Native_X11_X11KeyboardComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -985,13 +1074,49 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11KeyboardComponent.Uninitialize
+  href: OpenTK.Platform.Native.X11.X11KeyboardComponent.html#OpenTK_Platform_Native_X11_X11KeyboardComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: X11KeyboardComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.X11.X11KeyboardComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.SupportsLayouts*
   commentId: Overload:OpenTK.Platform.Native.X11.X11KeyboardComponent.SupportsLayouts
   href: OpenTK.Platform.Native.X11.X11KeyboardComponent.html#OpenTK_Platform_Native_X11_X11KeyboardComponent_SupportsLayouts
@@ -1121,6 +1246,31 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: (
   - name: )
+- uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+  parent: OpenTK.Platform.IKeyboardComponent
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyFromScancode_OpenTK_Platform_Scancode_
+  name: GetKeyFromScancode(Scancode)
+  nameWithType: IKeyboardComponent.GetKeyFromScancode(Scancode)
+  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+  spec.csharp:
+  - uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+    name: GetKeyFromScancode
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyFromScancode_OpenTK_Platform_Scancode_
+  - name: (
+  - uid: OpenTK.Platform.Scancode
+    name: Scancode
+    href: OpenTK.Platform.Scancode.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+    name: GetKeyFromScancode
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyFromScancode_OpenTK_Platform_Scancode_
+  - name: (
+  - uid: OpenTK.Platform.Scancode
+    name: Scancode
+    href: OpenTK.Platform.Scancode.html
+  - name: )
 - uid: OpenTK.Platform.Scancode
   commentId: T:OpenTK.Platform.Scancode
   parent: OpenTK.Platform
@@ -1184,30 +1334,24 @@ references:
   name: GetKeyFromScancode
   nameWithType: X11KeyboardComponent.GetKeyFromScancode
   fullName: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyFromScancode
-- uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
-  commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+- uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
   parent: OpenTK.Platform.IKeyboardComponent
-  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyFromScancode_OpenTK_Platform_Scancode_
-  name: GetKeyFromScancode(Scancode)
-  nameWithType: IKeyboardComponent.GetKeyFromScancode(Scancode)
-  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyboardModifiers
+  name: GetKeyboardModifiers()
+  nameWithType: IKeyboardComponent.GetKeyboardModifiers()
+  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers()
   spec.csharp:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
-    name: GetKeyFromScancode
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyFromScancode_OpenTK_Platform_Scancode_
+  - uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+    name: GetKeyboardModifiers
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyboardModifiers
   - name: (
-  - uid: OpenTK.Platform.Scancode
-    name: Scancode
-    href: OpenTK.Platform.Scancode.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
-    name: GetKeyFromScancode
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyFromScancode_OpenTK_Platform_Scancode_
+  - uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
+    name: GetKeyboardModifiers
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyboardModifiers
   - name: (
-  - uid: OpenTK.Platform.Scancode
-    name: Scancode
-    href: OpenTK.Platform.Scancode.html
   - name: )
 - uid: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyboardState*
   commentId: Overload:OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyboardState
@@ -1279,25 +1423,6 @@ references:
   name: GetKeyboardModifiers
   nameWithType: X11KeyboardComponent.GetKeyboardModifiers
   fullName: OpenTK.Platform.Native.X11.X11KeyboardComponent.GetKeyboardModifiers
-- uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
-  commentId: M:OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
-  parent: OpenTK.Platform.IKeyboardComponent
-  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyboardModifiers
-  name: GetKeyboardModifiers()
-  nameWithType: IKeyboardComponent.GetKeyboardModifiers()
-  fullName: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers()
-  spec.csharp:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
-    name: GetKeyboardModifiers
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyboardModifiers
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetKeyboardModifiers
-    name: GetKeyboardModifiers
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetKeyboardModifiers
-  - name: (
-  - name: )
 - uid: OpenTK.Platform.KeyModifier
   commentId: T:OpenTK.Platform.KeyModifier
   parent: OpenTK.Platform

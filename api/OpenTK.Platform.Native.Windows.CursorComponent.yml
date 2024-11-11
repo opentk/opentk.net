@@ -22,6 +22,7 @@ items:
   - OpenTK.Platform.Native.Windows.CursorComponent.Logger
   - OpenTK.Platform.Native.Windows.CursorComponent.Name
   - OpenTK.Platform.Native.Windows.CursorComponent.Provides
+  - OpenTK.Platform.Native.Windows.CursorComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -128,7 +129,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -137,6 +138,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.Windows.CursorComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -167,8 +173,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.Windows.CursorComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.Windows.CursorComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.Windows.CursorComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.Windows.CursorComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: CursorComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.Windows.CursorComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
+    startLine: 32
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.Windows
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.Windows.CursorComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.CanLoadSystemCursors
   commentId: P:OpenTK.Platform.Native.Windows.CursorComponent.CanLoadSystemCursors
   id: CanLoadSystemCursors
@@ -183,7 +223,7 @@ items:
   source:
     id: CanLoadSystemCursors
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 32
+    startLine: 37
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -215,16 +255,16 @@ items:
   source:
     id: CanInspectSystemCursors
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 35
+    startLine: 40
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: >-
     True if the backend supports inspecting system cursor handles.
 
-    If true, functions like <xref href="OpenTK.Platform.ICursorComponent.GetSize(OpenTK.Platform.CursorHandle%2cSystem.Int32%40%2cSystem.Int32%40)" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Platform.ICursorComponent.GetHotspot(OpenTK.Platform.CursorHandle%2cSystem.Int32%40%2cSystem.Int32%40)" data-throw-if-not-resolved="false"></xref> works on system cursors.
+    If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, functions like <xref href="OpenTK.Platform.ICursorComponent.GetSize(OpenTK.Platform.CursorHandle%2cSystem.Int32%40%2cSystem.Int32%40)" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Platform.ICursorComponent.GetHotspot(OpenTK.Platform.CursorHandle%2cSystem.Int32%40%2cSystem.Int32%40)" data-throw-if-not-resolved="false"></xref> works on system cursors.
 
-    If false, these functions will fail.
+    If <code>fals</code>, these functions will fail.
   example: []
   syntax:
     content: public bool CanInspectSystemCursors { get; }
@@ -238,6 +278,10 @@ items:
     commentId: M:OpenTK.Platform.ICursorComponent.GetSize(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
   - linkId: OpenTK.Platform.ICursorComponent.GetHotspot(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
     commentId: M:OpenTK.Platform.ICursorComponent.GetHotspot(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
+  - linkId: OpenTK.Platform.ICursorComponent.CanLoadSystemCursors
+    commentId: P:OpenTK.Platform.ICursorComponent.CanLoadSystemCursors
+  - linkId: OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
+    commentId: M:OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
   implements:
   - OpenTK.Platform.ICursorComponent.CanInspectSystemCursors
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.Create(OpenTK.Platform.SystemCursorType)
@@ -254,12 +298,12 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 38
+    startLine: 43
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Create a standard system cursor.
-  remarks: This function is only supported if <xref href="OpenTK.Platform.ICursorComponent.CanLoadSystemCursors" data-throw-if-not-resolved="false"></xref> is true.
+  remarks: This function is only supported if <xref href="OpenTK.Platform.ICursorComponent.CanLoadSystemCursors" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public CursorHandle Create(SystemCursorType systemCursor)
@@ -273,12 +317,16 @@ items:
     content.vb: Public Function Create(systemCursor As SystemCursorType) As CursorHandle
   overload: OpenTK.Platform.Native.Windows.CursorComponent.Create*
   exceptions:
-  - type: OpenTK.Platform.PalNotImplementedException
-    commentId: T:OpenTK.Platform.PalNotImplementedException
+  - type: System.PlatformNotSupportedException
+    commentId: T:System.PlatformNotSupportedException
     description: Driver does not implement this function. See <xref href="OpenTK.Platform.ICursorComponent.CanLoadSystemCursors" data-throw-if-not-resolved="false"></xref>.
-  - type: OpenTK.Platform.PlatformException
-    commentId: T:OpenTK.Platform.PlatformException
-    description: System does not provide cursor type selected by <code class="paramref">systemCursor</code>.
+  seealso:
+  - linkId: OpenTK.Platform.ICursorComponent.CanLoadSystemCursors
+    commentId: P:OpenTK.Platform.ICursorComponent.CanLoadSystemCursors
+  - linkId: OpenTK.Platform.SystemCursorType
+    commentId: T:OpenTK.Platform.SystemCursorType
+  - linkId: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
+    commentId: M:OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
   implements:
   - OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte},System.Int32,System.Int32)
@@ -295,7 +343,7 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 112
+    startLine: 117
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -312,7 +360,7 @@ items:
       description: Height of the cursor image.
     - id: image
       type: System.ReadOnlySpan{System.Byte}
-      description: Buffer containing image data.
+      description: Buffer containing image data in RGBA order.
     - id: hotspotX
       type: System.Int32
       description: The x coordinate of the cursor hotspot.
@@ -327,10 +375,16 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code class="paramref">width</code> or <code class="paramref">height</code> is negative.
+    description: If <code class="paramref">width</code>, <code class="paramref">height</code>, <code class="paramref">hotspotX</code>, or <code class="paramref">hotspotY</code> are negative.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: If <code class="paramref">hotspotX</code> or <code class="paramref">hotspotY</code> are greater than <code class="paramref">width</code> or <code class="paramref">height</code> respectively.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: <code class="paramref">image</code> is smaller than specified dimensions.
+  seealso:
+  - linkId: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
+    commentId: M:OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
   implements:
   - OpenTK.Platform.ICursorComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte},System.Int32,System.Int32)
   nameWithType.vb: CursorComponent.Create(Integer, Integer, ReadOnlySpan(Of Byte), Integer, Integer)
@@ -350,7 +404,7 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 191
+    startLine: 201
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -367,10 +421,10 @@ items:
       description: Height of the cursor image.
     - id: colorData
       type: System.ReadOnlySpan{System.Byte}
-      description: Buffer containing color data.
+      description: Buffer containing RGB color data.
     - id: maskData
       type: System.ReadOnlySpan{System.Byte}
-      description: Buffer containing mask data.
+      description: Buffer containing mask data. Pixels where the mask is 1 will be visible while mask value of 0 is transparent.
     - id: hotspotX
       type: System.Int32
       description: The x coordinate of the cursor hotspot.
@@ -385,10 +439,16 @@ items:
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: <code class="paramref">width</code> or <code class="paramref">height</code> is negative.
+    description: If <code class="paramref">width</code>, <code class="paramref">height</code>, <code class="paramref">hotspotX</code>, or <code class="paramref">hotspotY</code> are negative.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: If <code class="paramref">hotspotX</code> or <code class="paramref">hotspotY</code> are greater than <code class="paramref">width</code> or <code class="paramref">height</code> respectively.
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: <code class="paramref">colorData</code> or <code class="paramref">maskData</code> is smaller than specified dimensions.
+  seealso:
+  - linkId: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
+    commentId: M:OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
   implements:
   - OpenTK.Platform.ICursorComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Int32,System.Int32)
   nameWithType.vb: CursorComponent.Create(Integer, Integer, ReadOnlySpan(Of Byte), ReadOnlySpan(Of Byte), Integer, Integer)
@@ -408,7 +468,7 @@ items:
   source:
     id: CreateFromCurFile
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 284
+    startLine: 299
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -446,7 +506,7 @@ items:
   source:
     id: CreateFromCurResorce
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 333
+    startLine: 348
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -478,7 +538,7 @@ items:
   source:
     id: CreateFromCurResorce
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 409
+    startLine: 424
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -521,7 +581,7 @@ items:
   source:
     id: Destroy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 422
+    startLine: 437
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -535,10 +595,13 @@ items:
       description: Handle to a cursor object.
     content.vb: Public Sub Destroy(handle As CursorHandle)
   overload: OpenTK.Platform.Native.Windows.CursorComponent.Destroy*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: <code class="paramref">handle</code> is null.
+  seealso:
+  - linkId: OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
+    commentId: M:OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
+  - linkId: OpenTK.Platform.ICursorComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte},System.Int32,System.Int32)
+    commentId: M:OpenTK.Platform.ICursorComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte},System.Int32,System.Int32)
+  - linkId: OpenTK.Platform.ICursorComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Int32,System.Int32)
+    commentId: M:OpenTK.Platform.ICursorComponent.Create(System.Int32,System.Int32,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Int32,System.Int32)
   implements:
   - OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.IsSystemCursor(OpenTK.Platform.CursorHandle)
@@ -555,11 +618,11 @@ items:
   source:
     id: IsSystemCursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 469
+    startLine: 484
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: Returns true if this cursor is a system cursor.
+  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this cursor is a system cursor.
   example: []
   syntax:
     content: public bool IsSystemCursor(CursorHandle handle)
@@ -575,6 +638,8 @@ items:
   seealso:
   - linkId: OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
     commentId: M:OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
+  - linkId: OpenTK.Platform.ICursorComponent.CanLoadSystemCursors
+    commentId: P:OpenTK.Platform.ICursorComponent.CanLoadSystemCursors
   implements:
   - OpenTK.Platform.ICursorComponent.IsSystemCursor(OpenTK.Platform.CursorHandle)
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.GetSize(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
@@ -591,12 +656,12 @@ items:
   source:
     id: GetSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 476
+    startLine: 491
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
   summary: Get the size of the cursor image.
-  remarks: If <code class="paramref">handle</code> is a system cursor and <xref href="OpenTK.Platform.ICursorComponent.CanInspectSystemCursors" data-throw-if-not-resolved="false"></xref> is false this function will fail.
+  remarks: If <code class="paramref">handle</code> is a system cursor and <xref href="OpenTK.Platform.ICursorComponent.CanInspectSystemCursors" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> this function will fail.
   example: []
   syntax:
     content: public void GetSize(CursorHandle handle, out int width, out int height)
@@ -612,10 +677,6 @@ items:
       description: Height of the cursor.
     content.vb: Public Sub GetSize(handle As CursorHandle, width As Integer, height As Integer)
   overload: OpenTK.Platform.Native.Windows.CursorComponent.GetSize*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: <code class="paramref">handle</code> is null.
   seealso:
   - linkId: OpenTK.Platform.ICursorComponent.IsSystemCursor(OpenTK.Platform.CursorHandle)
     commentId: M:OpenTK.Platform.ICursorComponent.IsSystemCursor(OpenTK.Platform.CursorHandle)
@@ -640,14 +701,11 @@ items:
   source:
     id: GetHotspot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 503
+    startLine: 518
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: >-
-    Get the hotspot location of the mouse cursor.
-
-    Getting the hotspot of a system cursor is not guaranteed to be possible, check <xref href="OpenTK.Platform.ICursorComponent.CanInspectSystemCursors" data-throw-if-not-resolved="false"></xref> before trying.
+  summary: Get the hotspot location of the mouse cursor.
   remarks: If <code class="paramref">handle</code> is a system cursor and <xref href="OpenTK.Platform.ICursorComponent.CanInspectSystemCursors" data-throw-if-not-resolved="false"></xref> is false this function will fail.
   example: []
   syntax:
@@ -664,10 +722,6 @@ items:
       description: Y coordinate of the hotspot.
     content.vb: Public Sub GetHotspot(handle As CursorHandle, x As Integer, y As Integer)
   overload: OpenTK.Platform.Native.Windows.CursorComponent.GetHotspot*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: <code class="paramref">handle</code> is null.
   seealso:
   - linkId: OpenTK.Platform.ICursorComponent.IsSystemCursor(OpenTK.Platform.CursorHandle)
     commentId: M:OpenTK.Platform.ICursorComponent.IsSystemCursor(OpenTK.Platform.CursorHandle)
@@ -692,7 +746,7 @@ items:
   source:
     id: GetImage
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\CursorComponent.cs
-    startLine: 533
+    startLine: 548
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -1073,6 +1127,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.Windows.CursorComponent.Logger
   href: OpenTK.Platform.Native.Windows.CursorComponent.html#OpenTK_Platform_Native_Windows_CursorComponent_Logger
@@ -1086,13 +1153,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -1123,6 +1183,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.Windows.CursorComponent.Initialize
   href: OpenTK.Platform.Native.Windows.CursorComponent.html#OpenTK_Platform_Native_Windows_CursorComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -1154,13 +1245,49 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.Windows.CursorComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.Windows.CursorComponent.Uninitialize
+  href: OpenTK.Platform.Native.Windows.CursorComponent.html#OpenTK_Platform_Native_Windows_CursorComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: CursorComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.Windows.CursorComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
   commentId: M:OpenTK.Platform.ICursorComponent.Create(OpenTK.Platform.SystemCursorType)
   parent: OpenTK.Platform.ICursorComponent
@@ -1337,24 +1464,6 @@ references:
   name: CanInspectSystemCursors
   nameWithType: ICursorComponent.CanInspectSystemCursors
   fullName: OpenTK.Platform.ICursorComponent.CanInspectSystemCursors
-- uid: OpenTK.Platform.PalNotImplementedException
-  commentId: T:OpenTK.Platform.PalNotImplementedException
-  href: OpenTK.Platform.PalNotImplementedException.html
-  name: PalNotImplementedException
-  nameWithType: PalNotImplementedException
-  fullName: OpenTK.Platform.PalNotImplementedException
-- uid: OpenTK.Platform.PlatformException
-  commentId: T:OpenTK.Platform.PlatformException
-  href: OpenTK.Platform.PlatformException.html
-  name: PlatformException
-  nameWithType: PlatformException
-  fullName: OpenTK.Platform.PlatformException
-- uid: OpenTK.Platform.Native.Windows.CursorComponent.Create*
-  commentId: Overload:OpenTK.Platform.Native.Windows.CursorComponent.Create
-  href: OpenTK.Platform.Native.Windows.CursorComponent.html#OpenTK_Platform_Native_Windows_CursorComponent_Create_OpenTK_Platform_SystemCursorType_
-  name: Create
-  nameWithType: CursorComponent.Create
-  fullName: OpenTK.Platform.Native.Windows.CursorComponent.Create
 - uid: OpenTK.Platform.SystemCursorType
   commentId: T:OpenTK.Platform.SystemCursorType
   parent: OpenTK.Platform
@@ -1362,6 +1471,44 @@ references:
   name: SystemCursorType
   nameWithType: SystemCursorType
   fullName: OpenTK.Platform.SystemCursorType
+- uid: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
+  commentId: M:OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
+  parent: OpenTK.Platform.ICursorComponent
+  href: OpenTK.Platform.ICursorComponent.html#OpenTK_Platform_ICursorComponent_Destroy_OpenTK_Platform_CursorHandle_
+  name: Destroy(CursorHandle)
+  nameWithType: ICursorComponent.Destroy(CursorHandle)
+  fullName: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
+    name: Destroy
+    href: OpenTK.Platform.ICursorComponent.html#OpenTK_Platform_ICursorComponent_Destroy_OpenTK_Platform_CursorHandle_
+  - name: (
+  - uid: OpenTK.Platform.CursorHandle
+    name: CursorHandle
+    href: OpenTK.Platform.CursorHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
+    name: Destroy
+    href: OpenTK.Platform.ICursorComponent.html#OpenTK_Platform_ICursorComponent_Destroy_OpenTK_Platform_CursorHandle_
+  - name: (
+  - uid: OpenTK.Platform.CursorHandle
+    name: CursorHandle
+    href: OpenTK.Platform.CursorHandle.html
+  - name: )
+- uid: System.PlatformNotSupportedException
+  commentId: T:System.PlatformNotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.platformnotsupportedexception
+  name: PlatformNotSupportedException
+  nameWithType: PlatformNotSupportedException
+  fullName: System.PlatformNotSupportedException
+- uid: OpenTK.Platform.Native.Windows.CursorComponent.Create*
+  commentId: Overload:OpenTK.Platform.Native.Windows.CursorComponent.Create
+  href: OpenTK.Platform.Native.Windows.CursorComponent.html#OpenTK_Platform_Native_Windows_CursorComponent_Create_OpenTK_Platform_SystemCursorType_
+  name: Create
+  nameWithType: CursorComponent.Create
+  fullName: OpenTK.Platform.Native.Windows.CursorComponent.Create
 - uid: OpenTK.Platform.CursorHandle
   commentId: T:OpenTK.Platform.CursorHandle
   parent: OpenTK.Platform
@@ -1823,44 +1970,12 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
-- uid: System.ArgumentNullException
-  commentId: T:System.ArgumentNullException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
-  name: ArgumentNullException
-  nameWithType: ArgumentNullException
-  fullName: System.ArgumentNullException
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.Destroy*
   commentId: Overload:OpenTK.Platform.Native.Windows.CursorComponent.Destroy
   href: OpenTK.Platform.Native.Windows.CursorComponent.html#OpenTK_Platform_Native_Windows_CursorComponent_Destroy_OpenTK_Platform_CursorHandle_
   name: Destroy
   nameWithType: CursorComponent.Destroy
   fullName: OpenTK.Platform.Native.Windows.CursorComponent.Destroy
-- uid: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
-  commentId: M:OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
-  parent: OpenTK.Platform.ICursorComponent
-  href: OpenTK.Platform.ICursorComponent.html#OpenTK_Platform_ICursorComponent_Destroy_OpenTK_Platform_CursorHandle_
-  name: Destroy(CursorHandle)
-  nameWithType: ICursorComponent.Destroy(CursorHandle)
-  fullName: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
-  spec.csharp:
-  - uid: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
-    name: Destroy
-    href: OpenTK.Platform.ICursorComponent.html#OpenTK_Platform_ICursorComponent_Destroy_OpenTK_Platform_CursorHandle_
-  - name: (
-  - uid: OpenTK.Platform.CursorHandle
-    name: CursorHandle
-    href: OpenTK.Platform.CursorHandle.html
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.ICursorComponent.Destroy(OpenTK.Platform.CursorHandle)
-    name: Destroy
-    href: OpenTK.Platform.ICursorComponent.html#OpenTK_Platform_ICursorComponent_Destroy_OpenTK_Platform_CursorHandle_
-  - name: (
-  - uid: OpenTK.Platform.CursorHandle
-    name: CursorHandle
-    href: OpenTK.Platform.CursorHandle.html
-  - name: )
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.IsSystemCursor*
   commentId: Overload:OpenTK.Platform.Native.Windows.CursorComponent.IsSystemCursor
   href: OpenTK.Platform.Native.Windows.CursorComponent.html#OpenTK_Platform_Native_Windows_CursorComponent_IsSystemCursor_OpenTK_Platform_CursorHandle_
@@ -1904,6 +2019,13 @@ references:
   name: GetHotspot
   nameWithType: CursorComponent.GetHotspot
   fullName: OpenTK.Platform.Native.Windows.CursorComponent.GetHotspot
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
 - uid: OpenTK.Platform.Native.Windows.CursorComponent.GetImage*
   commentId: Overload:OpenTK.Platform.Native.Windows.CursorComponent.GetImage
   href: OpenTK.Platform.Native.Windows.CursorComponent.html#OpenTK_Platform_Native_Windows_CursorComponent_GetImage_OpenTK_Platform_CursorHandle_System_Span_System_Byte__

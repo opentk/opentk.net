@@ -27,7 +27,7 @@ items:
   source:
     id: IJoystickComponent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 12
+    startLine: 13
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -36,11 +36,15 @@ items:
   syntax:
     content: 'public interface IJoystickComponent : IPalComponent'
     content.vb: Public Interface IJoystickComponent Inherits IPalComponent
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Joystick
+    commentId: P:OpenTK.Platform.Toolkit.Joystick
   inheritedMembers:
   - OpenTK.Platform.IPalComponent.Name
   - OpenTK.Platform.IPalComponent.Provides
   - OpenTK.Platform.IPalComponent.Logger
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.IJoystickComponent.LeftDeadzone
   commentId: P:OpenTK.Platform.IJoystickComponent.LeftDeadzone
   id: LeftDeadzone
@@ -55,7 +59,7 @@ items:
   source:
     id: LeftDeadzone
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 27
+    startLine: 28
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -82,7 +86,7 @@ items:
   source:
     id: RightDeadzone
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 32
+    startLine: 33
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -109,7 +113,7 @@ items:
   source:
     id: TriggerThreshold
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 37
+    startLine: 38
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -136,7 +140,7 @@ items:
   source:
     id: IsConnected
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 44
+    startLine: 45
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -170,7 +174,7 @@ items:
   source:
     id: Open
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 51
+    startLine: 52
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -204,7 +208,7 @@ items:
   source:
     id: Close
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 57
+    startLine: 58
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -232,7 +236,7 @@ items:
   source:
     id: GetGuid
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 59
+    startLine: 60
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -259,7 +263,7 @@ items:
   source:
     id: GetName
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 61
+    startLine: 62
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -286,7 +290,7 @@ items:
   source:
     id: GetAxis
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 70
+    startLine: 71
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -323,7 +327,7 @@ items:
   source:
     id: GetButton
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 78
+    startLine: 79
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -357,7 +361,7 @@ items:
   source:
     id: SetVibration
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 80
+    startLine: 81
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -391,7 +395,7 @@ items:
   source:
     id: TryGetBatteryInfo
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IJoystickComponent.cs
-    startLine: 82
+    startLine: 83
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -410,6 +414,12 @@ items:
   fullName.vb: OpenTK.Platform.IJoystickComponent.TryGetBatteryInfo(OpenTK.Platform.JoystickHandle, OpenTK.Platform.GamepadBatteryInfo)
   name.vb: TryGetBatteryInfo(JoystickHandle, GamepadBatteryInfo)
 references:
+- uid: OpenTK.Platform.Toolkit.Joystick
+  commentId: P:OpenTK.Platform.Toolkit.Joystick
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Joystick
+  name: Joystick
+  nameWithType: Toolkit.Joystick
+  fullName: OpenTK.Platform.Toolkit.Joystick
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
   href: OpenTK.html
@@ -477,6 +487,25 @@ references:
   - uid: OpenTK.Platform.ToolkitOptions
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
   - name: )
 - uid: OpenTK.Platform.IPalComponent
   commentId: T:OpenTK.Platform.IPalComponent

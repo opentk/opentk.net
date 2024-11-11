@@ -18,20 +18,26 @@ items:
   source:
     id: IVulkanComponent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IVulkanComponent.cs
-    startLine: 12
+    startLine: 14
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
-  summary: Interface for creating and interacting with vulkan.
+  summary: Interface for interacting with Vulkan in a more convenient way.
   example: []
   syntax:
     content: 'public interface IVulkanComponent : IPalComponent'
     content.vb: Public Interface IVulkanComponent Inherits IPalComponent
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Vulkan
+    commentId: P:OpenTK.Platform.Toolkit.Vulkan
+  - linkId: OpenTK.Platform.VulkanGraphicsApiHints
+    commentId: T:OpenTK.Platform.VulkanGraphicsApiHints
   inheritedMembers:
   - OpenTK.Platform.IPalComponent.Name
   - OpenTK.Platform.IPalComponent.Provides
   - OpenTK.Platform.IPalComponent.Logger
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
   commentId: M:OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
   id: GetRequiredInstanceExtensions
@@ -46,7 +52,7 @@ items:
   source:
     id: GetRequiredInstanceExtensions
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IVulkanComponent.cs
-    startLine: 21
+    startLine: 25
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -63,9 +69,14 @@ items:
     content: ReadOnlySpan<string> GetRequiredInstanceExtensions()
     return:
       type: System.ReadOnlySpan{System.String}
-      description: ''
+      description: A list of required extensions for <xref href="OpenTK.Platform.IVulkanComponent" data-throw-if-not-resolved="false"></xref> functions to work.
     content.vb: Function GetRequiredInstanceExtensions() As ReadOnlySpan(Of String)
   overload: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions*
+  seealso:
+  - linkId: OpenTK.Platform.IVulkanComponent.GetPhysicalDevicePresentationSupport(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Graphics.Vulkan.VkPhysicalDevice,System.UInt32)
+    commentId: M:OpenTK.Platform.IVulkanComponent.GetPhysicalDevicePresentationSupport(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Graphics.Vulkan.VkPhysicalDevice,System.UInt32)
+  - linkId: OpenTK.Platform.IVulkanComponent.CreateWindowSurface(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Platform.WindowHandle,OpenTK.Graphics.Vulkan.VkAllocationCallbacks*,OpenTK.Graphics.Vulkan.VkSurfaceKHR@)
+    commentId: M:OpenTK.Platform.IVulkanComponent.CreateWindowSurface(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Platform.WindowHandle,OpenTK.Graphics.Vulkan.VkAllocationCallbacks*,OpenTK.Graphics.Vulkan.VkSurfaceKHR@)
 - uid: OpenTK.Platform.IVulkanComponent.GetPhysicalDevicePresentationSupport(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Graphics.Vulkan.VkPhysicalDevice,System.UInt32)
   commentId: M:OpenTK.Platform.IVulkanComponent.GetPhysicalDevicePresentationSupport(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Graphics.Vulkan.VkPhysicalDevice,System.UInt32)
   id: GetPhysicalDevicePresentationSupport(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Graphics.Vulkan.VkPhysicalDevice,System.UInt32)
@@ -80,11 +91,11 @@ items:
   source:
     id: GetPhysicalDevicePresentationSupport
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IVulkanComponent.cs
-    startLine: 30
+    startLine: 35
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
-  summary: Returns true of the given queue family supports presentation to a surface created with <xref href="OpenTK.Platform.IVulkanComponent.CreateWindowSurface(OpenTK.Graphics.Vulkan.VkInstance%2cOpenTK.Platform.WindowHandle%2cOpenTK.Graphics.Vulkan.VkAllocationCallbacks*%2cOpenTK.Graphics.Vulkan.VkSurfaceKHR%40)" data-throw-if-not-resolved="false"></xref>.
+  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the given queue family supports presentation to a surface created with <xref href="OpenTK.Platform.IVulkanComponent.CreateWindowSurface(OpenTK.Graphics.Vulkan.VkInstance%2cOpenTK.Platform.WindowHandle%2cOpenTK.Graphics.Vulkan.VkAllocationCallbacks*%2cOpenTK.Graphics.Vulkan.VkSurfaceKHR%40)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: bool GetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, uint queueFamily)
@@ -100,9 +111,12 @@ items:
       description: The index of the queue family to query for presentation support.
     return:
       type: System.Boolean
-      description: ''
+      description: If this queue family supports presentation.
     content.vb: Function GetPhysicalDevicePresentationSupport(instance As VkInstance, device As VkPhysicalDevice, queueFamily As UInteger) As Boolean
   overload: OpenTK.Platform.IVulkanComponent.GetPhysicalDevicePresentationSupport*
+  seealso:
+  - linkId: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
+    commentId: M:OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
   nameWithType.vb: IVulkanComponent.GetPhysicalDevicePresentationSupport(VkInstance, VkPhysicalDevice, UInteger)
   fullName.vb: OpenTK.Platform.IVulkanComponent.GetPhysicalDevicePresentationSupport(OpenTK.Graphics.Vulkan.VkInstance, OpenTK.Graphics.Vulkan.VkPhysicalDevice, UInteger)
   name.vb: GetPhysicalDevicePresentationSupport(VkInstance, VkPhysicalDevice, UInteger)
@@ -120,7 +134,7 @@ items:
   source:
     id: CreateWindowSurface
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IVulkanComponent.cs
-    startLine: 40
+    startLine: 46
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -146,10 +160,25 @@ items:
       description: The Vulkan result code of this operation.
     content.vb: Function CreateWindowSurface(instance As VkInstance, window As WindowHandle, allocator As VkAllocationCallbacks*, surface As VkSurfaceKHR) As VkResult
   overload: OpenTK.Platform.IVulkanComponent.CreateWindowSurface*
+  seealso:
+  - linkId: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
+    commentId: M:OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
   nameWithType.vb: IVulkanComponent.CreateWindowSurface(VkInstance, WindowHandle, VkAllocationCallbacks*, VkSurfaceKHR)
   fullName.vb: OpenTK.Platform.IVulkanComponent.CreateWindowSurface(OpenTK.Graphics.Vulkan.VkInstance, OpenTK.Platform.WindowHandle, OpenTK.Graphics.Vulkan.VkAllocationCallbacks*, OpenTK.Graphics.Vulkan.VkSurfaceKHR)
   name.vb: CreateWindowSurface(VkInstance, WindowHandle, VkAllocationCallbacks*, VkSurfaceKHR)
 references:
+- uid: OpenTK.Platform.Toolkit.Vulkan
+  commentId: P:OpenTK.Platform.Toolkit.Vulkan
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Vulkan
+  name: Vulkan
+  nameWithType: Toolkit.Vulkan
+  fullName: OpenTK.Platform.Toolkit.Vulkan
+- uid: OpenTK.Platform.VulkanGraphicsApiHints
+  commentId: T:OpenTK.Platform.VulkanGraphicsApiHints
+  href: OpenTK.Platform.VulkanGraphicsApiHints.html
+  name: VulkanGraphicsApiHints
+  nameWithType: VulkanGraphicsApiHints
+  fullName: OpenTK.Platform.VulkanGraphicsApiHints
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
   href: OpenTK.html
@@ -218,6 +247,25 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.IPalComponent
   commentId: T:OpenTK.Platform.IPalComponent
   parent: OpenTK.Platform
@@ -227,6 +275,7 @@ references:
   fullName: OpenTK.Platform.IPalComponent
 - uid: OpenTK.Platform.IVulkanComponent.GetPhysicalDevicePresentationSupport(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Graphics.Vulkan.VkPhysicalDevice,System.UInt32)
   commentId: M:OpenTK.Platform.IVulkanComponent.GetPhysicalDevicePresentationSupport(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Graphics.Vulkan.VkPhysicalDevice,System.UInt32)
+  parent: OpenTK.Platform.IVulkanComponent
   isExternal: true
   href: OpenTK.Platform.IVulkanComponent.html#OpenTK_Platform_IVulkanComponent_GetPhysicalDevicePresentationSupport_OpenTK_Graphics_Vulkan_VkInstance_OpenTK_Graphics_Vulkan_VkPhysicalDevice_System_UInt32_
   name: GetPhysicalDevicePresentationSupport(VkInstance, VkPhysicalDevice, uint)
@@ -277,6 +326,7 @@ references:
   - name: )
 - uid: OpenTK.Platform.IVulkanComponent.CreateWindowSurface(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Platform.WindowHandle,OpenTK.Graphics.Vulkan.VkAllocationCallbacks*,OpenTK.Graphics.Vulkan.VkSurfaceKHR@)
   commentId: M:OpenTK.Platform.IVulkanComponent.CreateWindowSurface(OpenTK.Graphics.Vulkan.VkInstance,OpenTK.Platform.WindowHandle,OpenTK.Graphics.Vulkan.VkAllocationCallbacks*,OpenTK.Graphics.Vulkan.VkSurfaceKHR@)
+  parent: OpenTK.Platform.IVulkanComponent
   href: OpenTK.Platform.IVulkanComponent.html#OpenTK_Platform_IVulkanComponent_CreateWindowSurface_OpenTK_Graphics_Vulkan_VkInstance_OpenTK_Platform_WindowHandle_OpenTK_Graphics_Vulkan_VkAllocationCallbacks__OpenTK_Graphics_Vulkan_VkSurfaceKHR__
   name: CreateWindowSurface(VkInstance, WindowHandle, VkAllocationCallbacks*, out VkSurfaceKHR)
   nameWithType: IVulkanComponent.CreateWindowSurface(VkInstance, WindowHandle, VkAllocationCallbacks*, out VkSurfaceKHR)
@@ -343,6 +393,13 @@ references:
   name: VkInstance
   nameWithType: VkInstance
   fullName: OpenTK.Graphics.Vulkan.VkInstance
+- uid: OpenTK.Platform.IVulkanComponent
+  commentId: T:OpenTK.Platform.IVulkanComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IVulkanComponent.html
+  name: IVulkanComponent
+  nameWithType: IVulkanComponent
+  fullName: OpenTK.Platform.IVulkanComponent
 - uid: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions*
   commentId: Overload:OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
   href: OpenTK.Platform.IVulkanComponent.html#OpenTK_Platform_IVulkanComponent_GetRequiredInstanceExtensions
@@ -449,6 +506,25 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
+  commentId: M:OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
+  parent: OpenTK.Platform.IVulkanComponent
+  href: OpenTK.Platform.IVulkanComponent.html#OpenTK_Platform_IVulkanComponent_GetRequiredInstanceExtensions
+  name: GetRequiredInstanceExtensions()
+  nameWithType: IVulkanComponent.GetRequiredInstanceExtensions()
+  fullName: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions()
+  spec.csharp:
+  - uid: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
+    name: GetRequiredInstanceExtensions
+    href: OpenTK.Platform.IVulkanComponent.html#OpenTK_Platform_IVulkanComponent_GetRequiredInstanceExtensions
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IVulkanComponent.GetRequiredInstanceExtensions
+    name: GetRequiredInstanceExtensions
+    href: OpenTK.Platform.IVulkanComponent.html#OpenTK_Platform_IVulkanComponent_GetRequiredInstanceExtensions
+  - name: (
+  - name: )
 - uid: OpenTK.Graphics.Vulkan.VkPhysicalDevice
   commentId: T:OpenTK.Graphics.Vulkan.VkPhysicalDevice
   parent: OpenTK.Graphics.Vulkan

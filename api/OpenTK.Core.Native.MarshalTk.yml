@@ -10,7 +10,7 @@ items:
   - OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
   - OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray(System.Byte**,System.UInt32)
   - OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
-  - OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span{System.String},System.UInt32@)
+  - OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
   - OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
   - OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
   langs:
@@ -260,16 +260,16 @@ items:
   nameWithType.vb: MarshalTk.MarshalAnsiStringArrayPtrToStringArray(Byte**, UInteger)
   fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray(Byte**, UInteger)
   name.vb: MarshalAnsiStringArrayPtrToStringArray(Byte**, UInteger)
-- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span{System.String},System.UInt32@)
-  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span{System.String},System.UInt32@)
-  id: MarshalStringArrayToAnsiStringArrayPtr(System.Span{System.String},System.UInt32@)
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+  id: MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
   parent: OpenTK.Core.Native.MarshalTk
   langs:
   - csharp
   - vb
-  name: MarshalStringArrayToAnsiStringArrayPtr(Span<string>, out uint)
-  nameWithType: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(Span<string>, out uint)
-  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span<string>, out uint)
+  name: MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string>, out uint)
+  nameWithType: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string>, out uint)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan<string>, out uint)
   type: Method
   source:
     id: MarshalStringArrayToAnsiStringArrayPtr
@@ -284,10 +284,10 @@ items:
     Use <xref href="OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**%2cSystem.UInt32)" data-throw-if-not-resolved="false"></xref> to free the array.
   example: []
   syntax:
-    content: public static byte** MarshalStringArrayToAnsiStringArrayPtr(Span<string> stringArray, out uint count)
+    content: public static byte** MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string> stringArray, out uint count)
     parameters:
     - id: stringArray
-      type: System.Span{System.String}
+      type: System.ReadOnlySpan{System.String}
       description: The span of strings to marshal.
     - id: count
       type: System.UInt32
@@ -295,11 +295,11 @@ items:
     return:
       type: System.Byte**
       description: The unmanaged ansi string array.
-    content.vb: Public Shared Function MarshalStringArrayToAnsiStringArrayPtr(stringArray As Span(Of String), count As UInteger) As Byte**
+    content.vb: Public Shared Function MarshalStringArrayToAnsiStringArrayPtr(stringArray As ReadOnlySpan(Of String), count As UInteger) As Byte**
   overload: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr*
-  nameWithType.vb: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(Span(Of String), UInteger)
-  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span(Of String), UInteger)
-  name.vb: MarshalStringArrayToAnsiStringArrayPtr(Span(Of String), UInteger)
+  nameWithType.vb: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan(Of String), UInteger)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan(Of String), UInteger)
+  name.vb: MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan(Of String), UInteger)
 - uid: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
   commentId: M:OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
   id: FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
@@ -318,7 +318,7 @@ items:
   assemblies:
   - OpenTK.Core
   namespace: OpenTK.Core.Native
-  summary: Frees unmanaged ansi string arrays allocated by <xref href="OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span%7bSystem.String%7d%2cSystem.UInt32%40)" data-throw-if-not-resolved="false"></xref>.
+  summary: Frees unmanaged ansi string arrays allocated by <xref href="OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan%7bSystem.String%7d%2cSystem.UInt32%40)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public static void FreeAnsiStringArrayPtr(byte** strArrayPtr, uint count)
@@ -782,26 +782,26 @@ references:
   - name: )
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_Span_System_String__System_UInt32__
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_ReadOnlySpan_System_String__System_UInt32__
   name: MarshalStringArrayToAnsiStringArrayPtr
   nameWithType: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr
   fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr
-- uid: System.Span{System.String}
-  commentId: T:System.Span{System.String}
+- uid: System.ReadOnlySpan{System.String}
+  commentId: T:System.ReadOnlySpan{System.String}
   parent: System
-  definition: System.Span`1
-  href: https://learn.microsoft.com/dotnet/api/system.span-1
-  name: Span<string>
-  nameWithType: Span<string>
-  fullName: System.Span<string>
-  nameWithType.vb: Span(Of String)
-  fullName.vb: System.Span(Of String)
-  name.vb: Span(Of String)
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<string>
+  nameWithType: ReadOnlySpan<string>
+  fullName: System.ReadOnlySpan<string>
+  nameWithType.vb: ReadOnlySpan(Of String)
+  fullName.vb: System.ReadOnlySpan(Of String)
+  name.vb: ReadOnlySpan(Of String)
   spec.csharp:
-  - uid: System.Span`1
-    name: Span
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.span-1
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
   - name: <
   - uid: System.String
     name: string
@@ -809,10 +809,10 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: '>'
   spec.vb:
-  - uid: System.Span`1
-    name: Span
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.span-1
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
   - name: (
   - name: Of
   - name: " "
@@ -821,53 +821,53 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
-- uid: System.Span`1
-  commentId: T:System.Span`1
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.span-1
-  name: Span<T>
-  nameWithType: Span<T>
-  fullName: System.Span<T>
-  nameWithType.vb: Span(Of T)
-  fullName.vb: System.Span(Of T)
-  name.vb: Span(Of T)
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
   spec.csharp:
-  - uid: System.Span`1
-    name: Span
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.span-1
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
   - name: <
   - name: T
   - name: '>'
   spec.vb:
-  - uid: System.Span`1
-    name: Span
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.span-1
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
   - name: (
   - name: Of
   - name: " "
   - name: T
   - name: )
-- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span{System.String},System.UInt32@)
-  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span{System.String},System.UInt32@)
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
   isExternal: true
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_Span_System_String__System_UInt32__
-  name: MarshalStringArrayToAnsiStringArrayPtr(Span<string>, out uint)
-  nameWithType: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(Span<string>, out uint)
-  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span<string>, out uint)
-  nameWithType.vb: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(Span(Of String), UInteger)
-  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span(Of String), UInteger)
-  name.vb: MarshalStringArrayToAnsiStringArrayPtr(Span(Of String), UInteger)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_ReadOnlySpan_System_String__System_UInt32__
+  name: MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string>, out uint)
+  nameWithType: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string>, out uint)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan<string>, out uint)
+  nameWithType.vb: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan(Of String), UInteger)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan(Of String), UInteger)
+  name.vb: MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan(Of String), UInteger)
   spec.csharp:
-  - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span{System.String},System.UInt32@)
+  - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
     name: MarshalStringArrayToAnsiStringArrayPtr
-    href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_Span_System_String__System_UInt32__
+    href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_ReadOnlySpan_System_String__System_UInt32__
   - name: (
-  - uid: System.Span`1
-    name: Span
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.span-1
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
   - name: <
   - uid: System.String
     name: string
@@ -884,14 +884,14 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.uint32
   - name: )
   spec.vb:
-  - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.Span{System.String},System.UInt32@)
+  - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
     name: MarshalStringArrayToAnsiStringArrayPtr
-    href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_Span_System_String__System_UInt32__
+    href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_ReadOnlySpan_System_String__System_UInt32__
   - name: (
-  - uid: System.Span`1
-    name: Span
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.span-1
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
   - name: (
   - name: Of
   - name: " "

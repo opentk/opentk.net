@@ -5,14 +5,16 @@ items:
   id: X11ShellComponent
   parent: OpenTK.Platform.Native.X11
   children:
-  - OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(System.Boolean)
+  - OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(System.Boolean,System.String)
   - OpenTK.Platform.Native.X11.X11ShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   - OpenTK.Platform.Native.X11.X11ShellComponent.GetPreferredTheme
   - OpenTK.Platform.Native.X11.X11ShellComponent.GetSystemMemoryInformation
   - OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+  - OpenTK.Platform.Native.X11.X11ShellComponent.IsScreenSaverAllowed
   - OpenTK.Platform.Native.X11.X11ShellComponent.Logger
   - OpenTK.Platform.Native.X11.X11ShellComponent.Name
   - OpenTK.Platform.Native.X11.X11ShellComponent.Provides
+  - OpenTK.Platform.Native.X11.X11ShellComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -23,7 +25,7 @@ items:
   source:
     id: X11ShellComponent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 16
+    startLine: 17
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -57,7 +59,7 @@ items:
   source:
     id: Name
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -86,7 +88,7 @@ items:
   source:
     id: Provides
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -115,11 +117,11 @@ items:
   source:
     id: Logger
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 25
+    startLine: 26
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -128,6 +130,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.X11.X11ShellComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -144,7 +151,7 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 55
+    startLine: 58
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -158,48 +165,129 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
-- uid: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(System.Boolean)
-  commentId: M:OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(System.Boolean)
-  id: AllowScreenSaver(System.Boolean)
+- uid: OpenTK.Platform.Native.X11.X11ShellComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.X11.X11ShellComponent.Uninitialize
+  id: Uninitialize
   parent: OpenTK.Platform.Native.X11.X11ShellComponent
   langs:
   - csharp
   - vb
-  name: AllowScreenSaver(bool)
-  nameWithType: X11ShellComponent.AllowScreenSaver(bool)
-  fullName: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(bool)
+  name: Uninitialize()
+  nameWithType: X11ShellComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.X11.X11ShellComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
+    startLine: 121
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.X11
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.X11.X11ShellComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
+- uid: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  commentId: M:OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  id: AllowScreenSaver(System.Boolean,System.String)
+  parent: OpenTK.Platform.Native.X11.X11ShellComponent
+  langs:
+  - csharp
+  - vb
+  name: AllowScreenSaver(bool, string?)
+  nameWithType: X11ShellComponent.AllowScreenSaver(bool, string?)
+  fullName: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(bool, string?)
   type: Method
   source:
     id: AllowScreenSaver
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 182
+    startLine: 201
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
   summary: >-
     Sets whether or not a screensaver is allowed to draw on top of the window.
 
-    For games with long cutscenes it would be appropriate to set this to <code>false</code>,
+    For games with long cutscenes it would be appropriate to set this to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>,
 
-    while tools that act like normal applications should set this to <code>true</code>.
+    while tools that act like normal applications should set this to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 
     By default this setting is untouched.
   example: []
   syntax:
-    content: public void AllowScreenSaver(bool allow)
+    content: public void AllowScreenSaver(bool allow, string? disableReason)
     parameters:
     - id: allow
       type: System.Boolean
       description: Whether to allow screensavers to appear while the application is running.
-    content.vb: Public Sub AllowScreenSaver(allow As Boolean)
+    - id: disableReason
+      type: System.String
+      description: >-
+        A reason for why the screen saver is disabled.
+
+        This string should both contain the reason why the screen saver is disabed as well as the name of the
+
+        application so the user knows which application is preventing the screen saver from running.
+
+        If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is sent the following default message will be sent:
+
+        <pre><code class="lang-csharp">$"{ApplicationName} is is preventing screen saver."</code></pre>
+    content.vb: Public Sub AllowScreenSaver(allow As Boolean, disableReason As String)
   overload: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver*
+  seealso:
+  - linkId: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    commentId: M:OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
   implements:
-  - OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
-  nameWithType.vb: X11ShellComponent.AllowScreenSaver(Boolean)
-  fullName.vb: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(Boolean)
-  name.vb: AllowScreenSaver(Boolean)
+  - OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  nameWithType.vb: X11ShellComponent.AllowScreenSaver(Boolean, String)
+  fullName.vb: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver(Boolean, String)
+  name.vb: AllowScreenSaver(Boolean, String)
+- uid: OpenTK.Platform.Native.X11.X11ShellComponent.IsScreenSaverAllowed
+  commentId: M:OpenTK.Platform.Native.X11.X11ShellComponent.IsScreenSaverAllowed
+  id: IsScreenSaverAllowed
+  parent: OpenTK.Platform.Native.X11.X11ShellComponent
+  langs:
+  - csharp
+  - vb
+  name: IsScreenSaverAllowed()
+  nameWithType: X11ShellComponent.IsScreenSaverAllowed()
+  fullName: OpenTK.Platform.Native.X11.X11ShellComponent.IsScreenSaverAllowed()
+  type: Method
+  source:
+    id: IsScreenSaverAllowed
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
+    startLine: 233
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.X11
+  summary: Gets if the screen saver is allowed to run or not.
+  example: []
+  syntax:
+    content: public bool IsScreenSaverAllowed()
+    return:
+      type: System.Boolean
+      description: If the screen saver is allowed to run.
+    content.vb: Public Function IsScreenSaverAllowed() As Boolean
+  overload: OpenTK.Platform.Native.X11.X11ShellComponent.IsScreenSaverAllowed*
+  seealso:
+  - linkId: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+    commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  implements:
+  - OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   commentId: M:OpenTK.Platform.Native.X11.X11ShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
   id: GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
@@ -214,7 +302,7 @@ items:
   source:
     id: GetBatteryInfo
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 214
+    startLine: 245
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -252,7 +340,7 @@ items:
   source:
     id: GetPreferredTheme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 439
+    startLine: 470
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -265,6 +353,9 @@ items:
       description: The user set preferred theme.
     content.vb: Public Function GetPreferredTheme() As ThemeInfo
   overload: OpenTK.Platform.Native.X11.X11ShellComponent.GetPreferredTheme*
+  seealso:
+  - linkId: OpenTK.Platform.ThemeChangeEventArgs
+    commentId: T:OpenTK.Platform.ThemeChangeEventArgs
   implements:
   - OpenTK.Platform.IShellComponent.GetPreferredTheme
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.GetSystemMemoryInformation
@@ -281,7 +372,7 @@ items:
   source:
     id: GetSystemMemoryInformation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11ShellComponent.cs
-    startLine: 448
+    startLine: 479
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -652,6 +743,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.X11.X11ShellComponent.Logger
   href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_Logger
@@ -665,13 +769,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -702,6 +799,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.X11.X11ShellComponent.Initialize
   href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -733,49 +861,116 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.X11.X11ShellComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11ShellComponent.Uninitialize
+  href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: X11ShellComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.X11.X11ShellComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+  commentId: M:OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+  parent: OpenTK.Platform.IShellComponent
+  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  name: IsScreenSaverAllowed()
+  nameWithType: IShellComponent.IsScreenSaverAllowed()
+  fullName: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed()
+  spec.csharp:
+  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    name: IsScreenSaverAllowed
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    name: IsScreenSaverAllowed
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  - name: (
+  - name: )
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver*
   commentId: Overload:OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver
-  href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_AllowScreenSaver_System_Boolean_
+  href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_AllowScreenSaver_System_Boolean_System_String_
   name: AllowScreenSaver
   nameWithType: X11ShellComponent.AllowScreenSaver
   fullName: OpenTK.Platform.Native.X11.X11ShellComponent.AllowScreenSaver
-- uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
-  commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+- uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+  commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
   parent: OpenTK.Platform.IShellComponent
   isExternal: true
-  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
-  name: AllowScreenSaver(bool)
-  nameWithType: IShellComponent.AllowScreenSaver(bool)
-  fullName: OpenTK.Platform.IShellComponent.AllowScreenSaver(bool)
-  nameWithType.vb: IShellComponent.AllowScreenSaver(Boolean)
-  fullName.vb: OpenTK.Platform.IShellComponent.AllowScreenSaver(Boolean)
-  name.vb: AllowScreenSaver(Boolean)
+  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
+  name: AllowScreenSaver(bool, string)
+  nameWithType: IShellComponent.AllowScreenSaver(bool, string)
+  fullName: OpenTK.Platform.IShellComponent.AllowScreenSaver(bool, string)
+  nameWithType.vb: IShellComponent.AllowScreenSaver(Boolean, String)
+  fullName.vb: OpenTK.Platform.IShellComponent.AllowScreenSaver(Boolean, String)
+  name.vb: AllowScreenSaver(Boolean, String)
   spec.csharp:
-  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
     name: AllowScreenSaver
-    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
   - name: (
   - uid: System.Boolean
     name: bool
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean)
+  - uid: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
     name: AllowScreenSaver
-    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_AllowScreenSaver_System_Boolean_System_String_
   - name: (
   - uid: System.Boolean
     name: Boolean
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: System.Boolean
   commentId: T:System.Boolean
@@ -788,6 +983,12 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: OpenTK.Platform.Native.X11.X11ShellComponent.IsScreenSaverAllowed*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11ShellComponent.IsScreenSaverAllowed
+  href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_IsScreenSaverAllowed
+  name: IsScreenSaverAllowed
+  nameWithType: X11ShellComponent.IsScreenSaverAllowed
+  fullName: OpenTK.Platform.Native.X11.X11ShellComponent.IsScreenSaverAllowed
 - uid: OpenTK.Platform.BatteryStatus.HasSystemBattery
   commentId: F:OpenTK.Platform.BatteryStatus.HasSystemBattery
   href: OpenTK.Platform.BatteryStatus.html#OpenTK_Platform_BatteryStatus_HasSystemBattery
@@ -844,6 +1045,12 @@ references:
   name: BatteryStatus
   nameWithType: BatteryStatus
   fullName: OpenTK.Platform.BatteryStatus
+- uid: OpenTK.Platform.ThemeChangeEventArgs
+  commentId: T:OpenTK.Platform.ThemeChangeEventArgs
+  href: OpenTK.Platform.ThemeChangeEventArgs.html
+  name: ThemeChangeEventArgs
+  nameWithType: ThemeChangeEventArgs
+  fullName: OpenTK.Platform.ThemeChangeEventArgs
 - uid: OpenTK.Platform.Native.X11.X11ShellComponent.GetPreferredTheme*
   commentId: Overload:OpenTK.Platform.Native.X11.X11ShellComponent.GetPreferredTheme
   href: OpenTK.Platform.Native.X11.X11ShellComponent.html#OpenTK_Platform_Native_X11_X11ShellComponent_GetPreferredTheme

@@ -7,15 +7,18 @@ items:
   children:
   - OpenTK.Platform.Native.X11.X11MouseComponent.CanSetMousePosition
   - OpenTK.Platform.Native.X11.X11MouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
-  - OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
-  - OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(System.Int32@,System.Int32@)
+  - OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  - OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+  - OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+  - OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
   - OpenTK.Platform.Native.X11.X11MouseComponent.Initialize(OpenTK.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.X11.X11MouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.Native.X11.X11MouseComponent.Logger
   - OpenTK.Platform.Native.X11.X11MouseComponent.Name
   - OpenTK.Platform.Native.X11.X11MouseComponent.Provides
-  - OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition(System.Int32,System.Int32)
+  - OpenTK.Platform.Native.X11.X11MouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
   - OpenTK.Platform.Native.X11.X11MouseComponent.SupportsRawMouseMotion
+  - OpenTK.Platform.Native.X11.X11MouseComponent.Uninitialize
   langs:
   - csharp
   - vb
@@ -122,7 +125,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
-  summary: Provides a logger for this component.
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -131,6 +134,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.X11.X11MouseComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -161,8 +169,42 @@ items:
       description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.X11.X11MouseComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.Uninitialize
+  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.Uninitialize
+  id: Uninitialize
+  parent: OpenTK.Platform.Native.X11.X11MouseComponent
+  langs:
+  - csharp
+  - vb
+  name: Uninitialize()
+  nameWithType: X11MouseComponent.Uninitialize()
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.Uninitialize()
+  type: Method
+  source:
+    id: Uninitialize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
+    startLine: 29
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.X11
+  summary: Uninitialize the component. Frees any native resources used by the component.
+  example: []
+  syntax:
+    content: public void Uninitialize()
+    content.vb: Public Sub Uninitialize()
+  overload: OpenTK.Platform.Native.X11.X11MouseComponent.Uninitialize*
+  seealso:
+  - linkId: OpenTK.Platform.Toolkit.Uninit
+    commentId: M:OpenTK.Platform.Toolkit.Uninit
+  implements:
+  - OpenTK.Platform.IPalComponent.Uninitialize
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.CanSetMousePosition
   commentId: P:OpenTK.Platform.Native.X11.X11MouseComponent.CanSetMousePosition
   id: CanSetMousePosition
@@ -177,11 +219,11 @@ items:
   source:
     id: CanSetMousePosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
-    startLine: 29
+    startLine: 34
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
-  summary: If it's possible to set the position of the mouse using <xref href="OpenTK.Platform.IMouseComponent.SetPosition(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref>.
+  summary: If it's possible to set the position of the mouse using <xref href="OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public bool CanSetMousePosition { get; }
@@ -191,8 +233,8 @@ items:
     content.vb: Public ReadOnly Property CanSetMousePosition As Boolean
   overload: OpenTK.Platform.Native.X11.X11MouseComponent.CanSetMousePosition*
   seealso:
-  - linkId: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
-    commentId: M:OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
+  - linkId: OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+    commentId: M:OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
   implements:
   - OpenTK.Platform.IMouseComponent.CanSetMousePosition
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.SupportsRawMouseMotion
@@ -209,7 +251,7 @@ items:
   source:
     id: SupportsRawMouseMotion
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
-    startLine: 32
+    startLine: 37
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -232,117 +274,220 @@ items:
     commentId: M:OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
   implements:
   - OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
-- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(System.Int32@,System.Int32@)
-  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(System.Int32@,System.Int32@)
-  id: GetPosition(System.Int32@,System.Int32@)
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+  id: GetGlobalPosition(OpenTK.Mathematics.Vector2@)
   parent: OpenTK.Platform.Native.X11.X11MouseComponent
   langs:
   - csharp
   - vb
-  name: GetPosition(out int, out int)
-  nameWithType: X11MouseComponent.GetPosition(out int, out int)
-  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(out int, out int)
+  name: GetGlobalPosition(out Vector2)
+  nameWithType: X11MouseComponent.GetGlobalPosition(out Vector2)
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition(out OpenTK.Mathematics.Vector2)
   type: Method
   source:
-    id: GetPosition
+    id: GetGlobalPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
-    startLine: 35
-  assemblies:
-  - OpenTK.Platform
-  namespace: OpenTK.Platform.Native.X11
-  summary: Get the mouse cursor position.
-  example: []
-  syntax:
-    content: public void GetPosition(out int x, out int y)
-    parameters:
-    - id: x
-      type: System.Int32
-      description: X coordinate of the mouse in desktop space.
-    - id: y
-      type: System.Int32
-      description: Y coordinate of the mouse in desktop space.
-    content.vb: Public Sub GetPosition(x As Integer, y As Integer)
-  overload: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition*
-  implements:
-  - OpenTK.Platform.IMouseComponent.GetPosition(System.Int32@,System.Int32@)
-  nameWithType.vb: X11MouseComponent.GetPosition(Integer, Integer)
-  fullName.vb: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(Integer, Integer)
-  name.vb: GetPosition(Integer, Integer)
-- uid: OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition(System.Int32,System.Int32)
-  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition(System.Int32,System.Int32)
-  id: SetPosition(System.Int32,System.Int32)
-  parent: OpenTK.Platform.Native.X11.X11MouseComponent
-  langs:
-  - csharp
-  - vb
-  name: SetPosition(int, int)
-  nameWithType: X11MouseComponent.SetPosition(int, int)
-  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition(int, int)
-  type: Method
-  source:
-    id: SetPosition
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
-    startLine: 44
+    startLine: 40
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
   summary: >-
-    Set the mouse cursor position.
+    Get the global mouse cursor position.
 
-    Check that <xref href="OpenTK.Platform.IMouseComponent.CanSetMousePosition" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> before using this.
+    This function may query the mouse position outside of event processing to get the position of the mouse at the time this function is called.
+
+    The mouse position returned is the mouse position as it is on screen, it will not return virtual coordinates when using <xref href="OpenTK.Platform.CursorCaptureMode.Locked" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public void SetPosition(int x, int y)
+    content: public void GetGlobalPosition(out Vector2 globalPosition)
     parameters:
-    - id: x
-      type: System.Int32
-      description: X coordinate of the mouse in desktop space.
-    - id: y
-      type: System.Int32
-      description: Y coordinate of the mouse in desktop space.
-    content.vb: Public Sub SetPosition(x As Integer, y As Integer)
-  overload: OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition*
+    - id: globalPosition
+      type: OpenTK.Mathematics.Vector2
+      description: Coordinate of the mouse in screen coordinates.
+    content.vb: Public Sub GetGlobalPosition(globalPosition As Vector2)
+  overload: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition*
   seealso:
-  - linkId: OpenTK.Platform.IMouseComponent.CanSetMousePosition
-    commentId: P:OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  - linkId: OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+    commentId: M:OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+  - linkId: OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+    commentId: M:OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
   implements:
-  - OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
-  nameWithType.vb: X11MouseComponent.SetPosition(Integer, Integer)
-  fullName.vb: OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition(Integer, Integer)
-  name.vb: SetPosition(Integer, Integer)
-- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
-  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
-  id: GetMouseState(OpenTK.Platform.MouseState@)
+  - OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+  nameWithType.vb: X11MouseComponent.GetGlobalPosition(Vector2)
+  fullName.vb: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2)
+  name.vb: GetGlobalPosition(Vector2)
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+  id: GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
   parent: OpenTK.Platform.Native.X11.X11MouseComponent
   langs:
   - csharp
   - vb
-  name: GetMouseState(out MouseState)
-  nameWithType: X11MouseComponent.GetMouseState(out MouseState)
-  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(out OpenTK.Platform.MouseState)
+  name: GetPosition(WindowHandle, out Vector2)
+  nameWithType: X11MouseComponent.GetPosition(WindowHandle, out Vector2)
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(OpenTK.Platform.WindowHandle, out OpenTK.Mathematics.Vector2)
   type: Method
   source:
-    id: GetMouseState
+    id: GetPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
-    startLine: 77
+    startLine: 49
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
-  summary: Fills the <code class="paramref">state</code> struct with the current mouse state.
+  summary: >-
+    Gets the mouse position as seen from the specified window.
+
+    This function takes into consideration only the mouse events that the specified window has received and does not represent global state.
+
+    If the window has locked the cursor using <xref href="OpenTK.Platform.CursorCaptureMode.Locked" data-throw-if-not-resolved="false"></xref>, this function will return virtual coordinates (unlike GetGlobalPosition(out Vector2i)).
   example: []
   syntax:
-    content: public void GetMouseState(out MouseState state)
+    content: public void GetPosition(WindowHandle window, out Vector2 position)
+    parameters:
+    - id: window
+      type: OpenTK.Platform.WindowHandle
+      description: The window to get the mouse position for.
+    - id: position
+      type: OpenTK.Mathematics.Vector2
+      description: Coordinate of the mouse in client coordinates.
+    content.vb: Public Sub GetPosition(window As WindowHandle, position As Vector2)
+  overload: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+    commentId: M:OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+  implements:
+  - OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+  nameWithType.vb: X11MouseComponent.GetPosition(WindowHandle, Vector2)
+  fullName.vb: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2)
+  name.vb: GetPosition(WindowHandle, Vector2)
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+  id: SetGlobalPosition(OpenTK.Mathematics.Vector2)
+  parent: OpenTK.Platform.Native.X11.X11MouseComponent
+  langs:
+  - csharp
+  - vb
+  name: SetGlobalPosition(Vector2)
+  nameWithType: X11MouseComponent.SetGlobalPosition(Vector2)
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    id: SetGlobalPosition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
+    startLine: 68
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.X11
+  summary: >-
+    Set the global mouse cursor position.
+
+    Check that <xref href="OpenTK.Platform.IMouseComponent.CanSetMousePosition" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> before using this.
+  example: []
+  syntax:
+    content: public void SetGlobalPosition(Vector2 newGlobalPosition)
+    parameters:
+    - id: newGlobalPosition
+      type: OpenTK.Mathematics.Vector2
+      description: New coordinate of the mouse in screen space.
+    content.vb: Public Sub SetGlobalPosition(newGlobalPosition As Vector2)
+  overload: OpenTK.Platform.Native.X11.X11MouseComponent.SetGlobalPosition*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+    commentId: M:OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+  - linkId: OpenTK.Platform.IMouseComponent.CanSetMousePosition
+    commentId: P:OpenTK.Platform.IMouseComponent.CanSetMousePosition
+  implements:
+  - OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  id: GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  parent: OpenTK.Platform.Native.X11.X11MouseComponent
+  langs:
+  - csharp
+  - vb
+  name: GetGlobalMouseState(out MouseState)
+  nameWithType: X11MouseComponent.GetGlobalMouseState(out MouseState)
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState(out OpenTK.Platform.MouseState)
+  type: Method
+  source:
+    id: GetGlobalMouseState
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
+    startLine: 113
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.X11
+  summary: >-
+    Fills the <code class="paramref">state</code> struct with the current mouse state.
+
+    This function may query the mouse state outside of event processing to get the position of the mouse at the time this function is called.
+
+    The <xref href="OpenTK.Platform.MouseState.Position" data-throw-if-not-resolved="false"></xref> will be the screen mouse position and not virtual coordinates described by <xref href="OpenTK.Platform.CursorCaptureMode.Locked" data-throw-if-not-resolved="false"></xref>.
+
+    The <xref href="OpenTK.Platform.MouseState.Position" data-throw-if-not-resolved="false"></xref> is in window screen coordinates.
+  example: []
+  syntax:
+    content: public void GetGlobalMouseState(out MouseState state)
     parameters:
     - id: state
       type: OpenTK.Platform.MouseState
       description: The current mouse state.
-    content.vb: Public Sub GetMouseState(state As MouseState)
-  overload: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState*
+    content.vb: Public Sub GetGlobalMouseState(state As MouseState)
+  overload: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+    commentId: M:OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
   implements:
-  - OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
-  nameWithType.vb: X11MouseComponent.GetMouseState(MouseState)
-  fullName.vb: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.MouseState)
-  name.vb: GetMouseState(MouseState)
+  - OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  nameWithType.vb: X11MouseComponent.GetGlobalMouseState(MouseState)
+  fullName.vb: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState)
+  name.vb: GetGlobalMouseState(MouseState)
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+  commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+  id: GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+  parent: OpenTK.Platform.Native.X11.X11MouseComponent
+  langs:
+  - csharp
+  - vb
+  name: GetMouseState(WindowHandle, out MouseState)
+  nameWithType: X11MouseComponent.GetMouseState(WindowHandle, out MouseState)
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.WindowHandle, out OpenTK.Platform.MouseState)
+  type: Method
+  source:
+    id: GetMouseState
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
+    startLine: 123
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.X11
+  summary: >-
+    Fills the <code class="paramref">state</code> struct with the current mouse state for the specified window.
+
+    This function takes into consideration only the mouse events that the specified window has received and does not represent global state.
+
+    If the window has locked the cursor using <xref href="OpenTK.Platform.CursorCaptureMode.Locked" data-throw-if-not-resolved="false"></xref>, this function will return virtual coordinates (unlike <xref href="OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState%40)" data-throw-if-not-resolved="false"></xref>).
+
+    The <xref href="OpenTK.Platform.MouseState.Position" data-throw-if-not-resolved="false"></xref> is in window relative coordinates.
+  example: []
+  syntax:
+    content: public void GetMouseState(WindowHandle window, out MouseState state)
+    parameters:
+    - id: window
+      type: OpenTK.Platform.WindowHandle
+      description: The window to get the mouse state from.
+    - id: state
+      type: OpenTK.Platform.MouseState
+      description: The current mouse state.
+    content.vb: Public Sub GetMouseState(window As WindowHandle, state As MouseState)
+  overload: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState*
+  seealso:
+  - linkId: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+    commentId: M:OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  implements:
+  - OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+  nameWithType.vb: X11MouseComponent.GetMouseState(WindowHandle, MouseState)
+  fullName.vb: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState(OpenTK.Platform.WindowHandle, OpenTK.Platform.MouseState)
+  name.vb: GetMouseState(WindowHandle, MouseState)
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
   commentId: M:OpenTK.Platform.Native.X11.X11MouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
   id: IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
@@ -357,7 +502,7 @@ items:
   source:
     id: IsRawMouseMotionEnabled
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
-    startLine: 87
+    startLine: 133
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -380,6 +525,8 @@ items:
   seealso:
   - linkId: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
     commentId: P:OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+  - linkId: OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
+    commentId: M:OpenTK.Platform.IMouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
   implements:
   - OpenTK.Platform.IMouseComponent.IsRawMouseMotionEnabled(OpenTK.Platform.WindowHandle)
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.EnableRawMouseMotion(OpenTK.Platform.WindowHandle,System.Boolean)
@@ -396,7 +543,7 @@ items:
   source:
     id: EnableRawMouseMotion
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11MouseComponent.cs
-    startLine: 93
+    startLine: 139
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -784,6 +931,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.Logger
   href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_Logger
@@ -797,13 +957,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -834,6 +987,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.Initialize
   href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -865,55 +1049,73 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
-- uid: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
-  commentId: M:OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
-  parent: OpenTK.Platform.IMouseComponent
-  isExternal: true
-  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetPosition_System_Int32_System_Int32_
-  name: SetPosition(int, int)
-  nameWithType: IMouseComponent.SetPosition(int, int)
-  fullName: OpenTK.Platform.IMouseComponent.SetPosition(int, int)
-  nameWithType.vb: IMouseComponent.SetPosition(Integer, Integer)
-  fullName.vb: OpenTK.Platform.IMouseComponent.SetPosition(Integer, Integer)
-  name.vb: SetPosition(Integer, Integer)
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
   spec.csharp:
-  - uid: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
-    name: SetPosition
-    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetPosition_System_Int32_System_Int32_
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
   - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IMouseComponent.SetPosition(System.Int32,System.Int32)
-    name: SetPosition
-    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetPosition_System_Int32_System_Int32_
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
   - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.Uninitialize*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.Uninitialize
+  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_Uninitialize
+  name: Uninitialize
+  nameWithType: X11MouseComponent.Uninitialize
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.Uninitialize
+- uid: OpenTK.Platform.IPalComponent.Uninitialize
+  commentId: M:OpenTK.Platform.IPalComponent.Uninitialize
+  parent: OpenTK.Platform.IPalComponent
+  href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  name: Uninitialize()
+  nameWithType: IPalComponent.Uninitialize()
+  fullName: OpenTK.Platform.IPalComponent.Uninitialize()
+  spec.csharp:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IPalComponent.Uninitialize
+    name: Uninitialize
+    href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+  commentId: M:OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+  parent: OpenTK.Platform.IMouseComponent
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetGlobalPosition_OpenTK_Mathematics_Vector2_
+  name: SetGlobalPosition(Vector2)
+  nameWithType: IMouseComponent.SetGlobalPosition(Vector2)
+  fullName: OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+  spec.csharp:
+  - uid: OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+    name: SetGlobalPosition
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetGlobalPosition_OpenTK_Mathematics_Vector2_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IMouseComponent.SetGlobalPosition(OpenTK.Mathematics.Vector2)
+    name: SetGlobalPosition
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_SetGlobalPosition_OpenTK_Mathematics_Vector2_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
   - name: )
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.CanSetMousePosition*
   commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.CanSetMousePosition
@@ -1018,96 +1220,202 @@ references:
   name: SupportsRawMouseMotion
   nameWithType: IMouseComponent.SupportsRawMouseMotion
   fullName: OpenTK.Platform.IMouseComponent.SupportsRawMouseMotion
+- uid: OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+  commentId: M:OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+  parent: OpenTK.Platform.IMouseComponent
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetPosition_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2__
+  name: GetPosition(WindowHandle, out Vector2)
+  nameWithType: IMouseComponent.GetPosition(WindowHandle, out Vector2)
+  fullName: OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle, out OpenTK.Mathematics.Vector2)
+  nameWithType.vb: IMouseComponent.GetPosition(WindowHandle, Vector2)
+  fullName.vb: OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2)
+  name.vb: GetPosition(WindowHandle, Vector2)
+  spec.csharp:
+  - uid: OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+    name: GetPosition
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetPosition_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IMouseComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2@)
+    name: GetPosition
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetPosition_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2__
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+- uid: OpenTK.Platform.CursorCaptureMode.Locked
+  commentId: F:OpenTK.Platform.CursorCaptureMode.Locked
+  href: OpenTK.Platform.CursorCaptureMode.html#OpenTK_Platform_CursorCaptureMode_Locked
+  name: Locked
+  nameWithType: CursorCaptureMode.Locked
+  fullName: OpenTK.Platform.CursorCaptureMode.Locked
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition
+  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_GetGlobalPosition_OpenTK_Mathematics_Vector2__
+  name: GetGlobalPosition
+  nameWithType: X11MouseComponent.GetGlobalPosition
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalPosition
+- uid: OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+  commentId: M:OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+  parent: OpenTK.Platform.IMouseComponent
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalPosition_OpenTK_Mathematics_Vector2__
+  name: GetGlobalPosition(out Vector2)
+  nameWithType: IMouseComponent.GetGlobalPosition(out Vector2)
+  fullName: OpenTK.Platform.IMouseComponent.GetGlobalPosition(out OpenTK.Mathematics.Vector2)
+  nameWithType.vb: IMouseComponent.GetGlobalPosition(Vector2)
+  fullName.vb: OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2)
+  name.vb: GetGlobalPosition(Vector2)
+  spec.csharp:
+  - uid: OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+    name: GetGlobalPosition
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalPosition_OpenTK_Mathematics_Vector2__
+  - name: (
+  - name: out
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IMouseComponent.GetGlobalPosition(OpenTK.Mathematics.Vector2@)
+    name: GetGlobalPosition
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalPosition_OpenTK_Mathematics_Vector2__
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    href: OpenTK.Mathematics.Vector2.html
+  - name: )
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Vector2.html
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  href: OpenTK.html
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition*
   commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition
-  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_GetPosition_System_Int32__System_Int32__
+  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_GetPosition_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2__
   name: GetPosition
   nameWithType: X11MouseComponent.GetPosition
   fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetPosition
-- uid: OpenTK.Platform.IMouseComponent.GetPosition(System.Int32@,System.Int32@)
-  commentId: M:OpenTK.Platform.IMouseComponent.GetPosition(System.Int32@,System.Int32@)
+- uid: OpenTK.Platform.WindowHandle
+  commentId: T:OpenTK.Platform.WindowHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.WindowHandle.html
+  name: WindowHandle
+  nameWithType: WindowHandle
+  fullName: OpenTK.Platform.WindowHandle
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.SetGlobalPosition*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.SetGlobalPosition
+  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_SetGlobalPosition_OpenTK_Mathematics_Vector2_
+  name: SetGlobalPosition
+  nameWithType: X11MouseComponent.SetGlobalPosition
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.SetGlobalPosition
+- uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+  commentId: M:OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
   parent: OpenTK.Platform.IMouseComponent
-  isExternal: true
-  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetPosition_System_Int32__System_Int32__
-  name: GetPosition(out int, out int)
-  nameWithType: IMouseComponent.GetPosition(out int, out int)
-  fullName: OpenTK.Platform.IMouseComponent.GetPosition(out int, out int)
-  nameWithType.vb: IMouseComponent.GetPosition(Integer, Integer)
-  fullName.vb: OpenTK.Platform.IMouseComponent.GetPosition(Integer, Integer)
-  name.vb: GetPosition(Integer, Integer)
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseState__
+  name: GetMouseState(WindowHandle, out MouseState)
+  nameWithType: IMouseComponent.GetMouseState(WindowHandle, out MouseState)
+  fullName: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle, out OpenTK.Platform.MouseState)
+  nameWithType.vb: IMouseComponent.GetMouseState(WindowHandle, MouseState)
+  fullName.vb: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle, OpenTK.Platform.MouseState)
+  name.vb: GetMouseState(WindowHandle, MouseState)
   spec.csharp:
-  - uid: OpenTK.Platform.IMouseComponent.GetPosition(System.Int32@,System.Int32@)
-    name: GetPosition
-    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetPosition_System_Int32__System_Int32__
+  - uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+    name: GetMouseState
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseState__
   - name: (
-  - name: out
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
   - name: ','
   - name: " "
   - name: out
   - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - uid: OpenTK.Platform.MouseState
+    name: MouseState
+    href: OpenTK.Platform.MouseState.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IMouseComponent.GetPosition(System.Int32@,System.Int32@)
-    name: GetPosition
-    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetPosition_System_Int32__System_Int32__
+  - uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseState@)
+    name: GetMouseState
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseState__
   - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - uid: OpenTK.Platform.MouseState
+    name: MouseState
+    href: OpenTK.Platform.MouseState.html
   - name: )
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition*
-  commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition
-  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_SetPosition_System_Int32_System_Int32_
-  name: SetPosition
-  nameWithType: X11MouseComponent.SetPosition
-  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.SetPosition
-- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState*
-  commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState
-  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_GetMouseState_OpenTK_Platform_MouseState__
-  name: GetMouseState
-  nameWithType: X11MouseComponent.GetMouseState
-  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState
-- uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
-  commentId: M:OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
+- uid: OpenTK.Platform.MouseState.Position
+  commentId: F:OpenTK.Platform.MouseState.Position
+  href: OpenTK.Platform.MouseState.html#OpenTK_Platform_MouseState_Position
+  name: Position
+  nameWithType: MouseState.Position
+  fullName: OpenTK.Platform.MouseState.Position
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState
+  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_GetGlobalMouseState_OpenTK_Platform_MouseState__
+  name: GetGlobalMouseState
+  nameWithType: X11MouseComponent.GetGlobalMouseState
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetGlobalMouseState
+- uid: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+  commentId: M:OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
   parent: OpenTK.Platform.IMouseComponent
-  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_MouseState__
-  name: GetMouseState(out MouseState)
-  nameWithType: IMouseComponent.GetMouseState(out MouseState)
-  fullName: OpenTK.Platform.IMouseComponent.GetMouseState(out OpenTK.Platform.MouseState)
-  nameWithType.vb: IMouseComponent.GetMouseState(MouseState)
-  fullName.vb: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState)
-  name.vb: GetMouseState(MouseState)
+  href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalMouseState_OpenTK_Platform_MouseState__
+  name: GetGlobalMouseState(out MouseState)
+  nameWithType: IMouseComponent.GetGlobalMouseState(out MouseState)
+  fullName: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(out OpenTK.Platform.MouseState)
+  nameWithType.vb: IMouseComponent.GetGlobalMouseState(MouseState)
+  fullName.vb: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState)
+  name.vb: GetGlobalMouseState(MouseState)
   spec.csharp:
-  - uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
-    name: GetMouseState
-    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_MouseState__
+  - uid: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+    name: GetGlobalMouseState
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalMouseState_OpenTK_Platform_MouseState__
   - name: (
   - name: out
   - name: " "
@@ -1116,9 +1424,9 @@ references:
     href: OpenTK.Platform.MouseState.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IMouseComponent.GetMouseState(OpenTK.Platform.MouseState@)
-    name: GetMouseState
-    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetMouseState_OpenTK_Platform_MouseState__
+  - uid: OpenTK.Platform.IMouseComponent.GetGlobalMouseState(OpenTK.Platform.MouseState@)
+    name: GetGlobalMouseState
+    href: OpenTK.Platform.IMouseComponent.html#OpenTK_Platform_IMouseComponent_GetGlobalMouseState_OpenTK_Platform_MouseState__
   - name: (
   - uid: OpenTK.Platform.MouseState
     name: MouseState
@@ -1131,19 +1439,18 @@ references:
   name: MouseState
   nameWithType: MouseState
   fullName: OpenTK.Platform.MouseState
+- uid: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState
+  href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_GetMouseState_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseState__
+  name: GetMouseState
+  nameWithType: X11MouseComponent.GetMouseState
+  fullName: OpenTK.Platform.Native.X11.X11MouseComponent.GetMouseState
 - uid: OpenTK.Platform.Native.X11.X11MouseComponent.IsRawMouseMotionEnabled*
   commentId: Overload:OpenTK.Platform.Native.X11.X11MouseComponent.IsRawMouseMotionEnabled
   href: OpenTK.Platform.Native.X11.X11MouseComponent.html#OpenTK_Platform_Native_X11_X11MouseComponent_IsRawMouseMotionEnabled_OpenTK_Platform_WindowHandle_
   name: IsRawMouseMotionEnabled
   nameWithType: X11MouseComponent.IsRawMouseMotionEnabled
   fullName: OpenTK.Platform.Native.X11.X11MouseComponent.IsRawMouseMotionEnabled
-- uid: OpenTK.Platform.WindowHandle
-  commentId: T:OpenTK.Platform.WindowHandle
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.WindowHandle.html
-  name: WindowHandle
-  nameWithType: WindowHandle
-  fullName: OpenTK.Platform.WindowHandle
 - uid: OpenTK.Platform.RawMouseMoveEventArgs
   commentId: T:OpenTK.Platform.RawMouseMoveEventArgs
   href: OpenTK.Platform.RawMouseMoveEventArgs.html

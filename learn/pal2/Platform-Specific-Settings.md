@@ -1,6 +1,40 @@
 # Introduction
 
-PAL 2 consists of a number of components that allows the user to create windows and interact with the user system. These interfaces are designed to work cross-platform. But sometimes there are functions and settings that are so platform specific that these is no good cross-platform API for them.
+PAL 2 consists of a number of components that allows the user to create windows and interact with the user system. These interfaces are designed to work cross-platform. But sometimes there are functions and settings that are so platform specific that these is no good cross-platform API for them. These settings can either be accessed through the `ToolkitOptions` class when calling `Toolkit.Init()`, or they are platform specific APIs that can be accessed through platform specific interfaces.
+
+# Platform specifc `ToolkitOptions`
+
+The platform specific settings in `TookitOptions` can be accessed from the `Windows`, `X11`, `MacOS` members. The settings will only affect the current platform, so writing values for each platform is a convenient way to 
+
+```cs
+ToolkitOptions options = new ToolkitOptions();
+// Will only take effect when running on windows.
+options.Windows.EnableVisualStyles = false;
+// Will only take effect when running on macOS.
+options.MacOS.ActiveAppOnStart = false;
+```
+
+## Windows
+
+### `ToolkitOptions.Windows.EnableVisualStyles`
+
+This setting decides if OpenTK should enable [Visual Styles](https://learn.microsoft.com/en-us/windows/win32/controls/themes-overview) on initialization or not. Defaults to `true`. OpenTK requires Visual Styles to be enabled for the message box API to work. This option exists to allow Visual Styles to be enabled through a manifest file.
+
+### `ToolkitOptions.Windows.IsDPIAware`
+
+This setting sets whether OpenTK will mark the process as [DPI aware](https://learn.microsoft.com/en-us/windows/win32/hidpi/high-dpi-desktop-application-development-on-windows) or not. Default is `true`. By setting this to false windows will scale your application up on high DPI monitors with a significant loss in image clarity, as such it is recommended to keep this property set to `true`.
+
+## Linux X11
+
+There are no X11 specific `ToolkitOptions` at the moment.
+
+## macOS
+
+### `ToolkitOptions.MacOS.ActiveAppOnStart`
+
+This setting decides if OpenTK should force the OpenTK application to become the currently active window on start. Default is `true`. Forcing the application to become the active application is not the "normal" application behavior on macOS but many developers expect their application to become the active one on start. Setting this setting depending on debug or release mode could be appropriate.
+
+# Platform specific APIs
 
 Platform specific component APIs can be accessed by casting the component interface to it's concrete platform type. For example, `Toolkit.Clipboard` has windows specific settings related to cloud clipboard syncing and history, which can be accessed like follows: 
 
@@ -11,7 +45,7 @@ Platform specific component APIs can be accessed by casting the component interf
 (Toolkit.Clipboard as Native.Windows.WindowComponent)?.CanIncludeInClipboardHistory = true;
 ```
 
-# Windows
+## Windows
 The following is a list of windows specific settings and functions.
 
 |Function|Description|
@@ -46,7 +80,7 @@ The following is a list of windows specific settings and functions.
 |[`ClipboardComponent.SetClipboardAudio`](xref:OpenTK.Platform.Native.Windows.ClipboardComponent.SetClipboardAudio(OpenTK.Platform.AudioData))|Allows uploading audio data to the clipboard. Audio clipboard support is generally poorly supported by audio applications.|
 |[`ClipboardComponent.SetClipboardBitmap`](xref:OpenTK.Platform.Native.Windows.ClipboardComponent.SetClipboardBitmap(OpenTK.Platform.Bitmap))|Allows uploading image data to the clipboard.|
 
-# Linux X11
+## Linux X11
 The following is a list of linux x11 specific settings and functions.
 
 |Function|Description|
@@ -67,7 +101,7 @@ The following is a list of linux x11 specific settings and functions.
 |`X11IconComponent`||
 |[`X11IconComponent.Create(int, int, IconImage[])`](xref:OpenTK.Platform.Native.X11.X11IconComponent.Create(System.Int32,System.Int32,OpenTK.Platform.Native.X11.X11IconComponent.IconImage[]))|Used to create multi-resolution icons.|
 
-# macOS
+## macOS
 The following is a list of macOS specific settings and functions.
 
 |Function|Description|
@@ -91,7 +125,7 @@ The following is a list of macOS specific settings and functions.
 |[`MacOSCursorComponent.IsAnimatedCursor`](xref:OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor(OpenTK.Platform.CursorHandle))|Used to check if a given cursor is animated.|
 |[`MacOSCursorComponent.UpdateAnimation`](xref:OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation(OpenTK.Platform.CursorHandle,System.Double))|Used to update the animation of a given cursor.|
 
-# ANGLE
+## ANGLE
 
 When using ANGLE to create OpenGL contexts `ANGLEOpenGLComponent` exposes a few ANGLE specific functions.
 

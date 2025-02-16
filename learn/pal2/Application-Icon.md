@@ -2,7 +2,7 @@
 
 Every operating system has a different way of handling application icons. This document will guide you through the different icon options available in PAL2 and how to set them up to work.
 
-The simplest way to set your application icon is through [`Toolkit.Window.SetIcon`](xref:OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)) which will set the window icon at runtime. But this might be undesirable the desktop icon that the operating system will use to represent your application will still be unset. This is where the operating system specific setup comes into play.
+The simplest way to set your application icon is through [`Toolkit.Window.SetIcon`](xref:OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)) which will set the window icon at runtime. But this might be undesirable as the desktop icon that the operating system will use to represent your application will still be unset. This is where the operating system specific setup comes into play.
 
 Here are the guides for the different operating systems.
 - [Windows](#windows)
@@ -50,7 +50,9 @@ This will allow you to add additional entries in your `.rc` resource file like c
 > [!NOTE]
 > TODO: Mention `MacOSIconComponent.CreateSFSymbol`?
 
-On macOS an application is a special folder that contains a bunch of different files and folders. One of these files is called `info.plist` and contains a bunch of information about your application, including the icon to use.
+On macOS individual windows do not have icons. Instead there is a single application icon for all windows. This is called the dock icon and can be set through [`MacOSWindowComponent.SetDockIcon`](xref:OpenTK.Platform.Native.macOS.MacOSWindowComponent.SetDockIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)). This only sets the application icon at runtime, so the published application will not have an icon set.
+
+On macOS an application is a special folder that contains a bunch of different files and folders. One of these files is called `info.plist` and contains a bunch of information about your application, including the icon to use for the application.
 
 A simple `info.plist` could look like this:
 ```plist
@@ -74,6 +76,8 @@ A simple `info.plist` could look like this:
 
 You can read more about `info.plist` and other keys and features related to it here: https://developer.apple.com/documentation/bundleresources/information_property_list/managing_your_app_s_information_property_list?language=objc
 
+`info.plist` files are most easily authored using the Xcode tools available through the developer kit on macOS, but can be written by hand with enough attention to detail.
+
 `info.plist` keys of interest might be `CFBundleDisplayName` in combination with a `InfoPlist.strings` file for application name localization, or `CFBundleDevelopmentRegion` to set the default language for the application.
 
 To include this in your project we can do the following in the `.csproj`:
@@ -92,8 +96,11 @@ To read more about packaging on macOS, read this article: [TODO: macOS publishin
 
 ## Linux
 
-> [!NOTE]
-> TODO: Mention the PAL2 api for setting multi-resolution icons programatically. The `.desktop` method is still preferred.
+### The simple way
+
+If you need to create a multi-resoltion icon at runtime you can use the [`X11IconComponent.Create(int, int, IconImage[])`](xref:OpenTK.Platform.Native.X11.X11IconComponent.Create(System.Int32,System.Int32,OpenTK.Platform.Native.X11.X11IconComponent.IconImage[])) api to create the icon, and then use [`Toolkit.Window.SetIcon`](xref:OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)) like usual. This still has the problem that the file browser will not show the application icon properly.
+
+### The more involved way
 
 On KDE and GNOME `.desktop` files are used to specify application metadata similar to `info.plist`. The specification for how these `.desktop` files can be found here: https://specifications.freedesktop.org/desktop-entry-spec/latest/
 

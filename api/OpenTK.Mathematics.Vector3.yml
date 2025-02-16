@@ -5,11 +5,12 @@ items:
   id: Vector3
   parent: OpenTK.Mathematics
   children:
-  - OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector2)
-  - OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector4)
-  - OpenTK.Mathematics.Vector3.#ctor(System.Single,System.Single,System.Single)
+  - OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector2,System.Single)
   - OpenTK.Mathematics.Vector3.#ctor(System.Single)
+  - OpenTK.Mathematics.Vector3.#ctor(System.Single,System.Single,System.Single)
+  - OpenTK.Mathematics.Vector3.Abs
+  - OpenTK.Mathematics.Vector3.Abs(OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.Abs(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)
   - OpenTK.Mathematics.Vector3.Add(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
   - OpenTK.Mathematics.Vector3.Add(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)
   - OpenTK.Mathematics.Vector3.BaryCentric(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single,System.Single)
@@ -35,6 +36,8 @@ items:
   - OpenTK.Mathematics.Vector3.Divide(OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
   - OpenTK.Mathematics.Vector3.Dot(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
   - OpenTK.Mathematics.Vector3.Dot(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single@)
+  - OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  - OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
   - OpenTK.Mathematics.Vector3.Equals(OpenTK.Mathematics.Vector3)
   - OpenTK.Mathematics.Vector3.Equals(System.Object)
   - OpenTK.Mathematics.Vector3.GetHashCode
@@ -58,37 +61,23 @@ items:
   - OpenTK.Mathematics.Vector3.Normalize
   - OpenTK.Mathematics.Vector3.Normalize(OpenTK.Mathematics.Vector3)
   - OpenTK.Mathematics.Vector3.Normalize(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)
-  - OpenTK.Mathematics.Vector3.Normalized
   - OpenTK.Mathematics.Vector3.NormalizeFast
   - OpenTK.Mathematics.Vector3.NormalizeFast(OpenTK.Mathematics.Vector3)
   - OpenTK.Mathematics.Vector3.NormalizeFast(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)
+  - OpenTK.Mathematics.Vector3.Normalized
   - OpenTK.Mathematics.Vector3.One
-  - OpenTK.Mathematics.Vector3.op_Addition(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_Division(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_Division(OpenTK.Mathematics.Vector3,System.Single)
-  - OpenTK.Mathematics.Vector3.op_Equality(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_Explicit(OpenTK.Mathematics.Vector3)~OpenTK.Mathematics.Vector3h
-  - OpenTK.Mathematics.Vector3.op_Explicit(OpenTK.Mathematics.Vector3)~OpenTK.Mathematics.Vector3i
-  - OpenTK.Mathematics.Vector3.op_Implicit(OpenTK.Mathematics.Vector3)~OpenTK.Mathematics.Vector3d
-  - OpenTK.Mathematics.Vector3.op_Implicit(System.ValueTuple{System.Single,System.Single,System.Single})~OpenTK.Mathematics.Vector3
-  - OpenTK.Mathematics.Vector3.op_Inequality(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Matrix3,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Matrix3)
-  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Vector3,System.Single)
-  - OpenTK.Mathematics.Vector3.op_Multiply(System.Single,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_Subtraction(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
-  - OpenTK.Mathematics.Vector3.op_UnaryNegation(OpenTK.Mathematics.Vector3)
   - OpenTK.Mathematics.Vector3.PositiveInfinity
   - OpenTK.Mathematics.Vector3.Project(OpenTK.Mathematics.Vector3,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,OpenTK.Mathematics.Matrix4)
+  - OpenTK.Mathematics.Vector3.ReciprocalLengthFast
   - OpenTK.Mathematics.Vector3.SizeInBytes
+  - OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  - OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
   - OpenTK.Mathematics.Vector3.Subtract(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
   - OpenTK.Mathematics.Vector3.Subtract(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)
   - OpenTK.Mathematics.Vector3.ToString
   - OpenTK.Mathematics.Vector3.ToString(System.IFormatProvider)
-  - OpenTK.Mathematics.Vector3.ToString(System.String,System.IFormatProvider)
   - OpenTK.Mathematics.Vector3.ToString(System.String)
+  - OpenTK.Mathematics.Vector3.ToString(System.String,System.IFormatProvider)
   - OpenTK.Mathematics.Vector3.Transform(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Quaternion)
   - OpenTK.Mathematics.Vector3.Transform(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Quaternion@,OpenTK.Mathematics.Vector3@)
   - OpenTK.Mathematics.Vector3.TransformColumn(OpenTK.Mathematics.Matrix3,OpenTK.Mathematics.Vector3)
@@ -124,6 +113,23 @@ items:
   - OpenTK.Mathematics.Vector3.Zxy
   - OpenTK.Mathematics.Vector3.Zy
   - OpenTK.Mathematics.Vector3.Zyx
+  - OpenTK.Mathematics.Vector3.op_Addition(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_Division(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_Division(OpenTK.Mathematics.Vector3,System.Single)
+  - OpenTK.Mathematics.Vector3.op_Equality(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_Explicit(OpenTK.Mathematics.Vector3)~OpenTK.Mathematics.Vector3h
+  - OpenTK.Mathematics.Vector3.op_Explicit(OpenTK.Mathematics.Vector3)~OpenTK.Mathematics.Vector3i
+  - OpenTK.Mathematics.Vector3.op_Implicit(OpenTK.Mathematics.Vector3)~OpenTK.Mathematics.Vector3d
+  - OpenTK.Mathematics.Vector3.op_Implicit(System.ValueTuple{System.Single,System.Single,System.Single})~OpenTK.Mathematics.Vector3
+  - OpenTK.Mathematics.Vector3.op_Inequality(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Matrix3,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Quaternion,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Matrix3)
+  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Vector3,System.Single)
+  - OpenTK.Mathematics.Vector3.op_Multiply(System.Single,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_Subtraction(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - OpenTK.Mathematics.Vector3.op_UnaryNegation(OpenTK.Mathematics.Vector3)
   langs:
   - csharp
   - vb
@@ -132,13 +138,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3
   type: Struct
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Vector3
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 37
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 36
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -177,13 +179,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.X
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: X
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 44
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 43
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -206,13 +204,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Y
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Y
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 49
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 48
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -235,13 +229,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Z
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Z
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 54
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 53
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -264,13 +254,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Vector3(float)
   type: Constructor
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 60
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 59
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -299,13 +285,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Vector3(float, float, float)
   type: Constructor
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 73
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 72
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -328,24 +310,20 @@ items:
   nameWithType.vb: Vector3.New(Single, Single, Single)
   fullName.vb: OpenTK.Mathematics.Vector3.New(Single, Single, Single)
   name.vb: New(Single, Single, Single)
-- uid: OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector2)
-  commentId: M:OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector2)
-  id: '#ctor(OpenTK.Mathematics.Vector2)'
+- uid: OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector2,System.Single)
+  commentId: M:OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector2,System.Single)
+  id: '#ctor(OpenTK.Mathematics.Vector2,System.Single)'
   parent: OpenTK.Mathematics.Vector3
   langs:
   - csharp
   - vb
-  name: Vector3(Vector2)
-  nameWithType: Vector3.Vector3(Vector2)
-  fullName: OpenTK.Mathematics.Vector3.Vector3(OpenTK.Mathematics.Vector2)
+  name: Vector3(Vector2, float)
+  nameWithType: Vector3.Vector3(Vector2, float)
+  fullName: OpenTK.Mathematics.Vector3.Vector3(OpenTK.Mathematics.Vector2, float)
   type: Constructor
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
     startLine: 84
   assemblies:
   - OpenTK.Mathematics
@@ -353,86 +331,19 @@ items:
   summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Vector3" data-throw-if-not-resolved="false"></xref> struct.
   example: []
   syntax:
-    content: public Vector3(Vector2 v)
+    content: public Vector3(Vector2 xy, float z = 0)
     parameters:
-    - id: v
+    - id: xy
       type: OpenTK.Mathematics.Vector2
-      description: The Vector2 to copy components from.
-    content.vb: Public Sub New(v As Vector2)
+      description: The x and y components of the Vector3.
+    - id: z
+      type: System.Single
+      description: The z component of the Vector3.
+    content.vb: Public Sub New(xy As Vector2, z As Single = 0)
   overload: OpenTK.Mathematics.Vector3.#ctor*
-  nameWithType.vb: Vector3.New(Vector2)
-  fullName.vb: OpenTK.Mathematics.Vector3.New(OpenTK.Mathematics.Vector2)
-  name.vb: New(Vector2)
-- uid: OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector3)
-  commentId: M:OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector3)
-  id: '#ctor(OpenTK.Mathematics.Vector3)'
-  parent: OpenTK.Mathematics.Vector3
-  langs:
-  - csharp
-  - vb
-  name: Vector3(Vector3)
-  nameWithType: Vector3.Vector3(Vector3)
-  fullName: OpenTK.Mathematics.Vector3.Vector3(OpenTK.Mathematics.Vector3)
-  type: Constructor
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 95
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Vector3" data-throw-if-not-resolved="false"></xref> struct.
-  example: []
-  syntax:
-    content: public Vector3(Vector3 v)
-    parameters:
-    - id: v
-      type: OpenTK.Mathematics.Vector3
-      description: The Vector3 to copy components from.
-    content.vb: Public Sub New(v As Vector3)
-  overload: OpenTK.Mathematics.Vector3.#ctor*
-  nameWithType.vb: Vector3.New(Vector3)
-  fullName.vb: OpenTK.Mathematics.Vector3.New(OpenTK.Mathematics.Vector3)
-  name.vb: New(Vector3)
-- uid: OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector4)
-  commentId: M:OpenTK.Mathematics.Vector3.#ctor(OpenTK.Mathematics.Vector4)
-  id: '#ctor(OpenTK.Mathematics.Vector4)'
-  parent: OpenTK.Mathematics.Vector3
-  langs:
-  - csharp
-  - vb
-  name: Vector3(Vector4)
-  nameWithType: Vector3.Vector3(Vector4)
-  fullName: OpenTK.Mathematics.Vector3.Vector3(OpenTK.Mathematics.Vector4)
-  type: Constructor
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: .ctor
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 106
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Vector3" data-throw-if-not-resolved="false"></xref> struct.
-  example: []
-  syntax:
-    content: public Vector3(Vector4 v)
-    parameters:
-    - id: v
-      type: OpenTK.Mathematics.Vector4
-      description: The Vector4 to copy components from.
-    content.vb: Public Sub New(v As Vector4)
-  overload: OpenTK.Mathematics.Vector3.#ctor*
-  nameWithType.vb: Vector3.New(Vector4)
-  fullName.vb: OpenTK.Mathematics.Vector3.New(OpenTK.Mathematics.Vector4)
-  name.vb: New(Vector4)
+  nameWithType.vb: Vector3.New(Vector2, Single)
+  fullName.vb: OpenTK.Mathematics.Vector3.New(OpenTK.Mathematics.Vector2, Single)
+  name.vb: New(Vector2, Single)
 - uid: OpenTK.Mathematics.Vector3.Item(System.Int32)
   commentId: P:OpenTK.Mathematics.Vector3.Item(System.Int32)
   id: Item(System.Int32)
@@ -445,20 +356,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.this[int]
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: this[]
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 118
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 96
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at the index of the Vector.
   example: []
   syntax:
-    content: public float this[int index] { get; set; }
+    content: public float this[int index] { readonly get; set; }
     parameters:
     - id: index
       type: System.Int32
@@ -486,20 +393,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Length
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Length
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 166
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 144
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the length (magnitude) of the vector.
   example: []
   syntax:
-    content: public float Length { get; }
+    content: public readonly float Length { get; }
     parameters: []
     return:
       type: System.Single
@@ -508,6 +411,33 @@ items:
   seealso:
   - linkId: OpenTK.Mathematics.Vector3.LengthSquared
     commentId: P:OpenTK.Mathematics.Vector3.LengthSquared
+- uid: OpenTK.Mathematics.Vector3.ReciprocalLengthFast
+  commentId: P:OpenTK.Mathematics.Vector3.ReciprocalLengthFast
+  id: ReciprocalLengthFast
+  parent: OpenTK.Mathematics.Vector3
+  langs:
+  - csharp
+  - vb
+  name: ReciprocalLengthFast
+  nameWithType: Vector3.ReciprocalLengthFast
+  fullName: OpenTK.Mathematics.Vector3.ReciprocalLengthFast
+  type: Property
+  source:
+    id: ReciprocalLengthFast
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 149
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Gets an approximation of 1 over the length (magnitude) of the vector.
+  example: []
+  syntax:
+    content: public readonly float ReciprocalLengthFast { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property ReciprocalLengthFast As Single
+  overload: OpenTK.Mathematics.Vector3.ReciprocalLengthFast*
 - uid: OpenTK.Mathematics.Vector3.LengthFast
   commentId: P:OpenTK.Mathematics.Vector3.LengthFast
   id: LengthFast
@@ -520,24 +450,17 @@ items:
   fullName: OpenTK.Mathematics.Vector3.LengthFast
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: LengthFast
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 177
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 159
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets an approximation of the vector length (magnitude).
-  remarks: >-
-    This property uses an approximation of the square root function to calculate vector magnitude, with
-
-    an upper error bound of 0.001.
+  remarks: This property uses an approximation of the square root function to calculate vector magnitude.
   example: []
   syntax:
-    content: public float LengthFast { get; }
+    content: public readonly float LengthFast { get; }
     parameters: []
     return:
       type: System.Single
@@ -558,13 +481,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.LengthSquared
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: LengthSquared
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 188
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 170
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -575,7 +494,7 @@ items:
     for comparisons.
   example: []
   syntax:
-    content: public float LengthSquared { get; }
+    content: public readonly float LengthSquared { get; }
     parameters: []
     return:
       type: System.Single
@@ -596,20 +515,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Normalized()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Normalized
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 194
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 176
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns a copy of the Vector3 scaled to unit length.
   example: []
   syntax:
-    content: public Vector3 Normalized()
+    content: public readonly Vector3 Normalized()
     return:
       type: OpenTK.Mathematics.Vector3
       description: The normalized copy.
@@ -627,13 +542,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Normalize()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Normalize
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 204
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 186
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -655,13 +566,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.NormalizeFast()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: NormalizeFast
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 215
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 197
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -671,6 +578,33 @@ items:
     content: public void NormalizeFast()
     content.vb: Public Sub NormalizeFast()
   overload: OpenTK.Mathematics.Vector3.NormalizeFast*
+- uid: OpenTK.Mathematics.Vector3.Abs
+  commentId: M:OpenTK.Mathematics.Vector3.Abs
+  id: Abs
+  parent: OpenTK.Mathematics.Vector3
+  langs:
+  - csharp
+  - vb
+  name: Abs()
+  nameWithType: Vector3.Abs()
+  fullName: OpenTK.Mathematics.Vector3.Abs()
+  type: Method
+  source:
+    id: Abs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 209
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns a new vector that is the component-wise absolute value of the vector.
+  example: []
+  syntax:
+    content: public readonly Vector3 Abs()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: The component-wise absolute value vector.
+    content.vb: Public Function Abs() As Vector3
+  overload: OpenTK.Mathematics.Vector3.Abs*
 - uid: OpenTK.Mathematics.Vector3.UnitX
   commentId: F:OpenTK.Mathematics.Vector3.UnitX
   id: UnitX
@@ -683,13 +617,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.UnitX
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: UnitX
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 226
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 221
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -712,13 +642,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.UnitY
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: UnitY
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 231
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 226
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -741,13 +667,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.UnitZ
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: UnitZ
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 236
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 231
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -770,13 +692,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Zero
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zero
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 241
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 236
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -799,13 +717,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.One
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: One
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 246
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 241
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -828,13 +742,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.PositiveInfinity
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: PositiveInfinity
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 251
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 246
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -857,13 +767,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.NegativeInfinity
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: NegativeInfinity
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 256
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 251
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -886,13 +792,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.SizeInBytes
   type: Field
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: SizeInBytes
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 261
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 256
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -915,13 +817,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Add(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Add
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 269
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 264
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -963,13 +861,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Add(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Add
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 282
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 277
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1004,13 +898,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Subtract(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Subtract
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 295
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 290
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1052,13 +942,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Subtract(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Subtract
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 308
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 303
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1093,13 +979,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Multiply(OpenTK.Mathematics.Vector3, float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 321
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 316
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1144,13 +1026,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Multiply(in OpenTK.Mathematics.Vector3, float, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 334
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 329
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1185,13 +1063,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Multiply(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 347
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 342
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1233,13 +1107,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Multiply(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 360
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 355
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1274,13 +1144,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Divide(OpenTK.Mathematics.Vector3, float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Divide
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 373
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 368
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1325,13 +1191,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Divide(in OpenTK.Mathematics.Vector3, float, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Divide
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 386
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 381
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1366,13 +1228,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Divide(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Divide
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 399
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 394
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1414,13 +1272,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Divide(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Divide
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 412
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 407
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1455,13 +1309,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.ComponentMin(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ComponentMin
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 425
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 420
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1503,13 +1353,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.ComponentMin(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ComponentMin
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 440
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 435
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1544,13 +1390,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.ComponentMax(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ComponentMax
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 453
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 448
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1592,13 +1434,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.ComponentMax(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ComponentMax
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 468
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 463
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1633,13 +1471,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.MagnitudeMin(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: MagnitudeMin
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 482
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 477
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1684,13 +1518,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.MagnitudeMin(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: MagnitudeMin
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 495
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 490
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1728,13 +1558,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.MagnitudeMax(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: MagnitudeMax
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 507
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 502
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1779,13 +1605,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.MagnitudeMax(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: MagnitudeMax
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 520
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 515
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1823,13 +1645,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Clamp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Clamp
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 532
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 527
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1874,13 +1692,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Clamp(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Clamp
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 548
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 543
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1906,6 +1720,71 @@ items:
   nameWithType.vb: Vector3.Clamp(Vector3, Vector3, Vector3, Vector3)
   fullName.vb: OpenTK.Mathematics.Vector3.Clamp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   name.vb: Clamp(Vector3, Vector3, Vector3, Vector3)
+- uid: OpenTK.Mathematics.Vector3.Abs(OpenTK.Mathematics.Vector3)
+  commentId: M:OpenTK.Mathematics.Vector3.Abs(OpenTK.Mathematics.Vector3)
+  id: Abs(OpenTK.Mathematics.Vector3)
+  parent: OpenTK.Mathematics.Vector3
+  langs:
+  - csharp
+  - vb
+  name: Abs(Vector3)
+  nameWithType: Vector3.Abs(Vector3)
+  fullName: OpenTK.Mathematics.Vector3.Abs(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    id: Abs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 555
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Take the component-wise absolute value of a vector.
+  example: []
+  syntax:
+    content: public static Vector3 Abs(Vector3 vec)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector3
+      description: The vector to apply component-wise absolute value to.
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: The component-wise absolute value vector.
+    content.vb: Public Shared Function Abs(vec As Vector3) As Vector3
+  overload: OpenTK.Mathematics.Vector3.Abs*
+- uid: OpenTK.Mathematics.Vector3.Abs(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)
+  commentId: M:OpenTK.Mathematics.Vector3.Abs(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)
+  id: Abs(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@)
+  parent: OpenTK.Mathematics.Vector3
+  langs:
+  - csharp
+  - vb
+  name: Abs(in Vector3, out Vector3)
+  nameWithType: Vector3.Abs(in Vector3, out Vector3)
+  fullName: OpenTK.Mathematics.Vector3.Abs(in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    id: Abs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 568
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Take the component-wise absolute value of a vector.
+  example: []
+  syntax:
+    content: public static void Abs(in Vector3 vec, out Vector3 result)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector3
+      description: The vector to apply component-wise absolute value to.
+    - id: result
+      type: OpenTK.Mathematics.Vector3
+      description: The component-wise absolute value vector.
+    content.vb: Public Shared Sub Abs(vec As Vector3, result As Vector3)
+  overload: OpenTK.Mathematics.Vector3.Abs*
+  nameWithType.vb: Vector3.Abs(Vector3, Vector3)
+  fullName.vb: OpenTK.Mathematics.Vector3.Abs(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  name.vb: Abs(Vector3, Vector3)
 - uid: OpenTK.Mathematics.Vector3.Distance(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
   commentId: M:OpenTK.Mathematics.Vector3.Distance(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
   id: Distance(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
@@ -1918,13 +1797,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Distance(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Distance
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 561
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 581
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1966,13 +1841,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Distance(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Distance
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 574
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 594
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2007,13 +1878,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.DistanceSquared(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: DistanceSquared
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 586
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 606
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2055,13 +1922,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.DistanceSquared(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: DistanceSquared
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 599
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 619
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2096,13 +1959,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Normalize(OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Normalize
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 610
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 630
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2141,13 +2000,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Normalize(in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Normalize
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 625
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 645
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2179,13 +2034,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.NormalizeFast(OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: NormalizeFast
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 638
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 658
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2224,13 +2075,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.NormalizeFast(in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: NormalizeFast
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 653
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 673
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2262,13 +2109,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Dot(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Dot
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 667
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 687
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2310,13 +2153,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Dot(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Dot
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 679
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 699
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2351,13 +2190,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Cross(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Cross
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 690
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 710
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2399,13 +2234,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Cross(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Cross
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 703
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 723
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2440,13 +2271,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Lerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Lerp
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 717
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 737
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2494,13 +2321,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Lerp(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, float, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Lerp
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 733
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 753
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2538,13 +2361,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Lerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Lerp
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 747
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 767
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2589,13 +2408,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Lerp(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Lerp
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 763
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 783
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2621,6 +2436,194 @@ items:
   nameWithType.vb: Vector3.Lerp(Vector3, Vector3, Vector3, Vector3)
   fullName.vb: OpenTK.Mathematics.Vector3.Lerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   name.vb: Lerp(Vector3, Vector3, Vector3, Vector3)
+- uid: OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  commentId: M:OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  id: Slerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  parent: OpenTK.Mathematics.Vector3
+  langs:
+  - csharp
+  - vb
+  name: Slerp(Vector3, Vector3, float)
+  nameWithType: Vector3.Slerp(Vector3, Vector3, float)
+  fullName: OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, float)
+  type: Method
+  source:
+    id: Slerp
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 798
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a new vector that is the spherical interpolation of the two given vectors.
+
+    <code class="paramref">a</code> and <code class="paramref">b</code> need to be normalized for this function to work properly.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector3 Slerp(Vector3 a, Vector3 b, float t)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3
+      description: Unit vector start point.
+    - id: b
+      type: OpenTK.Mathematics.Vector3
+      description: Unit vector end point.
+    - id: t
+      type: System.Single
+      description: The blend factor.
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: <code class="paramref">a</code> when <code class="paramref">t</code>=0, <code class="paramref">b</code> when <code class="paramref">t</code>=1, and a spherical interpolation between the vectors otherwise.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function Slerp(a As Vector3, b As Vector3, t As Single) As Vector3
+  overload: OpenTK.Mathematics.Vector3.Slerp*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Vector3.Slerp(Vector3, Vector3, Single)
+  fullName.vb: OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, Single)
+  name.vb: Slerp(Vector3, Vector3, Single)
+- uid: OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
+  commentId: M:OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
+  id: Slerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
+  parent: OpenTK.Mathematics.Vector3
+  langs:
+  - csharp
+  - vb
+  name: Slerp(in Vector3, in Vector3, float, out Vector3)
+  nameWithType: Vector3.Slerp(in Vector3, in Vector3, float, out Vector3)
+  fullName: OpenTK.Mathematics.Vector3.Slerp(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, float, out OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    id: Slerp
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 828
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a new vector that is the spherical interpolation of the two given vectors.
+
+    <code class="paramref">a</code> and <code class="paramref">b</code> need to be normalized for this function to work properly.
+  example: []
+  syntax:
+    content: public static void Slerp(in Vector3 a, in Vector3 b, float t, out Vector3 result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3
+      description: Unit vector start point.
+    - id: b
+      type: OpenTK.Mathematics.Vector3
+      description: Unit vector end point.
+    - id: t
+      type: System.Single
+      description: The blend factor.
+    - id: result
+      type: OpenTK.Mathematics.Vector3
+      description: Is <code class="paramref">a</code> when <code class="paramref">t</code>=0, <code class="paramref">b</code> when <code class="paramref">t</code>=1, and a spherical interpolation between the vectors otherwise.
+    content.vb: Public Shared Sub Slerp(a As Vector3, b As Vector3, t As Single, result As Vector3)
+  overload: OpenTK.Mathematics.Vector3.Slerp*
+  nameWithType.vb: Vector3.Slerp(Vector3, Vector3, Single, Vector3)
+  fullName.vb: OpenTK.Mathematics.Vector3.Slerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, Single, OpenTK.Mathematics.Vector3)
+  name.vb: Slerp(Vector3, Vector3, Single, Vector3)
+- uid: OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  commentId: M:OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  id: Elerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  parent: OpenTK.Mathematics.Vector3
+  langs:
+  - csharp
+  - vb
+  name: Elerp(Vector3, Vector3, float)
+  nameWithType: Vector3.Elerp(Vector3, Vector3, float)
+  fullName: OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, float)
+  type: Method
+  source:
+    id: Elerp
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 866
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a new vector that is the exponential interpolation of the two vectors.
+
+    Equivalent to <code>a * pow(b/a, t)</code>.
+  example: []
+  syntax:
+    content: public static Vector3 Elerp(Vector3 a, Vector3 b, float t)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3
+      description: The starting value. Must be non-negative.
+    - id: b
+      type: OpenTK.Mathematics.Vector3
+      description: The end value. Must be non-negative.
+    - id: t
+      type: System.Single
+      description: The blend factor.
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: The exponential interpolation between <code class="paramref">a</code> and <code class="paramref">b</code>.
+    content.vb: Public Shared Function Elerp(a As Vector3, b As Vector3, t As Single) As Vector3
+  overload: OpenTK.Mathematics.Vector3.Elerp*
+  seealso:
+  - linkId: OpenTK.Mathematics.MathHelper.Elerp(System.Single,System.Single,System.Single)
+    commentId: M:OpenTK.Mathematics.MathHelper.Elerp(System.Single,System.Single,System.Single)
+  nameWithType.vb: Vector3.Elerp(Vector3, Vector3, Single)
+  fullName.vb: OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, Single)
+  name.vb: Elerp(Vector3, Vector3, Single)
+- uid: OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
+  commentId: M:OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
+  id: Elerp(OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.Single,OpenTK.Mathematics.Vector3@)
+  parent: OpenTK.Mathematics.Vector3
+  langs:
+  - csharp
+  - vb
+  name: Elerp(in Vector3, in Vector3, float, out Vector3)
+  nameWithType: Vector3.Elerp(in Vector3, in Vector3, float, out Vector3)
+  fullName: OpenTK.Mathematics.Vector3.Elerp(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, float, out OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    id: Elerp
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 884
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a new vector that is the exponential interpolation of the two vectors.
+
+    Equivalent to <code>a * pow(b/a, t)</code>.
+  example: []
+  syntax:
+    content: public static void Elerp(in Vector3 a, in Vector3 b, float t, out Vector3 result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3
+      description: The starting value. Must be non-negative.
+    - id: b
+      type: OpenTK.Mathematics.Vector3
+      description: The end value. Must be non-negative.
+    - id: t
+      type: System.Single
+      description: The blend factor.
+    - id: result
+      type: OpenTK.Mathematics.Vector3
+      description: The exponential interpolation between <code class="paramref">a</code> and <code class="paramref">b</code>.
+    content.vb: Public Shared Sub Elerp(a As Vector3, b As Vector3, t As Single, result As Vector3)
+  overload: OpenTK.Mathematics.Vector3.Elerp*
+  seealso:
+  - linkId: OpenTK.Mathematics.MathHelper.Elerp(System.Single,System.Single,System.Single)
+    commentId: M:OpenTK.Mathematics.MathHelper.Elerp(System.Single,System.Single,System.Single)
+  nameWithType.vb: Vector3.Elerp(Vector3, Vector3, Single, Vector3)
+  fullName.vb: OpenTK.Mathematics.Vector3.Elerp(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, Single, OpenTK.Mathematics.Vector3)
+  name.vb: Elerp(Vector3, Vector3, Single, Vector3)
 - uid: OpenTK.Mathematics.Vector3.BaryCentric(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single,System.Single)
   commentId: M:OpenTK.Mathematics.Vector3.BaryCentric(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single,System.Single)
   id: BaryCentric(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single,System.Single)
@@ -2633,13 +2636,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.BaryCentric(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, float, float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: BaryCentric
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 779
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 900
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2693,13 +2692,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.BaryCentric(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, float, float, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: BaryCentric
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 798
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 919
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2756,13 +2751,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformVector(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Matrix4)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformVector
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 825
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 946
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2807,13 +2798,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformVector(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Matrix4, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformVector
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 839
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 960
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2851,13 +2838,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformNormal(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Matrix4)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformNormal
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 864
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 985
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2903,13 +2886,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformNormal(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Matrix4, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformNormal
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 881
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1002
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2948,13 +2927,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformNormalInverse(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Matrix4)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformNormalInverse
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 897
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1018
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3000,13 +2975,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformNormalInverse(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Matrix4, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformNormalInverse
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 914
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1035
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3045,13 +3016,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformPosition(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Matrix4)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformPosition
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 935
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1056
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3093,13 +3060,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformPosition(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Matrix4, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformPosition
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 948
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1069
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3134,13 +3097,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformRow(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Matrix3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformRow
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 972
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1093
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3182,13 +3141,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformRow(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Matrix3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformRow
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 985
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1106
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3223,13 +3178,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Transform(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Quaternion)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Transform
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 998
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1119
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3271,13 +3222,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Transform(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Quaternion, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Transform
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1011
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1132
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3312,13 +3259,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformColumn(OpenTK.Mathematics.Matrix3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformColumn
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1030
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1151
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3360,13 +3303,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformColumn(in OpenTK.Mathematics.Matrix3, in OpenTK.Mathematics.Vector3, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformColumn
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1043
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1164
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3401,13 +3340,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformPerspective(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Matrix4)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformPerspective
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1056
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1177
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3449,13 +3384,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.TransformPerspective(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Matrix4, out OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: TransformPerspective
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1069
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1190
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3490,13 +3421,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.CalculateAngle(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: CalculateAngle
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1085
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1206
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3539,13 +3466,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.CalculateAngle(in OpenTK.Mathematics.Vector3, in OpenTK.Mathematics.Vector3, out float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: CalculateAngle
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1099
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1220
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3581,13 +3504,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Project(OpenTK.Mathematics.Vector3, float, float, float, float, float, float, OpenTK.Mathematics.Matrix4)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Project
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1121
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1242
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3654,13 +3573,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Unproject(OpenTK.Mathematics.Vector3, float, float, float, float, float, float, OpenTK.Mathematics.Matrix4)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Unproject
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1185
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1306
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3727,13 +3642,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Xy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1235
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1356
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3758,20 +3669,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Xz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1249
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1370
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector2 with the X and Z components of this instance.
   example: []
   syntax:
-    content: public Vector2 Xz { get; set; }
+    content: public Vector2 Xz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2
@@ -3789,20 +3696,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Yx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1263
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1384
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector2 with the Y and X components of this instance.
   example: []
   syntax:
-    content: public Vector2 Yx { get; set; }
+    content: public Vector2 Yx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2
@@ -3820,20 +3723,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Yz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1277
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1398
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector2 with the Y and Z components of this instance.
   example: []
   syntax:
-    content: public Vector2 Yz { get; set; }
+    content: public Vector2 Yz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2
@@ -3851,20 +3750,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Zx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1291
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1412
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector2 with the Z and X components of this instance.
   example: []
   syntax:
-    content: public Vector2 Zx { get; set; }
+    content: public Vector2 Zx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2
@@ -3882,20 +3777,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Zy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1305
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1426
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector2 with the Z and Y components of this instance.
   example: []
   syntax:
-    content: public Vector2 Zy { get; set; }
+    content: public Vector2 Zy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2
@@ -3913,20 +3804,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Xzy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Xzy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1319
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1440
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector3 with the X, Z, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector3 Xzy { get; set; }
+    content: public Vector3 Xzy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3
@@ -3944,20 +3831,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Yxz
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yxz
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1334
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1455
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector3 with the Y, X, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector3 Yxz { get; set; }
+    content: public Vector3 Yxz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3
@@ -3975,20 +3858,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Yzx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Yzx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1349
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1470
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector3 with the Y, Z, and X components of this instance.
   example: []
   syntax:
-    content: public Vector3 Yzx { get; set; }
+    content: public Vector3 Yzx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3
@@ -4006,20 +3885,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Zxy
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zxy
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1364
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1485
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector3 with the Z, X, and Y components of this instance.
   example: []
   syntax:
-    content: public Vector3 Zxy { get; set; }
+    content: public Vector3 Zxy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3
@@ -4037,20 +3912,16 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Zyx
   type: Property
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Zyx
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1379
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1500
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector3 with the Z, Y, and X components of this instance.
   example: []
   syntax:
-    content: public Vector3 Zyx { get; set; }
+    content: public Vector3 Zyx { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3
@@ -4068,13 +3939,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator +(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Addition
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1397
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1518
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4119,13 +3986,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator -(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Subtraction
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1412
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1533
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4170,13 +4033,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator -(OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_UnaryNegation
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1426
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1547
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4218,13 +4077,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator *(OpenTK.Mathematics.Vector3, float)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1441
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1562
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4269,13 +4124,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator *(float, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1456
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1577
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4320,13 +4171,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator *(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1471
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1592
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4371,13 +4218,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator *(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Matrix3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1486
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1607
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4422,13 +4265,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator *(OpenTK.Mathematics.Matrix3, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1499
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1620
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4473,13 +4312,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator *(OpenTK.Mathematics.Quaternion, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Multiply
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1512
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1633
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4524,13 +4359,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator /(OpenTK.Mathematics.Vector3, float)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Division
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1525
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1646
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4575,13 +4406,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator /(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Division
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1540
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1661
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4626,13 +4453,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator ==(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Equality
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1555
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1676
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4667,13 +4490,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.operator !=(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Inequality
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1566
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1687
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4708,13 +4527,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.implicit operator OpenTK.Mathematics.Vector3d(OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Implicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1576
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1697
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4756,13 +4571,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.explicit operator OpenTK.Mathematics.Vector3h(OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Explicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1587
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1708
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4804,13 +4615,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.explicit operator OpenTK.Mathematics.Vector3i(OpenTK.Mathematics.Vector3)
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Explicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1598
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1719
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4852,13 +4659,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.implicit operator OpenTK.Mathematics.Vector3((float X, float Y, float Z))
   type: Operator
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: op_Implicit
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1610
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1731
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4903,21 +4706,19 @@ items:
   fullName: OpenTK.Mathematics.Vector3.ToString()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToString
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1617
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1738
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Returns the fully qualified type name of this instance.
   example: []
   syntax:
-    content: public override string ToString()
+    content: public override readonly string ToString()
     return:
       type: System.String
+      description: The fully qualified type name.
     content.vb: Public Overrides Function ToString() As String
   overridden: System.ValueType.ToString
   overload: OpenTK.Mathematics.Vector3.ToString*
@@ -4933,24 +4734,28 @@ items:
   fullName: OpenTK.Mathematics.Vector3.ToString(string)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToString
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1623
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1744
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(string format)
+    content: public readonly string ToString(string format)
     parameters:
     - id: format
       type: System.String
+      description: >-
+        The format to use.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(format As String) As String
   overload: OpenTK.Mathematics.Vector3.ToString*
   nameWithType.vb: Vector3.ToString(String)
@@ -4968,24 +4773,28 @@ items:
   fullName: OpenTK.Mathematics.Vector3.ToString(System.IFormatProvider)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToString
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1629
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1750
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(IFormatProvider formatProvider)
+    content: public readonly string ToString(IFormatProvider formatProvider)
     parameters:
     - id: formatProvider
       type: System.IFormatProvider
+      description: >-
+        The provider to use to format the value.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(formatProvider As IFormatProvider) As String
   overload: OpenTK.Mathematics.Vector3.ToString*
 - uid: OpenTK.Mathematics.Vector3.ToString(System.String,System.IFormatProvider)
@@ -5000,26 +4809,36 @@ items:
   fullName: OpenTK.Mathematics.Vector3.ToString(string, System.IFormatProvider)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: ToString
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1635
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1756
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(string format, IFormatProvider formatProvider)
+    content: public readonly string ToString(string format, IFormatProvider formatProvider)
     parameters:
     - id: format
       type: System.String
+      description: >-
+        The format to use.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
+      description: >-
+        The provider to use to format the value.  
+
+         -or-  
+
+         A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
       type: System.String
+      description: The value of the current instance in the specified format.
     content.vb: Public Function ToString(format As String, formatProvider As IFormatProvider) As String
   overload: OpenTK.Mathematics.Vector3.ToString*
   implements:
@@ -5039,24 +4858,23 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Equals(object)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Equals
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1646
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1767
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Indicates whether this instance and a specified object are equal.
   example: []
   syntax:
-    content: public override bool Equals(object obj)
+    content: public override readonly bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
+      description: The object to compare with the current instance.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function Equals(obj As Object) As Boolean
   overridden: System.ValueType.Equals(System.Object)
   overload: OpenTK.Mathematics.Vector3.Equals*
@@ -5075,24 +4893,23 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Equals(OpenTK.Mathematics.Vector3)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Equals
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1652
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1773
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Indicates whether the current object is equal to another object of the same type.
   example: []
   syntax:
-    content: public bool Equals(Vector3 other)
+    content: public readonly bool Equals(Vector3 other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Vector3
+      description: An object to compare with this object.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function Equals(other As Vector3) As Boolean
   overload: OpenTK.Mathematics.Vector3.Equals*
   implements:
@@ -5109,21 +4926,19 @@ items:
   fullName: OpenTK.Mathematics.Vector3.GetHashCode()
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: GetHashCode
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1660
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1781
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
+  summary: Returns the hash code for this instance.
   example: []
   syntax:
-    content: public override int GetHashCode()
+    content: public override readonly int GetHashCode()
     return:
       type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.ValueType.GetHashCode
   overload: OpenTK.Mathematics.Vector3.GetHashCode*
@@ -5139,13 +4954,9 @@ items:
   fullName: OpenTK.Mathematics.Vector3.Deconstruct(out float, out float, out float)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Mathematics/Vector/Vector3.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: Deconstruct
-    path: opentk/src/OpenTK.Mathematics/Vector/Vector3.cs
-    startLine: 1671
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3.cs
+    startLine: 1792
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5155,7 +4966,7 @@ items:
     content: >-
       [Pure]
 
-      public void Deconstruct(out float x, out float y, out float z)
+      public readonly void Deconstruct(out float x, out float y, out float z)
     parameters:
     - id: x
       type: System.Single
@@ -5422,7 +5233,7 @@ references:
   fullName: OpenTK.Mathematics.Vector3
 - uid: OpenTK.Mathematics.Vector3.#ctor*
   commentId: Overload:OpenTK.Mathematics.Vector3.#ctor
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.#ctor(System.Single)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3__ctor_System_Single_
   name: Vector3
   nameWithType: Vector3.Vector3
   fullName: OpenTK.Mathematics.Vector3.Vector3
@@ -5436,13 +5247,6 @@ references:
   name: Vector2
   nameWithType: Vector2
   fullName: OpenTK.Mathematics.Vector2
-- uid: OpenTK.Mathematics.Vector4
-  commentId: T:OpenTK.Mathematics.Vector4
-  parent: OpenTK.Mathematics
-  href: OpenTK.Mathematics.Vector4.html
-  name: Vector4
-  nameWithType: Vector4
-  fullName: OpenTK.Mathematics.Vector4
 - uid: System.IndexOutOfRangeException
   commentId: T:System.IndexOutOfRangeException
   isExternal: true
@@ -5452,7 +5256,7 @@ references:
   fullName: System.IndexOutOfRangeException
 - uid: OpenTK.Mathematics.Vector3.Item*
   commentId: Overload:OpenTK.Mathematics.Vector3.Item
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Item(System.Int32)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Item_System_Int32_
   name: this
   nameWithType: Vector3.this
   fullName: OpenTK.Mathematics.Vector3.this
@@ -5472,151 +5276,229 @@ references:
   name.vb: Integer
 - uid: OpenTK.Mathematics.Vector3.LengthSquared
   commentId: P:OpenTK.Mathematics.Vector3.LengthSquared
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.LengthSquared
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_LengthSquared
   name: LengthSquared
   nameWithType: Vector3.LengthSquared
   fullName: OpenTK.Mathematics.Vector3.LengthSquared
 - uid: OpenTK.Mathematics.Vector3.LengthFast
   commentId: P:OpenTK.Mathematics.Vector3.LengthFast
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.LengthFast
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_LengthFast
   name: LengthFast
   nameWithType: Vector3.LengthFast
   fullName: OpenTK.Mathematics.Vector3.LengthFast
 - uid: OpenTK.Mathematics.Vector3.Length*
   commentId: Overload:OpenTK.Mathematics.Vector3.Length
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Length
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Length
   name: Length
   nameWithType: Vector3.Length
   fullName: OpenTK.Mathematics.Vector3.Length
+- uid: OpenTK.Mathematics.Vector3.ReciprocalLengthFast*
+  commentId: Overload:OpenTK.Mathematics.Vector3.ReciprocalLengthFast
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_ReciprocalLengthFast
+  name: ReciprocalLengthFast
+  nameWithType: Vector3.ReciprocalLengthFast
+  fullName: OpenTK.Mathematics.Vector3.ReciprocalLengthFast
 - uid: OpenTK.Mathematics.Vector3.Length
   commentId: P:OpenTK.Mathematics.Vector3.Length
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Length
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Length
   name: Length
   nameWithType: Vector3.Length
   fullName: OpenTK.Mathematics.Vector3.Length
 - uid: OpenTK.Mathematics.Vector3.LengthFast*
   commentId: Overload:OpenTK.Mathematics.Vector3.LengthFast
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.LengthFast
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_LengthFast
   name: LengthFast
   nameWithType: Vector3.LengthFast
   fullName: OpenTK.Mathematics.Vector3.LengthFast
 - uid: OpenTK.Mathematics.Vector3.LengthSquared*
   commentId: Overload:OpenTK.Mathematics.Vector3.LengthSquared
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.LengthSquared
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_LengthSquared
   name: LengthSquared
   nameWithType: Vector3.LengthSquared
   fullName: OpenTK.Mathematics.Vector3.LengthSquared
 - uid: OpenTK.Mathematics.Vector3.Normalized*
   commentId: Overload:OpenTK.Mathematics.Vector3.Normalized
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Normalized
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Normalized
   name: Normalized
   nameWithType: Vector3.Normalized
   fullName: OpenTK.Mathematics.Vector3.Normalized
 - uid: OpenTK.Mathematics.Vector3.Normalize*
   commentId: Overload:OpenTK.Mathematics.Vector3.Normalize
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Normalize
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Normalize
   name: Normalize
   nameWithType: Vector3.Normalize
   fullName: OpenTK.Mathematics.Vector3.Normalize
 - uid: OpenTK.Mathematics.Vector3.NormalizeFast*
   commentId: Overload:OpenTK.Mathematics.Vector3.NormalizeFast
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.NormalizeFast
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_NormalizeFast
   name: NormalizeFast
   nameWithType: Vector3.NormalizeFast
   fullName: OpenTK.Mathematics.Vector3.NormalizeFast
+- uid: OpenTK.Mathematics.Vector3.Abs*
+  commentId: Overload:OpenTK.Mathematics.Vector3.Abs
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Abs
+  name: Abs
+  nameWithType: Vector3.Abs
+  fullName: OpenTK.Mathematics.Vector3.Abs
 - uid: OpenTK.Mathematics.Vector3.Add*
   commentId: Overload:OpenTK.Mathematics.Vector3.Add
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Add(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Add_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: Add
   nameWithType: Vector3.Add
   fullName: OpenTK.Mathematics.Vector3.Add
 - uid: OpenTK.Mathematics.Vector3.Subtract*
   commentId: Overload:OpenTK.Mathematics.Vector3.Subtract
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Subtract(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Subtract_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: Subtract
   nameWithType: Vector3.Subtract
   fullName: OpenTK.Mathematics.Vector3.Subtract
 - uid: OpenTK.Mathematics.Vector3.Multiply*
   commentId: Overload:OpenTK.Mathematics.Vector3.Multiply
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Multiply(OpenTK.Mathematics.Vector3,System.Single)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Multiply_OpenTK_Mathematics_Vector3_System_Single_
   name: Multiply
   nameWithType: Vector3.Multiply
   fullName: OpenTK.Mathematics.Vector3.Multiply
 - uid: OpenTK.Mathematics.Vector3.Divide*
   commentId: Overload:OpenTK.Mathematics.Vector3.Divide
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Divide(OpenTK.Mathematics.Vector3,System.Single)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Divide_OpenTK_Mathematics_Vector3_System_Single_
   name: Divide
   nameWithType: Vector3.Divide
   fullName: OpenTK.Mathematics.Vector3.Divide
 - uid: OpenTK.Mathematics.Vector3.ComponentMin*
   commentId: Overload:OpenTK.Mathematics.Vector3.ComponentMin
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.ComponentMin(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_ComponentMin_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: ComponentMin
   nameWithType: Vector3.ComponentMin
   fullName: OpenTK.Mathematics.Vector3.ComponentMin
 - uid: OpenTK.Mathematics.Vector3.ComponentMax*
   commentId: Overload:OpenTK.Mathematics.Vector3.ComponentMax
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.ComponentMax(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_ComponentMax_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: ComponentMax
   nameWithType: Vector3.ComponentMax
   fullName: OpenTK.Mathematics.Vector3.ComponentMax
 - uid: OpenTK.Mathematics.Vector3.MagnitudeMin*
   commentId: Overload:OpenTK.Mathematics.Vector3.MagnitudeMin
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.MagnitudeMin(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_MagnitudeMin_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: MagnitudeMin
   nameWithType: Vector3.MagnitudeMin
   fullName: OpenTK.Mathematics.Vector3.MagnitudeMin
 - uid: OpenTK.Mathematics.Vector3.MagnitudeMax*
   commentId: Overload:OpenTK.Mathematics.Vector3.MagnitudeMax
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.MagnitudeMax(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_MagnitudeMax_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: MagnitudeMax
   nameWithType: Vector3.MagnitudeMax
   fullName: OpenTK.Mathematics.Vector3.MagnitudeMax
 - uid: OpenTK.Mathematics.Vector3.Clamp*
   commentId: Overload:OpenTK.Mathematics.Vector3.Clamp
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Clamp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Clamp_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: Clamp
   nameWithType: Vector3.Clamp
   fullName: OpenTK.Mathematics.Vector3.Clamp
 - uid: OpenTK.Mathematics.Vector3.Distance*
   commentId: Overload:OpenTK.Mathematics.Vector3.Distance
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Distance(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Distance_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: Distance
   nameWithType: Vector3.Distance
   fullName: OpenTK.Mathematics.Vector3.Distance
 - uid: OpenTK.Mathematics.Vector3.DistanceSquared*
   commentId: Overload:OpenTK.Mathematics.Vector3.DistanceSquared
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.DistanceSquared(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_DistanceSquared_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: DistanceSquared
   nameWithType: Vector3.DistanceSquared
   fullName: OpenTK.Mathematics.Vector3.DistanceSquared
 - uid: OpenTK.Mathematics.Vector3.Dot*
   commentId: Overload:OpenTK.Mathematics.Vector3.Dot
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Dot(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Dot_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: Dot
   nameWithType: Vector3.Dot
   fullName: OpenTK.Mathematics.Vector3.Dot
 - uid: OpenTK.Mathematics.Vector3.Cross*
   commentId: Overload:OpenTK.Mathematics.Vector3.Cross
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Cross(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Cross_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: Cross
   nameWithType: Vector3.Cross
   fullName: OpenTK.Mathematics.Vector3.Cross
 - uid: OpenTK.Mathematics.Vector3.Lerp*
   commentId: Overload:OpenTK.Mathematics.Vector3.Lerp
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Lerp(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Lerp_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_System_Single_
   name: Lerp
   nameWithType: Vector3.Lerp
   fullName: OpenTK.Mathematics.Vector3.Lerp
+- uid: OpenTK.Mathematics.Vector3.Slerp*
+  commentId: Overload:OpenTK.Mathematics.Vector3.Slerp
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Slerp_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_System_Single_
+  name: Slerp
+  nameWithType: Vector3.Slerp
+  fullName: OpenTK.Mathematics.Vector3.Slerp
+- uid: OpenTK.Mathematics.MathHelper.Elerp(System.Single,System.Single,System.Single)
+  commentId: M:OpenTK.Mathematics.MathHelper.Elerp(System.Single,System.Single,System.Single)
+  isExternal: true
+  href: OpenTK.Mathematics.MathHelper.html#OpenTK_Mathematics_MathHelper_Elerp_System_Single_System_Single_System_Single_
+  name: Elerp(float, float, float)
+  nameWithType: MathHelper.Elerp(float, float, float)
+  fullName: OpenTK.Mathematics.MathHelper.Elerp(float, float, float)
+  nameWithType.vb: MathHelper.Elerp(Single, Single, Single)
+  fullName.vb: OpenTK.Mathematics.MathHelper.Elerp(Single, Single, Single)
+  name.vb: Elerp(Single, Single, Single)
+  spec.csharp:
+  - uid: OpenTK.Mathematics.MathHelper.Elerp(System.Single,System.Single,System.Single)
+    name: Elerp
+    href: OpenTK.Mathematics.MathHelper.html#OpenTK_Mathematics_MathHelper_Elerp_System_Single_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Mathematics.MathHelper.Elerp(System.Single,System.Single,System.Single)
+    name: Elerp
+    href: OpenTK.Mathematics.MathHelper.html#OpenTK_Mathematics_MathHelper_Elerp_System_Single_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: OpenTK.Mathematics.Vector3.Elerp*
+  commentId: Overload:OpenTK.Mathematics.Vector3.Elerp
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Elerp_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_System_Single_
+  name: Elerp
+  nameWithType: Vector3.Elerp
+  fullName: OpenTK.Mathematics.Vector3.Elerp
 - uid: OpenTK.Mathematics.Vector3.BaryCentric*
   commentId: Overload:OpenTK.Mathematics.Vector3.BaryCentric
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.BaryCentric(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single,System.Single)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_BaryCentric_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_System_Single_System_Single_
   name: BaryCentric
   nameWithType: Vector3.BaryCentric
   fullName: OpenTK.Mathematics.Vector3.BaryCentric
 - uid: OpenTK.Mathematics.Vector3.TransformVector*
   commentId: Overload:OpenTK.Mathematics.Vector3.TransformVector
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.TransformVector(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Matrix4)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_TransformVector_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Matrix4_
   name: TransformVector
   nameWithType: Vector3.TransformVector
   fullName: OpenTK.Mathematics.Vector3.TransformVector
@@ -5629,25 +5511,25 @@ references:
   fullName: OpenTK.Mathematics.Matrix4
 - uid: OpenTK.Mathematics.Vector3.TransformNormal*
   commentId: Overload:OpenTK.Mathematics.Vector3.TransformNormal
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.TransformNormal(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Matrix4)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_TransformNormal_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Matrix4_
   name: TransformNormal
   nameWithType: Vector3.TransformNormal
   fullName: OpenTK.Mathematics.Vector3.TransformNormal
 - uid: OpenTK.Mathematics.Vector3.TransformNormalInverse*
   commentId: Overload:OpenTK.Mathematics.Vector3.TransformNormalInverse
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.TransformNormalInverse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Matrix4)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_TransformNormalInverse_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Matrix4_
   name: TransformNormalInverse
   nameWithType: Vector3.TransformNormalInverse
   fullName: OpenTK.Mathematics.Vector3.TransformNormalInverse
 - uid: OpenTK.Mathematics.Vector3.TransformPosition*
   commentId: Overload:OpenTK.Mathematics.Vector3.TransformPosition
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.TransformPosition(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Matrix4)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_TransformPosition_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Matrix4_
   name: TransformPosition
   nameWithType: Vector3.TransformPosition
   fullName: OpenTK.Mathematics.Vector3.TransformPosition
 - uid: OpenTK.Mathematics.Vector3.TransformRow*
   commentId: Overload:OpenTK.Mathematics.Vector3.TransformRow
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.TransformRow(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Matrix3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_TransformRow_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Matrix3_
   name: TransformRow
   nameWithType: Vector3.TransformRow
   fullName: OpenTK.Mathematics.Vector3.TransformRow
@@ -5660,7 +5542,7 @@ references:
   fullName: OpenTK.Mathematics.Matrix3
 - uid: OpenTK.Mathematics.Vector3.Transform*
   commentId: Overload:OpenTK.Mathematics.Vector3.Transform
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Transform(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Quaternion)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Transform_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Quaternion_
   name: Transform
   nameWithType: Vector3.Transform
   fullName: OpenTK.Mathematics.Vector3.Transform
@@ -5673,103 +5555,103 @@ references:
   fullName: OpenTK.Mathematics.Quaternion
 - uid: OpenTK.Mathematics.Vector3.TransformColumn*
   commentId: Overload:OpenTK.Mathematics.Vector3.TransformColumn
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.TransformColumn(OpenTK.Mathematics.Matrix3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_TransformColumn_OpenTK_Mathematics_Matrix3_OpenTK_Mathematics_Vector3_
   name: TransformColumn
   nameWithType: Vector3.TransformColumn
   fullName: OpenTK.Mathematics.Vector3.TransformColumn
 - uid: OpenTK.Mathematics.Vector3.TransformPerspective*
   commentId: Overload:OpenTK.Mathematics.Vector3.TransformPerspective
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.TransformPerspective(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Matrix4)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_TransformPerspective_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Matrix4_
   name: TransformPerspective
   nameWithType: Vector3.TransformPerspective
   fullName: OpenTK.Mathematics.Vector3.TransformPerspective
 - uid: OpenTK.Mathematics.Vector3.CalculateAngle*
   commentId: Overload:OpenTK.Mathematics.Vector3.CalculateAngle
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.CalculateAngle(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_CalculateAngle_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: CalculateAngle
   nameWithType: Vector3.CalculateAngle
   fullName: OpenTK.Mathematics.Vector3.CalculateAngle
 - uid: OpenTK.Mathematics.Vector3.Project*
   commentId: Overload:OpenTK.Mathematics.Vector3.Project
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Project(OpenTK.Mathematics.Vector3,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,OpenTK.Mathematics.Matrix4)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Project_OpenTK_Mathematics_Vector3_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_OpenTK_Mathematics_Matrix4_
   name: Project
   nameWithType: Vector3.Project
   fullName: OpenTK.Mathematics.Vector3.Project
 - uid: OpenTK.Mathematics.Vector3.Unproject*
   commentId: Overload:OpenTK.Mathematics.Vector3.Unproject
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Unproject(OpenTK.Mathematics.Vector3,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,OpenTK.Mathematics.Matrix4)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Unproject_OpenTK_Mathematics_Vector3_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_OpenTK_Mathematics_Matrix4_
   name: Unproject
   nameWithType: Vector3.Unproject
   fullName: OpenTK.Mathematics.Vector3.Unproject
 - uid: OpenTK.Mathematics.Vector3.Xy*
   commentId: Overload:OpenTK.Mathematics.Vector3.Xy
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Xy
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Xy
   name: Xy
   nameWithType: Vector3.Xy
   fullName: OpenTK.Mathematics.Vector3.Xy
 - uid: OpenTK.Mathematics.Vector3.Xz*
   commentId: Overload:OpenTK.Mathematics.Vector3.Xz
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Xz
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Xz
   name: Xz
   nameWithType: Vector3.Xz
   fullName: OpenTK.Mathematics.Vector3.Xz
 - uid: OpenTK.Mathematics.Vector3.Yx*
   commentId: Overload:OpenTK.Mathematics.Vector3.Yx
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Yx
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Yx
   name: Yx
   nameWithType: Vector3.Yx
   fullName: OpenTK.Mathematics.Vector3.Yx
 - uid: OpenTK.Mathematics.Vector3.Yz*
   commentId: Overload:OpenTK.Mathematics.Vector3.Yz
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Yz
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Yz
   name: Yz
   nameWithType: Vector3.Yz
   fullName: OpenTK.Mathematics.Vector3.Yz
 - uid: OpenTK.Mathematics.Vector3.Zx*
   commentId: Overload:OpenTK.Mathematics.Vector3.Zx
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Zx
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Zx
   name: Zx
   nameWithType: Vector3.Zx
   fullName: OpenTK.Mathematics.Vector3.Zx
 - uid: OpenTK.Mathematics.Vector3.Zy*
   commentId: Overload:OpenTK.Mathematics.Vector3.Zy
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Zy
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Zy
   name: Zy
   nameWithType: Vector3.Zy
   fullName: OpenTK.Mathematics.Vector3.Zy
 - uid: OpenTK.Mathematics.Vector3.Xzy*
   commentId: Overload:OpenTK.Mathematics.Vector3.Xzy
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Xzy
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Xzy
   name: Xzy
   nameWithType: Vector3.Xzy
   fullName: OpenTK.Mathematics.Vector3.Xzy
 - uid: OpenTK.Mathematics.Vector3.Yxz*
   commentId: Overload:OpenTK.Mathematics.Vector3.Yxz
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Yxz
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Yxz
   name: Yxz
   nameWithType: Vector3.Yxz
   fullName: OpenTK.Mathematics.Vector3.Yxz
 - uid: OpenTK.Mathematics.Vector3.Yzx*
   commentId: Overload:OpenTK.Mathematics.Vector3.Yzx
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Yzx
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Yzx
   name: Yzx
   nameWithType: Vector3.Yzx
   fullName: OpenTK.Mathematics.Vector3.Yzx
 - uid: OpenTK.Mathematics.Vector3.Zxy*
   commentId: Overload:OpenTK.Mathematics.Vector3.Zxy
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Zxy
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Zxy
   name: Zxy
   nameWithType: Vector3.Zxy
   fullName: OpenTK.Mathematics.Vector3.Zxy
 - uid: OpenTK.Mathematics.Vector3.Zyx*
   commentId: Overload:OpenTK.Mathematics.Vector3.Zyx
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Zyx
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Zyx
   name: Zyx
   nameWithType: Vector3.Zyx
   fullName: OpenTK.Mathematics.Vector3.Zyx
 - uid: OpenTK.Mathematics.Vector3.op_Addition*
   commentId: Overload:OpenTK.Mathematics.Vector3.op_Addition
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Addition(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Addition_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: operator +
   nameWithType: Vector3.operator +
   fullName: OpenTK.Mathematics.Vector3.operator +
@@ -5781,10 +5663,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector3.op_Addition*
     name: +
-    href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Addition(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Addition_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
 - uid: OpenTK.Mathematics.Vector3.op_Subtraction*
   commentId: Overload:OpenTK.Mathematics.Vector3.op_Subtraction
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Subtraction(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Subtraction_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: operator -
   nameWithType: Vector3.operator -
   fullName: OpenTK.Mathematics.Vector3.operator -
@@ -5796,10 +5678,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector3.op_Subtraction*
     name: '-'
-    href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Subtraction(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Subtraction_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
 - uid: OpenTK.Mathematics.Vector3.op_UnaryNegation*
   commentId: Overload:OpenTK.Mathematics.Vector3.op_UnaryNegation
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_UnaryNegation(OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_UnaryNegation_OpenTK_Mathematics_Vector3_
   name: operator -
   nameWithType: Vector3.operator -
   fullName: OpenTK.Mathematics.Vector3.operator -
@@ -5811,10 +5693,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector3.op_UnaryNegation*
     name: '-'
-    href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_UnaryNegation(OpenTK.Mathematics.Vector3)
+    href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_UnaryNegation_OpenTK_Mathematics_Vector3_
 - uid: OpenTK.Mathematics.Vector3.op_Multiply*
   commentId: Overload:OpenTK.Mathematics.Vector3.op_Multiply
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Vector3,System.Single)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Multiply_OpenTK_Mathematics_Vector3_System_Single_
   name: operator *
   nameWithType: Vector3.operator *
   fullName: OpenTK.Mathematics.Vector3.operator *
@@ -5826,10 +5708,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector3.op_Multiply*
     name: '*'
-    href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Multiply(OpenTK.Mathematics.Vector3,System.Single)
+    href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Multiply_OpenTK_Mathematics_Vector3_System_Single_
 - uid: OpenTK.Mathematics.Vector3.op_Division*
   commentId: Overload:OpenTK.Mathematics.Vector3.op_Division
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Division(OpenTK.Mathematics.Vector3,System.Single)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Division_OpenTK_Mathematics_Vector3_System_Single_
   name: operator /
   nameWithType: Vector3.operator /
   fullName: OpenTK.Mathematics.Vector3.operator /
@@ -5841,10 +5723,10 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector3.op_Division*
     name: /
-    href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Division(OpenTK.Mathematics.Vector3,System.Single)
+    href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Division_OpenTK_Mathematics_Vector3_System_Single_
 - uid: OpenTK.Mathematics.Vector3.op_Equality*
   commentId: Overload:OpenTK.Mathematics.Vector3.op_Equality
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Equality(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Equality_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: operator ==
   nameWithType: Vector3.operator ==
   fullName: OpenTK.Mathematics.Vector3.operator ==
@@ -5856,7 +5738,7 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector3.op_Equality*
     name: ==
-    href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Equality(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Equality_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -5870,7 +5752,7 @@ references:
   name.vb: Boolean
 - uid: OpenTK.Mathematics.Vector3.op_Inequality*
   commentId: Overload:OpenTK.Mathematics.Vector3.op_Inequality
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Inequality(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Inequality_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
   name: operator !=
   nameWithType: Vector3.operator !=
   fullName: OpenTK.Mathematics.Vector3.operator !=
@@ -5882,7 +5764,7 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Vector3.op_Inequality*
     name: '!='
-    href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.op_Inequality(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_op_Inequality_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
 - uid: OpenTK.Mathematics.Vector3.op_Implicit*
   commentId: Overload:OpenTK.Mathematics.Vector3.op_Implicit
   name: implicit operator
@@ -6056,7 +5938,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector3.ToString*
   commentId: Overload:OpenTK.Mathematics.Vector3.ToString
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.ToString
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_ToString
   name: ToString
   nameWithType: Vector3.ToString
   fullName: OpenTK.Mathematics.Vector3.ToString
@@ -6167,7 +6049,7 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector3.Equals*
   commentId: Overload:OpenTK.Mathematics.Vector3.Equals
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Equals(System.Object)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Equals_System_Object_
   name: Equals
   nameWithType: Vector3.Equals
   fullName: OpenTK.Mathematics.Vector3.Equals
@@ -6175,7 +6057,7 @@ references:
   commentId: M:System.IEquatable{OpenTK.Mathematics.Vector3}.Equals(OpenTK.Mathematics.Vector3)
   parent: System.IEquatable{OpenTK.Mathematics.Vector3}
   definition: System.IEquatable`1.Equals(`0)
-  href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector3-.equals#system-iequatable((opentk-mathematics-vector3))-equals(opentk-mathematics-vector3)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   name: Equals(Vector3)
   nameWithType: IEquatable<Vector3>.Equals(Vector3)
   fullName: System.IEquatable<OpenTK.Mathematics.Vector3>.Equals(OpenTK.Mathematics.Vector3)
@@ -6185,7 +6067,7 @@ references:
   - uid: System.IEquatable{OpenTK.Mathematics.Vector3}.Equals(OpenTK.Mathematics.Vector3)
     name: Equals
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector3-.equals#system-iequatable((opentk-mathematics-vector3))-equals(opentk-mathematics-vector3)
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   - name: (
   - uid: OpenTK.Mathematics.Vector3
     name: Vector3
@@ -6195,7 +6077,7 @@ references:
   - uid: System.IEquatable{OpenTK.Mathematics.Vector3}.Equals(OpenTK.Mathematics.Vector3)
     name: Equals
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-opentk.mathematics.vector3-.equals#system-iequatable((opentk-mathematics-vector3))-equals(opentk-mathematics-vector3)
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
   - name: (
   - uid: OpenTK.Mathematics.Vector3
     name: Vector3
@@ -6250,13 +6132,13 @@ references:
   - name: )
 - uid: OpenTK.Mathematics.Vector3.GetHashCode*
   commentId: Overload:OpenTK.Mathematics.Vector3.GetHashCode
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.GetHashCode
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_GetHashCode
   name: GetHashCode
   nameWithType: Vector3.GetHashCode
   fullName: OpenTK.Mathematics.Vector3.GetHashCode
 - uid: OpenTK.Mathematics.Vector3.Deconstruct*
   commentId: Overload:OpenTK.Mathematics.Vector3.Deconstruct
-  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Deconstruct(System.Single@,System.Single@,System.Single@)
+  href: OpenTK.Mathematics.Vector3.html#OpenTK_Mathematics_Vector3_Deconstruct_System_Single__System_Single__System_Single__
   name: Deconstruct
   nameWithType: Vector3.Deconstruct
   fullName: OpenTK.Mathematics.Vector3.Deconstruct

@@ -5,9 +5,12 @@ items:
   id: MarshalTk
   parent: OpenTK.Core.Native
   children:
+  - OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
   - OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr,System.Int32)
   - OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  - OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray(System.Byte**,System.UInt32)
   - OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  - OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
   - OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
   - OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
   langs:
@@ -18,12 +21,8 @@ items:
   fullName: OpenTK.Core.Native.MarshalTk
   type: Class
   source:
-    remote:
-      path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: MarshalTk
-    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
     startLine: 9
   assemblies:
   - OpenTK.Core
@@ -50,17 +49,13 @@ items:
   langs:
   - csharp
   - vb
-  name: MarshalPtrToString(IntPtr)
-  nameWithType: MarshalTk.MarshalPtrToString(IntPtr)
-  fullName: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  name: MarshalPtrToString(nint)
+  nameWithType: MarshalTk.MarshalPtrToString(nint)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: MarshalPtrToString
-    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
     startLine: 19
   assemblies:
   - OpenTK.Core
@@ -71,7 +66,7 @@ items:
     This method supports OpenTK and is not intended to be called by user code.
   example: []
   syntax:
-    content: public static string MarshalPtrToString(IntPtr ptr)
+    content: public static string MarshalPtrToString(nint ptr)
     parameters:
     - id: ptr
       type: System.IntPtr
@@ -81,6 +76,9 @@ items:
       description: A <code>System.String</code> with the data from <code class="paramref">ptr</code>.
     content.vb: Public Shared Function MarshalPtrToString(ptr As IntPtr) As String
   overload: OpenTK.Core.Native.MarshalTk.MarshalPtrToString*
+  nameWithType.vb: MarshalTk.MarshalPtrToString(IntPtr)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  name.vb: MarshalPtrToString(IntPtr)
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
   commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
   id: MarshalStringToPtr(System.String)
@@ -93,12 +91,8 @@ items:
   fullName: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(string)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: MarshalStringToPtr
-    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
     startLine: 50
   assemblies:
   - OpenTK.Core
@@ -111,7 +105,7 @@ items:
     with <code>FreeStringPtr</code>.
   example: []
   syntax:
-    content: public static IntPtr MarshalStringToPtr(string str)
+    content: public static nint MarshalStringToPtr(string str)
     parameters:
     - id: str
       type: System.String
@@ -134,17 +128,13 @@ items:
   langs:
   - csharp
   - vb
-  name: FreeStringPtr(IntPtr)
-  nameWithType: MarshalTk.FreeStringPtr(IntPtr)
-  fullName: OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  name: FreeStringPtr(nint)
+  nameWithType: MarshalTk.FreeStringPtr(nint)
+  fullName: OpenTK.Core.Native.MarshalTk.FreeStringPtr(nint)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: FreeStringPtr
-    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
     startLine: 85
   assemblies:
   - OpenTK.Core
@@ -152,13 +142,16 @@ items:
   summary: Frees a marshaled string that allocated by <code>MarshalStringToPtr</code>.
   example: []
   syntax:
-    content: public static void FreeStringPtr(IntPtr ptr)
+    content: public static void FreeStringPtr(nint ptr)
     parameters:
     - id: ptr
       type: System.IntPtr
       description: An unmanaged pointer allocated with <code>MarshalStringToPtr</code>.
     content.vb: Public Shared Sub FreeStringPtr(ptr As IntPtr)
   overload: OpenTK.Core.Native.MarshalTk.FreeStringPtr*
+  nameWithType.vb: MarshalTk.FreeStringPtr(IntPtr)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  name.vb: FreeStringPtr(IntPtr)
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
   commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
   id: MarshalStringArrayToPtr(System.String[])
@@ -171,12 +164,8 @@ items:
   fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(string[])
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: MarshalStringArrayToPtr
-    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
     startLine: 96
   assemblies:
   - OpenTK.Core
@@ -187,7 +176,7 @@ items:
     Marshal.AllocHGlobal for each element.
   example: []
   syntax:
-    content: public static IntPtr MarshalStringArrayToPtr(string[] strArray)
+    content: public static nint MarshalStringArrayToPtr(string[] strArray)
     parameters:
     - id: strArray
       type: System.String[]
@@ -207,17 +196,13 @@ items:
   langs:
   - csharp
   - vb
-  name: FreeStringArrayPtr(IntPtr, int)
-  nameWithType: MarshalTk.FreeStringArrayPtr(IntPtr, int)
-  fullName: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr, int)
+  name: FreeStringArrayPtr(nint, int)
+  nameWithType: MarshalTk.FreeStringArrayPtr(nint, int)
+  fullName: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(nint, int)
   type: Method
   source:
-    remote:
-      path: src/OpenTK.Core/Native/MarshalTk.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
     id: FreeStringArrayPtr
-    path: opentk/src/OpenTK.Core/Native/MarshalTk.cs
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
     startLine: 137
   assemblies:
   - OpenTK.Core
@@ -225,7 +210,7 @@ items:
   summary: Frees a marshaled string that allocated by <code>MarshalStringArrayToPtr</code>.
   example: []
   syntax:
-    content: public static void FreeStringArrayPtr(IntPtr ptr, int length)
+    content: public static void FreeStringArrayPtr(nint ptr, int length)
     parameters:
     - id: ptr
       type: System.IntPtr
@@ -238,6 +223,117 @@ items:
   nameWithType.vb: MarshalTk.FreeStringArrayPtr(IntPtr, Integer)
   fullName.vb: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr, Integer)
   name.vb: FreeStringArrayPtr(IntPtr, Integer)
+- uid: OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray(System.Byte**,System.UInt32)
+  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray(System.Byte**,System.UInt32)
+  id: MarshalAnsiStringArrayPtrToStringArray(System.Byte**,System.UInt32)
+  parent: OpenTK.Core.Native.MarshalTk
+  langs:
+  - csharp
+  - vb
+  name: MarshalAnsiStringArrayPtrToStringArray(byte**, uint)
+  nameWithType: MarshalTk.MarshalAnsiStringArrayPtrToStringArray(byte**, uint)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray(byte**, uint)
+  type: Method
+  source:
+    id: MarshalAnsiStringArrayPtrToStringArray
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
+    startLine: 153
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: Marshals a <xref href="byte**" data-throw-if-not-resolved="false"></xref> ansi string array into a <xref href="string%5b%5d" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string[] MarshalAnsiStringArrayPtrToStringArray(byte** strArrayPtr, uint length)
+    parameters:
+    - id: strArrayPtr
+      type: System.Byte**
+      description: The ansi string array pointer.
+    - id: length
+      type: System.UInt32
+      description: The number of strings in the array.
+    return:
+      type: System.String[]
+      description: The managed string array.
+    content.vb: Public Shared Function MarshalAnsiStringArrayPtrToStringArray(strArrayPtr As Byte**, length As UInteger) As String()
+  overload: OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray*
+  nameWithType.vb: MarshalTk.MarshalAnsiStringArrayPtrToStringArray(Byte**, UInteger)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray(Byte**, UInteger)
+  name.vb: MarshalAnsiStringArrayPtrToStringArray(Byte**, UInteger)
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+  id: MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+  parent: OpenTK.Core.Native.MarshalTk
+  langs:
+  - csharp
+  - vb
+  name: MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string>, out uint)
+  nameWithType: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string>, out uint)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan<string>, out uint)
+  type: Method
+  source:
+    id: MarshalStringArrayToAnsiStringArrayPtr
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
+    startLine: 171
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: >-
+    Converts a span of strings into an unmanged ansi string array.
+
+    Use <xref href="OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**%2cSystem.UInt32)" data-throw-if-not-resolved="false"></xref> to free the array.
+  example: []
+  syntax:
+    content: public static byte** MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string> stringArray, out uint count)
+    parameters:
+    - id: stringArray
+      type: System.ReadOnlySpan{System.String}
+      description: The span of strings to marshal.
+    - id: count
+      type: System.UInt32
+      description: The number of strings in the unmanged array. The same as the length of the array.
+    return:
+      type: System.Byte**
+      description: The unmanaged ansi string array.
+    content.vb: Public Shared Function MarshalStringArrayToAnsiStringArrayPtr(stringArray As ReadOnlySpan(Of String), count As UInteger) As Byte**
+  overload: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr*
+  nameWithType.vb: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan(Of String), UInteger)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan(Of String), UInteger)
+  name.vb: MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan(Of String), UInteger)
+- uid: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
+  commentId: M:OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
+  id: FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
+  parent: OpenTK.Core.Native.MarshalTk
+  langs:
+  - csharp
+  - vb
+  name: FreeAnsiStringArrayPtr(byte**, uint)
+  nameWithType: MarshalTk.FreeAnsiStringArrayPtr(byte**, uint)
+  fullName: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(byte**, uint)
+  type: Method
+  source:
+    id: FreeAnsiStringArrayPtr
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Native\MarshalTk.cs
+    startLine: 187
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core.Native
+  summary: Frees unmanaged ansi string arrays allocated by <xref href="OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan%7bSystem.String%7d%2cSystem.UInt32%40)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void FreeAnsiStringArrayPtr(byte** strArrayPtr, uint count)
+    parameters:
+    - id: strArrayPtr
+      type: System.Byte**
+      description: The unmanaged ansi string array.
+    - id: count
+      type: System.UInt32
+      description: The number of strings in the array.
+    content.vb: Public Shared Sub FreeAnsiStringArrayPtr(strArrayPtr As Byte**, count As UInteger)
+  overload: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr*
+  nameWithType.vb: MarshalTk.FreeAnsiStringArrayPtr(Byte**, UInteger)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(Byte**, UInteger)
+  name.vb: FreeAnsiStringArrayPtr(Byte**, UInteger)
 references:
 - uid: OpenTK.Core.Native
   commentId: N:OpenTK.Core.Native
@@ -508,7 +604,7 @@ references:
   fullName: System
 - uid: OpenTK.Core.Native.MarshalTk.MarshalPtrToString*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalPtrToString
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.MarshalPtrToString(System.IntPtr)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalPtrToString_System_IntPtr_
   name: MarshalPtrToString
   nameWithType: MarshalTk.MarshalPtrToString
   fullName: OpenTK.Core.Native.MarshalTk.MarshalPtrToString
@@ -517,9 +613,12 @@ references:
   parent: System
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: IntPtr
-  nameWithType: IntPtr
-  fullName: System.IntPtr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -533,19 +632,19 @@ references:
   name.vb: String
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalStringToPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.MarshalStringToPtr(System.String)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringToPtr_System_String_
   name: MarshalStringToPtr
   nameWithType: MarshalTk.MarshalStringToPtr
   fullName: OpenTK.Core.Native.MarshalTk.MarshalStringToPtr
 - uid: OpenTK.Core.Native.MarshalTk.FreeStringPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.FreeStringPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.FreeStringPtr(System.IntPtr)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeStringPtr_System_IntPtr_
   name: FreeStringPtr
   nameWithType: MarshalTk.FreeStringPtr
   fullName: OpenTK.Core.Native.MarshalTk.FreeStringPtr
 - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr(System.String[])
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToPtr_System_String___
   name: MarshalStringArrayToPtr
   nameWithType: MarshalTk.MarshalStringArrayToPtr
   fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToPtr
@@ -574,7 +673,7 @@ references:
   - name: )
 - uid: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr*
   commentId: Overload:OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr
-  href: OpenTK.Core.Native.MarshalTk.html#OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr(System.IntPtr,System.Int32)
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeStringArrayPtr_System_IntPtr_System_Int32_
   name: FreeStringArrayPtr
   nameWithType: MarshalTk.FreeStringArrayPtr
   fullName: OpenTK.Core.Native.MarshalTk.FreeStringArrayPtr
@@ -589,3 +688,228 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: byte**
+  commentId: T:byte**
+  isExternal: true
+- uid: string[]
+  commentId: T:string[]
+  isExternal: true
+- uid: OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray*
+  commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalAnsiStringArrayPtrToStringArray_System_Byte___System_UInt32_
+  name: MarshalAnsiStringArrayPtrToStringArray
+  nameWithType: MarshalTk.MarshalAnsiStringArrayPtrToStringArray
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalAnsiStringArrayPtrToStringArray
+- uid: System.Byte**
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte**
+  nameWithType: byte**
+  fullName: byte**
+  nameWithType.vb: Byte**
+  fullName.vb: Byte**
+  name.vb: Byte**
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: '*'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: '*'
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
+  commentId: M:OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
+  isExternal: true
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeAnsiStringArrayPtr_System_Byte___System_UInt32_
+  name: FreeAnsiStringArrayPtr(byte**, uint)
+  nameWithType: MarshalTk.FreeAnsiStringArrayPtr(byte**, uint)
+  fullName: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(byte**, uint)
+  nameWithType.vb: MarshalTk.FreeAnsiStringArrayPtr(Byte**, UInteger)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(Byte**, UInteger)
+  name.vb: FreeAnsiStringArrayPtr(Byte**, UInteger)
+  spec.csharp:
+  - uid: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
+    name: FreeAnsiStringArrayPtr
+    href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeAnsiStringArrayPtr_System_Byte___System_UInt32_
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr(System.Byte**,System.UInt32)
+    name: FreeAnsiStringArrayPtr
+    href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeAnsiStringArrayPtr_System_Byte___System_UInt32_
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr*
+  commentId: Overload:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_ReadOnlySpan_System_String__System_UInt32__
+  name: MarshalStringArrayToAnsiStringArrayPtr
+  nameWithType: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr
+- uid: System.ReadOnlySpan{System.String}
+  commentId: T:System.ReadOnlySpan{System.String}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<string>
+  nameWithType: ReadOnlySpan<string>
+  fullName: System.ReadOnlySpan<string>
+  nameWithType.vb: ReadOnlySpan(Of String)
+  fullName.vb: System.ReadOnlySpan(Of String)
+  name.vb: ReadOnlySpan(Of String)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+  commentId: M:OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+  isExternal: true
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_ReadOnlySpan_System_String__System_UInt32__
+  name: MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string>, out uint)
+  nameWithType: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan<string>, out uint)
+  fullName: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan<string>, out uint)
+  nameWithType.vb: MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan(Of String), UInteger)
+  fullName.vb: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan(Of String), UInteger)
+  name.vb: MarshalStringArrayToAnsiStringArrayPtr(ReadOnlySpan(Of String), UInteger)
+  spec.csharp:
+  - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+    name: MarshalStringArrayToAnsiStringArrayPtr
+    href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_ReadOnlySpan_System_String__System_UInt32__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Core.Native.MarshalTk.MarshalStringArrayToAnsiStringArrayPtr(System.ReadOnlySpan{System.String},System.UInt32@)
+    name: MarshalStringArrayToAnsiStringArrayPtr
+    href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_MarshalStringArrayToAnsiStringArrayPtr_System_ReadOnlySpan_System_String__System_UInt32__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr*
+  commentId: Overload:OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr
+  href: OpenTK.Core.Native.MarshalTk.html#OpenTK_Core_Native_MarshalTk_FreeAnsiStringArrayPtr_System_Byte___System_UInt32_
+  name: FreeAnsiStringArrayPtr
+  nameWithType: MarshalTk.FreeAnsiStringArrayPtr
+  fullName: OpenTK.Core.Native.MarshalTk.FreeAnsiStringArrayPtr

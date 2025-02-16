@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: OpenTK.Platform.WindowEventHandler
+  commentId: T:OpenTK.Platform.WindowEventHandler
+  id: WindowEventHandler
+  parent: OpenTK.Platform
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: WindowEventHandler
+  nameWithType: WindowEventHandler
+  fullName: OpenTK.Platform.WindowEventHandler
+  type: Delegate
+  source:
+    id: WindowEventHandler
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventHandler.cs
+    startLine: 28
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Event handler delegate for processing window events.
+  example:
+  - >-
+    <pre><code class="lang-csharp">void MyWindowEventHandler(WindowHandle handle, WindowEventType type, WindowEventArgs args)
+
+    {
+        switch(type)
+        {
+            case WindowEventType.Move:
+                // Implementation of which is left as an exercise to the reader:
+                MyMoveEventHandler(handle, (WindowMoveEventArgs)args);
+                break;
+            default:
+                OpenTK.Platform.Window.DefaultEventHandler(handle, type, args);
+                break;
+        }
+    }
+
+
+    // Usage:
+
+    OpenTK.Platform.Window.ProcessEvents(handle, MyWindowEventHandler);</code></pre>
+  syntax:
+    content: public delegate void WindowEventHandler(WindowHandle handle, PlatformEventType type, WindowEventArgs args)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.WindowHandle
+      description: The window handle receiving the event.
+    - id: type
+      type: OpenTK.Platform.PlatformEventType
+      description: The type of the event.
+    - id: args
+      type: OpenTK.Platform.WindowEventArgs
+      description: Arguments associated with the event.
+    content.vb: Public Delegate Sub WindowEventHandler(handle As WindowHandle, type As PlatformEventType, args As WindowEventArgs)
+references:
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
+  href: OpenTK.html
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
+- uid: OpenTK.Platform.WindowHandle
+  commentId: T:OpenTK.Platform.WindowHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.WindowHandle.html
+  name: WindowHandle
+  nameWithType: WindowHandle
+  fullName: OpenTK.Platform.WindowHandle
+- uid: OpenTK.Platform.PlatformEventType
+  commentId: T:OpenTK.Platform.PlatformEventType
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.PlatformEventType.html
+  name: PlatformEventType
+  nameWithType: PlatformEventType
+  fullName: OpenTK.Platform.PlatformEventType
+- uid: OpenTK.Platform.WindowEventArgs
+  commentId: T:OpenTK.Platform.WindowEventArgs
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.WindowEventArgs.html
+  name: WindowEventArgs
+  nameWithType: WindowEventArgs
+  fullName: OpenTK.Platform.WindowEventArgs

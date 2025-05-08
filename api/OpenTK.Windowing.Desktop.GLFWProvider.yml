@@ -7,6 +7,7 @@ items:
   children:
   - OpenTK.Windowing.Desktop.GLFWProvider.CheckForMainThread
   - OpenTK.Windowing.Desktop.GLFWProvider.EnsureInitialized
+  - OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland
   - OpenTK.Windowing.Desktop.GLFWProvider.IsOnMainThread
   - OpenTK.Windowing.Desktop.GLFWProvider.SetErrorCallback(OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.ErrorCallback)
   langs:
@@ -19,11 +20,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GLFWProvider
     path: opentk/src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-    startLine: 20
+    startLine: 23
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -56,11 +57,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetErrorCallback
     path: opentk/src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-    startLine: 35
+    startLine: 37
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -88,11 +89,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: IsOnMainThread
     path: opentk/src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-    startLine: 51
+    startLine: 53
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -122,11 +123,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CheckForMainThread
     path: opentk/src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-    startLine: 56
+    startLine: 58
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -139,6 +140,44 @@ items:
       type: System.Boolean
     content.vb: Public Shared Property CheckForMainThread As Boolean
   overload: OpenTK.Windowing.Desktop.GLFWProvider.CheckForMainThread*
+- uid: OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland
+  commentId: P:OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland
+  id: HonorOpenTK4UseWayland
+  parent: OpenTK.Windowing.Desktop.GLFWProvider
+  langs:
+  - csharp
+  - vb
+  name: HonorOpenTK4UseWayland
+  nameWithType: GLFWProvider.HonorOpenTK4UseWayland
+  fullName: OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland
+  type: Property
+  source:
+    remote:
+      path: src/OpenTK.Windowing.Desktop/GLFWProvider.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: HonorOpenTK4UseWayland
+    path: opentk/src/OpenTK.Windowing.Desktop/GLFWProvider.cs
+    startLine: 66
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: >-
+    Whether or not to honor the <code>OPENTK_4_USE_WAYLAND</code> environment variable.
+
+    In OpenTK 4.8 <code>OPENTK_4_USE_WAYLAND=1</code> was used to opt into using wayland when wayland is available.
+
+    In OpenTK 4.9 <code>OPENTK_4_USE_WAYLAND=0</code> is used to opt-out of using wayland when wayland is available.
+
+    Setting <code>OPENTK_4_USE_WAYLAND=1</code> will not have any effect and will use GLFWs default platform resolution.
+  example: []
+  syntax:
+    content: public static bool HonorOpenTK4UseWayland { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Property HonorOpenTK4UseWayland As Boolean
+  overload: OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland*
 - uid: OpenTK.Windowing.Desktop.GLFWProvider.EnsureInitialized
   commentId: M:OpenTK.Windowing.Desktop.GLFWProvider.EnsureInitialized
   id: EnsureInitialized
@@ -153,11 +192,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: EnsureInitialized
     path: opentk/src/OpenTK.Windowing.Desktop/GLFWProvider.cs
-    startLine: 64
+    startLine: 74
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -534,6 +573,12 @@ references:
   name: CheckForMainThread
   nameWithType: GLFWProvider.CheckForMainThread
   fullName: OpenTK.Windowing.Desktop.GLFWProvider.CheckForMainThread
+- uid: OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland*
+  commentId: Overload:OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland
+  href: OpenTK.Windowing.Desktop.GLFWProvider.html#OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland
+  name: HonorOpenTK4UseWayland
+  nameWithType: GLFWProvider.HonorOpenTK4UseWayland
+  fullName: OpenTK.Windowing.Desktop.GLFWProvider.HonorOpenTK4UseWayland
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWException
   commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWException
   href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWException.html

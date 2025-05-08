@@ -4,6 +4,7 @@ items:
   commentId: N:OpenTK.Windowing.GraphicsLibraryFramework
   id: OpenTK.Windowing.GraphicsLibraryFramework
   children:
+  - OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType
   - OpenTK.Windowing.GraphicsLibraryFramework.ClientApi
   - OpenTK.Windowing.GraphicsLibraryFramework.ConnectedState
   - OpenTK.Windowing.GraphicsLibraryFramework.ContextApi
@@ -15,6 +16,8 @@ items:
   - OpenTK.Windowing.GraphicsLibraryFramework.GamepadState
   - OpenTK.Windowing.GraphicsLibraryFramework.GammaRamp
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFWBindingsContext
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.CharCallback
@@ -37,10 +40,14 @@ items:
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.WindowPosCallback
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.WindowRefreshCallback
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.WindowSizeCallback
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFWException
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun
   - OpenTK.Windowing.GraphicsLibraryFramework.Image
+  - OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType
   - OpenTK.Windowing.GraphicsLibraryFramework.InitHintBool
   - OpenTK.Windowing.GraphicsLibraryFramework.InitHintInt
+  - OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform
   - OpenTK.Windowing.GraphicsLibraryFramework.InputAction
   - OpenTK.Windowing.GraphicsLibraryFramework.JoystickHats
   - OpenTK.Windowing.GraphicsLibraryFramework.JoystickInputAction
@@ -53,12 +60,14 @@ items:
   - OpenTK.Windowing.GraphicsLibraryFramework.MouseButton
   - OpenTK.Windowing.GraphicsLibraryFramework.MouseState
   - OpenTK.Windowing.GraphicsLibraryFramework.OpenGlProfile
+  - OpenTK.Windowing.GraphicsLibraryFramework.Platform
   - OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute
   - OpenTK.Windowing.GraphicsLibraryFramework.ReleaseBehavior
   - OpenTK.Windowing.GraphicsLibraryFramework.Robustness
   - OpenTK.Windowing.GraphicsLibraryFramework.StickyAttributes
   - OpenTK.Windowing.GraphicsLibraryFramework.VideoMode
   - OpenTK.Windowing.GraphicsLibraryFramework.VkHandle
+  - OpenTK.Windowing.GraphicsLibraryFramework.WaylandLibDecor
   - OpenTK.Windowing.GraphicsLibraryFramework.Window
   - OpenTK.Windowing.GraphicsLibraryFramework.WindowAttribute
   - OpenTK.Windowing.GraphicsLibraryFramework.WindowAttributeGetBool
@@ -92,6 +101,13 @@ references:
   name: Cursor
   nameWithType: Cursor
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.Cursor
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType.html
+  name: ANGLEPlatformType
+  nameWithType: ANGLEPlatformType
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.ClientApi
   commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.ClientApi
   parent: OpenTK.Windowing.GraphicsLibraryFramework
@@ -141,6 +157,13 @@ references:
   name: ErrorCode
   nameWithType: ErrorCode
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType.html
+  name: InitHintANGLEPlatformType
+  nameWithType: InitHintANGLEPlatformType
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.InitHintBool
   commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.InitHintBool
   parent: OpenTK.Windowing.GraphicsLibraryFramework
@@ -155,6 +178,13 @@ references:
   name: InitHintInt
   nameWithType: InitHintInt
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.InitHintInt
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform.html
+  name: InitHintPlatform
+  nameWithType: InitHintPlatform
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.InputAction
   commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.InputAction
   parent: OpenTK.Windowing.GraphicsLibraryFramework
@@ -211,6 +241,13 @@ references:
   name: OpenGlProfile
   nameWithType: OpenGlProfile
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.OpenGlProfile
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.Platform
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.Platform
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.Platform.html
+  name: Platform
+  nameWithType: Platform
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.Platform
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute
   commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute
   parent: OpenTK.Windowing.GraphicsLibraryFramework
@@ -239,6 +276,13 @@ references:
   name: StickyAttributes
   nameWithType: StickyAttributes
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.StickyAttributes
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.WaylandLibDecor
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.WaylandLibDecor
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.WaylandLibDecor.html
+  name: WaylandLibDecor
+  nameWithType: WaylandLibDecor
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.WaylandLibDecor
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.WindowAttribute
   commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.WindowAttribute
   parent: OpenTK.Windowing.GraphicsLibraryFramework
@@ -835,6 +879,34 @@ references:
   - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.WindowRefreshCallback
     name: WindowRefreshCallback
     href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.WindowRefreshCallback.html
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun.html
+  name: GLFWallocatefun
+  nameWithType: GLFWallocatefun
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun.html
+  name: GLFWreallocatefun
+  nameWithType: GLFWreallocatefun
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun.html
+  name: GLFWdeallocatefun
+  nameWithType: GLFWdeallocatefun
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator.html
+  name: GLFWallocator
+  nameWithType: GLFWallocator
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWException
   commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWException
   href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWException.html

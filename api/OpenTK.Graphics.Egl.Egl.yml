@@ -31,6 +31,9 @@ items:
   - OpenTK.Graphics.Egl.Egl.CONTEXT_CLIENT_TYPE
   - OpenTK.Graphics.Egl.Egl.CONTEXT_CLIENT_VERSION
   - OpenTK.Graphics.Egl.Egl.CONTEXT_LOST
+  - OpenTK.Graphics.Egl.Egl.CONTEXT_MAJOR_VERSION
+  - OpenTK.Graphics.Egl.Egl.CONTEXT_MINOR_VERSION
+  - OpenTK.Graphics.Egl.Egl.CONTEXT_OPENGL_DEBUG
   - OpenTK.Graphics.Egl.Egl.CopyBuffers(System.IntPtr,System.IntPtr,System.IntPtr)
   - OpenTK.Graphics.Egl.Egl.CORE_NATIVE_ENGINE
   - OpenTK.Graphics.Egl.Egl.CreateContext(System.IntPtr,System.IntPtr,System.IntPtr,System.Int32[])
@@ -45,6 +48,7 @@ items:
   - OpenTK.Graphics.Egl.Egl.D3D11_ELSE_D3D9_DISPLAY_ANGLE
   - OpenTK.Graphics.Egl.Egl.D3D11_ONLY_DISPLAY_ANGLE
   - OpenTK.Graphics.Egl.Egl.D3D9_DEVICE_ANGLE
+  - OpenTK.Graphics.Egl.Egl.DEFAULT_DISPLAY
   - OpenTK.Graphics.Egl.Egl.DEPTH_SIZE
   - OpenTK.Graphics.Egl.Egl.DestroyContext(System.IntPtr,System.IntPtr)
   - OpenTK.Graphics.Egl.Egl.DestroySurface(System.IntPtr,System.IntPtr)
@@ -52,6 +56,9 @@ items:
   - OpenTK.Graphics.Egl.Egl.DONT_CARE
   - OpenTK.Graphics.Egl.Egl.DRAW
   - OpenTK.Graphics.Egl.Egl.EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE
+  - OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_ANGLE
+  - OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE
+  - OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE
   - OpenTK.Graphics.Egl.Egl.EXTENSIONS
   - OpenTK.Graphics.Egl.Egl.FALSE
   - OpenTK.Graphics.Egl.Egl.FIXED_SIZE_ANGLE
@@ -91,6 +98,8 @@ items:
   - OpenTK.Graphics.Egl.Egl.NATIVE_RENDERABLE
   - OpenTK.Graphics.Egl.Egl.NATIVE_VISUAL_ID
   - OpenTK.Graphics.Egl.Egl.NATIVE_VISUAL_TYPE
+  - OpenTK.Graphics.Egl.Egl.NO_CONTEXT
+  - OpenTK.Graphics.Egl.Egl.NO_SURFACE
   - OpenTK.Graphics.Egl.Egl.NO_TEXTURE
   - OpenTK.Graphics.Egl.Egl.NON_CONFORMANT_CONFIG
   - OpenTK.Graphics.Egl.Egl.NONE
@@ -107,13 +116,16 @@ items:
   - OpenTK.Graphics.Egl.Egl.PIXEL_ASPECT_RATIO
   - OpenTK.Graphics.Egl.Egl.PIXMAP_BIT
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_ANGLE
+  - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+  - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_REFERENCE_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_WARP_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE
+  - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_D3D11_ANGLE
   - OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_D3D9_ANGLE
@@ -189,11 +201,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Egl
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 100
+    startLine: 102
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -210,6 +222,168 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: OpenTK.Graphics.Egl.Egl.DEFAULT_DISPLAY
+  commentId: F:OpenTK.Graphics.Egl.Egl.DEFAULT_DISPLAY
+  id: DEFAULT_DISPLAY
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: DEFAULT_DISPLAY
+  nameWithType: Egl.DEFAULT_DISPLAY
+  fullName: OpenTK.Graphics.Egl.Egl.DEFAULT_DISPLAY
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: DEFAULT_DISPLAY
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 104
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public static readonly IntPtr DEFAULT_DISPLAY
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared ReadOnly DEFAULT_DISPLAY As IntPtr
+- uid: OpenTK.Graphics.Egl.Egl.NO_SURFACE
+  commentId: F:OpenTK.Graphics.Egl.Egl.NO_SURFACE
+  id: NO_SURFACE
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: NO_SURFACE
+  nameWithType: Egl.NO_SURFACE
+  fullName: OpenTK.Graphics.Egl.Egl.NO_SURFACE
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: NO_SURFACE
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 106
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public static readonly IntPtr NO_SURFACE
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared ReadOnly NO_SURFACE As IntPtr
+- uid: OpenTK.Graphics.Egl.Egl.NO_CONTEXT
+  commentId: F:OpenTK.Graphics.Egl.Egl.NO_CONTEXT
+  id: NO_CONTEXT
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: NO_CONTEXT
+  nameWithType: Egl.NO_CONTEXT
+  fullName: OpenTK.Graphics.Egl.Egl.NO_CONTEXT
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: NO_CONTEXT
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 107
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public static readonly IntPtr NO_CONTEXT
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared ReadOnly NO_CONTEXT As IntPtr
+- uid: OpenTK.Graphics.Egl.Egl.CONTEXT_MAJOR_VERSION
+  commentId: F:OpenTK.Graphics.Egl.Egl.CONTEXT_MAJOR_VERSION
+  id: CONTEXT_MAJOR_VERSION
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_MAJOR_VERSION
+  nameWithType: Egl.CONTEXT_MAJOR_VERSION
+  fullName: OpenTK.Graphics.Egl.Egl.CONTEXT_MAJOR_VERSION
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: CONTEXT_MAJOR_VERSION
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 109
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int CONTEXT_MAJOR_VERSION = 12440
+    return:
+      type: System.Int32
+    content.vb: Public Const CONTEXT_MAJOR_VERSION As Integer = 12440
+- uid: OpenTK.Graphics.Egl.Egl.CONTEXT_MINOR_VERSION
+  commentId: F:OpenTK.Graphics.Egl.Egl.CONTEXT_MINOR_VERSION
+  id: CONTEXT_MINOR_VERSION
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_MINOR_VERSION
+  nameWithType: Egl.CONTEXT_MINOR_VERSION
+  fullName: OpenTK.Graphics.Egl.Egl.CONTEXT_MINOR_VERSION
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: CONTEXT_MINOR_VERSION
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 110
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int CONTEXT_MINOR_VERSION = 12539
+    return:
+      type: System.Int32
+    content.vb: Public Const CONTEXT_MINOR_VERSION As Integer = 12539
+- uid: OpenTK.Graphics.Egl.Egl.CONTEXT_OPENGL_DEBUG
+  commentId: F:OpenTK.Graphics.Egl.Egl.CONTEXT_OPENGL_DEBUG
+  id: CONTEXT_OPENGL_DEBUG
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_OPENGL_DEBUG
+  nameWithType: Egl.CONTEXT_OPENGL_DEBUG
+  fullName: OpenTK.Graphics.Egl.Egl.CONTEXT_OPENGL_DEBUG
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: CONTEXT_OPENGL_DEBUG
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 112
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int CONTEXT_OPENGL_DEBUG = 12720
+    return:
+      type: System.Int32
+    content.vb: Public Const CONTEXT_OPENGL_DEBUG As Integer = 12720
 - uid: OpenTK.Graphics.Egl.Egl.VERSION_1_0
   commentId: F:OpenTK.Graphics.Egl.Egl.VERSION_1_0
   id: VERSION_1_0
@@ -224,11 +398,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VERSION_1_0
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 102
+    startLine: 114
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -251,11 +425,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VERSION_1_1
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 103
+    startLine: 115
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -278,11 +452,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VERSION_1_2
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 104
+    startLine: 116
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -305,11 +479,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VERSION_1_3
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 105
+    startLine: 117
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -332,11 +506,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VERSION_1_4
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 106
+    startLine: 118
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -359,11 +533,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: "FALSE"
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 107
+    startLine: 119
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -386,11 +560,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: "TRUE"
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 108
+    startLine: 120
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -413,11 +587,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: DONT_CARE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 109
+    startLine: 121
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -440,11 +614,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CONTEXT_LOST
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 110
+    startLine: 122
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -467,11 +641,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: BUFFER_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 111
+    startLine: 123
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -494,11 +668,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ALPHA_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 112
+    startLine: 124
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -521,11 +695,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: BLUE_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 113
+    startLine: 125
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -548,11 +722,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GREEN_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 114
+    startLine: 126
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -575,11 +749,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: RED_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 115
+    startLine: 127
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -602,11 +776,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: DEPTH_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 116
+    startLine: 128
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -629,11 +803,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: STENCIL_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 117
+    startLine: 129
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -656,11 +830,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CONFIG_CAVEAT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 118
+    startLine: 130
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -683,11 +857,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CONFIG_ID
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 119
+    startLine: 131
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -710,11 +884,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: LEVEL
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 120
+    startLine: 132
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -737,11 +911,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MAX_PBUFFER_HEIGHT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 121
+    startLine: 133
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -764,11 +938,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MAX_PBUFFER_PIXELS
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 122
+    startLine: 134
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -791,11 +965,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MAX_PBUFFER_WIDTH
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 123
+    startLine: 135
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -818,11 +992,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: NATIVE_RENDERABLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 124
+    startLine: 136
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -845,11 +1019,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: NATIVE_VISUAL_ID
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 125
+    startLine: 137
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -872,11 +1046,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: NATIVE_VISUAL_TYPE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 126
+    startLine: 138
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -899,11 +1073,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PRESERVED_RESOURCES
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 127
+    startLine: 139
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -926,11 +1100,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SAMPLES
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 128
+    startLine: 140
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -953,11 +1127,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SAMPLE_BUFFERS
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 129
+    startLine: 141
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -980,11 +1154,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SURFACE_TYPE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 130
+    startLine: 142
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1007,11 +1181,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TRANSPARENT_TYPE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 131
+    startLine: 143
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1034,11 +1208,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TRANSPARENT_BLUE_VALUE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 132
+    startLine: 144
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1061,11 +1235,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TRANSPARENT_GREEN_VALUE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 133
+    startLine: 145
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1088,11 +1262,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TRANSPARENT_RED_VALUE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 134
+    startLine: 146
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1115,11 +1289,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: NONE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 135
+    startLine: 147
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1142,11 +1316,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: BIND_TO_TEXTURE_RGB
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 136
+    startLine: 148
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1169,11 +1343,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: BIND_TO_TEXTURE_RGBA
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 137
+    startLine: 149
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1196,11 +1370,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MIN_SWAP_INTERVAL
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 138
+    startLine: 150
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1223,11 +1397,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MAX_SWAP_INTERVAL
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 139
+    startLine: 151
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1250,11 +1424,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: LUMINANCE_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 140
+    startLine: 152
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1277,11 +1451,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ALPHA_MASK_SIZE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 141
+    startLine: 153
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1304,11 +1478,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: COLOR_BUFFER_TYPE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 142
+    startLine: 154
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1331,11 +1505,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: RENDERABLE_TYPE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 143
+    startLine: 155
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1358,11 +1532,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MATCH_NATIVE_PIXMAP
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 144
+    startLine: 156
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1385,11 +1559,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CONFORMANT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 145
+    startLine: 157
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1412,11 +1586,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SLOW_CONFIG
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 146
+    startLine: 158
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1439,11 +1613,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: NON_CONFORMANT_CONFIG
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 147
+    startLine: 159
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1466,11 +1640,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TRANSPARENT_RGB
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 148
+    startLine: 160
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1493,11 +1667,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: RGB_BUFFER
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 149
+    startLine: 161
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1520,11 +1694,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: LUMINANCE_BUFFER
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 150
+    startLine: 162
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1547,11 +1721,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: NO_TEXTURE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 151
+    startLine: 163
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1574,11 +1748,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TEXTURE_RGB
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 152
+    startLine: 164
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1601,11 +1775,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TEXTURE_RGBA
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 153
+    startLine: 165
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1628,11 +1802,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TEXTURE_2D
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 154
+    startLine: 166
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1655,11 +1829,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PBUFFER_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 155
+    startLine: 167
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1682,11 +1856,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PIXMAP_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 156
+    startLine: 168
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1709,11 +1883,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WINDOW_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 157
+    startLine: 169
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1736,11 +1910,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VG_COLORSPACE_LINEAR_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 158
+    startLine: 170
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1763,11 +1937,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VG_ALPHA_FORMAT_PRE_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 159
+    startLine: 171
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1790,11 +1964,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MULTISAMPLE_RESOLVE_BOX_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 160
+    startLine: 172
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1817,11 +1991,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SWAP_BEHAVIOR_PRESERVED_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 161
+    startLine: 173
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1844,11 +2018,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENGL_ES_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 162
+    startLine: 174
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1871,11 +2045,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENVG_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 163
+    startLine: 175
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1898,11 +2072,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENGL_ES2_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 164
+    startLine: 176
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1925,11 +2099,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENGL_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 165
+    startLine: 177
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1952,11 +2126,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENGL_ES3_BIT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 166
+    startLine: 178
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -1979,11 +2153,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VENDOR
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 167
+    startLine: 179
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2006,11 +2180,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VERSION
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 168
+    startLine: 180
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2033,11 +2207,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: EXTENSIONS
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 169
+    startLine: 181
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2060,11 +2234,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CLIENT_APIS
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 170
+    startLine: 182
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2087,11 +2261,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: HEIGHT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 171
+    startLine: 183
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2114,11 +2288,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WIDTH
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 172
+    startLine: 184
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2141,11 +2315,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: LARGEST_PBUFFER
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 173
+    startLine: 185
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2168,11 +2342,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TEXTURE_FORMAT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 174
+    startLine: 186
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2195,11 +2369,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: TEXTURE_TARGET
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 175
+    startLine: 187
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2222,11 +2396,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MIPMAP_TEXTURE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 176
+    startLine: 188
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2249,11 +2423,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MIPMAP_LEVEL
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 177
+    startLine: 189
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2276,11 +2450,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: RENDER_BUFFER
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 178
+    startLine: 190
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2303,11 +2477,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VG_COLORSPACE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 179
+    startLine: 191
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2330,11 +2504,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VG_ALPHA_FORMAT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 180
+    startLine: 192
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2357,11 +2531,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: HORIZONTAL_RESOLUTION
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 181
+    startLine: 193
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2384,11 +2558,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VERTICAL_RESOLUTION
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 182
+    startLine: 194
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2411,11 +2585,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PIXEL_ASPECT_RATIO
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 183
+    startLine: 195
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2438,11 +2612,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SWAP_BEHAVIOR
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 184
+    startLine: 196
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2465,11 +2639,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MULTISAMPLE_RESOLVE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 185
+    startLine: 197
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2492,11 +2666,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: BACK_BUFFER
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 186
+    startLine: 198
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2519,11 +2693,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SINGLE_BUFFER
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 187
+    startLine: 199
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2546,11 +2720,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VG_COLORSPACE_sRGB
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 188
+    startLine: 200
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2573,11 +2747,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VG_COLORSPACE_LINEAR
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 189
+    startLine: 201
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2600,11 +2774,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VG_ALPHA_FORMAT_NONPRE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 190
+    startLine: 202
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2627,11 +2801,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VG_ALPHA_FORMAT_PRE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 191
+    startLine: 203
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2654,11 +2828,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: DISPLAY_SCALING
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 192
+    startLine: 204
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2681,11 +2855,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: UNKNOWN
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 193
+    startLine: 205
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2708,11 +2882,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: BUFFER_PRESERVED
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 194
+    startLine: 206
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2735,11 +2909,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: BUFFER_DESTROYED
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 195
+    startLine: 207
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2762,11 +2936,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENVG_IMAGE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 196
+    startLine: 208
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2789,11 +2963,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CONTEXT_CLIENT_TYPE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 197
+    startLine: 209
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2816,11 +2990,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CONTEXT_CLIENT_VERSION
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 198
+    startLine: 210
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2843,11 +3017,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MULTISAMPLE_RESOLVE_DEFAULT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 199
+    startLine: 211
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2870,11 +3044,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MULTISAMPLE_RESOLVE_BOX
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 200
+    startLine: 212
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2897,11 +3071,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENGL_ES_API
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 201
+    startLine: 213
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2924,11 +3098,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENVG_API
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 202
+    startLine: 214
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2951,11 +3125,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: OPENGL_API
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 203
+    startLine: 215
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -2978,11 +3152,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: DRAW
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 204
+    startLine: 216
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3005,11 +3179,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: READ
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 205
+    startLine: 217
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3032,11 +3206,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CORE_NATIVE_ENGINE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 206
+    startLine: 218
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3059,11 +3233,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: COLORSPACE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 207
+    startLine: 219
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3086,11 +3260,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ALPHA_FORMAT
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 208
+    startLine: 220
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3113,11 +3287,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: COLORSPACE_sRGB
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 209
+    startLine: 221
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3140,11 +3314,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: COLORSPACE_LINEAR
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 210
+    startLine: 222
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3167,11 +3341,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ALPHA_FORMAT_NONPRE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 211
+    startLine: 223
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3194,11 +3368,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ALPHA_FORMAT_PRE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 212
+    startLine: 224
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3221,11 +3395,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 215
+    startLine: 227
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3248,11 +3422,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: FIXED_SIZE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 217
+    startLine: 229
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3300,15 +3474,15 @@ items:
   langs:
   - csharp
   - vb
-  name: GetPlatformDisplay(int, IntPtr, int[])
-  nameWithType: Egl.GetPlatformDisplay(int, IntPtr, int[])
-  fullName: OpenTK.Graphics.Egl.Egl.GetPlatformDisplay(int, System.IntPtr, int[])
+  name: GetPlatformDisplay(int, IntPtr, int[]?)
+  nameWithType: Egl.GetPlatformDisplay(int, IntPtr, int[]?)
+  fullName: OpenTK.Graphics.Egl.Egl.GetPlatformDisplay(int, System.IntPtr, int[]?)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern IntPtr GetPlatformDisplay(int platform, IntPtr displayId, int[] attribList)
+    content: public static extern IntPtr GetPlatformDisplay(int platform, IntPtr displayId, int[]? attribList)
     parameters:
     - id: platform
       type: System.Int32
@@ -3337,11 +3511,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SOFTWARE_DISPLAY_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 226
+    startLine: 238
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3364,11 +3538,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: D3D11_ELSE_D3D9_DISPLAY_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 228
+    startLine: 240
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3391,11 +3565,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: D3D11_ONLY_DISPLAY_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 229
+    startLine: 241
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3418,11 +3592,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: D3D9_DEVICE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 231
+    startLine: 243
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3445,11 +3619,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: D3D11_DEVICE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 232
+    startLine: 244
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3472,11 +3646,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 234
+    startLine: 246
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3499,11 +3673,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_TYPE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 235
+    startLine: 247
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3526,11 +3700,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 236
+    startLine: 248
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3553,11 +3727,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 237
+    startLine: 249
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3566,6 +3740,60 @@ items:
     return:
       type: System.Int32
     content.vb: Public Const PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE As Integer = 12805
+- uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED
+  commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED
+  id: PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED
+  nameWithType: Egl.PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED
+  fullName: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 250
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED = 13393
+    return:
+      type: System.Int32
+    content.vb: Public Const PLATFORM_ANGLE_DEBUG_LAYERS_ENABLED As Integer = 13393
+- uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE
+  commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE
+  id: PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE
+  nameWithType: Egl.PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE
+  fullName: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 251
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE = 13455
+    return:
+      type: System.Int32
+    content.vb: Public Const PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE As Integer = 13455
 - uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE
   commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE
   id: PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE
@@ -3580,11 +3808,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 238
+    startLine: 252
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3593,6 +3821,60 @@ items:
     return:
       type: System.Int32
     content.vb: Public Const PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE As Integer = 12806
+- uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+  commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+  id: PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+  nameWithType: Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+  fullName: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 253
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE = 12810
+    return:
+      type: System.Int32
+    content.vb: Public Const PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE As Integer = 12810
+- uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE
+  commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE
+  id: PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE
+  nameWithType: Egl.PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE
+  fullName: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 254
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE = 13406
+    return:
+      type: System.Int32
+    content.vb: Public Const PLATFORM_ANGLE_DEVICE_TYPE_NULL_ANGLE As Integer = 13406
 - uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_D3D9_ANGLE
   commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_D3D9_ANGLE
   id: PLATFORM_ANGLE_TYPE_D3D9_ANGLE
@@ -3607,11 +3889,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_TYPE_D3D9_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 240
+    startLine: 256
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3634,11 +3916,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_TYPE_D3D11_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 241
+    startLine: 257
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3661,11 +3943,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_DEVICE_TYPE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 242
+    startLine: 258
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3674,33 +3956,33 @@ items:
     return:
       type: System.Int32
     content.vb: Public Const PLATFORM_ANGLE_DEVICE_TYPE_ANGLE As Integer = 12809
-- uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
-  commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
-  id: PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+- uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
+  commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
+  id: PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
   parent: OpenTK.Graphics.Egl.Egl
   langs:
   - csharp
   - vb
-  name: PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
-  nameWithType: Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
-  fullName: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+  name: PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
+  nameWithType: Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
+  fullName: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
   type: Field
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 243
+    startLine: 259
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public const int PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE = 12810
+    content: public const int PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE = 12815
     return:
       type: System.Int32
-    content.vb: Public Const PLATFORM_ANGLE_DEVICE_TYPE_HARDWARE_ANGLE As Integer = 12810
+    content.vb: Public Const PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE As Integer = 12815
 - uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_WARP_ANGLE
   commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_DEVICE_TYPE_WARP_ANGLE
   id: PLATFORM_ANGLE_DEVICE_TYPE_WARP_ANGLE
@@ -3715,11 +3997,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_DEVICE_TYPE_WARP_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 244
+    startLine: 260
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3742,11 +4024,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_DEVICE_TYPE_REFERENCE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 245
+    startLine: 261
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3755,33 +4037,6 @@ items:
     return:
       type: System.Int32
     content.vb: Public Const PLATFORM_ANGLE_DEVICE_TYPE_REFERENCE_ANGLE As Integer = 12812
-- uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
-  commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
-  id: PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
-  parent: OpenTK.Graphics.Egl.Egl
-  langs:
-  - csharp
-  - vb
-  name: PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
-  nameWithType: Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
-  fullName: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
-  type: Field
-  source:
-    remote:
-      path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
-    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 246
-  assemblies:
-  - OpenTK.Graphics
-  namespace: OpenTK.Graphics.Egl
-  syntax:
-    content: public const int PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE = 12815
-    return:
-      type: System.Int32
-    content.vb: Public Const PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE As Integer = 12815
 - uid: OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_OPENGL_ANGLE
   commentId: F:OpenTK.Graphics.Egl.Egl.PLATFORM_ANGLE_TYPE_OPENGL_ANGLE
   id: PLATFORM_ANGLE_TYPE_OPENGL_ANGLE
@@ -3796,11 +4051,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_TYPE_OPENGL_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 248
+    startLine: 263
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3823,11 +4078,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PLATFORM_ANGLE_TYPE_OPENGLES_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 249
+    startLine: 264
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3850,11 +4105,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 251
+    startLine: 266
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -3863,6 +4118,87 @@ items:
     return:
       type: System.Int32
     content.vb: Public Const EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE As Integer = 12800
+- uid: OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_ANGLE
+  commentId: F:OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_ANGLE
+  id: EXPERIMENTAL_PRESENT_PATH_ANGLE
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: EXPERIMENTAL_PRESENT_PATH_ANGLE
+  nameWithType: Egl.EXPERIMENTAL_PRESENT_PATH_ANGLE
+  fullName: OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_ANGLE
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: EXPERIMENTAL_PRESENT_PATH_ANGLE
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 268
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int EXPERIMENTAL_PRESENT_PATH_ANGLE = 13220
+    return:
+      type: System.Int32
+    content.vb: Public Const EXPERIMENTAL_PRESENT_PATH_ANGLE As Integer = 13220
+- uid: OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE
+  commentId: F:OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE
+  id: EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE
+  nameWithType: Egl.EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE
+  fullName: OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 269
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE = 13225
+    return:
+      type: System.Int32
+    content.vb: Public Const EXPERIMENTAL_PRESENT_PATH_FAST_ANGLE As Integer = 13225
+- uid: OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE
+  commentId: F:OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE
+  id: EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE
+  parent: OpenTK.Graphics.Egl.Egl
+  langs:
+  - csharp
+  - vb
+  name: EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE
+  nameWithType: Egl.EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE
+  fullName: OpenTK.Graphics.Egl.Egl.EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Graphics/Egl/Egl.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE
+    path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
+    startLine: 270
+  assemblies:
+  - OpenTK.Graphics
+  namespace: OpenTK.Graphics.Egl
+  syntax:
+    content: public const int EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE = 13226
+    return:
+      type: System.Int32
+    content.vb: Public Const EXPERIMENTAL_PRESENT_PATH_COPY_ANGLE As Integer = 13226
 - uid: OpenTK.Graphics.Egl.Egl.GetError
   commentId: M:OpenTK.Graphics.Egl.Egl.GetError
   id: GetError
@@ -3994,15 +4330,15 @@ items:
   langs:
   - csharp
   - vb
-  name: GetConfigs(IntPtr, IntPtr[], int, out int)
-  nameWithType: Egl.GetConfigs(IntPtr, IntPtr[], int, out int)
-  fullName: OpenTK.Graphics.Egl.Egl.GetConfigs(System.IntPtr, System.IntPtr[], int, out int)
+  name: GetConfigs(IntPtr, IntPtr[]?, int, out int)
+  nameWithType: Egl.GetConfigs(IntPtr, IntPtr[]?, int, out int)
+  fullName: OpenTK.Graphics.Egl.Egl.GetConfigs(System.IntPtr, System.IntPtr[]?, int, out int)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern bool GetConfigs(IntPtr dpy, IntPtr[] configs, int config_size, out int num_config)
+    content: public static extern bool GetConfigs(IntPtr dpy, IntPtr[]? configs, int config_size, out int num_config)
     parameters:
     - id: dpy
       type: System.IntPtr
@@ -4026,15 +4362,15 @@ items:
   langs:
   - csharp
   - vb
-  name: ChooseConfig(IntPtr, int[], IntPtr[], int, out int)
-  nameWithType: Egl.ChooseConfig(IntPtr, int[], IntPtr[], int, out int)
-  fullName: OpenTK.Graphics.Egl.Egl.ChooseConfig(System.IntPtr, int[], System.IntPtr[], int, out int)
+  name: ChooseConfig(IntPtr, int[]?, IntPtr[]?, int, out int)
+  nameWithType: Egl.ChooseConfig(IntPtr, int[]?, IntPtr[]?, int, out int)
+  fullName: OpenTK.Graphics.Egl.Egl.ChooseConfig(System.IntPtr, int[]?, System.IntPtr[]?, int, out int)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern bool ChooseConfig(IntPtr dpy, int[] attrib_list, IntPtr[] configs, int config_size, out int num_config)
+    content: public static extern bool ChooseConfig(IntPtr dpy, int[]? attrib_list, IntPtr[]? configs, int config_size, out int num_config)
     parameters:
     - id: dpy
       type: System.IntPtr
@@ -4121,15 +4457,15 @@ items:
   langs:
   - csharp
   - vb
-  name: CreatePbufferSurface(IntPtr, IntPtr, int[])
-  nameWithType: Egl.CreatePbufferSurface(IntPtr, IntPtr, int[])
-  fullName: OpenTK.Graphics.Egl.Egl.CreatePbufferSurface(System.IntPtr, System.IntPtr, int[])
+  name: CreatePbufferSurface(IntPtr, IntPtr, int[]?)
+  nameWithType: Egl.CreatePbufferSurface(IntPtr, IntPtr, int[]?)
+  fullName: OpenTK.Graphics.Egl.Egl.CreatePbufferSurface(System.IntPtr, System.IntPtr, int[]?)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern IntPtr CreatePbufferSurface(IntPtr dpy, IntPtr config, int[] attrib_list)
+    content: public static extern IntPtr CreatePbufferSurface(IntPtr dpy, IntPtr config, int[]? attrib_list)
     parameters:
     - id: dpy
       type: System.IntPtr
@@ -4151,15 +4487,15 @@ items:
   langs:
   - csharp
   - vb
-  name: CreatePixmapSurface(IntPtr, IntPtr, IntPtr, int[])
-  nameWithType: Egl.CreatePixmapSurface(IntPtr, IntPtr, IntPtr, int[])
-  fullName: OpenTK.Graphics.Egl.Egl.CreatePixmapSurface(System.IntPtr, System.IntPtr, System.IntPtr, int[])
+  name: CreatePixmapSurface(IntPtr, IntPtr, IntPtr, int[]?)
+  nameWithType: Egl.CreatePixmapSurface(IntPtr, IntPtr, IntPtr, int[]?)
+  fullName: OpenTK.Graphics.Egl.Egl.CreatePixmapSurface(System.IntPtr, System.IntPtr, System.IntPtr, int[]?)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern IntPtr CreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int[] attrib_list)
+    content: public static extern IntPtr CreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int[]? attrib_list)
     parameters:
     - id: dpy
       type: System.IntPtr
@@ -4323,15 +4659,15 @@ items:
   langs:
   - csharp
   - vb
-  name: CreatePbufferFromClientBuffer(IntPtr, int, IntPtr, IntPtr, int[])
-  nameWithType: Egl.CreatePbufferFromClientBuffer(IntPtr, int, IntPtr, IntPtr, int[])
-  fullName: OpenTK.Graphics.Egl.Egl.CreatePbufferFromClientBuffer(System.IntPtr, int, System.IntPtr, System.IntPtr, int[])
+  name: CreatePbufferFromClientBuffer(IntPtr, int, IntPtr, IntPtr, int[]?)
+  nameWithType: Egl.CreatePbufferFromClientBuffer(IntPtr, int, IntPtr, IntPtr, int[]?)
+  fullName: OpenTK.Graphics.Egl.Egl.CreatePbufferFromClientBuffer(System.IntPtr, int, System.IntPtr, System.IntPtr, int[]?)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern IntPtr CreatePbufferFromClientBuffer(IntPtr dpy, int buftype, IntPtr buffer, IntPtr config, int[] attrib_list)
+    content: public static extern IntPtr CreatePbufferFromClientBuffer(IntPtr dpy, int buftype, IntPtr buffer, IntPtr config, int[]? attrib_list)
     parameters:
     - id: dpy
       type: System.IntPtr
@@ -4477,23 +4813,23 @@ items:
   langs:
   - csharp
   - vb
-  name: CreateContext(IntPtr, IntPtr, IntPtr, int[])
-  nameWithType: Egl.CreateContext(IntPtr, IntPtr, IntPtr, int[])
-  fullName: OpenTK.Graphics.Egl.Egl.CreateContext(System.IntPtr, System.IntPtr, System.IntPtr, int[])
+  name: CreateContext(IntPtr, IntPtr, IntPtr, int[]?)
+  nameWithType: Egl.CreateContext(IntPtr, IntPtr, IntPtr, int[]?)
+  fullName: OpenTK.Graphics.Egl.Egl.CreateContext(System.IntPtr, System.IntPtr, System.IntPtr, int[]?)
   type: Method
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateContext
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 336
+    startLine: 356
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static IntPtr CreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int[] attrib_list)
+    content: public static IntPtr CreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int[]? attrib_list)
     parameters:
     - id: dpy
       type: System.IntPtr
@@ -4816,15 +5152,15 @@ items:
   langs:
   - csharp
   - vb
-  name: GetPlatformDisplayEXT(int, IntPtr, int[])
-  nameWithType: Egl.GetPlatformDisplayEXT(int, IntPtr, int[])
-  fullName: OpenTK.Graphics.Egl.Egl.GetPlatformDisplayEXT(int, System.IntPtr, int[])
+  name: GetPlatformDisplayEXT(int, IntPtr, int[]?)
+  nameWithType: Egl.GetPlatformDisplayEXT(int, IntPtr, int[]?)
+  fullName: OpenTK.Graphics.Egl.Egl.GetPlatformDisplayEXT(int, System.IntPtr, int[]?)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern IntPtr GetPlatformDisplayEXT(int platform, IntPtr native_display, int[] attrib_list)
+    content: public static extern IntPtr GetPlatformDisplayEXT(int platform, IntPtr native_display, int[]? attrib_list)
     parameters:
     - id: platform
       type: System.Int32
@@ -4846,15 +5182,15 @@ items:
   langs:
   - csharp
   - vb
-  name: CreatePlatformWindowSurfaceEXT(IntPtr, IntPtr, IntPtr, int[])
-  nameWithType: Egl.CreatePlatformWindowSurfaceEXT(IntPtr, IntPtr, IntPtr, int[])
-  fullName: OpenTK.Graphics.Egl.Egl.CreatePlatformWindowSurfaceEXT(System.IntPtr, System.IntPtr, System.IntPtr, int[])
+  name: CreatePlatformWindowSurfaceEXT(IntPtr, IntPtr, IntPtr, int[]?)
+  nameWithType: Egl.CreatePlatformWindowSurfaceEXT(IntPtr, IntPtr, IntPtr, int[]?)
+  fullName: OpenTK.Graphics.Egl.Egl.CreatePlatformWindowSurfaceEXT(System.IntPtr, System.IntPtr, System.IntPtr, int[]?)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern IntPtr CreatePlatformWindowSurfaceEXT(IntPtr dpy, IntPtr config, IntPtr native_window, int[] attrib_list)
+    content: public static extern IntPtr CreatePlatformWindowSurfaceEXT(IntPtr dpy, IntPtr config, IntPtr native_window, int[]? attrib_list)
     parameters:
     - id: dpy
       type: System.IntPtr
@@ -4878,15 +5214,15 @@ items:
   langs:
   - csharp
   - vb
-  name: CreatePlatformPixmapSurfaceEXT(IntPtr, IntPtr, IntPtr, int[])
-  nameWithType: Egl.CreatePlatformPixmapSurfaceEXT(IntPtr, IntPtr, IntPtr, int[])
-  fullName: OpenTK.Graphics.Egl.Egl.CreatePlatformPixmapSurfaceEXT(System.IntPtr, System.IntPtr, System.IntPtr, int[])
+  name: CreatePlatformPixmapSurfaceEXT(IntPtr, IntPtr, IntPtr, int[]?)
+  nameWithType: Egl.CreatePlatformPixmapSurfaceEXT(IntPtr, IntPtr, IntPtr, int[]?)
+  fullName: OpenTK.Graphics.Egl.Egl.CreatePlatformPixmapSurfaceEXT(System.IntPtr, System.IntPtr, System.IntPtr, int[]?)
   type: Method
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
   syntax:
-    content: public static extern IntPtr CreatePlatformPixmapSurfaceEXT(IntPtr dpy, IntPtr config, IntPtr native_pixmap, int[] attrib_list)
+    content: public static extern IntPtr CreatePlatformPixmapSurfaceEXT(IntPtr dpy, IntPtr config, IntPtr native_pixmap, int[]? attrib_list)
     parameters:
     - id: dpy
       type: System.IntPtr
@@ -4917,11 +5253,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Graphics/Egl/Egl.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: IsSupported
     path: opentk/src/OpenTK.Graphics/Egl/Egl.cs
-    startLine: 400
+    startLine: 420
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics.Egl
@@ -5200,6 +5536,14 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -5218,14 +5562,6 @@ references:
   name: QuerySurfacePointerANGLE
   nameWithType: Egl.QuerySurfacePointerANGLE
   fullName: OpenTK.Graphics.Egl.Egl.QuerySurfacePointerANGLE
-- uid: System.IntPtr
-  commentId: T:System.IntPtr
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: IntPtr
-  nameWithType: IntPtr
-  fullName: System.IntPtr
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System

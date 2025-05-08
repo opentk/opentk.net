@@ -36,6 +36,7 @@ items:
   - OpenTK.Mathematics.Matrix4x3d.Invert
   - OpenTK.Mathematics.Matrix4x3d.Invert(OpenTK.Mathematics.Matrix4x3d)
   - OpenTK.Mathematics.Matrix4x3d.Invert(OpenTK.Mathematics.Matrix4x3d@,OpenTK.Mathematics.Matrix4x3d@)
+  - OpenTK.Mathematics.Matrix4x3d.Inverted
   - OpenTK.Mathematics.Matrix4x3d.Item(System.Int32,System.Int32)
   - OpenTK.Mathematics.Matrix4x3d.M11
   - OpenTK.Mathematics.Matrix4x3d.M12
@@ -68,6 +69,10 @@ items:
   - OpenTK.Mathematics.Matrix4x3d.Row3
   - OpenTK.Mathematics.Matrix4x3d.Subtract(OpenTK.Mathematics.Matrix4x3d,OpenTK.Mathematics.Matrix4x3d)
   - OpenTK.Mathematics.Matrix4x3d.Subtract(OpenTK.Mathematics.Matrix4x3d@,OpenTK.Mathematics.Matrix4x3d@,OpenTK.Mathematics.Matrix4x3d@)
+  - OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d,System.Int32,System.Int32,System.Int32,System.Int32)
+  - OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d@,System.Int32,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix4x3d@)
+  - OpenTK.Mathematics.Matrix4x3d.Swizzle(System.Int32,System.Int32,System.Int32,System.Int32)
+  - OpenTK.Mathematics.Matrix4x3d.Swizzled(System.Int32,System.Int32,System.Int32,System.Int32)
   - OpenTK.Mathematics.Matrix4x3d.ToString
   - OpenTK.Mathematics.Matrix4x3d.ToString(System.IFormatProvider)
   - OpenTK.Mathematics.Matrix4x3d.ToString(System.String,System.IFormatProvider)
@@ -75,6 +80,7 @@ items:
   - OpenTK.Mathematics.Matrix4x3d.Trace
   - OpenTK.Mathematics.Matrix4x3d.Transpose(OpenTK.Mathematics.Matrix4x3d)
   - OpenTK.Mathematics.Matrix4x3d.Transpose(OpenTK.Mathematics.Matrix4x3d@,OpenTK.Mathematics.Matrix3x4d@)
+  - OpenTK.Mathematics.Matrix4x3d.Transposed
   - OpenTK.Mathematics.Matrix4x3d.Zero
   langs:
   - csharp
@@ -86,11 +92,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Matrix4x3d
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 32
+    startLine: 33
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -130,11 +136,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Row0
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 39
+    startLine: 40
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -159,11 +165,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Row1
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 44
+    startLine: 45
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -188,11 +194,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Row2
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 49
+    startLine: 50
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -217,11 +223,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Row3
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 54
+    startLine: 55
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -246,21 +252,21 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Zero
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 59
+    startLine: 60
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: The zero matrix.
   example: []
   syntax:
-    content: public static Matrix4x3d Zero
+    content: public static readonly Matrix4x3d Zero
     return:
       type: OpenTK.Mathematics.Matrix4x3d
-    content.vb: Public Shared Zero As Matrix4x3d
+    content.vb: Public Shared ReadOnly Zero As Matrix4x3d
 - uid: OpenTK.Mathematics.Matrix4x3d.#ctor(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   commentId: M:OpenTK.Mathematics.Matrix4x3d.#ctor(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   id: '#ctor(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)'
@@ -275,11 +281,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 68
+    startLine: 69
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -319,11 +325,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 91
+    startLine: 92
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -387,22 +393,22 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Column0
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 109
+    startLine: 110
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the first column of this matrix.
   example: []
   syntax:
-    content: public Vector4d Column0 { get; }
+    content: public Vector4d Column0 { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4d
-    content.vb: Public ReadOnly Property Column0 As Vector4d
+    content.vb: Public Property Column0 As Vector4d
   overload: OpenTK.Mathematics.Matrix4x3d.Column0*
 - uid: OpenTK.Mathematics.Matrix4x3d.Column1
   commentId: P:OpenTK.Mathematics.Matrix4x3d.Column1
@@ -418,22 +424,22 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Column1
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 114
+    startLine: 125
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the second column of this matrix.
   example: []
   syntax:
-    content: public Vector4d Column1 { get; }
+    content: public Vector4d Column1 { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4d
-    content.vb: Public ReadOnly Property Column1 As Vector4d
+    content.vb: Public Property Column1 As Vector4d
   overload: OpenTK.Mathematics.Matrix4x3d.Column1*
 - uid: OpenTK.Mathematics.Matrix4x3d.Column2
   commentId: P:OpenTK.Mathematics.Matrix4x3d.Column2
@@ -449,22 +455,22 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Column2
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 119
+    startLine: 140
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the third column of this matrix.
   example: []
   syntax:
-    content: public Vector4d Column2 { get; }
+    content: public Vector4d Column2 { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector4d
-    content.vb: Public ReadOnly Property Column2 As Vector4d
+    content.vb: Public Property Column2 As Vector4d
   overload: OpenTK.Mathematics.Matrix4x3d.Column2*
 - uid: OpenTK.Mathematics.Matrix4x3d.M11
   commentId: P:OpenTK.Mathematics.Matrix4x3d.M11
@@ -480,18 +486,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M11
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 124
+    startLine: 155
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 1, column 1 of this instance.
   example: []
   syntax:
-    content: public double M11 { get; set; }
+    content: public double M11 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -511,18 +517,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M12
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 133
+    startLine: 164
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 1, column 2 of this instance.
   example: []
   syntax:
-    content: public double M12 { get; set; }
+    content: public double M12 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -542,18 +548,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M13
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 142
+    startLine: 173
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 1, column 3 of this instance.
   example: []
   syntax:
-    content: public double M13 { get; set; }
+    content: public double M13 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -573,18 +579,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M21
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 151
+    startLine: 182
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 2, column 1 of this instance.
   example: []
   syntax:
-    content: public double M21 { get; set; }
+    content: public double M21 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -604,18 +610,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M22
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 160
+    startLine: 191
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 2, column 2 of this instance.
   example: []
   syntax:
-    content: public double M22 { get; set; }
+    content: public double M22 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -635,18 +641,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M23
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 169
+    startLine: 200
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 2, column 3 of this instance.
   example: []
   syntax:
-    content: public double M23 { get; set; }
+    content: public double M23 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -666,18 +672,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M31
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 178
+    startLine: 209
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 3, column 1 of this instance.
   example: []
   syntax:
-    content: public double M31 { get; set; }
+    content: public double M31 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -697,18 +703,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M32
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 187
+    startLine: 218
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 3, column 2 of this instance.
   example: []
   syntax:
-    content: public double M32 { get; set; }
+    content: public double M32 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -728,18 +734,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M33
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 196
+    startLine: 227
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 3, column 3 of this instance.
   example: []
   syntax:
-    content: public double M33 { get; set; }
+    content: public double M33 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -759,18 +765,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M41
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 205
+    startLine: 236
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 4, column 1 of this instance.
   example: []
   syntax:
-    content: public double M41 { get; set; }
+    content: public double M41 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -790,18 +796,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M42
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 214
+    startLine: 245
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 4, column 2 of this instance.
   example: []
   syntax:
-    content: public double M42 { get; set; }
+    content: public double M42 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -821,18 +827,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M43
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 223
+    startLine: 254
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 4, column 3 of this instance.
   example: []
   syntax:
-    content: public double M43 { get; set; }
+    content: public double M43 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -852,18 +858,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Diagonal
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 232
+    startLine: 263
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the values along the main diagonal of the matrix.
   example: []
   syntax:
-    content: public Vector3d Diagonal { get; set; }
+    content: public Vector3d Diagonal { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3d
@@ -883,18 +889,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Trace
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 246
+    startLine: 277
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the trace of the matrix, the sum of the values along the diagonal.
   example: []
   syntax:
-    content: public double Trace { get; }
+    content: public readonly double Trace { get; }
     parameters: []
     return:
       type: System.Double
@@ -914,18 +920,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: this[]
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 254
+    startLine: 285
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at a specified row and column.
   example: []
   syntax:
-    content: public double this[int rowIndex, int columnIndex] { get; set; }
+    content: public double this[int rowIndex, int columnIndex] { readonly get; set; }
     parameters:
     - id: rowIndex
       type: System.Int32
@@ -955,11 +961,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 311
+    startLine: 323
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -969,6 +975,159 @@ items:
     content: public void Invert()
     content.vb: Public Sub Invert()
   overload: OpenTK.Mathematics.Matrix4x3d.Invert*
+- uid: OpenTK.Mathematics.Matrix4x3d.Inverted
+  commentId: M:OpenTK.Mathematics.Matrix4x3d.Inverted
+  id: Inverted
+  parent: OpenTK.Mathematics.Matrix4x3d
+  langs:
+  - csharp
+  - vb
+  name: Inverted()
+  nameWithType: Matrix4x3d.Inverted()
+  fullName: OpenTK.Mathematics.Matrix4x3d.Inverted()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Inverted
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+    startLine: 332
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns an inverted copy of this instance.
+  example: []
+  syntax:
+    content: public readonly Matrix4x3d Inverted()
+    return:
+      type: OpenTK.Mathematics.Matrix4x3d
+      description: The inverted copy.
+    content.vb: Public Function Inverted() As Matrix4x3d
+  overload: OpenTK.Mathematics.Matrix4x3d.Inverted*
+- uid: OpenTK.Mathematics.Matrix4x3d.Transposed
+  commentId: M:OpenTK.Mathematics.Matrix4x3d.Transposed
+  id: Transposed
+  parent: OpenTK.Mathematics.Matrix4x3d
+  langs:
+  - csharp
+  - vb
+  name: Transposed()
+  nameWithType: Matrix4x3d.Transposed()
+  fullName: OpenTK.Mathematics.Matrix4x3d.Transposed()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Transposed
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+    startLine: 343
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns a transposed copy of this instance.
+  example: []
+  syntax:
+    content: public readonly Matrix3x4d Transposed()
+    return:
+      type: OpenTK.Mathematics.Matrix3x4d
+      description: The transposed copy.
+    content.vb: Public Function Transposed() As Matrix3x4d
+  overload: OpenTK.Mathematics.Matrix4x3d.Transposed*
+- uid: OpenTK.Mathematics.Matrix4x3d.Swizzle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:OpenTK.Mathematics.Matrix4x3d.Swizzle(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: Swizzle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: OpenTK.Mathematics.Matrix4x3d
+  langs:
+  - csharp
+  - vb
+  name: Swizzle(int, int, int, int)
+  nameWithType: Matrix4x3d.Swizzle(int, int, int, int)
+  fullName: OpenTK.Mathematics.Matrix4x3d.Swizzle(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Swizzle
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+    startLine: 355
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Swizzles this instance. Swiches places of the rows of the matrix.
+  example: []
+  syntax:
+    content: public void Swizzle(int rowForRow0, int rowForRow1, int rowForRow2, int rowForRow3)
+    parameters:
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow3
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row3" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub Swizzle(rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer, rowForRow3 As Integer)
+  overload: OpenTK.Mathematics.Matrix4x3d.Swizzle*
+  nameWithType.vb: Matrix4x3d.Swizzle(Integer, Integer, Integer, Integer)
+  fullName.vb: OpenTK.Mathematics.Matrix4x3d.Swizzle(Integer, Integer, Integer, Integer)
+  name.vb: Swizzle(Integer, Integer, Integer, Integer)
+- uid: OpenTK.Mathematics.Matrix4x3d.Swizzled(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:OpenTK.Mathematics.Matrix4x3d.Swizzled(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: Swizzled(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: OpenTK.Mathematics.Matrix4x3d
+  langs:
+  - csharp
+  - vb
+  name: Swizzled(int, int, int, int)
+  nameWithType: Matrix4x3d.Swizzled(int, int, int, int)
+  fullName: OpenTK.Mathematics.Matrix4x3d.Swizzled(int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Swizzled
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+    startLine: 368
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns a swizzled copy of this instance.
+  example: []
+  syntax:
+    content: public readonly Matrix4x3d Swizzled(int rowForRow0, int rowForRow1, int rowForRow2, int rowForRow3)
+    parameters:
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow3
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row3" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: OpenTK.Mathematics.Matrix4x3d
+      description: The swizzled copy.
+    content.vb: Public Function Swizzled(rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer, rowForRow3 As Integer) As Matrix4x3d
+  overload: OpenTK.Mathematics.Matrix4x3d.Swizzled*
+  nameWithType.vb: Matrix4x3d.Swizzled(Integer, Integer, Integer, Integer)
+  fullName.vb: OpenTK.Mathematics.Matrix4x3d.Swizzled(Integer, Integer, Integer, Integer)
+  name.vb: Swizzled(Integer, Integer, Integer, Integer)
 - uid: OpenTK.Mathematics.Matrix4x3d.CreateFromAxisAngle(OpenTK.Mathematics.Vector3d,System.Double,OpenTK.Mathematics.Matrix4x3d@)
   commentId: M:OpenTK.Mathematics.Matrix4x3d.CreateFromAxisAngle(OpenTK.Mathematics.Vector3d,System.Double,OpenTK.Mathematics.Matrix4x3d@)
   id: CreateFromAxisAngle(OpenTK.Mathematics.Vector3d,System.Double,OpenTK.Mathematics.Matrix4x3d@)
@@ -983,11 +1142,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateFromAxisAngle
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 322
+    startLine: 381
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1024,11 +1183,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateFromAxisAngle
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 362
+    startLine: 421
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1075,11 +1234,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateFromQuaternion
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 374
+    startLine: 433
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1113,11 +1272,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateFromQuaternion
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 412
+    startLine: 474
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1158,11 +1317,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationX
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 424
+    startLine: 486
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1196,11 +1355,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationX
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 448
+    startLine: 510
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1244,11 +1403,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationY
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 460
+    startLine: 522
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1282,11 +1441,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationY
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 484
+    startLine: 546
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1330,11 +1489,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationZ
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 496
+    startLine: 558
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1368,11 +1527,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationZ
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 520
+    startLine: 582
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1416,11 +1575,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateTranslation
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 534
+    startLine: 596
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1460,11 +1619,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateTranslation
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 555
+    startLine: 617
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1498,11 +1657,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateTranslation
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 578
+    startLine: 640
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1552,11 +1711,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateTranslation
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 590
+    startLine: 652
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1597,11 +1756,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 602
+    startLine: 664
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1645,11 +1804,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 613
+    startLine: 675
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1690,11 +1849,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 626
+    startLine: 688
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1744,11 +1903,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 652
+    startLine: 714
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1795,11 +1954,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 666
+    startLine: 728
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1839,11 +1998,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 717
+    startLine: 779
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1887,11 +2046,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 730
+    startLine: 792
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1928,11 +2087,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 777
+    startLine: 839
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1979,11 +2138,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 790
+    startLine: 852
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2020,11 +2179,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Add
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 804
+    startLine: 866
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2068,11 +2227,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Add
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 817
+    startLine: 879
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2109,11 +2268,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Subtract
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 831
+    startLine: 893
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2157,11 +2316,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Subtract
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 844
+    startLine: 906
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2198,11 +2357,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 858
+    startLine: 920
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2247,11 +2406,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 871
+    startLine: 933
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2289,11 +2448,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Transpose
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 896
+    startLine: 958
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2334,11 +2493,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Transpose
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 907
+    startLine: 969
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2358,6 +2517,114 @@ items:
   nameWithType.vb: Matrix4x3d.Transpose(Matrix4x3d, Matrix3x4d)
   fullName.vb: OpenTK.Mathematics.Matrix4x3d.Transpose(OpenTK.Mathematics.Matrix4x3d, OpenTK.Mathematics.Matrix3x4d)
   name.vb: Transpose(Matrix4x3d, Matrix3x4d)
+- uid: OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: Swizzle(OpenTK.Mathematics.Matrix4x3d,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: OpenTK.Mathematics.Matrix4x3d
+  langs:
+  - csharp
+  - vb
+  name: Swizzle(Matrix4x3d, int, int, int, int)
+  nameWithType: Matrix4x3d.Swizzle(Matrix4x3d, int, int, int, int)
+  fullName: OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d, int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Swizzle
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+    startLine: 986
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Swizzles a matrix, i.e. switches rows of the matrix.
+  example: []
+  syntax:
+    content: public static Matrix4x3d Swizzle(Matrix4x3d mat, int rowForRow0, int rowForRow1, int rowForRow2, int rowForRow3)
+    parameters:
+    - id: mat
+      type: OpenTK.Mathematics.Matrix4x3d
+      description: The matrix to swizzle.
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow3
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row3" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: OpenTK.Mathematics.Matrix4x3d
+      description: The swizzled matrix.
+    content.vb: Public Shared Function Swizzle(mat As Matrix4x3d, rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer, rowForRow3 As Integer) As Matrix4x3d
+  overload: OpenTK.Mathematics.Matrix4x3d.Swizzle*
+  exceptions:
+  - type: System.IndexOutOfRangeException
+    commentId: T:System.IndexOutOfRangeException
+    description: If any of the rows are outside of the range [0, 3].
+  nameWithType.vb: Matrix4x3d.Swizzle(Matrix4x3d, Integer, Integer, Integer, Integer)
+  fullName.vb: OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d, Integer, Integer, Integer, Integer)
+  name.vb: Swizzle(Matrix4x3d, Integer, Integer, Integer, Integer)
+- uid: OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d@,System.Int32,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix4x3d@)
+  commentId: M:OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d@,System.Int32,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix4x3d@)
+  id: Swizzle(OpenTK.Mathematics.Matrix4x3d@,System.Int32,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix4x3d@)
+  parent: OpenTK.Mathematics.Matrix4x3d
+  langs:
+  - csharp
+  - vb
+  name: Swizzle(in Matrix4x3d, int, int, int, int, out Matrix4x3d)
+  nameWithType: Matrix4x3d.Swizzle(in Matrix4x3d, int, int, int, int, out Matrix4x3d)
+  fullName: OpenTK.Mathematics.Matrix4x3d.Swizzle(in OpenTK.Mathematics.Matrix4x3d, int, int, int, int, out OpenTK.Mathematics.Matrix4x3d)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Swizzle
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
+    startLine: 1002
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Swizzles a matrix, i.e. switches rows of the matrix.
+  example: []
+  syntax:
+    content: public static void Swizzle(in Matrix4x3d mat, int rowForRow0, int rowForRow1, int rowForRow2, int rowForRow3, out Matrix4x3d result)
+    parameters:
+    - id: mat
+      type: OpenTK.Mathematics.Matrix4x3d
+      description: The matrix to swizzle.
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow3
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix4x3d.Row3" data-throw-if-not-resolved="false"></xref>.
+    - id: result
+      type: OpenTK.Mathematics.Matrix4x3d
+      description: The swizzled matrix.
+    content.vb: Public Shared Sub Swizzle(mat As Matrix4x3d, rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer, rowForRow3 As Integer, result As Matrix4x3d)
+  overload: OpenTK.Mathematics.Matrix4x3d.Swizzle*
+  exceptions:
+  - type: System.IndexOutOfRangeException
+    commentId: T:System.IndexOutOfRangeException
+    description: If any of the rows are outside of the range [0, 3].
+  nameWithType.vb: Matrix4x3d.Swizzle(Matrix4x3d, Integer, Integer, Integer, Integer, Matrix4x3d)
+  fullName.vb: OpenTK.Mathematics.Matrix4x3d.Swizzle(OpenTK.Mathematics.Matrix4x3d, Integer, Integer, Integer, Integer, OpenTK.Mathematics.Matrix4x3d)
+  name.vb: Swizzle(Matrix4x3d, Integer, Integer, Integer, Integer, Matrix4x3d)
 - uid: OpenTK.Mathematics.Matrix4x3d.op_Multiply(OpenTK.Mathematics.Matrix4x3d,OpenTK.Mathematics.Matrix3x4d)
   commentId: M:OpenTK.Mathematics.Matrix4x3d.op_Multiply(OpenTK.Mathematics.Matrix4x3d,OpenTK.Mathematics.Matrix3x4d)
   id: op_Multiply(OpenTK.Mathematics.Matrix4x3d,OpenTK.Mathematics.Matrix3x4d)
@@ -2372,11 +2639,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 920
+    startLine: 1047
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2423,11 +2690,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 932
+    startLine: 1059
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2474,11 +2741,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 944
+    startLine: 1071
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2525,11 +2792,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Addition
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 956
+    startLine: 1083
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2576,11 +2843,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Subtraction
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 968
+    startLine: 1095
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2627,11 +2894,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Equality
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 980
+    startLine: 1107
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2678,11 +2945,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Inequality
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 992
+    startLine: 1119
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2729,18 +2996,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 1002
+    startLine: 1129
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns a System.String that represents the current Matrix4x3d.
   example: []
   syntax:
-    content: public override string ToString()
+    content: public override readonly string ToString()
     return:
       type: System.String
       description: The string representation of the matrix.
@@ -2761,17 +3028,17 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 1008
+    startLine: 1135
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   example: []
   syntax:
-    content: public string ToString(string format)
+    content: public readonly string ToString(string format)
     parameters:
     - id: format
       type: System.String
@@ -2796,17 +3063,17 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 1014
+    startLine: 1141
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   example: []
   syntax:
-    content: public string ToString(IFormatProvider formatProvider)
+    content: public readonly string ToString(IFormatProvider formatProvider)
     parameters:
     - id: formatProvider
       type: System.IFormatProvider
@@ -2828,17 +3095,17 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 1020
+    startLine: 1147
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   example: []
   syntax:
-    content: public string ToString(string format, IFormatProvider formatProvider)
+    content: public readonly string ToString(string format, IFormatProvider formatProvider)
     parameters:
     - id: format
       type: System.String
@@ -2867,18 +3134,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetHashCode
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 1033
+    startLine: 1160
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns the hashcode for this instance.
   example: []
   syntax:
-    content: public override int GetHashCode()
+    content: public override readonly int GetHashCode()
     return:
       type: System.Int32
       description: A System.Int32 containing the unique hashcode for this instance.
@@ -2899,11 +3166,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 1043
+    startLine: 1170
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2913,7 +3180,7 @@ items:
     content: >-
       [Pure]
 
-      public override bool Equals(object obj)
+      public override readonly bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
@@ -2948,11 +3215,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix4x3d.cs
-    startLine: 1054
+    startLine: 1181
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2962,7 +3229,7 @@ items:
     content: >-
       [Pure]
 
-      public bool Equals(Matrix4x3d other)
+      public readonly bool Equals(Matrix4x3d other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Matrix4x3d
@@ -3374,6 +3641,61 @@ references:
   name: Invert
   nameWithType: Matrix4x3d.Invert
   fullName: OpenTK.Mathematics.Matrix4x3d.Invert
+- uid: OpenTK.Mathematics.Matrix4x3d.Inverted*
+  commentId: Overload:OpenTK.Mathematics.Matrix4x3d.Inverted
+  href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.Inverted
+  name: Inverted
+  nameWithType: Matrix4x3d.Inverted
+  fullName: OpenTK.Mathematics.Matrix4x3d.Inverted
+- uid: OpenTK.Mathematics.Matrix4x3d.Transposed*
+  commentId: Overload:OpenTK.Mathematics.Matrix4x3d.Transposed
+  href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.Transposed
+  name: Transposed
+  nameWithType: Matrix4x3d.Transposed
+  fullName: OpenTK.Mathematics.Matrix4x3d.Transposed
+- uid: OpenTK.Mathematics.Matrix3x4d
+  commentId: T:OpenTK.Mathematics.Matrix3x4d
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Matrix3x4d.html
+  name: Matrix3x4d
+  nameWithType: Matrix3x4d
+  fullName: OpenTK.Mathematics.Matrix3x4d
+- uid: OpenTK.Mathematics.Matrix4x3d.Row0
+  commentId: F:OpenTK.Mathematics.Matrix4x3d.Row0
+  href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.Row0
+  name: Row0
+  nameWithType: Matrix4x3d.Row0
+  fullName: OpenTK.Mathematics.Matrix4x3d.Row0
+- uid: OpenTK.Mathematics.Matrix4x3d.Row1
+  commentId: F:OpenTK.Mathematics.Matrix4x3d.Row1
+  href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.Row1
+  name: Row1
+  nameWithType: Matrix4x3d.Row1
+  fullName: OpenTK.Mathematics.Matrix4x3d.Row1
+- uid: OpenTK.Mathematics.Matrix4x3d.Row2
+  commentId: F:OpenTK.Mathematics.Matrix4x3d.Row2
+  href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.Row2
+  name: Row2
+  nameWithType: Matrix4x3d.Row2
+  fullName: OpenTK.Mathematics.Matrix4x3d.Row2
+- uid: OpenTK.Mathematics.Matrix4x3d.Row3
+  commentId: F:OpenTK.Mathematics.Matrix4x3d.Row3
+  href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.Row3
+  name: Row3
+  nameWithType: Matrix4x3d.Row3
+  fullName: OpenTK.Mathematics.Matrix4x3d.Row3
+- uid: OpenTK.Mathematics.Matrix4x3d.Swizzle*
+  commentId: Overload:OpenTK.Mathematics.Matrix4x3d.Swizzle
+  href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.Swizzle(System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Swizzle
+  nameWithType: Matrix4x3d.Swizzle
+  fullName: OpenTK.Mathematics.Matrix4x3d.Swizzle
+- uid: OpenTK.Mathematics.Matrix4x3d.Swizzled*
+  commentId: Overload:OpenTK.Mathematics.Matrix4x3d.Swizzled
+  href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.Swizzled(System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Swizzled
+  nameWithType: Matrix4x3d.Swizzled
+  fullName: OpenTK.Mathematics.Matrix4x3d.Swizzled
 - uid: OpenTK.Mathematics.Matrix4x3d.CreateFromAxisAngle*
   commentId: Overload:OpenTK.Mathematics.Matrix4x3d.CreateFromAxisAngle
   href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.CreateFromAxisAngle(OpenTK.Mathematics.Vector3d,System.Double,OpenTK.Mathematics.Matrix4x3d@)
@@ -3429,13 +3751,6 @@ references:
   name: Mult
   nameWithType: Matrix4x3d.Mult
   fullName: OpenTK.Mathematics.Matrix4x3d.Mult
-- uid: OpenTK.Mathematics.Matrix3x4d
-  commentId: T:OpenTK.Mathematics.Matrix3x4d
-  parent: OpenTK.Mathematics
-  href: OpenTK.Mathematics.Matrix3x4d.html
-  name: Matrix3x4d
-  nameWithType: Matrix3x4d
-  fullName: OpenTK.Mathematics.Matrix3x4d
 - uid: OpenTK.Mathematics.Matrix4d
   commentId: T:OpenTK.Mathematics.Matrix4d
   parent: OpenTK.Mathematics
@@ -3468,6 +3783,13 @@ references:
   name: Transpose
   nameWithType: Matrix4x3d.Transpose
   fullName: OpenTK.Mathematics.Matrix4x3d.Transpose
+- uid: System.IndexOutOfRangeException
+  commentId: T:System.IndexOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception
+  name: IndexOutOfRangeException
+  nameWithType: IndexOutOfRangeException
+  fullName: System.IndexOutOfRangeException
 - uid: OpenTK.Mathematics.Matrix4x3d.op_Multiply*
   commentId: Overload:OpenTK.Mathematics.Matrix4x3d.op_Multiply
   href: OpenTK.Mathematics.Matrix4x3d.html#OpenTK.Mathematics.Matrix4x3d.op_Multiply(OpenTK.Mathematics.Matrix4x3d,OpenTK.Mathematics.Matrix3x4d)

@@ -31,6 +31,8 @@ items:
   - OpenTK.Mathematics.Matrix3d.CreateScale(System.Double,System.Double,System.Double,OpenTK.Mathematics.Matrix3d@)
   - OpenTK.Mathematics.Matrix3d.CreateScale(System.Double,System.Double,System.Double)
   - OpenTK.Mathematics.Matrix3d.CreateScale(System.Double)
+  - OpenTK.Mathematics.Matrix3d.CreateSwizzle(System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
+  - OpenTK.Mathematics.Matrix3d.CreateSwizzle(System.Int32,System.Int32,System.Int32)
   - OpenTK.Mathematics.Matrix3d.Determinant
   - OpenTK.Mathematics.Matrix3d.Diagonal
   - OpenTK.Mathematics.Matrix3d.Equals(OpenTK.Mathematics.Matrix3d)
@@ -63,6 +65,10 @@ items:
   - OpenTK.Mathematics.Matrix3d.Row0
   - OpenTK.Mathematics.Matrix3d.Row1
   - OpenTK.Mathematics.Matrix3d.Row2
+  - OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d,System.Int32,System.Int32,System.Int32)
+  - OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d@,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
+  - OpenTK.Mathematics.Matrix3d.Swizzle(System.Int32,System.Int32,System.Int32)
+  - OpenTK.Mathematics.Matrix3d.Swizzled(System.Int32,System.Int32,System.Int32)
   - OpenTK.Mathematics.Matrix3d.ToString
   - OpenTK.Mathematics.Matrix3d.ToString(System.IFormatProvider)
   - OpenTK.Mathematics.Matrix3d.ToString(System.String,System.IFormatProvider)
@@ -71,6 +77,8 @@ items:
   - OpenTK.Mathematics.Matrix3d.Transpose
   - OpenTK.Mathematics.Matrix3d.Transpose(OpenTK.Mathematics.Matrix3d)
   - OpenTK.Mathematics.Matrix3d.Transpose(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
+  - OpenTK.Mathematics.Matrix3d.Transposed
+  - OpenTK.Mathematics.Matrix3d.Zero
   langs:
   - csharp
   - vb
@@ -81,11 +89,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Matrix3d
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 32
+    startLine: 33
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -125,11 +133,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Row0
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 39
+    startLine: 40
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -154,11 +162,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Row1
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 44
+    startLine: 45
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -183,11 +191,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Row2
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 49
+    startLine: 50
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -212,21 +220,50 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Identity
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 54
+    startLine: 55
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: The identity matrix.
   example: []
   syntax:
-    content: public static Matrix3d Identity
+    content: public static readonly Matrix3d Identity
     return:
       type: OpenTK.Mathematics.Matrix3d
-    content.vb: Public Shared Identity As Matrix3d
+    content.vb: Public Shared ReadOnly Identity As Matrix3d
+- uid: OpenTK.Mathematics.Matrix3d.Zero
+  commentId: F:OpenTK.Mathematics.Matrix3d.Zero
+  id: Zero
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Matrix3d.Zero
+  fullName: OpenTK.Mathematics.Matrix3d.Zero
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Zero
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 60
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: The zero matrix.
+  example: []
+  syntax:
+    content: public static readonly Matrix3d Zero
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+    content.vb: Public Shared ReadOnly Zero As Matrix3d
 - uid: OpenTK.Mathematics.Matrix3d.#ctor(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   commentId: M:OpenTK.Mathematics.Matrix3d.#ctor(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   id: '#ctor(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)'
@@ -241,11 +278,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 62
+    startLine: 68
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -282,11 +319,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 81
+    startLine: 87
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -341,11 +378,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: .ctor
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 98
+    startLine: 104
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -376,18 +413,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Determinant
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 108
+    startLine: 114
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the determinant of this matrix.
   example: []
   syntax:
-    content: public double Determinant { get; }
+    content: public readonly double Determinant { get; }
     parameters: []
     return:
       type: System.Double
@@ -407,22 +444,22 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Column0
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 131
+    startLine: 137
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the first column of this matrix.
   example: []
   syntax:
-    content: public Vector3d Column0 { get; }
+    content: public Vector3d Column0 { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3d
-    content.vb: Public ReadOnly Property Column0 As Vector3d
+    content.vb: Public Property Column0 As Vector3d
   overload: OpenTK.Mathematics.Matrix3d.Column0*
 - uid: OpenTK.Mathematics.Matrix3d.Column1
   commentId: P:OpenTK.Mathematics.Matrix3d.Column1
@@ -438,22 +475,22 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Column1
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 136
+    startLine: 151
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the second column of this matrix.
   example: []
   syntax:
-    content: public Vector3d Column1 { get; }
+    content: public Vector3d Column1 { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3d
-    content.vb: Public ReadOnly Property Column1 As Vector3d
+    content.vb: Public Property Column1 As Vector3d
   overload: OpenTK.Mathematics.Matrix3d.Column1*
 - uid: OpenTK.Mathematics.Matrix3d.Column2
   commentId: P:OpenTK.Mathematics.Matrix3d.Column2
@@ -469,22 +506,22 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Column2
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 141
+    startLine: 165
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the third column of this matrix.
   example: []
   syntax:
-    content: public Vector3d Column2 { get; }
+    content: public Vector3d Column2 { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3d
-    content.vb: Public ReadOnly Property Column2 As Vector3d
+    content.vb: Public Property Column2 As Vector3d
   overload: OpenTK.Mathematics.Matrix3d.Column2*
 - uid: OpenTK.Mathematics.Matrix3d.M11
   commentId: P:OpenTK.Mathematics.Matrix3d.M11
@@ -500,18 +537,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M11
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 146
+    startLine: 179
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 1, column 1 of this instance.
   example: []
   syntax:
-    content: public double M11 { get; set; }
+    content: public double M11 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -531,18 +568,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M12
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 155
+    startLine: 188
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 1, column 2 of this instance.
   example: []
   syntax:
-    content: public double M12 { get; set; }
+    content: public double M12 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -562,18 +599,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M13
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 164
+    startLine: 197
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 1, column 3 of this instance.
   example: []
   syntax:
-    content: public double M13 { get; set; }
+    content: public double M13 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -593,18 +630,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M21
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 173
+    startLine: 206
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 2, column 1 of this instance.
   example: []
   syntax:
-    content: public double M21 { get; set; }
+    content: public double M21 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -624,18 +661,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M22
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 182
+    startLine: 215
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 2, column 2 of this instance.
   example: []
   syntax:
-    content: public double M22 { get; set; }
+    content: public double M22 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -655,18 +692,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M23
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 191
+    startLine: 224
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 2, column 3 of this instance.
   example: []
   syntax:
-    content: public double M23 { get; set; }
+    content: public double M23 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -686,18 +723,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M31
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 200
+    startLine: 233
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 3, column 1 of this instance.
   example: []
   syntax:
-    content: public double M31 { get; set; }
+    content: public double M31 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -717,18 +754,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M32
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 209
+    startLine: 242
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 3, column 2 of this instance.
   example: []
   syntax:
-    content: public double M32 { get; set; }
+    content: public double M32 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -748,18 +785,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: M33
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 218
+    startLine: 251
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at row 3, column 3 of this instance.
   example: []
   syntax:
-    content: public double M33 { get; set; }
+    content: public double M33 { readonly get; set; }
     parameters: []
     return:
       type: System.Double
@@ -779,18 +816,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Diagonal
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 227
+    startLine: 260
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the values along the main diagonal of the matrix.
   example: []
   syntax:
-    content: public Vector3d Diagonal { get; set; }
+    content: public Vector3d Diagonal { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3d
@@ -810,18 +847,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Trace
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 241
+    startLine: 274
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets the trace of the matrix, the sum of the values along the diagonal.
   example: []
   syntax:
-    content: public double Trace { get; }
+    content: public readonly double Trace { get; }
     parameters: []
     return:
       type: System.Double
@@ -841,18 +878,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: this[]
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 248
+    startLine: 281
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets the value at a specified row and column.
   example: []
   syntax:
-    content: public double this[int rowIndex, int columnIndex] { get; set; }
+    content: public double this[int rowIndex, int columnIndex] { readonly get; set; }
     parameters:
     - id: rowIndex
       type: System.Int32
@@ -881,11 +918,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 296
+    startLine: 319
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -895,93 +932,6 @@ items:
     content: public void Invert()
     content.vb: Public Sub Invert()
   overload: OpenTK.Mathematics.Matrix3d.Invert*
-- uid: OpenTK.Mathematics.Matrix3d.Transpose
-  commentId: M:OpenTK.Mathematics.Matrix3d.Transpose
-  id: Transpose
-  parent: OpenTK.Mathematics.Matrix3d
-  langs:
-  - csharp
-  - vb
-  name: Transpose()
-  nameWithType: Matrix3d.Transpose()
-  fullName: OpenTK.Mathematics.Matrix3d.Transpose()
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: Transpose
-    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 304
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Converts this instance into its transpose.
-  example: []
-  syntax:
-    content: public void Transpose()
-    content.vb: Public Sub Transpose()
-  overload: OpenTK.Mathematics.Matrix3d.Transpose*
-- uid: OpenTK.Mathematics.Matrix3d.Normalized
-  commentId: M:OpenTK.Mathematics.Matrix3d.Normalized
-  id: Normalized
-  parent: OpenTK.Mathematics.Matrix3d
-  langs:
-  - csharp
-  - vb
-  name: Normalized()
-  nameWithType: Matrix3d.Normalized()
-  fullName: OpenTK.Mathematics.Matrix3d.Normalized()
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: Normalized
-    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 313
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Returns a normalized copy of this instance.
-  example: []
-  syntax:
-    content: public Matrix3d Normalized()
-    return:
-      type: OpenTK.Mathematics.Matrix3d
-      description: The normalized copy.
-    content.vb: Public Function Normalized() As Matrix3d
-  overload: OpenTK.Mathematics.Matrix3d.Normalized*
-- uid: OpenTK.Mathematics.Matrix3d.Normalize
-  commentId: M:OpenTK.Mathematics.Matrix3d.Normalize
-  id: Normalize
-  parent: OpenTK.Mathematics.Matrix3d
-  langs:
-  - csharp
-  - vb
-  name: Normalize()
-  nameWithType: Matrix3d.Normalize()
-  fullName: OpenTK.Mathematics.Matrix3d.Normalize()
-  type: Method
-  source:
-    remote:
-      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
-    id: Normalize
-    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 323
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Divides each element in the Matrix by the <xref href="OpenTK.Mathematics.Matrix3d.Determinant" data-throw-if-not-resolved="false"></xref>.
-  example: []
-  syntax:
-    content: public void Normalize()
-    content.vb: Public Sub Normalize()
-  overload: OpenTK.Mathematics.Matrix3d.Normalize*
 - uid: OpenTK.Mathematics.Matrix3d.Inverted
   commentId: M:OpenTK.Mathematics.Matrix3d.Inverted
   id: Inverted
@@ -996,23 +946,230 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Inverted
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 335
+    startLine: 332
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns an inverted copy of this instance.
+  remarks: >-
+    If the matrix is singular this function does not throw an exception,
+
+    instead it returns the original un-inverted matrix.
   example: []
   syntax:
-    content: public Matrix3d Inverted()
+    content: public readonly Matrix3d Inverted()
     return:
       type: OpenTK.Mathematics.Matrix3d
       description: The inverted copy.
     content.vb: Public Function Inverted() As Matrix3d
   overload: OpenTK.Mathematics.Matrix3d.Inverted*
+- uid: OpenTK.Mathematics.Matrix3d.Transpose
+  commentId: M:OpenTK.Mathematics.Matrix3d.Transpose
+  id: Transpose
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Transpose()
+  nameWithType: Matrix3d.Transpose()
+  fullName: OpenTK.Mathematics.Matrix3d.Transpose()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Transpose
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 346
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Converts this instance into its transpose.
+  example: []
+  syntax:
+    content: public void Transpose()
+    content.vb: Public Sub Transpose()
+  overload: OpenTK.Mathematics.Matrix3d.Transpose*
+- uid: OpenTK.Mathematics.Matrix3d.Transposed
+  commentId: M:OpenTK.Mathematics.Matrix3d.Transposed
+  id: Transposed
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Transposed()
+  nameWithType: Matrix3d.Transposed()
+  fullName: OpenTK.Mathematics.Matrix3d.Transposed()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Transposed
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 355
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns a transposed copy of this instance.
+  example: []
+  syntax:
+    content: public readonly Matrix3d Transposed()
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: The transposed copy.
+    content.vb: Public Function Transposed() As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.Transposed*
+- uid: OpenTK.Mathematics.Matrix3d.Normalize
+  commentId: M:OpenTK.Mathematics.Matrix3d.Normalize
+  id: Normalize
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: Matrix3d.Normalize()
+  fullName: OpenTK.Mathematics.Matrix3d.Normalize()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Normalize
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 365
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Divides each element in the Matrix by the <xref href="OpenTK.Mathematics.Matrix3d.Determinant" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Normalize()
+    content.vb: Public Sub Normalize()
+  overload: OpenTK.Mathematics.Matrix3d.Normalize*
+- uid: OpenTK.Mathematics.Matrix3d.Normalized
+  commentId: M:OpenTK.Mathematics.Matrix3d.Normalized
+  id: Normalized
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Normalized()
+  nameWithType: Matrix3d.Normalized()
+  fullName: OpenTK.Mathematics.Matrix3d.Normalized()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Normalized
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 377
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns a normalized copy of this instance.
+  example: []
+  syntax:
+    content: public readonly Matrix3d Normalized()
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: The normalized copy.
+    content.vb: Public Function Normalized() As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.Normalized*
+- uid: OpenTK.Mathematics.Matrix3d.Swizzle(System.Int32,System.Int32,System.Int32)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Swizzle(System.Int32,System.Int32,System.Int32)
+  id: Swizzle(System.Int32,System.Int32,System.Int32)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Swizzle(int, int, int)
+  nameWithType: Matrix3d.Swizzle(int, int, int)
+  fullName: OpenTK.Mathematics.Matrix3d.Swizzle(int, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Swizzle
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 390
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Swizzles this instance. Switches places of the rows of the matrix.
+  example: []
+  syntax:
+    content: public void Swizzle(int rowForRow0, int rowForRow1, int rowForRow2)
+    parameters:
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub Swizzle(rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer)
+  overload: OpenTK.Mathematics.Matrix3d.Swizzle*
+  nameWithType.vb: Matrix3d.Swizzle(Integer, Integer, Integer)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Swizzle(Integer, Integer, Integer)
+  name.vb: Swizzle(Integer, Integer, Integer)
+- uid: OpenTK.Mathematics.Matrix3d.Swizzled(System.Int32,System.Int32,System.Int32)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Swizzled(System.Int32,System.Int32,System.Int32)
+  id: Swizzled(System.Int32,System.Int32,System.Int32)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Swizzled(int, int, int)
+  nameWithType: Matrix3d.Swizzled(int, int, int)
+  fullName: OpenTK.Mathematics.Matrix3d.Swizzled(int, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Swizzled
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 402
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns a swizzled copy of this instance.
+  example: []
+  syntax:
+    content: public readonly Matrix3d Swizzled(int rowForRow0, int rowForRow1, int rowForRow2)
+    parameters:
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: The swizzled copy.
+    content.vb: Public Function Swizzled(rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.Swizzled*
+  nameWithType.vb: Matrix3d.Swizzled(Integer, Integer, Integer)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Swizzled(Integer, Integer, Integer)
+  name.vb: Swizzled(Integer, Integer, Integer)
 - uid: OpenTK.Mathematics.Matrix3d.ClearScale
   commentId: M:OpenTK.Mathematics.Matrix3d.ClearScale
   id: ClearScale
@@ -1027,18 +1184,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ClearScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 350
+    startLine: 413
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns a copy of this Matrix3 without scale.
   example: []
   syntax:
-    content: public Matrix3d ClearScale()
+    content: public readonly Matrix3d ClearScale()
     return:
       type: OpenTK.Mathematics.Matrix3d
       description: The matrix without scaling.
@@ -1058,18 +1215,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ClearRotation
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 363
+    startLine: 426
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns a copy of this Matrix3 without rotation.
   example: []
   syntax:
-    content: public Matrix3d ClearRotation()
+    content: public readonly Matrix3d ClearRotation()
     return:
       type: OpenTK.Mathematics.Matrix3d
       description: The matrix without rotation.
@@ -1089,18 +1246,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ExtractScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 376
+    startLine: 439
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns the scale component of this instance.
   example: []
   syntax:
-    content: public Vector3d ExtractScale()
+    content: public readonly Vector3d ExtractScale()
     return:
       type: OpenTK.Mathematics.Vector3d
       description: The scale components.
@@ -1120,11 +1277,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ExtractRotation
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 389
+    startLine: 452
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1134,7 +1291,7 @@ items:
     content: >-
       [Pure]
 
-      public Quaterniond ExtractRotation(bool rowNormalize = true)
+      public readonly Quaterniond ExtractRotation(bool rowNormalize = true)
     parameters:
     - id: rowNormalize
       type: System.Boolean
@@ -1171,11 +1328,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateFromAxisAngle
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 458
+    startLine: 521
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1212,11 +1369,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateFromAxisAngle
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 498
+    startLine: 561
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1263,11 +1420,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateFromQuaternion
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 510
+    startLine: 573
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1301,11 +1458,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateFromQuaternion
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 549
+    startLine: 612
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1346,11 +1503,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationX
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 561
+    startLine: 624
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1384,11 +1541,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationX
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 578
+    startLine: 641
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1432,11 +1589,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationY
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 590
+    startLine: 653
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1470,11 +1627,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationY
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 607
+    startLine: 670
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1518,11 +1675,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationZ
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 619
+    startLine: 682
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1556,11 +1713,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateRotationZ
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 636
+    startLine: 699
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1604,11 +1761,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 648
+    startLine: 711
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1652,11 +1809,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 660
+    startLine: 723
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1697,11 +1854,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 674
+    startLine: 737
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1751,11 +1908,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 686
+    startLine: 749
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1789,11 +1946,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 699
+    startLine: 762
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1827,11 +1984,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateScale
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 714
+    startLine: 777
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1857,6 +2014,96 @@ items:
   nameWithType.vb: Matrix3d.CreateScale(Double, Double, Double, Matrix3d)
   fullName.vb: OpenTK.Mathematics.Matrix3d.CreateScale(Double, Double, Double, OpenTK.Mathematics.Matrix3d)
   name.vb: CreateScale(Double, Double, Double, Matrix3d)
+- uid: OpenTK.Mathematics.Matrix3d.CreateSwizzle(System.Int32,System.Int32,System.Int32)
+  commentId: M:OpenTK.Mathematics.Matrix3d.CreateSwizzle(System.Int32,System.Int32,System.Int32)
+  id: CreateSwizzle(System.Int32,System.Int32,System.Int32)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: CreateSwizzle(int, int, int)
+  nameWithType: Matrix3d.CreateSwizzle(int, int, int)
+  fullName: OpenTK.Mathematics.Matrix3d.CreateSwizzle(int, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: CreateSwizzle
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 795
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Create a swizzle matrix that can be used to change the row order of matrices.
+  remarks: If you are looking to swizzle vectors there are properties like <xref href="OpenTK.Mathematics.Vector3.Zyx" data-throw-if-not-resolved="false"></xref> that can do this more effectively.
+  example: []
+  syntax:
+    content: public static Matrix3d CreateSwizzle(int rowForRow0, int rowForRow1, int rowForRow2)
+    parameters:
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: The resulting swizzle matrix.
+    content.vb: Public Shared Function CreateSwizzle(rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.CreateSwizzle*
+  nameWithType.vb: Matrix3d.CreateSwizzle(Integer, Integer, Integer)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.CreateSwizzle(Integer, Integer, Integer)
+  name.vb: CreateSwizzle(Integer, Integer, Integer)
+- uid: OpenTK.Mathematics.Matrix3d.CreateSwizzle(System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
+  commentId: M:OpenTK.Mathematics.Matrix3d.CreateSwizzle(System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
+  id: CreateSwizzle(System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: CreateSwizzle(int, int, int, out Matrix3d)
+  nameWithType: Matrix3d.CreateSwizzle(int, int, int, out Matrix3d)
+  fullName: OpenTK.Mathematics.Matrix3d.CreateSwizzle(int, int, int, out OpenTK.Mathematics.Matrix3d)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: CreateSwizzle
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 811
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Create a swizzle matrix that can be used to change the row order of matrices.
+  remarks: If you are looking to swizzle vectors there are properties like <xref href="OpenTK.Mathematics.Vector3.Zyx" data-throw-if-not-resolved="false"></xref> that can do this more effectively.
+  example: []
+  syntax:
+    content: public static void CreateSwizzle(int rowForRow0, int rowForRow1, int rowForRow2, out Matrix3d result)
+    parameters:
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    - id: result
+      type: OpenTK.Mathematics.Matrix3d
+      description: The resulting swizzle matrix.
+    content.vb: Public Shared Sub CreateSwizzle(rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer, result As Matrix3d)
+  overload: OpenTK.Mathematics.Matrix3d.CreateSwizzle*
+  nameWithType.vb: Matrix3d.CreateSwizzle(Integer, Integer, Integer, Matrix3d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.CreateSwizzle(Integer, Integer, Integer, OpenTK.Mathematics.Matrix3d)
+  name.vb: CreateSwizzle(Integer, Integer, Integer, Matrix3d)
 - uid: OpenTK.Mathematics.Matrix3d.Add(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   commentId: M:OpenTK.Mathematics.Matrix3d.Add(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   id: Add(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
@@ -1871,11 +2118,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Add
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 728
+    startLine: 838
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1919,11 +2166,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Add
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 741
+    startLine: 851
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1960,11 +2207,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 754
+    startLine: 864
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2008,11 +2255,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Mult
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 767
+    startLine: 877
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2049,11 +2296,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 805
+    startLine: 915
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2091,11 +2338,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Invert
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 858
+    startLine: 968
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2140,11 +2387,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Transpose
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 870
+    startLine: 980
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2185,11 +2432,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Transpose
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 881
+    startLine: 991
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2209,6 +2456,108 @@ items:
   nameWithType.vb: Matrix3d.Transpose(Matrix3d, Matrix3d)
   fullName.vb: OpenTK.Mathematics.Matrix3d.Transpose(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
   name.vb: Transpose(Matrix3d, Matrix3d)
+- uid: OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d,System.Int32,System.Int32,System.Int32)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d,System.Int32,System.Int32,System.Int32)
+  id: Swizzle(OpenTK.Mathematics.Matrix3d,System.Int32,System.Int32,System.Int32)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Swizzle(Matrix3d, int, int, int)
+  nameWithType: Matrix3d.Swizzle(Matrix3d, int, int, int)
+  fullName: OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Swizzle
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 1007
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Swizzles a matrix, i.e. switches rows of the matrix.
+  example: []
+  syntax:
+    content: public static Matrix3d Swizzle(Matrix3d mat, int rowForRow0, int rowForRow1, int rowForRow2)
+    parameters:
+    - id: mat
+      type: OpenTK.Mathematics.Matrix3d
+      description: The matrix to swizzle.
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: The swizzled matrix.
+    content.vb: Public Shared Function Swizzle(mat As Matrix3d, rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.Swizzle*
+  exceptions:
+  - type: System.IndexOutOfRangeException
+    commentId: T:System.IndexOutOfRangeException
+    description: If any of the rows are outside of the range [0, 2].
+  nameWithType.vb: Matrix3d.Swizzle(Matrix3d, Integer, Integer, Integer)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d, Integer, Integer, Integer)
+  name.vb: Swizzle(Matrix3d, Integer, Integer, Integer)
+- uid: OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d@,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d@,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
+  id: Swizzle(OpenTK.Mathematics.Matrix3d@,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Swizzle(in Matrix3d, int, int, int, out Matrix3d)
+  nameWithType: Matrix3d.Swizzle(in Matrix3d, int, int, int, out Matrix3d)
+  fullName: OpenTK.Mathematics.Matrix3d.Swizzle(in OpenTK.Mathematics.Matrix3d, int, int, int, out OpenTK.Mathematics.Matrix3d)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: Swizzle
+    path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
+    startLine: 1022
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Swizzles a matrix, i.e. switches rows of the matrix.
+  example: []
+  syntax:
+    content: public static void Swizzle(in Matrix3d mat, int rowForRow0, int rowForRow1, int rowForRow2, out Matrix3d result)
+    parameters:
+    - id: mat
+      type: OpenTK.Mathematics.Matrix3d
+      description: The matrix to swizzle.
+    - id: rowForRow0
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row0" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow1
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row1" data-throw-if-not-resolved="false"></xref>.
+    - id: rowForRow2
+      type: System.Int32
+      description: Which row to place in <xref href="OpenTK.Mathematics.Matrix3d.Row2" data-throw-if-not-resolved="false"></xref>.
+    - id: result
+      type: OpenTK.Mathematics.Matrix3d
+      description: The swizzled matrix.
+    content.vb: Public Shared Sub Swizzle(mat As Matrix3d, rowForRow0 As Integer, rowForRow1 As Integer, rowForRow2 As Integer, result As Matrix3d)
+  overload: OpenTK.Mathematics.Matrix3d.Swizzle*
+  exceptions:
+  - type: System.IndexOutOfRangeException
+    commentId: T:System.IndexOutOfRangeException
+    description: If any of the rows are outside of the range [0, 2].
+  nameWithType.vb: Matrix3d.Swizzle(Matrix3d, Integer, Integer, Integer, Matrix3d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d, Integer, Integer, Integer, OpenTK.Mathematics.Matrix3d)
+  name.vb: Swizzle(Matrix3d, Integer, Integer, Integer, Matrix3d)
 - uid: OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   commentId: M:OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   id: op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
@@ -2223,11 +2572,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Multiply
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 894
+    startLine: 1055
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2274,11 +2623,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Equality
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 906
+    startLine: 1067
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2325,11 +2674,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: op_Inequality
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 918
+    startLine: 1079
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2376,18 +2725,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 928
+    startLine: 1089
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns a System.String that represents the current Matrix3d.
   example: []
   syntax:
-    content: public override string ToString()
+    content: public override readonly string ToString()
     return:
       type: System.String
       description: The string representation of the matrix.
@@ -2408,17 +2757,17 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 934
+    startLine: 1095
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   example: []
   syntax:
-    content: public string ToString(string format)
+    content: public readonly string ToString(string format)
     parameters:
     - id: format
       type: System.String
@@ -2443,17 +2792,17 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 940
+    startLine: 1101
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   example: []
   syntax:
-    content: public string ToString(IFormatProvider formatProvider)
+    content: public readonly string ToString(IFormatProvider formatProvider)
     parameters:
     - id: formatProvider
       type: System.IFormatProvider
@@ -2475,17 +2824,17 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ToString
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 946
+    startLine: 1107
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   example: []
   syntax:
-    content: public string ToString(string format, IFormatProvider formatProvider)
+    content: public readonly string ToString(string format, IFormatProvider formatProvider)
     parameters:
     - id: format
       type: System.String
@@ -2514,18 +2863,18 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetHashCode
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 958
+    startLine: 1119
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns the hashcode for this instance.
   example: []
   syntax:
-    content: public override int GetHashCode()
+    content: public override readonly int GetHashCode()
     return:
       type: System.Int32
       description: A System.Int32 containing the unique hashcode for this instance.
@@ -2546,11 +2895,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 968
+    startLine: 1129
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2560,7 +2909,7 @@ items:
     content: >-
       [Pure]
 
-      public override bool Equals(object obj)
+      public override readonly bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
@@ -2595,11 +2944,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Equals
     path: opentk/src/OpenTK.Mathematics/Matrix/Matrix3d.cs
-    startLine: 979
+    startLine: 1140
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2609,7 +2958,7 @@ items:
     content: >-
       [Pure]
 
-      public bool Equals(Matrix3d other)
+      public readonly bool Equals(Matrix3d other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Matrix3d
@@ -3009,18 +3358,24 @@ references:
   name: Invert
   nameWithType: Matrix3d.Invert
   fullName: OpenTK.Mathematics.Matrix3d.Invert
+- uid: OpenTK.Mathematics.Matrix3d.Inverted*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.Inverted
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Inverted
+  name: Inverted
+  nameWithType: Matrix3d.Inverted
+  fullName: OpenTK.Mathematics.Matrix3d.Inverted
 - uid: OpenTK.Mathematics.Matrix3d.Transpose*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.Transpose
   href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Transpose
   name: Transpose
   nameWithType: Matrix3d.Transpose
   fullName: OpenTK.Mathematics.Matrix3d.Transpose
-- uid: OpenTK.Mathematics.Matrix3d.Normalized*
-  commentId: Overload:OpenTK.Mathematics.Matrix3d.Normalized
-  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Normalized
-  name: Normalized
-  nameWithType: Matrix3d.Normalized
-  fullName: OpenTK.Mathematics.Matrix3d.Normalized
+- uid: OpenTK.Mathematics.Matrix3d.Transposed*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.Transposed
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Transposed
+  name: Transposed
+  nameWithType: Matrix3d.Transposed
+  fullName: OpenTK.Mathematics.Matrix3d.Transposed
 - uid: OpenTK.Mathematics.Matrix3d.Determinant
   commentId: P:OpenTK.Mathematics.Matrix3d.Determinant
   href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Determinant
@@ -3033,12 +3388,42 @@ references:
   name: Normalize
   nameWithType: Matrix3d.Normalize
   fullName: OpenTK.Mathematics.Matrix3d.Normalize
-- uid: OpenTK.Mathematics.Matrix3d.Inverted*
-  commentId: Overload:OpenTK.Mathematics.Matrix3d.Inverted
-  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Inverted
-  name: Inverted
-  nameWithType: Matrix3d.Inverted
-  fullName: OpenTK.Mathematics.Matrix3d.Inverted
+- uid: OpenTK.Mathematics.Matrix3d.Normalized*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.Normalized
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Normalized
+  name: Normalized
+  nameWithType: Matrix3d.Normalized
+  fullName: OpenTK.Mathematics.Matrix3d.Normalized
+- uid: OpenTK.Mathematics.Matrix3d.Row0
+  commentId: F:OpenTK.Mathematics.Matrix3d.Row0
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Row0
+  name: Row0
+  nameWithType: Matrix3d.Row0
+  fullName: OpenTK.Mathematics.Matrix3d.Row0
+- uid: OpenTK.Mathematics.Matrix3d.Row1
+  commentId: F:OpenTK.Mathematics.Matrix3d.Row1
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Row1
+  name: Row1
+  nameWithType: Matrix3d.Row1
+  fullName: OpenTK.Mathematics.Matrix3d.Row1
+- uid: OpenTK.Mathematics.Matrix3d.Row2
+  commentId: F:OpenTK.Mathematics.Matrix3d.Row2
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Row2
+  name: Row2
+  nameWithType: Matrix3d.Row2
+  fullName: OpenTK.Mathematics.Matrix3d.Row2
+- uid: OpenTK.Mathematics.Matrix3d.Swizzle*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.Swizzle
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Swizzle(System.Int32,System.Int32,System.Int32)
+  name: Swizzle
+  nameWithType: Matrix3d.Swizzle
+  fullName: OpenTK.Mathematics.Matrix3d.Swizzle
+- uid: OpenTK.Mathematics.Matrix3d.Swizzled*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.Swizzled
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Swizzled(System.Int32,System.Int32,System.Int32)
+  name: Swizzled
+  nameWithType: Matrix3d.Swizzled
+  fullName: OpenTK.Mathematics.Matrix3d.Swizzled
 - uid: OpenTK.Mathematics.Matrix3d.ClearScale*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.ClearScale
   href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.ClearScale
@@ -3117,6 +3502,18 @@ references:
   name: CreateScale
   nameWithType: Matrix3d.CreateScale
   fullName: OpenTK.Mathematics.Matrix3d.CreateScale
+- uid: OpenTK.Mathematics.Vector3.Zyx
+  commentId: P:OpenTK.Mathematics.Vector3.Zyx
+  href: OpenTK.Mathematics.Vector3.html#OpenTK.Mathematics.Vector3.Zyx
+  name: Zyx
+  nameWithType: Vector3.Zyx
+  fullName: OpenTK.Mathematics.Vector3.Zyx
+- uid: OpenTK.Mathematics.Matrix3d.CreateSwizzle*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.CreateSwizzle
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.CreateSwizzle(System.Int32,System.Int32,System.Int32)
+  name: CreateSwizzle
+  nameWithType: Matrix3d.CreateSwizzle
+  fullName: OpenTK.Mathematics.Matrix3d.CreateSwizzle
 - uid: OpenTK.Mathematics.Matrix3d.Add*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.Add
   href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.Add(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
@@ -3136,6 +3533,13 @@ references:
   name: InvalidOperationException
   nameWithType: InvalidOperationException
   fullName: System.InvalidOperationException
+- uid: System.IndexOutOfRangeException
+  commentId: T:System.IndexOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception
+  name: IndexOutOfRangeException
+  nameWithType: IndexOutOfRangeException
+  fullName: System.IndexOutOfRangeException
 - uid: OpenTK.Mathematics.Matrix3d.op_Multiply*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.op_Multiply
   href: OpenTK.Mathematics.Matrix3d.html#OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)

@@ -5,6 +5,7 @@ items:
   id: GLFW
   parent: OpenTK.Windowing.GraphicsLibraryFramework
   children:
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.AnyPosition
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.CreateCursor(OpenTK.Windowing.GraphicsLibraryFramework.Image@,System.Int32,System.Int32)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.CreateCursorRaw(OpenTK.Windowing.GraphicsLibraryFramework.Image*,System.Int32,System.Int32)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.CreateStandardCursor(OpenTK.Windowing.GraphicsLibraryFramework.CursorShape)
@@ -21,6 +22,7 @@ items:
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetClipboardString(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetClipboardStringRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaMonitor(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCurrentContext
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCursorPos(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Double@,System.Double@)
@@ -82,6 +84,7 @@ items:
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetOSMesaContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetOSMesaDepthBuffer(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Int32@,System.Int32@,System.Int32@,System.IntPtr@)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPhysicalDevicePresentationSupport(OpenTK.Windowing.GraphicsLibraryFramework.VkHandle,OpenTK.Windowing.GraphicsLibraryFramework.VkHandle,System.Int32)
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPrimaryMonitor
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetProcAddress(System.String)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetProcAddressRaw(System.Byte*)
@@ -120,6 +123,8 @@ items:
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowPosRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Int32*,System.Int32*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowSize(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Int32@,System.Int32@)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowSizeRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Int32*,System.Int32*)
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowUserPointer(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Adapter(OpenTK.Windowing.GraphicsLibraryFramework.Monitor*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetX11Display
@@ -129,12 +134,17 @@ items:
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.HideWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.IconifyWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.Init
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator(OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator@)
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType,OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintBool,System.Boolean)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintInt,System.Int32)
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform,OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader(System.IntPtr)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.JoystickIsGamepad(System.Int32)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.JoystickPresent(System.Int32)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.MakeContextCurrent(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.MaximizeWindow(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported(OpenTK.Windowing.GraphicsLibraryFramework.Platform)
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PollEvents
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PostEmptyEvent
   - OpenTK.Windowing.GraphicsLibraryFramework.GLFW.RawMouseMotionSupported
@@ -216,11 +226,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GLFW
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -256,11 +266,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: DontCare
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 27
+    startLine: 28
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -271,6 +281,33 @@ items:
     return:
       type: System.Int32
     content.vb: Public Const DontCare As Integer = -1
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.AnyPosition
+  commentId: F:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.AnyPosition
+  id: AnyPosition
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: AnyPosition
+  nameWithType: GLFW.AnyPosition
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.AnyPosition
+  type: Field
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: AnyPosition
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 30
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  syntax:
+    content: public const int AnyPosition = -2147483648
+    return:
+      type: System.Int32
+    content.vb: Public Const AnyPosition As Integer = -2147483648
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.Init
   commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.Init
   id: Init
@@ -285,11 +322,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Init
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 59
+    startLine: 62
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -365,11 +402,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: Terminate
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 92
+    startLine: 95
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -446,11 +483,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: InitHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 123
+    startLine: 126
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -529,11 +566,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: InitHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 155
+    startLine: 158
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -592,12 +629,273 @@ items:
       description: The <xref href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintInt" data-throw-if-not-resolved="false"></xref> to set.
     - id: value
       type: System.Int32
-      description: The new value of the <xref href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintBool" data-throw-if-not-resolved="false"></xref>.
+      description: The new value of the <xref href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintInt" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Shared Sub InitHint(hintInt As InitHintInt, value As Integer)
   overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint*
   nameWithType.vb: GLFW.InitHint(InitHintInt, Integer)
   fullName.vb: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintInt, Integer)
   name.vb: InitHint(InitHintInt, Integer)
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform,OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform,OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  id: InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform,OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: InitHint(InitHintPlatform, Platform)
+  nameWithType: GLFW.InitHint(InitHintPlatform, Platform)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform, OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: InitHint
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 189
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: >-
+    <p>
+
+    This function sets hints for the next initialization of GLFW.
+
+    </p>
+
+    <p>
+
+    The values you set hints to are never reset by GLFW, but they only take effect during initialization.
+
+    </p>
+
+    <p>
+
+    Once GLFW has been initialized,
+
+    any values you set will be ignored until the library is terminated and initialized again.
+
+    </p>
+
+    <p>Some hints are platform specific.
+
+    These may be set on any platform but they will only affect their specific platform.
+
+    Other platforms will ignore them. Setting these hints requires no platform specific headers or functions.
+
+    </p>
+  remarks: >-
+    <p>
+
+    This function may be called before <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.Init" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+
+    <p>
+
+    This function must only be called from the main thread.
+
+    </p>
+
+    <p>
+
+    Possible errors include <xref href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.InvalidEnum" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.InvalidValue" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+  example: []
+  syntax:
+    content: public static void InitHint(InitHintPlatform hintInt, Platform value)
+    parameters:
+    - id: hintInt
+      type: OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform
+      description: The <xref href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform" data-throw-if-not-resolved="false"></xref> to set.
+    - id: value
+      type: OpenTK.Windowing.GraphicsLibraryFramework.Platform
+      description: The new value of the <xref href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Sub InitHint(hintInt As InitHintPlatform, value As Platform)
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint*
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType,OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType,OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType)
+  id: InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType,OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType)
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: InitHint(InitHintANGLEPlatformType, ANGLEPlatformType)
+  nameWithType: GLFW.InitHint(InitHintANGLEPlatformType, ANGLEPlatformType)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint(OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType, OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: InitHint
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 220
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: >-
+    <p>
+
+    This function sets hints for the next initialization of GLFW.
+
+    </p>
+
+    <p>
+
+    The values you set hints to are never reset by GLFW, but they only take effect during initialization.
+
+    </p>
+
+    <p>
+
+    Once GLFW has been initialized,
+
+    any values you set will be ignored until the library is terminated and initialized again.
+
+    </p>
+
+    <p>Some hints are platform specific.
+
+    These may be set on any platform but they will only affect their specific platform.
+
+    Other platforms will ignore them. Setting these hints requires no platform specific headers or functions.
+
+    </p>
+  remarks: >-
+    <p>
+
+    This function may be called before <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.Init" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+
+    <p>
+
+    This function must only be called from the main thread.
+
+    </p>
+
+    <p>
+
+    Possible errors include <xref href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.InvalidEnum" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.InvalidValue" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+  example: []
+  syntax:
+    content: public static void InitHint(InitHintANGLEPlatformType hintInt, ANGLEPlatformType value)
+    parameters:
+    - id: hintInt
+      type: OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType
+      description: The <xref href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType" data-throw-if-not-resolved="false"></xref> to set.
+    - id: value
+      type: OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType
+      description: The new value of the <xref href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Sub InitHint(hintInt As InitHintANGLEPlatformType, value As ANGLEPlatformType)
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitHint*
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator(OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator@)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator(OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator@)
+  id: InitAllocator(OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator@)
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: InitAllocator(ref GLFWallocator)
+  nameWithType: GLFW.InitAllocator(ref GLFWallocator)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator(ref OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: InitAllocator
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 232
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: >-
+    To use the default allocator, call this function with a NULL argument.
+
+
+    If you specify an allocator struct, every member must be a valid function pointer.
+
+    If any member is NULL, this function will emit GLFW_INVALID_VALUE and the init allocator will be unchanged.
+
+
+    The functions in the allocator must fulfill a number of requirements.
+
+    See the documentation for <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun" data-throw-if-not-resolved="false"></xref> , <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun" data-throw-if-not-resolved="false"></xref> for details.
+  example: []
+  syntax:
+    content: public static void InitAllocator(ref GLFWallocator allocator)
+    parameters:
+    - id: allocator
+      type: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator
+      description: The allocator to use at the next initialization, or <xref href="System.Runtime.CompilerServices.Unsafe.NullRef%60%601" data-throw-if-not-resolved="false"></xref> to use the default one.
+    content.vb: Public Shared Sub InitAllocator(allocator As GLFWallocator)
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator*
+  nameWithType.vb: GLFW.InitAllocator(GLFWallocator)
+  fullName.vb: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator(OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator)
+  name.vb: InitAllocator(GLFWallocator)
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader(System.IntPtr)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader(System.IntPtr)
+  id: InitVulkanLoader(System.IntPtr)
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: InitVulkanLoader(IntPtr)
+  nameWithType: GLFW.InitVulkanLoader(IntPtr)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader(System.IntPtr)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: InitVulkanLoader
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 251
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: >-
+    This function sets the vkGetInstanceProcAddr function that GLFW will use for all Vulkan related entry point queries.
+
+
+    This feature is mostly useful on macOS,
+
+    if your copy of the Vulkan loader is in a location where GLFW cannot find it through dynamic loading,
+
+    or if you are still using the static library version of the loader.
+
+
+    If set to NULL, GLFW will try to load the Vulkan loader dynamically by its standard name and get this function from there.
+
+    This is the default behavior.
+
+
+    The standard name of the loader is vulkan-1.dll on Windows, libvulkan.so.1 on Linux and other Unix-like systems and libvulkan.1.dylib on macOS.
+
+    If your code is also loading it via these names then you probably don't need to use this function.
+
+
+    The function address you set is never reset by GLFW, but it only takes effect during initialization.
+
+    Once GLFW has been initialized, any updates will be ignored until the library is terminated and initialized again.
+  example: []
+  syntax:
+    content: public static void InitVulkanLoader(IntPtr loader)
+    parameters:
+    - id: loader
+      type: System.IntPtr
+      description: The address of the function to use, or NULL.
+    content.vb: Public Shared Sub InitVulkanLoader(loader As IntPtr)
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader*
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVersion(System.Int32@,System.Int32@,System.Int32@)
   commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVersion(System.Int32@,System.Int32@,System.Int32@)
   id: GetVersion(System.Int32@,System.Int32@,System.Int32@)
@@ -612,11 +910,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetVersion
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 178
+    startLine: 274
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -680,11 +978,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetVersionString
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 211
+    startLine: 307
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -749,11 +1047,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetVersionStringRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 240
+    startLine: 336
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -818,11 +1116,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetError
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 270
+    startLine: 366
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -894,11 +1192,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetErrorRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 303
+    startLine: 399
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -956,6 +1254,78 @@ items:
   nameWithType.vb: GLFW.GetErrorRaw(Byte*)
   fullName.vb: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetErrorRaw(Byte*)
   name.vb: GetErrorRaw(Byte*)
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform
+  id: GetPlatform
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: GetPlatform()
+  nameWithType: GLFW.GetPlatform()
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform()
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: GetPlatform
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 412
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: >-
+    This function returns the platform that was selected during initialization.
+
+    The returned value will be one of <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.Win32" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.Cocoa" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.Wayland" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.X11" data-throw-if-not-resolved="false"></xref> or <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.Null" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Platform GetPlatform()
+    return:
+      type: OpenTK.Windowing.GraphicsLibraryFramework.Platform
+      description: The currently selected platform, or zero if an error occurred.
+    content.vb: Public Shared Function GetPlatform() As Platform
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform*
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported(OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported(OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  id: PlatformSupported(OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: PlatformSupported(Platform)
+  nameWithType: GLFW.PlatformSupported(Platform)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported(OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: PlatformSupported
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 420
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: >-
+    This function returns whether the library was compiled with support for the specified platform.
+
+    The platform must be one of <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.Win32" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.Cocoa" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.Wayland" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.X11" data-throw-if-not-resolved="false"></xref> or <xref href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.Null" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool PlatformSupported(Platform platform)
+    parameters:
+    - id: platform
+      type: OpenTK.Windowing.GraphicsLibraryFramework.Platform
+      description: The platform to query.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the platform is supported, or <code>false</code> otherwise.
+    content.vb: Public Shared Function PlatformSupported(platform As Platform) As Boolean
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported*
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetMonitorsRaw(System.Int32@)
   commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetMonitorsRaw(System.Int32@)
   id: GetMonitorsRaw(System.Int32@)
@@ -970,11 +1340,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 339
+    startLine: 450
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1044,11 +1414,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 375
+    startLine: 486
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1118,11 +1488,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitors
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 405
+    startLine: 516
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1185,11 +1555,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorPos
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 440
+    startLine: 551
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1243,11 +1613,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorPos
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 466
+    startLine: 577
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1301,11 +1671,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorWorkarea
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 497
+    startLine: 608
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1381,11 +1751,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorWorkarea
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 535
+    startLine: 646
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1461,11 +1831,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorPhysicalSize
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 573
+    startLine: 684
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1543,11 +1913,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorContentScale
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 603
+    startLine: 714
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1612,11 +1982,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorContentScaleRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 633
+    startLine: 744
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1681,11 +2051,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorName
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 659
+    startLine: 770
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1745,11 +2115,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorNameRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 685
+    startLine: 796
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1809,11 +2179,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetMonitorUserPointer
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 710
+    startLine: 821
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1874,11 +2244,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMonitorUserPointer
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 734
+    startLine: 845
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -1934,11 +2304,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetVideoModesRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 766
+    startLine: 877
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2012,11 +2382,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetVideoModesRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 801
+    startLine: 912
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2090,11 +2460,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetVideoModes
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 829
+    startLine: 940
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2159,11 +2529,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetGamma
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 863
+    startLine: 974
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2216,11 +2586,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetGammaRamp
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 888
+    startLine: 999
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2278,11 +2648,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetGammaRamp
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 921
+    startLine: 1032
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2356,11 +2726,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: DefaultWindowHints
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 936
+    startLine: 1047
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2395,11 +2765,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 971
+    startLine: 1082
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2486,11 +2856,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHintRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1018
+    startLine: 1129
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2577,11 +2947,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowSizeLimits
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1065
+    startLine: 1176
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2673,11 +3043,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowAspectRatio
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1110
+    startLine: 1221
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2769,11 +3139,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowFrameSize
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1155
+    startLine: 1266
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2859,11 +3229,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowContentScale
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1198
+    startLine: 1309
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -2940,11 +3310,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowOpacity
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1235
+    startLine: 1346
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3015,11 +3385,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowOpacity
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1264
+    startLine: 1375
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3095,11 +3465,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: RequestWindowAttention
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1291
+    startLine: 1402
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3160,11 +3530,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowAttrib
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1326
+    startLine: 1437
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3252,11 +3622,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: RawMouseMotionSupported
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1356
+    startLine: 1467
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3318,11 +3688,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetKeyName
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1427
+    startLine: 1538
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3435,11 +3805,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetKeyNameRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1498
+    startLine: 1609
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3552,11 +3922,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetKeyScancode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1521
+    startLine: 1632
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3610,11 +3980,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetKey
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1562
+    startLine: 1673
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3701,11 +4071,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetMouseButton
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1589
+    startLine: 1700
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3768,11 +4138,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetCursorPos
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1627
+    startLine: 1738
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3852,11 +4222,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetCursorPosRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1668
+    startLine: 1779
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -3936,11 +4306,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetCursorPos
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1708
+    startLine: 1819
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4030,11 +4400,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateCursor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1746
+    startLine: 1857
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4123,11 +4493,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateCursorRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1787
+    startLine: 1898
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4216,11 +4586,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateStandardCursor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1807
+    startLine: 1918
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4268,11 +4638,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: DestroyCursor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1834
+    startLine: 1945
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4333,11 +4703,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetCursor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1859
+    startLine: 1970
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4401,11 +4771,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: JoystickPresent
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1883
+    startLine: 1994
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4464,11 +4834,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickAxes
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1916
+    startLine: 2027
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4541,11 +4911,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickAxesRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 1961
+    startLine: 2072
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4624,11 +4994,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickAxesRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2001
+    startLine: 2112
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4707,11 +5077,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickButtons
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2044
+    startLine: 2155
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4804,11 +5174,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickButtonsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2099
+    startLine: 2210
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -4907,11 +5277,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickButtonsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2149
+    startLine: 2260
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5010,11 +5380,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickHats
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2191
+    startLine: 2302
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5099,11 +5469,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickHatsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2245
+    startLine: 2356
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5194,11 +5564,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickHatsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2294
+    startLine: 2405
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5289,11 +5659,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickName
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2324
+    startLine: 2435
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5360,11 +5730,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickNameRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2354
+    startLine: 2465
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5431,11 +5801,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickGUID
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2397
+    startLine: 2508
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5528,11 +5898,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickGUIDRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2440
+    startLine: 2551
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5625,11 +5995,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetJoystickUserPointer
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2465
+    startLine: 2576
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5690,11 +6060,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetJoystickUserPointer
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2489
+    startLine: 2600
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5753,11 +6123,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: JoystickIsGamepad
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2520
+    startLine: 2631
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5826,11 +6196,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: UpdateGamepadMappings
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2555
+    startLine: 2666
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5911,11 +6281,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: UpdateGamepadMappingsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2598
+    startLine: 2709
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -5996,11 +6366,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetGamepadName
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2631
+    startLine: 2742
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6074,11 +6444,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetGamepadNameRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2664
+    startLine: 2775
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6152,11 +6522,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetGamepadState
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2700
+    startLine: 2811
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6237,11 +6607,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetGamepadStateRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2739
+    startLine: 2850
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6322,11 +6692,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetTime
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2771
+    startLine: 2882
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6395,11 +6765,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetTime
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2795
+    startLine: 2906
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6463,11 +6833,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetTimerValue
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2812
+    startLine: 2923
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6513,11 +6883,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetTimerFrequency
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2828
+    startLine: 2939
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6561,11 +6931,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetCurrentContext
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2844
+    startLine: 2955
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6609,11 +6979,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SwapBuffers
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2872
+    startLine: 2983
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6682,11 +7052,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ExtensionSupported
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2900
+    startLine: 3011
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6759,11 +7129,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetProcAddress
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2939
+    startLine: 3050
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6835,11 +7205,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetProcAddressRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 2969
+    startLine: 3080
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6911,11 +7281,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ExtensionSupportedRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3000
+    startLine: 3111
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -6988,11 +7358,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3122
+    startLine: 3233
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7228,11 +7598,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateWindowRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3256
+    startLine: 3367
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7468,11 +7838,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: DestroyWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3291
+    startLine: 3402
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7540,11 +7910,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: FocusWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3317
+    startLine: 3428
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7609,11 +7979,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetClipboardString
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3343
+    startLine: 3454
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7676,11 +8046,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetClipboardStringRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3372
+    startLine: 3483
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7743,11 +8113,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetFramebufferSize
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3398
+    startLine: 3509
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7811,11 +8181,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetFramebufferSizeRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3427
+    startLine: 3538
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7879,11 +8249,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetInputMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3452
+    startLine: 3563
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7939,11 +8309,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetInputMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3477
+    startLine: 3588
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -7999,11 +8369,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetInputMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3502
+    startLine: 3613
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8059,11 +8429,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetInputMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3527
+    startLine: 3638
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8119,11 +8489,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetPrimaryMonitor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3552
+    startLine: 3663
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8179,11 +8549,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetVideoMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3579
+    startLine: 3690
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8252,11 +8622,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowAttrib
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3604
+    startLine: 3715
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8321,11 +8691,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowAttrib
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3610
+    startLine: 3721
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8376,11 +8746,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowAttrib
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3616
+    startLine: 3727
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8431,11 +8801,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowAttrib
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3622
+    startLine: 3733
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8486,11 +8856,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowAttrib
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3628
+    startLine: 3739
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8541,11 +8911,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowAttrib
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3634
+    startLine: 3745
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8596,11 +8966,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowAttrib
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3640
+    startLine: 3751
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8651,11 +9021,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowUserPointer
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3664
+    startLine: 3775
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8714,11 +9084,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowUserPointer
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3687
+    startLine: 3798
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8772,11 +9142,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowSize
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3714
+    startLine: 3825
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8843,11 +9213,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowSizeRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3744
+    startLine: 3855
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8914,11 +9284,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowPos
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3771
+    startLine: 3882
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -8985,11 +9355,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowPosRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3801
+    startLine: 3912
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9056,11 +9426,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWindowMonitor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3822
+    startLine: 3933
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9111,11 +9481,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: HideWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3839
+    startLine: 3950
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9162,11 +9532,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: IconifyWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3860
+    startLine: 3971
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9221,11 +9591,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MakeContextCurrent
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3895
+    startLine: 4006
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9305,11 +9675,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: MaximizeWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3915
+    startLine: 4026
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9362,11 +9732,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowMaximizeCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3937
+    startLine: 4048
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9422,11 +9792,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetFramebufferSizeCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3964
+    startLine: 4075
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9482,11 +9852,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowContentScaleCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 3991
+    startLine: 4102
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9542,11 +9912,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PollEvents
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4029
+    startLine: 4140
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9623,11 +9993,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: PostEmptyEvent
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4049
+    startLine: 4160
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9678,11 +10048,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: RestoreWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4069
+    startLine: 4180
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9735,11 +10105,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetCharCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4105
+    startLine: 4216
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9822,11 +10192,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetCharModsCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4142
+    startLine: 4253
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9905,11 +10275,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetClipboardString
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4168
+    startLine: 4279
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -9969,11 +10339,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetClipboardStringRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4201
+    startLine: 4312
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10033,11 +10403,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetCursorEnterCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4225
+    startLine: 4336
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10090,11 +10460,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetCursorPosCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4255
+    startLine: 4366
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10155,11 +10525,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetDropCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4286
+    startLine: 4397
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10222,11 +10592,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetErrorCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4321
+    startLine: 4432
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10300,11 +10670,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetInputMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4351
+    startLine: 4462
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10369,11 +10739,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetInputMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4392
+    startLine: 4503
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10463,11 +10833,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetInputMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4422
+    startLine: 4533
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10535,11 +10905,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetInputMode
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4450
+    startLine: 4561
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10603,11 +10973,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetJoystickCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4473
+    startLine: 4584
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10657,11 +11027,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetKeyCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4516
+    startLine: 4627
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10752,11 +11122,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetScrollCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4545
+    startLine: 4656
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10815,11 +11185,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetMonitorCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4570
+    startLine: 4681
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10869,11 +11239,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetMouseButtonCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4601
+    startLine: 4712
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -10940,11 +11310,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowCloseCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4638
+    startLine: 4749
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11019,11 +11389,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowFocusCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4669
+    startLine: 4780
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11086,11 +11456,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowIcon
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4706
+    startLine: 4817
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11171,11 +11541,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowIconRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4745
+    startLine: 4856
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11259,11 +11629,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowIconifyCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4769
+    startLine: 4880
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11316,11 +11686,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowMonitor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4819
+    startLine: 4930
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11433,11 +11803,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowPos
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4860
+    startLine: 4971
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11518,11 +11888,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowPosCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4886
+    startLine: 4997
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11579,11 +11949,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowRefreshCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4921
+    startLine: 5032
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11654,11 +12024,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowSize
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4961
+    startLine: 5072
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11747,11 +12117,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowSizeCallback
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 4987
+    startLine: 5098
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11808,11 +12178,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowShouldClose
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5012
+    startLine: 5123
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11855,6 +12225,124 @@ items:
   nameWithType.vb: GLFW.SetWindowShouldClose(Window*, Boolean)
   fullName.vb: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowShouldClose(OpenTK.Windowing.GraphicsLibraryFramework.Window*, Boolean)
   name.vb: SetWindowShouldClose(Window*, Boolean)
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  id: GetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: GetWindowTitleRaw(Window*)
+  nameWithType: GLFW.GetWindowTitleRaw(Window*)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: GetWindowTitleRaw
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 5149
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: >-
+    This function returns the window title, encoded as UTF-8, of the specified
+
+    window. This is the title set previously by <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32%2cSystem.Int32%2cSystem.Byte*%2cOpenTK.Windowing.GraphicsLibraryFramework.Monitor*%2cOpenTK.Windowing.GraphicsLibraryFramework.Window*)" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*%2cSystem.Byte*)" data-throw-if-not-resolved="false"></xref>.
+
+
+    The returned title is currently a copy of the title last set by <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32%2cSystem.Int32%2cSystem.Byte*%2cOpenTK.Windowing.GraphicsLibraryFramework.Monitor*%2cOpenTK.Windowing.GraphicsLibraryFramework.Window*)" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*%2cSystem.Byte*)" data-throw-if-not-resolved="false"></xref>.
+
+    It does not include any additional text which may be appended by the platform or another program.
+
+
+    The returned string is allocated and freed by GLFW.
+
+    You should not free it yourself.
+
+    It is valid until the next call to <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32%2cSystem.Int32%2cSystem.Byte*%2cOpenTK.Windowing.GraphicsLibraryFramework.Monitor*%2cOpenTK.Windowing.GraphicsLibraryFramework.Window*)" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*%2cSystem.Byte*)" data-throw-if-not-resolved="false"></xref>, or until the library is terminated.
+
+
+    This function must only be called from the main thread.
+
+
+    Added in version 3.4.
+  example: []
+  syntax:
+    content: public static byte* GetWindowTitleRaw(Window* window)
+    parameters:
+    - id: window
+      type: OpenTK.Windowing.GraphicsLibraryFramework.Window*
+      description: The window to query.
+    return:
+      type: System.Byte*
+      description: The UTF-8 encoded window title, or `NULL` if an error occurred.
+    content.vb: Public Shared Function GetWindowTitleRaw(window As Window*) As Byte*
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw*
+  seealso:
+  - linkId: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+    commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  id: GetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: GetWindowTitle(Window*)
+  nameWithType: GLFW.GetWindowTitle(Window*)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: GetWindowTitle
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 5166
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: >-
+    This function returns the window title, of the specified
+
+    window. This is the title set previously by <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32%2cSystem.Int32%2cSystem.Byte*%2cOpenTK.Windowing.GraphicsLibraryFramework.Monitor*%2cOpenTK.Windowing.GraphicsLibraryFramework.Window*)" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*%2cSystem.Byte*)" data-throw-if-not-resolved="false"></xref>.
+
+
+    The returned title is currently a copy of the title last set by <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32%2cSystem.Int32%2cSystem.Byte*%2cOpenTK.Windowing.GraphicsLibraryFramework.Monitor*%2cOpenTK.Windowing.GraphicsLibraryFramework.Window*)" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*%2cSystem.Byte*)" data-throw-if-not-resolved="false"></xref>.
+
+    It does not include any additional text which may be appended by the platform or another program.
+
+
+    This function must only be called from the main thread.
+
+
+    Added in version 3.4.
+  example: []
+  syntax:
+    content: public static string GetWindowTitle(Window* window)
+    parameters:
+    - id: window
+      type: OpenTK.Windowing.GraphicsLibraryFramework.Window*
+      description: The window to query.
+    return:
+      type: System.String
+      description: The window title, or `NULL` if an error occurred.
+    content.vb: Public Shared Function GetWindowTitle(window As Window*) As String
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle*
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.String)
   commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.String)
   id: SetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.String)
@@ -11869,11 +12357,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowTitle
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5035
+    startLine: 5191
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11930,11 +12418,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetWindowTitleRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5067
+    startLine: 5223
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -11991,11 +12479,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: ShowWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5090
+    startLine: 5246
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12049,11 +12537,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SwapInterval
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5132
+    startLine: 5288
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12150,11 +12638,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WaitEvents
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5177
+    startLine: 5333
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12254,11 +12742,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WaitEventsTimeout
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5232
+    startLine: 5388
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12385,11 +12873,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5258
+    startLine: 5414
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12459,11 +12947,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5284
+    startLine: 5440
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12533,11 +13021,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5313
+    startLine: 5469
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12604,11 +13092,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5339
+    startLine: 5495
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12675,11 +13163,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5368
+    startLine: 5524
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12746,11 +13234,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5397
+    startLine: 5553
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12817,11 +13305,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowHint
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5426
+    startLine: 5582
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12888,11 +13376,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: WindowShouldClose
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5446
+    startLine: 5602
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -12940,11 +13428,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: VulkanSupported
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5473
+    startLine: 5629
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13005,11 +13493,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetRequiredInstanceExtensionsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5520
+    startLine: 5676
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13112,11 +13600,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetRequiredInstanceExtensionsRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5573
+    startLine: 5729
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13219,11 +13707,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetRequiredInstanceExtensions
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5619
+    startLine: 5775
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13316,11 +13804,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetInstanceProcAddress
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5670
+    startLine: 5826
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13399,11 +13887,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetInstanceProcAddressRaw
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5722
+    startLine: 5878
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13482,11 +13970,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetPhysicalDevicePresentationSupport
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5758
+    startLine: 5914
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13570,11 +14058,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: CreateWindowSurface
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5824
+    startLine: 5980
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13712,11 +14200,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWin32Adapter
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5841
+    startLine: 5997
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13747,11 +14235,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWin32Monitor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5853
+    startLine: 6009
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13782,11 +14270,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWin32Window
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5865
+    startLine: 6021
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13817,11 +14305,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWGLContext
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5872
+    startLine: 6028
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13852,11 +14340,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetCocoaMonitor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5879
+    startLine: 6035
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13887,11 +14375,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetCocoaWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5886
+    startLine: 6042
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13908,6 +14396,41 @@ items:
       description: The <code>NSWindow</code> of the specified window, or <code>nil</code> if an error occurred.
     content.vb: Public Shared Function GetCocoaWindow(window As Window*) As IntPtr
   overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaWindow*
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  id: GetCocoaView(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  parent: OpenTK.Windowing.GraphicsLibraryFramework.GLFW
+  langs:
+  - csharp
+  - vb
+  name: GetCocoaView(Window*)
+  nameWithType: GLFW.GetCocoaView(Window*)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  type: Method
+  source:
+    remote:
+      path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+      branch: master
+      repo: git@github.com:opentk/opentk.git
+    id: GetCocoaView
+    path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
+    startLine: 6049
+  assemblies:
+  - OpenTK.Windowing.GraphicsLibraryFramework
+  namespace: OpenTK.Windowing.GraphicsLibraryFramework
+  summary: Returns the <code>NSView</code> of the specified window.
+  example: []
+  syntax:
+    content: public static IntPtr GetCocoaView(Window* window)
+    parameters:
+    - id: window
+      type: OpenTK.Windowing.GraphicsLibraryFramework.Window*
+      description: The window to query.
+    return:
+      type: System.IntPtr
+      description: The <code>NSView</code> of the specified window, or <code>nil</code> if an error occurred.
+    content.vb: Public Shared Function GetCocoaView(window As Window*) As IntPtr
+  overload: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView*
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetNSGLContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetNSGLContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
   id: GetNSGLContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
@@ -13922,11 +14445,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetNSGLContext
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5893
+    startLine: 6056
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13957,11 +14480,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetX11Display
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5899
+    startLine: 6062
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -13988,11 +14511,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetX11Adapter
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5906
+    startLine: 6069
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14023,11 +14546,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetX11Monitor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5913
+    startLine: 6076
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14058,11 +14581,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetX11Window
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5920
+    startLine: 6083
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14093,11 +14616,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: SetX11SelectionString
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5926
+    startLine: 6089
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14128,11 +14651,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetX11SelectionString
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5937
+    startLine: 6100
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14159,11 +14682,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetGLXContext
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5948
+    startLine: 6111
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14194,11 +14717,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetGLXWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5955
+    startLine: 6118
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14229,11 +14752,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWaylandDisplay
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5961
+    startLine: 6124
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14260,11 +14783,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWaylandMonitor
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5968
+    startLine: 6131
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14295,11 +14818,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetWaylandWindow
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5975
+    startLine: 6138
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14330,11 +14853,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetEGLDisplay
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5981
+    startLine: 6144
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14361,11 +14884,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetEGLContext
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5988
+    startLine: 6151
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14396,11 +14919,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetEGLSurface
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 5995
+    startLine: 6158
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14431,11 +14954,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetOSMesaColorBuffer
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 6006
+    startLine: 6169
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14481,11 +15004,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetOSMesaDepthBuffer
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 6026
+    startLine: 6189
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14531,11 +15054,11 @@ items:
   source:
     remote:
       path: src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-      branch: f3539ad1fda98af9b265e941e0aecfb4662a9bbe
-      repo: https://github.com/opentk/opentk.git
+      branch: master
+      repo: git@github.com:opentk/opentk.git
     id: GetOSMesaContext
     path: opentk/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFW.cs
-    startLine: 6042
+    startLine: 6205
   assemblies:
   - OpenTK.Windowing.GraphicsLibraryFramework
   namespace: OpenTK.Windowing.GraphicsLibraryFramework
@@ -14928,6 +15451,114 @@ references:
   name: InitHintInt
   nameWithType: InitHintInt
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.InitHintInt
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform.html
+  name: InitHintPlatform
+  nameWithType: InitHintPlatform
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.Platform
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.Platform
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.Platform.html
+  name: Platform
+  nameWithType: Platform
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.Platform
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType.html
+  name: InitHintANGLEPlatformType
+  nameWithType: InitHintANGLEPlatformType
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType.html
+  name: ANGLEPlatformType
+  nameWithType: ANGLEPlatformType
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun.html
+  name: GLFWallocatefun
+  nameWithType: GLFWallocatefun
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun.html
+  name: GLFWreallocatefun
+  nameWithType: GLFWreallocatefun
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun.html
+  name: GLFWdeallocatefun
+  nameWithType: GLFWdeallocatefun
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun
+- uid: System.Runtime.CompilerServices.Unsafe.NullRef``1
+  commentId: M:System.Runtime.CompilerServices.Unsafe.NullRef``1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.compilerservices.unsafe.nullref
+  name: NullRef<T>()
+  nameWithType: Unsafe.NullRef<T>()
+  fullName: System.Runtime.CompilerServices.Unsafe.NullRef<T>()
+  nameWithType.vb: Unsafe.NullRef(Of T)()
+  fullName.vb: System.Runtime.CompilerServices.Unsafe.NullRef(Of T)()
+  name.vb: NullRef(Of T)()
+  spec.csharp:
+  - uid: System.Runtime.CompilerServices.Unsafe.NullRef``1
+    name: NullRef
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.compilerservices.unsafe.nullref
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.CompilerServices.Unsafe.NullRef``1
+    name: NullRef
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.compilerservices.unsafe.nullref
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator*
+  commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator(OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator@)
+  name: InitAllocator
+  nameWithType: GLFW.InitAllocator
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitAllocator
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator.html
+  name: GLFWallocator
+  nameWithType: GLFWallocator
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader*
+  commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader(System.IntPtr)
+  name: InitVulkanLoader
+  nameWithType: GLFW.InitVulkanLoader
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.InitVulkanLoader
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVersion*
   commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVersion
   href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetVersion(System.Int32@,System.Int32@,System.Int32@)
@@ -15087,6 +15718,48 @@ references:
   name: GetErrorRaw
   nameWithType: GLFW.GetErrorRaw
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetErrorRaw
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.Platform.Win32
+  commentId: F:OpenTK.Windowing.GraphicsLibraryFramework.Platform.Win32
+  href: OpenTK.Windowing.GraphicsLibraryFramework.Platform.html#OpenTK.Windowing.GraphicsLibraryFramework.Platform.Win32
+  name: Win32
+  nameWithType: Platform.Win32
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.Platform.Win32
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.Platform.Cocoa
+  commentId: F:OpenTK.Windowing.GraphicsLibraryFramework.Platform.Cocoa
+  href: OpenTK.Windowing.GraphicsLibraryFramework.Platform.html#OpenTK.Windowing.GraphicsLibraryFramework.Platform.Cocoa
+  name: Cocoa
+  nameWithType: Platform.Cocoa
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.Platform.Cocoa
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.Platform.Wayland
+  commentId: F:OpenTK.Windowing.GraphicsLibraryFramework.Platform.Wayland
+  href: OpenTK.Windowing.GraphicsLibraryFramework.Platform.html#OpenTK.Windowing.GraphicsLibraryFramework.Platform.Wayland
+  name: Wayland
+  nameWithType: Platform.Wayland
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.Platform.Wayland
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.Platform.X11
+  commentId: F:OpenTK.Windowing.GraphicsLibraryFramework.Platform.X11
+  href: OpenTK.Windowing.GraphicsLibraryFramework.Platform.html#OpenTK.Windowing.GraphicsLibraryFramework.Platform.X11
+  name: X11
+  nameWithType: Platform.X11
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.Platform.X11
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.Platform.Null
+  commentId: F:OpenTK.Windowing.GraphicsLibraryFramework.Platform.Null
+  href: OpenTK.Windowing.GraphicsLibraryFramework.Platform.html#OpenTK.Windowing.GraphicsLibraryFramework.Platform.Null
+  name: "Null"
+  nameWithType: Platform.Null
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.Platform.Null
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform*
+  commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform
+  name: GetPlatform
+  nameWithType: GLFW.GetPlatform
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPlatform
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported*
+  commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported(OpenTK.Windowing.GraphicsLibraryFramework.Platform)
+  name: PlatformSupported
+  nameWithType: GLFW.PlatformSupported
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.PlatformSupported
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPrimaryMonitor
   commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPrimaryMonitor
   href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetPrimaryMonitor
@@ -16859,14 +17532,6 @@ references:
   name: GetProcAddress
   nameWithType: GLFW.GetProcAddress
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetProcAddress
-- uid: System.IntPtr
-  commentId: T:System.IntPtr
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: IntPtr
-  nameWithType: IntPtr
-  fullName: System.IntPtr
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetProcAddressRaw*
   commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetProcAddressRaw
   href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetProcAddressRaw(System.Byte*)
@@ -19145,6 +19810,190 @@ references:
   name: SetWindowShouldClose
   nameWithType: GLFW.SetWindowShouldClose
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowShouldClose
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  isExternal: true
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  name: SetWindowTitleRaw(Window*, byte*)
+  nameWithType: GLFW.SetWindowTitleRaw(Window*, byte*)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*, byte*)
+  nameWithType.vb: GLFW.SetWindowTitleRaw(Window*, Byte*)
+  fullName.vb: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*, Byte*)
+  name.vb: SetWindowTitleRaw(Window*, Byte*)
+  spec.csharp:
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+    name: SetWindowTitleRaw
+    href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  - name: (
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.Window
+    name: Window
+    href: OpenTK.Windowing.GraphicsLibraryFramework.Window.html
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+    name: SetWindowTitleRaw
+    href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  - name: (
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.Window
+    name: Window
+    href: OpenTK.Windowing.GraphicsLibraryFramework.Window.html
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32,System.Int32,System.Byte*,OpenTK.Windowing.GraphicsLibraryFramework.Monitor*,OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32,System.Int32,System.Byte*,OpenTK.Windowing.GraphicsLibraryFramework.Monitor*,OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  isExternal: true
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32,System.Int32,System.Byte*,OpenTK.Windowing.GraphicsLibraryFramework.Monitor*,OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  name: glfwCreateWindow(int, int, byte*, Monitor*, Window*)
+  nameWithType: GLFWNative.glfwCreateWindow(int, int, byte*, Monitor*, Window*)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(int, int, byte*, OpenTK.Windowing.GraphicsLibraryFramework.Monitor*, OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  nameWithType.vb: GLFWNative.glfwCreateWindow(Integer, Integer, Byte*, Monitor*, Window*)
+  fullName.vb: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(Integer, Integer, Byte*, OpenTK.Windowing.GraphicsLibraryFramework.Monitor*, OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  name.vb: glfwCreateWindow(Integer, Integer, Byte*, Monitor*, Window*)
+  spec.csharp:
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32,System.Int32,System.Byte*,OpenTK.Windowing.GraphicsLibraryFramework.Monitor*,OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+    name: glfwCreateWindow
+    isExternal: true
+    href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32,System.Int32,System.Byte*,OpenTK.Windowing.GraphicsLibraryFramework.Monitor*,OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.Monitor
+    name: Monitor
+    href: OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.Window
+    name: Window
+    href: OpenTK.Windowing.GraphicsLibraryFramework.Window.html
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32,System.Int32,System.Byte*,OpenTK.Windowing.GraphicsLibraryFramework.Monitor*,OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+    name: glfwCreateWindow
+    isExternal: true
+    href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwCreateWindow(System.Int32,System.Int32,System.Byte*,OpenTK.Windowing.GraphicsLibraryFramework.Monitor*,OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.Monitor
+    name: Monitor
+    href: OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.Window
+    name: Window
+    href: OpenTK.Windowing.GraphicsLibraryFramework.Window.html
+  - name: '*'
+  - name: )
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  commentId: M:OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  isExternal: true
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  name: glfwSetWindowTitle(Window*, byte*)
+  nameWithType: GLFWNative.glfwSetWindowTitle(Window*, byte*)
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*, byte*)
+  nameWithType.vb: GLFWNative.glfwSetWindowTitle(Window*, Byte*)
+  fullName.vb: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*, Byte*)
+  name.vb: glfwSetWindowTitle(Window*, Byte*)
+  spec.csharp:
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+    name: glfwSetWindowTitle
+    isExternal: true
+    href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  - name: (
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.Window
+    name: Window
+    href: OpenTK.Windowing.GraphicsLibraryFramework.Window.html
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+    name: glfwSetWindowTitle
+    isExternal: true
+    href: OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwSetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.Byte*)
+  - name: (
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework.Window
+    name: Window
+    href: OpenTK.Windowing.GraphicsLibraryFramework.Window.html
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw*
+  commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  name: GetWindowTitleRaw
+  nameWithType: GLFW.GetWindowTitleRaw
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitleRaw
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle*
+  commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  name: GetWindowTitle
+  nameWithType: GLFW.GetWindowTitle
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetWindowTitle
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitle*
   commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitle
   href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetWindowTitle(OpenTK.Windowing.GraphicsLibraryFramework.Window*,System.String)
@@ -19871,6 +20720,12 @@ references:
   name: GetCocoaWindow
   nameWithType: GLFW.GetCocoaWindow
   fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaWindow
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView*
+  commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView
+  href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView(OpenTK.Windowing.GraphicsLibraryFramework.Window*)
+  name: GetCocoaView
+  nameWithType: GLFW.GetCocoaView
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetCocoaView
 - uid: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetNSGLContext*
   commentId: Overload:OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetNSGLContext
   href: OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetNSGLContext(OpenTK.Windowing.GraphicsLibraryFramework.Window*)

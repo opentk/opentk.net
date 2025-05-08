@@ -235,7 +235,7 @@ public struct Box3i : IEquatable&lt;Box3i&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 Center { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector3 Center { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -283,7 +283,7 @@ public struct Box3i : IEquatable&lt;Box3i&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3i Max { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3i Max { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -307,7 +307,7 @@ public struct Box3i : IEquatable&lt;Box3i&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3i Min { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3i Min { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -358,7 +358,7 @@ public struct Box3i : IEquatable&lt;Box3i&gt;, IFormattable</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public bool Contains(Box3i other)</code></pre>
+public readonly bool Contains(Box3i other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -453,7 +453,7 @@ public bool Contains(Vector3i point, bool boundaryInclusive)</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
 [Obsolete(&quot;This function excludes borders even though it&#39;s documentation says otherwise. Use ContainsInclusive and ContainsExclusive for the desired behaviour.&quot;)]
-public bool Contains(Vector3i point)</code></pre>
+public readonly bool Contains(Vector3i point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -497,7 +497,7 @@ public bool Contains(Vector3i point)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public bool ContainsExclusive(Vector3i point)</code></pre>
+public readonly bool ContainsExclusive(Vector3i point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -541,7 +541,7 @@ public bool ContainsExclusive(Vector3i point)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public bool ContainsInclusive(Vector3i point)</code></pre>
+public readonly bool ContainsInclusive(Vector3i point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -585,7 +585,7 @@ public bool ContainsInclusive(Vector3i point)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public float DistanceToNearestEdge(Vector3i point)</code></pre>
+public readonly float DistanceToNearestEdge(Vector3i point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -738,7 +738,7 @@ public float DistanceToNearestEdge(Vector3i point)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Box3i Extended(Vector3i point)</code></pre>
+public readonly Box3i Extended(Vector3i point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -780,7 +780,7 @@ public Box3i Extended(Vector3i point)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -836,7 +836,7 @@ Use the <a class="xref" href="OpenTK.Mathematics.Box3i.html#OpenTK_Mathematics_B
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Box3i Inflated(Vector3i size)</code></pre>
+public readonly Box3i Inflated(Vector3i size)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -913,7 +913,7 @@ public Box3i Inflated(Vector3i size)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Box3i Scaled(Vector3i scale, Vector3i anchor)</code></pre>
+public readonly Box3i Scaled(Vector3i scale, Vector3i anchor)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1140,7 +1140,7 @@ public Box3i Scaled(Vector3i scale, Vector3i anchor)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Box3i Translated(Vector3i distance)</code></pre>
+public readonly Box3i Translated(Vector3i distance)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">

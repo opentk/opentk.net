@@ -292,7 +292,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2d Column0 { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2d Column0 { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -316,7 +316,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2d Column1 { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2d Column1 { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -340,7 +340,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double Determinant { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly double Determinant { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -364,7 +364,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2d Diagonal { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2d Diagonal { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -388,7 +388,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double this[int rowIndex, int columnIndex] { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public double this[int rowIndex, int columnIndex] { readonly get; set; }</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -437,7 +437,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double M11 { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public double M11 { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -461,7 +461,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double M12 { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public double M12 { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -485,7 +485,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double M21 { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public double M21 { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -509,7 +509,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double M22 { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public double M22 { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -533,7 +533,7 @@ public struct Matrix2d : IEquatable&lt;Matrix2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double Trace { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly double Trace { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -961,6 +961,100 @@ public static Matrix2d CreateScale(double scale)</code></pre>
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Mathematics_Matrix2d_CreateSwizzle_" data-uid="OpenTK.Mathematics.Matrix2d.CreateSwizzle*"></a>
+  <h4 id="OpenTK_Mathematics_Matrix2d_CreateSwizzle_System_Int32_System_Int32_OpenTK_Mathematics_Matrix2d__" data-uid="OpenTK.Mathematics.Matrix2d.CreateSwizzle(System.Int32,System.Int32,OpenTK.Mathematics.Matrix2d@)">CreateSwizzle(int, int, out Matrix2d)</h4>
+  <div class="markdown level1 summary"><p>Create a swizzle matrix that can be used to change the row order of matrices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CreateSwizzle(int rowForRow0, int rowForRow1, out Matrix2d result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow0</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row0">Row0</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow1</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row1">Row1</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The resulting swizzle matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Matrix2d_CreateSwizzle_System_Int32_System_Int32_OpenTK_Mathematics_Matrix2d___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If you are looking to swizzle vectors there are properties like <a class="xref" href="OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Yx">Yx</a> that can do this more effectively.</p>
+</div>
+  <a id="OpenTK_Mathematics_Matrix2d_CreateSwizzle_" data-uid="OpenTK.Mathematics.Matrix2d.CreateSwizzle*"></a>
+  <h4 id="OpenTK_Mathematics_Matrix2d_CreateSwizzle_System_Int32_System_Int32_" data-uid="OpenTK.Mathematics.Matrix2d.CreateSwizzle(System.Int32,System.Int32)">CreateSwizzle(int, int)</h4>
+  <div class="markdown level1 summary"><p>Create a swizzle matrix that can be used to change the row order of matrices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix2d CreateSwizzle(int rowForRow0, int rowForRow1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow0</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row0">Row0</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow1</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row1">Row1</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><p>The resulting swizzle matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenTK_Mathematics_Matrix2d_CreateSwizzle_System_Int32_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If you are looking to swizzle vectors there are properties like <a class="xref" href="OpenTK.Mathematics.Vector2.html#OpenTK_Mathematics_Vector2_Yx">Yx</a> that can do this more effectively.</p>
+</div>
   <a id="OpenTK_Mathematics_Matrix2d_Equals_" data-uid="OpenTK.Mathematics.Matrix2d.Equals*"></a>
   <h4 id="OpenTK_Mathematics_Matrix2d_Equals_OpenTK_Mathematics_Matrix2d_" data-uid="OpenTK.Mathematics.Matrix2d.Equals(OpenTK.Mathematics.Matrix2d)">Equals(Matrix2d)</h4>
   <div class="markdown level1 summary"><p>Indicates whether the current matrix is equal to another matrix.</p>
@@ -969,7 +1063,7 @@ public static Matrix2d CreateScale(double scale)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public bool Equals(Matrix2d other)</code></pre>
+public readonly bool Equals(Matrix2d other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1013,7 +1107,7 @@ public bool Equals(Matrix2d other)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public override bool Equals(object obj)</code></pre>
+public override readonly bool Equals(object obj)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1058,7 +1152,7 @@ public override bool Equals(object obj)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1192,6 +1286,31 @@ public static Matrix2d Invert(Matrix2d mat)</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>Thrown if the Matrix2d is singular.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Matrix2d_Inverted_" data-uid="OpenTK.Mathematics.Matrix2d.Inverted*"></a>
+  <h4 id="OpenTK_Mathematics_Matrix2d_Inverted" data-uid="OpenTK.Mathematics.Matrix2d.Inverted">Inverted()</h4>
+  <div class="markdown level1 summary"><p>Returns an inverted copy of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Matrix2d Inverted()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><p>The inverted copy.</p>
 </td>
       </tr>
     </tbody>
@@ -1641,6 +1760,220 @@ public static Matrix2d Subtract(Matrix2d left, Matrix2d right)</code></pre>
       </tr>
     </tbody>
   </table>
+  <a id="OpenTK_Mathematics_Matrix2d_Swizzle_" data-uid="OpenTK.Mathematics.Matrix2d.Swizzle*"></a>
+  <h4 id="OpenTK_Mathematics_Matrix2d_Swizzle_OpenTK_Mathematics_Matrix2d_System_Int32_System_Int32_" data-uid="OpenTK.Mathematics.Matrix2d.Swizzle(OpenTK.Mathematics.Matrix2d,System.Int32,System.Int32)">Swizzle(Matrix2d, int, int)</h4>
+  <div class="markdown level1 summary"><p>Swizzles a matrix, i.e. switches rows of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix2d Swizzle(Matrix2d mat, int rowForRow0, int rowForRow1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><span class="parametername">mat</span></td>
+        <td><p>The matrix to swizzle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow0</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row0">Row0</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow1</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row1">Row1</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><p>The swizzled matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception">IndexOutOfRangeException</a></td>
+        <td><p>If any of the rows are outside of the range [0, 1].</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Matrix2d_Swizzle_" data-uid="OpenTK.Mathematics.Matrix2d.Swizzle*"></a>
+  <h4 id="OpenTK_Mathematics_Matrix2d_Swizzle_OpenTK_Mathematics_Matrix2d__System_Int32_System_Int32_OpenTK_Mathematics_Matrix2d__" data-uid="OpenTK.Mathematics.Matrix2d.Swizzle(OpenTK.Mathematics.Matrix2d@,System.Int32,System.Int32,OpenTK.Mathematics.Matrix2d@)">Swizzle(in Matrix2d, int, int, out Matrix2d)</h4>
+  <div class="markdown level1 summary"><p>Swizzles a matrix, i.e. switches rows of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Swizzle(in Matrix2d mat, int rowForRow0, int rowForRow1, out Matrix2d result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><span class="parametername">mat</span></td>
+        <td><p>The matrix to swizzle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow0</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row0">Row0</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow1</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row1">Row1</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The swizzled matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception">IndexOutOfRangeException</a></td>
+        <td><p>If any of the rows are outside of the range [0, 1].</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Matrix2d_Swizzle_" data-uid="OpenTK.Mathematics.Matrix2d.Swizzle*"></a>
+  <h4 id="OpenTK_Mathematics_Matrix2d_Swizzle_System_Int32_System_Int32_" data-uid="OpenTK.Mathematics.Matrix2d.Swizzle(System.Int32,System.Int32)">Swizzle(int, int)</h4>
+  <div class="markdown level1 summary"><p>Swizzles this instance. Swiches places of the rows of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Swizzle(int rowForRow0, int rowForRow1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow0</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row0">Row0</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow1</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row1">Row1</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Matrix2d_Swizzled_" data-uid="OpenTK.Mathematics.Matrix2d.Swizzled*"></a>
+  <h4 id="OpenTK_Mathematics_Matrix2d_Swizzled_System_Int32_System_Int32_" data-uid="OpenTK.Mathematics.Matrix2d.Swizzled(System.Int32,System.Int32)">Swizzled(int, int)</h4>
+  <div class="markdown level1 summary"><p>Returns a swizzled copy of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Matrix2d Swizzled(int rowForRow0, int rowForRow1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow0</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row0">Row0</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rowForRow1</span></td>
+        <td><p>Which row to place in <a class="xref" href="OpenTK.Mathematics.Matrix2d.html#OpenTK_Mathematics_Matrix2d_Row1">Row1</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><p>The swizzled copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="OpenTK_Mathematics_Matrix2d_ToString_" data-uid="OpenTK.Mathematics.Matrix2d.ToString*"></a>
   <h4 id="OpenTK_Mathematics_Matrix2d_ToString" data-uid="OpenTK.Mathematics.Matrix2d.ToString">ToString()</h4>
   <div class="markdown level1 summary"><p>Returns a System.String that represents the current Matrix4.</p>
@@ -1648,7 +1981,7 @@ public static Matrix2d Subtract(Matrix2d left, Matrix2d right)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1674,7 +2007,7 @@ public static Matrix2d Subtract(Matrix2d left, Matrix2d right)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly string ToString(IFormatProvider formatProvider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1714,7 +2047,7 @@ public static Matrix2d Subtract(Matrix2d left, Matrix2d right)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string format, IFormatProvider formatProvider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1759,7 +2092,7 @@ public static Matrix2d Subtract(Matrix2d left, Matrix2d right)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string format)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1795,7 +2128,7 @@ public static Matrix2d Subtract(Matrix2d left, Matrix2d right)</code></pre>
   </table>
   <a id="OpenTK_Mathematics_Matrix2d_Transpose_" data-uid="OpenTK.Mathematics.Matrix2d.Transpose*"></a>
   <h4 id="OpenTK_Mathematics_Matrix2d_Transpose" data-uid="OpenTK.Mathematics.Matrix2d.Transpose">Transpose()</h4>
-  <div class="markdown level1 summary"><p>Converts this instance to it's transpose.</p>
+  <div class="markdown level1 summary"><p>Converts this instance to its transpose.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1875,6 +2208,31 @@ public static Matrix2d Transpose(Matrix2d mat)</code></pre>
         <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
         <td><span class="parametername">result</span></td>
         <td><p>The transpose of the given matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="OpenTK_Mathematics_Matrix2d_Transposed_" data-uid="OpenTK.Mathematics.Matrix2d.Transposed*"></a>
+  <h4 id="OpenTK_Mathematics_Matrix2d_Transposed" data-uid="OpenTK.Mathematics.Matrix2d.Transposed">Transposed()</h4>
+  <div class="markdown level1 summary"><p>Returns a transposed copy of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Matrix2d Transposed()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenTK.Mathematics.Matrix2d.html">Matrix2d</a></td>
+        <td><p>The transposed copy.</p>
 </td>
       </tr>
     </tbody>

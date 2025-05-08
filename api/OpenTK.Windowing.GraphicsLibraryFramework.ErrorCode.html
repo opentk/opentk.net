@@ -108,6 +108,40 @@
 </td>
       </tr>
       <tr>
+        <td id="OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_CursorUnavailable">CursorUnavailable</td>
+        <td><p>The specified standard cursor shape is not available, either because the
+current platform cursor theme does not provide it or because it is not
+available on the platform.</p>
+<p>Platform or system settings limitation.
+Pick another <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.CursorShape.html">CursorShape</a> or create a custom cursor.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_FeatureUnavailable">FeatureUnavailable</td>
+        <td><p>The requested feature is not provided by the platform, so GLFW is unable to
+implement it.  The documentation for each function notes if it could emit
+this error.</p>
+<p>Platform or platform version limitation.  The error can be ignored
+unless the feature is critical to the application.</p>
+<p>
+A function call that emits this error has no effect other than the error and
+updating any existing out parameters.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_FeatureUnimplemented">FeatureUnimplemented</td>
+        <td><p>The requested feature has not yet been implemented in GLFW for this platform.</p>
+<p>An incomplete implementation of GLFW for this platform, hopefully
+fixed in a future release.  The error can be ignored unless the feature is
+critical to the application.</p>
+<p>
+A function call that emits this error has no effect other than the error and
+updating any existing out parameters.
+</p>
+</td>
+      </tr>
+      <tr>
         <td id="OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_FormatUnavailable">FormatUnavailable</td>
         <td><p>The requested format is unavailable.</p>
 </td>
@@ -150,6 +184,26 @@
       <tr>
         <td id="OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_PlatformError">PlatformError</td>
         <td><p>A platform-specific error occurred that doesn't fit into any more specific category.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_PlatformUnavailable">PlatformUnavailable</td>
+        <td><p>If emitted during initialization, no matching platform was found.  If the
+<a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform.html#OpenTK_Windowing_GraphicsLibraryFramework_InitHintPlatform_Platform">Platform</a> init hint was set to <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.html#OpenTK_Windowing_GraphicsLibraryFramework_Platform_Any">Any</a>,
+GLFW could not detect any of the platforms supported by this library binary,
+except for the Null platform.
+If the init hint was set to a specific platform, it is either not supported by this library
+binary or GLFW was not able to detect it.</p>
+<p>If emitted by a native access function, GLFW was initialized for a different platform
+than the function is for.</p>
+<p>Failure to detect any platform usually only happens on non-macOS Unix
+systems, either when no window system is running or the program was run from
+a terminal that does not have the necessary environment variables.  Fall back to
+a different platform if possible or notify the user that no usable platform was
+detected.</p>
+<p>Failure to detect a specific platform may have the same cause as above or be because
+support for that platform was not compiled in.  Call <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_PlatformSupported_OpenTK_Windowing_GraphicsLibraryFramework_Platform_">PlatformSupported(Platform)</a> to
+check whether a specific platform is supported by a library binary.</p>
 </td>
       </tr>
       <tr>

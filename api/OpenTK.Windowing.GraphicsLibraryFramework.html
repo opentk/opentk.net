@@ -118,6 +118,8 @@ On Linux to use GLFW compiled for Wayland set the environment variable <code>OPE
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GammaRamp.html">GammaRamp</a></h4>
       <section><p>Gamma ramp for a <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Monitor.html">Monitor</a>.</p>
 </section>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocator.html">GLFWallocator</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Image.html">Image</a></h4>
       <section><p>Contains GLFW Image data.</p>
 </section>
@@ -135,6 +137,8 @@ On Linux to use GLFW compiled for Wayland set the environment variable <code>OPE
 </section>
     <h3 id="enums">Enums
 </h3>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ANGLEPlatformType.html">ANGLEPlatformType</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ClientApi.html">ClientApi</a></h4>
       <section><p>The context client APIs.</p>
 </section>
@@ -157,6 +161,8 @@ See <a href="https://www.glfw.org/docs/latest/input_guide.html#cursor_mode">curs
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html">ErrorCode</a></h4>
       <section><p>Error codes, used in the error callback.</p>
 </section>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintANGLEPlatformType.html">InitHintANGLEPlatformType</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintBool.html">InitHintBool</a></h4>
       <section><p>Initialization hints are set before <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_Init">Init()</a> and affect how the library behaves until termination.
 Hints are set with <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_InitHint_OpenTK_Windowing_GraphicsLibraryFramework_InitHintBool_System_Boolean_">InitHint(InitHintBool, bool)</a>.</p>
@@ -165,6 +171,8 @@ Hints are set with <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramewo
       <section><p>Initialization hints are set before <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_Init">Init()</a> and affect how the library behaves until termination.
 Hints are set with <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFW.html#OpenTK_Windowing_GraphicsLibraryFramework_GLFW_InitHint_OpenTK_Windowing_GraphicsLibraryFramework_InitHintInt_System_Int32_">InitHint(InitHintInt, int)</a>.</p>
 </section>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.InitHintPlatform.html">InitHintPlatform</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.InputAction.html">InputAction</a></h4>
       <section><p>Defines event information for <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.KeyCallback.html">GLFWCallbacks.KeyCallback</a>
 or <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.MouseButtonCallback.html">GLFWCallbacks.MouseButtonCallback</a>.</p>
@@ -190,6 +198,8 @@ or <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.OpenGlProfile.html">OpenGlProfile</a></h4>
       <section><p>The OpenGL context profiles.</p>
 </section>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.Platform.html">Platform</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.RawMouseMotionAttribute.html">RawMouseMotionAttribute</a></h4>
       <section><p>Attribute for setting toggling raw mouse motion.</p>
 </section>
@@ -202,6 +212,8 @@ or <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.StickyAttributes.html">StickyAttributes</a></h4>
       <section><p>Attributes related to sticky keys and buttons.</p>
 </section>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.WaylandLibDecor.html">WaylandLibDecor</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.WindowAttribute.html">WindowAttribute</a></h4>
       <section><p>Used to set window related attributes.</p>
 </section>
@@ -252,6 +264,29 @@ or <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks
 </section>
     <h3 id="delegates">Delegates
 </h3>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWallocatefun.html">GLFWallocatefun</a></h4>
+      <section><p>The function pointer type for memory allocation callbacks.</p>
+<p>This is the function pointer type for memory allocation callbacks. A memory
+allocation callback function has the following signature:</p>
+<pre><code class="lang-csharp">void* function_name(size_t size, void* user)</code></pre>
+<p>This function must return either a memory block at least <code>size</code> bytes long,
+or <code>NULL</code> if allocation failed.Note that not all parts of GLFW handle allocation
+failures gracefully yet.</p>
+<p>This function must support being called during @ref glfwInit but before the library is
+flagged as initialized, as well as during @ref glfwTerminate after the library is no
+longer flagged as initialized.</p>
+<p>Any memory allocated via this function will be deallocated via the same allocator
+during library termination or earlier.</p>
+<p>Any memory allocated via this function must be suitably aligned for any object type.
+If you are using C99 or earlier, this alignment is platform-dependent but will be the
+same as what <code>malloc</code> provides.If you are using C11 or later, this is the value of
+<code>alignof(max_align_t)</code>.</p>
+<p>The size will always be greater than zero.  Allocations of size zero are filtered out
+before reaching the custom allocator.</p>
+<p>If this function returns <code>NULL</code>, GLFW will emit <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_OutOfMemory">OutOfMemory</a>.</p>
+<p>This function must not call any GLFW function.</p>
+<p>Added in version 3.4.</p>
+</section>
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.CharCallback.html">GLFWCallbacks.CharCallback</a></h4>
       <section><p>The function signature for Unicode character callback functions.</p>
 </section>
@@ -312,6 +347,47 @@ It is called for each input character, regardless of what modifier keys are held
 </section>
       <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWCallbacks.WindowSizeCallback.html">GLFWCallbacks.WindowSizeCallback</a></h4>
       <section><p>The function signature for window size callback functions.</p>
+</section>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWdeallocatefun.html">GLFWdeallocatefun</a></h4>
+      <section><p>The function pointer type for memory deallocation callbacks.</p>
+<p>This is the function pointer type for memory deallocation callbacks.
+A memory deallocation callback function has the following signature:
+@code
+void function_name(void* block, void* user)
+@endcode</p>
+<p>This function may deallocate the specified memory block.This memory block
+will have been allocated with the same allocator.</p>
+<p>This function must support being called during @ref glfwInit but before the library is
+flagged as initialized, as well as during @ref glfwTerminate after the library is no
+longer flagged as initialized.</p>
+<p>The block address will never be <code>NULL</code>.  Deallocations of <code>NULL</code> are filtered out
+before reaching the custom allocator.</p>
+<p>If this function returns <code>NULL</code>, GLFW will emit @ref GLFW_OUT_OF_MEMORY.</p>
+<p>This function must not call any GLFW function.</p>
+</section>
+      <h4><a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWreallocatefun.html">GLFWreallocatefun</a></h4>
+      <section><p>The function pointer type for memory reallocation callbacks.</p>
+<p>This is the function pointer type for memory reallocation callbacks.
+A memory reallocation callback function has the following signature:</p>
+<pre><code class="lang-csharp">void* function_name(void* block, size_t size, void* user)</code></pre>
+<p>This function must return a memory block at least <code>size</code> bytes long, or
+<code>null</code> if allocation failed. Note that not all parts of GLFW handle allocation
+failures gracefully yet.</p>
+<p>This function must support being called during <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwInit">glfwInit()</a> but before the library is
+flagged as initialized, as well as during <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.html#OpenTK.Windowing.GraphicsLibraryFramework.GLFWNative.glfwTerminate">glfwTerminate()</a> after the library is no
+longer flagged as initialized.</p>
+<p>Any memory allocated via this function will be deallocated via the same allocator
+during library termination or earlier.</p>
+<p>Any memory allocated via this function must be suitably aligned for any object type.
+If you are using C99 or earlier, this alignment is platform-dependent but will be the
+same as what <code>realloc</code> provides.If you are using C11 or later, this is the value of
+<code>alignof(max_align_t)</code>.</p>
+<p>The block address will never be <code>null</code> and the size will always be greater than zero.
+Reallocations of a block to size zero are converted into deallocations before reaching
+the custom allocator.Reallocations of <code>null</code> to a non-zero size are converted into
+regular allocations before reaching the custom allocator.</p>
+<p>If this function returns <code>null</code>, GLFW will emit <a class="xref" href="OpenTK.Windowing.GraphicsLibraryFramework.ErrorCode.html#OpenTK_Windowing_GraphicsLibraryFramework_ErrorCode_OutOfMemory">OutOfMemory</a>.</p>
+<p>This function must not call any GLFW function.</p>
 </section>
 
 

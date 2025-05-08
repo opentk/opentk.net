@@ -246,7 +246,7 @@ public struct Box2d : IEquatable&lt;Box2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2d Max { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2d Max { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -270,7 +270,7 @@ public struct Box2d : IEquatable&lt;Box2d&gt;, IFormattable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2d Min { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2d Min { readonly get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -321,7 +321,7 @@ public struct Box2d : IEquatable&lt;Box2d&gt;, IFormattable</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public bool Contains(Box2d other)</code></pre>
+public readonly bool Contains(Box2d other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -416,7 +416,7 @@ public bool Contains(Vector2d point, bool boundaryInclusive)</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
 [Obsolete(&quot;This function excludes borders even though it&#39;s documentation says otherwise. Use ContainsInclusive and ContainsExclusive for the desired behaviour.&quot;)]
-public bool Contains(Vector2d point)</code></pre>
+public readonly bool Contains(Vector2d point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -460,7 +460,7 @@ public bool Contains(Vector2d point)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public bool ContainsExclusive(Vector2d point)</code></pre>
+public readonly bool ContainsExclusive(Vector2d point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -504,7 +504,7 @@ public bool ContainsExclusive(Vector2d point)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public bool ContainsInclusive(Vector2d point)</code></pre>
+public readonly bool ContainsInclusive(Vector2d point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -548,7 +548,7 @@ public bool ContainsInclusive(Vector2d point)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public double DistanceToNearestEdge(Vector2d point)</code></pre>
+public readonly double DistanceToNearestEdge(Vector2d point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -701,7 +701,7 @@ public double DistanceToNearestEdge(Vector2d point)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Box2d Extended(Vector2d point)</code></pre>
+public readonly Box2d Extended(Vector2d point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -743,7 +743,7 @@ public Box2d Extended(Vector2d point)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -799,7 +799,7 @@ Use the <a class="xref" href="OpenTK.Mathematics.Box2d.html#OpenTK_Mathematics_B
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Box2d Inflated(Vector2d size)</code></pre>
+public readonly Box2d Inflated(Vector2d size)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -876,7 +876,7 @@ public Box2d Inflated(Vector2d size)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Box2d Scaled(Vector2d scale, Vector2d anchor)</code></pre>
+public readonly Box2d Scaled(Vector2d scale, Vector2d anchor)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1103,7 +1103,7 @@ public Box2d Scaled(Vector2d scale, Vector2d anchor)</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Box2d Translated(Vector2d distance)</code></pre>
+public readonly Box2d Translated(Vector2d distance)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">

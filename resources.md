@@ -8,6 +8,7 @@
 
 ## Legacy Projects
 These projects target old versions of OpenTK and may be out-dated.
+
 | Title                                                                                                                                           | Author        | OpenTK Version | OpenGL Version | Type     | Details                                                                                                                                              |
 |-----------------------------|---------------|----------------|----------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Cgen.Audio](https://github.com/SirusDoma/Cgen.Audio)                  | SirusDoma     |                |                | Library  | |

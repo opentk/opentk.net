@@ -8,6 +8,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.#ctor(OpenTK.Windowing.Desktop.NativeWindowSettings)
   - OpenTK.Windowing.Desktop.NativeWindow.API
   - OpenTK.Windowing.Desktop.NativeWindow.APIVersion
+  - OpenTK.Windowing.Desktop.NativeWindow.AlwaysOnTop
   - OpenTK.Windowing.Desktop.NativeWindow.AspectRatio
   - OpenTK.Windowing.Desktop.NativeWindow.AutoIconify
   - OpenTK.Windowing.Desktop.NativeWindow.Bounds
@@ -55,6 +56,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.KeyboardState
   - OpenTK.Windowing.Desktop.NativeWindow.Location
   - OpenTK.Windowing.Desktop.NativeWindow.MakeCurrent
+  - OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
   - OpenTK.Windowing.Desktop.NativeWindow.Maximized
   - OpenTK.Windowing.Desktop.NativeWindow.MaximumSize
   - OpenTK.Windowing.Desktop.NativeWindow.Minimized
@@ -63,6 +65,7 @@ items:
   - OpenTK.Windowing.Desktop.NativeWindow.MouseEnter
   - OpenTK.Windowing.Desktop.NativeWindow.MouseLeave
   - OpenTK.Windowing.Desktop.NativeWindow.MouseMove
+  - OpenTK.Windowing.Desktop.NativeWindow.MousePassthrough
   - OpenTK.Windowing.Desktop.NativeWindow.MousePosition
   - OpenTK.Windowing.Desktop.NativeWindow.MouseState
   - OpenTK.Windowing.Desktop.NativeWindow.MouseUp
@@ -117,7 +120,7 @@ items:
   source:
     id: NativeWindow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 23
+    startLine: 24
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -154,7 +157,7 @@ items:
   source:
     id: WindowPtr
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -181,7 +184,7 @@ items:
   source:
     id: KeyboardState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 52
+    startLine: 53
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -208,7 +211,7 @@ items:
   source:
     id: JoystickStates
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 59
+    startLine: 60
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -235,7 +238,7 @@ items:
   source:
     id: MousePosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 69
+    startLine: 70
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -267,7 +270,7 @@ items:
   source:
     id: MouseState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 85
+    startLine: 86
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -294,7 +297,7 @@ items:
   source:
     id: IsAnyKeyDown
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 91
+    startLine: 92
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -322,7 +325,7 @@ items:
   source:
     id: IsAnyMouseButtonDown
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 97
+    startLine: 98
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -350,7 +353,7 @@ items:
   source:
     id: VSync
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 107
+    startLine: 108
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -378,7 +381,7 @@ items:
   source:
     id: AutoIconify
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 147
+    startLine: 148
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -408,7 +411,7 @@ items:
   source:
     id: Icon
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 171
+    startLine: 172
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -441,7 +444,7 @@ items:
   source:
     id: IsEventDriven
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 209
+    startLine: 210
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -473,7 +476,7 @@ items:
   source:
     id: ClipboardString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 214
+    startLine: 215
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -500,7 +503,7 @@ items:
   source:
     id: Title
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 238
+    startLine: 239
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -527,7 +530,7 @@ items:
   source:
     id: API
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 255
+    startLine: 256
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -554,7 +557,7 @@ items:
   source:
     id: Profile
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 260
+    startLine: 261
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -581,7 +584,7 @@ items:
   source:
     id: Flags
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 265
+    startLine: 266
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -608,7 +611,7 @@ items:
   source:
     id: APIVersion
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 270
+    startLine: 271
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -635,7 +638,7 @@ items:
   source:
     id: Context
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 275
+    startLine: 276
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -662,19 +665,27 @@ items:
   source:
     id: CurrentMonitor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 282
+    startLine: 284
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
-  summary: Gets or sets the current <xref href="OpenTK.Windowing.Common.MonitorHandle" data-throw-if-not-resolved="false"></xref>.
+  summary: >-
+    Gets the current <xref href="OpenTK.Windowing.Desktop.MonitorInfo" data-throw-if-not-resolved="false"></xref> of the monitor that the window is currently on.
+
+    To make the window fullscreen use <xref href="OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle%2cSystem.Nullable%7bSystem.Int32%7d%2cSystem.Nullable%7bSystem.Int32%7d%2cSystem.Nullable%7bSystem.Int32%7d)" data-throw-if-not-resolved="false"></xref> or <xref href="OpenTK.Windowing.Desktop.NativeWindow.WindowState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public MonitorHandle CurrentMonitor { get; set; }
+    content: public MonitorInfo CurrentMonitor { get; set; }
     parameters: []
     return:
-      type: OpenTK.Windowing.Common.MonitorHandle
-    content.vb: Public Property CurrentMonitor As MonitorHandle
+      type: OpenTK.Windowing.Desktop.MonitorInfo
+    content.vb: Public Property CurrentMonitor As MonitorInfo
   overload: OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor*
+  seealso:
+  - linkId: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+    commentId: M:OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  - linkId: OpenTK.Windowing.Desktop.NativeWindow.WindowState
+    commentId: P:OpenTK.Windowing.Desktop.NativeWindow.WindowState
 - uid: OpenTK.Windowing.Desktop.NativeWindow.IsFocused
   commentId: P:OpenTK.Windowing.Desktop.NativeWindow.IsFocused
   id: IsFocused
@@ -689,7 +700,7 @@ items:
   source:
     id: IsFocused
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 311
+    startLine: 300
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -716,7 +727,7 @@ items:
   source:
     id: Focus
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 319
+    startLine: 308
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -740,7 +751,7 @@ items:
   source:
     id: IsVisible
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 329
+    startLine: 318
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -767,7 +778,7 @@ items:
   source:
     id: Exists
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 353
+    startLine: 342
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -794,7 +805,7 @@ items:
   source:
     id: IsExiting
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 359
+    startLine: 348
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -824,7 +835,7 @@ items:
   source:
     id: WindowState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 366
+    startLine: 355
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -851,7 +862,7 @@ items:
   source:
     id: WindowBorder
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 414
+    startLine: 406
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -864,6 +875,65 @@ items:
       type: OpenTK.Windowing.Common.WindowBorder
     content.vb: Public Property WindowBorder As WindowBorder
   overload: OpenTK.Windowing.Desktop.NativeWindow.WindowBorder*
+- uid: OpenTK.Windowing.Desktop.NativeWindow.MousePassthrough
+  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.MousePassthrough
+  id: MousePassthrough
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  langs:
+  - csharp
+  - vb
+  name: MousePassthrough
+  nameWithType: NativeWindow.MousePassthrough
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.MousePassthrough
+  type: Property
+  source:
+    id: MousePassthrough
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
+    startLine: 445
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: >-
+    Gets or sets if the window should be transparent to mouse input.
+
+    This only works for windows with window border set to <xref href="OpenTK.Windowing.Common.WindowBorder.Hidden" data-throw-if-not-resolved="false"></xref>,
+
+    other borders will behave differently between platforms.
+  example: []
+  syntax:
+    content: public bool MousePassthrough { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property MousePassthrough As Boolean
+  overload: OpenTK.Windowing.Desktop.NativeWindow.MousePassthrough*
+- uid: OpenTK.Windowing.Desktop.NativeWindow.AlwaysOnTop
+  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.AlwaysOnTop
+  id: AlwaysOnTop
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  langs:
+  - csharp
+  - vb
+  name: AlwaysOnTop
+  nameWithType: NativeWindow.AlwaysOnTop
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.AlwaysOnTop
+  type: Property
+  source:
+    id: AlwaysOnTop
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
+    startLine: 461
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: Gets or sets if this window will be displayed on top of all other windows.
+  example: []
+  syntax:
+    content: public bool AlwaysOnTop { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AlwaysOnTop As Boolean
+  overload: OpenTK.Windowing.Desktop.NativeWindow.AlwaysOnTop*
 - uid: OpenTK.Windowing.Desktop.NativeWindow.Bounds
   commentId: P:OpenTK.Windowing.Desktop.NativeWindow.Bounds
   id: Bounds
@@ -878,7 +948,7 @@ items:
   source:
     id: Bounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 453
+    startLine: 479
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -910,7 +980,7 @@ items:
   source:
     id: Location
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 471
+    startLine: 497
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -940,7 +1010,7 @@ items:
   source:
     id: ClientLocation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 492
+    startLine: 518
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -970,7 +1040,7 @@ items:
   source:
     id: Size
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 512
+    startLine: 538
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -997,7 +1067,7 @@ items:
   source:
     id: ClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 537
+    startLine: 563
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1024,7 +1094,7 @@ items:
   source:
     id: FramebufferSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 554
+    startLine: 580
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1051,7 +1121,7 @@ items:
   source:
     id: MinimumSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 570
+    startLine: 596
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1082,7 +1152,7 @@ items:
   source:
     id: MaximumSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 587
+    startLine: 613
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1113,7 +1183,7 @@ items:
   source:
     id: AspectRatio
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 606
+    startLine: 632
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1144,7 +1214,7 @@ items:
   source:
     id: ClientRectangle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 621
+    startLine: 647
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1176,7 +1246,7 @@ items:
   source:
     id: IsFullscreen
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 635
+    startLine: 661
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1206,7 +1276,7 @@ items:
   source:
     id: Cursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 641
+    startLine: 667
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1234,7 +1304,7 @@ items:
   source:
     id: CursorState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 690
+    startLine: 716
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1261,7 +1331,7 @@ items:
   source:
     id: RawMouseInput
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 735
+    startLine: 766
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1293,7 +1363,7 @@ items:
   source:
     id: SupportsRawMouseInput
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 754
+    startLine: 785
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1320,7 +1390,7 @@ items:
   source:
     id: HasTransparentFramebuffer
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 760
+    startLine: 791
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1350,7 +1420,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 766
+    startLine: 799
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1364,6 +1434,13 @@ items:
       description: The <xref href="OpenTK.Windowing.Desktop.NativeWindow" data-throw-if-not-resolved="false"></xref> related settings.
     content.vb: Public Sub New(settings As NativeWindowSettings)
   overload: OpenTK.Windowing.Desktop.NativeWindow.#ctor*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: If GLFW fails to create a window.
+  - type: System.OutOfMemoryException
+    commentId: T:System.OutOfMemoryException
+    description: If GLFW can't create a window because we're out of memory.
   nameWithType.vb: NativeWindow.New(NativeWindowSettings)
   fullName.vb: OpenTK.Windowing.Desktop.NativeWindow.New(OpenTK.Windowing.Desktop.NativeWindowSettings)
   name.vb: New(NativeWindowSettings)
@@ -1381,7 +1458,7 @@ items:
   source:
     id: Close
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1397
+    startLine: 1463
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1405,7 +1482,7 @@ items:
   source:
     id: MakeCurrent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1411
+    startLine: 1477
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1429,7 +1506,7 @@ items:
   source:
     id: ProcessEvents
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1426
+    startLine: 1492
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1463,7 +1540,7 @@ items:
   source:
     id: ProcessWindowEvents
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1443
+    startLine: 1509
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1495,7 +1572,7 @@ items:
   source:
     id: NewInputFrame
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1493
+    startLine: 1559
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1522,7 +1599,7 @@ items:
   source:
     id: PointToClient
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1513
+    startLine: 1579
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1553,7 +1630,7 @@ items:
   source:
     id: PointToScreen
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1527
+    startLine: 1593
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1584,7 +1661,7 @@ items:
   source:
     id: Move
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1535
+    startLine: 1601
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1609,7 +1686,7 @@ items:
   source:
     id: Resize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1540
+    startLine: 1606
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1634,7 +1711,7 @@ items:
   source:
     id: FramebufferResize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1545
+    startLine: 1611
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1659,7 +1736,7 @@ items:
   source:
     id: Refresh
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1550
+    startLine: 1616
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1684,7 +1761,7 @@ items:
   source:
     id: Closing
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1555
+    startLine: 1621
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1709,7 +1786,7 @@ items:
   source:
     id: Minimized
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1560
+    startLine: 1626
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1734,7 +1811,7 @@ items:
   source:
     id: Maximized
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1565
+    startLine: 1631
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1759,7 +1836,7 @@ items:
   source:
     id: JoystickConnected
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1570
+    startLine: 1636
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1784,7 +1861,7 @@ items:
   source:
     id: FocusedChanged
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1575
+    startLine: 1641
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1809,7 +1886,7 @@ items:
   source:
     id: KeyDown
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1580
+    startLine: 1646
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1834,7 +1911,7 @@ items:
   source:
     id: TextInput
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1585
+    startLine: 1651
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1859,7 +1936,7 @@ items:
   source:
     id: KeyUp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1590
+    startLine: 1656
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1884,7 +1961,7 @@ items:
   source:
     id: MouseLeave
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1596
+    startLine: 1662
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1909,7 +1986,7 @@ items:
   source:
     id: MouseEnter
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1602
+    startLine: 1668
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1934,7 +2011,7 @@ items:
   source:
     id: MouseDown
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1607
+    startLine: 1673
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1959,7 +2036,7 @@ items:
   source:
     id: MouseUp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1612
+    startLine: 1678
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -1984,7 +2061,7 @@ items:
   source:
     id: MouseMove
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1617
+    startLine: 1683
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2009,7 +2086,7 @@ items:
   source:
     id: MouseWheel
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1622
+    startLine: 1688
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2034,7 +2111,7 @@ items:
   source:
     id: FileDrop
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1627
+    startLine: 1693
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2059,7 +2136,7 @@ items:
   source:
     id: IsKeyDown
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1634
+    startLine: 1700
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2090,7 +2167,7 @@ items:
   source:
     id: IsKeyPressed
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1647
+    startLine: 1713
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2122,7 +2199,7 @@ items:
   source:
     id: IsKeyReleased
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1660
+    startLine: 1726
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2154,7 +2231,7 @@ items:
   source:
     id: IsMouseButtonDown
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1670
+    startLine: 1736
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2185,7 +2262,7 @@ items:
   source:
     id: IsMouseButtonPressed
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1683
+    startLine: 1749
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2217,7 +2294,7 @@ items:
   source:
     id: IsMouseButtonReleased
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1696
+    startLine: 1762
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2249,7 +2326,7 @@ items:
   source:
     id: TryGetCurrentMonitorScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1707
+    startLine: 1773
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2286,7 +2363,7 @@ items:
   source:
     id: TryGetCurrentMonitorDpi
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1726
+    startLine: 1792
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2329,7 +2406,7 @@ items:
   source:
     id: TryGetCurrentMonitorDpiRaw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1745
+    startLine: 1811
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2372,7 +2449,7 @@ items:
   source:
     id: OnMove
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1757
+    startLine: 1823
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2400,7 +2477,7 @@ items:
   source:
     id: OnResize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1766
+    startLine: 1832
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2428,7 +2505,7 @@ items:
   source:
     id: OnFramebufferResize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1775
+    startLine: 1841
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2456,7 +2533,7 @@ items:
   source:
     id: OnRefresh
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1783
+    startLine: 1849
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2480,7 +2557,7 @@ items:
   source:
     id: OnClosing
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1792
+    startLine: 1858
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2508,7 +2585,7 @@ items:
   source:
     id: OnJoystickConnected
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1801
+    startLine: 1867
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2536,7 +2613,7 @@ items:
   source:
     id: OnFocusedChanged
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1810
+    startLine: 1876
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2564,7 +2641,7 @@ items:
   source:
     id: OnKeyDown
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1821
+    startLine: 1887
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2592,7 +2669,7 @@ items:
   source:
     id: OnTextInput
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1830
+    startLine: 1896
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2620,7 +2697,7 @@ items:
   source:
     id: OnKeyUp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1839
+    startLine: 1905
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2648,7 +2725,7 @@ items:
   source:
     id: OnMouseLeave
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1847
+    startLine: 1913
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2672,7 +2749,7 @@ items:
   source:
     id: OnMouseEnter
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1855
+    startLine: 1921
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2696,7 +2773,7 @@ items:
   source:
     id: OnMouseDown
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1864
+    startLine: 1930
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2724,7 +2801,7 @@ items:
   source:
     id: OnMouseUp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1873
+    startLine: 1939
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2752,7 +2829,7 @@ items:
   source:
     id: OnMouseMove
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1882
+    startLine: 1948
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2780,7 +2857,7 @@ items:
   source:
     id: OnMouseWheel
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1891
+    startLine: 1957
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2808,7 +2885,7 @@ items:
   source:
     id: OnMinimized
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1901
+    startLine: 1967
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2839,7 +2916,7 @@ items:
   source:
     id: OnMaximized
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1913
+    startLine: 1979
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2870,7 +2947,7 @@ items:
   source:
     id: OnFileDrop
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1924
+    startLine: 1990
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2898,7 +2975,7 @@ items:
   source:
     id: Dispose
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1932
+    startLine: 1998
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2928,7 +3005,7 @@ items:
   source:
     id: Finalize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1960
+    startLine: 2034
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2955,7 +3032,7 @@ items:
   source:
     id: Dispose
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 1966
+    startLine: 2040
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -2981,7 +3058,7 @@ items:
   source:
     id: CenterWindow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 2007
+    startLine: 2081
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3005,7 +3082,7 @@ items:
   source:
     id: CenterWindow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
-    startLine: 2013
+    startLine: 2087
   assemblies:
   - OpenTK.Windowing.Desktop
   namespace: OpenTK.Windowing.Desktop
@@ -3019,6 +3096,54 @@ items:
       description: The size to make the centered window.
     content.vb: Public Sub CenterWindow(newSize As Vector2i)
   overload: OpenTK.Windowing.Desktop.NativeWindow.CenterWindow*
+- uid: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  commentId: M:OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  id: MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  langs:
+  - csharp
+  - vb
+  name: MakeFullscreen(MonitorHandle, int?, int?, int?)
+  nameWithType: NativeWindow.MakeFullscreen(MonitorHandle, int?, int?, int?)
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle, int?, int?, int?)
+  type: Method
+  source:
+    id: MakeFullscreen
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Windowing.Desktop\NativeWindow.cs
+    startLine: 2123
+  assemblies:
+  - OpenTK.Windowing.Desktop
+  namespace: OpenTK.Windowing.Desktop
+  summary: >-
+    Make the window fullscreen with the specified resolution and refresh rate.
+
+    This function is meant to provide greater control than <xref href="OpenTK.Windowing.Desktop.NativeWindow.WindowState" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor" data-throw-if-not-resolved="false"></xref> when making the window fullscreen.
+  example: []
+  syntax:
+    content: public void MakeFullscreen(MonitorHandle monitor, int? horizontalResolution = null, int? verticalResolution = null, int? refreshRate = null)
+    parameters:
+    - id: monitor
+      type: OpenTK.Windowing.Common.MonitorHandle
+      description: The monitor on which to make the window fullscreen.
+    - id: horizontalResolution
+      type: System.Nullable{System.Int32}
+      description: The horizontal resolution to switch the screen to, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the monitor resolution.
+    - id: verticalResolution
+      type: System.Nullable{System.Int32}
+      description: The vertical resoltion to switch the screen to, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the monitor resolution.
+    - id: refreshRate
+      type: System.Nullable{System.Int32}
+      description: The refresh rate to use, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to not change refresh rate.
+    content.vb: Public Sub MakeFullscreen(monitor As MonitorHandle, horizontalResolution As Integer? = Nothing, verticalResolution As Integer? = Nothing, refreshRate As Integer? = Nothing)
+  overload: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen*
+  seealso:
+  - linkId: OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor
+    commentId: P:OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor
+  - linkId: OpenTK.Windowing.Desktop.NativeWindow.WindowState
+    commentId: P:OpenTK.Windowing.Desktop.NativeWindow.WindowState
+  nameWithType.vb: NativeWindow.MakeFullscreen(MonitorHandle, Integer?, Integer?, Integer?)
+  fullName.vb: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle, Integer?, Integer?, Integer?)
+  name.vb: MakeFullscreen(MonitorHandle, Integer?, Integer?, Integer?)
 references:
 - uid: OpenTK.Windowing.Desktop
   commentId: N:OpenTK.Windowing.Desktop
@@ -3749,13 +3874,91 @@ references:
   name: IGLFWGraphicsContext
   nameWithType: IGLFWGraphicsContext
   fullName: OpenTK.Windowing.Desktop.IGLFWGraphicsContext
-- uid: OpenTK.Windowing.Common.MonitorHandle
-  commentId: T:OpenTK.Windowing.Common.MonitorHandle
-  parent: OpenTK.Windowing.Common
-  href: OpenTK.Windowing.Common.MonitorHandle.html
-  name: MonitorHandle
-  nameWithType: MonitorHandle
-  fullName: OpenTK.Windowing.Common.MonitorHandle
+- uid: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  commentId: M:OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  isExternal: true
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_MakeFullscreen_OpenTK_Windowing_Common_MonitorHandle_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__
+  name: MakeFullscreen(MonitorHandle, int?, int?, int?)
+  nameWithType: NativeWindow.MakeFullscreen(MonitorHandle, int?, int?, int?)
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle, int?, int?, int?)
+  nameWithType.vb: NativeWindow.MakeFullscreen(MonitorHandle, Integer?, Integer?, Integer?)
+  fullName.vb: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle, Integer?, Integer?, Integer?)
+  name.vb: MakeFullscreen(MonitorHandle, Integer?, Integer?, Integer?)
+  spec.csharp:
+  - uid: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+    name: MakeFullscreen
+    href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_MakeFullscreen_OpenTK_Windowing_Common_MonitorHandle_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__
+  - name: (
+  - uid: OpenTK.Windowing.Common.MonitorHandle
+    name: MonitorHandle
+    href: OpenTK.Windowing.Common.MonitorHandle.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen(OpenTK.Windowing.Common.MonitorHandle,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+    name: MakeFullscreen
+    href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_MakeFullscreen_OpenTK_Windowing_Common_MonitorHandle_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__
+  - name: (
+  - uid: OpenTK.Windowing.Common.MonitorHandle
+    name: MonitorHandle
+    href: OpenTK.Windowing.Common.MonitorHandle.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: )
+- uid: OpenTK.Windowing.Desktop.NativeWindow.WindowState
+  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.WindowState
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_WindowState
+  name: WindowState
+  nameWithType: NativeWindow.WindowState
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.WindowState
+- uid: OpenTK.Windowing.Desktop.MonitorInfo
+  commentId: T:OpenTK.Windowing.Desktop.MonitorInfo
+  parent: OpenTK.Windowing.Desktop
+  href: OpenTK.Windowing.Desktop.MonitorInfo.html
+  name: MonitorInfo
+  nameWithType: MonitorInfo
+  fullName: OpenTK.Windowing.Desktop.MonitorInfo
 - uid: OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor*
   commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor
   href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_CurrentMonitor
@@ -3792,13 +3995,6 @@ references:
   name: IsExiting
   nameWithType: NativeWindow.IsExiting
   fullName: OpenTK.Windowing.Desktop.NativeWindow.IsExiting
-- uid: OpenTK.Windowing.Desktop.NativeWindow.WindowState
-  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.WindowState
-  parent: OpenTK.Windowing.Desktop.NativeWindow
-  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_WindowState
-  name: WindowState
-  nameWithType: NativeWindow.WindowState
-  fullName: OpenTK.Windowing.Desktop.NativeWindow.WindowState
 - uid: OpenTK.Windowing.Desktop.NativeWindow.WindowState*
   commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.WindowState
   href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_WindowState
@@ -3832,6 +4028,24 @@ references:
   name: WindowBorder
   nameWithType: WindowBorder
   fullName: OpenTK.Windowing.Common.WindowBorder
+- uid: OpenTK.Windowing.Common.WindowBorder.Hidden
+  commentId: F:OpenTK.Windowing.Common.WindowBorder.Hidden
+  href: OpenTK.Windowing.Common.WindowBorder.html#OpenTK_Windowing_Common_WindowBorder_Hidden
+  name: Hidden
+  nameWithType: WindowBorder.Hidden
+  fullName: OpenTK.Windowing.Common.WindowBorder.Hidden
+- uid: OpenTK.Windowing.Desktop.NativeWindow.MousePassthrough*
+  commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.MousePassthrough
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_MousePassthrough
+  name: MousePassthrough
+  nameWithType: NativeWindow.MousePassthrough
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.MousePassthrough
+- uid: OpenTK.Windowing.Desktop.NativeWindow.AlwaysOnTop*
+  commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.AlwaysOnTop
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_AlwaysOnTop
+  name: AlwaysOnTop
+  nameWithType: NativeWindow.AlwaysOnTop
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.AlwaysOnTop
 - uid: OpenTK.Mathematics.Box2i
   commentId: T:OpenTK.Mathematics.Box2i
   parent: OpenTK.Mathematics
@@ -4094,6 +4308,20 @@ references:
   name: HasTransparentFramebuffer
   nameWithType: NativeWindow.HasTransparentFramebuffer
   fullName: OpenTK.Windowing.Desktop.NativeWindow.HasTransparentFramebuffer
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: System.OutOfMemoryException
+  commentId: T:System.OutOfMemoryException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.outofmemoryexception
+  name: OutOfMemoryException
+  nameWithType: OutOfMemoryException
+  fullName: System.OutOfMemoryException
 - uid: OpenTK.Windowing.Desktop.NativeWindow.#ctor*
   commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.#ctor
   href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow__ctor_OpenTK_Windowing_Desktop_NativeWindowSettings_
@@ -5342,3 +5570,46 @@ references:
   name: CenterWindow
   nameWithType: NativeWindow.CenterWindow
   fullName: OpenTK.Windowing.Desktop.NativeWindow.CenterWindow
+- uid: OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor
+  commentId: P:OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor
+  parent: OpenTK.Windowing.Desktop.NativeWindow
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_CurrentMonitor
+  name: CurrentMonitor
+  nameWithType: NativeWindow.CurrentMonitor
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.CurrentMonitor
+- uid: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen*
+  commentId: Overload:OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen
+  href: OpenTK.Windowing.Desktop.NativeWindow.html#OpenTK_Windowing_Desktop_NativeWindow_MakeFullscreen_OpenTK_Windowing_Common_MonitorHandle_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__
+  name: MakeFullscreen
+  nameWithType: NativeWindow.MakeFullscreen
+  fullName: OpenTK.Windowing.Desktop.NativeWindow.MakeFullscreen
+- uid: OpenTK.Windowing.Common.MonitorHandle
+  commentId: T:OpenTK.Windowing.Common.MonitorHandle
+  parent: OpenTK.Windowing.Common
+  href: OpenTK.Windowing.Common.MonitorHandle.html
+  name: MonitorHandle
+  nameWithType: MonitorHandle
+  fullName: OpenTK.Windowing.Common.MonitorHandle
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'

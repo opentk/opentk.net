@@ -15,6 +15,8 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(System.String)
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.Name
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.Provides
+  - OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon(OpenTK.Platform.IconHandle)
+  - OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode,System.Single)
   - OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize
   langs:
   - csharp
@@ -26,7 +28,7 @@ items:
   source:
     id: MacOSShellComponent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 13
+    startLine: 15
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -60,10 +62,11 @@ items:
   source:
     id: Name
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 37
+    startLine: 81
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: Name of the abstraction layer component.
   example: []
   syntax:
     content: public string Name { get; }
@@ -88,10 +91,11 @@ items:
   source:
     id: Provides
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 40
+    startLine: 84
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: Specifies which PAL components this object provides.
   example: []
   syntax:
     content: public PalComponents Provides { get; }
@@ -116,10 +120,11 @@ items:
   source:
     id: Logger
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 43
+    startLine: 87
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: The logger that this component uses to log diagnostic messages.
   example: []
   syntax:
     content: public ILogger? Logger { get; set; }
@@ -128,6 +133,11 @@ items:
       type: OpenTK.Core.Utility.ILogger
     content.vb: Public Property Logger As ILogger
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.Logger*
+  seealso:
+  - linkId: OpenTK.Core.Utility.ILogger
+    commentId: T:OpenTK.Core.Utility.ILogger
+  - linkId: OpenTK.Platform.ToolkitOptions.Logger
+    commentId: P:OpenTK.Platform.ToolkitOptions.Logger
   implements:
   - OpenTK.Platform.IPalComponent.Logger
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.Initialize(OpenTK.Platform.ToolkitOptions)
@@ -144,18 +154,25 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 50
+    startLine: 99
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: Initialize the component.
   example: []
   syntax:
     content: public void Initialize(ToolkitOptions options)
     parameters:
     - id: options
       type: OpenTK.Platform.ToolkitOptions
+      description: The options to initialize the component with.
     content.vb: Public Sub Initialize(options As ToolkitOptions)
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.Initialize*
+  seealso:
+  - linkId: OpenTK.Platform.ToolkitOptions
+    commentId: T:OpenTK.Platform.ToolkitOptions
+  - linkId: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
   implements:
   - OpenTK.Platform.IPalComponent.Initialize(OpenTK.Platform.ToolkitOptions)
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.Uninitialize
@@ -172,7 +189,7 @@ items:
   source:
     id: Uninitialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 62
+    startLine: 136
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -201,20 +218,42 @@ items:
   source:
     id: AllowScreenSaver
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 68
+    startLine: 250
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: >-
+    Sets whether or not a screensaver is allowed to draw on top of the window.
+
+    For games with long cutscenes it would be appropriate to set this to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>,
+
+    while tools that act like normal applications should set this to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+
+    By default this setting is untouched.
   example: []
   syntax:
     content: public void AllowScreenSaver(bool allow, string? disableReason)
     parameters:
     - id: allow
       type: System.Boolean
+      description: Whether to allow screensavers to appear while the application is running.
     - id: disableReason
       type: System.String
+      description: >-
+        A reason for why the screen saver is disabled.
+
+        This string should both contain the reason why the screen saver is disabed as well as the name of the
+
+        application so the user knows which application is preventing the screen saver from running.
+
+        If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is sent the following default message will be sent:
+
+        <pre><code class="lang-csharp">$"{ApplicationName} is is preventing screen saver."</code></pre>
     content.vb: Public Sub AllowScreenSaver(allow As Boolean, disableReason As String)
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver*
+  seealso:
+  - linkId: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    commentId: M:OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
   implements:
   - OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
   nameWithType.vb: MacOSShellComponent.AllowScreenSaver(Boolean, String)
@@ -234,17 +273,22 @@ items:
   source:
     id: IsScreenSaverAllowed
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 100
+    startLine: 282
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: Gets if the screen saver is allowed to run or not.
   example: []
   syntax:
     content: public bool IsScreenSaverAllowed()
     return:
       type: System.Boolean
+      description: If the screen saver is allowed to run.
     content.vb: Public Function IsScreenSaverAllowed() As Boolean
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed*
+  seealso:
+  - linkId: OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
+    commentId: M:OpenTK.Platform.IShellComponent.AllowScreenSaver(System.Boolean,System.String)
   implements:
   - OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo(OpenTK.Platform.BatteryInfo@)
@@ -261,18 +305,23 @@ items:
   source:
     id: GetBatteryInfo
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 106
+    startLine: 288
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: Gets the battery status of the computer.
   example: []
   syntax:
     content: public BatteryStatus GetBatteryInfo(out BatteryInfo batteryInfo)
     parameters:
     - id: batteryInfo
       type: OpenTK.Platform.BatteryInfo
+      description: >-
+        The battery status of the computer,
+            this is only filled with values when <xref href="OpenTK.Platform.BatteryStatus.HasSystemBattery" data-throw-if-not-resolved="false"></xref> is returned.
     return:
       type: OpenTK.Platform.BatteryStatus
+      description: Whether the computer has a battery or not, or if this function failed.
     content.vb: Public Function GetBatteryInfo(batteryInfo As BatteryInfo) As BatteryStatus
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo*
   implements:
@@ -294,17 +343,22 @@ items:
   source:
     id: GetPreferredTheme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 260
+    startLine: 442
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: Gets the user preference for application theme.
   example: []
   syntax:
     content: public ThemeInfo GetPreferredTheme()
     return:
       type: OpenTK.Platform.ThemeInfo
+      description: The user set preferred theme.
     content.vb: Public Function GetPreferredTheme() As ThemeInfo
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetPreferredTheme*
+  seealso:
+  - linkId: OpenTK.Platform.ThemeChangeEventArgs
+    commentId: T:OpenTK.Platform.ThemeChangeEventArgs
   implements:
   - OpenTK.Platform.IShellComponent.GetPreferredTheme
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetSystemMemoryInformation
@@ -321,19 +375,95 @@ items:
   source:
     id: GetSystemMemoryInformation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 266
+    startLine: 448
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
+  summary: Gets information about the memory of the device and the current status.
   example: []
   syntax:
     content: public SystemMemoryInfo GetSystemMemoryInformation()
     return:
       type: OpenTK.Platform.SystemMemoryInfo
+      description: The memory info.
     content.vb: Public Function GetSystemMemoryInformation() As SystemMemoryInfo
   overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetSystemMemoryInformation*
   implements:
   - OpenTK.Platform.IShellComponent.GetSystemMemoryInformation
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon(OpenTK.Platform.IconHandle)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon(OpenTK.Platform.IconHandle)
+  id: SetDockIcon(OpenTK.Platform.IconHandle)
+  parent: OpenTK.Platform.Native.macOS.MacOSShellComponent
+  langs:
+  - csharp
+  - vb
+  name: SetDockIcon(IconHandle)
+  nameWithType: MacOSShellComponent.SetDockIcon(IconHandle)
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon(OpenTK.Platform.IconHandle)
+  type: Method
+  source:
+    id: SetDockIcon
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
+    startLine: 490
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Sets the icon to use to represent the application in the dock.
+  example: []
+  syntax:
+    content: public void SetDockIcon(IconHandle icon)
+    parameters:
+    - id: icon
+      type: OpenTK.Platform.IconHandle
+      description: The icon to use.
+    content.vb: Public Sub SetDockIcon(icon As IconHandle)
+  overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon*
+  seealso:
+  - linkId: OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)
+    commentId: M:OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode,System.Single)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode,System.Single)
+  id: SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode,System.Single)
+  parent: OpenTK.Platform.Native.macOS.MacOSShellComponent
+  langs:
+  - csharp
+  - vb
+  name: SetProgressStatus(WindowHandle, ProgressMode, float)
+  nameWithType: MacOSShellComponent.SetProgressStatus(WindowHandle, MacOSShellComponent.ProgressMode, float)
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle, OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode, float)
+  type: Method
+  source:
+    id: SetProgressStatus
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
+    startLine: 545
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: >-
+    Sets the current progress status for a window.
+
+    The progress status is used to display a progress bar in the taskbar.
+  example: []
+  syntax:
+    content: public void SetProgressStatus(WindowHandle handle, MacOSShellComponent.ProgressMode mode, float completion)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.WindowHandle
+      description: The window to set the progress status for.
+    - id: mode
+      type: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode
+      description: The progress mode to us efor the window.
+    - id: completion
+      type: System.Single
+      description: A number in the range [0, 1] indicating progress. 0 being no progress and 1 meaning finished. Ignored if <code class="paramref">mode</code> is <xref href="OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.NoProgress" data-throw-if-not-resolved="false"></xref> or <xref href="OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.Indeterminate" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Sub SetProgressStatus(handle As WindowHandle, mode As MacOSShellComponent.ProgressMode, completion As Single)
+  overload: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus*
+  seealso:
+  - linkId: OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode,System.Single)
+    commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode,System.Single)
+  nameWithType.vb: MacOSShellComponent.SetProgressStatus(WindowHandle, MacOSShellComponent.ProgressMode, Single)
+  fullName.vb: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle, OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode, Single)
+  name.vb: SetProgressStatus(WindowHandle, ProgressMode, Single)
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(System.String)
   commentId: M:OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(System.String)
   id: NSLog(System.String)
@@ -348,7 +478,7 @@ items:
   source:
     id: NSLog
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSShellComponent.cs
-    startLine: 309
+    startLine: 589
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -726,6 +856,19 @@ references:
   name: PalComponents
   nameWithType: PalComponents
   fullName: OpenTK.Platform.PalComponents
+- uid: OpenTK.Core.Utility.ILogger
+  commentId: T:OpenTK.Core.Utility.ILogger
+  parent: OpenTK.Core.Utility
+  href: OpenTK.Core.Utility.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: OpenTK.Core.Utility.ILogger
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.Logger*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.Logger
   href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_Logger
@@ -739,13 +882,6 @@ references:
   name: Logger
   nameWithType: IPalComponent.Logger
   fullName: OpenTK.Platform.IPalComponent.Logger
-- uid: OpenTK.Core.Utility.ILogger
-  commentId: T:OpenTK.Core.Utility.ILogger
-  parent: OpenTK.Core.Utility
-  href: OpenTK.Core.Utility.ILogger.html
-  name: ILogger
-  nameWithType: ILogger
-  fullName: OpenTK.Core.Utility.ILogger
 - uid: OpenTK.Core.Utility
   commentId: N:OpenTK.Core.Utility
   href: OpenTK.html
@@ -776,6 +912,37 @@ references:
   - uid: OpenTK.Core.Utility
     name: Utility
     href: OpenTK.Core.Utility.html
+- uid: OpenTK.Platform.ToolkitOptions
+  commentId: T:OpenTK.Platform.ToolkitOptions
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ToolkitOptions.html
+  name: ToolkitOptions
+  nameWithType: ToolkitOptions
+  fullName: OpenTK.Platform.ToolkitOptions
+- uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  commentId: M:OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  name: Init(ToolkitOptions)
+  nameWithType: Toolkit.Init(ToolkitOptions)
+  fullName: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Init(OpenTK.Platform.ToolkitOptions)
+    name: Init
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Init_OpenTK_Platform_ToolkitOptions_
+  - name: (
+  - uid: OpenTK.Platform.ToolkitOptions
+    name: ToolkitOptions
+    href: OpenTK.Platform.ToolkitOptions.html
+  - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.Initialize*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.Initialize
   href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_Initialize_OpenTK_Platform_ToolkitOptions_
@@ -807,13 +974,6 @@ references:
     name: ToolkitOptions
     href: OpenTK.Platform.ToolkitOptions.html
   - name: )
-- uid: OpenTK.Platform.ToolkitOptions
-  commentId: T:OpenTK.Platform.ToolkitOptions
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.ToolkitOptions.html
-  name: ToolkitOptions
-  nameWithType: ToolkitOptions
-  fullName: OpenTK.Platform.ToolkitOptions
 - uid: OpenTK.Platform.Toolkit.Uninit
   commentId: M:OpenTK.Platform.Toolkit.Uninit
   href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
@@ -855,6 +1015,25 @@ references:
   - uid: OpenTK.Platform.IPalComponent.Uninitialize
     name: Uninitialize
     href: OpenTK.Platform.IPalComponent.html#OpenTK_Platform_IPalComponent_Uninitialize
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+  commentId: M:OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+  parent: OpenTK.Platform.IShellComponent
+  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  name: IsScreenSaverAllowed()
+  nameWithType: IShellComponent.IsScreenSaverAllowed()
+  fullName: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed()
+  spec.csharp:
+  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    name: IsScreenSaverAllowed
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
+    name: IsScreenSaverAllowed
+    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
   - name: (
   - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.AllowScreenSaver*
@@ -923,25 +1102,12 @@ references:
   name: IsScreenSaverAllowed
   nameWithType: MacOSShellComponent.IsScreenSaverAllowed
   fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.IsScreenSaverAllowed
-- uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
-  commentId: M:OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
-  parent: OpenTK.Platform.IShellComponent
-  href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
-  name: IsScreenSaverAllowed()
-  nameWithType: IShellComponent.IsScreenSaverAllowed()
-  fullName: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed()
-  spec.csharp:
-  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
-    name: IsScreenSaverAllowed
-    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.IShellComponent.IsScreenSaverAllowed
-    name: IsScreenSaverAllowed
-    href: OpenTK.Platform.IShellComponent.html#OpenTK_Platform_IShellComponent_IsScreenSaverAllowed
-  - name: (
-  - name: )
+- uid: OpenTK.Platform.BatteryStatus.HasSystemBattery
+  commentId: F:OpenTK.Platform.BatteryStatus.HasSystemBattery
+  href: OpenTK.Platform.BatteryStatus.html#OpenTK_Platform_BatteryStatus_HasSystemBattery
+  name: HasSystemBattery
+  nameWithType: BatteryStatus.HasSystemBattery
+  fullName: OpenTK.Platform.BatteryStatus.HasSystemBattery
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.GetBatteryInfo
   href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_GetBatteryInfo_OpenTK_Platform_BatteryInfo__
@@ -992,6 +1158,12 @@ references:
   name: BatteryStatus
   nameWithType: BatteryStatus
   fullName: OpenTK.Platform.BatteryStatus
+- uid: OpenTK.Platform.ThemeChangeEventArgs
+  commentId: T:OpenTK.Platform.ThemeChangeEventArgs
+  href: OpenTK.Platform.ThemeChangeEventArgs.html
+  name: ThemeChangeEventArgs
+  nameWithType: ThemeChangeEventArgs
+  fullName: OpenTK.Platform.ThemeChangeEventArgs
 - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.GetPreferredTheme*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.GetPreferredTheme
   href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_GetPreferredTheme
@@ -1056,6 +1228,170 @@ references:
   name: SystemMemoryInfo
   nameWithType: SystemMemoryInfo
   fullName: OpenTK.Platform.SystemMemoryInfo
+- uid: OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)
+  commentId: M:OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)
+  parent: OpenTK.Platform.IWindowComponent
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetIcon_OpenTK_Platform_WindowHandle_OpenTK_Platform_IconHandle_
+  name: SetIcon(WindowHandle, IconHandle)
+  nameWithType: IWindowComponent.SetIcon(WindowHandle, IconHandle)
+  fullName: OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle, OpenTK.Platform.IconHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)
+    name: SetIcon
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetIcon_OpenTK_Platform_WindowHandle_OpenTK_Platform_IconHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.IconHandle
+    name: IconHandle
+    href: OpenTK.Platform.IconHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.SetIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)
+    name: SetIcon
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetIcon_OpenTK_Platform_WindowHandle_OpenTK_Platform_IconHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.IconHandle
+    name: IconHandle
+    href: OpenTK.Platform.IconHandle.html
+  - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_SetDockIcon_OpenTK_Platform_IconHandle_
+  name: SetDockIcon
+  nameWithType: MacOSShellComponent.SetDockIcon
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon
+- uid: OpenTK.Platform.IconHandle
+  commentId: T:OpenTK.Platform.IconHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IconHandle.html
+  name: IconHandle
+  nameWithType: IconHandle
+  fullName: OpenTK.Platform.IconHandle
+- uid: OpenTK.Platform.IWindowComponent
+  commentId: T:OpenTK.Platform.IWindowComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IWindowComponent.html
+  name: IWindowComponent
+  nameWithType: IWindowComponent
+  fullName: OpenTK.Platform.IWindowComponent
+- uid: OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode,System.Single)
+  commentId: M:OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode,System.Single)
+  isExternal: true
+  href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_SetProgressStatus_OpenTK_Platform_WindowHandle_OpenTK_Platform_Native_Windows_ShellComponent_ProgressMode_System_Single_
+  name: SetProgressStatus(WindowHandle, ProgressMode, float)
+  nameWithType: ShellComponent.SetProgressStatus(WindowHandle, ShellComponent.ProgressMode, float)
+  fullName: OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle, OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode, float)
+  nameWithType.vb: ShellComponent.SetProgressStatus(WindowHandle, ShellComponent.ProgressMode, Single)
+  fullName.vb: OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle, OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode, Single)
+  name.vb: SetProgressStatus(WindowHandle, ProgressMode, Single)
+  spec.csharp:
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode,System.Single)
+    name: SetProgressStatus
+    href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_SetProgressStatus_OpenTK_Platform_WindowHandle_OpenTK_Platform_Native_Windows_ShellComponent_ProgressMode_System_Single_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode
+    name: ProgressMode
+    href: OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode,System.Single)
+    name: SetProgressStatus
+    href: OpenTK.Platform.Native.Windows.ShellComponent.html#OpenTK_Platform_Native_Windows_ShellComponent_SetProgressStatus_OpenTK_Platform_WindowHandle_OpenTK_Platform_Native_Windows_ShellComponent_ProgressMode_System_Single_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode
+    name: ProgressMode
+    href: OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.NoProgress
+  commentId: F:OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.NoProgress
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_ProgressMode_NoProgress
+  name: NoProgress
+  nameWithType: MacOSShellComponent.ProgressMode.NoProgress
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.NoProgress
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.Indeterminate
+  commentId: F:OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.Indeterminate
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_ProgressMode_Indeterminate
+  name: Indeterminate
+  nameWithType: MacOSShellComponent.ProgressMode.Indeterminate
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.Indeterminate
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html#OpenTK_Platform_Native_macOS_MacOSShellComponent_SetProgressStatus_OpenTK_Platform_WindowHandle_OpenTK_Platform_Native_macOS_MacOSShellComponent_ProgressMode_System_Single_
+  name: SetProgressStatus
+  nameWithType: MacOSShellComponent.SetProgressStatus
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.SetProgressStatus
+- uid: OpenTK.Platform.WindowHandle
+  commentId: T:OpenTK.Platform.WindowHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.WindowHandle.html
+  name: WindowHandle
+  nameWithType: WindowHandle
+  fullName: OpenTK.Platform.WindowHandle
+- uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode
+  commentId: T:OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode
+  parent: OpenTK.Platform.Native.macOS
+  href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html
+  name: MacOSShellComponent.ProgressMode
+  nameWithType: MacOSShellComponent.ProgressMode
+  fullName: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode
+  spec.csharp:
+  - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent
+    name: MacOSShellComponent
+    href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html
+  - name: .
+  - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode
+    name: ProgressMode
+    href: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.html
+  spec.vb:
+  - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent
+    name: MacOSShellComponent
+    href: OpenTK.Platform.Native.macOS.MacOSShellComponent.html
+  - name: .
+  - uid: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode
+    name: ProgressMode
+    href: OpenTK.Platform.Native.macOS.MacOSShellComponent.ProgressMode.html
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 - uid: OpenTK.Platform.Toolkit
   commentId: T:OpenTK.Platform.Toolkit
   href: OpenTK.Platform.Toolkit.html

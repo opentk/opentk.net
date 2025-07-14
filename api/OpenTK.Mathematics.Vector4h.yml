@@ -109,7 +109,7 @@ items:
   source:
     id: Vector4h
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 35
+    startLine: 36
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -119,15 +119,16 @@ items:
     content: >-
       [Serializable]
 
-      public struct Vector4h : ISerializable, IEquatable<Vector4h>, IFormattable
+      public struct Vector4h : ISerializable, IEquatable<Vector4h>, IFormattable, IEqualityOperators<Vector4h, Vector4h, bool>
     content.vb: >-
       <Serializable>
 
-      Public Structure Vector4h Implements ISerializable, IEquatable(Of Vector4h), IFormattable
+      Public Structure Vector4h Implements ISerializable, IEquatable(Of Vector4h), IFormattable, IEqualityOperators(Of Vector4h, Vector4h, Boolean)
   implements:
   - System.Runtime.Serialization.ISerializable
   - System.IEquatable{OpenTK.Mathematics.Vector4h}
   - System.IFormattable
+  - System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}
   inheritedMembers:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -150,7 +151,7 @@ items:
   source:
     id: X
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 42
+    startLine: 43
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -175,7 +176,7 @@ items:
   source:
     id: Y
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 47
+    startLine: 48
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -200,7 +201,7 @@ items:
   source:
     id: Z
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 52
+    startLine: 53
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -225,7 +226,7 @@ items:
   source:
     id: W
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 57
+    startLine: 58
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -250,7 +251,7 @@ items:
   source:
     id: SizeInBytes
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 62
+    startLine: 63
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -275,7 +276,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 68
+    startLine: 69
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -306,7 +307,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 80
+    startLine: 81
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -337,7 +338,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 95
+    startLine: 96
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -377,7 +378,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 110
+    startLine: 111
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -417,7 +418,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 124
+    startLine: 125
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -454,7 +455,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 138
+    startLine: 139
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -491,7 +492,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 151
+    startLine: 152
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -525,7 +526,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 164
+    startLine: 165
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -559,14 +560,14 @@ items:
   source:
     id: Xy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 175
+    startLine: 176
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector2h with the X and Y components of this instance.
   example: []
   syntax:
-    content: public Vector2h Xy { get; set; }
+    content: public Vector2h Xy { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2h
@@ -586,7 +587,7 @@ items:
   source:
     id: Xz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 189
+    startLine: 190
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -613,7 +614,7 @@ items:
   source:
     id: Xw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 203
+    startLine: 204
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -640,7 +641,7 @@ items:
   source:
     id: Yx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 217
+    startLine: 218
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -667,7 +668,7 @@ items:
   source:
     id: Yz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 231
+    startLine: 232
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -694,7 +695,7 @@ items:
   source:
     id: Yw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 245
+    startLine: 246
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -721,7 +722,7 @@ items:
   source:
     id: Zx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 259
+    startLine: 260
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -748,7 +749,7 @@ items:
   source:
     id: Zy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 273
+    startLine: 274
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -775,7 +776,7 @@ items:
   source:
     id: Zw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 287
+    startLine: 288
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -802,7 +803,7 @@ items:
   source:
     id: Wx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 301
+    startLine: 302
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -829,7 +830,7 @@ items:
   source:
     id: Wy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 315
+    startLine: 316
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -856,7 +857,7 @@ items:
   source:
     id: Wz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 329
+    startLine: 330
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -883,14 +884,14 @@ items:
   source:
     id: Xyz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 343
+    startLine: 344
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Gets or sets an OpenTK.Vector3h with the X, Y, and Z components of this instance.
   example: []
   syntax:
-    content: public Vector3h Xyz { get; set; }
+    content: public Vector3h Xyz { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector3h
@@ -910,7 +911,7 @@ items:
   source:
     id: Xyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 358
+    startLine: 359
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -937,7 +938,7 @@ items:
   source:
     id: Xzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 373
+    startLine: 374
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -964,7 +965,7 @@ items:
   source:
     id: Xzw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 388
+    startLine: 389
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -991,7 +992,7 @@ items:
   source:
     id: Xwy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 403
+    startLine: 404
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1018,7 +1019,7 @@ items:
   source:
     id: Xwz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 418
+    startLine: 419
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1045,7 +1046,7 @@ items:
   source:
     id: Yxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 433
+    startLine: 434
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1072,7 +1073,7 @@ items:
   source:
     id: Yxw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 448
+    startLine: 449
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1099,7 +1100,7 @@ items:
   source:
     id: Yzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 463
+    startLine: 464
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1126,7 +1127,7 @@ items:
   source:
     id: Yzw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 478
+    startLine: 479
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1153,7 +1154,7 @@ items:
   source:
     id: Ywx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 493
+    startLine: 494
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1180,7 +1181,7 @@ items:
   source:
     id: Ywz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 508
+    startLine: 509
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1207,7 +1208,7 @@ items:
   source:
     id: Zxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 523
+    startLine: 524
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1234,7 +1235,7 @@ items:
   source:
     id: Zxw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 538
+    startLine: 539
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1261,7 +1262,7 @@ items:
   source:
     id: Zyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 553
+    startLine: 554
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1288,7 +1289,7 @@ items:
   source:
     id: Zyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 568
+    startLine: 569
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1315,7 +1316,7 @@ items:
   source:
     id: Zwx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 583
+    startLine: 584
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1342,7 +1343,7 @@ items:
   source:
     id: Zwy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 598
+    startLine: 599
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1369,7 +1370,7 @@ items:
   source:
     id: Wxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 613
+    startLine: 614
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1396,7 +1397,7 @@ items:
   source:
     id: Wxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 628
+    startLine: 629
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1423,7 +1424,7 @@ items:
   source:
     id: Wyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 643
+    startLine: 644
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1450,7 +1451,7 @@ items:
   source:
     id: Wyz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 658
+    startLine: 659
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1477,7 +1478,7 @@ items:
   source:
     id: Wzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 673
+    startLine: 674
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1504,7 +1505,7 @@ items:
   source:
     id: Wzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 688
+    startLine: 689
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1531,7 +1532,7 @@ items:
   source:
     id: Xywz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 703
+    startLine: 704
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1558,7 +1559,7 @@ items:
   source:
     id: Xzyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 719
+    startLine: 720
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1585,7 +1586,7 @@ items:
   source:
     id: Xzwy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 735
+    startLine: 736
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1612,7 +1613,7 @@ items:
   source:
     id: Xwyz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 751
+    startLine: 752
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1639,7 +1640,7 @@ items:
   source:
     id: Xwzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 767
+    startLine: 768
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1666,7 +1667,7 @@ items:
   source:
     id: Yxzw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 783
+    startLine: 784
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1693,7 +1694,7 @@ items:
   source:
     id: Yxwz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 799
+    startLine: 800
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1720,7 +1721,7 @@ items:
   source:
     id: Yyzw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 815
+    startLine: 816
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1747,7 +1748,7 @@ items:
   source:
     id: Yywz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 831
+    startLine: 832
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1774,7 +1775,7 @@ items:
   source:
     id: Yzxw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 847
+    startLine: 848
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1801,7 +1802,7 @@ items:
   source:
     id: Yzwx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 863
+    startLine: 864
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1828,7 +1829,7 @@ items:
   source:
     id: Ywxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 879
+    startLine: 880
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1855,7 +1856,7 @@ items:
   source:
     id: Ywzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 895
+    startLine: 896
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1882,7 +1883,7 @@ items:
   source:
     id: Zxyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 911
+    startLine: 912
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1909,7 +1910,7 @@ items:
   source:
     id: Zxwy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 927
+    startLine: 928
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1936,7 +1937,7 @@ items:
   source:
     id: Zyxw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 943
+    startLine: 944
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1963,7 +1964,7 @@ items:
   source:
     id: Zywx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 959
+    startLine: 960
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1990,7 +1991,7 @@ items:
   source:
     id: Zwxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 975
+    startLine: 976
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2017,7 +2018,7 @@ items:
   source:
     id: Zwyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 991
+    startLine: 992
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2044,7 +2045,7 @@ items:
   source:
     id: Zwzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1007
+    startLine: 1008
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2071,7 +2072,7 @@ items:
   source:
     id: Wxyz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1023
+    startLine: 1024
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2098,7 +2099,7 @@ items:
   source:
     id: Wxzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1039
+    startLine: 1040
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2125,7 +2126,7 @@ items:
   source:
     id: Wyxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1055
+    startLine: 1056
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2152,7 +2153,7 @@ items:
   source:
     id: Wyzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1071
+    startLine: 1072
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2179,7 +2180,7 @@ items:
   source:
     id: Wzxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1087
+    startLine: 1088
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2206,7 +2207,7 @@ items:
   source:
     id: Wzyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1103
+    startLine: 1104
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2233,7 +2234,7 @@ items:
   source:
     id: Wzyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1119
+    startLine: 1120
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2260,7 +2261,7 @@ items:
   source:
     id: ToVector4
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1136
+    startLine: 1137
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2287,7 +2288,7 @@ items:
   source:
     id: ToVector4d
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1145
+    startLine: 1146
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2314,7 +2315,7 @@ items:
   source:
     id: op_Implicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1155
+    startLine: 1156
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2358,7 +2359,7 @@ items:
   source:
     id: op_Implicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1166
+    startLine: 1167
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2402,7 +2403,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1177
+    startLine: 1178
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2446,7 +2447,7 @@ items:
   source:
     id: op_Implicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1189
+    startLine: 1190
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2493,7 +2494,7 @@ items:
   source:
     id: op_Equality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1201
+    startLine: 1202
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2513,6 +2514,8 @@ items:
       description: True, if left equals right; false otherwise.
     content.vb: Public Shared Operator =(left As Vector4h, right As Vector4h) As Boolean
   overload: OpenTK.Mathematics.Vector4h.op_Equality*
+  implements:
+  - System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}.op_Equality(OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h)
   nameWithType.vb: Vector4h.=(Vector4h, Vector4h)
   fullName.vb: OpenTK.Mathematics.Vector4h.=(OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h)
   name.vb: =(Vector4h, Vector4h)
@@ -2530,7 +2533,7 @@ items:
   source:
     id: op_Inequality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1212
+    startLine: 1213
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2550,6 +2553,8 @@ items:
       description: True, if left does not equa lright; false otherwise.
     content.vb: Public Shared Operator <>(left As Vector4h, right As Vector4h) As Boolean
   overload: OpenTK.Mathematics.Vector4h.op_Inequality*
+  implements:
+  - System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}.op_Inequality(OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h)
   nameWithType.vb: Vector4h.<>(Vector4h, Vector4h)
   fullName.vb: OpenTK.Mathematics.Vector4h.<>(OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h)
   name.vb: <>(Vector4h, Vector4h)
@@ -2567,7 +2572,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1222
+    startLine: 1223
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2601,7 +2606,7 @@ items:
   source:
     id: GetObjectData
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1231
+    startLine: 1232
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2638,14 +2643,14 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1240
+    startLine: 1241
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns the fully qualified type name of this instance.
   example: []
   syntax:
-    content: public override string ToString()
+    content: public override readonly string ToString()
     return:
       type: System.String
       description: The fully qualified type name.
@@ -2666,14 +2671,14 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1246
+    startLine: 1247
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(string format)
+    content: public readonly string ToString(string format)
     parameters:
     - id: format
       type: System.String
@@ -2705,14 +2710,14 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1252
+    startLine: 1253
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(IFormatProvider formatProvider)
+    content: public readonly string ToString(IFormatProvider formatProvider)
     parameters:
     - id: formatProvider
       type: System.IFormatProvider
@@ -2741,14 +2746,14 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1258
+    startLine: 1259
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(string format, IFormatProvider formatProvider)
+    content: public readonly string ToString(string format, IFormatProvider formatProvider)
     parameters:
     - id: format
       type: System.String
@@ -2790,14 +2795,14 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1270
+    startLine: 1271
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Indicates whether this instance and a specified object are equal.
   example: []
   syntax:
-    content: public override bool Equals(object obj)
+    content: public override readonly bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
@@ -2825,14 +2830,14 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1276
+    startLine: 1277
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Indicates whether the current object is equal to another object of the same type.
   example: []
   syntax:
-    content: public bool Equals(Vector4h other)
+    content: public readonly bool Equals(Vector4h other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Vector4h
@@ -2858,7 +2863,7 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1285
+    startLine: 1286
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2886,7 +2891,7 @@ items:
   source:
     id: Deconstruct
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4h.cs
-    startLine: 1297
+    startLine: 1298
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2994,6 +2999,61 @@ references:
   name: IFormattable
   nameWithType: IFormattable
   fullName: System.IFormattable
+- uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}
+  commentId: T:System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}
+  parent: System.Numerics
+  definition: System.Numerics.IEqualityOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  name: IEqualityOperators<Vector4h, Vector4h, bool>
+  nameWithType: IEqualityOperators<Vector4h, Vector4h, bool>
+  fullName: System.Numerics.IEqualityOperators<OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h, bool>
+  nameWithType.vb: IEqualityOperators(Of Vector4h, Vector4h, Boolean)
+  fullName.vb: System.Numerics.IEqualityOperators(Of OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h, Boolean)
+  name.vb: IEqualityOperators(Of Vector4h, Vector4h, Boolean)
+  spec.csharp:
+  - uid: System.Numerics.IEqualityOperators`3
+    name: IEqualityOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IEqualityOperators`3
+    name: IEqualityOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -3180,6 +3240,73 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Numerics.IEqualityOperators`3
+  commentId: T:System.Numerics.IEqualityOperators`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  name: IEqualityOperators<TSelf, TOther, TResult>
+  nameWithType: IEqualityOperators<TSelf, TOther, TResult>
+  fullName: System.Numerics.IEqualityOperators<TSelf, TOther, TResult>
+  nameWithType.vb: IEqualityOperators(Of TSelf, TOther, TResult)
+  fullName.vb: System.Numerics.IEqualityOperators(Of TSelf, TOther, TResult)
+  name.vb: IEqualityOperators(Of TSelf, TOther, TResult)
+  spec.csharp:
+  - uid: System.Numerics.IEqualityOperators`3
+    name: IEqualityOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  - name: <
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IEqualityOperators`3
+    name: IEqualityOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Numerics
+  commentId: N:System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Numerics
+  nameWithType: System.Numerics
+  fullName: System.Numerics
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -3833,6 +3960,46 @@ references:
   - uid: OpenTK.Mathematics.Vector4h.op_Equality*
     name: ==
     href: OpenTK.Mathematics.Vector4h.html#OpenTK_Mathematics_Vector4h_op_Equality_OpenTK_Mathematics_Vector4h_OpenTK_Mathematics_Vector4h_
+- uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}.op_Equality(OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h)
+  commentId: M:System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}.op_Equality(OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h)
+  parent: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}
+  definition: System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_equality
+  name: operator ==(Vector4h, Vector4h)
+  nameWithType: IEqualityOperators<Vector4h, Vector4h, bool>.operator ==(Vector4h, Vector4h)
+  fullName: System.Numerics.IEqualityOperators<OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h, bool>.operator ==(OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h)
+  nameWithType.vb: IEqualityOperators(Of Vector4h, Vector4h, Boolean).=(Vector4h, Vector4h)
+  fullName.vb: System.Numerics.IEqualityOperators(Of OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h, Boolean).=(OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h)
+  name.vb: =(Vector4h, Vector4h)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}.op_Equality(OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h)
+    name: ==
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_equality
+  - name: (
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: )
+  spec.vb:
+  - name: =
+  - name: (
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: )
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -3844,6 +4011,37 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)
+  commentId: M:System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_equality
+  name: operator ==(TSelf, TOther)
+  nameWithType: IEqualityOperators<TSelf, TOther, TResult>.operator ==(TSelf, TOther)
+  fullName: System.Numerics.IEqualityOperators<TSelf, TOther, TResult>.operator ==(TSelf, TOther)
+  nameWithType.vb: IEqualityOperators(Of TSelf, TOther, TResult).=(TSelf, TOther)
+  fullName.vb: System.Numerics.IEqualityOperators(Of TSelf, TOther, TResult).=(TSelf, TOther)
+  name.vb: =(TSelf, TOther)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)
+    name: ==
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_equality
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+  spec.vb:
+  - name: =
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
 - uid: OpenTK.Mathematics.Vector4h.op_Inequality*
   commentId: Overload:OpenTK.Mathematics.Vector4h.op_Inequality
   href: OpenTK.Mathematics.Vector4h.html#OpenTK_Mathematics_Vector4h_op_Inequality_OpenTK_Mathematics_Vector4h_OpenTK_Mathematics_Vector4h_
@@ -3859,6 +4057,77 @@ references:
   - uid: OpenTK.Mathematics.Vector4h.op_Inequality*
     name: '!='
     href: OpenTK.Mathematics.Vector4h.html#OpenTK_Mathematics_Vector4h_op_Inequality_OpenTK_Mathematics_Vector4h_OpenTK_Mathematics_Vector4h_
+- uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}.op_Inequality(OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h)
+  commentId: M:System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}.op_Inequality(OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h)
+  parent: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}
+  definition: System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_inequality
+  name: operator !=(Vector4h, Vector4h)
+  nameWithType: IEqualityOperators<Vector4h, Vector4h, bool>.operator !=(Vector4h, Vector4h)
+  fullName: System.Numerics.IEqualityOperators<OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h, bool>.operator !=(OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h)
+  nameWithType.vb: IEqualityOperators(Of Vector4h, Vector4h, Boolean).<>(Vector4h, Vector4h)
+  fullName.vb: System.Numerics.IEqualityOperators(Of OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h, Boolean).<>(OpenTK.Mathematics.Vector4h, OpenTK.Mathematics.Vector4h)
+  name.vb: <>(Vector4h, Vector4h)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h,System.Boolean}.op_Inequality(OpenTK.Mathematics.Vector4h,OpenTK.Mathematics.Vector4h)
+    name: '!='
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_inequality
+  - name: (
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: )
+  spec.vb:
+  - name: <>
+  - name: (
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector4h
+    name: Vector4h
+    href: OpenTK.Mathematics.Vector4h.html
+  - name: )
+- uid: System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)
+  commentId: M:System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_inequality
+  name: operator !=(TSelf, TOther)
+  nameWithType: IEqualityOperators<TSelf, TOther, TResult>.operator !=(TSelf, TOther)
+  fullName: System.Numerics.IEqualityOperators<TSelf, TOther, TResult>.operator !=(TSelf, TOther)
+  nameWithType.vb: IEqualityOperators(Of TSelf, TOther, TResult).<>(TSelf, TOther)
+  fullName.vb: System.Numerics.IEqualityOperators(Of TSelf, TOther, TResult).<>(TSelf, TOther)
+  name.vb: <>(TSelf, TOther)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)
+    name: '!='
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_inequality
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+  spec.vb:
+  - name: <>
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
 - uid: System.Runtime.Serialization.SerializationInfo
   commentId: T:System.Runtime.Serialization.SerializationInfo
   parent: System.Runtime.Serialization

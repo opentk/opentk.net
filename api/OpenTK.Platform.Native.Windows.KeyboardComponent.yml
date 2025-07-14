@@ -17,7 +17,7 @@ items:
   - OpenTK.Platform.Native.Windows.KeyboardComponent.Logger
   - OpenTK.Platform.Native.Windows.KeyboardComponent.Name
   - OpenTK.Platform.Native.Windows.KeyboardComponent.Provides
-  - OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  - OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
   - OpenTK.Platform.Native.Windows.KeyboardComponent.SupportsIme
   - OpenTK.Platform.Native.Windows.KeyboardComponent.SupportsLayouts
   - OpenTK.Platform.Native.Windows.KeyboardComponent.Uninitialize
@@ -526,16 +526,16 @@ items:
   overload: OpenTK.Platform.Native.Windows.KeyboardComponent.BeginIme*
   implements:
   - OpenTK.Platform.IKeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
-- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
-  commentId: M:OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
-  id: SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
+  id: SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
   parent: OpenTK.Platform.Native.Windows.KeyboardComponent
   langs:
   - csharp
   - vb
-  name: SetImeRectangle(WindowHandle, int, int, int, int)
-  nameWithType: KeyboardComponent.SetImeRectangle(WindowHandle, int, int, int, int)
-  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, int, int, int, int)
+  name: SetImeRectangle(WindowHandle, float, float, float, float)
+  nameWithType: KeyboardComponent.SetImeRectangle(WindowHandle, float, float, float, float)
+  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, float, float, float, float)
   type: Method
   source:
     id: SetImeRectangle
@@ -547,30 +547,30 @@ items:
   summary: Set the rectangle to which the IME interface will appear relative to.
   example: []
   syntax:
-    content: public void SetImeRectangle(WindowHandle window, int x, int y, int width, int height)
+    content: public void SetImeRectangle(WindowHandle window, float x, float y, float width, float height)
     parameters:
     - id: window
       type: OpenTK.Platform.WindowHandle
       description: The window corresponding to this IME window.
     - id: x
-      type: System.Int32
-      description: X coordinate of the rectangle in desktop coordinates.
+      type: System.Single
+      description: X coordinate of the rectangle in client coordinates.
     - id: y
-      type: System.Int32
-      description: Y coordinate of the rectangle in desktop coordinates.
+      type: System.Single
+      description: Y coordinate of the rectangle in client coordinates.
     - id: width
-      type: System.Int32
-      description: Width of the rectangle in desktop units.
+      type: System.Single
+      description: Width of the rectangle in client units.
     - id: height
-      type: System.Int32
-      description: Height of the rectangle in desktop units.
-    content.vb: Public Sub SetImeRectangle(window As WindowHandle, x As Integer, y As Integer, width As Integer, height As Integer)
+      type: System.Single
+      description: Height of the rectangle in client units.
+    content.vb: Public Sub SetImeRectangle(window As WindowHandle, x As Single, y As Single, width As Single, height As Single)
   overload: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle*
   implements:
-  - OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
-  nameWithType.vb: KeyboardComponent.SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
-  fullName.vb: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Integer, Integer, Integer, Integer)
-  name.vb: SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
+  - OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
+  nameWithType.vb: KeyboardComponent.SetImeRectangle(WindowHandle, Single, Single, Single, Single)
+  fullName.vb: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Single, Single, Single, Single)
+  name.vb: SetImeRectangle(WindowHandle, Single, Single, Single, Single)
 - uid: OpenTK.Platform.Native.Windows.KeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
   commentId: M:OpenTK.Platform.Native.Windows.KeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
   id: EndIme(OpenTK.Platform.WindowHandle)
@@ -1464,98 +1464,98 @@ references:
   - name: )
 - uid: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle*
   commentId: Overload:OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle
-  href: OpenTK.Platform.Native.Windows.KeyboardComponent.html#OpenTK_Platform_Native_Windows_KeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
+  href: OpenTK.Platform.Native.Windows.KeyboardComponent.html#OpenTK_Platform_Native_Windows_KeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Single_System_Single_System_Single_System_Single_
   name: SetImeRectangle
   nameWithType: KeyboardComponent.SetImeRectangle
   fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.SetImeRectangle
-- uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
-  commentId: M:OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+- uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
   parent: OpenTK.Platform.IKeyboardComponent
   isExternal: true
-  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
-  name: SetImeRectangle(WindowHandle, int, int, int, int)
-  nameWithType: IKeyboardComponent.SetImeRectangle(WindowHandle, int, int, int, int)
-  fullName: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, int, int, int, int)
-  nameWithType.vb: IKeyboardComponent.SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
-  fullName.vb: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Integer, Integer, Integer, Integer)
-  name.vb: SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Single_System_Single_System_Single_System_Single_
+  name: SetImeRectangle(WindowHandle, float, float, float, float)
+  nameWithType: IKeyboardComponent.SetImeRectangle(WindowHandle, float, float, float, float)
+  fullName: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, float, float, float, float)
+  nameWithType.vb: IKeyboardComponent.SetImeRectangle(WindowHandle, Single, Single, Single, Single)
+  fullName.vb: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Single, Single, Single, Single)
+  name.vb: SetImeRectangle(WindowHandle, Single, Single, Single, Single)
   spec.csharp:
-  - uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  - uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
     name: SetImeRectangle
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Single_System_Single_System_Single_System_Single_
   - name: (
   - uid: OpenTK.Platform.WindowHandle
     name: WindowHandle
     href: OpenTK.Platform.WindowHandle.html
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: int
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: int
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: int
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: int
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  - uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
     name: SetImeRectangle
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Single_System_Single_System_Single_System_Single_
   - name: (
   - uid: OpenTK.Platform.WindowHandle
     name: WindowHandle
     href: OpenTK.Platform.WindowHandle.html
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: )
-- uid: System.Int32
-  commentId: T:System.Int32
+- uid: System.Single
+  commentId: T:System.Single
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 - uid: OpenTK.Platform.Native.Windows.KeyboardComponent.EndIme*
   commentId: Overload:OpenTK.Platform.Native.Windows.KeyboardComponent.EndIme
   href: OpenTK.Platform.Native.Windows.KeyboardComponent.html#OpenTK_Platform_Native_Windows_KeyboardComponent_EndIme_OpenTK_Platform_WindowHandle_

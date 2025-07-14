@@ -6,7 +6,9 @@ items:
   parent: OpenTK.Core
   children:
   - OpenTK.Core.Utils.AccurateSleep(System.Double,System.Int32)
+  - OpenTK.Core.Utils.AsPtr(System.ReadOnlySpan{System.Byte})
   - OpenTK.Core.Utils.FromTszString(System.Char*,System.Int32)
+  - OpenTK.Core.Utils.ToSpan(System.Byte*)
   langs:
   - csharp
   - vb
@@ -115,6 +117,66 @@ items:
   nameWithType.vb: Utils.FromTszString(Char*, Integer)
   fullName.vb: OpenTK.Core.Utils.FromTszString(Char*, Integer)
   name.vb: FromTszString(Char*, Integer)
+- uid: OpenTK.Core.Utils.AsPtr(System.ReadOnlySpan{System.Byte})
+  commentId: M:OpenTK.Core.Utils.AsPtr(System.ReadOnlySpan{System.Byte})
+  id: AsPtr(System.ReadOnlySpan{System.Byte})
+  parent: OpenTK.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: AsPtr(ReadOnlySpan<byte>)
+  nameWithType: Utils.AsPtr(ReadOnlySpan<byte>)
+  fullName: OpenTK.Core.Utils.AsPtr(System.ReadOnlySpan<byte>)
+  type: Method
+  source:
+    id: AsPtr
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Utility\Utils.cs
+    startLine: 65
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core
+  syntax:
+    content: public static byte* AsPtr(ReadOnlySpan<byte> span)
+    parameters:
+    - id: span
+      type: System.ReadOnlySpan{System.Byte}
+    return:
+      type: System.Byte*
+    content.vb: Public Shared Function AsPtr(span As ReadOnlySpan(Of Byte)) As Byte*
+  overload: OpenTK.Core.Utils.AsPtr*
+  nameWithType.vb: Utils.AsPtr(ReadOnlySpan(Of Byte))
+  fullName.vb: OpenTK.Core.Utils.AsPtr(System.ReadOnlySpan(Of Byte))
+  name.vb: AsPtr(ReadOnlySpan(Of Byte))
+- uid: OpenTK.Core.Utils.ToSpan(System.Byte*)
+  commentId: M:OpenTK.Core.Utils.ToSpan(System.Byte*)
+  id: ToSpan(System.Byte*)
+  parent: OpenTK.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: ToSpan(byte*)
+  nameWithType: Utils.ToSpan(byte*)
+  fullName: OpenTK.Core.Utils.ToSpan(byte*)
+  type: Method
+  source:
+    id: ToSpan
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Core\Utility\Utils.cs
+    startLine: 67
+  assemblies:
+  - OpenTK.Core
+  namespace: OpenTK.Core
+  syntax:
+    content: public static ReadOnlySpan<byte> ToSpan(byte* str)
+    parameters:
+    - id: str
+      type: System.Byte*
+    return:
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Shared Function ToSpan(str As Byte*) As ReadOnlySpan(Of Byte)
+  overload: OpenTK.Core.Utils.ToSpan*
+  nameWithType.vb: Utils.ToSpan(Byte*)
+  fullName.vb: OpenTK.Core.Utils.ToSpan(Byte*)
+  name.vb: ToSpan(Byte*)
 references:
 - uid: OpenTK.Core
   commentId: N:OpenTK.Core
@@ -441,3 +503,99 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: OpenTK.Core.Utils.AsPtr*
+  commentId: Overload:OpenTK.Core.Utils.AsPtr
+  href: OpenTK.Core.Utils.html#OpenTK_Core_Utils_AsPtr_System_ReadOnlySpan_System_Byte__
+  name: AsPtr
+  nameWithType: Utils.AsPtr
+  fullName: OpenTK.Core.Utils.AsPtr
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Byte*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte*
+  nameWithType: byte*
+  fullName: byte*
+  nameWithType.vb: Byte*
+  fullName.vb: Byte*
+  name.vb: Byte*
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: OpenTK.Core.Utils.ToSpan*
+  commentId: Overload:OpenTK.Core.Utils.ToSpan
+  href: OpenTK.Core.Utils.html#OpenTK_Core_Utils_ToSpan_System_Byte__
+  name: ToSpan
+  nameWithType: Utils.ToSpan
+  fullName: OpenTK.Core.Utils.ToSpan

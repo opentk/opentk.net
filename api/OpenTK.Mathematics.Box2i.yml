@@ -270,7 +270,7 @@ items:
   summary: Gets a vector describing the size of the Box2i structure.
   example: []
   syntax:
-    content: public Vector2i CenteredSize { get; }
+    content: public readonly Vector2i CenteredSize { get; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -297,7 +297,7 @@ items:
   summary: Gets or sets a vector describing half the size of the box.
   example: []
   syntax:
-    content: public Vector2i HalfSize { get; set; }
+    content: public Vector2i HalfSize { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -351,7 +351,7 @@ items:
   summary: Gets or sets the width of the box.
   example: []
   syntax:
-    content: public int Width { get; set; }
+    content: public int Width { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -378,7 +378,7 @@ items:
   summary: Gets or sets the height of the box.
   example: []
   syntax:
-    content: public int Height { get; set; }
+    content: public int Height { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -405,7 +405,7 @@ items:
   summary: Gets or sets the left location of the box.
   example: []
   syntax:
-    content: public int Left { get; set; }
+    content: public int Left { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -432,7 +432,7 @@ items:
   summary: Gets or sets the top location of the box.
   example: []
   syntax:
-    content: public int Top { get; set; }
+    content: public int Top { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -459,7 +459,7 @@ items:
   summary: Gets or sets the right location of the box.
   example: []
   syntax:
-    content: public int Right { get; set; }
+    content: public int Right { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -486,7 +486,7 @@ items:
   summary: Gets or sets the bottom location of the box.
   example: []
   syntax:
-    content: public int Bottom { get; set; }
+    content: public int Bottom { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -513,7 +513,7 @@ items:
   summary: Gets or sets the X location of the box.
   example: []
   syntax:
-    content: public int X { get; set; }
+    content: public int X { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -540,7 +540,7 @@ items:
   summary: Gets or sets the Y location of the box.
   example: []
   syntax:
-    content: public int Y { get; set; }
+    content: public int Y { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -567,7 +567,7 @@ items:
   summary: Gets or sets the horizontal size.
   example: []
   syntax:
-    content: public int SizeX { get; set; }
+    content: public int SizeX { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -594,7 +594,7 @@ items:
   summary: Gets or sets the vertical size.
   example: []
   syntax:
-    content: public int SizeY { get; set; }
+    content: public int SizeY { readonly get; set; }
     parameters: []
     return:
       type: System.Int32
@@ -621,7 +621,7 @@ items:
   summary: Gets or sets the size of the box.
   example: []
   syntax:
-    content: public Vector2i Size { get; set; }
+    content: public Vector2i Size { readonly get; set; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -648,7 +648,7 @@ items:
   summary: Gets the location of the box.
   example: []
   syntax:
-    content: public Vector2i Location { get; }
+    content: public readonly Vector2i Location { get; }
     parameters: []
     return:
       type: OpenTK.Mathematics.Vector2i
@@ -675,7 +675,7 @@ items:
   summary: Gets a value indicating whether all values are zero.
   example: []
   syntax:
-    content: public bool IsZero { get; }
+    content: public readonly bool IsZero { get; }
     parameters: []
     return:
       type: System.Boolean
@@ -866,7 +866,7 @@ items:
   summary: Returns the intersection of itself and the specified Box.
   example: []
   syntax:
-    content: public Box2i Intersected(Box2i other)
+    content: public readonly Box2i Intersected(Box2i other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Box2i
@@ -897,7 +897,7 @@ items:
   summary: Determines if this Box intersects with another Box.
   example: []
   syntax:
-    content: public bool IntersectsWith(Box2i other)
+    content: public readonly bool IntersectsWith(Box2i other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Box2i
@@ -928,7 +928,7 @@ items:
   summary: Determines if this Box intersects or touches with another Box.
   example: []
   syntax:
-    content: public bool TouchWith(Box2i other)
+    content: public readonly bool TouchWith(Box2i other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Box2i
@@ -1128,7 +1128,7 @@ items:
     content: >-
       [Pure]
 
-      public bool Contains(Vector2i point, bool boundaryInclusive)
+      public readonly bool Contains(Vector2i point, bool boundaryInclusive)
     parameters:
     - id: point
       type: OpenTK.Mathematics.Vector2i
@@ -1694,7 +1694,7 @@ items:
   summary: Indicates whether this instance and a specified object are equal.
   example: []
   syntax:
-    content: public override bool Equals(object obj)
+    content: public override readonly bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
@@ -1729,7 +1729,7 @@ items:
   summary: Indicates whether the current object is equal to another object of the same type.
   example: []
   syntax:
-    content: public bool Equals(Box2i other)
+    content: public readonly bool Equals(Box2i other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Box2i
@@ -1790,7 +1790,7 @@ items:
   summary: Returns the fully qualified type name of this instance.
   example: []
   syntax:
-    content: public override string ToString()
+    content: public override readonly string ToString()
     return:
       type: System.String
       description: The fully qualified type name.
@@ -1818,7 +1818,7 @@ items:
   summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(string format)
+    content: public readonly string ToString(string format)
     parameters:
     - id: format
       type: System.String
@@ -1857,7 +1857,7 @@ items:
   summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(IFormatProvider formatProvider)
+    content: public readonly string ToString(IFormatProvider formatProvider)
     parameters:
     - id: formatProvider
       type: System.IFormatProvider
@@ -1893,7 +1893,7 @@ items:
   summary: Formats the value of the current instance using the specified format.
   example: []
   syntax:
-    content: public string ToString(string format, IFormatProvider formatProvider)
+    content: public readonly string ToString(string format, IFormatProvider formatProvider)
     parameters:
     - id: format
       type: System.String

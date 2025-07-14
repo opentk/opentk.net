@@ -50,7 +50,7 @@ This will allow you to add additional entries in your `.rc` resource file like c
 > [!NOTE]
 > TODO: Mention `MacOSIconComponent.CreateSFSymbol`?
 
-On macOS individual windows do not have icons. Instead there is a single application icon for all windows. This is called the dock icon and can be set through [`MacOSWindowComponent.SetDockIcon`](xref:OpenTK.Platform.Native.macOS.MacOSWindowComponent.SetDockIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle)). This only sets the application icon at runtime, so the published application will not have an icon set.
+On macOS individual windows do not have icons. Instead there is a single application icon for all windows. This is called the dock icon and can be set through [`MacOSShellComponent.SetDockIcon`](xref:OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon(OpenTK.Platform.IconHandle)). This only sets the application icon at runtime, so the published application will not have an icon set.
 
 On macOS an application is a special folder that contains a bunch of different files and folders. One of these files is called `info.plist` and contains a bunch of information about your application, including the icon to use for the application.
 

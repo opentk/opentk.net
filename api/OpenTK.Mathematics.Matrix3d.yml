@@ -10,6 +10,7 @@ items:
   - OpenTK.Mathematics.Matrix3d.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - OpenTK.Mathematics.Matrix3d.Add(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   - OpenTK.Mathematics.Matrix3d.Add(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
+  - OpenTK.Mathematics.Matrix3d.AdditiveIdentity
   - OpenTK.Mathematics.Matrix3d.ClearRotation
   - OpenTK.Mathematics.Matrix3d.ClearScale
   - OpenTK.Mathematics.Matrix3d.Column0
@@ -56,12 +57,21 @@ items:
   - OpenTK.Mathematics.Matrix3d.M32
   - OpenTK.Mathematics.Matrix3d.M33
   - OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  - OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  - OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  - OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,System.Double)
   - OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
+  - OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3x2d@,OpenTK.Mathematics.Matrix3x2d@)
+  - OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3x4d@,OpenTK.Mathematics.Matrix3x4d@)
+  - OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,System.Double,OpenTK.Mathematics.Matrix3d@)
+  - OpenTK.Mathematics.Matrix3d.MultiplicativeIdentity
   - OpenTK.Mathematics.Matrix3d.Normalize
   - OpenTK.Mathematics.Matrix3d.Normalized
   - OpenTK.Mathematics.Matrix3d.Row0
   - OpenTK.Mathematics.Matrix3d.Row1
   - OpenTK.Mathematics.Matrix3d.Row2
+  - OpenTK.Mathematics.Matrix3d.Subtract(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  - OpenTK.Mathematics.Matrix3d.Subtract(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
   - OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d,System.Int32,System.Int32,System.Int32)
   - OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d@,System.Int32,System.Int32,System.Int32,OpenTK.Mathematics.Matrix3d@)
   - OpenTK.Mathematics.Matrix3d.Swizzle(System.Int32,System.Int32,System.Int32)
@@ -76,9 +86,16 @@ items:
   - OpenTK.Mathematics.Matrix3d.Transpose(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
   - OpenTK.Mathematics.Matrix3d.Transposed
   - OpenTK.Mathematics.Matrix3d.Zero
+  - OpenTK.Mathematics.Matrix3d.op_Addition(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   - OpenTK.Mathematics.Matrix3d.op_Equality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   - OpenTK.Mathematics.Matrix3d.op_Inequality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   - OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  - OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  - OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  - OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d)
+  - OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,System.Double)
+  - OpenTK.Mathematics.Matrix3d.op_Multiply(System.Double,OpenTK.Mathematics.Matrix3d)
+  - OpenTK.Mathematics.Matrix3d.op_Subtraction(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   langs:
   - csharp
   - vb
@@ -89,7 +106,7 @@ items:
   source:
     id: Matrix3d
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 33
+    startLine: 35
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -99,14 +116,24 @@ items:
     content: >-
       [Serializable]
 
-      public struct Matrix3d : IEquatable<Matrix3d>, IFormattable
+      public struct Matrix3d : IEquatable<Matrix3d>, IFormattable, IMultiplyOperators<Matrix3d, double, Matrix3d>, IMultiplyOperators<Matrix3d, Vector3d, Vector3d>, IMultiplyOperators<Matrix3d, Matrix3d, Matrix3d>, IMultiplyOperators<Matrix3d, Matrix3x2d, Matrix3x2d>, IMultiplyOperators<Matrix3d, Matrix3x4d, Matrix3x4d>, IAdditionOperators<Matrix3d, Matrix3d, Matrix3d>, ISubtractionOperators<Matrix3d, Matrix3d, Matrix3d>, IEqualityOperators<Matrix3d, Matrix3d, bool>, IAdditiveIdentity<Matrix3d, Matrix3d>, IMultiplicativeIdentity<Matrix3d, Matrix3d>
     content.vb: >-
       <Serializable>
 
-      Public Structure Matrix3d Implements IEquatable(Of Matrix3d), IFormattable
+      Public Structure Matrix3d Implements IEquatable(Of Matrix3d), IFormattable, IMultiplyOperators(Of Matrix3d, Double, Matrix3d), IMultiplyOperators(Of Matrix3d, Vector3d, Vector3d), IMultiplyOperators(Of Matrix3d, Matrix3d, Matrix3d), IMultiplyOperators(Of Matrix3d, Matrix3x2d, Matrix3x2d), IMultiplyOperators(Of Matrix3d, Matrix3x4d, Matrix3x4d), IAdditionOperators(Of Matrix3d, Matrix3d, Matrix3d), ISubtractionOperators(Of Matrix3d, Matrix3d, Matrix3d), IEqualityOperators(Of Matrix3d, Matrix3d, Boolean), IAdditiveIdentity(Of Matrix3d, Matrix3d), IMultiplicativeIdentity(Of Matrix3d, Matrix3d)
   implements:
   - System.IEquatable{OpenTK.Mathematics.Matrix3d}
   - System.IFormattable
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,System.Double,OpenTK.Mathematics.Matrix3d}
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d}
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d,OpenTK.Mathematics.Matrix3x2d}
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d,OpenTK.Mathematics.Matrix3x4d}
+  - System.Numerics.IAdditionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  - System.Numerics.ISubtractionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  - System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}
+  - System.Numerics.IAdditiveIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  - System.Numerics.IMultiplicativeIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
   inheritedMembers:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -129,7 +156,7 @@ items:
   source:
     id: Row0
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 40
+    startLine: 52
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -154,7 +181,7 @@ items:
   source:
     id: Row1
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 45
+    startLine: 57
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -179,7 +206,7 @@ items:
   source:
     id: Row2
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 50
+    startLine: 62
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -204,7 +231,7 @@ items:
   source:
     id: Identity
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 55
+    startLine: 67
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -229,7 +256,7 @@ items:
   source:
     id: Zero
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 60
+    startLine: 72
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -254,7 +281,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 68
+    startLine: 80
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -291,7 +318,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 87
+    startLine: 99
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -346,7 +373,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 104
+    startLine: 116
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -377,7 +404,7 @@ items:
   source:
     id: Determinant
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 114
+    startLine: 126
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -404,7 +431,7 @@ items:
   source:
     id: Column0
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 137
+    startLine: 149
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -431,7 +458,7 @@ items:
   source:
     id: Column1
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 151
+    startLine: 163
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -458,7 +485,7 @@ items:
   source:
     id: Column2
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 165
+    startLine: 177
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -485,7 +512,7 @@ items:
   source:
     id: M11
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 179
+    startLine: 191
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -512,7 +539,7 @@ items:
   source:
     id: M12
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 188
+    startLine: 200
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -539,7 +566,7 @@ items:
   source:
     id: M13
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 197
+    startLine: 209
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -566,7 +593,7 @@ items:
   source:
     id: M21
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 206
+    startLine: 218
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -593,7 +620,7 @@ items:
   source:
     id: M22
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 215
+    startLine: 227
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -620,7 +647,7 @@ items:
   source:
     id: M23
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 224
+    startLine: 236
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -647,7 +674,7 @@ items:
   source:
     id: M31
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 233
+    startLine: 245
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -674,7 +701,7 @@ items:
   source:
     id: M32
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 242
+    startLine: 254
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -701,7 +728,7 @@ items:
   source:
     id: M33
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 251
+    startLine: 263
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -728,7 +755,7 @@ items:
   source:
     id: Diagonal
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 260
+    startLine: 272
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -755,7 +782,7 @@ items:
   source:
     id: Trace
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 274
+    startLine: 286
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -768,6 +795,64 @@ items:
       type: System.Double
     content.vb: Public ReadOnly Property Trace As Double
   overload: OpenTK.Mathematics.Matrix3d.Trace*
+- uid: OpenTK.Mathematics.Matrix3d.AdditiveIdentity
+  commentId: P:OpenTK.Mathematics.Matrix3d.AdditiveIdentity
+  id: AdditiveIdentity
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: AdditiveIdentity
+  nameWithType: Matrix3d.AdditiveIdentity
+  fullName: OpenTK.Mathematics.Matrix3d.AdditiveIdentity
+  type: Property
+  source:
+    id: AdditiveIdentity
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 291
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Gets the additive identity of the matrix, which is the zero matrix.
+  example: []
+  syntax:
+    content: public static Matrix3d AdditiveIdentity { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+    content.vb: Public Shared ReadOnly Property AdditiveIdentity As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.AdditiveIdentity*
+  implements:
+  - System.Numerics.IAdditiveIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.AdditiveIdentity
+- uid: OpenTK.Mathematics.Matrix3d.MultiplicativeIdentity
+  commentId: P:OpenTK.Mathematics.Matrix3d.MultiplicativeIdentity
+  id: MultiplicativeIdentity
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: MultiplicativeIdentity
+  nameWithType: Matrix3d.MultiplicativeIdentity
+  fullName: OpenTK.Mathematics.Matrix3d.MultiplicativeIdentity
+  type: Property
+  source:
+    id: MultiplicativeIdentity
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 296
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Gets the multiplicative identity of the matrix, which is the identity matrix.
+  example: []
+  syntax:
+    content: public static Matrix3d MultiplicativeIdentity { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+    content.vb: Public Shared ReadOnly Property MultiplicativeIdentity As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.MultiplicativeIdentity*
+  implements:
+  - System.Numerics.IMultiplicativeIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.MultiplicativeIdentity
 - uid: OpenTK.Mathematics.Matrix3d.Item(System.Int32,System.Int32)
   commentId: P:OpenTK.Mathematics.Matrix3d.Item(System.Int32,System.Int32)
   id: Item(System.Int32,System.Int32)
@@ -782,7 +867,7 @@ items:
   source:
     id: this[]
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 281
+    startLine: 303
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -818,7 +903,7 @@ items:
   source:
     id: Invert
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 329
+    startLine: 341
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -842,7 +927,7 @@ items:
   source:
     id: Inverted
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 342
+    startLine: 354
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -873,7 +958,7 @@ items:
   source:
     id: Transpose
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 356
+    startLine: 368
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -897,7 +982,7 @@ items:
   source:
     id: Transposed
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 365
+    startLine: 377
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -924,7 +1009,7 @@ items:
   source:
     id: Normalize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 375
+    startLine: 387
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -948,7 +1033,7 @@ items:
   source:
     id: Normalized
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 387
+    startLine: 399
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -975,7 +1060,7 @@ items:
   source:
     id: Swizzle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 400
+    startLine: 412
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1012,7 +1097,7 @@ items:
   source:
     id: Swizzled
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 412
+    startLine: 424
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1052,7 +1137,7 @@ items:
   source:
     id: ClearScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 423
+    startLine: 435
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1079,7 +1164,7 @@ items:
   source:
     id: ClearRotation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 436
+    startLine: 448
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1106,7 +1191,7 @@ items:
   source:
     id: ExtractScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 449
+    startLine: 461
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1133,7 +1218,7 @@ items:
   source:
     id: ExtractRotation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 462
+    startLine: 474
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1180,7 +1265,7 @@ items:
   source:
     id: CreateFromAxisAngle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 531
+    startLine: 543
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1217,7 +1302,7 @@ items:
   source:
     id: CreateFromAxisAngle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 571
+    startLine: 583
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1264,7 +1349,7 @@ items:
   source:
     id: CreateFromQuaternion
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 583
+    startLine: 595
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1298,7 +1383,7 @@ items:
   source:
     id: CreateFromQuaternion
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 622
+    startLine: 634
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1339,7 +1424,7 @@ items:
   source:
     id: CreateRotationX
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 634
+    startLine: 646
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1373,7 +1458,7 @@ items:
   source:
     id: CreateRotationX
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 651
+    startLine: 663
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1417,7 +1502,7 @@ items:
   source:
     id: CreateRotationY
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 663
+    startLine: 675
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1451,7 +1536,7 @@ items:
   source:
     id: CreateRotationY
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 680
+    startLine: 692
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1495,7 +1580,7 @@ items:
   source:
     id: CreateRotationZ
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 692
+    startLine: 704
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1529,7 +1614,7 @@ items:
   source:
     id: CreateRotationZ
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 709
+    startLine: 721
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1573,7 +1658,7 @@ items:
   source:
     id: CreateScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 721
+    startLine: 733
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1617,7 +1702,7 @@ items:
   source:
     id: CreateScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 733
+    startLine: 745
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1658,7 +1743,7 @@ items:
   source:
     id: CreateScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 747
+    startLine: 759
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1708,7 +1793,7 @@ items:
   source:
     id: CreateScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 759
+    startLine: 771
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1742,7 +1827,7 @@ items:
   source:
     id: CreateScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 772
+    startLine: 784
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1776,7 +1861,7 @@ items:
   source:
     id: CreateScale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 787
+    startLine: 799
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1816,7 +1901,7 @@ items:
   source:
     id: CreateSwizzle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 805
+    startLine: 817
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1857,7 +1942,7 @@ items:
   source:
     id: CreateSwizzle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 821
+    startLine: 833
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1898,7 +1983,7 @@ items:
   source:
     id: Add
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 848
+    startLine: 860
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1942,7 +2027,7 @@ items:
   source:
     id: Add
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 861
+    startLine: 873
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1965,6 +2050,171 @@ items:
   nameWithType.vb: Matrix3d.Add(Matrix3d, Matrix3d, Matrix3d)
   fullName.vb: OpenTK.Mathematics.Matrix3d.Add(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
   name.vb: Add(Matrix3d, Matrix3d, Matrix3d)
+- uid: OpenTK.Mathematics.Matrix3d.Subtract(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Subtract(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
+  id: Subtract(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Subtract(in Matrix3d, in Matrix3d, out Matrix3d)
+  nameWithType: Matrix3d.Subtract(in Matrix3d, in Matrix3d, out Matrix3d)
+  fullName: OpenTK.Mathematics.Matrix3d.Subtract(in OpenTK.Mathematics.Matrix3d, in OpenTK.Mathematics.Matrix3d, out OpenTK.Mathematics.Matrix3d)
+  type: Method
+  source:
+    id: Subtract
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 886
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Subtracts two instances.
+  example: []
+  syntax:
+    content: public static void Subtract(in Matrix3d left, in Matrix3d right, out Matrix3d result)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: The left operand of the subtraction.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3d
+      description: The right operand of the subtraction.
+    - id: result
+      type: OpenTK.Mathematics.Matrix3d
+      description: A new instance that is the result of the subtraction.
+    content.vb: Public Shared Sub Subtract(left As Matrix3d, right As Matrix3d, result As Matrix3d)
+  overload: OpenTK.Mathematics.Matrix3d.Subtract*
+  nameWithType.vb: Matrix3d.Subtract(Matrix3d, Matrix3d, Matrix3d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Subtract(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: Subtract(Matrix3d, Matrix3d, Matrix3d)
+- uid: OpenTK.Mathematics.Matrix3d.Subtract(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Subtract(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  id: Subtract(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Matrix3d, Matrix3d)
+  nameWithType: Matrix3d.Subtract(Matrix3d, Matrix3d)
+  fullName: OpenTK.Mathematics.Matrix3d.Subtract(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  type: Method
+  source:
+    id: Subtract
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 907
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Subtracts two instances.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3d Subtract(Matrix3d left, Matrix3d right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: The left operand of the subtraction.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3d
+      description: The right operand of the subtraction.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: A new instance that is the result of the subtraction.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function Subtract(left As Matrix3d, right As Matrix3d) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.Subtract*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,System.Double,OpenTK.Mathematics.Matrix3d@)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,System.Double,OpenTK.Mathematics.Matrix3d@)
+  id: Mult(OpenTK.Mathematics.Matrix3d@,System.Double,OpenTK.Mathematics.Matrix3d@)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Mult(in Matrix3d, double, out Matrix3d)
+  nameWithType: Matrix3d.Mult(in Matrix3d, double, out Matrix3d)
+  fullName: OpenTK.Mathematics.Matrix3d.Mult(in OpenTK.Mathematics.Matrix3d, double, out OpenTK.Mathematics.Matrix3d)
+  type: Method
+  source:
+    id: Mult
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 920
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Multiplies an instance by a scalar.
+  example: []
+  syntax:
+    content: public static void Mult(in Matrix3d left, double right, out Matrix3d result)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: The left operand of the multiplication.
+    - id: right
+      type: System.Double
+      description: The right operand of the multiplication.
+    - id: result
+      type: OpenTK.Mathematics.Matrix3d
+      description: A new instance that is the result of the multiplication.
+    content.vb: Public Shared Sub Mult(left As Matrix3d, right As Double, result As Matrix3d)
+  overload: OpenTK.Mathematics.Matrix3d.Mult*
+  nameWithType.vb: Matrix3d.Mult(Matrix3d, Double, Matrix3d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d, Double, OpenTK.Mathematics.Matrix3d)
+  name.vb: Mult(Matrix3d, Double, Matrix3d)
+- uid: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,System.Double)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,System.Double)
+  id: Mult(OpenTK.Mathematics.Matrix3d,System.Double)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Mult(Matrix3d, double)
+  nameWithType: Matrix3d.Mult(Matrix3d, double)
+  fullName: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d, double)
+  type: Method
+  source:
+    id: Mult
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 941
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Multiplies and instance by a scalar.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3d Mult(Matrix3d left, double right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: The left operand of the multiplication.
+    - id: right
+      type: System.Double
+      description: The right operand of the multiplication.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: A new instance that is the result of the multiplication.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function Mult(left As Matrix3d, right As Double) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.Mult*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Matrix3d.Mult(Matrix3d, Double)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d, Double)
+  name.vb: Mult(Matrix3d, Double)
 - uid: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   commentId: M:OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   id: Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
@@ -1979,7 +2229,7 @@ items:
   source:
     id: Mult
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 874
+    startLine: 954
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2023,7 +2273,7 @@ items:
   source:
     id: Mult
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 887
+    startLine: 967
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2046,6 +2296,168 @@ items:
   nameWithType.vb: Matrix3d.Mult(Matrix3d, Matrix3d, Matrix3d)
   fullName.vb: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
   name.vb: Mult(Matrix3d, Matrix3d, Matrix3d)
+- uid: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  id: Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Mult(Matrix3d, Matrix3x2d)
+  nameWithType: Matrix3d.Mult(Matrix3d, Matrix3x2d)
+  fullName: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d)
+  type: Method
+  source:
+    id: Mult
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1005
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Multiplies two instances.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3x2d Mult(Matrix3d left, Matrix3x2d right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: The left operand of the multiplication.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3x2d
+      description: The right operand of the multiplication.
+    return:
+      type: OpenTK.Mathematics.Matrix3x2d
+      description: A new instance that is the result of the multiplication.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function Mult(left As Matrix3d, right As Matrix3x2d) As Matrix3x2d
+  overload: OpenTK.Mathematics.Matrix3d.Mult*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3x2d@,OpenTK.Mathematics.Matrix3x2d@)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3x2d@,OpenTK.Mathematics.Matrix3x2d@)
+  id: Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3x2d@,OpenTK.Mathematics.Matrix3x2d@)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Mult(in Matrix3d, in Matrix3x2d, out Matrix3x2d)
+  nameWithType: Matrix3d.Mult(in Matrix3d, in Matrix3x2d, out Matrix3x2d)
+  fullName: OpenTK.Mathematics.Matrix3d.Mult(in OpenTK.Mathematics.Matrix3d, in OpenTK.Mathematics.Matrix3x2d, out OpenTK.Mathematics.Matrix3x2d)
+  type: Method
+  source:
+    id: Mult
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1018
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Multiplies two instances.
+  example: []
+  syntax:
+    content: public static void Mult(in Matrix3d left, in Matrix3x2d right, out Matrix3x2d result)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: The left operand of the multiplication.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3x2d
+      description: The right operand of the multiplication.
+    - id: result
+      type: OpenTK.Mathematics.Matrix3x2d
+      description: A new instance that is the result of the multiplication.
+    content.vb: Public Shared Sub Mult(left As Matrix3d, right As Matrix3x2d, result As Matrix3x2d)
+  overload: OpenTK.Mathematics.Matrix3d.Mult*
+  nameWithType.vb: Matrix3d.Mult(Matrix3d, Matrix3x2d, Matrix3x2d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d, OpenTK.Mathematics.Matrix3x2d)
+  name.vb: Mult(Matrix3d, Matrix3x2d, Matrix3x2d)
+- uid: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  id: Mult(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Mult(Matrix3d, Matrix3x4d)
+  nameWithType: Matrix3d.Mult(Matrix3d, Matrix3x4d)
+  fullName: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d)
+  type: Method
+  source:
+    id: Mult
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1051
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Multiplies two instances.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3x4d Mult(Matrix3d left, Matrix3x4d right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: The left operand of the multiplication.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3x4d
+      description: The right operand of the multiplication.
+    return:
+      type: OpenTK.Mathematics.Matrix3x4d
+      description: A new instance that is the result of the multiplication.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function Mult(left As Matrix3d, right As Matrix3x4d) As Matrix3x4d
+  overload: OpenTK.Mathematics.Matrix3d.Mult*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3x4d@,OpenTK.Mathematics.Matrix3x4d@)
+  commentId: M:OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3x4d@,OpenTK.Mathematics.Matrix3x4d@)
+  id: Mult(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3x4d@,OpenTK.Mathematics.Matrix3x4d@)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: Mult(in Matrix3d, in Matrix3x4d, out Matrix3x4d)
+  nameWithType: Matrix3d.Mult(in Matrix3d, in Matrix3x4d, out Matrix3x4d)
+  fullName: OpenTK.Mathematics.Matrix3d.Mult(in OpenTK.Mathematics.Matrix3d, in OpenTK.Mathematics.Matrix3x4d, out OpenTK.Mathematics.Matrix3x4d)
+  type: Method
+  source:
+    id: Mult
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1064
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Multiplies two instances.
+  example: []
+  syntax:
+    content: public static void Mult(in Matrix3d left, in Matrix3x4d right, out Matrix3x4d result)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: The left operand of the multiplication.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3x4d
+      description: The right operand of the multiplication.
+    - id: result
+      type: OpenTK.Mathematics.Matrix3x4d
+      description: A new instance that is the result of the multiplication.
+    content.vb: Public Shared Sub Mult(left As Matrix3d, right As Matrix3x4d, result As Matrix3x4d)
+  overload: OpenTK.Mathematics.Matrix3d.Mult*
+  nameWithType.vb: Matrix3d.Mult(Matrix3d, Matrix3x4d, Matrix3x4d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.Mult(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d, OpenTK.Mathematics.Matrix3x4d)
+  name.vb: Mult(Matrix3d, Matrix3x4d, Matrix3x4d)
 - uid: OpenTK.Mathematics.Matrix3d.Invert(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
   commentId: M:OpenTK.Mathematics.Matrix3d.Invert(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
   id: Invert(OpenTK.Mathematics.Matrix3d@,OpenTK.Mathematics.Matrix3d@)
@@ -2060,7 +2472,7 @@ items:
   source:
     id: Invert
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 925
+    startLine: 1109
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2098,7 +2510,7 @@ items:
   source:
     id: Invert
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 978
+    startLine: 1162
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2143,7 +2555,7 @@ items:
   source:
     id: Transpose
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 990
+    startLine: 1174
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2184,7 +2596,7 @@ items:
   source:
     id: Transpose
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1001
+    startLine: 1185
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2218,7 +2630,7 @@ items:
   source:
     id: Swizzle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1017
+    startLine: 1201
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2265,7 +2677,7 @@ items:
   source:
     id: Swizzle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1032
+    startLine: 1216
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2298,6 +2710,151 @@ items:
   nameWithType.vb: Matrix3d.Swizzle(Matrix3d, Integer, Integer, Integer, Matrix3d)
   fullName.vb: OpenTK.Mathematics.Matrix3d.Swizzle(OpenTK.Mathematics.Matrix3d, Integer, Integer, Integer, OpenTK.Mathematics.Matrix3d)
   name.vb: Swizzle(Matrix3d, Integer, Integer, Integer, Matrix3d)
+- uid: OpenTK.Mathematics.Matrix3d.op_Multiply(System.Double,OpenTK.Mathematics.Matrix3d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.op_Multiply(System.Double,OpenTK.Mathematics.Matrix3d)
+  id: op_Multiply(System.Double,OpenTK.Mathematics.Matrix3d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: operator *(double, Matrix3d)
+  nameWithType: Matrix3d.operator *(double, Matrix3d)
+  fullName: OpenTK.Mathematics.Matrix3d.operator *(double, OpenTK.Mathematics.Matrix3d)
+  type: Operator
+  source:
+    id: op_Multiply
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1249
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Scalar multiplication.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3d operator *(double left, Matrix3d right)
+    parameters:
+    - id: left
+      type: System.Double
+      description: left-hand operand.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3d
+      description: right-hand operand.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: A new Matrix3d which holds the result of the multiplication.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Operator *(left As Double, right As Matrix3d) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.op_Multiply*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Matrix3d.*(Double, Matrix3d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.*(Double, OpenTK.Mathematics.Matrix3d)
+  name.vb: '*(Double, Matrix3d)'
+- uid: OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,System.Double)
+  commentId: M:OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,System.Double)
+  id: op_Multiply(OpenTK.Mathematics.Matrix3d,System.Double)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: operator *(Matrix3d, double)
+  nameWithType: Matrix3d.operator *(Matrix3d, double)
+  fullName: OpenTK.Mathematics.Matrix3d.operator *(OpenTK.Mathematics.Matrix3d, double)
+  type: Operator
+  source:
+    id: op_Multiply
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1261
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Scalar multiplication.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3d operator *(Matrix3d left, double right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: left-hand operand.
+    - id: right
+      type: System.Double
+      description: right-hand operand.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: A new Matrix3d which holds the result of the multiplication.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Operator *(left As Matrix3d, right As Double) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.op_Multiply*
+  implements:
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,System.Double,OpenTK.Mathematics.Matrix3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,System.Double)
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Matrix3d.*(Matrix3d, Double)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.*(OpenTK.Mathematics.Matrix3d, Double)
+  name.vb: '*(Matrix3d, Double)'
+- uid: OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d)
+  id: op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: operator *(Matrix3d, Vector3d)
+  nameWithType: Matrix3d.operator *(Matrix3d, Vector3d)
+  fullName: OpenTK.Mathematics.Matrix3d.operator *(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Vector3d)
+  type: Operator
+  source:
+    id: op_Multiply
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1273
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Transform a Vector by the given Matrix using right-handed notation.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector3d operator *(Matrix3d mat, Vector3d vec)
+    parameters:
+    - id: mat
+      type: OpenTK.Mathematics.Matrix3d
+      description: The desired transformation.
+    - id: vec
+      type: OpenTK.Mathematics.Vector3d
+      description: The vector to transform.
+    return:
+      type: OpenTK.Mathematics.Vector3d
+      description: The transformed vector.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Operator *(mat As Matrix3d, vec As Vector3d) As Vector3d
+  overload: OpenTK.Mathematics.Matrix3d.op_Multiply*
+  implements:
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d)
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Matrix3d.*(Matrix3d, Vector3d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.*(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Vector3d)
+  name.vb: '*(Matrix3d, Vector3d)'
 - uid: OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   commentId: M:OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   id: op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
@@ -2312,7 +2869,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1065
+    startLine: 1286
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2338,6 +2895,8 @@ items:
 
       Public Shared Operator *(left As Matrix3d, right As Matrix3d) As Matrix3d
   overload: OpenTK.Mathematics.Matrix3d.op_Multiply*
+  implements:
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   attributes:
   - type: System.Diagnostics.Contracts.PureAttribute
     ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
@@ -2345,6 +2904,202 @@ items:
   nameWithType.vb: Matrix3d.*(Matrix3d, Matrix3d)
   fullName.vb: OpenTK.Mathematics.Matrix3d.*(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
   name.vb: '*(Matrix3d, Matrix3d)'
+- uid: OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  id: op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: operator *(Matrix3d, Matrix3x2d)
+  nameWithType: Matrix3d.operator *(Matrix3d, Matrix3x2d)
+  fullName: OpenTK.Mathematics.Matrix3d.operator *(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d)
+  type: Operator
+  source:
+    id: op_Multiply
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1298
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Matrix multiplication.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3x2d operator *(Matrix3d left, Matrix3x2d right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: left-hand operand.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3x2d
+      description: right-hand operand.
+    return:
+      type: OpenTK.Mathematics.Matrix3x2d
+      description: A new Matrix3x2d which holds the result of the multiplication.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Operator *(left As Matrix3d, right As Matrix3x2d) As Matrix3x2d
+  overload: OpenTK.Mathematics.Matrix3d.op_Multiply*
+  implements:
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d,OpenTK.Mathematics.Matrix3x2d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Matrix3d.*(Matrix3d, Matrix3x2d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.*(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d)
+  name.vb: '*(Matrix3d, Matrix3x2d)'
+- uid: OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  id: op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: operator *(Matrix3d, Matrix3x4d)
+  nameWithType: Matrix3d.operator *(Matrix3d, Matrix3x4d)
+  fullName: OpenTK.Mathematics.Matrix3d.operator *(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d)
+  type: Operator
+  source:
+    id: op_Multiply
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1310
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Matrix multiplication.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3x4d operator *(Matrix3d left, Matrix3x4d right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: left-hand operand.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3x4d
+      description: right-hand operand.
+    return:
+      type: OpenTK.Mathematics.Matrix3x4d
+      description: A new Matrix3x4d which holds the result of the multiplication.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Operator *(left As Matrix3d, right As Matrix3x4d) As Matrix3x4d
+  overload: OpenTK.Mathematics.Matrix3d.op_Multiply*
+  implements:
+  - System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d,OpenTK.Mathematics.Matrix3x4d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Matrix3d.*(Matrix3d, Matrix3x4d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.*(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d)
+  name.vb: '*(Matrix3d, Matrix3x4d)'
+- uid: OpenTK.Mathematics.Matrix3d.op_Addition(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.op_Addition(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  id: op_Addition(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: operator +(Matrix3d, Matrix3d)
+  nameWithType: Matrix3d.operator +(Matrix3d, Matrix3d)
+  fullName: OpenTK.Mathematics.Matrix3d.operator +(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  type: Operator
+  source:
+    id: op_Addition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1322
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Matrix addition.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3d operator +(Matrix3d left, Matrix3d right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: left-hand operand.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3d
+      description: right-hand operand.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: A new Matrix3d which holds the result of the addition.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Operator +(left As Matrix3d, right As Matrix3d) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.op_Addition*
+  implements:
+  - System.Numerics.IAdditionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Addition(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Matrix3d.+(Matrix3d, Matrix3d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.+(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: +(Matrix3d, Matrix3d)
+- uid: OpenTK.Mathematics.Matrix3d.op_Subtraction(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  commentId: M:OpenTK.Mathematics.Matrix3d.op_Subtraction(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  id: op_Subtraction(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  parent: OpenTK.Mathematics.Matrix3d
+  langs:
+  - csharp
+  - vb
+  name: operator -(Matrix3d, Matrix3d)
+  nameWithType: Matrix3d.operator -(Matrix3d, Matrix3d)
+  fullName: OpenTK.Mathematics.Matrix3d.operator -(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  type: Operator
+  source:
+    id: op_Subtraction
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
+    startLine: 1334
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Matrix subtraction.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Matrix3d operator -(Matrix3d left, Matrix3d right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Matrix3d
+      description: left-hand operand.
+    - id: right
+      type: OpenTK.Mathematics.Matrix3d
+      description: right-hand operand.
+    return:
+      type: OpenTK.Mathematics.Matrix3d
+      description: A new Matrix3d which holds the result of the subtraction.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Operator -(left As Matrix3d, right As Matrix3d) As Matrix3d
+  overload: OpenTK.Mathematics.Matrix3d.op_Subtraction*
+  implements:
+  - System.Numerics.ISubtractionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Subtraction(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Matrix3d.-(Matrix3d, Matrix3d)
+  fullName.vb: OpenTK.Mathematics.Matrix3d.-(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: -(Matrix3d, Matrix3d)
 - uid: OpenTK.Mathematics.Matrix3d.op_Equality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   commentId: M:OpenTK.Mathematics.Matrix3d.op_Equality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   id: op_Equality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
@@ -2359,7 +3114,7 @@ items:
   source:
     id: op_Equality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1077
+    startLine: 1346
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2385,6 +3140,8 @@ items:
 
       Public Shared Operator =(left As Matrix3d, right As Matrix3d) As Boolean
   overload: OpenTK.Mathematics.Matrix3d.op_Equality*
+  implements:
+  - System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}.op_Equality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   attributes:
   - type: System.Diagnostics.Contracts.PureAttribute
     ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
@@ -2406,7 +3163,7 @@ items:
   source:
     id: op_Inequality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1089
+    startLine: 1358
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2432,6 +3189,8 @@ items:
 
       Public Shared Operator <>(left As Matrix3d, right As Matrix3d) As Boolean
   overload: OpenTK.Mathematics.Matrix3d.op_Inequality*
+  implements:
+  - System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}.op_Inequality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
   attributes:
   - type: System.Diagnostics.Contracts.PureAttribute
     ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
@@ -2453,7 +3212,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1099
+    startLine: 1368
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2481,7 +3240,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1105
+    startLine: 1374
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2520,7 +3279,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1111
+    startLine: 1380
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2556,7 +3315,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1117
+    startLine: 1386
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2605,7 +3364,7 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1129
+    startLine: 1398
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2633,7 +3392,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1139
+    startLine: 1408
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2678,7 +3437,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Matrix\Matrix3d.cs
-    startLine: 1150
+    startLine: 1419
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2771,6 +3530,520 @@ references:
   name: IFormattable
   nameWithType: IFormattable
   fullName: System.IFormattable
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,System.Double,OpenTK.Mathematics.Matrix3d}
+  commentId: T:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,System.Double,OpenTK.Mathematics.Matrix3d}
+  parent: System.Numerics
+  definition: System.Numerics.IMultiplyOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  name: IMultiplyOperators<Matrix3d, double, Matrix3d>
+  nameWithType: IMultiplyOperators<Matrix3d, double, Matrix3d>
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, double, OpenTK.Mathematics.Matrix3d>
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Double, Matrix3d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, Double, OpenTK.Mathematics.Matrix3d)
+  name.vb: IMultiplyOperators(Of Matrix3d, Double, Matrix3d)
+  spec.csharp:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d}
+  commentId: T:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d}
+  parent: System.Numerics
+  definition: System.Numerics.IMultiplyOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  name: IMultiplyOperators<Matrix3d, Vector3d, Vector3d>
+  nameWithType: IMultiplyOperators<Matrix3d, Vector3d, Vector3d>
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d>
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Vector3d, Vector3d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  name.vb: IMultiplyOperators(Of Matrix3d, Vector3d, Vector3d)
+  spec.csharp:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3d
+    name: Vector3d
+    href: OpenTK.Mathematics.Vector3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3d
+    name: Vector3d
+    href: OpenTK.Mathematics.Vector3d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3d
+    name: Vector3d
+    href: OpenTK.Mathematics.Vector3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3d
+    name: Vector3d
+    href: OpenTK.Mathematics.Vector3d.html
+  - name: )
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  commentId: T:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  parent: System.Numerics
+  definition: System.Numerics.IMultiplyOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  name: IMultiplyOperators<Matrix3d, Matrix3d, Matrix3d>
+  nameWithType: IMultiplyOperators<Matrix3d, Matrix3d, Matrix3d>
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: IMultiplyOperators(Of Matrix3d, Matrix3d, Matrix3d)
+  spec.csharp:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d,OpenTK.Mathematics.Matrix3x2d}
+  commentId: T:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d,OpenTK.Mathematics.Matrix3x2d}
+  parent: System.Numerics
+  definition: System.Numerics.IMultiplyOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  name: IMultiplyOperators<Matrix3d, Matrix3x2d, Matrix3x2d>
+  nameWithType: IMultiplyOperators<Matrix3d, Matrix3x2d, Matrix3x2d>
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d, OpenTK.Mathematics.Matrix3x2d>
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Matrix3x2d, Matrix3x2d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d, OpenTK.Mathematics.Matrix3x2d)
+  name.vb: IMultiplyOperators(Of Matrix3d, Matrix3x2d, Matrix3x2d)
+  spec.csharp:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x2d
+    name: Matrix3x2d
+    href: OpenTK.Mathematics.Matrix3x2d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x2d
+    name: Matrix3x2d
+    href: OpenTK.Mathematics.Matrix3x2d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x2d
+    name: Matrix3x2d
+    href: OpenTK.Mathematics.Matrix3x2d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x2d
+    name: Matrix3x2d
+    href: OpenTK.Mathematics.Matrix3x2d.html
+  - name: )
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d,OpenTK.Mathematics.Matrix3x4d}
+  commentId: T:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d,OpenTK.Mathematics.Matrix3x4d}
+  parent: System.Numerics
+  definition: System.Numerics.IMultiplyOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  name: IMultiplyOperators<Matrix3d, Matrix3x4d, Matrix3x4d>
+  nameWithType: IMultiplyOperators<Matrix3d, Matrix3x4d, Matrix3x4d>
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d, OpenTK.Mathematics.Matrix3x4d>
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Matrix3x4d, Matrix3x4d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d, OpenTK.Mathematics.Matrix3x4d)
+  name.vb: IMultiplyOperators(Of Matrix3d, Matrix3x4d, Matrix3x4d)
+  spec.csharp:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x4d
+    name: Matrix3x4d
+    href: OpenTK.Mathematics.Matrix3x4d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x4d
+    name: Matrix3x4d
+    href: OpenTK.Mathematics.Matrix3x4d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x4d
+    name: Matrix3x4d
+    href: OpenTK.Mathematics.Matrix3x4d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x4d
+    name: Matrix3x4d
+    href: OpenTK.Mathematics.Matrix3x4d.html
+  - name: )
+- uid: System.Numerics.IAdditionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  commentId: T:System.Numerics.IAdditionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  parent: System.Numerics
+  definition: System.Numerics.IAdditionOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3
+  name: IAdditionOperators<Matrix3d, Matrix3d, Matrix3d>
+  nameWithType: IAdditionOperators<Matrix3d, Matrix3d, Matrix3d>
+  fullName: System.Numerics.IAdditionOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>
+  nameWithType.vb: IAdditionOperators(Of Matrix3d, Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.IAdditionOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: IAdditionOperators(Of Matrix3d, Matrix3d, Matrix3d)
+  spec.csharp:
+  - uid: System.Numerics.IAdditionOperators`3
+    name: IAdditionOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IAdditionOperators`3
+    name: IAdditionOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.ISubtractionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  commentId: T:System.Numerics.ISubtractionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  parent: System.Numerics
+  definition: System.Numerics.ISubtractionOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3
+  name: ISubtractionOperators<Matrix3d, Matrix3d, Matrix3d>
+  nameWithType: ISubtractionOperators<Matrix3d, Matrix3d, Matrix3d>
+  fullName: System.Numerics.ISubtractionOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>
+  nameWithType.vb: ISubtractionOperators(Of Matrix3d, Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.ISubtractionOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: ISubtractionOperators(Of Matrix3d, Matrix3d, Matrix3d)
+  spec.csharp:
+  - uid: System.Numerics.ISubtractionOperators`3
+    name: ISubtractionOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.ISubtractionOperators`3
+    name: ISubtractionOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}
+  commentId: T:System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}
+  parent: System.Numerics
+  definition: System.Numerics.IEqualityOperators`3
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  name: IEqualityOperators<Matrix3d, Matrix3d, bool>
+  nameWithType: IEqualityOperators<Matrix3d, Matrix3d, bool>
+  fullName: System.Numerics.IEqualityOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, bool>
+  nameWithType.vb: IEqualityOperators(Of Matrix3d, Matrix3d, Boolean)
+  fullName.vb: System.Numerics.IEqualityOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, Boolean)
+  name.vb: IEqualityOperators(Of Matrix3d, Matrix3d, Boolean)
+  spec.csharp:
+  - uid: System.Numerics.IEqualityOperators`3
+    name: IEqualityOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IEqualityOperators`3
+    name: IEqualityOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Numerics.IAdditiveIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  commentId: T:System.Numerics.IAdditiveIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  parent: System.Numerics
+  definition: System.Numerics.IAdditiveIdentity`2
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2
+  name: IAdditiveIdentity<Matrix3d, Matrix3d>
+  nameWithType: IAdditiveIdentity<Matrix3d, Matrix3d>
+  fullName: System.Numerics.IAdditiveIdentity<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>
+  nameWithType.vb: IAdditiveIdentity(Of Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.IAdditiveIdentity(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: IAdditiveIdentity(Of Matrix3d, Matrix3d)
+  spec.csharp:
+  - uid: System.Numerics.IAdditiveIdentity`2
+    name: IAdditiveIdentity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IAdditiveIdentity`2
+    name: IAdditiveIdentity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.IMultiplicativeIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  commentId: T:System.Numerics.IMultiplicativeIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  parent: System.Numerics
+  definition: System.Numerics.IMultiplicativeIdentity`2
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2
+  name: IMultiplicativeIdentity<Matrix3d, Matrix3d>
+  nameWithType: IMultiplicativeIdentity<Matrix3d, Matrix3d>
+  fullName: System.Numerics.IMultiplicativeIdentity<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>
+  nameWithType.vb: IMultiplicativeIdentity(Of Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.IMultiplicativeIdentity(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: IMultiplicativeIdentity(Of Matrix3d, Matrix3d)
+  spec.csharp:
+  - uid: System.Numerics.IMultiplicativeIdentity`2
+    name: IMultiplicativeIdentity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2
+  - name: <
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IMultiplicativeIdentity`2
+    name: IMultiplicativeIdentity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -2920,6 +4193,261 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Numerics.IMultiplyOperators`3
+  commentId: T:System.Numerics.IMultiplyOperators`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  name: IMultiplyOperators<TSelf, TOther, TResult>
+  nameWithType: IMultiplyOperators<TSelf, TOther, TResult>
+  fullName: System.Numerics.IMultiplyOperators<TSelf, TOther, TResult>
+  nameWithType.vb: IMultiplyOperators(Of TSelf, TOther, TResult)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of TSelf, TOther, TResult)
+  name.vb: IMultiplyOperators(Of TSelf, TOther, TResult)
+  spec.csharp:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: <
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IMultiplyOperators`3
+    name: IMultiplyOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Numerics
+  commentId: N:System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Numerics
+  nameWithType: System.Numerics
+  fullName: System.Numerics
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+- uid: System.Numerics.IAdditionOperators`3
+  commentId: T:System.Numerics.IAdditionOperators`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3
+  name: IAdditionOperators<TSelf, TOther, TResult>
+  nameWithType: IAdditionOperators<TSelf, TOther, TResult>
+  fullName: System.Numerics.IAdditionOperators<TSelf, TOther, TResult>
+  nameWithType.vb: IAdditionOperators(Of TSelf, TOther, TResult)
+  fullName.vb: System.Numerics.IAdditionOperators(Of TSelf, TOther, TResult)
+  name.vb: IAdditionOperators(Of TSelf, TOther, TResult)
+  spec.csharp:
+  - uid: System.Numerics.IAdditionOperators`3
+    name: IAdditionOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3
+  - name: <
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IAdditionOperators`3
+    name: IAdditionOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Numerics.ISubtractionOperators`3
+  commentId: T:System.Numerics.ISubtractionOperators`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3
+  name: ISubtractionOperators<TSelf, TOther, TResult>
+  nameWithType: ISubtractionOperators<TSelf, TOther, TResult>
+  fullName: System.Numerics.ISubtractionOperators<TSelf, TOther, TResult>
+  nameWithType.vb: ISubtractionOperators(Of TSelf, TOther, TResult)
+  fullName.vb: System.Numerics.ISubtractionOperators(Of TSelf, TOther, TResult)
+  name.vb: ISubtractionOperators(Of TSelf, TOther, TResult)
+  spec.csharp:
+  - uid: System.Numerics.ISubtractionOperators`3
+    name: ISubtractionOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3
+  - name: <
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.ISubtractionOperators`3
+    name: ISubtractionOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Numerics.IEqualityOperators`3
+  commentId: T:System.Numerics.IEqualityOperators`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  name: IEqualityOperators<TSelf, TOther, TResult>
+  nameWithType: IEqualityOperators<TSelf, TOther, TResult>
+  fullName: System.Numerics.IEqualityOperators<TSelf, TOther, TResult>
+  nameWithType.vb: IEqualityOperators(Of TSelf, TOther, TResult)
+  fullName.vb: System.Numerics.IEqualityOperators(Of TSelf, TOther, TResult)
+  name.vb: IEqualityOperators(Of TSelf, TOther, TResult)
+  spec.csharp:
+  - uid: System.Numerics.IEqualityOperators`3
+    name: IEqualityOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  - name: <
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IEqualityOperators`3
+    name: IEqualityOperators
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Numerics.IAdditiveIdentity`2
+  commentId: T:System.Numerics.IAdditiveIdentity`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2
+  name: IAdditiveIdentity<TSelf, TResult>
+  nameWithType: IAdditiveIdentity<TSelf, TResult>
+  fullName: System.Numerics.IAdditiveIdentity<TSelf, TResult>
+  nameWithType.vb: IAdditiveIdentity(Of TSelf, TResult)
+  fullName.vb: System.Numerics.IAdditiveIdentity(Of TSelf, TResult)
+  name.vb: IAdditiveIdentity(Of TSelf, TResult)
+  spec.csharp:
+  - uid: System.Numerics.IAdditiveIdentity`2
+    name: IAdditiveIdentity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2
+  - name: <
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IAdditiveIdentity`2
+    name: IAdditiveIdentity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Numerics.IMultiplicativeIdentity`2
+  commentId: T:System.Numerics.IMultiplicativeIdentity`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2
+  name: IMultiplicativeIdentity<TSelf, TResult>
+  nameWithType: IMultiplicativeIdentity<TSelf, TResult>
+  fullName: System.Numerics.IMultiplicativeIdentity<TSelf, TResult>
+  nameWithType.vb: IMultiplicativeIdentity(Of TSelf, TResult)
+  fullName.vb: System.Numerics.IMultiplicativeIdentity(Of TSelf, TResult)
+  name.vb: IMultiplicativeIdentity(Of TSelf, TResult)
+  spec.csharp:
+  - uid: System.Numerics.IMultiplicativeIdentity`2
+    name: IMultiplicativeIdentity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2
+  - name: <
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Numerics.IMultiplicativeIdentity`2
+    name: IMultiplicativeIdentity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -3062,6 +4590,56 @@ references:
   name: Trace
   nameWithType: Matrix3d.Trace
   fullName: OpenTK.Mathematics.Matrix3d.Trace
+- uid: OpenTK.Mathematics.Matrix3d.AdditiveIdentity*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.AdditiveIdentity
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_AdditiveIdentity
+  name: AdditiveIdentity
+  nameWithType: Matrix3d.AdditiveIdentity
+  fullName: OpenTK.Mathematics.Matrix3d.AdditiveIdentity
+- uid: System.Numerics.IAdditiveIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.AdditiveIdentity
+  commentId: P:System.Numerics.IAdditiveIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.AdditiveIdentity
+  parent: System.Numerics.IAdditiveIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  definition: System.Numerics.IAdditiveIdentity`2.AdditiveIdentity
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2.additiveidentity
+  name: AdditiveIdentity
+  nameWithType: IAdditiveIdentity<Matrix3d, Matrix3d>.AdditiveIdentity
+  fullName: System.Numerics.IAdditiveIdentity<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>.AdditiveIdentity
+  nameWithType.vb: IAdditiveIdentity(Of Matrix3d, Matrix3d).AdditiveIdentity
+  fullName.vb: System.Numerics.IAdditiveIdentity(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d).AdditiveIdentity
+- uid: System.Numerics.IAdditiveIdentity`2.AdditiveIdentity
+  commentId: P:System.Numerics.IAdditiveIdentity`2.AdditiveIdentity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2.additiveidentity
+  name: AdditiveIdentity
+  nameWithType: IAdditiveIdentity<TSelf, TResult>.AdditiveIdentity
+  fullName: System.Numerics.IAdditiveIdentity<TSelf, TResult>.AdditiveIdentity
+  nameWithType.vb: IAdditiveIdentity(Of TSelf, TResult).AdditiveIdentity
+  fullName.vb: System.Numerics.IAdditiveIdentity(Of TSelf, TResult).AdditiveIdentity
+- uid: OpenTK.Mathematics.Matrix3d.MultiplicativeIdentity*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.MultiplicativeIdentity
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_MultiplicativeIdentity
+  name: MultiplicativeIdentity
+  nameWithType: Matrix3d.MultiplicativeIdentity
+  fullName: OpenTK.Mathematics.Matrix3d.MultiplicativeIdentity
+- uid: System.Numerics.IMultiplicativeIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.MultiplicativeIdentity
+  commentId: P:System.Numerics.IMultiplicativeIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.MultiplicativeIdentity
+  parent: System.Numerics.IMultiplicativeIdentity{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  definition: System.Numerics.IMultiplicativeIdentity`2.MultiplicativeIdentity
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2.multiplicativeidentity
+  name: MultiplicativeIdentity
+  nameWithType: IMultiplicativeIdentity<Matrix3d, Matrix3d>.MultiplicativeIdentity
+  fullName: System.Numerics.IMultiplicativeIdentity<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>.MultiplicativeIdentity
+  nameWithType.vb: IMultiplicativeIdentity(Of Matrix3d, Matrix3d).MultiplicativeIdentity
+  fullName.vb: System.Numerics.IMultiplicativeIdentity(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d).MultiplicativeIdentity
+- uid: System.Numerics.IMultiplicativeIdentity`2.MultiplicativeIdentity
+  commentId: P:System.Numerics.IMultiplicativeIdentity`2.MultiplicativeIdentity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2.multiplicativeidentity
+  name: MultiplicativeIdentity
+  nameWithType: IMultiplicativeIdentity<TSelf, TResult>.MultiplicativeIdentity
+  fullName: System.Numerics.IMultiplicativeIdentity<TSelf, TResult>.MultiplicativeIdentity
+  nameWithType.vb: IMultiplicativeIdentity(Of TSelf, TResult).MultiplicativeIdentity
+  fullName.vb: System.Numerics.IMultiplicativeIdentity(Of TSelf, TResult).MultiplicativeIdentity
 - uid: OpenTK.Mathematics.Matrix3d.Item*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.Item
   href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_Item_System_Int32_System_Int32_
@@ -3250,12 +4828,32 @@ references:
   name: Add
   nameWithType: Matrix3d.Add
   fullName: OpenTK.Mathematics.Matrix3d.Add
+- uid: OpenTK.Mathematics.Matrix3d.Subtract*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.Subtract
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_Subtract_OpenTK_Mathematics_Matrix3d__OpenTK_Mathematics_Matrix3d__OpenTK_Mathematics_Matrix3d__
+  name: Subtract
+  nameWithType: Matrix3d.Subtract
+  fullName: OpenTK.Mathematics.Matrix3d.Subtract
 - uid: OpenTK.Mathematics.Matrix3d.Mult*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.Mult
-  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_Mult_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_Mult_OpenTK_Mathematics_Matrix3d__System_Double_OpenTK_Mathematics_Matrix3d__
   name: Mult
   nameWithType: Matrix3d.Mult
   fullName: OpenTK.Mathematics.Matrix3d.Mult
+- uid: OpenTK.Mathematics.Matrix3x2d
+  commentId: T:OpenTK.Mathematics.Matrix3x2d
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Matrix3x2d.html
+  name: Matrix3x2d
+  nameWithType: Matrix3x2d
+  fullName: OpenTK.Mathematics.Matrix3x2d
+- uid: OpenTK.Mathematics.Matrix3x4d
+  commentId: T:OpenTK.Mathematics.Matrix3x4d
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Matrix3x4d.html
+  name: Matrix3x4d
+  nameWithType: Matrix3x4d
+  fullName: OpenTK.Mathematics.Matrix3x4d
 - uid: System.InvalidOperationException
   commentId: T:System.InvalidOperationException
   isExternal: true
@@ -3272,7 +4870,7 @@ references:
   fullName: System.IndexOutOfRangeException
 - uid: OpenTK.Mathematics.Matrix3d.op_Multiply*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.op_Multiply
-  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Multiply_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Multiply_System_Double_OpenTK_Mathematics_Matrix3d_
   name: operator *
   nameWithType: Matrix3d.operator *
   fullName: OpenTK.Mathematics.Matrix3d.operator *
@@ -3284,7 +4882,412 @@ references:
   - name: " "
   - uid: OpenTK.Mathematics.Matrix3d.op_Multiply*
     name: '*'
-    href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Multiply_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+    href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Multiply_System_Double_OpenTK_Mathematics_Matrix3d_
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,System.Double,OpenTK.Mathematics.Matrix3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,System.Double)
+  commentId: M:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,System.Double,OpenTK.Mathematics.Matrix3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,System.Double)
+  parent: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,System.Double,OpenTK.Mathematics.Matrix3d}
+  definition: System.Numerics.IMultiplyOperators`3.op_Multiply(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  name: operator *(Matrix3d, double)
+  nameWithType: IMultiplyOperators<Matrix3d, double, Matrix3d>.operator *(Matrix3d, double)
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, double, OpenTK.Mathematics.Matrix3d>.operator *(OpenTK.Mathematics.Matrix3d, double)
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Double, Matrix3d).*(Matrix3d, Double)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, Double, OpenTK.Mathematics.Matrix3d).*(OpenTK.Mathematics.Matrix3d, Double)
+  name.vb: '*(Matrix3d, Double)'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,System.Double,OpenTK.Mathematics.Matrix3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,System.Double)
+    name: '*'
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+  spec.vb:
+  - name: '*'
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+- uid: System.Numerics.IMultiplyOperators`3.op_Multiply(`0,`1)
+  commentId: M:System.Numerics.IMultiplyOperators`3.op_Multiply(`0,`1)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  name: operator *(TSelf, TOther)
+  nameWithType: IMultiplyOperators<TSelf, TOther, TResult>.operator *(TSelf, TOther)
+  fullName: System.Numerics.IMultiplyOperators<TSelf, TOther, TResult>.operator *(TSelf, TOther)
+  nameWithType.vb: IMultiplyOperators(Of TSelf, TOther, TResult).*(TSelf, TOther)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of TSelf, TOther, TResult).*(TSelf, TOther)
+  name.vb: '*(TSelf, TOther)'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IMultiplyOperators`3.op_Multiply(`0,`1)
+    name: '*'
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+  spec.vb:
+  - name: '*'
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d)
+  commentId: M:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d)
+  parent: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d}
+  definition: System.Numerics.IMultiplyOperators`3.op_Multiply(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  name: operator *(Matrix3d, Vector3d)
+  nameWithType: IMultiplyOperators<Matrix3d, Vector3d, Vector3d>.operator *(Matrix3d, Vector3d)
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d>.operator *(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Vector3d)
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Vector3d, Vector3d).*(Matrix3d, Vector3d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d).*(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Vector3d)
+  name.vb: '*(Matrix3d, Vector3d)'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Vector3d)
+    name: '*'
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3d
+    name: Vector3d
+    href: OpenTK.Mathematics.Vector3d.html
+  - name: )
+  spec.vb:
+  - name: '*'
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3d
+    name: Vector3d
+    href: OpenTK.Mathematics.Vector3d.html
+  - name: )
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  commentId: M:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  parent: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  definition: System.Numerics.IMultiplyOperators`3.op_Multiply(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  name: operator *(Matrix3d, Matrix3d)
+  nameWithType: IMultiplyOperators<Matrix3d, Matrix3d, Matrix3d>.operator *(Matrix3d, Matrix3d)
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>.operator *(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Matrix3d, Matrix3d).*(Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d).*(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: '*(Matrix3d, Matrix3d)'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+    name: '*'
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+  spec.vb:
+  - name: '*'
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d,OpenTK.Mathematics.Matrix3x2d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  commentId: M:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d,OpenTK.Mathematics.Matrix3x2d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+  parent: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d,OpenTK.Mathematics.Matrix3x2d}
+  definition: System.Numerics.IMultiplyOperators`3.op_Multiply(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  name: operator *(Matrix3d, Matrix3x2d)
+  nameWithType: IMultiplyOperators<Matrix3d, Matrix3x2d, Matrix3x2d>.operator *(Matrix3d, Matrix3x2d)
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d, OpenTK.Mathematics.Matrix3x2d>.operator *(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d)
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Matrix3x2d, Matrix3x2d).*(Matrix3d, Matrix3x2d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d, OpenTK.Mathematics.Matrix3x2d).*(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x2d)
+  name.vb: '*(Matrix3d, Matrix3x2d)'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d,OpenTK.Mathematics.Matrix3x2d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x2d)
+    name: '*'
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x2d
+    name: Matrix3x2d
+    href: OpenTK.Mathematics.Matrix3x2d.html
+  - name: )
+  spec.vb:
+  - name: '*'
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x2d
+    name: Matrix3x2d
+    href: OpenTK.Mathematics.Matrix3x2d.html
+  - name: )
+- uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d,OpenTK.Mathematics.Matrix3x4d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  commentId: M:System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d,OpenTK.Mathematics.Matrix3x4d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+  parent: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d,OpenTK.Mathematics.Matrix3x4d}
+  definition: System.Numerics.IMultiplyOperators`3.op_Multiply(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  name: operator *(Matrix3d, Matrix3x4d)
+  nameWithType: IMultiplyOperators<Matrix3d, Matrix3x4d, Matrix3x4d>.operator *(Matrix3d, Matrix3x4d)
+  fullName: System.Numerics.IMultiplyOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d, OpenTK.Mathematics.Matrix3x4d>.operator *(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d)
+  nameWithType.vb: IMultiplyOperators(Of Matrix3d, Matrix3x4d, Matrix3x4d).*(Matrix3d, Matrix3x4d)
+  fullName.vb: System.Numerics.IMultiplyOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d, OpenTK.Mathematics.Matrix3x4d).*(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3x4d)
+  name.vb: '*(Matrix3d, Matrix3x4d)'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IMultiplyOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d,OpenTK.Mathematics.Matrix3x4d}.op_Multiply(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3x4d)
+    name: '*'
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3.op_multiply
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x4d
+    name: Matrix3x4d
+    href: OpenTK.Mathematics.Matrix3x4d.html
+  - name: )
+  spec.vb:
+  - name: '*'
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3x4d
+    name: Matrix3x4d
+    href: OpenTK.Mathematics.Matrix3x4d.html
+  - name: )
+- uid: OpenTK.Mathematics.Matrix3d.op_Addition*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.op_Addition
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Addition_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+  name: operator +
+  nameWithType: Matrix3d.operator +
+  fullName: OpenTK.Mathematics.Matrix3d.operator +
+  nameWithType.vb: Matrix3d.+
+  fullName.vb: OpenTK.Mathematics.Matrix3d.+
+  name.vb: +
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d.op_Addition*
+    name: +
+    href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Addition_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+- uid: System.Numerics.IAdditionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Addition(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  commentId: M:System.Numerics.IAdditionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Addition(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  parent: System.Numerics.IAdditionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  definition: System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3.op_addition
+  name: operator +(Matrix3d, Matrix3d)
+  nameWithType: IAdditionOperators<Matrix3d, Matrix3d, Matrix3d>.operator +(Matrix3d, Matrix3d)
+  fullName: System.Numerics.IAdditionOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>.operator +(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  nameWithType.vb: IAdditionOperators(Of Matrix3d, Matrix3d, Matrix3d).+(Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.IAdditionOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d).+(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: +(Matrix3d, Matrix3d)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IAdditionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Addition(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+    name: +
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3.op_addition
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+  spec.vb:
+  - name: +
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)
+  commentId: M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3.op_addition
+  name: operator +(TSelf, TOther)
+  nameWithType: IAdditionOperators<TSelf, TOther, TResult>.operator +(TSelf, TOther)
+  fullName: System.Numerics.IAdditionOperators<TSelf, TOther, TResult>.operator +(TSelf, TOther)
+  nameWithType.vb: IAdditionOperators(Of TSelf, TOther, TResult).+(TSelf, TOther)
+  fullName.vb: System.Numerics.IAdditionOperators(Of TSelf, TOther, TResult).+(TSelf, TOther)
+  name.vb: +(TSelf, TOther)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)
+    name: +
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3.op_addition
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+  spec.vb:
+  - name: +
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+- uid: OpenTK.Mathematics.Matrix3d.op_Subtraction*
+  commentId: Overload:OpenTK.Mathematics.Matrix3d.op_Subtraction
+  href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Subtraction_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+  name: operator -
+  nameWithType: Matrix3d.operator -
+  fullName: OpenTK.Mathematics.Matrix3d.operator -
+  nameWithType.vb: Matrix3d.-
+  fullName.vb: OpenTK.Mathematics.Matrix3d.-
+  name.vb: '-'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d.op_Subtraction*
+    name: '-'
+    href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Subtraction_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+- uid: System.Numerics.ISubtractionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Subtraction(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  commentId: M:System.Numerics.ISubtractionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Subtraction(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  parent: System.Numerics.ISubtractionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}
+  definition: System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3.op_subtraction
+  name: operator -(Matrix3d, Matrix3d)
+  nameWithType: ISubtractionOperators<Matrix3d, Matrix3d, Matrix3d>.operator -(Matrix3d, Matrix3d)
+  fullName: System.Numerics.ISubtractionOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d>.operator -(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  nameWithType.vb: ISubtractionOperators(Of Matrix3d, Matrix3d, Matrix3d).-(Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.ISubtractionOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d).-(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: -(Matrix3d, Matrix3d)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.ISubtractionOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d}.op_Subtraction(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+    name: '-'
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3.op_subtraction
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+  spec.vb:
+  - name: '-'
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)
+  commentId: M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3.op_subtraction
+  name: operator -(TSelf, TOther)
+  nameWithType: ISubtractionOperators<TSelf, TOther, TResult>.operator -(TSelf, TOther)
+  fullName: System.Numerics.ISubtractionOperators<TSelf, TOther, TResult>.operator -(TSelf, TOther)
+  nameWithType.vb: ISubtractionOperators(Of TSelf, TOther, TResult).-(TSelf, TOther)
+  fullName.vb: System.Numerics.ISubtractionOperators(Of TSelf, TOther, TResult).-(TSelf, TOther)
+  name.vb: -(TSelf, TOther)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)
+    name: '-'
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3.op_subtraction
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+  spec.vb:
+  - name: '-'
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
 - uid: OpenTK.Mathematics.Matrix3d.op_Equality*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.op_Equality
   href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Equality_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
@@ -3300,6 +5303,77 @@ references:
   - uid: OpenTK.Mathematics.Matrix3d.op_Equality*
     name: ==
     href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Equality_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+- uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}.op_Equality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  commentId: M:System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}.op_Equality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  parent: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}
+  definition: System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_equality
+  name: operator ==(Matrix3d, Matrix3d)
+  nameWithType: IEqualityOperators<Matrix3d, Matrix3d, bool>.operator ==(Matrix3d, Matrix3d)
+  fullName: System.Numerics.IEqualityOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, bool>.operator ==(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  nameWithType.vb: IEqualityOperators(Of Matrix3d, Matrix3d, Boolean).=(Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.IEqualityOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, Boolean).=(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: =(Matrix3d, Matrix3d)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}.op_Equality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+    name: ==
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_equality
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+  spec.vb:
+  - name: =
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)
+  commentId: M:System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_equality
+  name: operator ==(TSelf, TOther)
+  nameWithType: IEqualityOperators<TSelf, TOther, TResult>.operator ==(TSelf, TOther)
+  fullName: System.Numerics.IEqualityOperators<TSelf, TOther, TResult>.operator ==(TSelf, TOther)
+  nameWithType.vb: IEqualityOperators(Of TSelf, TOther, TResult).=(TSelf, TOther)
+  fullName.vb: System.Numerics.IEqualityOperators(Of TSelf, TOther, TResult).=(TSelf, TOther)
+  name.vb: =(TSelf, TOther)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)
+    name: ==
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_equality
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+  spec.vb:
+  - name: =
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
 - uid: OpenTK.Mathematics.Matrix3d.op_Inequality*
   commentId: Overload:OpenTK.Mathematics.Matrix3d.op_Inequality
   href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Inequality_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
@@ -3315,6 +5389,77 @@ references:
   - uid: OpenTK.Mathematics.Matrix3d.op_Inequality*
     name: '!='
     href: OpenTK.Mathematics.Matrix3d.html#OpenTK_Mathematics_Matrix3d_op_Inequality_OpenTK_Mathematics_Matrix3d_OpenTK_Mathematics_Matrix3d_
+- uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}.op_Inequality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  commentId: M:System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}.op_Inequality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+  parent: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}
+  definition: System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_inequality
+  name: operator !=(Matrix3d, Matrix3d)
+  nameWithType: IEqualityOperators<Matrix3d, Matrix3d, bool>.operator !=(Matrix3d, Matrix3d)
+  fullName: System.Numerics.IEqualityOperators<OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, bool>.operator !=(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  nameWithType.vb: IEqualityOperators(Of Matrix3d, Matrix3d, Boolean).<>(Matrix3d, Matrix3d)
+  fullName.vb: System.Numerics.IEqualityOperators(Of OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d, Boolean).<>(OpenTK.Mathematics.Matrix3d, OpenTK.Mathematics.Matrix3d)
+  name.vb: <>(Matrix3d, Matrix3d)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IEqualityOperators{OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d,System.Boolean}.op_Inequality(OpenTK.Mathematics.Matrix3d,OpenTK.Mathematics.Matrix3d)
+    name: '!='
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_inequality
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+  spec.vb:
+  - name: <>
+  - name: (
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Matrix3d
+    name: Matrix3d
+    href: OpenTK.Mathematics.Matrix3d.html
+  - name: )
+- uid: System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)
+  commentId: M:System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_inequality
+  name: operator !=(TSelf, TOther)
+  nameWithType: IEqualityOperators<TSelf, TOther, TResult>.operator !=(TSelf, TOther)
+  fullName: System.Numerics.IEqualityOperators<TSelf, TOther, TResult>.operator !=(TSelf, TOther)
+  nameWithType.vb: IEqualityOperators(Of TSelf, TOther, TResult).<>(TSelf, TOther)
+  fullName.vb: System.Numerics.IEqualityOperators(Of TSelf, TOther, TResult).<>(TSelf, TOther)
+  name.vb: <>(TSelf, TOther)
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)
+    name: '!='
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3.op_inequality
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
+  spec.vb:
+  - name: <>
+  - name: (
+  - name: TSelf
+  - name: ','
+  - name: " "
+  - name: TOther
+  - name: )
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
   parent: System.ValueType

@@ -17,7 +17,7 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.Logger
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.Name
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.Provides
-  - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SupportsIme
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SupportsLayouts
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.Uninitialize
@@ -436,7 +436,7 @@ items:
   source:
     id: GetKeyboardState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 259
+    startLine: 312
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -477,7 +477,7 @@ items:
   source:
     id: GetKeyboardModifiers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 266
+    startLine: 319
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -509,7 +509,7 @@ items:
   source:
     id: BeginIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 307
+    startLine: 360
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -525,51 +525,51 @@ items:
   overload: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.BeginIme*
   implements:
   - OpenTK.Platform.IKeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
-- uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
-  commentId: M:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
-  id: SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+- uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
+  id: SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
   parent: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent
   langs:
   - csharp
   - vb
-  name: SetImeRectangle(WindowHandle, int, int, int, int)
-  nameWithType: MacOSKeyboardComponent.SetImeRectangle(WindowHandle, int, int, int, int)
-  fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, int, int, int, int)
+  name: SetImeRectangle(WindowHandle, float, float, float, float)
+  nameWithType: MacOSKeyboardComponent.SetImeRectangle(WindowHandle, float, float, float, float)
+  fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, float, float, float, float)
   type: Method
   source:
     id: SetImeRectangle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 313
+    startLine: 366
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
   summary: Set the rectangle to which the IME interface will appear relative to.
   example: []
   syntax:
-    content: public void SetImeRectangle(WindowHandle window, int x, int y, int width, int height)
+    content: public void SetImeRectangle(WindowHandle window, float x, float y, float width, float height)
     parameters:
     - id: window
       type: OpenTK.Platform.WindowHandle
       description: The window corresponding to this IME window.
     - id: x
-      type: System.Int32
-      description: X coordinate of the rectangle in desktop coordinates.
+      type: System.Single
+      description: X coordinate of the rectangle in client coordinates.
     - id: y
-      type: System.Int32
-      description: Y coordinate of the rectangle in desktop coordinates.
+      type: System.Single
+      description: Y coordinate of the rectangle in client coordinates.
     - id: width
-      type: System.Int32
-      description: Width of the rectangle in desktop units.
+      type: System.Single
+      description: Width of the rectangle in client units.
     - id: height
-      type: System.Int32
-      description: Height of the rectangle in desktop units.
-    content.vb: Public Sub SetImeRectangle(window As WindowHandle, x As Integer, y As Integer, width As Integer, height As Integer)
+      type: System.Single
+      description: Height of the rectangle in client units.
+    content.vb: Public Sub SetImeRectangle(window As WindowHandle, x As Single, y As Single, width As Single, height As Single)
   overload: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle*
   implements:
-  - OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
-  nameWithType.vb: MacOSKeyboardComponent.SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
-  fullName.vb: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Integer, Integer, Integer, Integer)
-  name.vb: SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
+  - OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
+  nameWithType.vb: MacOSKeyboardComponent.SetImeRectangle(WindowHandle, Single, Single, Single, Single)
+  fullName.vb: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Single, Single, Single, Single)
+  name.vb: SetImeRectangle(WindowHandle, Single, Single, Single, Single)
 - uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
   commentId: M:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
   id: EndIme(OpenTK.Platform.WindowHandle)
@@ -584,7 +584,7 @@ items:
   source:
     id: EndIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 319
+    startLine: 377
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -1463,98 +1463,98 @@ references:
   - name: )
 - uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle
-  href: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.html#OpenTK_Platform_Native_macOS_MacOSKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
+  href: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.html#OpenTK_Platform_Native_macOS_MacOSKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Single_System_Single_System_Single_System_Single_
   name: SetImeRectangle
   nameWithType: MacOSKeyboardComponent.SetImeRectangle
   fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.SetImeRectangle
-- uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
-  commentId: M:OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+- uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
   parent: OpenTK.Platform.IKeyboardComponent
   isExternal: true
-  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
-  name: SetImeRectangle(WindowHandle, int, int, int, int)
-  nameWithType: IKeyboardComponent.SetImeRectangle(WindowHandle, int, int, int, int)
-  fullName: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, int, int, int, int)
-  nameWithType.vb: IKeyboardComponent.SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
-  fullName.vb: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Integer, Integer, Integer, Integer)
-  name.vb: SetImeRectangle(WindowHandle, Integer, Integer, Integer, Integer)
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Single_System_Single_System_Single_System_Single_
+  name: SetImeRectangle(WindowHandle, float, float, float, float)
+  nameWithType: IKeyboardComponent.SetImeRectangle(WindowHandle, float, float, float, float)
+  fullName: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, float, float, float, float)
+  nameWithType.vb: IKeyboardComponent.SetImeRectangle(WindowHandle, Single, Single, Single, Single)
+  fullName.vb: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle, Single, Single, Single, Single)
+  name.vb: SetImeRectangle(WindowHandle, Single, Single, Single, Single)
   spec.csharp:
-  - uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  - uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
     name: SetImeRectangle
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Single_System_Single_System_Single_System_Single_
   - name: (
   - uid: OpenTK.Platform.WindowHandle
     name: WindowHandle
     href: OpenTK.Platform.WindowHandle.html
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: int
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: int
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: int
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: int
+  - uid: System.Single
+    name: float
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Int32,System.Int32,System.Int32,System.Int32)
+  - uid: OpenTK.Platform.IKeyboardComponent.SetImeRectangle(OpenTK.Platform.WindowHandle,System.Single,System.Single,System.Single,System.Single)
     name: SetImeRectangle
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Int32_System_Int32_System_Int32_System_Int32_
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_SetImeRectangle_OpenTK_Platform_WindowHandle_System_Single_System_Single_System_Single_System_Single_
   - name: (
   - uid: OpenTK.Platform.WindowHandle
     name: WindowHandle
     href: OpenTK.Platform.WindowHandle.html
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: ','
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.Single
+    name: Single
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.single
   - name: )
-- uid: System.Int32
-  commentId: T:System.Int32
+- uid: System.Single
+  commentId: T:System.Single
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 - uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.EndIme*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.EndIme
   href: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.html#OpenTK_Platform_Native_macOS_MacOSKeyboardComponent_EndIme_OpenTK_Platform_WindowHandle_

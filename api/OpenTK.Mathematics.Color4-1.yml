@@ -234,7 +234,7 @@ items:
   summary: Gets or sets the nth element of this color.
   example: []
   syntax:
-    content: public float this[int n] { get; set; }
+    content: public float this[int n] { readonly get; set; }
     parameters:
     - id: n
       type: System.Int32
@@ -358,7 +358,7 @@ items:
     content: >-
       [Pure]
 
-      public void Deconstruct(out float x, out float y, out float z, out float w)
+      public readonly void Deconstruct(out float x, out float y, out float z, out float w)
     parameters:
     - id: x
       type: System.Single
@@ -502,7 +502,7 @@ items:
     content: >-
       [Pure]
 
-      public bool Equals(Color4<T> other)
+      public readonly bool Equals(Color4<T> other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Color4`1
@@ -548,7 +548,7 @@ items:
     content: >-
       [Pure]
 
-      public override string ToString()
+      public override readonly string ToString()
     return:
       type: System.String
       description: A <xref href="System.String" data-throw-if-not-resolved="false"></xref> that describes this Color4 structure.
@@ -588,7 +588,7 @@ items:
     content: >-
       [Pure]
 
-      public override bool Equals(object obj)
+      public override readonly bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
@@ -633,7 +633,7 @@ items:
     content: >-
       [Pure]
 
-      public override int GetHashCode()
+      public override readonly int GetHashCode()
     return:
       type: System.Int32
       description: A System.Int32 containing the hashcode of this Color4 structure.

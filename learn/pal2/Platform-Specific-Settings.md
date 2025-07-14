@@ -63,6 +63,7 @@ The following is a list of windows specific settings and functions.
 |[`ShellComponent.SetCaptionTextColor`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionTextColor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Color3{OpenTK.Mathematics.Rgb}))|Used to set the text color in the windows titlebar. This is only officially supported from Window 11 Build 220000, but can sometimes work on Windows 10.|
 |[`ShellComponent.SetCaptionColor`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetCaptionColor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Color3{OpenTK.Mathematics.Rgb}))|Used to set the color of the window titlebar. This is only officially supported from Window 11 Build 220000, but can sometimes work on Windows 10.|
 |[`ShellComponent.SetWindowCornerPreference`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetWindowCornerPreference(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.CornerPreference))|Used to set the rounded corner preference on Windows 11.|
+|[`ShellComponent.SetProgressStatus`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode,System.Single))|Set the window progress status, shown on the taskbar.|
 |`IconComponent`| |
 |[`IconComponent.CreateFromIcoFile`](xref:OpenTK.Platform.Native.Windows.IconComponent.CreateFromIcoFile(System.String))|Used to create an `IconHandle` from a `.ico` file. An icon created using this function will be able to dynamically pick resolution if the file contains multiple resolutions.|
 |[`IconComponent.CreateFromIcoResource(byte[])`](xref:OpenTK.Platform.Native.Windows.IconComponent.CreateFromIcoResource(System.Byte[]))|Used to create an `IconHandle` from a `.ico` file embedded as a `.resx` resource. An Icon created using this function will **not** be able to dynamically pick resolution.|
@@ -107,7 +108,6 @@ The following is a list of macOS specific settings and functions.
 |Function|Description|
 |--------|-----------|
 |`MacOSWindowComponent`| |
-|[`MacOSWindowComponent.SetDockIcon`](xref:OpenTK.Platform.Native.macOS.MacOSWindowComponent.SetDockIcon(OpenTK.Platform.WindowHandle,OpenTK.Platform.IconHandle))|Sets the dock icon of the application|
 |[`MacOSWindowComponent.SetFullscreenDisplayNoSpace`](xref:OpenTK.Platform.Native.macOS.MacOSWindowComponent.SetFullscreenDisplayNoSpace(OpenTK.Platform.WindowHandle,OpenTK.Platform.DisplayHandle))|Make the window fullscreen without creating a new space for the window.|
 |[`MacOSWindowComponent.GetNSWindow`](xref:OpenTK.Platform.Native.macOS.MacOSWindowComponent.GetNSWindow(OpenTK.Platform.WindowHandle))|Gets the `NSWindow` of the window handle. This is an instance of the `NSOpenTKWindow` subclass of `NSWindow`.|
 |[`MacOSWindowComponent.GetNSView`](xref:OpenTK.Platform.Native.macOS.MacOSWindowComponent.GetNSView(OpenTK.Platform.WindowHandle))|Gets the `NSView` of the window handle. This is an instance of the `NSOpenTKView` subclass of `NSView`.|
@@ -122,8 +122,10 @@ The following is a list of macOS specific settings and functions.
 |[`MacOSDisplayComponent.GetDirectDisplayID`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetDirectDisplayID(OpenTK.Platform.DisplayHandle))|Gets the `CGDirectDisplayID` for the display handle.|
 |`MacOSCursorComponent`||
 |[`MacOSCursorComponent.Create(Frame[] frames, float delay)`](xref:OpenTK.Platform.Native.macOS.MacOSCursorComponent.Create(OpenTK.Platform.Native.macOS.MacOSCursorComponent.Frame[],System.Single))|Used to create an animated cursor.|
-|[`MacOSCursorComponent.IsAnimatedCursor`](xref:OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor(OpenTK.Platform.CursorHandle))|Used to check if a given cursor is animated.|
-|[`MacOSCursorComponent.UpdateAnimation`](xref:OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation(OpenTK.Platform.CursorHandle,System.Double))|Used to update the animation of a given cursor.|
+|`MacOSShellComponent`||
+|[`MacOSShellComponent.NSLog`](xref:OpenTK.Platform.Native.macOS.MacOSShellComponent.NSLog(System.String))|Send a message to the system log. This is useful for application bundles where console output is not accessible.|
+|[`MacOSShellComponent.SetDockIcon`](xref:OpenTK.Platform.Native.macOS.MacOSShellComponent.SetDockIcon(OpenTK.Platform.IconHandle))|Sets the dock icon of the application.|
+|[`MacOSShellComponent.SetProgressStatus`](xref:OpenTK.Platform.Native.Windows.ShellComponent.SetProgressStatus(OpenTK.Platform.WindowHandle,OpenTK.Platform.Native.Windows.ShellComponent.ProgressMode,System.Single))|Set the window progress status, shown on the taskbar.|
 
 ## ANGLE
 

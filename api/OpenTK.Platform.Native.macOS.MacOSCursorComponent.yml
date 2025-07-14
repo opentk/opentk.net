@@ -15,13 +15,11 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSCursorComponent.GetHotspot(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
   - OpenTK.Platform.Native.macOS.MacOSCursorComponent.GetSize(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
   - OpenTK.Platform.Native.macOS.MacOSCursorComponent.Initialize(OpenTK.Platform.ToolkitOptions)
-  - OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor(OpenTK.Platform.CursorHandle)
   - OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsSystemCursor(OpenTK.Platform.CursorHandle)
   - OpenTK.Platform.Native.macOS.MacOSCursorComponent.Logger
   - OpenTK.Platform.Native.macOS.MacOSCursorComponent.Name
   - OpenTK.Platform.Native.macOS.MacOSCursorComponent.Provides
   - OpenTK.Platform.Native.macOS.MacOSCursorComponent.Uninitialize
-  - OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation(OpenTK.Platform.CursorHandle,System.Double)
   langs:
   - csharp
   - vb
@@ -467,7 +465,7 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSCursorComponent.cs
-    startLine: 495
+    startLine: 510
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -504,7 +502,7 @@ items:
   source:
     id: Destroy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSCursorComponent.cs
-    startLine: 510
+    startLine: 525
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -541,7 +539,7 @@ items:
   source:
     id: IsSystemCursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSCursorComponent.cs
-    startLine: 539
+    startLine: 554
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -565,37 +563,6 @@ items:
     commentId: P:OpenTK.Platform.ICursorComponent.CanLoadSystemCursors
   implements:
   - OpenTK.Platform.ICursorComponent.IsSystemCursor(OpenTK.Platform.CursorHandle)
-- uid: OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor(OpenTK.Platform.CursorHandle)
-  commentId: M:OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor(OpenTK.Platform.CursorHandle)
-  id: IsAnimatedCursor(OpenTK.Platform.CursorHandle)
-  parent: OpenTK.Platform.Native.macOS.MacOSCursorComponent
-  langs:
-  - csharp
-  - vb
-  name: IsAnimatedCursor(CursorHandle)
-  nameWithType: MacOSCursorComponent.IsAnimatedCursor(CursorHandle)
-  fullName: OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor(OpenTK.Platform.CursorHandle)
-  type: Method
-  source:
-    id: IsAnimatedCursor
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSCursorComponent.cs
-    startLine: 559
-  assemblies:
-  - OpenTK.Platform
-  namespace: OpenTK.Platform.Native.macOS
-  summary: Returns true if the cursor is an animated cursor.
-  example: []
-  syntax:
-    content: public bool IsAnimatedCursor(CursorHandle handle)
-    parameters:
-    - id: handle
-      type: OpenTK.Platform.CursorHandle
-      description: The cursor to check if it is an animated
-    return:
-      type: System.Boolean
-      description: True if the cursor is animated, false otherwise.
-    content.vb: Public Function IsAnimatedCursor(handle As CursorHandle) As Boolean
-  overload: OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor*
 - uid: OpenTK.Platform.Native.macOS.MacOSCursorComponent.GetSize(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
   commentId: M:OpenTK.Platform.Native.macOS.MacOSCursorComponent.GetSize(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
   id: GetSize(OpenTK.Platform.CursorHandle,System.Int32@,System.Int32@)
@@ -610,7 +577,7 @@ items:
   source:
     id: GetSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSCursorComponent.cs
-    startLine: 575
+    startLine: 595
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -655,7 +622,7 @@ items:
   source:
     id: GetHotspot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSCursorComponent.cs
-    startLine: 629
+    startLine: 647
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -686,48 +653,6 @@ items:
   nameWithType.vb: MacOSCursorComponent.GetHotspot(CursorHandle, Integer, Integer)
   fullName.vb: OpenTK.Platform.Native.macOS.MacOSCursorComponent.GetHotspot(OpenTK.Platform.CursorHandle, Integer, Integer)
   name.vb: GetHotspot(CursorHandle, Integer, Integer)
-- uid: OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation(OpenTK.Platform.CursorHandle,System.Double)
-  commentId: M:OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation(OpenTK.Platform.CursorHandle,System.Double)
-  id: UpdateAnimation(OpenTK.Platform.CursorHandle,System.Double)
-  parent: OpenTK.Platform.Native.macOS.MacOSCursorComponent
-  langs:
-  - csharp
-  - vb
-  name: UpdateAnimation(CursorHandle, double)
-  nameWithType: MacOSCursorComponent.UpdateAnimation(CursorHandle, double)
-  fullName: OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation(OpenTK.Platform.CursorHandle, double)
-  type: Method
-  source:
-    id: UpdateAnimation
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSCursorComponent.cs
-    startLine: 658
-  assemblies:
-  - OpenTK.Platform
-  namespace: OpenTK.Platform.Native.macOS
-  summary: >-
-    Updates the animation of an animated cursor.
-
-    When animated cursors change frame <xref href="OpenTK.Platform.IWindowComponent.SetCursor(OpenTK.Platform.WindowHandle%2cOpenTK.Platform.CursorHandle)" data-throw-if-not-resolved="false"></xref> needs to be called to properly animate.
-
-    This function returns true if the cursor needs to be set again.
-  example: []
-  syntax:
-    content: public bool UpdateAnimation(CursorHandle handle, double deltaTime)
-    parameters:
-    - id: handle
-      type: OpenTK.Platform.CursorHandle
-      description: An animated cursor to update.
-    - id: deltaTime
-      type: System.Double
-      description: The amount of time to advance the cursor animation.
-    return:
-      type: System.Boolean
-      description: True if the cursor frame has changed and <xref href="OpenTK.Platform.IWindowComponent.SetCursor(OpenTK.Platform.WindowHandle%2cOpenTK.Platform.CursorHandle)" data-throw-if-not-resolved="false"></xref> needs to be called for the cursor to update, false otherwise.
-    content.vb: Public Function UpdateAnimation(handle As CursorHandle, deltaTime As Double) As Boolean
-  overload: OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation*
-  nameWithType.vb: MacOSCursorComponent.UpdateAnimation(CursorHandle, Double)
-  fullName.vb: OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation(OpenTK.Platform.CursorHandle, Double)
-  name.vb: UpdateAnimation(CursorHandle, Double)
 references:
 - uid: OpenTK.Platform.Native.macOS
   commentId: N:OpenTK.Platform.Native.macOS
@@ -1842,12 +1767,6 @@ references:
     name: CursorHandle
     href: OpenTK.Platform.CursorHandle.html
   - name: )
-- uid: OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor*
-  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor
-  href: OpenTK.Platform.Native.macOS.MacOSCursorComponent.html#OpenTK_Platform_Native_macOS_MacOSCursorComponent_IsAnimatedCursor_OpenTK_Platform_CursorHandle_
-  name: IsAnimatedCursor
-  nameWithType: MacOSCursorComponent.IsAnimatedCursor
-  fullName: OpenTK.Platform.Native.macOS.MacOSCursorComponent.IsAnimatedCursor
 - uid: OpenTK.Platform.Native.macOS.MacOSCursorComponent.GetSize*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSCursorComponent.GetSize
   href: OpenTK.Platform.Native.macOS.MacOSCursorComponent.html#OpenTK_Platform_Native_macOS_MacOSCursorComponent_GetSize_OpenTK_Platform_CursorHandle_System_Int32__System_Int32__
@@ -1860,62 +1779,3 @@ references:
   name: GetHotspot
   nameWithType: MacOSCursorComponent.GetHotspot
   fullName: OpenTK.Platform.Native.macOS.MacOSCursorComponent.GetHotspot
-- uid: OpenTK.Platform.IWindowComponent.SetCursor(OpenTK.Platform.WindowHandle,OpenTK.Platform.CursorHandle)
-  commentId: M:OpenTK.Platform.IWindowComponent.SetCursor(OpenTK.Platform.WindowHandle,OpenTK.Platform.CursorHandle)
-  parent: OpenTK.Platform.IWindowComponent
-  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetCursor_OpenTK_Platform_WindowHandle_OpenTK_Platform_CursorHandle_
-  name: SetCursor(WindowHandle, CursorHandle)
-  nameWithType: IWindowComponent.SetCursor(WindowHandle, CursorHandle)
-  fullName: OpenTK.Platform.IWindowComponent.SetCursor(OpenTK.Platform.WindowHandle, OpenTK.Platform.CursorHandle)
-  spec.csharp:
-  - uid: OpenTK.Platform.IWindowComponent.SetCursor(OpenTK.Platform.WindowHandle,OpenTK.Platform.CursorHandle)
-    name: SetCursor
-    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetCursor_OpenTK_Platform_WindowHandle_OpenTK_Platform_CursorHandle_
-  - name: (
-  - uid: OpenTK.Platform.WindowHandle
-    name: WindowHandle
-    href: OpenTK.Platform.WindowHandle.html
-  - name: ','
-  - name: " "
-  - uid: OpenTK.Platform.CursorHandle
-    name: CursorHandle
-    href: OpenTK.Platform.CursorHandle.html
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.IWindowComponent.SetCursor(OpenTK.Platform.WindowHandle,OpenTK.Platform.CursorHandle)
-    name: SetCursor
-    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_SetCursor_OpenTK_Platform_WindowHandle_OpenTK_Platform_CursorHandle_
-  - name: (
-  - uid: OpenTK.Platform.WindowHandle
-    name: WindowHandle
-    href: OpenTK.Platform.WindowHandle.html
-  - name: ','
-  - name: " "
-  - uid: OpenTK.Platform.CursorHandle
-    name: CursorHandle
-    href: OpenTK.Platform.CursorHandle.html
-  - name: )
-- uid: OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation*
-  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation
-  href: OpenTK.Platform.Native.macOS.MacOSCursorComponent.html#OpenTK_Platform_Native_macOS_MacOSCursorComponent_UpdateAnimation_OpenTK_Platform_CursorHandle_System_Double_
-  name: UpdateAnimation
-  nameWithType: MacOSCursorComponent.UpdateAnimation
-  fullName: OpenTK.Platform.Native.macOS.MacOSCursorComponent.UpdateAnimation
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
-- uid: OpenTK.Platform.IWindowComponent
-  commentId: T:OpenTK.Platform.IWindowComponent
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.IWindowComponent.html
-  name: IWindowComponent
-  nameWithType: IWindowComponent
-  fullName: OpenTK.Platform.IWindowComponent

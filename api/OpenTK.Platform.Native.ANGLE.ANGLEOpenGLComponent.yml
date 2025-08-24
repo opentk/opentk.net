@@ -12,6 +12,7 @@ items:
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.DestroyContext(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
+  - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetCurrentContext
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglContext(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetEglDisplay
@@ -384,7 +385,7 @@ items:
   source:
     id: DestroyContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 249
+    startLine: 253
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -403,6 +404,53 @@ items:
     commentId: M:OpenTK.Platform.IOpenGLComponent.CreateFromWindow(OpenTK.Platform.WindowHandle)
   implements:
   - OpenTK.Platform.IOpenGLComponent.DestroyContext(OpenTK.Platform.OpenGLContextHandle)
+- uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+  id: GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetContextValues(OpenGLContextHandle)
+  nameWithType: ANGLEOpenGLComponent.GetContextValues(OpenGLContextHandle)
+  fullName: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+  type: Method
+  source:
+    id: GetContextValues
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
+    startLine: 273
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.ANGLE
+  summary: >-
+    Gets the context values of the OpenGL context.
+
+    This can be used to query the actually selected context values initially requested in <xref href="OpenTK.Platform.OpenGLGraphicsApiHints" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    During context creation all possible context values are enumerated and sent to <xref href="OpenTK.Platform.OpenGLGraphicsApiHints.Selector" data-throw-if-not-resolved="false"></xref>
+
+    (by default set to <xref href="OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList%7bOpenTK.Platform.ContextValues%7d%2cOpenTK.Platform.ContextValues%2cOpenTK.Core.Utility.ILogger)" data-throw-if-not-resolved="false"></xref>)
+
+    which can choose the an appropriate format. This function returns these selected values.
+  example: []
+  syntax:
+    content: public ContextValues GetContextValues(OpenGLContextHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: The OpenGL context to get the context values from.
+    return:
+      type: OpenTK.Platform.ContextValues
+      description: The context values for the OpenGL context.
+    content.vb: Public Function GetContextValues(handle As OpenGLContextHandle) As ContextValues
+  overload: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetContextValues*
+  seealso:
+  - linkId: OpenTK.Platform.OpenGLGraphicsApiHints
+    commentId: T:OpenTK.Platform.OpenGLGraphicsApiHints
+  - linkId: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+    commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+  implements:
+  - OpenTK.Platform.IOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
 - uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
   commentId: M:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
   id: GetBindingsContext(OpenTK.Platform.OpenGLContextHandle)
@@ -417,7 +465,7 @@ items:
   source:
     id: GetBindingsContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 269
+    startLine: 281
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -458,7 +506,7 @@ items:
   source:
     id: GetProcedureAddress
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 276
+    startLine: 288
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -497,7 +545,7 @@ items:
   source:
     id: GetCurrentContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 282
+    startLine: 294
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -529,7 +577,7 @@ items:
   source:
     id: SetCurrentContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 296
+    startLine: 308
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -568,7 +616,7 @@ items:
   source:
     id: GetSharedContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 310
+    startLine: 322
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -604,7 +652,7 @@ items:
   source:
     id: SetSwapInterval
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 317
+    startLine: 329
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -637,7 +685,7 @@ items:
   source:
     id: GetSwapInterval
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 332
+    startLine: 344
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -666,7 +714,7 @@ items:
   source:
     id: SwapBuffers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 339
+    startLine: 351
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -699,7 +747,7 @@ items:
   source:
     id: GetEglDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 353
+    startLine: 365
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -726,7 +774,7 @@ items:
   source:
     id: GetEglContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 363
+    startLine: 375
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -757,7 +805,7 @@ items:
   source:
     id: GetEglSurface
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\ANGLE\ANGLEOpenGLComponent.cs
-    startLine: 375
+    startLine: 387
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.ANGLE
@@ -1481,6 +1529,112 @@ references:
     name: OpenGLContextHandle
     href: OpenTK.Platform.OpenGLContextHandle.html
   - name: )
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+  commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+  href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_Selector
+  name: Selector
+  nameWithType: OpenGLGraphicsApiHints.Selector
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+- uid: OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ContextValues},OpenTK.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
+  commentId: M:OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ContextValues},OpenTK.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
+  isExternal: true
+  href: OpenTK.Platform.ContextValues.html#OpenTK_Platform_ContextValues_DefaultValuesSelector_System_Collections_Generic_IReadOnlyList_OpenTK_Platform_ContextValues__OpenTK_Platform_ContextValues_OpenTK_Core_Utility_ILogger_
+  name: DefaultValuesSelector(IReadOnlyList<ContextValues>, ContextValues, ILogger)
+  nameWithType: ContextValues.DefaultValuesSelector(IReadOnlyList<ContextValues>, ContextValues, ILogger)
+  fullName: OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList<OpenTK.Platform.ContextValues>, OpenTK.Platform.ContextValues, OpenTK.Core.Utility.ILogger)
+  nameWithType.vb: ContextValues.DefaultValuesSelector(IReadOnlyList(Of ContextValues), ContextValues, ILogger)
+  fullName.vb: OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList(Of OpenTK.Platform.ContextValues), OpenTK.Platform.ContextValues, OpenTK.Core.Utility.ILogger)
+  name.vb: DefaultValuesSelector(IReadOnlyList(Of ContextValues), ContextValues, ILogger)
+  spec.csharp:
+  - uid: OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ContextValues},OpenTK.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
+    name: DefaultValuesSelector
+    href: OpenTK.Platform.ContextValues.html#OpenTK_Platform_ContextValues_DefaultValuesSelector_System_Collections_Generic_IReadOnlyList_OpenTK_Platform_ContextValues__OpenTK_Platform_ContextValues_OpenTK_Core_Utility_ILogger_
+  - name: (
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: OpenTK.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Platform.ContextValues.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Platform.ContextValues.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Core.Utility.ILogger
+    name: ILogger
+    href: OpenTK.Core.Utility.ILogger.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ContextValues},OpenTK.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
+    name: DefaultValuesSelector
+    href: OpenTK.Platform.ContextValues.html#OpenTK_Platform_ContextValues_DefaultValuesSelector_System_Collections_Generic_IReadOnlyList_OpenTK_Platform_ContextValues__OpenTK_Platform_ContextValues_OpenTK_Core_Utility_ILogger_
+  - name: (
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Platform.ContextValues.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Platform.ContextValues
+    name: ContextValues
+    href: OpenTK.Platform.ContextValues.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Core.Utility.ILogger
+    name: ILogger
+    href: OpenTK.Core.Utility.ILogger.html
+  - name: )
+- uid: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetContextValues*
+  commentId: Overload:OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetContextValues
+  href: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.html#OpenTK_Platform_Native_ANGLE_ANGLEOpenGLComponent_GetContextValues_OpenTK_Platform_OpenGLContextHandle_
+  name: GetContextValues
+  nameWithType: ANGLEOpenGLComponent.GetContextValues
+  fullName: OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent.GetContextValues
+- uid: OpenTK.Platform.IOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetContextValues_OpenTK_Platform_OpenGLContextHandle_
+  name: GetContextValues(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.GetContextValues(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+    name: GetContextValues
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetContextValues_OpenTK_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Platform.OpenGLContextHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IOpenGLComponent.GetContextValues(OpenTK.Platform.OpenGLContextHandle)
+    name: GetContextValues
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetContextValues_OpenTK_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Platform.OpenGLContextHandle.html
+  - name: )
+- uid: OpenTK.Platform.ContextValues
+  commentId: T:OpenTK.Platform.ContextValues
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.ContextValues.html
+  name: ContextValues
+  nameWithType: ContextValues
+  fullName: OpenTK.Platform.ContextValues
 - uid: OpenTK.Graphics.GLLoader
   commentId: T:OpenTK.Graphics.GLLoader
   href: OpenTK.Graphics.GLLoader.html

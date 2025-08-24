@@ -1,43 +1,33 @@
 ### YamlMime:ManagedReference
 items:
-- uid: OpenTK.Audio.OpenAL.ALBase
-  commentId: T:OpenTK.Audio.OpenAL.ALBase
-  id: ALBase
-  parent: OpenTK.Audio.OpenAL
+- uid: OpenTK.Audio.ALLoader
+  commentId: T:OpenTK.Audio.ALLoader
+  id: ALLoader
+  parent: OpenTK.Audio
   children:
-  - OpenTK.Audio.OpenAL.ALBase.LoadDelegate``1(System.String)
-  - OpenTK.Audio.OpenAL.ALBase.RegisterOpenALResolver
+  - OpenTK.Audio.ALLoader.ALCGetProcAddress(System.String)
+  - OpenTK.Audio.ALLoader.ALGetProcAddress(System.String)
+  - OpenTK.Audio.ALLoader.Device
+  - OpenTK.Audio.ALLoader.SetALCDevice(OpenTK.Audio.OpenAL.ALCDevice)
   langs:
   - csharp
   - vb
-  name: ALBase
-  nameWithType: ALBase
-  fullName: OpenTK.Audio.OpenAL.ALBase
+  name: ALLoader
+  nameWithType: ALLoader
+  fullName: OpenTK.Audio.ALLoader
   type: Class
   source:
-    id: ALBase
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenAL\OpenTK.Audio.OpenAL\Native\ALBase.cs
-    startLine: 21
+    id: ALLoader
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Audio\ALLoader.cs
+    startLine: 11
   assemblies:
-  - OpenTK.Audio.OpenAL
-  namespace: OpenTK.Audio.OpenAL
-  summary: This is a base class for OpenAL APIs that are using DllImport and want to resolve different dll names on different platforms.
-  example: []
+  - OpenTK.Audio
+  namespace: OpenTK.Audio
   syntax:
-    content: public abstract class ALBase
-    content.vb: Public MustInherit Class ALBase
+    content: public static class ALLoader
+    content.vb: Public Module ALLoader
   inheritance:
   - System.Object
-  derivedClasses:
-  - OpenTK.Audio.OpenAL.AL
-  - OpenTK.Audio.OpenAL.AL.EXTDouble
-  - OpenTK.Audio.OpenAL.AL.EXTFloat32
-  - OpenTK.Audio.OpenAL.AL.LoopPoints
-  - OpenTK.Audio.OpenAL.AL.SourceLatency
-  - OpenTK.Audio.OpenAL.ALC
-  - OpenTK.Audio.OpenAL.ALC.DeviceClock
-  - OpenTK.Audio.OpenAL.ALC.EFX
-  - OpenTK.Audio.OpenAL.ALC.EnumerateAll
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -46,77 +36,121 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: OpenTK.Audio.OpenAL.ALBase.RegisterOpenALResolver
-  commentId: M:OpenTK.Audio.OpenAL.ALBase.RegisterOpenALResolver
-  id: RegisterOpenALResolver
-  parent: OpenTK.Audio.OpenAL.ALBase
+- uid: OpenTK.Audio.ALLoader.Device
+  commentId: F:OpenTK.Audio.ALLoader.Device
+  id: Device
+  parent: OpenTK.Audio.ALLoader
   langs:
   - csharp
   - vb
-  name: RegisterOpenALResolver()
-  nameWithType: ALBase.RegisterOpenALResolver()
-  fullName: OpenTK.Audio.OpenAL.ALBase.RegisterOpenALResolver()
-  type: Method
+  name: Device
+  nameWithType: ALLoader.Device
+  fullName: OpenTK.Audio.ALLoader.Device
+  type: Field
   source:
-    id: RegisterOpenALResolver
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenAL\OpenTK.Audio.OpenAL\Native\ALBase.cs
-    startLine: 27
+    id: Device
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Audio\ALLoader.cs
+    startLine: 37
   assemblies:
-  - OpenTK.Audio.OpenAL
-  namespace: OpenTK.Audio.OpenAL
-  summary: >-
-    This needs to be called before trying to use any OpenAL functions.
-
-    This should be done in the static constructor of any class that DllImports OpenAL functions.
-  example: []
+  - OpenTK.Audio
+  namespace: OpenTK.Audio
   syntax:
-    content: public static void RegisterOpenALResolver()
-    content.vb: Public Shared Sub RegisterOpenALResolver()
-  overload: OpenTK.Audio.OpenAL.ALBase.RegisterOpenALResolver*
-- uid: OpenTK.Audio.OpenAL.ALBase.LoadDelegate``1(System.String)
-  commentId: M:OpenTK.Audio.OpenAL.ALBase.LoadDelegate``1(System.String)
-  id: LoadDelegate``1(System.String)
-  parent: OpenTK.Audio.OpenAL.ALBase
+    content: public static ALCDevice Device
+    return:
+      type: OpenTK.Audio.OpenAL.ALCDevice
+    content.vb: Public Shared Device As ALCDevice
+- uid: OpenTK.Audio.ALLoader.SetALCDevice(OpenTK.Audio.OpenAL.ALCDevice)
+  commentId: M:OpenTK.Audio.ALLoader.SetALCDevice(OpenTK.Audio.OpenAL.ALCDevice)
+  id: SetALCDevice(OpenTK.Audio.OpenAL.ALCDevice)
+  parent: OpenTK.Audio.ALLoader
   langs:
   - csharp
   - vb
-  name: LoadDelegate<TDelegate>(string)
-  nameWithType: ALBase.LoadDelegate<TDelegate>(string)
-  fullName: OpenTK.Audio.OpenAL.ALBase.LoadDelegate<TDelegate>(string)
+  name: SetALCDevice(ALCDevice)
+  nameWithType: ALLoader.SetALCDevice(ALCDevice)
+  fullName: OpenTK.Audio.ALLoader.SetALCDevice(OpenTK.Audio.OpenAL.ALCDevice)
   type: Method
   source:
-    id: LoadDelegate
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenAL\OpenTK.Audio.OpenAL\Native\ALBase.cs
+    id: SetALCDevice
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Audio\ALLoader.cs
     startLine: 39
   assemblies:
-  - OpenTK.Audio.OpenAL
-  namespace: OpenTK.Audio.OpenAL
-  summary: Calls alGetProcAddress and converts the resulting pointer into a delegate.
-  example: []
+  - OpenTK.Audio
+  namespace: OpenTK.Audio
   syntax:
-    content: 'protected static TDelegate LoadDelegate<TDelegate>(string name) where TDelegate : Delegate'
+    content: public static void SetALCDevice(ALCDevice device)
     parameters:
-    - id: name
+    - id: device
+      type: OpenTK.Audio.OpenAL.ALCDevice
+    content.vb: Public Shared Sub SetALCDevice(device As ALCDevice)
+  overload: OpenTK.Audio.ALLoader.SetALCDevice*
+- uid: OpenTK.Audio.ALLoader.ALCGetProcAddress(System.String)
+  commentId: M:OpenTK.Audio.ALLoader.ALCGetProcAddress(System.String)
+  id: ALCGetProcAddress(System.String)
+  parent: OpenTK.Audio.ALLoader
+  langs:
+  - csharp
+  - vb
+  name: ALCGetProcAddress(string)
+  nameWithType: ALLoader.ALCGetProcAddress(string)
+  fullName: OpenTK.Audio.ALLoader.ALCGetProcAddress(string)
+  type: Method
+  source:
+    id: ALCGetProcAddress
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Audio\ALLoader.cs
+    startLine: 44
+  assemblies:
+  - OpenTK.Audio
+  namespace: OpenTK.Audio
+  syntax:
+    content: public static nint ALCGetProcAddress(string procName)
+    parameters:
+    - id: procName
       type: System.String
-      description: The name of the AL proc.
-    typeParameters:
-    - id: TDelegate
-      description: The delegate type to create.
     return:
-      type: '{TDelegate}'
-      description: The created delegate.
-    content.vb: Protected Shared Function LoadDelegate(Of TDelegate As [Delegate])(name As String) As TDelegate
-  overload: OpenTK.Audio.OpenAL.ALBase.LoadDelegate*
-  nameWithType.vb: ALBase.LoadDelegate(Of TDelegate)(String)
-  fullName.vb: OpenTK.Audio.OpenAL.ALBase.LoadDelegate(Of TDelegate)(String)
-  name.vb: LoadDelegate(Of TDelegate)(String)
+      type: System.IntPtr
+    content.vb: Public Shared Function ALCGetProcAddress(procName As String) As IntPtr
+  overload: OpenTK.Audio.ALLoader.ALCGetProcAddress*
+  nameWithType.vb: ALLoader.ALCGetProcAddress(String)
+  fullName.vb: OpenTK.Audio.ALLoader.ALCGetProcAddress(String)
+  name.vb: ALCGetProcAddress(String)
+- uid: OpenTK.Audio.ALLoader.ALGetProcAddress(System.String)
+  commentId: M:OpenTK.Audio.ALLoader.ALGetProcAddress(System.String)
+  id: ALGetProcAddress(System.String)
+  parent: OpenTK.Audio.ALLoader
+  langs:
+  - csharp
+  - vb
+  name: ALGetProcAddress(string)
+  nameWithType: ALLoader.ALGetProcAddress(string)
+  fullName: OpenTK.Audio.ALLoader.ALGetProcAddress(string)
+  type: Method
+  source:
+    id: ALGetProcAddress
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Audio\ALLoader.cs
+    startLine: 52
+  assemblies:
+  - OpenTK.Audio
+  namespace: OpenTK.Audio
+  syntax:
+    content: public static nint ALGetProcAddress(string procName)
+    parameters:
+    - id: procName
+      type: System.String
+    return:
+      type: System.IntPtr
+    content.vb: Public Shared Function ALGetProcAddress(procName As String) As IntPtr
+  overload: OpenTK.Audio.ALLoader.ALGetProcAddress*
+  nameWithType.vb: ALLoader.ALGetProcAddress(String)
+  fullName.vb: OpenTK.Audio.ALLoader.ALGetProcAddress(String)
+  name.vb: ALGetProcAddress(String)
 references:
-- uid: OpenTK.Audio.OpenAL
-  commentId: N:OpenTK.Audio.OpenAL
+- uid: OpenTK.Audio
+  commentId: N:OpenTK.Audio
   href: OpenTK.html
-  name: OpenTK.Audio.OpenAL
-  nameWithType: OpenTK.Audio.OpenAL
-  fullName: OpenTK.Audio.OpenAL
+  name: OpenTK.Audio
+  nameWithType: OpenTK.Audio
+  fullName: OpenTK.Audio
   spec.csharp:
   - uid: OpenTK
     name: OpenTK
@@ -125,10 +159,6 @@ references:
   - uid: OpenTK.Audio
     name: Audio
     href: OpenTK.Audio.html
-  - name: .
-  - uid: OpenTK.Audio.OpenAL
-    name: OpenAL
-    href: OpenTK.Audio.OpenAL.html
   spec.vb:
   - uid: OpenTK
     name: OpenTK
@@ -137,10 +167,6 @@ references:
   - uid: OpenTK.Audio
     name: Audio
     href: OpenTK.Audio.html
-  - name: .
-  - uid: OpenTK.Audio.OpenAL
-    name: OpenAL
-    href: OpenTK.Audio.OpenAL.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -378,18 +404,54 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: OpenTK.Audio.OpenAL.ALBase.RegisterOpenALResolver*
-  commentId: Overload:OpenTK.Audio.OpenAL.ALBase.RegisterOpenALResolver
-  href: OpenTK.Audio.OpenAL.ALBase.html#OpenTK_Audio_OpenAL_ALBase_RegisterOpenALResolver
-  name: RegisterOpenALResolver
-  nameWithType: ALBase.RegisterOpenALResolver
-  fullName: OpenTK.Audio.OpenAL.ALBase.RegisterOpenALResolver
-- uid: OpenTK.Audio.OpenAL.ALBase.LoadDelegate*
-  commentId: Overload:OpenTK.Audio.OpenAL.ALBase.LoadDelegate
-  href: OpenTK.Audio.OpenAL.ALBase.html#OpenTK_Audio_OpenAL_ALBase_LoadDelegate__1_System_String_
-  name: LoadDelegate
-  nameWithType: ALBase.LoadDelegate
-  fullName: OpenTK.Audio.OpenAL.ALBase.LoadDelegate
+- uid: OpenTK.Audio.OpenAL.ALCDevice
+  commentId: T:OpenTK.Audio.OpenAL.ALCDevice
+  parent: OpenTK.Audio.OpenAL
+  name: ALCDevice
+  nameWithType: ALCDevice
+  fullName: OpenTK.Audio.OpenAL.ALCDevice
+- uid: OpenTK.Audio.OpenAL
+  commentId: N:OpenTK.Audio.OpenAL
+  href: OpenTK.html
+  name: OpenTK.Audio.OpenAL
+  nameWithType: OpenTK.Audio.OpenAL
+  fullName: OpenTK.Audio.OpenAL
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Audio
+    name: Audio
+    href: OpenTK.Audio.html
+  - name: .
+  - uid: OpenTK.Audio.OpenAL
+    name: OpenAL
+    href: OpenTK.Audio.OpenAL.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Audio
+    name: Audio
+    href: OpenTK.Audio.html
+  - name: .
+  - uid: OpenTK.Audio.OpenAL
+    name: OpenAL
+    href: OpenTK.Audio.OpenAL.html
+- uid: OpenTK.Audio.ALLoader.SetALCDevice*
+  commentId: Overload:OpenTK.Audio.ALLoader.SetALCDevice
+  href: OpenTK.Audio.ALLoader.html#OpenTK_Audio_ALLoader_SetALCDevice_OpenTK_Audio_OpenAL_ALCDevice_
+  name: SetALCDevice
+  nameWithType: ALLoader.SetALCDevice
+  fullName: OpenTK.Audio.ALLoader.SetALCDevice
+- uid: OpenTK.Audio.ALLoader.ALCGetProcAddress*
+  commentId: Overload:OpenTK.Audio.ALLoader.ALCGetProcAddress
+  href: OpenTK.Audio.ALLoader.html#OpenTK_Audio_ALLoader_ALCGetProcAddress_System_String_
+  name: ALCGetProcAddress
+  nameWithType: ALLoader.ALCGetProcAddress
+  fullName: OpenTK.Audio.ALLoader.ALCGetProcAddress
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -401,14 +463,20 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: '{TDelegate}'
-  commentId: '!:TDelegate'
-  definition: TDelegate
-  name: TDelegate
-  nameWithType: TDelegate
-  fullName: TDelegate
-- uid: TDelegate
-  commentId: '!:TDelegate'
-  name: TDelegate
-  nameWithType: TDelegate
-  fullName: TDelegate
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: OpenTK.Audio.ALLoader.ALGetProcAddress*
+  commentId: Overload:OpenTK.Audio.ALLoader.ALGetProcAddress
+  href: OpenTK.Audio.ALLoader.html#OpenTK_Audio_ALLoader_ALGetProcAddress_System_String_
+  name: ALGetProcAddress
+  nameWithType: ALLoader.ALGetProcAddress
+  fullName: OpenTK.Audio.ALLoader.ALGetProcAddress

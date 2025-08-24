@@ -23,6 +23,7 @@ items:
   - OpenTK.Platform.ContextValues.HasEqualPixelFormat(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
   - OpenTK.Platform.ContextValues.HasEqualSRGB(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
   - OpenTK.Platform.ContextValues.HasEqualStencilBits(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
+  - OpenTK.Platform.ContextValues.HasEqualStereo(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
   - OpenTK.Platform.ContextValues.HasEqualSwapMethod(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
   - OpenTK.Platform.ContextValues.HasGreaterOrEqualColorBits(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
   - OpenTK.Platform.ContextValues.HasGreaterOrEqualDepthBits(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
@@ -37,6 +38,7 @@ items:
   - OpenTK.Platform.ContextValues.SRGBFramebuffer
   - OpenTK.Platform.ContextValues.Samples
   - OpenTK.Platform.ContextValues.StencilBits
+  - OpenTK.Platform.ContextValues.Stereo
   - OpenTK.Platform.ContextValues.SupportsFramebufferTransparency
   - OpenTK.Platform.ContextValues.SwapMethod
   - OpenTK.Platform.ContextValues.ToString
@@ -52,10 +54,12 @@ items:
   source:
     id: ContextValues
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 18
+    startLine: 21
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: Values describing the full specification of a OpenGL context's backbuffer.
+  example: []
   syntax:
     content: 'public struct ContextValues : IEquatable<ContextValues>'
     content.vb: Public Structure ContextValues Implements IEquatable(Of ContextValues)
@@ -79,10 +83,12 @@ items:
   source:
     id: ID
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The internal ID used to identify these context values.
+  example: []
   syntax:
     content: public ulong ID
     return:
@@ -102,10 +108,12 @@ items:
   source:
     id: RedBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 22
+    startLine: 27
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The number of bits used to represent the red channel.
+  example: []
   syntax:
     content: public int RedBits
     return:
@@ -125,10 +133,12 @@ items:
   source:
     id: GreenBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 23
+    startLine: 29
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The number of bits used to represent the green channel.
+  example: []
   syntax:
     content: public int GreenBits
     return:
@@ -148,10 +158,12 @@ items:
   source:
     id: BlueBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 24
+    startLine: 31
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The number of bits used to represent the blue channel.
+  example: []
   syntax:
     content: public int BlueBits
     return:
@@ -171,10 +183,12 @@ items:
   source:
     id: AlphaBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 25
+    startLine: 33
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The number of bits used to represent the alpha channel.
+  example: []
   syntax:
     content: public int AlphaBits
     return:
@@ -194,10 +208,12 @@ items:
   source:
     id: DepthBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 26
+    startLine: 35
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The number of bits used to represent the depth buffer.
+  example: []
   syntax:
     content: public int DepthBits
     return:
@@ -217,10 +233,12 @@ items:
   source:
     id: StencilBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 27
+    startLine: 37
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The number of bits used to represent the stencil buffer.
+  example: []
   syntax:
     content: public int StencilBits
     return:
@@ -240,10 +258,12 @@ items:
   source:
     id: DoubleBuffered
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 28
+    startLine: 39
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: If the backbuffer is double buffered or not.
+  example: []
   syntax:
     content: public bool DoubleBuffered
     return:
@@ -263,10 +283,12 @@ items:
   source:
     id: SRGBFramebuffer
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 29
+    startLine: 41
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: If the backbuffer supports framebuffer sRGB conversion. Enabled using <xref href="OpenTK.Graphics.OpenGL.GL.Enable(OpenTK.Graphics.OpenGL.EnableCap)" data-throw-if-not-resolved="false"></xref> with <xref href="OpenTK.Graphics.OpenGL.EnableCap.FramebufferSrgb" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public bool SRGBFramebuffer
     return:
@@ -286,10 +308,12 @@ items:
   source:
     id: PixelFormat
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 30
+    startLine: 43
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The pixel format of the backbuffer. Using floating point pixel formats allows for HDR display output.
+  example: []
   syntax:
     content: public ContextPixelFormat PixelFormat
     return:
@@ -309,10 +333,12 @@ items:
   source:
     id: SwapMethod
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 31
+    startLine: 45
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The swap method to use for the backbuffer.
+  example: []
   syntax:
     content: public ContextSwapMethod SwapMethod
     return:
@@ -332,10 +358,12 @@ items:
   source:
     id: Samples
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 32
+    startLine: 47
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  summary: The number of MSAA samples for the backbuffer.
+  example: []
   syntax:
     content: public int Samples
     return:
@@ -355,7 +383,7 @@ items:
   source:
     id: SupportsFramebufferTransparency
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 67
+    startLine: 82
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -373,6 +401,31 @@ items:
     commentId: M:OpenTK.Platform.IWindowComponent.SetTransparencyMode(OpenTK.Platform.WindowHandle,OpenTK.Platform.WindowTransparencyMode,System.Single)
   - linkId: OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle,System.Single@)
     commentId: M:OpenTK.Platform.IWindowComponent.GetTransparencyMode(OpenTK.Platform.WindowHandle,System.Single@)
+- uid: OpenTK.Platform.ContextValues.Stereo
+  commentId: F:OpenTK.Platform.ContextValues.Stereo
+  id: Stereo
+  parent: OpenTK.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: Stereo
+  nameWithType: ContextValues.Stereo
+  fullName: OpenTK.Platform.ContextValues.Stereo
+  type: Field
+  source:
+    id: Stereo
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
+    startLine: 87
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: If the backbuffer has a left and right buffer.
+  example: []
+  syntax:
+    content: public bool Stereo
+    return:
+      type: System.Boolean
+    content.vb: Public Stereo As Boolean
 - uid: OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ContextValues},OpenTK.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
   commentId: M:OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ContextValues},OpenTK.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
   id: DefaultValuesSelector(System.Collections.Generic.IReadOnlyList{OpenTK.Platform.ContextValues},OpenTK.Platform.ContextValues,OpenTK.Core.Utility.ILogger)
@@ -387,7 +440,7 @@ items:
   source:
     id: DefaultValuesSelector
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 94
+    startLine: 113
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -396,7 +449,7 @@ items:
 
     The relaxations are done in the following order:
 
-    <ol><li>If no exact match is found try find a format with a larger number of color, depth, or stencil bits.</li><li>If <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == false is requested, <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == true formats will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == false is requested, <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == true formats will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SwapMethod" data-throw-if-not-resolved="false"></xref> == <xref href="OpenTK.Platform.ContextSwapMethod.Undefined" data-throw-if-not-resolved="false"></xref>, any swap method will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == true, accept <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == false formats.</li><li>If <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == true, accept <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == false formats.</li><li>Accept any <xref href="OpenTK.Platform.ContextValues.PixelFormat" data-throw-if-not-resolved="false"></xref>.</li><li>Decrement <xref href="OpenTK.Platform.ContextValues.Samples" data-throw-if-not-resolved="false"></xref> by one at a time until 0 and see if any alternative sample counts are possible.</li><li>Accept any <xref href="OpenTK.Platform.ContextValues.SwapMethod" data-throw-if-not-resolved="false"></xref>.</li><li>Allow one of color bits (<xref href="OpenTK.Platform.ContextValues.RedBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.GreenBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.BlueBits" data-throw-if-not-resolved="false"></xref>, and <xref href="OpenTK.Platform.ContextValues.AlphaBits" data-throw-if-not-resolved="false"></xref>), <xref href="OpenTK.Platform.ContextValues.DepthBits" data-throw-if-not-resolved="false"></xref>, or <xref href="OpenTK.Platform.ContextValues.StencilBits" data-throw-if-not-resolved="false"></xref> to be lower than requested.</li><li>Allow two of color bits (<xref href="OpenTK.Platform.ContextValues.RedBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.GreenBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.BlueBits" data-throw-if-not-resolved="false"></xref>, and <xref href="OpenTK.Platform.ContextValues.AlphaBits" data-throw-if-not-resolved="false"></xref>), <xref href="OpenTK.Platform.ContextValues.DepthBits" data-throw-if-not-resolved="false"></xref>, or <xref href="OpenTK.Platform.ContextValues.StencilBits" data-throw-if-not-resolved="false"></xref> to be lower than requested.</li><li>Relax all bit requirements.</li><li>If all relaxations fail, select the first option in the list.</li></ol>
+    <ol><li>If no exact match is found try find a format with a larger number of color, depth, or stencil bits.</li><li>If <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == false is requested, <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == true formats will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == false is requested, <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == true formats will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SwapMethod" data-throw-if-not-resolved="false"></xref> == <xref href="OpenTK.Platform.ContextSwapMethod.Undefined" data-throw-if-not-resolved="false"></xref>, any swap method will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == true, accept <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == false formats.</li><li>If <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == true, accept <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == false formats.</li><li>Accept any <xref href="OpenTK.Platform.ContextValues.PixelFormat" data-throw-if-not-resolved="false"></xref>.</li><li>Decrement <xref href="OpenTK.Platform.ContextValues.Samples" data-throw-if-not-resolved="false"></xref> by one at a time until 0 and see if any alternative sample counts are possible.</li><li>Accept any <xref href="OpenTK.Platform.ContextValues.SwapMethod" data-throw-if-not-resolved="false"></xref>.</li><li>Allow one of color bits (<xref href="OpenTK.Platform.ContextValues.RedBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.GreenBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.BlueBits" data-throw-if-not-resolved="false"></xref>, and <xref href="OpenTK.Platform.ContextValues.AlphaBits" data-throw-if-not-resolved="false"></xref>), <xref href="OpenTK.Platform.ContextValues.DepthBits" data-throw-if-not-resolved="false"></xref>, or <xref href="OpenTK.Platform.ContextValues.StencilBits" data-throw-if-not-resolved="false"></xref> to be lower than requested.</li><li>Allow two of color bits (<xref href="OpenTK.Platform.ContextValues.RedBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.GreenBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.BlueBits" data-throw-if-not-resolved="false"></xref>, and <xref href="OpenTK.Platform.ContextValues.AlphaBits" data-throw-if-not-resolved="false"></xref>), <xref href="OpenTK.Platform.ContextValues.DepthBits" data-throw-if-not-resolved="false"></xref>, or <xref href="OpenTK.Platform.ContextValues.StencilBits" data-throw-if-not-resolved="false"></xref> to be lower than requested.</li><li>Relax all bit requirements.</li><li>Relax double buffer requirements.</li><li>If all relaxations fail, select the first option in the list.</li></ol>
   example: []
   syntax:
     content: public static int DefaultValuesSelector(IReadOnlyList<ContextValues> options, ContextValues requested, ILogger? logger)
@@ -432,7 +485,7 @@ items:
   source:
     id: IsEqualExcludingID
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 367
+    startLine: 415
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -461,7 +514,7 @@ items:
   source:
     id: HasEqualColorBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 383
+    startLine: 432
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -490,7 +543,7 @@ items:
   source:
     id: HasGreaterOrEqualColorBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 391
+    startLine: 440
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -519,7 +572,7 @@ items:
   source:
     id: HasLessOrEqualColorBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 399
+    startLine: 448
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -548,7 +601,7 @@ items:
   source:
     id: HasEqualDepthBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 407
+    startLine: 456
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -577,7 +630,7 @@ items:
   source:
     id: HasGreaterOrEqualDepthBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 412
+    startLine: 461
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -606,7 +659,7 @@ items:
   source:
     id: HasLessOrEqualDepthBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 417
+    startLine: 466
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -635,7 +688,7 @@ items:
   source:
     id: HasEqualStencilBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 422
+    startLine: 471
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -664,7 +717,7 @@ items:
   source:
     id: HasGreaterOrEqualStencilBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 427
+    startLine: 476
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -693,7 +746,7 @@ items:
   source:
     id: HasLessOrEqualStencilBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 432
+    startLine: 481
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -722,7 +775,7 @@ items:
   source:
     id: HasEqualMSAA
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 437
+    startLine: 486
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -751,7 +804,7 @@ items:
   source:
     id: HasEqualDoubleBuffer
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 442
+    startLine: 491
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -780,7 +833,7 @@ items:
   source:
     id: HasEqualSRGB
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 447
+    startLine: 496
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -809,7 +862,7 @@ items:
   source:
     id: HasEqualPixelFormat
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 452
+    startLine: 501
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -838,7 +891,7 @@ items:
   source:
     id: HasEqualSwapMethod
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 457
+    startLine: 506
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -867,7 +920,7 @@ items:
   source:
     id: HasEqualFramebufferTransparencySupport
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 462
+    startLine: 511
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -882,6 +935,35 @@ items:
       type: System.Boolean
     content.vb: Public Shared Function HasEqualFramebufferTransparencySupport([option] As ContextValues, requested As ContextValues) As Boolean
   overload: OpenTK.Platform.ContextValues.HasEqualFramebufferTransparencySupport*
+- uid: OpenTK.Platform.ContextValues.HasEqualStereo(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
+  commentId: M:OpenTK.Platform.ContextValues.HasEqualStereo(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
+  id: HasEqualStereo(OpenTK.Platform.ContextValues,OpenTK.Platform.ContextValues)
+  parent: OpenTK.Platform.ContextValues
+  langs:
+  - csharp
+  - vb
+  name: HasEqualStereo(ContextValues, ContextValues)
+  nameWithType: ContextValues.HasEqualStereo(ContextValues, ContextValues)
+  fullName: OpenTK.Platform.ContextValues.HasEqualStereo(OpenTK.Platform.ContextValues, OpenTK.Platform.ContextValues)
+  type: Method
+  source:
+    id: HasEqualStereo
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
+    startLine: 516
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  syntax:
+    content: public static bool HasEqualStereo(ContextValues option, ContextValues requested)
+    parameters:
+    - id: option
+      type: OpenTK.Platform.ContextValues
+    - id: requested
+      type: OpenTK.Platform.ContextValues
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasEqualStereo([option] As ContextValues, requested As ContextValues) As Boolean
+  overload: OpenTK.Platform.ContextValues.HasEqualStereo*
 - uid: OpenTK.Platform.ContextValues.#ctor(System.UInt64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,OpenTK.Platform.ContextPixelFormat,OpenTK.Platform.ContextSwapMethod,System.Int32)
   commentId: M:OpenTK.Platform.ContextValues.#ctor(System.UInt64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,OpenTK.Platform.ContextPixelFormat,OpenTK.Platform.ContextSwapMethod,System.Int32)
   id: '#ctor(System.UInt64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,OpenTK.Platform.ContextPixelFormat,OpenTK.Platform.ContextSwapMethod,System.Int32)'
@@ -896,7 +978,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 467
+    startLine: 521
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -946,14 +1028,14 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 483
+    startLine: 538
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
   summary: Indicates whether this instance and a specified object are equal.
   example: []
   syntax:
-    content: public override bool Equals(object? obj)
+    content: public override readonly bool Equals(object? obj)
     parameters:
     - id: obj
       type: System.Object
@@ -981,14 +1063,14 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 488
+    startLine: 544
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
   summary: Indicates whether the current object is equal to another object of the same type.
   example: []
   syntax:
-    content: public bool Equals(ContextValues other)
+    content: public readonly bool Equals(ContextValues other)
     parameters:
     - id: other
       type: OpenTK.Platform.ContextValues
@@ -1014,14 +1096,14 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 504
+    startLine: 561
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
   summary: Returns the hash code for this instance.
   example: []
   syntax:
-    content: public override int GetHashCode()
+    content: public override readonly int GetHashCode()
     return:
       type: System.Int32
       description: A 32-bit signed integer that is the hash code for this instance.
@@ -1042,10 +1124,11 @@ items:
   source:
     id: op_Equality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 522
+    startLine: 580
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  example: []
   syntax:
     content: public static bool operator ==(ContextValues left, ContextValues right)
     parameters:
@@ -1074,10 +1157,11 @@ items:
   source:
     id: op_Inequality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 527
+    startLine: 586
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
+  example: []
   syntax:
     content: public static bool operator !=(ContextValues left, ContextValues right)
     parameters:
@@ -1106,7 +1190,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 532
+    startLine: 592
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1369,6 +1453,30 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: OpenTK.Graphics.OpenGL.GL.Enable(OpenTK.Graphics.OpenGL.EnableCap)
+  commentId: M:OpenTK.Graphics.OpenGL.GL.Enable(OpenTK.Graphics.OpenGL.EnableCap)
+  name: Enable(EnableCap)
+  nameWithType: GL.Enable(EnableCap)
+  fullName: OpenTK.Graphics.OpenGL.GL.Enable(OpenTK.Graphics.OpenGL.EnableCap)
+  spec.csharp:
+  - uid: OpenTK.Graphics.OpenGL.GL.Enable(OpenTK.Graphics.OpenGL.EnableCap)
+    name: Enable
+  - name: (
+  - uid: OpenTK.Graphics.OpenGL.EnableCap
+    name: EnableCap
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Graphics.OpenGL.GL.Enable(OpenTK.Graphics.OpenGL.EnableCap)
+    name: Enable
+  - name: (
+  - uid: OpenTK.Graphics.OpenGL.EnableCap
+    name: EnableCap
+  - name: )
+- uid: OpenTK.Graphics.OpenGL.EnableCap.FramebufferSrgb
+  commentId: F:OpenTK.Graphics.OpenGL.EnableCap.FramebufferSrgb
+  name: FramebufferSrgb
+  nameWithType: EnableCap.FramebufferSrgb
+  fullName: OpenTK.Graphics.OpenGL.EnableCap.FramebufferSrgb
 - uid: OpenTK.Platform.ContextPixelFormat
   commentId: T:OpenTK.Platform.ContextPixelFormat
   parent: OpenTK.Platform
@@ -1831,6 +1939,12 @@ references:
   name: HasEqualFramebufferTransparencySupport
   nameWithType: ContextValues.HasEqualFramebufferTransparencySupport
   fullName: OpenTK.Platform.ContextValues.HasEqualFramebufferTransparencySupport
+- uid: OpenTK.Platform.ContextValues.HasEqualStereo*
+  commentId: Overload:OpenTK.Platform.ContextValues.HasEqualStereo
+  href: OpenTK.Platform.ContextValues.html#OpenTK_Platform_ContextValues_HasEqualStereo_OpenTK_Platform_ContextValues_OpenTK_Platform_ContextValues_
+  name: HasEqualStereo
+  nameWithType: ContextValues.HasEqualStereo
+  fullName: OpenTK.Platform.ContextValues.HasEqualStereo
 - uid: OpenTK.Platform.ContextValues.#ctor*
   commentId: Overload:OpenTK.Platform.ContextValues.#ctor
   href: OpenTK.Platform.ContextValues.html#OpenTK_Platform_ContextValues__ctor_System_UInt64_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_System_Boolean_OpenTK_Platform_ContextPixelFormat_OpenTK_Platform_ContextSwapMethod_System_Int32_

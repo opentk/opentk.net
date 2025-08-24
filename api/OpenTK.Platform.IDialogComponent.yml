@@ -8,7 +8,7 @@ items:
   - OpenTK.Platform.IDialogComponent.CanTargetFolders
   - OpenTK.Platform.IDialogComponent.ShowMessageBox(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.MessageBoxType,OpenTK.Platform.IconHandle)
   - OpenTK.Platform.IDialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.OpenDialogOptions)
-  - OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  - OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
   langs:
   - csharp
   - vb
@@ -182,28 +182,26 @@ items:
     commentId: T:OpenTK.Platform.DialogFileFilter
   - linkId: OpenTK.Platform.OpenDialogOptions
     commentId: T:OpenTK.Platform.OpenDialogOptions
-  - linkId: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
-    commentId: M:OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
   - linkId: OpenTK.Platform.IDialogComponent.CanTargetFolders
     commentId: P:OpenTK.Platform.IDialogComponent.CanTargetFolders
   nameWithType.vb: IDialogComponent.ShowOpenDialog(WindowHandle, String, String, DialogFileFilter(), OpenDialogOptions)
   fullName.vb: OpenTK.Platform.IDialogComponent.ShowOpenDialog(OpenTK.Platform.WindowHandle, String, String, OpenTK.Platform.DialogFileFilter(), OpenTK.Platform.OpenDialogOptions)
   name.vb: ShowOpenDialog(WindowHandle, String, String, DialogFileFilter(), OpenDialogOptions)
-- uid: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
-  commentId: M:OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
-  id: ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+- uid: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  commentId: M:OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
+  id: ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
   parent: OpenTK.Platform.IDialogComponent
   langs:
   - csharp
   - vb
-  name: ShowSaveDialog(WindowHandle, string, string, DialogFileFilter[]?, SaveDialogOptions)
-  nameWithType: IDialogComponent.ShowSaveDialog(WindowHandle, string, string, DialogFileFilter[]?, SaveDialogOptions)
-  fullName: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle, string, string, OpenTK.Platform.DialogFileFilter[]?, OpenTK.Platform.SaveDialogOptions)
+  name: ShowSaveDialog(WindowHandle, string, string, string?, DialogFileFilter[]?, SaveDialogOptions)
+  nameWithType: IDialogComponent.ShowSaveDialog(WindowHandle, string, string, string?, DialogFileFilter[]?, SaveDialogOptions)
+  fullName: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle, string, string, string?, OpenTK.Platform.DialogFileFilter[]?, OpenTK.Platform.SaveDialogOptions)
   type: Method
   source:
     id: ShowSaveDialog
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IDialogComponent.cs
-    startLine: 78
+    startLine: 79
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -211,7 +209,7 @@ items:
   remarks: This function runs a modal event loop and will only return once the dialog has been dissmissed by pressing any of it's buttons.
   example: []
   syntax:
-    content: string? ShowSaveDialog(WindowHandle parent, string title, string directory, DialogFileFilter[]? allowedExtensions, SaveDialogOptions options)
+    content: string? ShowSaveDialog(WindowHandle parent, string title, string directory, string? defaultFileName, DialogFileFilter[]? allowedExtensions, SaveDialogOptions options)
     parameters:
     - id: parent
       type: OpenTK.Platform.WindowHandle
@@ -222,6 +220,9 @@ items:
     - id: directory
       type: System.String
       description: The starting directory of the file dialog.
+    - id: defaultFileName
+      type: System.String
+      description: The default suggested file name.
     - id: allowedExtensions
       type: OpenTK.Platform.DialogFileFilter[]
       description: A list of file filters that filter valid file extensions to save as. See <xref href="OpenTK.Platform.DialogFileFilter" data-throw-if-not-resolved="false"></xref> for more info.
@@ -231,16 +232,16 @@ items:
     return:
       type: System.String
       description: The path to the selected save file, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no file was selected.
-    content.vb: Function ShowSaveDialog(parent As WindowHandle, title As String, directory As String, allowedExtensions As DialogFileFilter(), options As SaveDialogOptions) As String
+    content.vb: Function ShowSaveDialog(parent As WindowHandle, title As String, directory As String, defaultFileName As String, allowedExtensions As DialogFileFilter(), options As SaveDialogOptions) As String
   overload: OpenTK.Platform.IDialogComponent.ShowSaveDialog*
   seealso:
   - linkId: OpenTK.Platform.DialogFileFilter
     commentId: T:OpenTK.Platform.DialogFileFilter
   - linkId: OpenTK.Platform.SaveDialogOptions
     commentId: T:OpenTK.Platform.SaveDialogOptions
-  nameWithType.vb: IDialogComponent.ShowSaveDialog(WindowHandle, String, String, DialogFileFilter(), SaveDialogOptions)
-  fullName.vb: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle, String, String, OpenTK.Platform.DialogFileFilter(), OpenTK.Platform.SaveDialogOptions)
-  name.vb: ShowSaveDialog(WindowHandle, String, String, DialogFileFilter(), SaveDialogOptions)
+  nameWithType.vb: IDialogComponent.ShowSaveDialog(WindowHandle, String, String, String, DialogFileFilter(), SaveDialogOptions)
+  fullName.vb: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle, String, String, String, OpenTK.Platform.DialogFileFilter(), OpenTK.Platform.SaveDialogOptions)
+  name.vb: ShowSaveDialog(WindowHandle, String, String, String, DialogFileFilter(), SaveDialogOptions)
 references:
 - uid: OpenTK.Platform.Toolkit.Dialog
   commentId: P:OpenTK.Platform.Toolkit.Dialog
@@ -528,83 +529,6 @@ references:
   name: OpenDialogOptions
   nameWithType: OpenDialogOptions
   fullName: OpenTK.Platform.OpenDialogOptions
-- uid: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
-  commentId: M:OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
-  parent: OpenTK.Platform.IDialogComponent
-  isExternal: true
-  href: OpenTK.Platform.IDialogComponent.html#OpenTK_Platform_IDialogComponent_ShowSaveDialog_OpenTK_Platform_WindowHandle_System_String_System_String_OpenTK_Platform_DialogFileFilter___OpenTK_Platform_SaveDialogOptions_
-  name: ShowSaveDialog(WindowHandle, string, string, DialogFileFilter[], SaveDialogOptions)
-  nameWithType: IDialogComponent.ShowSaveDialog(WindowHandle, string, string, DialogFileFilter[], SaveDialogOptions)
-  fullName: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle, string, string, OpenTK.Platform.DialogFileFilter[], OpenTK.Platform.SaveDialogOptions)
-  nameWithType.vb: IDialogComponent.ShowSaveDialog(WindowHandle, String, String, DialogFileFilter(), SaveDialogOptions)
-  fullName.vb: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle, String, String, OpenTK.Platform.DialogFileFilter(), OpenTK.Platform.SaveDialogOptions)
-  name.vb: ShowSaveDialog(WindowHandle, String, String, DialogFileFilter(), SaveDialogOptions)
-  spec.csharp:
-  - uid: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
-    name: ShowSaveDialog
-    href: OpenTK.Platform.IDialogComponent.html#OpenTK_Platform_IDialogComponent_ShowSaveDialog_OpenTK_Platform_WindowHandle_System_String_System_String_OpenTK_Platform_DialogFileFilter___OpenTK_Platform_SaveDialogOptions_
-  - name: (
-  - uid: OpenTK.Platform.WindowHandle
-    name: WindowHandle
-    href: OpenTK.Platform.WindowHandle.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: OpenTK.Platform.DialogFileFilter
-    name: DialogFileFilter
-    href: OpenTK.Platform.DialogFileFilter.html
-  - name: '['
-  - name: ']'
-  - name: ','
-  - name: " "
-  - uid: OpenTK.Platform.SaveDialogOptions
-    name: SaveDialogOptions
-    href: OpenTK.Platform.SaveDialogOptions.html
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.IDialogComponent.ShowSaveDialog(OpenTK.Platform.WindowHandle,System.String,System.String,OpenTK.Platform.DialogFileFilter[],OpenTK.Platform.SaveDialogOptions)
-    name: ShowSaveDialog
-    href: OpenTK.Platform.IDialogComponent.html#OpenTK_Platform_IDialogComponent_ShowSaveDialog_OpenTK_Platform_WindowHandle_System_String_System_String_OpenTK_Platform_DialogFileFilter___OpenTK_Platform_SaveDialogOptions_
-  - name: (
-  - uid: OpenTK.Platform.WindowHandle
-    name: WindowHandle
-    href: OpenTK.Platform.WindowHandle.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: OpenTK.Platform.DialogFileFilter
-    name: DialogFileFilter
-    href: OpenTK.Platform.DialogFileFilter.html
-  - name: (
-  - name: )
-  - name: ','
-  - name: " "
-  - uid: OpenTK.Platform.SaveDialogOptions
-    name: SaveDialogOptions
-    href: OpenTK.Platform.SaveDialogOptions.html
-  - name: )
 - uid: OpenTK.Platform.IDialogComponent.CanTargetFolders
   commentId: P:OpenTK.Platform.IDialogComponent.CanTargetFolders
   parent: OpenTK.Platform.IDialogComponent
@@ -754,7 +678,7 @@ references:
   fullName: OpenTK.Platform.SaveDialogOptions
 - uid: OpenTK.Platform.IDialogComponent.ShowSaveDialog*
   commentId: Overload:OpenTK.Platform.IDialogComponent.ShowSaveDialog
-  href: OpenTK.Platform.IDialogComponent.html#OpenTK_Platform_IDialogComponent_ShowSaveDialog_OpenTK_Platform_WindowHandle_System_String_System_String_OpenTK_Platform_DialogFileFilter___OpenTK_Platform_SaveDialogOptions_
+  href: OpenTK.Platform.IDialogComponent.html#OpenTK_Platform_IDialogComponent_ShowSaveDialog_OpenTK_Platform_WindowHandle_System_String_System_String_System_String_OpenTK_Platform_DialogFileFilter___OpenTK_Platform_SaveDialogOptions_
   name: ShowSaveDialog
   nameWithType: IDialogComponent.ShowSaveDialog
   fullName: OpenTK.Platform.IDialogComponent.ShowSaveDialog

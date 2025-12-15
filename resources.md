@@ -1,10 +1,12 @@
 # Projects using OpenTK
-| Title                                                                                                                                           | Author        | OpenTK Version | OpenGL Version | Type     | Details                                                                                                                                              |
-|-----------------------------|---------------|----------------|----------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [LearnOpenTK](https://github.com/opentk/LearnOpenTK)                                                                                                   | devvoid, Team OpenTK     | 3.3.3, 4.9.4          |           | Tutorial  | The code of the official tutorials at https://opentk.net/                                                                                                                                                     |
-| [OpenGL With OpenTK](https://say.itaint.moe/blags/otk_opengl.html)   | Zero State     | 5.0 (pre-release) | 3.3+ | Tutorial  | A modern introduction to OpenGL with OpenTK 5 with .NET 8 |
-| [Robust Toolbox](https://github.com/space-wizards/RobustToolbox)             | Space Wizards    | >= 4.x           | >= 3.0           | 2D Game Engine | Game engine that powers [Space Station 14](https://spacestation14.io/)                                                                                                                                                     |
-| [Vintage Story](https://github.com/anegostudios)             | Anego Studios    | 4.8.2           | 3.3           | 3D Game Engine | Public API for [Vintage Story](https://www.vintagestory.at/)                                                                                                                                                     |
+| Title                                                              | Author        | OpenTK Version | OpenGL Version | Type     | Details                                                                       |
+|--------------------------------------------------------------------|---------------|----------------|----------------|----------|-------------------------------------------------------------------------------|
+| [LearnOpenTK](https://github.com/opentk/LearnOpenTK)               | devvoid, Team OpenTK     | 3.3.3, 4.9.4          |           | Tutorial  | The code of the official tutorials at https://opentk.net/                     |
+| [OpenGL With OpenTK](https://say.itaint.moe/blags/otk_opengl.html) | Zero State     | 5.0 (pre-release) | 3.3+ | Tutorial  | A modern introduction to OpenGL with OpenTK 5 with .NET 8                     |
+| [Robust Toolbox](https://github.com/space-wizards/RobustToolbox)   | Space Wizards    | >= 4.x           | >= 3.0           | 2D Game Engine | Game engine that powers [Space Station 14](https://spacestation14.io/)        |
+| [Vintage Story](https://github.com/anegostudios)                   | Anego Studios    | 4.8.2           | 3.3           | 3D Game Engine | Public API for [Vintage Story](https://www.vintagestory.at/)                  |
+| [Monkey Hi Hat](https://www.monkeyhihat.com/)                      | MV10 | 4.9.4 | 4.5 | Application | Music visualizations and effects (similar to MilkDrop, for Windows and Linux) |
+| [eyecandy](https://github.com/mv10/eyecandy)                       | MV10 | 4.9.4 | 4.5 | Library | Audio-texture generation (like Shadertoy) and shader utilities                |
 
 ## Legacy Projects
 These projects target old versions of OpenTK and may be out-dated.

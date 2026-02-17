@@ -83,7 +83,7 @@ Before we can do any calls to OpenGL we need to do two things.
 This can quite easily be done like follows:
 
 ```cs
-// The the current opengl context and load the bindings.
+// The current opengl context and load the bindings.
 Toolkit.OpenGL.SetCurrentContext(glContext);
 GLLoader.LoadBindings(Toolkit.OpenGL.GetBindingsContext(glContext));
 ```
@@ -208,7 +208,7 @@ class Sample
         Toolkit.Window.SetSize(window, 800, 600);
         Toolkit.Window.SetMode(window, WindowMode.Normal);
 
-        // The the current opengl context and load the bindings.
+        // The current opengl context and load the bindings.
         Toolkit.OpenGL.SetCurrentContext(glContext);
         GLLoader.LoadBindings(Toolkit.OpenGL.GetBindingsContext(glContext));
 

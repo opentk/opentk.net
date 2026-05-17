@@ -18,6 +18,7 @@ items:
   - OpenTK.Platform.Native.Windows.OpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.GetSwapInterval
+  - OpenTK.Platform.Native.Windows.OpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.Initialize(OpenTK.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.Windows.OpenGLComponent.Logger
   - OpenTK.Platform.Native.Windows.OpenGLComponent.Name
@@ -384,7 +385,7 @@ items:
   source:
     id: DestroyContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 873
+    startLine: 875
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -417,7 +418,7 @@ items:
   source:
     id: GetContextValues
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 888
+    startLine: 895
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -464,7 +465,7 @@ items:
   source:
     id: GetBindingsContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 896
+    startLine: 903
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -505,7 +506,7 @@ items:
   source:
     id: GetProcedureAddress
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 902
+    startLine: 909
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -544,7 +545,7 @@ items:
   source:
     id: GetCurrentContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 923
+    startLine: 930
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -576,7 +577,7 @@ items:
   source:
     id: SetCurrentContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 937
+    startLine: 944
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -615,7 +616,7 @@ items:
   source:
     id: GetSharedContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 964
+    startLine: 971
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -651,7 +652,7 @@ items:
   source:
     id: SetSwapInterval
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 971
+    startLine: 978
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -684,7 +685,7 @@ items:
   source:
     id: GetSwapInterval
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 984
+    startLine: 991
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -713,7 +714,7 @@ items:
   source:
     id: SwapBuffers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 1002
+    startLine: 1009
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -732,6 +733,39 @@ items:
     commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
   implements:
   - OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
+- uid: OpenTK.Platform.Native.Windows.OpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.OpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  id: GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.Native.Windows.OpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetWindow(OpenGLContextHandle)
+  nameWithType: OpenGLComponent.GetWindow(OpenGLContextHandle)
+  fullName: OpenTK.Platform.Native.Windows.OpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  type: Method
+  source:
+    id: GetWindow
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
+    startLine: 1047
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.Windows
+  summary: Gets the <xref href="OpenTK.Platform.WindowHandle" data-throw-if-not-resolved="false"></xref> that was used to create this context, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if this context wasn't created from a window.
+  example: []
+  syntax:
+    content: public WindowHandle? GetWindow(OpenGLContextHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the OpenGL context.
+    return:
+      type: OpenTK.Platform.WindowHandle
+      description: The <xref href="OpenTK.Platform.WindowHandle" data-throw-if-not-resolved="false"></xref> that was used to create this context, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if this context wasn't created from a window.
+    content.vb: Public Function GetWindow(handle As OpenGLContextHandle) As WindowHandle
+  overload: OpenTK.Platform.Native.Windows.OpenGLComponent.GetWindow*
+  implements:
+  - OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
 - uid: OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable(OpenTK.Platform.OpenGLContextHandle,System.Boolean)
   commentId: M:OpenTK.Platform.Native.Windows.OpenGLComponent.UseDwmFlushIfApplicable(OpenTK.Platform.OpenGLContextHandle,System.Boolean)
   id: UseDwmFlushIfApplicable(OpenTK.Platform.OpenGLContextHandle,System.Boolean)
@@ -746,7 +780,7 @@ items:
   source:
     id: UseDwmFlushIfApplicable
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 1048
+    startLine: 1062
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -788,7 +822,7 @@ items:
   source:
     id: GetHGLRC
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\OpenGLComponent.cs
-    startLine: 1062
+    startLine: 1076
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -1953,6 +1987,37 @@ references:
   - uid: OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
     name: SwapBuffers
     href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SwapBuffers_OpenTK_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Platform.OpenGLContextHandle.html
+  - name: )
+- uid: OpenTK.Platform.Native.Windows.OpenGLComponent.GetWindow*
+  commentId: Overload:OpenTK.Platform.Native.Windows.OpenGLComponent.GetWindow
+  href: OpenTK.Platform.Native.Windows.OpenGLComponent.html#OpenTK_Platform_Native_Windows_OpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
+  name: GetWindow
+  nameWithType: OpenGLComponent.GetWindow
+  fullName: OpenTK.Platform.Native.Windows.OpenGLComponent.GetWindow
+- uid: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
+  name: GetWindow(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.GetWindow(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+    name: GetWindow
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Platform.OpenGLContextHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+    name: GetWindow
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
   - name: (
   - uid: OpenTK.Platform.OpenGLContextHandle
     name: OpenGLContextHandle

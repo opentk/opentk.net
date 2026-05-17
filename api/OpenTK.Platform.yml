@@ -26,19 +26,22 @@ items:
   - OpenTK.Platform.DisplayConnectionChangedEventArgs
   - OpenTK.Platform.DisplayHandle
   - OpenTK.Platform.DisplayResolution
-  - OpenTK.Platform.EventQueue
+  - OpenTK.Platform.DisplayValuesChangedEventArgs
+  - OpenTK.Platform.DoubleClickInfo
   - OpenTK.Platform.FileDropEventArgs
   - OpenTK.Platform.FocusEventArgs
   - OpenTK.Platform.GamepadBatteryInfo
   - OpenTK.Platform.GamepadBatteryType
   - OpenTK.Platform.GraphicsApi
   - OpenTK.Platform.GraphicsApiHints
+  - OpenTK.Platform.HatState
   - OpenTK.Platform.HitTest
   - OpenTK.Platform.HitType
   - OpenTK.Platform.IClipboardComponent
   - OpenTK.Platform.ICursorComponent
   - OpenTK.Platform.IDialogComponent
   - OpenTK.Platform.IDisplayComponent
+  - OpenTK.Platform.IGamepadComponent
   - OpenTK.Platform.IIconComponent
   - OpenTK.Platform.IJoystickComponent
   - OpenTK.Platform.IKeyboardComponent
@@ -50,10 +53,13 @@ items:
   - OpenTK.Platform.IVulkanComponent
   - OpenTK.Platform.IWindowComponent
   - OpenTK.Platform.IconHandle
+  - OpenTK.Platform.InputLanguage
   - OpenTK.Platform.InputLanguageChangedEventArgs
   - OpenTK.Platform.JoystickAxis
   - OpenTK.Platform.JoystickButton
+  - OpenTK.Platform.JoystickCapabilities
   - OpenTK.Platform.JoystickHandle
+  - OpenTK.Platform.JoystickType
   - OpenTK.Platform.Key
   - OpenTK.Platform.KeyDownEventArgs
   - OpenTK.Platform.KeyModifier
@@ -95,6 +101,7 @@ items:
   - OpenTK.Platform.ThemeChangeEventArgs
   - OpenTK.Platform.ThemeInfo
   - OpenTK.Platform.Toolkit
+  - OpenTK.Platform.Toolkit.Event
   - OpenTK.Platform.ToolkitFlags
   - OpenTK.Platform.ToolkitOptions
   - OpenTK.Platform.ToolkitOptions.MacOSOptions
@@ -209,10 +216,18 @@ references:
   fullName: OpenTK.Platform.DialogFileFilter
 - uid: OpenTK.Platform.DisplayResolution
   commentId: T:OpenTK.Platform.DisplayResolution
+  parent: OpenTK.Platform
   href: OpenTK.Platform.DisplayResolution.html
   name: DisplayResolution
   nameWithType: DisplayResolution
   fullName: OpenTK.Platform.DisplayResolution
+- uid: OpenTK.Platform.DoubleClickInfo
+  commentId: T:OpenTK.Platform.DoubleClickInfo
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.DoubleClickInfo.html
+  name: DoubleClickInfo
+  nameWithType: DoubleClickInfo
+  fullName: OpenTK.Platform.DoubleClickInfo
 - uid: OpenTK.Platform.BatteryStatus
   commentId: T:OpenTK.Platform.BatteryStatus
   parent: OpenTK.Platform
@@ -402,20 +417,6 @@ references:
   name: WindowTransparencyMode
   nameWithType: WindowTransparencyMode
   fullName: OpenTK.Platform.WindowTransparencyMode
-- uid: OpenTK.Platform.PlatformEventHandler
-  commentId: T:OpenTK.Platform.PlatformEventHandler
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.PlatformEventHandler.html
-  name: PlatformEventHandler
-  nameWithType: PlatformEventHandler
-  fullName: OpenTK.Platform.PlatformEventHandler
-- uid: OpenTK.Platform.EventQueue
-  commentId: T:OpenTK.Platform.EventQueue
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.EventQueue.html
-  name: EventQueue
-  nameWithType: EventQueue
-  fullName: OpenTK.Platform.EventQueue
 - uid: OpenTK.Platform.GamepadBatteryType
   commentId: T:OpenTK.Platform.GamepadBatteryType
   parent: OpenTK.Platform
@@ -527,6 +528,13 @@ references:
   name: IDisplayComponent
   nameWithType: IDisplayComponent
   fullName: OpenTK.Platform.IDisplayComponent
+- uid: OpenTK.Platform.IGamepadComponent
+  commentId: T:OpenTK.Platform.IGamepadComponent
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.IGamepadComponent.html
+  name: IGamepadComponent
+  nameWithType: IGamepadComponent
+  fullName: OpenTK.Platform.IGamepadComponent
 - uid: OpenTK.Platform.IIconComponent
   commentId: T:OpenTK.Platform.IIconComponent
   parent: OpenTK.Platform
@@ -534,6 +542,27 @@ references:
   name: IIconComponent
   nameWithType: IIconComponent
   fullName: OpenTK.Platform.IIconComponent
+- uid: OpenTK.Platform.HatState
+  commentId: T:OpenTK.Platform.HatState
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.HatState.html
+  name: HatState
+  nameWithType: HatState
+  fullName: OpenTK.Platform.HatState
+- uid: OpenTK.Platform.JoystickType
+  commentId: T:OpenTK.Platform.JoystickType
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.JoystickType.html
+  name: JoystickType
+  nameWithType: JoystickType
+  fullName: OpenTK.Platform.JoystickType
+- uid: OpenTK.Platform.JoystickCapabilities
+  commentId: T:OpenTK.Platform.JoystickCapabilities
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.JoystickCapabilities.html
+  name: JoystickCapabilities
+  nameWithType: JoystickCapabilities
+  fullName: OpenTK.Platform.JoystickCapabilities
 - uid: OpenTK.Platform.IJoystickComponent
   commentId: T:OpenTK.Platform.IJoystickComponent
   parent: OpenTK.Platform
@@ -541,6 +570,13 @@ references:
   name: IJoystickComponent
   nameWithType: IJoystickComponent
   fullName: OpenTK.Platform.IJoystickComponent
+- uid: OpenTK.Platform.InputLanguage
+  commentId: T:OpenTK.Platform.InputLanguage
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.InputLanguage.html
+  name: InputLanguage
+  nameWithType: InputLanguage
+  fullName: OpenTK.Platform.InputLanguage
 - uid: OpenTK.Platform.IKeyboardComponent
   commentId: T:OpenTK.Platform.IKeyboardComponent
   parent: OpenTK.Platform
@@ -650,12 +686,41 @@ references:
   name: SystemMemoryInfo
   nameWithType: SystemMemoryInfo
   fullName: OpenTK.Platform.SystemMemoryInfo
+- uid: OpenTK.Platform.PlatformEventHandler
+  commentId: T:OpenTK.Platform.PlatformEventHandler
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.PlatformEventHandler.html
+  name: PlatformEventHandler
+  nameWithType: PlatformEventHandler
+  fullName: OpenTK.Platform.PlatformEventHandler
 - uid: OpenTK.Platform.Toolkit
   commentId: T:OpenTK.Platform.Toolkit
   href: OpenTK.Platform.Toolkit.html
   name: Toolkit
   nameWithType: Toolkit
   fullName: OpenTK.Platform.Toolkit
+- uid: OpenTK.Platform.Toolkit.Event
+  commentId: T:OpenTK.Platform.Toolkit.Event
+  href: OpenTK.Platform.Toolkit.html
+  name: Toolkit.Event
+  nameWithType: Toolkit.Event
+  fullName: OpenTK.Platform.Toolkit.Event
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit
+    name: Toolkit
+    href: OpenTK.Platform.Toolkit.html
+  - name: .
+  - uid: OpenTK.Platform.Toolkit.Event
+    name: Event
+    href: OpenTK.Platform.Toolkit.Event.html
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit
+    name: Toolkit
+    href: OpenTK.Platform.Toolkit.html
+  - name: .
+  - uid: OpenTK.Platform.Toolkit.Event
+    name: Event
+    href: OpenTK.Platform.Toolkit.Event.html
 - uid: OpenTK.Platform.ToolkitFlags
   commentId: T:OpenTK.Platform.ToolkitFlags
   parent: OpenTK.Platform
@@ -891,6 +956,12 @@ references:
   name: DisplayConnectionChangedEventArgs
   nameWithType: DisplayConnectionChangedEventArgs
   fullName: OpenTK.Platform.DisplayConnectionChangedEventArgs
+- uid: OpenTK.Platform.DisplayValuesChangedEventArgs
+  commentId: T:OpenTK.Platform.DisplayValuesChangedEventArgs
+  href: OpenTK.Platform.DisplayValuesChangedEventArgs.html
+  name: DisplayValuesChangedEventArgs
+  nameWithType: DisplayValuesChangedEventArgs
+  fullName: OpenTK.Platform.DisplayValuesChangedEventArgs
 - uid: OpenTK.Platform.PowerStateChangeEventArgs
   commentId: T:OpenTK.Platform.PowerStateChangeEventArgs
   href: OpenTK.Platform.PowerStateChangeEventArgs.html

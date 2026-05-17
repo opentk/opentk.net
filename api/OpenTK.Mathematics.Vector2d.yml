@@ -23,8 +23,16 @@ items:
   - OpenTK.Mathematics.Vector2d.ComponentEqual(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
   - OpenTK.Mathematics.Vector2d.ComponentMax(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
   - OpenTK.Mathematics.Vector2d.ComponentMax(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  - OpenTK.Mathematics.Vector2d.ComponentMaxNative(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  - OpenTK.Mathematics.Vector2d.ComponentMaxNative(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  - OpenTK.Mathematics.Vector2d.ComponentMaxNumber(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  - OpenTK.Mathematics.Vector2d.ComponentMaxNumber(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
   - OpenTK.Mathematics.Vector2d.ComponentMin(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
   - OpenTK.Mathematics.Vector2d.ComponentMin(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  - OpenTK.Mathematics.Vector2d.ComponentMinNative(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  - OpenTK.Mathematics.Vector2d.ComponentMinNative(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  - OpenTK.Mathematics.Vector2d.ComponentMinNumber(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  - OpenTK.Mathematics.Vector2d.ComponentMinNumber(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
   - OpenTK.Mathematics.Vector2d.ComponentNotEqual(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
   - OpenTK.Mathematics.Vector2d.Deconstruct(System.Double@,System.Double@)
   - OpenTK.Mathematics.Vector2d.Distance(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
@@ -1577,11 +1585,14 @@ items:
   source:
     id: ComponentMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 466
+    startLine: 467
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the smallest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: >-
@@ -1621,11 +1632,14 @@ items:
   source:
     id: ComponentMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 480
+    startLine: 483
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the smallest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: public static void ComponentMin(in Vector2d a, in Vector2d b, out Vector2d result)
@@ -1644,6 +1658,180 @@ items:
   nameWithType.vb: Vector2d.ComponentMin(Vector2d, Vector2d, Vector2d)
   fullName.vb: OpenTK.Mathematics.Vector2d.ComponentMin(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
   name.vb: ComponentMin(Vector2d, Vector2d, Vector2d)
+- uid: OpenTK.Mathematics.Vector2d.ComponentMinNumber(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  commentId: M:OpenTK.Mathematics.Vector2d.ComponentMinNumber(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  id: ComponentMinNumber(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  parent: OpenTK.Mathematics.Vector2d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNumber(Vector2d, Vector2d)
+  nameWithType: Vector2d.ComponentMinNumber(Vector2d, Vector2d)
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMinNumber(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
+  type: Method
+  source:
+    id: ComponentMinNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
+    startLine: 497
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector2d ComponentMinNumber(Vector2d a, Vector2d b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector2d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector2d
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector2d
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMinNumber(a As Vector2d, b As Vector2d) As Vector2d
+  overload: OpenTK.Mathematics.Vector2d.ComponentMinNumber*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector2d.ComponentMinNumber(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  commentId: M:OpenTK.Mathematics.Vector2d.ComponentMinNumber(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  id: ComponentMinNumber(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  parent: OpenTK.Mathematics.Vector2d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNumber(in Vector2d, in Vector2d, out Vector2d)
+  nameWithType: Vector2d.ComponentMinNumber(in Vector2d, in Vector2d, out Vector2d)
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMinNumber(in OpenTK.Mathematics.Vector2d, in OpenTK.Mathematics.Vector2d, out OpenTK.Mathematics.Vector2d)
+  type: Method
+  source:
+    id: ComponentMinNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
+    startLine: 513
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: public static void ComponentMinNumber(in Vector2d a, in Vector2d b, out Vector2d result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector2d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector2d
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector2d
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMinNumber(a As Vector2d, b As Vector2d, result As Vector2d)
+  overload: OpenTK.Mathematics.Vector2d.ComponentMinNumber*
+  nameWithType.vb: Vector2d.ComponentMinNumber(Vector2d, Vector2d, Vector2d)
+  fullName.vb: OpenTK.Mathematics.Vector2d.ComponentMinNumber(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
+  name.vb: ComponentMinNumber(Vector2d, Vector2d, Vector2d)
+- uid: OpenTK.Mathematics.Vector2d.ComponentMinNative(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  commentId: M:OpenTK.Mathematics.Vector2d.ComponentMinNative(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  id: ComponentMinNative(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  parent: OpenTK.Mathematics.Vector2d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNative(Vector2d, Vector2d)
+  nameWithType: Vector2d.ComponentMinNative(Vector2d, Vector2d)
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMinNative(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
+  type: Method
+  source:
+    id: ComponentMinNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
+    startLine: 527
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector2d ComponentMinNative(Vector2d a, Vector2d b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector2d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector2d
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector2d
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMinNative(a As Vector2d, b As Vector2d) As Vector2d
+  overload: OpenTK.Mathematics.Vector2d.ComponentMinNative*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector2d.ComponentMinNative(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  commentId: M:OpenTK.Mathematics.Vector2d.ComponentMinNative(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  id: ComponentMinNative(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  parent: OpenTK.Mathematics.Vector2d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNative(in Vector2d, in Vector2d, out Vector2d)
+  nameWithType: Vector2d.ComponentMinNative(in Vector2d, in Vector2d, out Vector2d)
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMinNative(in OpenTK.Mathematics.Vector2d, in OpenTK.Mathematics.Vector2d, out OpenTK.Mathematics.Vector2d)
+  type: Method
+  source:
+    id: ComponentMinNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
+    startLine: 543
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: public static void ComponentMinNative(in Vector2d a, in Vector2d b, out Vector2d result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector2d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector2d
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector2d
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMinNative(a As Vector2d, b As Vector2d, result As Vector2d)
+  overload: OpenTK.Mathematics.Vector2d.ComponentMinNative*
+  nameWithType.vb: Vector2d.ComponentMinNative(Vector2d, Vector2d, Vector2d)
+  fullName.vb: OpenTK.Mathematics.Vector2d.ComponentMinNative(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
+  name.vb: ComponentMinNative(Vector2d, Vector2d, Vector2d)
 - uid: OpenTK.Mathematics.Vector2d.ComponentMax(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
   commentId: M:OpenTK.Mathematics.Vector2d.ComponentMax(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
   id: ComponentMax(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
@@ -1658,11 +1846,14 @@ items:
   source:
     id: ComponentMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 492
+    startLine: 557
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the largest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: >-
@@ -1678,7 +1869,7 @@ items:
       description: Second operand.
     return:
       type: OpenTK.Mathematics.Vector2d
-      description: The component-wise maximum.
+      description: The component-wise minimum.
     content.vb: >-
       <Pure>
 
@@ -1702,11 +1893,14 @@ items:
   source:
     id: ComponentMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 506
+    startLine: 573
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the largest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: public static void ComponentMax(in Vector2d a, in Vector2d b, out Vector2d result)
@@ -1719,12 +1913,186 @@ items:
       description: Second operand.
     - id: result
       type: OpenTK.Mathematics.Vector2d
-      description: The component-wise maximum.
+      description: The component-wise minimum.
     content.vb: Public Shared Sub ComponentMax(a As Vector2d, b As Vector2d, result As Vector2d)
   overload: OpenTK.Mathematics.Vector2d.ComponentMax*
   nameWithType.vb: Vector2d.ComponentMax(Vector2d, Vector2d, Vector2d)
   fullName.vb: OpenTK.Mathematics.Vector2d.ComponentMax(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
   name.vb: ComponentMax(Vector2d, Vector2d, Vector2d)
+- uid: OpenTK.Mathematics.Vector2d.ComponentMaxNumber(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  commentId: M:OpenTK.Mathematics.Vector2d.ComponentMaxNumber(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  id: ComponentMaxNumber(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  parent: OpenTK.Mathematics.Vector2d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNumber(Vector2d, Vector2d)
+  nameWithType: Vector2d.ComponentMaxNumber(Vector2d, Vector2d)
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMaxNumber(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
+  type: Method
+  source:
+    id: ComponentMaxNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
+    startLine: 587
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector2d ComponentMaxNumber(Vector2d a, Vector2d b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector2d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector2d
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector2d
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMaxNumber(a As Vector2d, b As Vector2d) As Vector2d
+  overload: OpenTK.Mathematics.Vector2d.ComponentMaxNumber*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector2d.ComponentMaxNumber(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  commentId: M:OpenTK.Mathematics.Vector2d.ComponentMaxNumber(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  id: ComponentMaxNumber(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  parent: OpenTK.Mathematics.Vector2d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNumber(in Vector2d, in Vector2d, out Vector2d)
+  nameWithType: Vector2d.ComponentMaxNumber(in Vector2d, in Vector2d, out Vector2d)
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMaxNumber(in OpenTK.Mathematics.Vector2d, in OpenTK.Mathematics.Vector2d, out OpenTK.Mathematics.Vector2d)
+  type: Method
+  source:
+    id: ComponentMaxNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
+    startLine: 603
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: public static void ComponentMaxNumber(in Vector2d a, in Vector2d b, out Vector2d result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector2d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector2d
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector2d
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMaxNumber(a As Vector2d, b As Vector2d, result As Vector2d)
+  overload: OpenTK.Mathematics.Vector2d.ComponentMaxNumber*
+  nameWithType.vb: Vector2d.ComponentMaxNumber(Vector2d, Vector2d, Vector2d)
+  fullName.vb: OpenTK.Mathematics.Vector2d.ComponentMaxNumber(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
+  name.vb: ComponentMaxNumber(Vector2d, Vector2d, Vector2d)
+- uid: OpenTK.Mathematics.Vector2d.ComponentMaxNative(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  commentId: M:OpenTK.Mathematics.Vector2d.ComponentMaxNative(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  id: ComponentMaxNative(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
+  parent: OpenTK.Mathematics.Vector2d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNative(Vector2d, Vector2d)
+  nameWithType: Vector2d.ComponentMaxNative(Vector2d, Vector2d)
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMaxNative(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
+  type: Method
+  source:
+    id: ComponentMaxNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
+    startLine: 617
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector2d ComponentMaxNative(Vector2d a, Vector2d b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector2d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector2d
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector2d
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMaxNative(a As Vector2d, b As Vector2d) As Vector2d
+  overload: OpenTK.Mathematics.Vector2d.ComponentMaxNative*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector2d.ComponentMaxNative(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  commentId: M:OpenTK.Mathematics.Vector2d.ComponentMaxNative(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  id: ComponentMaxNative(OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@,OpenTK.Mathematics.Vector2d@)
+  parent: OpenTK.Mathematics.Vector2d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNative(in Vector2d, in Vector2d, out Vector2d)
+  nameWithType: Vector2d.ComponentMaxNative(in Vector2d, in Vector2d, out Vector2d)
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMaxNative(in OpenTK.Mathematics.Vector2d, in OpenTK.Mathematics.Vector2d, out OpenTK.Mathematics.Vector2d)
+  type: Method
+  source:
+    id: ComponentMaxNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
+    startLine: 633
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: public static void ComponentMaxNative(in Vector2d a, in Vector2d b, out Vector2d result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector2d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector2d
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector2d
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMaxNative(a As Vector2d, b As Vector2d, result As Vector2d)
+  overload: OpenTK.Mathematics.Vector2d.ComponentMaxNative*
+  nameWithType.vb: Vector2d.ComponentMaxNative(Vector2d, Vector2d, Vector2d)
+  fullName.vb: OpenTK.Mathematics.Vector2d.ComponentMaxNative(OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d, OpenTK.Mathematics.Vector2d)
+  name.vb: ComponentMaxNative(Vector2d, Vector2d, Vector2d)
 - uid: OpenTK.Mathematics.Vector2d.MagnitudeMin(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
   commentId: M:OpenTK.Mathematics.Vector2d.MagnitudeMin(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
   id: MagnitudeMin(OpenTK.Mathematics.Vector2d,OpenTK.Mathematics.Vector2d)
@@ -1739,7 +2107,7 @@ items:
   source:
     id: MagnitudeMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 519
+    startLine: 647
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1786,7 +2154,7 @@ items:
   source:
     id: MagnitudeMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 532
+    startLine: 660
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1826,7 +2194,7 @@ items:
   source:
     id: MagnitudeMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 544
+    startLine: 672
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1873,7 +2241,7 @@ items:
   source:
     id: MagnitudeMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 557
+    startLine: 685
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1913,7 +2281,7 @@ items:
   source:
     id: Clamp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 569
+    startLine: 697
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1960,7 +2328,7 @@ items:
   source:
     id: Clamp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 584
+    startLine: 712
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2000,7 +2368,7 @@ items:
   source:
     id: Abs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 595
+    startLine: 723
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2031,7 +2399,7 @@ items:
   source:
     id: Abs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 607
+    startLine: 735
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2065,7 +2433,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 618
+    startLine: 746
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2106,7 +2474,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 631
+    startLine: 759
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2140,7 +2508,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 644
+    startLine: 772
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2187,7 +2555,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 659
+    startLine: 787
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2227,7 +2595,7 @@ items:
   source:
     id: Ceiling
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 671
+    startLine: 799
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2271,7 +2639,7 @@ items:
   source:
     id: Ceiling
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 685
+    startLine: 813
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2308,7 +2676,7 @@ items:
   source:
     id: Floor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 697
+    startLine: 825
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2352,7 +2720,7 @@ items:
   source:
     id: Floor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 711
+    startLine: 839
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2389,7 +2757,7 @@ items:
   source:
     id: Truncate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 723
+    startLine: 851
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2433,7 +2801,7 @@ items:
   source:
     id: Truncate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 737
+    startLine: 865
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2470,7 +2838,7 @@ items:
   source:
     id: Distance
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 749
+    startLine: 877
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2514,7 +2882,7 @@ items:
   source:
     id: Distance
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 762
+    startLine: 890
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2551,7 +2919,7 @@ items:
   source:
     id: DistanceSquared
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 773
+    startLine: 901
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2595,7 +2963,7 @@ items:
   source:
     id: DistanceSquared
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 786
+    startLine: 914
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2632,7 +3000,7 @@ items:
   source:
     id: Normalize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 796
+    startLine: 924
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2673,7 +3041,7 @@ items:
   source:
     id: Normalize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 810
+    startLine: 938
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2707,7 +3075,7 @@ items:
   source:
     id: NormalizeFast
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 822
+    startLine: 950
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2748,7 +3116,7 @@ items:
   source:
     id: NormalizeFast
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 836
+    startLine: 964
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2782,7 +3150,7 @@ items:
   source:
     id: Dot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 849
+    startLine: 977
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2826,7 +3194,7 @@ items:
   source:
     id: Dot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 861
+    startLine: 989
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2863,7 +3231,7 @@ items:
   source:
     id: PerpDot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 872
+    startLine: 1000
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2907,7 +3275,7 @@ items:
   source:
     id: PerpDot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 884
+    startLine: 1012
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2944,7 +3312,7 @@ items:
   source:
     id: LessThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 895
+    startLine: 1023
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2981,7 +3349,7 @@ items:
   source:
     id: LessThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 906
+    startLine: 1034
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3018,7 +3386,7 @@ items:
   source:
     id: GreaterThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 917
+    startLine: 1045
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3055,7 +3423,7 @@ items:
   source:
     id: GreaterThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 928
+    startLine: 1056
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3092,7 +3460,7 @@ items:
   source:
     id: ComponentEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 939
+    startLine: 1067
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3129,7 +3497,7 @@ items:
   source:
     id: ComponentNotEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 950
+    startLine: 1078
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3166,7 +3534,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 962
+    startLine: 1090
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3216,7 +3584,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 977
+    startLine: 1105
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3256,7 +3624,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 990
+    startLine: 1118
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3303,7 +3671,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1005
+    startLine: 1133
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3343,7 +3711,7 @@ items:
   source:
     id: Slerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1019
+    startLine: 1147
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3396,7 +3764,7 @@ items:
   source:
     id: Slerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1049
+    startLine: 1177
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3439,7 +3807,7 @@ items:
   source:
     id: Elerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1087
+    startLine: 1215
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3485,7 +3853,7 @@ items:
   source:
     id: Elerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1103
+    startLine: 1231
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3531,7 +3899,7 @@ items:
   source:
     id: BaryCentric
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1118
+    startLine: 1246
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3587,7 +3955,7 @@ items:
   source:
     id: BaryCentric
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1137
+    startLine: 1265
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3636,7 +4004,7 @@ items:
   source:
     id: TransformRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1162
+    startLine: 1290
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3680,7 +4048,7 @@ items:
   source:
     id: TransformRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1175
+    startLine: 1303
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3717,7 +4085,7 @@ items:
   source:
     id: TransformThreeDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1188
+    startLine: 1316
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3761,7 +4129,7 @@ items:
   source:
     id: TransformThreeDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1201
+    startLine: 1329
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3798,7 +4166,7 @@ items:
   source:
     id: TransformFourDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1216
+    startLine: 1344
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3842,7 +4210,7 @@ items:
   source:
     id: TransformFourDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1229
+    startLine: 1357
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3879,7 +4247,7 @@ items:
   source:
     id: Transform
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1245
+    startLine: 1373
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3923,7 +4291,7 @@ items:
   source:
     id: Transform
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1258
+    startLine: 1386
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3960,7 +4328,7 @@ items:
   source:
     id: TransformColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1275
+    startLine: 1403
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4004,7 +4372,7 @@ items:
   source:
     id: TransformColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1288
+    startLine: 1416
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4041,7 +4409,7 @@ items:
   source:
     id: TransformThreeDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1300
+    startLine: 1428
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4085,7 +4453,7 @@ items:
   source:
     id: TransformThreeDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1313
+    startLine: 1441
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4122,7 +4490,7 @@ items:
   source:
     id: TransformFourDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1326
+    startLine: 1454
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4166,7 +4534,7 @@ items:
   source:
     id: TransformFourDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1339
+    startLine: 1467
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4203,7 +4571,7 @@ items:
   source:
     id: Yx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1350
+    startLine: 1478
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4230,7 +4598,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1367
+    startLine: 1495
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4277,7 +4645,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1381
+    startLine: 1509
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4324,7 +4692,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1395
+    startLine: 1523
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4373,7 +4741,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1409
+    startLine: 1537
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4420,7 +4788,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1423
+    startLine: 1551
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4467,7 +4835,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1437
+    startLine: 1565
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4516,7 +4884,7 @@ items:
   source:
     id: op_UnaryNegation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1450
+    startLine: 1578
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4562,7 +4930,7 @@ items:
   source:
     id: op_UnaryPlus
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1463
+    startLine: 1591
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4608,7 +4976,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1477
+    startLine: 1605
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4657,7 +5025,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1491
+    startLine: 1619
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4704,7 +5072,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1505
+    startLine: 1633
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4753,7 +5121,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1519
+    startLine: 1647
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4802,7 +5170,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1532
+    startLine: 1660
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4851,7 +5219,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1545
+    startLine: 1673
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4900,7 +5268,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1558
+    startLine: 1686
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4949,7 +5317,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1572
+    startLine: 1700
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4996,7 +5364,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1586
+    startLine: 1714
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5045,7 +5413,7 @@ items:
   source:
     id: op_LessThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1600
+    startLine: 1728
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5092,7 +5460,7 @@ items:
   source:
     id: op_LessThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1612
+    startLine: 1740
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5139,7 +5507,7 @@ items:
   source:
     id: op_GreaterThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1624
+    startLine: 1752
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5186,7 +5554,7 @@ items:
   source:
     id: op_GreaterThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1636
+    startLine: 1764
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5233,7 +5601,7 @@ items:
   source:
     id: op_Equality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1648
+    startLine: 1776
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5272,7 +5640,7 @@ items:
   source:
     id: op_Inequality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1659
+    startLine: 1787
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5311,7 +5679,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1669
+    startLine: 1797
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5355,7 +5723,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1680
+    startLine: 1808
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5399,7 +5767,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1691
+    startLine: 1819
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5443,7 +5811,7 @@ items:
   source:
     id: op_Implicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1703
+    startLine: 1831
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5490,7 +5858,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1710
+    startLine: 1838
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5518,7 +5886,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1716
+    startLine: 1844
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5530,9 +5898,9 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
@@ -5557,7 +5925,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1722
+    startLine: 1850
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5569,9 +5937,9 @@ items:
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -5593,7 +5961,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1728
+    startLine: 1856
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5605,17 +5973,17 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -5642,7 +6010,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1738
+    startLine: 1866
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5677,7 +6045,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1744
+    startLine: 1872
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5710,7 +6078,7 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1753
+    startLine: 1881
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5738,7 +6106,7 @@ items:
   source:
     id: Deconstruct
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector2d.cs
-    startLine: 1763
+    startLine: 1891
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7584,12 +7952,36 @@ references:
   name: ComponentMin
   nameWithType: Vector2d.ComponentMin
   fullName: OpenTK.Mathematics.Vector2d.ComponentMin
+- uid: OpenTK.Mathematics.Vector2d.ComponentMinNumber*
+  commentId: Overload:OpenTK.Mathematics.Vector2d.ComponentMinNumber
+  href: OpenTK.Mathematics.Vector2d.html#OpenTK_Mathematics_Vector2d_ComponentMinNumber_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_
+  name: ComponentMinNumber
+  nameWithType: Vector2d.ComponentMinNumber
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMinNumber
+- uid: OpenTK.Mathematics.Vector2d.ComponentMinNative*
+  commentId: Overload:OpenTK.Mathematics.Vector2d.ComponentMinNative
+  href: OpenTK.Mathematics.Vector2d.html#OpenTK_Mathematics_Vector2d_ComponentMinNative_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_
+  name: ComponentMinNative
+  nameWithType: Vector2d.ComponentMinNative
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMinNative
 - uid: OpenTK.Mathematics.Vector2d.ComponentMax*
   commentId: Overload:OpenTK.Mathematics.Vector2d.ComponentMax
   href: OpenTK.Mathematics.Vector2d.html#OpenTK_Mathematics_Vector2d_ComponentMax_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_
   name: ComponentMax
   nameWithType: Vector2d.ComponentMax
   fullName: OpenTK.Mathematics.Vector2d.ComponentMax
+- uid: OpenTK.Mathematics.Vector2d.ComponentMaxNumber*
+  commentId: Overload:OpenTK.Mathematics.Vector2d.ComponentMaxNumber
+  href: OpenTK.Mathematics.Vector2d.html#OpenTK_Mathematics_Vector2d_ComponentMaxNumber_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_
+  name: ComponentMaxNumber
+  nameWithType: Vector2d.ComponentMaxNumber
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMaxNumber
+- uid: OpenTK.Mathematics.Vector2d.ComponentMaxNative*
+  commentId: Overload:OpenTK.Mathematics.Vector2d.ComponentMaxNative
+  href: OpenTK.Mathematics.Vector2d.html#OpenTK_Mathematics_Vector2d_ComponentMaxNative_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_
+  name: ComponentMaxNative
+  nameWithType: Vector2d.ComponentMaxNative
+  fullName: OpenTK.Mathematics.Vector2d.ComponentMaxNative
 - uid: OpenTK.Mathematics.Vector2d.MagnitudeMin*
   commentId: Overload:OpenTK.Mathematics.Vector2d.MagnitudeMin
   href: OpenTK.Mathematics.Vector2d.html#OpenTK_Mathematics_Vector2d_MagnitudeMin_OpenTK_Mathematics_Vector2d_OpenTK_Mathematics_Vector2d_

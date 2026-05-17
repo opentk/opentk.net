@@ -20,6 +20,8 @@ items:
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: The bindings context for EGL.
+  example: []
   syntax:
     content: public static class EGLLoader.BindingsContext
     content.vb: Public Module EGLLoader.BindingsContext
@@ -47,17 +49,21 @@ items:
   source:
     id: GetProcAddress
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\EGLLoader.cs
-    startLine: 16
+    startLine: 21
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: Return a GL or an EGL extension function
+  example: []
   syntax:
     content: public static nint GetProcAddress(string procName)
     parameters:
     - id: procName
       type: System.String
+      description: Specifies the name of the function to return.
     return:
       type: System.IntPtr
+      description: The function pointer if it exitst or null.
     content.vb: Public Shared Function GetProcAddress(procName As String) As IntPtr
   overload: OpenTK.Graphics.EGLLoader.BindingsContext.GetProcAddress*
   nameWithType.vb: EGLLoader.BindingsContext.GetProcAddress(String)

@@ -7,25 +7,25 @@ items:
   children:
   - OpenTK.Mathematics.Box2i.#ctor(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
-  - OpenTK.Mathematics.Box2i.Bottom
+  - OpenTK.Mathematics.Box2i.Area
   - OpenTK.Mathematics.Box2i.Center
-  - OpenTK.Mathematics.Box2i.CenteredSize
   - OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Box2i)
-  - OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i)
-  - OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i,System.Boolean)
   - OpenTK.Mathematics.Box2i.ContainsExclusive(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.ContainsInclusive(OpenTK.Mathematics.Vector2i)
-  - OpenTK.Mathematics.Box2i.DistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Empty
   - OpenTK.Mathematics.Box2i.Equals(OpenTK.Mathematics.Box2i)
   - OpenTK.Mathematics.Box2i.Equals(System.Object)
+  - OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  - OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestPointInBox(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Extend(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Extended(OpenTK.Mathematics.Vector2i)
-  - OpenTK.Mathematics.Box2i.FromPositions(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
-  - OpenTK.Mathematics.Box2i.FromPositions(System.Int32,System.Int32,System.Int32,System.Int32)
+  - OpenTK.Mathematics.Box2i.FromCenterAndHalfSize(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  - OpenTK.Mathematics.Box2i.FromMinMax(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.FromSize(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  - OpenTK.Mathematics.Box2i.FromTwoPoints(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
   - OpenTK.Mathematics.Box2i.GetHashCode
   - OpenTK.Mathematics.Box2i.HalfSize
+  - OpenTK.Mathematics.Box2i.HasZeroArea
   - OpenTK.Mathematics.Box2i.Height
   - OpenTK.Mathematics.Box2i.Inflate(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Inflated(OpenTK.Mathematics.Vector2i)
@@ -33,32 +33,35 @@ items:
   - OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
   - OpenTK.Mathematics.Box2i.Intersected(OpenTK.Mathematics.Box2i)
   - OpenTK.Mathematics.Box2i.IntersectsWith(OpenTK.Mathematics.Box2i)
-  - OpenTK.Mathematics.Box2i.IsZero
-  - OpenTK.Mathematics.Box2i.Left
+  - OpenTK.Mathematics.Box2i.IsEmpty
+  - OpenTK.Mathematics.Box2i.IsPoint
   - OpenTK.Mathematics.Box2i.Location
+  - OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  - OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Max
   - OpenTK.Mathematics.Box2i.Min
-  - OpenTK.Mathematics.Box2i.Right
+  - OpenTK.Mathematics.Box2i.NearestPointInBox(OpenTK.Mathematics.Vector2i)
+  - OpenTK.Mathematics.Box2i.NearestPointOnEdge(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Scale(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Scaled(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  - OpenTK.Mathematics.Box2i.SignedEuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  - OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  - OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Size
-  - OpenTK.Mathematics.Box2i.SizeX
-  - OpenTK.Mathematics.Box2i.SizeY
   - OpenTK.Mathematics.Box2i.ToString
   - OpenTK.Mathematics.Box2i.ToString(System.IFormatProvider)
   - OpenTK.Mathematics.Box2i.ToString(System.String)
   - OpenTK.Mathematics.Box2i.ToString(System.String,System.IFormatProvider)
-  - OpenTK.Mathematics.Box2i.Top
-  - OpenTK.Mathematics.Box2i.TouchWith(OpenTK.Mathematics.Box2i)
+  - OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
   - OpenTK.Mathematics.Box2i.Translate(OpenTK.Mathematics.Vector2i)
   - OpenTK.Mathematics.Box2i.Translated(OpenTK.Mathematics.Vector2i)
-  - OpenTK.Mathematics.Box2i.Union(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
   - OpenTK.Mathematics.Box2i.UnitSquare
   - OpenTK.Mathematics.Box2i.Width
-  - OpenTK.Mathematics.Box2i.X
-  - OpenTK.Mathematics.Box2i.Y
+  - OpenTK.Mathematics.Box2i.Zero
   - OpenTK.Mathematics.Box2i.op_Equality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  - OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~System.Drawing.Rectangle
+  - OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~OpenTK.Mathematics.Box2
+  - OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~OpenTK.Mathematics.Box2d
+  - OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~System.Drawing.RectangleF
   - OpenTK.Mathematics.Box2i.op_Inequality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
   langs:
   - csharp
@@ -70,7 +73,7 @@ items:
   source:
     id: Box2i
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 19
+    startLine: 17
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -110,19 +113,89 @@ items:
   source:
     id: Empty
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 26
+    startLine: 37
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: An empty box with Min (0, 0) and Max (0, 0).
-  example: []
+  summary: >-
+    An empty box with <code>Min = Vector2i.MaxValue</code> and <code>Max = Vector2i.MinValue</code>.
+
+    This box can be used with <xref href="OpenTK.Mathematics.Box2i.Extend(OpenTK.Mathematics.Vector2i)" data-throw-if-not-resolved="false"></xref> to create a bounding box without a special case for the first point.
+  example:
+  - >-
+    For example:
+
+
+    <pre><code class="lang-csharp">Vector2i[] points = GetPoints();
+
+    Box2i aabb = Box2i.Empty;
+
+    for (int i = 0; i &lt; points.Length; i++)
+
+    {
+        aabb.Extend(points[i]):
+    }</code></pre>
+
+
+    Will calculate the bounding box of all the points in the array without needing a special case for the first point.
   syntax:
     content: public static readonly Box2i Empty
     return:
       type: OpenTK.Mathematics.Box2i
     content.vb: Public Shared ReadOnly Empty As Box2i
+- uid: OpenTK.Mathematics.Box2i.Zero
+  commentId: F:OpenTK.Mathematics.Box2i.Zero
+  id: Zero
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Box2i.Zero
+  fullName: OpenTK.Mathematics.Box2i.Zero
+  type: Field
+  source:
+    id: Zero
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 45
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: An empty box with <code>Min = Vector2i.Zero</code> and <code>Max = Vector2i.Zero</code>.
+  remarks: If you want an empty box, consider using <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static readonly Box2i Zero
+    return:
+      type: OpenTK.Mathematics.Box2i
+    content.vb: Public Shared ReadOnly Zero As Box2i
+- uid: OpenTK.Mathematics.Box2i.UnitSquare
+  commentId: F:OpenTK.Mathematics.Box2i.UnitSquare
+  id: UnitSquare
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: UnitSquare
+  nameWithType: Box2i.UnitSquare
+  fullName: OpenTK.Mathematics.Box2i.UnitSquare
+  type: Field
+  source:
+    id: UnitSquare
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 50
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: A box with a <code>Min = (0, 0)</code> and <code>Max = (1, 1)</code>.
+  example: []
+  syntax:
+    content: public static readonly Box2i UnitSquare
+    return:
+      type: OpenTK.Mathematics.Box2i
+    content.vb: Public Shared ReadOnly UnitSquare As Box2i
 - uid: OpenTK.Mathematics.Box2i.Min
-  commentId: P:OpenTK.Mathematics.Box2i.Min
+  commentId: F:OpenTK.Mathematics.Box2i.Min
   id: Min
   parent: OpenTK.Mathematics.Box2i
   langs:
@@ -131,25 +204,35 @@ items:
   name: Min
   nameWithType: Box2i.Min
   fullName: OpenTK.Mathematics.Box2i.Min
-  type: Property
+  type: Field
   source:
     id: Min
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 33
+    startLine: 62
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Gets or sets the minimum boundary of the structure.
+  summary: >-
+    The minimum boundary of the box.
+
+    This field is not guaranteed to be less than <xref href="OpenTK.Mathematics.Box2i.Max" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    A box with a minimum point greater than the maximum is not considered valid
+
+    except for a single configuration where <code>Min = Vector2i.PositiveInfinity</code> and <code>Max = Vector2i.NegativeInfinity</code> as is the case with <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public Vector2i Min { readonly get; set; }
-    parameters: []
+    content: public Vector2i Min
     return:
       type: OpenTK.Mathematics.Vector2i
-    content.vb: Public Property Min As Vector2i
-  overload: OpenTK.Mathematics.Box2i.Min*
+    content.vb: Public Min As Vector2i
+  seealso:
+  - linkId: OpenTK.Mathematics.Box2i.Empty
+    commentId: F:OpenTK.Mathematics.Box2i.Empty
+  - linkId: OpenTK.Mathematics.Box2i.IsEmpty
+    commentId: P:OpenTK.Mathematics.Box2i.IsEmpty
 - uid: OpenTK.Mathematics.Box2i.Max
-  commentId: P:OpenTK.Mathematics.Box2i.Max
+  commentId: F:OpenTK.Mathematics.Box2i.Max
   id: Max
   parent: OpenTK.Mathematics.Box2i
   langs:
@@ -158,23 +241,28 @@ items:
   name: Max
   nameWithType: Box2i.Max
   fullName: OpenTK.Mathematics.Box2i.Max
-  type: Property
+  type: Field
   source:
     id: Max
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 48
+    startLine: 72
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Gets or sets the maximum boundary of the structure.
+  summary: >-
+    The maximum boundary of the box.
+
+    This field is not guaranteed to be greater than <xref href="OpenTK.Mathematics.Box2i.Max" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    A box with a minimum point greater than the maximum is not considered valid
+
+    except for a single configuration where <code>Min = Vector2i.PositiveInfinity</code> and <code>Max = Vector2i.NegativeInfinity</code> as is the case with <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public Vector2i Max { readonly get; set; }
-    parameters: []
+    content: public Vector2i Max
     return:
       type: OpenTK.Mathematics.Vector2i
-    content.vb: Public Property Max As Vector2i
-  overload: OpenTK.Mathematics.Box2i.Max*
+    content.vb: Public Max As Vector2i
 - uid: OpenTK.Mathematics.Box2i.#ctor(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.#ctor(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   id: '#ctor(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)'
@@ -189,7 +277,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 63
+    startLine: 79
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -200,10 +288,10 @@ items:
     parameters:
     - id: min
       type: OpenTK.Mathematics.Vector2i
-      description: The minimum point on the XY plane this box encloses.
+      description: The minimum point this box encloses.
     - id: max
       type: OpenTK.Mathematics.Vector2i
-      description: The maximum point on the XY plane this box encloses.
+      description: The maximum point this box encloses.
     content.vb: Public Sub New(min As Vector2i, max As Vector2i)
   overload: OpenTK.Mathematics.Box2i.#ctor*
   nameWithType.vb: Box2i.New(Vector2i, Vector2i)
@@ -223,7 +311,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 76
+    startLine: 92
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -249,60 +337,6 @@ items:
   nameWithType.vb: Box2i.New(Integer, Integer, Integer, Integer)
   fullName.vb: OpenTK.Mathematics.Box2i.New(Integer, Integer, Integer, Integer)
   name.vb: New(Integer, Integer, Integer, Integer)
-- uid: OpenTK.Mathematics.Box2i.CenteredSize
-  commentId: P:OpenTK.Mathematics.Box2i.CenteredSize
-  id: CenteredSize
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: CenteredSize
-  nameWithType: Box2i.CenteredSize
-  fullName: OpenTK.Mathematics.Box2i.CenteredSize
-  type: Property
-  source:
-    id: CenteredSize
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 84
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets a vector describing the size of the Box2i structure.
-  example: []
-  syntax:
-    content: public readonly Vector2i CenteredSize { get; }
-    parameters: []
-    return:
-      type: OpenTK.Mathematics.Vector2i
-    content.vb: Public ReadOnly Property CenteredSize As Vector2i
-  overload: OpenTK.Mathematics.Box2i.CenteredSize*
-- uid: OpenTK.Mathematics.Box2i.HalfSize
-  commentId: P:OpenTK.Mathematics.Box2i.HalfSize
-  id: HalfSize
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: HalfSize
-  nameWithType: Box2i.HalfSize
-  fullName: OpenTK.Mathematics.Box2i.HalfSize
-  type: Property
-  source:
-    id: HalfSize
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 92
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets or sets a vector describing half the size of the box.
-  example: []
-  syntax:
-    content: public Vector2i HalfSize { readonly get; set; }
-    parameters: []
-    return:
-      type: OpenTK.Mathematics.Vector2i
-    content.vb: Public Property HalfSize As Vector2i
-  overload: OpenTK.Mathematics.Box2i.HalfSize*
 - uid: OpenTK.Mathematics.Box2i.Center
   commentId: P:OpenTK.Mathematics.Box2i.Center
   id: Center
@@ -317,7 +351,7 @@ items:
   source:
     id: Center
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 108
+    startLine: 101
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -330,6 +364,92 @@ items:
       type: OpenTK.Mathematics.Vector2
     content.vb: Public ReadOnly Property Center As Vector2
   overload: OpenTK.Mathematics.Box2i.Center*
+- uid: OpenTK.Mathematics.Box2i.Location
+  commentId: P:OpenTK.Mathematics.Box2i.Location
+  id: Location
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: Location
+  nameWithType: Box2i.Location
+  fullName: OpenTK.Mathematics.Box2i.Location
+  type: Property
+  source:
+    id: Location
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 106
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Gets the location of the box from a Location + Size perspective. Basically an alias for <xref href="OpenTK.Mathematics.Box2i.Min" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public readonly Vector2i Location { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2i
+    content.vb: Public ReadOnly Property Location As Vector2i
+  overload: OpenTK.Mathematics.Box2i.Location*
+- uid: OpenTK.Mathematics.Box2i.Size
+  commentId: P:OpenTK.Mathematics.Box2i.Size
+  id: Size
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: Box2i.Size
+  fullName: OpenTK.Mathematics.Box2i.Size
+  type: Property
+  source:
+    id: Size
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 114
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Gets the size of the box.
+  remarks: This function never returns negative values, so <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref> will have a size of (0, 0).
+  example: []
+  syntax:
+    content: public readonly Vector2i Size { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2i
+    content.vb: Public ReadOnly Property Size As Vector2i
+  overload: OpenTK.Mathematics.Box2i.Size*
+- uid: OpenTK.Mathematics.Box2i.HalfSize
+  commentId: P:OpenTK.Mathematics.Box2i.HalfSize
+  id: HalfSize
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: HalfSize
+  nameWithType: Box2i.HalfSize
+  fullName: OpenTK.Mathematics.Box2i.HalfSize
+  type: Property
+  source:
+    id: HalfSize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 123
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Gets half the size of the box.
+
+    The distance from the center of the box to the edge of the box in X and Y.
+  remarks: This function never returns negative values, so <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref> will have a size of (0, 0).
+  example: []
+  syntax:
+    content: public readonly Vector2 HalfSize { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public ReadOnly Property HalfSize As Vector2
+  overload: OpenTK.Mathematics.Box2i.HalfSize*
 - uid: OpenTK.Mathematics.Box2i.Width
   commentId: P:OpenTK.Mathematics.Box2i.Width
   id: Width
@@ -344,18 +464,18 @@ items:
   source:
     id: Width
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 119
+    startLine: 128
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Gets or sets the width of the box.
+  summary: The width of the box.
   example: []
   syntax:
-    content: public int Width { readonly get; set; }
+    content: public readonly int Width { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property Width As Integer
+    content.vb: Public ReadOnly Property Width As Integer
   overload: OpenTK.Mathematics.Box2i.Width*
 - uid: OpenTK.Mathematics.Box2i.Height
   commentId: P:OpenTK.Mathematics.Box2i.Height
@@ -371,341 +491,127 @@ items:
   source:
     id: Height
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 128
+    startLine: 133
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Gets or sets the height of the box.
+  summary: The height of the box.
   example: []
   syntax:
-    content: public int Height { readonly get; set; }
+    content: public readonly int Height { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property Height As Integer
+    content.vb: Public ReadOnly Property Height As Integer
   overload: OpenTK.Mathematics.Box2i.Height*
-- uid: OpenTK.Mathematics.Box2i.Left
-  commentId: P:OpenTK.Mathematics.Box2i.Left
-  id: Left
+- uid: OpenTK.Mathematics.Box2i.Area
+  commentId: P:OpenTK.Mathematics.Box2i.Area
+  id: Area
   parent: OpenTK.Mathematics.Box2i
   langs:
   - csharp
   - vb
-  name: Left
-  nameWithType: Box2i.Left
-  fullName: OpenTK.Mathematics.Box2i.Left
+  name: Area
+  nameWithType: Box2i.Area
+  fullName: OpenTK.Mathematics.Box2i.Area
   type: Property
   source:
-    id: Left
+    id: Area
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 137
+    startLine: 138
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Gets or sets the left location of the box.
+  summary: The area of the box.
   example: []
   syntax:
-    content: public int Left { readonly get; set; }
+    content: public readonly int Area { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property Left As Integer
-  overload: OpenTK.Mathematics.Box2i.Left*
-- uid: OpenTK.Mathematics.Box2i.Top
-  commentId: P:OpenTK.Mathematics.Box2i.Top
-  id: Top
+    content.vb: Public ReadOnly Property Area As Integer
+  overload: OpenTK.Mathematics.Box2i.Area*
+- uid: OpenTK.Mathematics.Box2i.IsEmpty
+  commentId: P:OpenTK.Mathematics.Box2i.IsEmpty
+  id: IsEmpty
   parent: OpenTK.Mathematics.Box2i
   langs:
   - csharp
   - vb
-  name: Top
-  nameWithType: Box2i.Top
-  fullName: OpenTK.Mathematics.Box2i.Top
+  name: IsEmpty
+  nameWithType: Box2i.IsEmpty
+  fullName: OpenTK.Mathematics.Box2i.IsEmpty
   type: Property
   source:
-    id: Top
+    id: IsEmpty
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 146
+    startLine: 143
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Gets or sets the top location of the box.
+  summary: If this box is equal to <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public int Top { readonly get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property Top As Integer
-  overload: OpenTK.Mathematics.Box2i.Top*
-- uid: OpenTK.Mathematics.Box2i.Right
-  commentId: P:OpenTK.Mathematics.Box2i.Right
-  id: Right
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Right
-  nameWithType: Box2i.Right
-  fullName: OpenTK.Mathematics.Box2i.Right
-  type: Property
-  source:
-    id: Right
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 155
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets or sets the right location of the box.
-  example: []
-  syntax:
-    content: public int Right { readonly get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property Right As Integer
-  overload: OpenTK.Mathematics.Box2i.Right*
-- uid: OpenTK.Mathematics.Box2i.Bottom
-  commentId: P:OpenTK.Mathematics.Box2i.Bottom
-  id: Bottom
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Bottom
-  nameWithType: Box2i.Bottom
-  fullName: OpenTK.Mathematics.Box2i.Bottom
-  type: Property
-  source:
-    id: Bottom
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 164
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets or sets the bottom location of the box.
-  example: []
-  syntax:
-    content: public int Bottom { readonly get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property Bottom As Integer
-  overload: OpenTK.Mathematics.Box2i.Bottom*
-- uid: OpenTK.Mathematics.Box2i.X
-  commentId: P:OpenTK.Mathematics.Box2i.X
-  id: X
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: X
-  nameWithType: Box2i.X
-  fullName: OpenTK.Mathematics.Box2i.X
-  type: Property
-  source:
-    id: X
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 173
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets or sets the X location of the box.
-  example: []
-  syntax:
-    content: public int X { readonly get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property X As Integer
-  overload: OpenTK.Mathematics.Box2i.X*
-- uid: OpenTK.Mathematics.Box2i.Y
-  commentId: P:OpenTK.Mathematics.Box2i.Y
-  id: Y
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Y
-  nameWithType: Box2i.Y
-  fullName: OpenTK.Mathematics.Box2i.Y
-  type: Property
-  source:
-    id: Y
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 182
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets or sets the Y location of the box.
-  example: []
-  syntax:
-    content: public int Y { readonly get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property Y As Integer
-  overload: OpenTK.Mathematics.Box2i.Y*
-- uid: OpenTK.Mathematics.Box2i.SizeX
-  commentId: P:OpenTK.Mathematics.Box2i.SizeX
-  id: SizeX
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: SizeX
-  nameWithType: Box2i.SizeX
-  fullName: OpenTK.Mathematics.Box2i.SizeX
-  type: Property
-  source:
-    id: SizeX
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 191
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets or sets the horizontal size.
-  example: []
-  syntax:
-    content: public int SizeX { readonly get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property SizeX As Integer
-  overload: OpenTK.Mathematics.Box2i.SizeX*
-- uid: OpenTK.Mathematics.Box2i.SizeY
-  commentId: P:OpenTK.Mathematics.Box2i.SizeY
-  id: SizeY
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: SizeY
-  nameWithType: Box2i.SizeY
-  fullName: OpenTK.Mathematics.Box2i.SizeY
-  type: Property
-  source:
-    id: SizeY
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 200
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets or sets the vertical size.
-  example: []
-  syntax:
-    content: public int SizeY { readonly get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property SizeY As Integer
-  overload: OpenTK.Mathematics.Box2i.SizeY*
-- uid: OpenTK.Mathematics.Box2i.Size
-  commentId: P:OpenTK.Mathematics.Box2i.Size
-  id: Size
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Size
-  nameWithType: Box2i.Size
-  fullName: OpenTK.Mathematics.Box2i.Size
-  type: Property
-  source:
-    id: Size
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 209
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets or sets the size of the box.
-  example: []
-  syntax:
-    content: public Vector2i Size { readonly get; set; }
-    parameters: []
-    return:
-      type: OpenTK.Mathematics.Vector2i
-    content.vb: Public Property Size As Vector2i
-  overload: OpenTK.Mathematics.Box2i.Size*
-- uid: OpenTK.Mathematics.Box2i.Location
-  commentId: P:OpenTK.Mathematics.Box2i.Location
-  id: Location
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Location
-  nameWithType: Box2i.Location
-  fullName: OpenTK.Mathematics.Box2i.Location
-  type: Property
-  source:
-    id: Location
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 222
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets the location of the box.
-  example: []
-  syntax:
-    content: public readonly Vector2i Location { get; }
-    parameters: []
-    return:
-      type: OpenTK.Mathematics.Vector2i
-    content.vb: Public ReadOnly Property Location As Vector2i
-  overload: OpenTK.Mathematics.Box2i.Location*
-- uid: OpenTK.Mathematics.Box2i.IsZero
-  commentId: P:OpenTK.Mathematics.Box2i.IsZero
-  id: IsZero
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: IsZero
-  nameWithType: Box2i.IsZero
-  fullName: OpenTK.Mathematics.Box2i.IsZero
-  type: Property
-  source:
-    id: IsZero
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 227
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets a value indicating whether all values are zero.
-  example: []
-  syntax:
-    content: public readonly bool IsZero { get; }
+    content: public readonly bool IsEmpty { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property IsZero As Boolean
-  overload: OpenTK.Mathematics.Box2i.IsZero*
-- uid: OpenTK.Mathematics.Box2i.UnitSquare
-  commentId: F:OpenTK.Mathematics.Box2i.UnitSquare
-  id: UnitSquare
+    content.vb: Public ReadOnly Property IsEmpty As Boolean
+  overload: OpenTK.Mathematics.Box2i.IsEmpty*
+- uid: OpenTK.Mathematics.Box2i.IsPoint
+  commentId: P:OpenTK.Mathematics.Box2i.IsPoint
+  id: IsPoint
   parent: OpenTK.Mathematics.Box2i
   langs:
   - csharp
   - vb
-  name: UnitSquare
-  nameWithType: Box2i.UnitSquare
-  fullName: OpenTK.Mathematics.Box2i.UnitSquare
-  type: Field
+  name: IsPoint
+  nameWithType: Box2i.IsPoint
+  fullName: OpenTK.Mathematics.Box2i.IsPoint
+  type: Property
   source:
-    id: UnitSquare
+    id: IsPoint
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 232
+    startLine: 148
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Gets a box with a location 0,0 with the a size of 1.
+  summary: If this box is a point, i.e. its minimum point is equal to its maximum point.
   example: []
   syntax:
-    content: public static readonly Box2i UnitSquare
+    content: public readonly bool IsPoint { get; }
+    parameters: []
     return:
-      type: OpenTK.Mathematics.Box2i
-    content.vb: Public Shared ReadOnly UnitSquare As Box2i
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsPoint As Boolean
+  overload: OpenTK.Mathematics.Box2i.IsPoint*
+- uid: OpenTK.Mathematics.Box2i.HasZeroArea
+  commentId: P:OpenTK.Mathematics.Box2i.HasZeroArea
+  id: HasZeroArea
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: HasZeroArea
+  nameWithType: Box2i.HasZeroArea
+  fullName: OpenTK.Mathematics.Box2i.HasZeroArea
+  type: Property
+  source:
+    id: HasZeroArea
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 153
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: If this box has zero area.
+  example: []
+  syntax:
+    content: public readonly bool HasZeroArea { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasZeroArea As Boolean
+  overload: OpenTK.Mathematics.Box2i.HasZeroArea*
 - uid: OpenTK.Mathematics.Box2i.FromSize(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.FromSize(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   id: FromSize(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
@@ -720,48 +626,48 @@ items:
   source:
     id: FromSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 240
+    startLine: 161
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Creates a box.
+  summary: Creates a box from a point and size.
   example: []
   syntax:
-    content: public static Box2i FromSize(Vector2i location, Vector2i size)
+    content: public static Box2i FromSize(Vector2i point, Vector2i size)
     parameters:
-    - id: location
+    - id: point
       type: OpenTK.Mathematics.Vector2i
-      description: The location of the box.
+      description: The minimum point of the box.
     - id: size
       type: OpenTK.Mathematics.Vector2i
       description: The size of the box.
     return:
       type: OpenTK.Mathematics.Box2i
-      description: A box.
-    content.vb: Public Shared Function FromSize(location As Vector2i, size As Vector2i) As Box2i
+      description: The created box.
+    content.vb: Public Shared Function FromSize(point As Vector2i, size As Vector2i) As Box2i
   overload: OpenTK.Mathematics.Box2i.FromSize*
-- uid: OpenTK.Mathematics.Box2i.FromPositions(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
-  commentId: M:OpenTK.Mathematics.Box2i.FromPositions(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
-  id: FromPositions(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+- uid: OpenTK.Mathematics.Box2i.FromMinMax(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Mathematics.Box2i.FromMinMax(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  id: FromMinMax(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   parent: OpenTK.Mathematics.Box2i
   langs:
   - csharp
   - vb
-  name: FromPositions(Vector2i, Vector2i)
-  nameWithType: Box2i.FromPositions(Vector2i, Vector2i)
-  fullName: OpenTK.Mathematics.Box2i.FromPositions(OpenTK.Mathematics.Vector2i, OpenTK.Mathematics.Vector2i)
+  name: FromMinMax(Vector2i, Vector2i)
+  nameWithType: Box2i.FromMinMax(Vector2i, Vector2i)
+  fullName: OpenTK.Mathematics.Box2i.FromMinMax(OpenTK.Mathematics.Vector2i, OpenTK.Mathematics.Vector2i)
   type: Method
   source:
-    id: FromPositions
+    id: FromMinMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 251
+    startLine: 172
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Box2" data-throw-if-not-resolved="false"></xref> struct.
+  summary: Creates a box from a minimum and maximum point.
   example: []
   syntax:
-    content: public static Box2i FromPositions(Vector2i min, Vector2i max)
+    content: public static Box2i FromMinMax(Vector2i min, Vector2i max)
     parameters:
     - id: min
       type: OpenTK.Mathematics.Vector2i
@@ -771,52 +677,111 @@ items:
       description: The maximum point on the XY plane this box encloses.
     return:
       type: OpenTK.Mathematics.Box2i
-      description: A box.
-    content.vb: Public Shared Function FromPositions(min As Vector2i, max As Vector2i) As Box2i
-  overload: OpenTK.Mathematics.Box2i.FromPositions*
-- uid: OpenTK.Mathematics.Box2i.FromPositions(System.Int32,System.Int32,System.Int32,System.Int32)
-  commentId: M:OpenTK.Mathematics.Box2i.FromPositions(System.Int32,System.Int32,System.Int32,System.Int32)
-  id: FromPositions(System.Int32,System.Int32,System.Int32,System.Int32)
+      description: The created box.
+    content.vb: Public Shared Function FromMinMax(min As Vector2i, max As Vector2i) As Box2i
+  overload: OpenTK.Mathematics.Box2i.FromMinMax*
+- uid: OpenTK.Mathematics.Box2i.FromTwoPoints(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  commentId: M:OpenTK.Mathematics.Box2i.FromTwoPoints(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  id: FromTwoPoints(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
   parent: OpenTK.Mathematics.Box2i
   langs:
   - csharp
   - vb
-  name: FromPositions(int, int, int, int)
-  nameWithType: Box2i.FromPositions(int, int, int, int)
-  fullName: OpenTK.Mathematics.Box2i.FromPositions(int, int, int, int)
+  name: FromTwoPoints(Vector2, Vector2)
+  nameWithType: Box2i.FromTwoPoints(Vector2, Vector2)
+  fullName: OpenTK.Mathematics.Box2i.FromTwoPoints(OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector2)
   type: Method
   source:
-    id: FromPositions
+    id: FromTwoPoints
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 264
+    startLine: 183
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Box2" data-throw-if-not-resolved="false"></xref> struct.
+  summary: Create a box from two unordered points, i.e. creates a box that contains two points.
   example: []
   syntax:
-    content: public static Box2i FromPositions(int minX, int minY, int maxX, int maxY)
+    content: public static Box2 FromTwoPoints(Vector2 p1, Vector2 p2)
     parameters:
-    - id: minX
-      type: System.Int32
-      description: The minimum X value to be enclosed.
-    - id: minY
-      type: System.Int32
-      description: The minimum Y value to be enclosed.
-    - id: maxX
-      type: System.Int32
-      description: The maximum X value to be enclosed.
-    - id: maxY
-      type: System.Int32
-      description: The maximum Y value to be enclosed.
+    - id: p1
+      type: OpenTK.Mathematics.Vector2
+      description: The first point to contain.
+    - id: p2
+      type: OpenTK.Mathematics.Vector2
+      description: The second point to contain.
+    return:
+      type: OpenTK.Mathematics.Box2
+      description: The created box.
+    content.vb: Public Shared Function FromTwoPoints(p1 As Vector2, p2 As Vector2) As Box2
+  overload: OpenTK.Mathematics.Box2i.FromTwoPoints*
+- uid: OpenTK.Mathematics.Box2i.FromCenterAndHalfSize(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Mathematics.Box2i.FromCenterAndHalfSize(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  id: FromCenterAndHalfSize(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: FromCenterAndHalfSize(Vector2i, Vector2i)
+  nameWithType: Box2i.FromCenterAndHalfSize(Vector2i, Vector2i)
+  fullName: OpenTK.Mathematics.Box2i.FromCenterAndHalfSize(OpenTK.Mathematics.Vector2i, OpenTK.Mathematics.Vector2i)
+  type: Method
+  source:
+    id: FromCenterAndHalfSize
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 196
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Creates a box from a center point and a half size.
+  example: []
+  syntax:
+    content: public static Box2i FromCenterAndHalfSize(Vector2i center, Vector2i halfSize)
+    parameters:
+    - id: center
+      type: OpenTK.Mathematics.Vector2i
+      description: The center of the box.
+    - id: halfSize
+      type: OpenTK.Mathematics.Vector2i
+      description: The half size of the box.
     return:
       type: OpenTK.Mathematics.Box2i
-      description: A box.
-    content.vb: Public Shared Function FromPositions(minX As Integer, minY As Integer, maxX As Integer, maxY As Integer) As Box2i
-  overload: OpenTK.Mathematics.Box2i.FromPositions*
-  nameWithType.vb: Box2i.FromPositions(Integer, Integer, Integer, Integer)
-  fullName.vb: OpenTK.Mathematics.Box2i.FromPositions(Integer, Integer, Integer, Integer)
-  name.vb: FromPositions(Integer, Integer, Integer, Integer)
+      description: The created box.
+    content.vb: Public Shared Function FromCenterAndHalfSize(center As Vector2i, halfSize As Vector2i) As Box2i
+  overload: OpenTK.Mathematics.Box2i.FromCenterAndHalfSize*
+- uid: OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  commentId: M:OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  id: Intersect(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: Intersect(Box2i, Box2i)
+  nameWithType: Box2i.Intersect(Box2i, Box2i)
+  fullName: OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
+  type: Method
+  source:
+    id: Intersect
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 207
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the intersection of two boxes, or <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref> if there is no intersection.
+  example: []
+  syntax:
+    content: public static Box2i Intersect(Box2i a, Box2i b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Box2i
+      description: The first box.
+    - id: b
+      type: OpenTK.Mathematics.Box2i
+      description: The second box.
+    return:
+      type: OpenTK.Mathematics.Box2i
+      description: The intersection of the two boxes.
+    content.vb: Public Shared Function Intersect(a As Box2i, b As Box2i) As Box2i
+  overload: OpenTK.Mathematics.Box2i.Intersect*
 - uid: OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i)
   commentId: M:OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i)
   id: Intersect(OpenTK.Mathematics.Box2i)
@@ -831,11 +796,11 @@ items:
   source:
     id: Intersect
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 273
+    startLine: 225
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Replaces this Box with the intersection of itself and the specified Box.
+  summary: Replaces this box with the intersection of itself and the specified box.
   example: []
   syntax:
     content: public void Intersect(Box2i other)
@@ -859,11 +824,11 @@ items:
   source:
     id: Intersected
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 288
+    startLine: 235
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns the intersection of itself and the specified Box.
+  summary: Returns the intersection of itself and the specified box.
   example: []
   syntax:
     content: public readonly Box2i Intersected(Box2i other)
@@ -873,7 +838,7 @@ items:
       description: The Box with which to intersect.
     return:
       type: OpenTK.Mathematics.Box2i
-      description: The intersection of itself and the specified Box.
+      description: The intersection of itself and the specified box.
     content.vb: Public Function Intersected(other As Box2i) As Box2i
   overload: OpenTK.Mathematics.Box2i.Intersected*
 - uid: OpenTK.Mathematics.Box2i.IntersectsWith(OpenTK.Mathematics.Box2i)
@@ -890,138 +855,55 @@ items:
   source:
     id: IntersectsWith
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 298
+    startLine: 248
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Determines if this Box intersects with another Box.
+  summary: Determines if this box intersects with another box.
+  remarks: Two boxes next to each other do not intersect, for detecting that case use <xref href="OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public readonly bool IntersectsWith(Box2i other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Box2i
-      description: The Box to test.
+      description: The box to test.
     return:
       type: System.Boolean
-      description: This method returns true if there is any intersection, otherwise false.
+      description: This method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if there is any intersection, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function IntersectsWith(other As Box2i) As Boolean
   overload: OpenTK.Mathematics.Box2i.IntersectsWith*
-- uid: OpenTK.Mathematics.Box2i.TouchWith(OpenTK.Mathematics.Box2i)
-  commentId: M:OpenTK.Mathematics.Box2i.TouchWith(OpenTK.Mathematics.Box2i)
-  id: TouchWith(OpenTK.Mathematics.Box2i)
+- uid: OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
+  commentId: M:OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
+  id: Touches(OpenTK.Mathematics.Box2i)
   parent: OpenTK.Mathematics.Box2i
   langs:
   - csharp
   - vb
-  name: TouchWith(Box2i)
-  nameWithType: Box2i.TouchWith(Box2i)
-  fullName: OpenTK.Mathematics.Box2i.TouchWith(OpenTK.Mathematics.Box2i)
+  name: Touches(Box2i)
+  nameWithType: Box2i.Touches(Box2i)
+  fullName: OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
   type: Method
   source:
-    id: TouchWith
+    id: Touches
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 311
+    startLine: 259
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Determines if this Box intersects or touches with another Box.
+  summary: Determines if this box intersects or touches with another box.
   example: []
   syntax:
-    content: public readonly bool TouchWith(Box2i other)
+    content: public readonly bool Touches(Box2i other)
     parameters:
     - id: other
       type: OpenTK.Mathematics.Box2i
-      description: The Box to test.
+      description: The box to test.
     return:
       type: System.Boolean
-      description: This method returns true if there is any intersection or touches, otherwise false.
-    content.vb: Public Function TouchWith(other As Box2i) As Boolean
-  overload: OpenTK.Mathematics.Box2i.TouchWith*
-- uid: OpenTK.Mathematics.Box2i.Union(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  commentId: M:OpenTK.Mathematics.Box2i.Union(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  id: Union(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Union(Box2i, Box2i)
-  nameWithType: Box2i.Union(Box2i, Box2i)
-  fullName: OpenTK.Mathematics.Box2i.Union(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
-  type: Method
-  source:
-    id: Union
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 325
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Gets a Box structure that contains the union of two Box structures.
-  example: []
-  syntax:
-    content: public static Box2i Union(Box2i a, Box2i b)
-    parameters:
-    - id: a
-      type: OpenTK.Mathematics.Box2i
-      description: A Box to union.
-    - id: b
-      type: OpenTK.Mathematics.Box2i
-      description: a box to union.
-    return:
-      type: OpenTK.Mathematics.Box2i
-      description: A Box structure that bounds the union of the two Box structures.
-    content.vb: Public Shared Function Union(a As Box2i, b As Box2i) As Box2i
-  overload: OpenTK.Mathematics.Box2i.Union*
-- uid: OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i)
-  commentId: M:OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i)
-  id: Contains(OpenTK.Mathematics.Vector2i)
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Contains(Vector2i)
-  nameWithType: Box2i.Contains(Vector2i)
-  fullName: OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i)
-  type: Method
-  source:
-    id: Contains
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 342
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Returns whether the box contains the specified point (borders inclusive).
-  example: []
-  syntax:
-    content: >-
-      [Pure]
-
-      [Obsolete("This function excludes borders even though it's documentation says otherwise. Use ContainsInclusive and ContainsExclusive for the desired behaviour.")]
-
-      public readonly bool Contains(Vector2i point)
-    parameters:
-    - id: point
-      type: OpenTK.Mathematics.Vector2i
-      description: The point to query.
-    return:
-      type: System.Boolean
-      description: Whether this box contains the point.
-    content.vb: >-
-      <Pure>
-
-      <Obsolete("This function excludes borders even though it's documentation says otherwise. Use ContainsInclusive and ContainsExclusive for the desired behaviour.")>
-
-      Public Function Contains(point As Vector2i) As Boolean
-  overload: OpenTK.Mathematics.Box2i.Contains*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This function excludes borders even though it's documentation says otherwise. Use ContainsInclusive and ContainsExclusive for the desired behaviour.
+      description: This method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if there is any intersection or touches, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Touches(other As Box2i) As Boolean
+  overload: OpenTK.Mathematics.Box2i.Touches*
 - uid: OpenTK.Mathematics.Box2i.ContainsInclusive(OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.ContainsInclusive(OpenTK.Mathematics.Vector2i)
   id: ContainsInclusive(OpenTK.Mathematics.Vector2i)
@@ -1036,17 +918,14 @@ items:
   source:
     id: ContainsInclusive
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 355
+    startLine: 270
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns whether the box contains the specified point (borders inclusive).
   example: []
   syntax:
-    content: >-
-      [Pure]
-
-      public readonly bool ContainsInclusive(Vector2i point)
+    content: public readonly bool ContainsInclusive(Vector2i point)
     parameters:
     - id: point
       type: OpenTK.Mathematics.Vector2i
@@ -1054,15 +933,8 @@ items:
     return:
       type: System.Boolean
       description: Whether this box contains the point.
-    content.vb: >-
-      <Pure>
-
-      Public Function ContainsInclusive(point As Vector2i) As Boolean
+    content.vb: Public Function ContainsInclusive(point As Vector2i) As Boolean
   overload: OpenTK.Mathematics.Box2i.ContainsInclusive*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
 - uid: OpenTK.Mathematics.Box2i.ContainsExclusive(OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.ContainsExclusive(OpenTK.Mathematics.Vector2i)
   id: ContainsExclusive(OpenTK.Mathematics.Vector2i)
@@ -1077,17 +949,14 @@ items:
   source:
     id: ContainsExclusive
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 367
+    startLine: 281
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: Returns whether the box contains the specified point (borders exclusive).
   example: []
   syntax:
-    content: >-
-      [Pure]
-
-      public readonly bool ContainsExclusive(Vector2i point)
+    content: public readonly bool ContainsExclusive(Vector2i point)
     parameters:
     - id: point
       type: OpenTK.Mathematics.Vector2i
@@ -1095,62 +964,8 @@ items:
     return:
       type: System.Boolean
       description: Whether this box contains the point.
-    content.vb: >-
-      <Pure>
-
-      Public Function ContainsExclusive(point As Vector2i) As Boolean
+    content.vb: Public Function ContainsExclusive(point As Vector2i) As Boolean
   overload: OpenTK.Mathematics.Box2i.ContainsExclusive*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
-- uid: OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i,System.Boolean)
-  commentId: M:OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i,System.Boolean)
-  id: Contains(OpenTK.Mathematics.Vector2i,System.Boolean)
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Contains(Vector2i, bool)
-  nameWithType: Box2i.Contains(Vector2i, bool)
-  fullName: OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i, bool)
-  type: Method
-  source:
-    id: Contains
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 382
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Returns whether the box contains the specified point.
-  example: []
-  syntax:
-    content: >-
-      [Pure]
-
-      public readonly bool Contains(Vector2i point, bool boundaryInclusive)
-    parameters:
-    - id: point
-      type: OpenTK.Mathematics.Vector2i
-      description: The point to query.
-    - id: boundaryInclusive
-      type: System.Boolean
-      description: Whether points on the box boundary should be recognised as contained as well.
-    return:
-      type: System.Boolean
-      description: Whether this box contains the point.
-    content.vb: >-
-      <Pure>
-
-      Public Function Contains(point As Vector2i, boundaryInclusive As Boolean) As Boolean
-  overload: OpenTK.Mathematics.Box2i.Contains*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
-  nameWithType.vb: Box2i.Contains(Vector2i, Boolean)
-  fullName.vb: OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Vector2i, Boolean)
-  name.vb: Contains(Vector2i, Boolean)
 - uid: OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Box2i)
   commentId: M:OpenTK.Mathematics.Box2i.Contains(OpenTK.Mathematics.Box2i)
   id: Contains(OpenTK.Mathematics.Box2i)
@@ -1165,95 +980,49 @@ items:
   source:
     id: Contains
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 400
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Returns whether the box contains the specified box (borders inclusive).
-  example: []
-  syntax:
-    content: >-
-      [Pure]
-
-      public readonly bool Contains(Box2i other)
-    parameters:
-    - id: other
-      type: OpenTK.Mathematics.Box2i
-      description: The box to query.
-    return:
-      type: System.Boolean
-      description: Whether this box contains the other box.
-    content.vb: >-
-      <Pure>
-
-      Public Function Contains(other As Box2i) As Boolean
-  overload: OpenTK.Mathematics.Box2i.Contains*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
-- uid: OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  commentId: M:OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  id: Intersect(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: Intersect(Box2i, Box2i)
-  nameWithType: Box2i.Intersect(Box2i, Box2i)
-  fullName: OpenTK.Mathematics.Box2i.Intersect(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
-  type: Method
-  source:
-    id: Intersect
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 414
+    startLine: 293
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: >-
-    Creates a rectangle that represents the intersection between a and
+    Returns whether the box <code class="paramref">other</code> is entirely contained within this box.
 
-    b. If there is no intersection, a empty <xref href="OpenTK.Mathematics.Box2i" data-throw-if-not-resolved="false"></xref> is returned.
+    A box is considered to be able to contain itself.
   example: []
   syntax:
-    content: public static Box2i Intersect(Box2i a, Box2i b)
+    content: public readonly bool Contains(Box2i other)
     parameters:
-    - id: a
+    - id: other
       type: OpenTK.Mathematics.Box2i
-      description: First rectangle to intersect.
-    - id: b
-      type: OpenTK.Mathematics.Box2i
-      description: Second rectangle to intersect.
+      description: The box to check.
     return:
-      type: OpenTK.Mathematics.Box2i
-      description: The <xref href="OpenTK.Mathematics.Box2i" data-throw-if-not-resolved="false"></xref> that represents the intersection of both Box2i.
-    content.vb: Public Shared Function Intersect(a As Box2i, b As Box2i) As Box2i
-  overload: OpenTK.Mathematics.Box2i.Intersect*
-- uid: OpenTK.Mathematics.Box2i.DistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
-  commentId: M:OpenTK.Mathematics.Box2i.DistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
-  id: DistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the box <code class="paramref">other</code> is entirely contained within the this box; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Contains(other As Box2i) As Boolean
+  overload: OpenTK.Mathematics.Box2i.Contains*
+- uid: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestPointInBox(OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestPointInBox(OpenTK.Mathematics.Vector2i)
+  id: EuclidianDistanceToNearestPointInBox(OpenTK.Mathematics.Vector2i)
   parent: OpenTK.Mathematics.Box2i
   langs:
   - csharp
   - vb
-  name: DistanceToNearestEdge(Vector2i)
-  nameWithType: Box2i.DistanceToNearestEdge(Vector2i)
-  fullName: OpenTK.Mathematics.Box2i.DistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  name: EuclidianDistanceToNearestPointInBox(Vector2i)
+  nameWithType: Box2i.EuclidianDistanceToNearestPointInBox(Vector2i)
+  fullName: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestPointInBox(OpenTK.Mathematics.Vector2i)
   type: Method
   source:
-    id: DistanceToNearestEdge
+    id: EuclidianDistanceToNearestPointInBox
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 434
+    startLine: 307
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns the distance between the nearest edge and the specified point.
+  summary: Returns the euclidian distance between the nearest point inside the box and the specified point.
+  remarks: The distance to points inside the box is zero.
   example: []
   syntax:
-    content: >-
-      [Pure]
-
-      public readonly float DistanceToNearestEdge(Vector2i point)
+    content: public readonly float EuclidianDistanceToNearestPointInBox(Vector2i point)
     parameters:
     - id: point
       type: OpenTK.Mathematics.Vector2i
@@ -1261,15 +1030,257 @@ items:
     return:
       type: System.Single
       description: The distance between the specified point and the nearest edge.
-    content.vb: >-
-      <Pure>
-
-      Public Function DistanceToNearestEdge(point As Vector2i) As Single
-  overload: OpenTK.Mathematics.Box2i.DistanceToNearestEdge*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
+    content.vb: Public Function EuclidianDistanceToNearestPointInBox(point As Vector2i) As Single
+  overload: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestPointInBox*
+- uid: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  id: EuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: EuclidianDistanceToNearestEdge(Vector2i)
+  nameWithType: Box2i.EuclidianDistanceToNearestEdge(Vector2i)
+  fullName: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  type: Method
+  source:
+    id: EuclidianDistanceToNearestEdge
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 318
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the euclidian distance between the nearest point on an edge and the specified point.
+  example: []
+  syntax:
+    content: public readonly float EuclidianDistanceToNearestEdge(Vector2i point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector2i
+      description: The point to find distance for.
+    return:
+      type: System.Single
+      description: The distance between the specified point and the nearest edge.
+    content.vb: Public Function EuclidianDistanceToNearestEdge(point As Vector2i) As Single
+  overload: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestEdge*
+- uid: OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  id: ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: ManhattanDistanceToNearestEdge(Vector2i)
+  nameWithType: Box2i.ManhattanDistanceToNearestEdge(Vector2i)
+  fullName: OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  type: Method
+  source:
+    id: ManhattanDistanceToNearestEdge
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 331
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the manhattan distance between the nearest point on an edge and the specified point.
+  remarks: The distance to points inside the box is zero.
+  example: []
+  syntax:
+    content: public readonly int ManhattanDistanceToNearestEdge(Vector2i point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector2i
+      description: The point to find distance for.
+    return:
+      type: System.Int32
+      description: The distance between the specified point and the nearest edge.
+    content.vb: Public Function ManhattanDistanceToNearestEdge(point As Vector2i) As Integer
+  overload: OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge*
+- uid: OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  commentId: M:OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  id: ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: ManhattanDistanceToNearestEdge(Vector2)
+  nameWithType: Box2i.ManhattanDistanceToNearestEdge(Vector2)
+  fullName: OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    id: ManhattanDistanceToNearestEdge
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 342
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the manhattan distance between the nearest point on an edge and the specified point.
+  example: []
+  syntax:
+    content: public readonly float ManhattanDistanceToNearestEdge(Vector2 point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector2
+      description: The point to find distance for.
+    return:
+      type: System.Single
+      description: The distance between the specified point and the nearest edge.
+    content.vb: Public Function ManhattanDistanceToNearestEdge(point As Vector2) As Single
+  overload: OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge*
+- uid: OpenTK.Mathematics.Box2i.SignedEuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  commentId: M:OpenTK.Mathematics.Box2i.SignedEuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  id: SignedEuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: SignedEuclidianDistanceToNearestEdge(Vector2)
+  nameWithType: Box2i.SignedEuclidianDistanceToNearestEdge(Vector2)
+  fullName: OpenTK.Mathematics.Box2i.SignedEuclidianDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    id: SignedEuclidianDistanceToNearestEdge
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 352
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the signed distance between the nearest edge and the specified point.
+  example: []
+  syntax:
+    content: public readonly float SignedEuclidianDistanceToNearestEdge(Vector2 point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector2
+      description: The point to find distance for.
+    return:
+      type: System.Single
+      description: The distance between the specified point and the nearest edge.
+    content.vb: Public Function SignedEuclidianDistanceToNearestEdge(point As Vector2) As Single
+  overload: OpenTK.Mathematics.Box2i.SignedEuclidianDistanceToNearestEdge*
+- uid: OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  id: SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: SignedManhattanDistanceToNearestEdge(Vector2i)
+  nameWithType: Box2i.SignedManhattanDistanceToNearestEdge(Vector2i)
+  fullName: OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2i)
+  type: Method
+  source:
+    id: SignedManhattanDistanceToNearestEdge
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 363
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the signed manhattan distance between the nearest edge and the specified point.
+  example: []
+  syntax:
+    content: public readonly int SignedManhattanDistanceToNearestEdge(Vector2i point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector2i
+      description: The point to find distance for.
+    return:
+      type: System.Int32
+      description: The distance between the specified point and the nearest edge.
+    content.vb: Public Function SignedManhattanDistanceToNearestEdge(point As Vector2i) As Integer
+  overload: OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge*
+- uid: OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  commentId: M:OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  id: SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: SignedManhattanDistanceToNearestEdge(Vector2)
+  nameWithType: Box2i.SignedManhattanDistanceToNearestEdge(Vector2)
+  fullName: OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    id: SignedManhattanDistanceToNearestEdge
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 374
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the signed manhattan distance between the nearest edge and the specified point.
+  example: []
+  syntax:
+    content: public readonly float SignedManhattanDistanceToNearestEdge(Vector2 point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector2
+      description: The point to find distance for.
+    return:
+      type: System.Single
+      description: The distance between the specified point and the nearest edge.
+    content.vb: Public Function SignedManhattanDistanceToNearestEdge(point As Vector2) As Single
+  overload: OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge*
+- uid: OpenTK.Mathematics.Box2i.NearestPointInBox(OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Mathematics.Box2i.NearestPointInBox(OpenTK.Mathematics.Vector2i)
+  id: NearestPointInBox(OpenTK.Mathematics.Vector2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: NearestPointInBox(Vector2i)
+  nameWithType: Box2i.NearestPointInBox(Vector2i)
+  fullName: OpenTK.Mathematics.Box2i.NearestPointInBox(OpenTK.Mathematics.Vector2i)
+  type: Method
+  source:
+    id: NearestPointInBox
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 385
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the nearest point in or on the edge of the box to the given point, <code class="paramref">point</code>.
+  example: []
+  syntax:
+    content: public readonly Vector2i NearestPointInBox(Vector2i point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector2i
+      description: The point for which the nearest point in the box should be found.
+    return:
+      type: OpenTK.Mathematics.Vector2i
+      description: The nearest point on or on the edge of the box to the point, <code class="paramref">point</code>.
+    content.vb: Public Function NearestPointInBox(point As Vector2i) As Vector2i
+  overload: OpenTK.Mathematics.Box2i.NearestPointInBox*
+- uid: OpenTK.Mathematics.Box2i.NearestPointOnEdge(OpenTK.Mathematics.Vector2i)
+  commentId: M:OpenTK.Mathematics.Box2i.NearestPointOnEdge(OpenTK.Mathematics.Vector2i)
+  id: NearestPointOnEdge(OpenTK.Mathematics.Vector2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: NearestPointOnEdge(Vector2i)
+  nameWithType: Box2i.NearestPointOnEdge(Vector2i)
+  fullName: OpenTK.Mathematics.Box2i.NearestPointOnEdge(OpenTK.Mathematics.Vector2i)
+  type: Method
+  source:
+    id: NearestPointOnEdge
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 395
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Returns the nearest point that is on the edge of the box.
+  example: []
+  syntax:
+    content: public readonly Vector2i NearestPointOnEdge(Vector2i point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector2i
+      description: The point for which the nearest point on the edge of the box should be found.
+    return:
+      type: OpenTK.Mathematics.Vector2i
+      description: The nearest point on the edge of the box to the point, <code class="paramref">point</code>.
+    content.vb: Public Function NearestPointOnEdge(point As Vector2i) As Vector2i
+  overload: OpenTK.Mathematics.Box2i.NearestPointOnEdge*
 - uid: OpenTK.Mathematics.Box2i.Translate(OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.Translate(OpenTK.Mathematics.Vector2i)
   id: Translate(OpenTK.Mathematics.Vector2i)
@@ -1284,11 +1295,11 @@ items:
   source:
     id: Translate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 447
+    startLine: 423
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Translates this Box2i by the given amount.
+  summary: Translates this box by the given distance.
   example: []
   syntax:
     content: public void Translate(Vector2i distance)
@@ -1312,17 +1323,14 @@ items:
   source:
     id: Translated
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 458
+    startLine: 434
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a Box2i translated by the given amount.
+  summary: Returns a box translated by the given distance.
   example: []
   syntax:
-    content: >-
-      [Pure]
-
-      public readonly Box2i Translated(Vector2i distance)
+    content: public readonly Box2i Translated(Vector2i distance)
     parameters:
     - id: distance
       type: OpenTK.Mathematics.Vector2i
@@ -1330,15 +1338,8 @@ items:
     return:
       type: OpenTK.Mathematics.Box2i
       description: The translated box.
-    content.vb: >-
-      <Pure>
-
-      Public Function Translated(distance As Vector2i) As Box2i
+    content.vb: Public Function Translated(distance As Vector2i) As Box2i
   overload: OpenTK.Mathematics.Box2i.Translated*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
 - uid: OpenTK.Mathematics.Box2i.Scale(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.Scale(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
   id: Scale(OpenTK.Mathematics.Vector2i,OpenTK.Mathematics.Vector2i)
@@ -1353,11 +1354,11 @@ items:
   source:
     id: Scale
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 472
+    startLine: 446
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Scales this Box2i by the given amount.
+  summary: Scales this box by the given scale, <code class="paramref">scale</code>, and from the given anchor point, <code class="paramref">anchor</code>.
   example: []
   syntax:
     content: public void Scale(Vector2i scale, Vector2i anchor)
@@ -1384,17 +1385,14 @@ items:
   source:
     id: Scaled
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 484
+    startLine: 458
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a Box2i scaled by a given amount from an anchor point.
+  summary: Returns a box scaled by the given scale, <code class="paramref">scale</code>, and from the given anchor point, <code class="paramref">anchor</code>.
   example: []
   syntax:
-    content: >-
-      [Pure]
-
-      public readonly Box2i Scaled(Vector2i scale, Vector2i anchor)
+    content: public readonly Box2i Scaled(Vector2i scale, Vector2i anchor)
     parameters:
     - id: scale
       type: OpenTK.Mathematics.Vector2i
@@ -1405,15 +1403,8 @@ items:
     return:
       type: OpenTK.Mathematics.Box2i
       description: The scaled box.
-    content.vb: >-
-      <Pure>
-
-      Public Function Scaled(scale As Vector2i, anchor As Vector2i) As Box2i
+    content.vb: Public Function Scaled(scale As Vector2i, anchor As Vector2i) As Box2i
   overload: OpenTK.Mathematics.Box2i.Scaled*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
 - uid: OpenTK.Mathematics.Box2i.Inflate(OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.Inflate(OpenTK.Mathematics.Vector2i)
   id: Inflate(OpenTK.Mathematics.Vector2i)
@@ -1428,14 +1419,14 @@ items:
   source:
     id: Inflate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 498
+    startLine: 470
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: >-
-    Inflates this Box2i by the given size in all directions. A negative size will shrink the box to a maximum of -HalfSize.
+    Inflates this box by the given size in all directions.
 
-    Use the <xref href="OpenTK.Mathematics.Box2i.Extend(OpenTK.Mathematics.Vector2i)" data-throw-if-not-resolved="false"></xref> method for the point-encapsulation functionality in OpenTK version 4.8.1 and earlier.
+    A negative size will shrink the box to a maximum of -<xref href="OpenTK.Mathematics.Box2i.HalfSize" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public void Inflate(Vector2i size)
@@ -1459,20 +1450,17 @@ items:
   source:
     id: Inflated
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 511
+    startLine: 485
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
   summary: >-
-    Inflates this Box2i by the given size in all directions. A negative size will shrink the box to a maximum of -HalfSize.
+    Returns a box inflated by the given size in all directions.
 
-    Use the <xref href="OpenTK.Mathematics.Box2i.Extended(OpenTK.Mathematics.Vector2i)" data-throw-if-not-resolved="false"></xref> method for the point-encapsulation functionality in OpenTK version 4.8.1 and earlier.
+    A negative size will shrink the box to a maximum of -<xref href="OpenTK.Mathematics.Box2i.HalfSize" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: >-
-      [Pure]
-
-      public readonly Box2i Inflated(Vector2i size)
+    content: public readonly Box2i Inflated(Vector2i size)
     parameters:
     - id: size
       type: OpenTK.Mathematics.Vector2i
@@ -1480,15 +1468,8 @@ items:
     return:
       type: OpenTK.Mathematics.Box2i
       description: The inflated box.
-    content.vb: >-
-      <Pure>
-
-      Public Function Inflated(size As Vector2i) As Box2i
+    content.vb: Public Function Inflated(size As Vector2i) As Box2i
   overload: OpenTK.Mathematics.Box2i.Inflated*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
 - uid: OpenTK.Mathematics.Box2i.Extend(OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.Extend(OpenTK.Mathematics.Vector2i)
   id: Extend(OpenTK.Mathematics.Vector2i)
@@ -1503,12 +1484,29 @@ items:
   source:
     id: Extend
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 524
+    startLine: 511
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Extend this Box2i to encapsulate a given point.
-  example: []
+  summary: Extends this box to encapsulate a given point.
+  remarks: This can be used in combination with <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref> to make an efficient bounding box calculation.
+  example:
+  - >-
+    For example:
+
+
+    <pre><code class="lang-csharp">Vector2i[] points = GetPoints();
+
+    Box2i aabb = Box2i.Empty;
+
+    for (int i = 0; i &lt; points.Length; i++)
+
+    {
+        aabb.Extend(points[i]):
+    }</code></pre>
+
+
+    Will calculate the bounding box of all the points in the array without needing a special case for the first point.
   syntax:
     content: public void Extend(Vector2i point)
     parameters:
@@ -1531,148 +1529,40 @@ items:
   source:
     id: Extended
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 535
+    startLine: 537
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Extend this Box2i to encapsulate a given point.
-  example: []
-  syntax:
-    content: >-
-      [Pure]
+  summary: Returns a box that is extended to encapsulate a given point.
+  remarks: This can be used in combination with <xref href="OpenTK.Mathematics.Box2i.Empty" data-throw-if-not-resolved="false"></xref> to make an efficient bounding box calculation.
+  example:
+  - >-
+    For example:
 
-      public readonly Box2i Extended(Vector2i point)
+
+    <pre><code class="lang-csharp">Vector2i[] points = GetPoints();
+
+    Box2i aabb = Box2i.Empty;
+
+    for (int i = 0; i &lt; points.Length; i++)
+
+    {
+        aabb = aabb.Extended(points[i]):
+    }</code></pre>
+
+
+    Will calculate the bounding box of all the points in the array without needing a special case for the first point.
+  syntax:
+    content: public readonly Box2i Extended(Vector2i point)
     parameters:
     - id: point
       type: OpenTK.Mathematics.Vector2i
       description: The point to contain.
     return:
       type: OpenTK.Mathematics.Box2i
-      description: The inflated box.
-    content.vb: >-
-      <Pure>
-
-      Public Function Extended(point As Vector2i) As Box2i
+      description: The extended box.
+    content.vb: Public Function Extended(point As Vector2i) As Box2i
   overload: OpenTK.Mathematics.Box2i.Extended*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
-- uid: OpenTK.Mathematics.Box2i.op_Equality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  commentId: M:OpenTK.Mathematics.Box2i.op_Equality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  id: op_Equality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: operator ==(Box2i, Box2i)
-  nameWithType: Box2i.operator ==(Box2i, Box2i)
-  fullName: OpenTK.Mathematics.Box2i.operator ==(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
-  type: Operator
-  source:
-    id: op_Equality
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 549
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Equality comparator.
-  example: []
-  syntax:
-    content: public static bool operator ==(Box2i left, Box2i right)
-    parameters:
-    - id: left
-      type: OpenTK.Mathematics.Box2i
-      description: The left operand.
-    - id: right
-      type: OpenTK.Mathematics.Box2i
-      description: The right operand.
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Operator =(left As Box2i, right As Box2i) As Boolean
-  overload: OpenTK.Mathematics.Box2i.op_Equality*
-  nameWithType.vb: Box2i.=(Box2i, Box2i)
-  fullName.vb: OpenTK.Mathematics.Box2i.=(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
-  name.vb: =(Box2i, Box2i)
-- uid: OpenTK.Mathematics.Box2i.op_Inequality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  commentId: M:OpenTK.Mathematics.Box2i.op_Inequality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  id: op_Inequality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: operator !=(Box2i, Box2i)
-  nameWithType: Box2i.operator !=(Box2i, Box2i)
-  fullName: OpenTK.Mathematics.Box2i.operator !=(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
-  type: Operator
-  source:
-    id: op_Inequality
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 559
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Inequality comparator.
-  example: []
-  syntax:
-    content: public static bool operator !=(Box2i left, Box2i right)
-    parameters:
-    - id: left
-      type: OpenTK.Mathematics.Box2i
-      description: The left operand.
-    - id: right
-      type: OpenTK.Mathematics.Box2i
-      description: The right operand.
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Operator <>(left As Box2i, right As Box2i) As Boolean
-  overload: OpenTK.Mathematics.Box2i.op_Inequality*
-  nameWithType.vb: Box2i.<>(Box2i, Box2i)
-  fullName.vb: OpenTK.Mathematics.Box2i.<>(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
-  name.vb: <>(Box2i, Box2i)
-- uid: OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~System.Drawing.Rectangle
-  commentId: M:OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~System.Drawing.Rectangle
-  id: op_Explicit(OpenTK.Mathematics.Box2i)~System.Drawing.Rectangle
-  parent: OpenTK.Mathematics.Box2i
-  langs:
-  - csharp
-  - vb
-  name: explicit operator Rectangle(Box2i)
-  nameWithType: Box2i.explicit operator Rectangle(Box2i)
-  fullName: OpenTK.Mathematics.Box2i.explicit operator System.Drawing.Rectangle(OpenTK.Mathematics.Box2i)
-  type: Operator
-  source:
-    id: op_Explicit
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 568
-  assemblies:
-  - OpenTK.Mathematics
-  namespace: OpenTK.Mathematics
-  summary: Converts this <xref href="OpenTK.Mathematics.Box2i" data-throw-if-not-resolved="false"></xref> to a <xref href="System.Drawing.Rectangle" data-throw-if-not-resolved="false"></xref> using <xref href="OpenTK.Mathematics.Box2i.Min" data-throw-if-not-resolved="false"></xref> as the position and <xref href="OpenTK.Mathematics.Box2i.Size" data-throw-if-not-resolved="false"></xref> as the size.
-  example: []
-  syntax:
-    content: >-
-      [Pure]
-
-      public static explicit operator Rectangle(Box2i box)
-    parameters:
-    - id: box
-      type: OpenTK.Mathematics.Box2i
-      description: The box to cast.
-    return:
-      type: System.Drawing.Rectangle
-    content.vb: >-
-      <Pure>
-
-      Public Shared Narrowing Operator CType(box As Box2i) As Rectangle
-  overload: OpenTK.Mathematics.Box2i.op_Explicit*
-  attributes:
-  - type: System.Diagnostics.Contracts.PureAttribute
-    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
-    arguments: []
-  nameWithType.vb: Box2i.CType(Box2i)
-  fullName.vb: OpenTK.Mathematics.Box2i.CType(OpenTK.Mathematics.Box2i)
-  name.vb: CType(Box2i)
 - uid: OpenTK.Mathematics.Box2i.Equals(System.Object)
   commentId: M:OpenTK.Mathematics.Box2i.Equals(System.Object)
   id: Equals(System.Object)
@@ -1687,7 +1577,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 575
+    startLine: 545
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1722,7 +1612,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 581
+    startLine: 551
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1755,7 +1645,7 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 588
+    startLine: 558
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1769,6 +1659,180 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.ValueType.GetHashCode
   overload: OpenTK.Mathematics.Box2i.GetHashCode*
+- uid: OpenTK.Mathematics.Box2i.op_Equality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  commentId: M:OpenTK.Mathematics.Box2i.op_Equality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  id: op_Equality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Box2i, Box2i)
+  nameWithType: Box2i.operator ==(Box2i, Box2i)
+  fullName: OpenTK.Mathematics.Box2i.operator ==(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
+  type: Operator
+  source:
+    id: op_Equality
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 569
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Equality comparator.
+
+    Two boxes are considered equal if both the <xref href="OpenTK.Mathematics.Box2i.Min" data-throw-if-not-resolved="false"></xref> and <xref href="OpenTK.Mathematics.Box2i.Max" data-throw-if-not-resolved="false"></xref> fields are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(Box2i left, Box2i right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Box2i
+      description: The left operand.
+    - id: right
+      type: OpenTK.Mathematics.Box2i
+      description: The right operand.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Box2i, right As Box2i) As Boolean
+  overload: OpenTK.Mathematics.Box2i.op_Equality*
+  nameWithType.vb: Box2i.=(Box2i, Box2i)
+  fullName.vb: OpenTK.Mathematics.Box2i.=(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
+  name.vb: =(Box2i, Box2i)
+- uid: OpenTK.Mathematics.Box2i.op_Inequality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  commentId: M:OpenTK.Mathematics.Box2i.op_Inequality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  id: op_Inequality(OpenTK.Mathematics.Box2i,OpenTK.Mathematics.Box2i)
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Box2i, Box2i)
+  nameWithType: Box2i.operator !=(Box2i, Box2i)
+  fullName: OpenTK.Mathematics.Box2i.operator !=(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
+  type: Operator
+  source:
+    id: op_Inequality
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 579
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Inequality comparator.
+  example: []
+  syntax:
+    content: public static bool operator !=(Box2i left, Box2i right)
+    parameters:
+    - id: left
+      type: OpenTK.Mathematics.Box2i
+      description: The left operand.
+    - id: right
+      type: OpenTK.Mathematics.Box2i
+      description: The right operand.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Box2i, right As Box2i) As Boolean
+  overload: OpenTK.Mathematics.Box2i.op_Inequality*
+  nameWithType.vb: Box2i.<>(Box2i, Box2i)
+  fullName.vb: OpenTK.Mathematics.Box2i.<>(OpenTK.Mathematics.Box2i, OpenTK.Mathematics.Box2i)
+  name.vb: <>(Box2i, Box2i)
+- uid: OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~System.Drawing.RectangleF
+  commentId: M:OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~System.Drawing.RectangleF
+  id: op_Explicit(OpenTK.Mathematics.Box2i)~System.Drawing.RectangleF
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: explicit operator RectangleF(Box2i)
+  nameWithType: Box2i.explicit operator RectangleF(Box2i)
+  fullName: OpenTK.Mathematics.Box2i.explicit operator System.Drawing.RectangleF(OpenTK.Mathematics.Box2i)
+  type: Operator
+  source:
+    id: op_Explicit
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 588
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Converts this <xref href="OpenTK.Mathematics.Box2i" data-throw-if-not-resolved="false"></xref> to a <xref href="System.Drawing.Rectangle" data-throw-if-not-resolved="false"></xref> using <xref href="OpenTK.Mathematics.Box2i.Min" data-throw-if-not-resolved="false"></xref> as the position and <xref href="OpenTK.Mathematics.Box2i.Size" data-throw-if-not-resolved="false"></xref> as the size.
+  example: []
+  syntax:
+    content: public static explicit operator RectangleF(Box2i box)
+    parameters:
+    - id: box
+      type: OpenTK.Mathematics.Box2i
+      description: The box to cast.
+    return:
+      type: System.Drawing.RectangleF
+    content.vb: Public Shared Narrowing Operator CType(box As Box2i) As RectangleF
+  overload: OpenTK.Mathematics.Box2i.op_Explicit*
+  nameWithType.vb: Box2i.CType(Box2i)
+  fullName.vb: OpenTK.Mathematics.Box2i.CType(OpenTK.Mathematics.Box2i)
+  name.vb: CType(Box2i)
+- uid: OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~OpenTK.Mathematics.Box2
+  commentId: M:OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~OpenTK.Mathematics.Box2
+  id: op_Explicit(OpenTK.Mathematics.Box2i)~OpenTK.Mathematics.Box2
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: explicit operator Box2(Box2i)
+  nameWithType: Box2i.explicit operator Box2(Box2i)
+  fullName: OpenTK.Mathematics.Box2i.explicit operator OpenTK.Mathematics.Box2(OpenTK.Mathematics.Box2i)
+  type: Operator
+  source:
+    id: op_Explicit
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 597
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Converts this <xref href="OpenTK.Mathematics.Box2i" data-throw-if-not-resolved="false"></xref> to a <xref href="OpenTK.Mathematics.Box2" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static explicit operator Box2(Box2i box)
+    parameters:
+    - id: box
+      type: OpenTK.Mathematics.Box2i
+      description: The box to cast.
+    return:
+      type: OpenTK.Mathematics.Box2
+    content.vb: Public Shared Narrowing Operator CType(box As Box2i) As Box2
+  overload: OpenTK.Mathematics.Box2i.op_Explicit*
+  nameWithType.vb: Box2i.CType(Box2i)
+  fullName.vb: OpenTK.Mathematics.Box2i.CType(OpenTK.Mathematics.Box2i)
+  name.vb: CType(Box2i)
+- uid: OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~OpenTK.Mathematics.Box2d
+  commentId: M:OpenTK.Mathematics.Box2i.op_Explicit(OpenTK.Mathematics.Box2i)~OpenTK.Mathematics.Box2d
+  id: op_Explicit(OpenTK.Mathematics.Box2i)~OpenTK.Mathematics.Box2d
+  parent: OpenTK.Mathematics.Box2i
+  langs:
+  - csharp
+  - vb
+  name: explicit operator Box2d(Box2i)
+  nameWithType: Box2i.explicit operator Box2d(Box2i)
+  fullName: OpenTK.Mathematics.Box2i.explicit operator OpenTK.Mathematics.Box2d(OpenTK.Mathematics.Box2i)
+  type: Operator
+  source:
+    id: op_Explicit
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
+    startLine: 606
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: Converts this <xref href="OpenTK.Mathematics.Box2i" data-throw-if-not-resolved="false"></xref> to a <xref href="OpenTK.Mathematics.Box2d" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static explicit operator Box2d(Box2i box)
+    parameters:
+    - id: box
+      type: OpenTK.Mathematics.Box2i
+      description: The box to cast.
+    return:
+      type: OpenTK.Mathematics.Box2d
+    content.vb: Public Shared Narrowing Operator CType(box As Box2i) As Box2d
+  overload: OpenTK.Mathematics.Box2i.op_Explicit*
+  nameWithType.vb: Box2i.CType(Box2i)
+  fullName.vb: OpenTK.Mathematics.Box2i.CType(OpenTK.Mathematics.Box2i)
+  name.vb: CType(Box2i)
 - uid: OpenTK.Mathematics.Box2i.ToString
   commentId: M:OpenTK.Mathematics.Box2i.ToString
   id: ToString
@@ -1783,7 +1847,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 594
+    startLine: 612
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1811,7 +1875,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 600
+    startLine: 618
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1823,9 +1887,9 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
@@ -1850,7 +1914,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 606
+    startLine: 624
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1862,9 +1926,9 @@ items:
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -1886,7 +1950,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Geometry\Box2i.cs
-    startLine: 612
+    startLine: 630
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1898,17 +1962,17 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -2145,274 +2209,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: OpenTK.Mathematics.Box2i
-  commentId: T:OpenTK.Mathematics.Box2i
-  parent: OpenTK.Mathematics
-  href: OpenTK.Mathematics.Box2i.html
-  name: Box2i
-  nameWithType: Box2i
-  fullName: OpenTK.Mathematics.Box2i
-- uid: OpenTK.Mathematics.Box2i.Min*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Min
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Min
-  name: Min
-  nameWithType: Box2i.Min
-  fullName: OpenTK.Mathematics.Box2i.Min
-- uid: OpenTK.Mathematics.Vector2i
-  commentId: T:OpenTK.Mathematics.Vector2i
-  parent: OpenTK.Mathematics
-  href: OpenTK.Mathematics.Vector2i.html
-  name: Vector2i
-  nameWithType: Vector2i
-  fullName: OpenTK.Mathematics.Vector2i
-- uid: OpenTK.Mathematics.Box2i.Max*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Max
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Max
-  name: Max
-  nameWithType: Box2i.Max
-  fullName: OpenTK.Mathematics.Box2i.Max
-- uid: OpenTK.Mathematics.Box2i.#ctor*
-  commentId: Overload:OpenTK.Mathematics.Box2i.#ctor
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i__ctor_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
-  name: Box2i
-  nameWithType: Box2i.Box2i
-  fullName: OpenTK.Mathematics.Box2i.Box2i
-  nameWithType.vb: Box2i.New
-  fullName.vb: OpenTK.Mathematics.Box2i.New
-  name.vb: New
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: OpenTK.Mathematics.Box2i.CenteredSize*
-  commentId: Overload:OpenTK.Mathematics.Box2i.CenteredSize
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_CenteredSize
-  name: CenteredSize
-  nameWithType: Box2i.CenteredSize
-  fullName: OpenTK.Mathematics.Box2i.CenteredSize
-- uid: OpenTK.Mathematics.Box2i.HalfSize*
-  commentId: Overload:OpenTK.Mathematics.Box2i.HalfSize
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_HalfSize
-  name: HalfSize
-  nameWithType: Box2i.HalfSize
-  fullName: OpenTK.Mathematics.Box2i.HalfSize
-- uid: OpenTK.Mathematics.Box2i.Center*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Center
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Center
-  name: Center
-  nameWithType: Box2i.Center
-  fullName: OpenTK.Mathematics.Box2i.Center
-- uid: OpenTK.Mathematics.Vector2
-  commentId: T:OpenTK.Mathematics.Vector2
-  parent: OpenTK.Mathematics
-  href: OpenTK.Mathematics.Vector2.html
-  name: Vector2
-  nameWithType: Vector2
-  fullName: OpenTK.Mathematics.Vector2
-- uid: OpenTK.Mathematics.Box2i.Width*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Width
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Width
-  name: Width
-  nameWithType: Box2i.Width
-  fullName: OpenTK.Mathematics.Box2i.Width
-- uid: OpenTK.Mathematics.Box2i.Height*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Height
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Height
-  name: Height
-  nameWithType: Box2i.Height
-  fullName: OpenTK.Mathematics.Box2i.Height
-- uid: OpenTK.Mathematics.Box2i.Left*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Left
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Left
-  name: Left
-  nameWithType: Box2i.Left
-  fullName: OpenTK.Mathematics.Box2i.Left
-- uid: OpenTK.Mathematics.Box2i.Top*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Top
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Top
-  name: Top
-  nameWithType: Box2i.Top
-  fullName: OpenTK.Mathematics.Box2i.Top
-- uid: OpenTK.Mathematics.Box2i.Right*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Right
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Right
-  name: Right
-  nameWithType: Box2i.Right
-  fullName: OpenTK.Mathematics.Box2i.Right
-- uid: OpenTK.Mathematics.Box2i.Bottom*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Bottom
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Bottom
-  name: Bottom
-  nameWithType: Box2i.Bottom
-  fullName: OpenTK.Mathematics.Box2i.Bottom
-- uid: OpenTK.Mathematics.Box2i.X*
-  commentId: Overload:OpenTK.Mathematics.Box2i.X
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_X
-  name: X
-  nameWithType: Box2i.X
-  fullName: OpenTK.Mathematics.Box2i.X
-- uid: OpenTK.Mathematics.Box2i.Y*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Y
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Y
-  name: Y
-  nameWithType: Box2i.Y
-  fullName: OpenTK.Mathematics.Box2i.Y
-- uid: OpenTK.Mathematics.Box2i.SizeX*
-  commentId: Overload:OpenTK.Mathematics.Box2i.SizeX
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_SizeX
-  name: SizeX
-  nameWithType: Box2i.SizeX
-  fullName: OpenTK.Mathematics.Box2i.SizeX
-- uid: OpenTK.Mathematics.Box2i.SizeY*
-  commentId: Overload:OpenTK.Mathematics.Box2i.SizeY
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_SizeY
-  name: SizeY
-  nameWithType: Box2i.SizeY
-  fullName: OpenTK.Mathematics.Box2i.SizeY
-- uid: OpenTK.Mathematics.Box2i.Size*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Size
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Size
-  name: Size
-  nameWithType: Box2i.Size
-  fullName: OpenTK.Mathematics.Box2i.Size
-- uid: OpenTK.Mathematics.Box2i.Location*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Location
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Location
-  name: Location
-  nameWithType: Box2i.Location
-  fullName: OpenTK.Mathematics.Box2i.Location
-- uid: OpenTK.Mathematics.Box2i.IsZero*
-  commentId: Overload:OpenTK.Mathematics.Box2i.IsZero
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_IsZero
-  name: IsZero
-  nameWithType: Box2i.IsZero
-  fullName: OpenTK.Mathematics.Box2i.IsZero
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: OpenTK.Mathematics.Box2i.FromSize*
-  commentId: Overload:OpenTK.Mathematics.Box2i.FromSize
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_FromSize_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
-  name: FromSize
-  nameWithType: Box2i.FromSize
-  fullName: OpenTK.Mathematics.Box2i.FromSize
-- uid: OpenTK.Mathematics.Box2
-  commentId: T:OpenTK.Mathematics.Box2
-  parent: OpenTK.Mathematics
-  href: OpenTK.Mathematics.Box2.html
-  name: Box2
-  nameWithType: Box2
-  fullName: OpenTK.Mathematics.Box2
-- uid: OpenTK.Mathematics.Box2i.FromPositions*
-  commentId: Overload:OpenTK.Mathematics.Box2i.FromPositions
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_FromPositions_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
-  name: FromPositions
-  nameWithType: Box2i.FromPositions
-  fullName: OpenTK.Mathematics.Box2i.FromPositions
-- uid: OpenTK.Mathematics.Box2i.Intersect*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Intersect
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Intersect_OpenTK_Mathematics_Box2i_
-  name: Intersect
-  nameWithType: Box2i.Intersect
-  fullName: OpenTK.Mathematics.Box2i.Intersect
-- uid: OpenTK.Mathematics.Box2i.Intersected*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Intersected
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Intersected_OpenTK_Mathematics_Box2i_
-  name: Intersected
-  nameWithType: Box2i.Intersected
-  fullName: OpenTK.Mathematics.Box2i.Intersected
-- uid: OpenTK.Mathematics.Box2i.IntersectsWith*
-  commentId: Overload:OpenTK.Mathematics.Box2i.IntersectsWith
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_IntersectsWith_OpenTK_Mathematics_Box2i_
-  name: IntersectsWith
-  nameWithType: Box2i.IntersectsWith
-  fullName: OpenTK.Mathematics.Box2i.IntersectsWith
-- uid: OpenTK.Mathematics.Box2i.TouchWith*
-  commentId: Overload:OpenTK.Mathematics.Box2i.TouchWith
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_TouchWith_OpenTK_Mathematics_Box2i_
-  name: TouchWith
-  nameWithType: Box2i.TouchWith
-  fullName: OpenTK.Mathematics.Box2i.TouchWith
-- uid: OpenTK.Mathematics.Box2i.Union*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Union
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Union_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
-  name: Union
-  nameWithType: Box2i.Union
-  fullName: OpenTK.Mathematics.Box2i.Union
-- uid: OpenTK.Mathematics.Box2i.Contains*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Contains
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Contains_OpenTK_Mathematics_Vector2i_
-  name: Contains
-  nameWithType: Box2i.Contains
-  fullName: OpenTK.Mathematics.Box2i.Contains
-- uid: OpenTK.Mathematics.Box2i.ContainsInclusive*
-  commentId: Overload:OpenTK.Mathematics.Box2i.ContainsInclusive
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_ContainsInclusive_OpenTK_Mathematics_Vector2i_
-  name: ContainsInclusive
-  nameWithType: Box2i.ContainsInclusive
-  fullName: OpenTK.Mathematics.Box2i.ContainsInclusive
-- uid: OpenTK.Mathematics.Box2i.ContainsExclusive*
-  commentId: Overload:OpenTK.Mathematics.Box2i.ContainsExclusive
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_ContainsExclusive_OpenTK_Mathematics_Vector2i_
-  name: ContainsExclusive
-  nameWithType: Box2i.ContainsExclusive
-  fullName: OpenTK.Mathematics.Box2i.ContainsExclusive
-- uid: OpenTK.Mathematics.Box2i.DistanceToNearestEdge*
-  commentId: Overload:OpenTK.Mathematics.Box2i.DistanceToNearestEdge
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_DistanceToNearestEdge_OpenTK_Mathematics_Vector2i_
-  name: DistanceToNearestEdge
-  nameWithType: Box2i.DistanceToNearestEdge
-  fullName: OpenTK.Mathematics.Box2i.DistanceToNearestEdge
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
-- uid: OpenTK.Mathematics.Box2i.Translate*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Translate
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Translate_OpenTK_Mathematics_Vector2i_
-  name: Translate
-  nameWithType: Box2i.Translate
-  fullName: OpenTK.Mathematics.Box2i.Translate
-- uid: OpenTK.Mathematics.Box2i.Translated*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Translated
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Translated_OpenTK_Mathematics_Vector2i_
-  name: Translated
-  nameWithType: Box2i.Translated
-  fullName: OpenTK.Mathematics.Box2i.Translated
-- uid: OpenTK.Mathematics.Box2i.Scale*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Scale
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Scale_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
-  name: Scale
-  nameWithType: Box2i.Scale
-  fullName: OpenTK.Mathematics.Box2i.Scale
-- uid: OpenTK.Mathematics.Box2i.Scaled*
-  commentId: Overload:OpenTK.Mathematics.Box2i.Scaled
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Scaled_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
-  name: Scaled
-  nameWithType: Box2i.Scaled
-  fullName: OpenTK.Mathematics.Box2i.Scaled
 - uid: OpenTK.Mathematics.Box2i.Extend(OpenTK.Mathematics.Vector2i)
   commentId: M:OpenTK.Mathematics.Box2i.Extend(OpenTK.Mathematics.Vector2i)
   href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Extend_OpenTK_Mathematics_Vector2i_
@@ -2437,36 +2233,328 @@ references:
     name: Vector2i
     href: OpenTK.Mathematics.Vector2i.html
   - name: )
+- uid: OpenTK.Mathematics.Box2i
+  commentId: T:OpenTK.Mathematics.Box2i
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Box2i.html
+  name: Box2i
+  nameWithType: Box2i
+  fullName: OpenTK.Mathematics.Box2i
+- uid: OpenTK.Mathematics.Box2i.Empty
+  commentId: F:OpenTK.Mathematics.Box2i.Empty
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Empty
+  name: Empty
+  nameWithType: Box2i.Empty
+  fullName: OpenTK.Mathematics.Box2i.Empty
+- uid: OpenTK.Mathematics.Box2i.IsEmpty
+  commentId: P:OpenTK.Mathematics.Box2i.IsEmpty
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_IsEmpty
+  name: IsEmpty
+  nameWithType: Box2i.IsEmpty
+  fullName: OpenTK.Mathematics.Box2i.IsEmpty
+- uid: OpenTK.Mathematics.Box2i.Max
+  commentId: F:OpenTK.Mathematics.Box2i.Max
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Max
+  name: Max
+  nameWithType: Box2i.Max
+  fullName: OpenTK.Mathematics.Box2i.Max
+- uid: OpenTK.Mathematics.Vector2i
+  commentId: T:OpenTK.Mathematics.Vector2i
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Vector2i.html
+  name: Vector2i
+  nameWithType: Vector2i
+  fullName: OpenTK.Mathematics.Vector2i
+- uid: OpenTK.Mathematics.Box2i.#ctor*
+  commentId: Overload:OpenTK.Mathematics.Box2i.#ctor
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i__ctor_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
+  name: Box2i
+  nameWithType: Box2i.Box2i
+  fullName: OpenTK.Mathematics.Box2i.Box2i
+  nameWithType.vb: Box2i.New
+  fullName.vb: OpenTK.Mathematics.Box2i.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OpenTK.Mathematics.Box2i.Center*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Center
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Center
+  name: Center
+  nameWithType: Box2i.Center
+  fullName: OpenTK.Mathematics.Box2i.Center
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Vector2.html
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics.Box2i.Min
+  commentId: F:OpenTK.Mathematics.Box2i.Min
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Min
+  name: Min
+  nameWithType: Box2i.Min
+  fullName: OpenTK.Mathematics.Box2i.Min
+- uid: OpenTK.Mathematics.Box2i.Location*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Location
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Location
+  name: Location
+  nameWithType: Box2i.Location
+  fullName: OpenTK.Mathematics.Box2i.Location
+- uid: OpenTK.Mathematics.Box2i.Size*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Size
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Size
+  name: Size
+  nameWithType: Box2i.Size
+  fullName: OpenTK.Mathematics.Box2i.Size
+- uid: OpenTK.Mathematics.Box2i.HalfSize*
+  commentId: Overload:OpenTK.Mathematics.Box2i.HalfSize
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_HalfSize
+  name: HalfSize
+  nameWithType: Box2i.HalfSize
+  fullName: OpenTK.Mathematics.Box2i.HalfSize
+- uid: OpenTK.Mathematics.Box2i.Width*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Width
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Width
+  name: Width
+  nameWithType: Box2i.Width
+  fullName: OpenTK.Mathematics.Box2i.Width
+- uid: OpenTK.Mathematics.Box2i.Height*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Height
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Height
+  name: Height
+  nameWithType: Box2i.Height
+  fullName: OpenTK.Mathematics.Box2i.Height
+- uid: OpenTK.Mathematics.Box2i.Area*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Area
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Area
+  name: Area
+  nameWithType: Box2i.Area
+  fullName: OpenTK.Mathematics.Box2i.Area
+- uid: OpenTK.Mathematics.Box2i.IsEmpty*
+  commentId: Overload:OpenTK.Mathematics.Box2i.IsEmpty
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_IsEmpty
+  name: IsEmpty
+  nameWithType: Box2i.IsEmpty
+  fullName: OpenTK.Mathematics.Box2i.IsEmpty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OpenTK.Mathematics.Box2i.IsPoint*
+  commentId: Overload:OpenTK.Mathematics.Box2i.IsPoint
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_IsPoint
+  name: IsPoint
+  nameWithType: Box2i.IsPoint
+  fullName: OpenTK.Mathematics.Box2i.IsPoint
+- uid: OpenTK.Mathematics.Box2i.HasZeroArea*
+  commentId: Overload:OpenTK.Mathematics.Box2i.HasZeroArea
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_HasZeroArea
+  name: HasZeroArea
+  nameWithType: Box2i.HasZeroArea
+  fullName: OpenTK.Mathematics.Box2i.HasZeroArea
+- uid: OpenTK.Mathematics.Box2i.FromSize*
+  commentId: Overload:OpenTK.Mathematics.Box2i.FromSize
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_FromSize_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
+  name: FromSize
+  nameWithType: Box2i.FromSize
+  fullName: OpenTK.Mathematics.Box2i.FromSize
+- uid: OpenTK.Mathematics.Box2i.FromMinMax*
+  commentId: Overload:OpenTK.Mathematics.Box2i.FromMinMax
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_FromMinMax_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
+  name: FromMinMax
+  nameWithType: Box2i.FromMinMax
+  fullName: OpenTK.Mathematics.Box2i.FromMinMax
+- uid: OpenTK.Mathematics.Box2i.FromTwoPoints*
+  commentId: Overload:OpenTK.Mathematics.Box2i.FromTwoPoints
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_FromTwoPoints_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_
+  name: FromTwoPoints
+  nameWithType: Box2i.FromTwoPoints
+  fullName: OpenTK.Mathematics.Box2i.FromTwoPoints
+- uid: OpenTK.Mathematics.Box2
+  commentId: T:OpenTK.Mathematics.Box2
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Box2.html
+  name: Box2
+  nameWithType: Box2
+  fullName: OpenTK.Mathematics.Box2
+- uid: OpenTK.Mathematics.Box2i.FromCenterAndHalfSize*
+  commentId: Overload:OpenTK.Mathematics.Box2i.FromCenterAndHalfSize
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_FromCenterAndHalfSize_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
+  name: FromCenterAndHalfSize
+  nameWithType: Box2i.FromCenterAndHalfSize
+  fullName: OpenTK.Mathematics.Box2i.FromCenterAndHalfSize
+- uid: OpenTK.Mathematics.Box2i.Intersect*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Intersect
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Intersect_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
+  name: Intersect
+  nameWithType: Box2i.Intersect
+  fullName: OpenTK.Mathematics.Box2i.Intersect
+- uid: OpenTK.Mathematics.Box2i.Intersected*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Intersected
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Intersected_OpenTK_Mathematics_Box2i_
+  name: Intersected
+  nameWithType: Box2i.Intersected
+  fullName: OpenTK.Mathematics.Box2i.Intersected
+- uid: OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
+  commentId: M:OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Touches_OpenTK_Mathematics_Box2i_
+  name: Touches(Box2i)
+  nameWithType: Box2i.Touches(Box2i)
+  fullName: OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
+  spec.csharp:
+  - uid: OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
+    name: Touches
+    href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Touches_OpenTK_Mathematics_Box2i_
+  - name: (
+  - uid: OpenTK.Mathematics.Box2i
+    name: Box2i
+    href: OpenTK.Mathematics.Box2i.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Mathematics.Box2i.Touches(OpenTK.Mathematics.Box2i)
+    name: Touches
+    href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Touches_OpenTK_Mathematics_Box2i_
+  - name: (
+  - uid: OpenTK.Mathematics.Box2i
+    name: Box2i
+    href: OpenTK.Mathematics.Box2i.html
+  - name: )
+- uid: OpenTK.Mathematics.Box2i.IntersectsWith*
+  commentId: Overload:OpenTK.Mathematics.Box2i.IntersectsWith
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_IntersectsWith_OpenTK_Mathematics_Box2i_
+  name: IntersectsWith
+  nameWithType: Box2i.IntersectsWith
+  fullName: OpenTK.Mathematics.Box2i.IntersectsWith
+- uid: OpenTK.Mathematics.Box2i.Touches*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Touches
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Touches_OpenTK_Mathematics_Box2i_
+  name: Touches
+  nameWithType: Box2i.Touches
+  fullName: OpenTK.Mathematics.Box2i.Touches
+- uid: OpenTK.Mathematics.Box2i.ContainsInclusive*
+  commentId: Overload:OpenTK.Mathematics.Box2i.ContainsInclusive
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_ContainsInclusive_OpenTK_Mathematics_Vector2i_
+  name: ContainsInclusive
+  nameWithType: Box2i.ContainsInclusive
+  fullName: OpenTK.Mathematics.Box2i.ContainsInclusive
+- uid: OpenTK.Mathematics.Box2i.ContainsExclusive*
+  commentId: Overload:OpenTK.Mathematics.Box2i.ContainsExclusive
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_ContainsExclusive_OpenTK_Mathematics_Vector2i_
+  name: ContainsExclusive
+  nameWithType: Box2i.ContainsExclusive
+  fullName: OpenTK.Mathematics.Box2i.ContainsExclusive
+- uid: OpenTK.Mathematics.Box2i.Contains*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Contains
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Contains_OpenTK_Mathematics_Box2i_
+  name: Contains
+  nameWithType: Box2i.Contains
+  fullName: OpenTK.Mathematics.Box2i.Contains
+- uid: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestPointInBox*
+  commentId: Overload:OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestPointInBox
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_EuclidianDistanceToNearestPointInBox_OpenTK_Mathematics_Vector2i_
+  name: EuclidianDistanceToNearestPointInBox
+  nameWithType: Box2i.EuclidianDistanceToNearestPointInBox
+  fullName: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestPointInBox
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestEdge*
+  commentId: Overload:OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestEdge
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_EuclidianDistanceToNearestEdge_OpenTK_Mathematics_Vector2i_
+  name: EuclidianDistanceToNearestEdge
+  nameWithType: Box2i.EuclidianDistanceToNearestEdge
+  fullName: OpenTK.Mathematics.Box2i.EuclidianDistanceToNearestEdge
+- uid: OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge*
+  commentId: Overload:OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_ManhattanDistanceToNearestEdge_OpenTK_Mathematics_Vector2i_
+  name: ManhattanDistanceToNearestEdge
+  nameWithType: Box2i.ManhattanDistanceToNearestEdge
+  fullName: OpenTK.Mathematics.Box2i.ManhattanDistanceToNearestEdge
+- uid: OpenTK.Mathematics.Box2i.SignedEuclidianDistanceToNearestEdge*
+  commentId: Overload:OpenTK.Mathematics.Box2i.SignedEuclidianDistanceToNearestEdge
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_SignedEuclidianDistanceToNearestEdge_OpenTK_Mathematics_Vector2_
+  name: SignedEuclidianDistanceToNearestEdge
+  nameWithType: Box2i.SignedEuclidianDistanceToNearestEdge
+  fullName: OpenTK.Mathematics.Box2i.SignedEuclidianDistanceToNearestEdge
+- uid: OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge*
+  commentId: Overload:OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_SignedManhattanDistanceToNearestEdge_OpenTK_Mathematics_Vector2i_
+  name: SignedManhattanDistanceToNearestEdge
+  nameWithType: Box2i.SignedManhattanDistanceToNearestEdge
+  fullName: OpenTK.Mathematics.Box2i.SignedManhattanDistanceToNearestEdge
+- uid: OpenTK.Mathematics.Box2i.NearestPointInBox*
+  commentId: Overload:OpenTK.Mathematics.Box2i.NearestPointInBox
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_NearestPointInBox_OpenTK_Mathematics_Vector2i_
+  name: NearestPointInBox
+  nameWithType: Box2i.NearestPointInBox
+  fullName: OpenTK.Mathematics.Box2i.NearestPointInBox
+- uid: OpenTK.Mathematics.Box2i.NearestPointOnEdge*
+  commentId: Overload:OpenTK.Mathematics.Box2i.NearestPointOnEdge
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_NearestPointOnEdge_OpenTK_Mathematics_Vector2i_
+  name: NearestPointOnEdge
+  nameWithType: Box2i.NearestPointOnEdge
+  fullName: OpenTK.Mathematics.Box2i.NearestPointOnEdge
+- uid: OpenTK.Mathematics.Box2i.Translate*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Translate
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Translate_OpenTK_Mathematics_Vector2i_
+  name: Translate
+  nameWithType: Box2i.Translate
+  fullName: OpenTK.Mathematics.Box2i.Translate
+- uid: OpenTK.Mathematics.Box2i.Translated*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Translated
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Translated_OpenTK_Mathematics_Vector2i_
+  name: Translated
+  nameWithType: Box2i.Translated
+  fullName: OpenTK.Mathematics.Box2i.Translated
+- uid: OpenTK.Mathematics.Box2i.Scale*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Scale
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Scale_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
+  name: Scale
+  nameWithType: Box2i.Scale
+  fullName: OpenTK.Mathematics.Box2i.Scale
+- uid: OpenTK.Mathematics.Box2i.Scaled*
+  commentId: Overload:OpenTK.Mathematics.Box2i.Scaled
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Scaled_OpenTK_Mathematics_Vector2i_OpenTK_Mathematics_Vector2i_
+  name: Scaled
+  nameWithType: Box2i.Scaled
+  fullName: OpenTK.Mathematics.Box2i.Scaled
+- uid: OpenTK.Mathematics.Box2i.HalfSize
+  commentId: P:OpenTK.Mathematics.Box2i.HalfSize
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_HalfSize
+  name: HalfSize
+  nameWithType: Box2i.HalfSize
+  fullName: OpenTK.Mathematics.Box2i.HalfSize
 - uid: OpenTK.Mathematics.Box2i.Inflate*
   commentId: Overload:OpenTK.Mathematics.Box2i.Inflate
   href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Inflate_OpenTK_Mathematics_Vector2i_
   name: Inflate
   nameWithType: Box2i.Inflate
   fullName: OpenTK.Mathematics.Box2i.Inflate
-- uid: OpenTK.Mathematics.Box2i.Extended(OpenTK.Mathematics.Vector2i)
-  commentId: M:OpenTK.Mathematics.Box2i.Extended(OpenTK.Mathematics.Vector2i)
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Extended_OpenTK_Mathematics_Vector2i_
-  name: Extended(Vector2i)
-  nameWithType: Box2i.Extended(Vector2i)
-  fullName: OpenTK.Mathematics.Box2i.Extended(OpenTK.Mathematics.Vector2i)
-  spec.csharp:
-  - uid: OpenTK.Mathematics.Box2i.Extended(OpenTK.Mathematics.Vector2i)
-    name: Extended
-    href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Extended_OpenTK_Mathematics_Vector2i_
-  - name: (
-  - uid: OpenTK.Mathematics.Vector2i
-    name: Vector2i
-    href: OpenTK.Mathematics.Vector2i.html
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Mathematics.Box2i.Extended(OpenTK.Mathematics.Vector2i)
-    name: Extended
-    href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Extended_OpenTK_Mathematics_Vector2i_
-  - name: (
-  - uid: OpenTK.Mathematics.Vector2i
-    name: Vector2i
-    href: OpenTK.Mathematics.Vector2i.html
-  - name: )
 - uid: OpenTK.Mathematics.Box2i.Inflated*
   commentId: Overload:OpenTK.Mathematics.Box2i.Inflated
   href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Inflated_OpenTK_Mathematics_Vector2i_
@@ -2485,95 +2573,6 @@ references:
   name: Extended
   nameWithType: Box2i.Extended
   fullName: OpenTK.Mathematics.Box2i.Extended
-- uid: OpenTK.Mathematics.Box2i.op_Equality*
-  commentId: Overload:OpenTK.Mathematics.Box2i.op_Equality
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_op_Equality_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
-  name: operator ==
-  nameWithType: Box2i.operator ==
-  fullName: OpenTK.Mathematics.Box2i.operator ==
-  nameWithType.vb: Box2i.=
-  fullName.vb: OpenTK.Mathematics.Box2i.=
-  name.vb: =
-  spec.csharp:
-  - name: operator
-  - name: " "
-  - uid: OpenTK.Mathematics.Box2i.op_Equality*
-    name: ==
-    href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_op_Equality_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
-- uid: OpenTK.Mathematics.Box2i.op_Inequality*
-  commentId: Overload:OpenTK.Mathematics.Box2i.op_Inequality
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_op_Inequality_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
-  name: operator !=
-  nameWithType: Box2i.operator !=
-  fullName: OpenTK.Mathematics.Box2i.operator !=
-  nameWithType.vb: Box2i.<>
-  fullName.vb: OpenTK.Mathematics.Box2i.<>
-  name.vb: <>
-  spec.csharp:
-  - name: operator
-  - name: " "
-  - uid: OpenTK.Mathematics.Box2i.op_Inequality*
-    name: '!='
-    href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_op_Inequality_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
-- uid: System.Drawing.Rectangle
-  commentId: T:System.Drawing.Rectangle
-  parent: System.Drawing
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.drawing.rectangle
-  name: Rectangle
-  nameWithType: Rectangle
-  fullName: System.Drawing.Rectangle
-- uid: OpenTK.Mathematics.Box2i.Min
-  commentId: P:OpenTK.Mathematics.Box2i.Min
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Min
-  name: Min
-  nameWithType: Box2i.Min
-  fullName: OpenTK.Mathematics.Box2i.Min
-- uid: OpenTK.Mathematics.Box2i.Size
-  commentId: P:OpenTK.Mathematics.Box2i.Size
-  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Size
-  name: Size
-  nameWithType: Box2i.Size
-  fullName: OpenTK.Mathematics.Box2i.Size
-- uid: OpenTK.Mathematics.Box2i.op_Explicit*
-  commentId: Overload:OpenTK.Mathematics.Box2i.op_Explicit
-  name: explicit operator
-  nameWithType: Box2i.explicit operator
-  fullName: OpenTK.Mathematics.Box2i.explicit operator
-  nameWithType.vb: Box2i.CType
-  fullName.vb: OpenTK.Mathematics.Box2i.CType
-  name.vb: CType
-  spec.csharp:
-  - name: explicit
-  - name: " "
-  - name: operator
-- uid: System.Drawing
-  commentId: N:System.Drawing
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Drawing
-  nameWithType: System.Drawing
-  fullName: System.Drawing
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Drawing
-    name: Drawing
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.drawing
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Drawing
-    name: Drawing
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.drawing
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
   parent: System.ValueType
@@ -2704,6 +2703,103 @@ references:
   name: GetHashCode
   nameWithType: Box2i.GetHashCode
   fullName: OpenTK.Mathematics.Box2i.GetHashCode
+- uid: OpenTK.Mathematics.Box2i.op_Equality*
+  commentId: Overload:OpenTK.Mathematics.Box2i.op_Equality
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_op_Equality_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
+  name: operator ==
+  nameWithType: Box2i.operator ==
+  fullName: OpenTK.Mathematics.Box2i.operator ==
+  nameWithType.vb: Box2i.=
+  fullName.vb: OpenTK.Mathematics.Box2i.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: OpenTK.Mathematics.Box2i.op_Equality*
+    name: ==
+    href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_op_Equality_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
+- uid: OpenTK.Mathematics.Box2i.op_Inequality*
+  commentId: Overload:OpenTK.Mathematics.Box2i.op_Inequality
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_op_Inequality_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
+  name: operator !=
+  nameWithType: Box2i.operator !=
+  fullName: OpenTK.Mathematics.Box2i.operator !=
+  nameWithType.vb: Box2i.<>
+  fullName.vb: OpenTK.Mathematics.Box2i.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: OpenTK.Mathematics.Box2i.op_Inequality*
+    name: '!='
+    href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_op_Inequality_OpenTK_Mathematics_Box2i_OpenTK_Mathematics_Box2i_
+- uid: System.Drawing.Rectangle
+  commentId: T:System.Drawing.Rectangle
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.rectangle
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: System.Drawing.Rectangle
+- uid: OpenTK.Mathematics.Box2i.Size
+  commentId: P:OpenTK.Mathematics.Box2i.Size
+  href: OpenTK.Mathematics.Box2i.html#OpenTK_Mathematics_Box2i_Size
+  name: Size
+  nameWithType: Box2i.Size
+  fullName: OpenTK.Mathematics.Box2i.Size
+- uid: OpenTK.Mathematics.Box2i.op_Explicit*
+  commentId: Overload:OpenTK.Mathematics.Box2i.op_Explicit
+  name: explicit operator
+  nameWithType: Box2i.explicit operator
+  fullName: OpenTK.Mathematics.Box2i.explicit operator
+  nameWithType.vb: Box2i.CType
+  fullName.vb: OpenTK.Mathematics.Box2i.CType
+  name.vb: CType
+  spec.csharp:
+  - name: explicit
+  - name: " "
+  - name: operator
+- uid: System.Drawing.RectangleF
+  commentId: T:System.Drawing.RectangleF
+  parent: System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.rectanglef
+  name: RectangleF
+  nameWithType: RectangleF
+  fullName: System.Drawing.RectangleF
+- uid: System.Drawing
+  commentId: N:System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Drawing
+  nameWithType: System.Drawing
+  fullName: System.Drawing
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+- uid: OpenTK.Mathematics.Box2d
+  commentId: T:OpenTK.Mathematics.Box2d
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Box2d.html
+  name: Box2d
+  nameWithType: Box2d
+  fullName: OpenTK.Mathematics.Box2d
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
   parent: System.ValueType

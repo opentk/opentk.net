@@ -32,6 +32,11 @@ items:
   seealso:
   - linkId: OpenTK.Platform.Toolkit.Shell
     commentId: P:OpenTK.Platform.Toolkit.Shell
+  derivedClasses:
+  - OpenTK.Platform.Native.SDL.SDLShellComponent
+  - OpenTK.Platform.Native.Windows.ShellComponent
+  - OpenTK.Platform.Native.X11.X11ShellComponent
+  - OpenTK.Platform.Native.macOS.MacOSShellComponent
   inheritedMembers:
   - OpenTK.Platform.IPalComponent.Name
   - OpenTK.Platform.IPalComponent.Provides
@@ -81,6 +86,7 @@ items:
         application so the user knows which application is preventing the screen saver from running.
 
         If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is sent the following default message will be sent:
+
 
         <pre><code class="lang-csharp">$"{ApplicationName} is is preventing screen saver."</code></pre>
     content.vb: Sub AllowScreenSaver(allow As Boolean, disableReason As String)

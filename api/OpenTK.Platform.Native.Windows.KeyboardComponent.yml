@@ -7,8 +7,8 @@ items:
   children:
   - OpenTK.Platform.Native.Windows.KeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.Native.Windows.KeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
-  - OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  - OpenTK.Platform.Native.Windows.KeyboardComponent.GetAvailableKeyboardLayouts
+  - OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.Native.Windows.KeyboardComponent.GetInstalledInputLanguages
   - OpenTK.Platform.Native.Windows.KeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
   - OpenTK.Platform.Native.Windows.KeyboardComponent.GetKeyboardModifiers
   - OpenTK.Platform.Native.Windows.KeyboardComponent.GetKeyboardState(System.Boolean[])
@@ -31,7 +31,7 @@ items:
   source:
     id: KeyboardComponent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 17
+    startLine: 11
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -65,7 +65,7 @@ items:
   source:
     id: Name
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 25
+    startLine: 19
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -94,7 +94,7 @@ items:
   source:
     id: Provides
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 28
+    startLine: 22
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -123,7 +123,7 @@ items:
   source:
     id: Logger
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 31
+    startLine: 25
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -157,7 +157,7 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 38
+    startLine: 32
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -192,7 +192,7 @@ items:
   source:
     id: Uninitialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 50
+    startLine: 44
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -221,7 +221,7 @@ items:
   source:
     id: SupportsLayouts
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 144
+    startLine: 138
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -250,7 +250,7 @@ items:
   source:
     id: SupportsIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 147
+    startLine: 141
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -265,76 +265,71 @@ items:
   overload: OpenTK.Platform.Native.Windows.KeyboardComponent.SupportsIme*
   implements:
   - OpenTK.Platform.IKeyboardComponent.SupportsIme
-- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  commentId: M:OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  id: GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
+- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  id: GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
   parent: OpenTK.Platform.Native.Windows.KeyboardComponent
   langs:
   - csharp
   - vb
-  name: GetActiveKeyboardLayout(WindowHandle?)
-  nameWithType: KeyboardComponent.GetActiveKeyboardLayout(WindowHandle?)
-  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle?)
+  name: GetActiveInputLanguage(WindowHandle?)
+  nameWithType: KeyboardComponent.GetActiveInputLanguage(WindowHandle?)
+  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle?)
   type: Method
   source:
-    id: GetActiveKeyboardLayout
+    id: GetActiveInputLanguage
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 218
+    startLine: 297
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: Get the active keyboard layout.
+  summary: Get the active input language + keyboard layout.
   example: []
   syntax:
-    content: public string GetActiveKeyboardLayout(WindowHandle? handle = null)
+    content: public InputLanguage GetActiveInputLanguage(WindowHandle? handle = null)
     parameters:
     - id: handle
       type: OpenTK.Platform.WindowHandle
-      description: (optional) Handle to a window to query the layout for. Ignored on systems where keyboard layout is global.
+      description: Handle to a window to query the layout for. Ignored on systems where keyboard layout is global.
     return:
-      type: System.String
-      description: A string which describes the active keyboard layout.
-    content.vb: Public Function GetActiveKeyboardLayout(handle As WindowHandle = Nothing) As String
-  overload: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout*
-  exceptions:
-  - type: OpenTK.Platform.PalNotImplementedException
-    commentId: T:OpenTK.Platform.PalNotImplementedException
-    description: Driver cannot query active keyboard layout.
+      type: OpenTK.Platform.InputLanguage
+      description: The currently active input language and keyboard layout.
+    content.vb: Public Function GetActiveInputLanguage(handle As WindowHandle = Nothing) As InputLanguage
+  overload: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage*
   implements:
-  - OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  nameWithType.vb: KeyboardComponent.GetActiveKeyboardLayout(WindowHandle)
-  fullName.vb: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  name.vb: GetActiveKeyboardLayout(WindowHandle)
-- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetAvailableKeyboardLayouts
-  commentId: M:OpenTK.Platform.Native.Windows.KeyboardComponent.GetAvailableKeyboardLayouts
-  id: GetAvailableKeyboardLayouts
+  - OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  nameWithType.vb: KeyboardComponent.GetActiveInputLanguage(WindowHandle)
+  fullName.vb: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  name.vb: GetActiveInputLanguage(WindowHandle)
+- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetInstalledInputLanguages
+  commentId: M:OpenTK.Platform.Native.Windows.KeyboardComponent.GetInstalledInputLanguages
+  id: GetInstalledInputLanguages
   parent: OpenTK.Platform.Native.Windows.KeyboardComponent
   langs:
   - csharp
   - vb
-  name: GetAvailableKeyboardLayouts()
-  nameWithType: KeyboardComponent.GetAvailableKeyboardLayouts()
-  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.GetAvailableKeyboardLayouts()
+  name: GetInstalledInputLanguages()
+  nameWithType: KeyboardComponent.GetInstalledInputLanguages()
+  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.GetInstalledInputLanguages()
   type: Method
   source:
-    id: GetAvailableKeyboardLayouts
+    id: GetInstalledInputLanguages
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 233
+    startLine: 309
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
-  summary: See list of possible keyboard layouts for this system.
-  remarks: This function is expensive and should be cached if possible.
+  summary: See list of installed input language + keyboard layout combinations for this system.
   example: []
   syntax:
-    content: public string[] GetAvailableKeyboardLayouts()
+    content: public InputLanguage[] GetInstalledInputLanguages()
     return:
-      type: System.String[]
-      description: Array containing possible keyboard layouts.
-    content.vb: Public Function GetAvailableKeyboardLayouts() As String()
-  overload: OpenTK.Platform.Native.Windows.KeyboardComponent.GetAvailableKeyboardLayouts*
+      type: OpenTK.Platform.InputLanguage[]
+      description: Array containing installed input language + keyboard layout combinations.
+    content.vb: Public Function GetInstalledInputLanguages() As InputLanguage()
+  overload: OpenTK.Platform.Native.Windows.KeyboardComponent.GetInstalledInputLanguages*
   implements:
-  - OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
+  - OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
 - uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
   commentId: M:OpenTK.Platform.Native.Windows.KeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
   id: GetScancodeFromKey(OpenTK.Platform.Key)
@@ -349,7 +344,7 @@ items:
   source:
     id: GetScancodeFromKey
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 264
+    startLine: 332
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -395,7 +390,7 @@ items:
   source:
     id: GetKeyFromScancode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 271
+    startLine: 339
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -437,7 +432,7 @@ items:
   source:
     id: GetKeyboardState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 277
+    startLine: 345
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -478,7 +473,7 @@ items:
   source:
     id: GetKeyboardModifiers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 326
+    startLine: 394
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -510,7 +505,7 @@ items:
   source:
     id: BeginIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 334
+    startLine: 402
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -540,7 +535,7 @@ items:
   source:
     id: SetImeRectangle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 346
+    startLine: 414
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -585,7 +580,7 @@ items:
   source:
     id: EndIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\Windows\KeyboardComponent.cs
-    startLine: 367
+    startLine: 435
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.Windows
@@ -1155,38 +1150,32 @@ references:
   name: SupportsIme
   nameWithType: IKeyboardComponent.SupportsIme
   fullName: OpenTK.Platform.IKeyboardComponent.SupportsIme
-- uid: OpenTK.Platform.PalNotImplementedException
-  commentId: T:OpenTK.Platform.PalNotImplementedException
-  href: OpenTK.Platform.PalNotImplementedException.html
-  name: PalNotImplementedException
-  nameWithType: PalNotImplementedException
-  fullName: OpenTK.Platform.PalNotImplementedException
-- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout*
-  commentId: Overload:OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout
-  href: OpenTK.Platform.Native.Windows.KeyboardComponent.html#OpenTK_Platform_Native_Windows_KeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
-  name: GetActiveKeyboardLayout
-  nameWithType: KeyboardComponent.GetActiveKeyboardLayout
-  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveKeyboardLayout
-- uid: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  commentId: M:OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
+- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage*
+  commentId: Overload:OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage
+  href: OpenTK.Platform.Native.Windows.KeyboardComponent.html#OpenTK_Platform_Native_Windows_KeyboardComponent_GetActiveInputLanguage_OpenTK_Platform_WindowHandle_
+  name: GetActiveInputLanguage
+  nameWithType: KeyboardComponent.GetActiveInputLanguage
+  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.GetActiveInputLanguage
+- uid: OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
   parent: OpenTK.Platform.IKeyboardComponent
-  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
-  name: GetActiveKeyboardLayout(WindowHandle)
-  nameWithType: IKeyboardComponent.GetActiveKeyboardLayout(WindowHandle)
-  fullName: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveInputLanguage_OpenTK_Platform_WindowHandle_
+  name: GetActiveInputLanguage(WindowHandle)
+  nameWithType: IKeyboardComponent.GetActiveInputLanguage(WindowHandle)
+  fullName: OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
   spec.csharp:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-    name: GetActiveKeyboardLayout
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
+  - uid: OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+    name: GetActiveInputLanguage
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveInputLanguage_OpenTK_Platform_WindowHandle_
   - name: (
   - uid: OpenTK.Platform.WindowHandle
     name: WindowHandle
     href: OpenTK.Platform.WindowHandle.html
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-    name: GetActiveKeyboardLayout
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
+  - uid: OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+    name: GetActiveInputLanguage
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveInputLanguage_OpenTK_Platform_WindowHandle_
   - name: (
   - uid: OpenTK.Platform.WindowHandle
     name: WindowHandle
@@ -1199,52 +1188,57 @@ references:
   name: WindowHandle
   nameWithType: WindowHandle
   fullName: OpenTK.Platform.WindowHandle
-- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetAvailableKeyboardLayouts*
-  commentId: Overload:OpenTK.Platform.Native.Windows.KeyboardComponent.GetAvailableKeyboardLayouts
-  href: OpenTK.Platform.Native.Windows.KeyboardComponent.html#OpenTK_Platform_Native_Windows_KeyboardComponent_GetAvailableKeyboardLayouts
-  name: GetAvailableKeyboardLayouts
-  nameWithType: KeyboardComponent.GetAvailableKeyboardLayouts
-  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.GetAvailableKeyboardLayouts
-- uid: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
-  commentId: M:OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
+- uid: OpenTK.Platform.InputLanguage
+  commentId: T:OpenTK.Platform.InputLanguage
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.InputLanguage.html
+  name: InputLanguage
+  nameWithType: InputLanguage
+  fullName: OpenTK.Platform.InputLanguage
+- uid: OpenTK.Platform.Native.Windows.KeyboardComponent.GetInstalledInputLanguages*
+  commentId: Overload:OpenTK.Platform.Native.Windows.KeyboardComponent.GetInstalledInputLanguages
+  href: OpenTK.Platform.Native.Windows.KeyboardComponent.html#OpenTK_Platform_Native_Windows_KeyboardComponent_GetInstalledInputLanguages
+  name: GetInstalledInputLanguages
+  nameWithType: KeyboardComponent.GetInstalledInputLanguages
+  fullName: OpenTK.Platform.Native.Windows.KeyboardComponent.GetInstalledInputLanguages
+- uid: OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
   parent: OpenTK.Platform.IKeyboardComponent
-  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetAvailableKeyboardLayouts
-  name: GetAvailableKeyboardLayouts()
-  nameWithType: IKeyboardComponent.GetAvailableKeyboardLayouts()
-  fullName: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts()
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetInstalledInputLanguages
+  name: GetInstalledInputLanguages()
+  nameWithType: IKeyboardComponent.GetInstalledInputLanguages()
+  fullName: OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages()
   spec.csharp:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
-    name: GetAvailableKeyboardLayouts
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetAvailableKeyboardLayouts
+  - uid: OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
+    name: GetInstalledInputLanguages
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetInstalledInputLanguages
   - name: (
   - name: )
   spec.vb:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
-    name: GetAvailableKeyboardLayouts
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetAvailableKeyboardLayouts
+  - uid: OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
+    name: GetInstalledInputLanguages
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetInstalledInputLanguages
   - name: (
   - name: )
-- uid: System.String[]
+- uid: OpenTK.Platform.InputLanguage[]
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string[]
-  nameWithType: string[]
-  fullName: string[]
-  nameWithType.vb: String()
-  fullName.vb: String()
-  name.vb: String()
+  href: OpenTK.Platform.InputLanguage.html
+  name: InputLanguage[]
+  nameWithType: InputLanguage[]
+  fullName: OpenTK.Platform.InputLanguage[]
+  nameWithType.vb: InputLanguage()
+  fullName.vb: OpenTK.Platform.InputLanguage()
+  name.vb: InputLanguage()
   spec.csharp:
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
+  - uid: OpenTK.Platform.InputLanguage
+    name: InputLanguage
+    href: OpenTK.Platform.InputLanguage.html
   - name: '['
   - name: ']'
   spec.vb:
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
+  - uid: OpenTK.Platform.InputLanguage
+    name: InputLanguage
+    href: OpenTK.Platform.InputLanguage.html
   - name: (
   - name: )
 - uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)

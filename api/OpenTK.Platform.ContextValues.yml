@@ -440,7 +440,7 @@ items:
   source:
     id: DefaultValuesSelector
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 113
+    startLine: 114
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -448,6 +448,7 @@ items:
     Default context values selector. Prioritizes the requested values with a series of "relaxations" to find a close match.<br />
 
     The relaxations are done in the following order:
+
 
     <ol><li>If no exact match is found try find a format with a larger number of color, depth, or stencil bits.</li><li>If <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == false is requested, <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == true formats will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == false is requested, <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == true formats will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SwapMethod" data-throw-if-not-resolved="false"></xref> == <xref href="OpenTK.Platform.ContextSwapMethod.Undefined" data-throw-if-not-resolved="false"></xref>, any swap method will be accepted.</li><li>If <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == true, accept <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> == false formats.</li><li>If <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == true, accept <xref href="OpenTK.Platform.ContextValues.SRGBFramebuffer" data-throw-if-not-resolved="false"></xref> == false formats.</li><li>Accept any <xref href="OpenTK.Platform.ContextValues.PixelFormat" data-throw-if-not-resolved="false"></xref>.</li><li>Decrement <xref href="OpenTK.Platform.ContextValues.Samples" data-throw-if-not-resolved="false"></xref> by one at a time until 0 and see if any alternative sample counts are possible.</li><li>Accept any <xref href="OpenTK.Platform.ContextValues.SwapMethod" data-throw-if-not-resolved="false"></xref>.</li><li>Allow one of color bits (<xref href="OpenTK.Platform.ContextValues.RedBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.GreenBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.BlueBits" data-throw-if-not-resolved="false"></xref>, and <xref href="OpenTK.Platform.ContextValues.AlphaBits" data-throw-if-not-resolved="false"></xref>), <xref href="OpenTK.Platform.ContextValues.DepthBits" data-throw-if-not-resolved="false"></xref>, or <xref href="OpenTK.Platform.ContextValues.StencilBits" data-throw-if-not-resolved="false"></xref> to be lower than requested.</li><li>Allow two of color bits (<xref href="OpenTK.Platform.ContextValues.RedBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.GreenBits" data-throw-if-not-resolved="false"></xref>, <xref href="OpenTK.Platform.ContextValues.BlueBits" data-throw-if-not-resolved="false"></xref>, and <xref href="OpenTK.Platform.ContextValues.AlphaBits" data-throw-if-not-resolved="false"></xref>), <xref href="OpenTK.Platform.ContextValues.DepthBits" data-throw-if-not-resolved="false"></xref>, or <xref href="OpenTK.Platform.ContextValues.StencilBits" data-throw-if-not-resolved="false"></xref> to be lower than requested.</li><li>Relax all bit requirements.</li><li>Relax double buffer requirements.</li><li>If all relaxations fail, select the first option in the list.</li></ol>
   example: []
@@ -468,6 +469,9 @@ items:
       description: The index of the selected "best match" context values.
     content.vb: Public Shared Function DefaultValuesSelector(options As IReadOnlyList(Of ContextValues), requested As ContextValues, logger As ILogger) As Integer
   overload: OpenTK.Platform.ContextValues.DefaultValuesSelector*
+  seealso:
+  - linkId: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+    commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.Selector
   nameWithType.vb: ContextValues.DefaultValuesSelector(IReadOnlyList(Of ContextValues), ContextValues, ILogger)
   fullName.vb: OpenTK.Platform.ContextValues.DefaultValuesSelector(System.Collections.Generic.IReadOnlyList(Of OpenTK.Platform.ContextValues), OpenTK.Platform.ContextValues, OpenTK.Core.Utility.ILogger)
   name.vb: DefaultValuesSelector(IReadOnlyList(Of ContextValues), ContextValues, ILogger)
@@ -485,7 +489,7 @@ items:
   source:
     id: IsEqualExcludingID
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 415
+    startLine: 416
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -514,7 +518,7 @@ items:
   source:
     id: HasEqualColorBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 432
+    startLine: 433
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -543,7 +547,7 @@ items:
   source:
     id: HasGreaterOrEqualColorBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 440
+    startLine: 441
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -572,7 +576,7 @@ items:
   source:
     id: HasLessOrEqualColorBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 448
+    startLine: 449
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -601,7 +605,7 @@ items:
   source:
     id: HasEqualDepthBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 456
+    startLine: 457
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -630,7 +634,7 @@ items:
   source:
     id: HasGreaterOrEqualDepthBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 461
+    startLine: 462
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -659,7 +663,7 @@ items:
   source:
     id: HasLessOrEqualDepthBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 466
+    startLine: 467
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -688,7 +692,7 @@ items:
   source:
     id: HasEqualStencilBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 471
+    startLine: 472
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -717,7 +721,7 @@ items:
   source:
     id: HasGreaterOrEqualStencilBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 476
+    startLine: 477
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -746,7 +750,7 @@ items:
   source:
     id: HasLessOrEqualStencilBits
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 481
+    startLine: 482
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -775,7 +779,7 @@ items:
   source:
     id: HasEqualMSAA
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 486
+    startLine: 487
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -804,7 +808,7 @@ items:
   source:
     id: HasEqualDoubleBuffer
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 491
+    startLine: 492
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -833,7 +837,7 @@ items:
   source:
     id: HasEqualSRGB
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 496
+    startLine: 497
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -862,7 +866,7 @@ items:
   source:
     id: HasEqualPixelFormat
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 501
+    startLine: 502
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -891,7 +895,7 @@ items:
   source:
     id: HasEqualSwapMethod
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 506
+    startLine: 507
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -920,7 +924,7 @@ items:
   source:
     id: HasEqualFramebufferTransparencySupport
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 511
+    startLine: 512
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -949,7 +953,7 @@ items:
   source:
     id: HasEqualStereo
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 516
+    startLine: 517
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -978,7 +982,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 521
+    startLine: 522
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1028,7 +1032,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 538
+    startLine: 539
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1063,7 +1067,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 544
+    startLine: 545
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1096,7 +1100,7 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 561
+    startLine: 562
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1124,7 +1128,7 @@ items:
   source:
     id: op_Equality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 580
+    startLine: 581
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1157,7 +1161,7 @@ items:
   source:
     id: op_Inequality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 586
+    startLine: 587
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1190,7 +1194,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ContextSettings.cs
-    startLine: 592
+    startLine: 593
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -1623,6 +1627,12 @@ references:
   name: IWindowComponent
   nameWithType: IWindowComponent
   fullName: OpenTK.Platform.IWindowComponent
+- uid: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+  commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.Selector
+  href: OpenTK.Platform.OpenGLGraphicsApiHints.html#OpenTK_Platform_OpenGLGraphicsApiHints_Selector
+  name: Selector
+  nameWithType: OpenGLGraphicsApiHints.Selector
+  fullName: OpenTK.Platform.OpenGLGraphicsApiHints.Selector
 - uid: OpenTK.Platform.ContextValues.SupportsFramebufferTransparency
   commentId: F:OpenTK.Platform.ContextValues.SupportsFramebufferTransparency
   href: OpenTK.Platform.ContextValues.html#OpenTK_Platform_ContextValues_SupportsFramebufferTransparency

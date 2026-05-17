@@ -25,8 +25,16 @@ items:
   - OpenTK.Mathematics.Vector4.ComponentEqual(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
   - OpenTK.Mathematics.Vector4.ComponentMax(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
   - OpenTK.Mathematics.Vector4.ComponentMax(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  - OpenTK.Mathematics.Vector4.ComponentMaxNative(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  - OpenTK.Mathematics.Vector4.ComponentMaxNative(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  - OpenTK.Mathematics.Vector4.ComponentMaxNumber(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  - OpenTK.Mathematics.Vector4.ComponentMaxNumber(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
   - OpenTK.Mathematics.Vector4.ComponentMin(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
   - OpenTK.Mathematics.Vector4.ComponentMin(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  - OpenTK.Mathematics.Vector4.ComponentMinNative(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  - OpenTK.Mathematics.Vector4.ComponentMinNative(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  - OpenTK.Mathematics.Vector4.ComponentMinNumber(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  - OpenTK.Mathematics.Vector4.ComponentMinNumber(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
   - OpenTK.Mathematics.Vector4.ComponentNotEqual(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
   - OpenTK.Mathematics.Vector4.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
   - OpenTK.Mathematics.Vector4.Distance(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
@@ -1770,11 +1778,14 @@ items:
   source:
     id: ComponentMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 532
+    startLine: 533
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the smallest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: >-
@@ -1814,11 +1825,14 @@ items:
   source:
     id: ComponentMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 548
+    startLine: 551
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the smallest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: public static void ComponentMin(in Vector4 a, in Vector4 b, out Vector4 result)
@@ -1837,6 +1851,180 @@ items:
   nameWithType.vb: Vector4.ComponentMin(Vector4, Vector4, Vector4)
   fullName.vb: OpenTK.Mathematics.Vector4.ComponentMin(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
   name.vb: ComponentMin(Vector4, Vector4, Vector4)
+- uid: OpenTK.Mathematics.Vector4.ComponentMinNumber(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  commentId: M:OpenTK.Mathematics.Vector4.ComponentMinNumber(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  id: ComponentMinNumber(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  parent: OpenTK.Mathematics.Vector4
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNumber(Vector4, Vector4)
+  nameWithType: Vector4.ComponentMinNumber(Vector4, Vector4)
+  fullName: OpenTK.Mathematics.Vector4.ComponentMinNumber(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
+  type: Method
+  source:
+    id: ComponentMinNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
+    startLine: 567
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector4 ComponentMinNumber(Vector4 a, Vector4 b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMinNumber(a As Vector4, b As Vector4) As Vector4
+  overload: OpenTK.Mathematics.Vector4.ComponentMinNumber*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector4.ComponentMinNumber(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  commentId: M:OpenTK.Mathematics.Vector4.ComponentMinNumber(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  id: ComponentMinNumber(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  parent: OpenTK.Mathematics.Vector4
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNumber(in Vector4, in Vector4, out Vector4)
+  nameWithType: Vector4.ComponentMinNumber(in Vector4, in Vector4, out Vector4)
+  fullName: OpenTK.Mathematics.Vector4.ComponentMinNumber(in OpenTK.Mathematics.Vector4, in OpenTK.Mathematics.Vector4, out OpenTK.Mathematics.Vector4)
+  type: Method
+  source:
+    id: ComponentMinNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
+    startLine: 585
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: public static void ComponentMinNumber(in Vector4 a, in Vector4 b, out Vector4 result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector4
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMinNumber(a As Vector4, b As Vector4, result As Vector4)
+  overload: OpenTK.Mathematics.Vector4.ComponentMinNumber*
+  nameWithType.vb: Vector4.ComponentMinNumber(Vector4, Vector4, Vector4)
+  fullName.vb: OpenTK.Mathematics.Vector4.ComponentMinNumber(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
+  name.vb: ComponentMinNumber(Vector4, Vector4, Vector4)
+- uid: OpenTK.Mathematics.Vector4.ComponentMinNative(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  commentId: M:OpenTK.Mathematics.Vector4.ComponentMinNative(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  id: ComponentMinNative(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  parent: OpenTK.Mathematics.Vector4
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNative(Vector4, Vector4)
+  nameWithType: Vector4.ComponentMinNative(Vector4, Vector4)
+  fullName: OpenTK.Mathematics.Vector4.ComponentMinNative(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
+  type: Method
+  source:
+    id: ComponentMinNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
+    startLine: 601
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector4 ComponentMinNative(Vector4 a, Vector4 b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMinNative(a As Vector4, b As Vector4) As Vector4
+  overload: OpenTK.Mathematics.Vector4.ComponentMinNative*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector4.ComponentMinNative(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  commentId: M:OpenTK.Mathematics.Vector4.ComponentMinNative(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  id: ComponentMinNative(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  parent: OpenTK.Mathematics.Vector4
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNative(in Vector4, in Vector4, out Vector4)
+  nameWithType: Vector4.ComponentMinNative(in Vector4, in Vector4, out Vector4)
+  fullName: OpenTK.Mathematics.Vector4.ComponentMinNative(in OpenTK.Mathematics.Vector4, in OpenTK.Mathematics.Vector4, out OpenTK.Mathematics.Vector4)
+  type: Method
+  source:
+    id: ComponentMinNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
+    startLine: 619
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: public static void ComponentMinNative(in Vector4 a, in Vector4 b, out Vector4 result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector4
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMinNative(a As Vector4, b As Vector4, result As Vector4)
+  overload: OpenTK.Mathematics.Vector4.ComponentMinNative*
+  nameWithType.vb: Vector4.ComponentMinNative(Vector4, Vector4, Vector4)
+  fullName.vb: OpenTK.Mathematics.Vector4.ComponentMinNative(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
+  name.vb: ComponentMinNative(Vector4, Vector4, Vector4)
 - uid: OpenTK.Mathematics.Vector4.ComponentMax(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
   commentId: M:OpenTK.Mathematics.Vector4.ComponentMax(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
   id: ComponentMax(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
@@ -1851,11 +2039,14 @@ items:
   source:
     id: ComponentMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 562
+    startLine: 635
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the largest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: >-
@@ -1871,7 +2062,7 @@ items:
       description: Second operand.
     return:
       type: OpenTK.Mathematics.Vector4
-      description: The component-wise maximum.
+      description: The component-wise minimum.
     content.vb: >-
       <Pure>
 
@@ -1895,11 +2086,14 @@ items:
   source:
     id: ComponentMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 578
+    startLine: 653
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the largest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: public static void ComponentMax(in Vector4 a, in Vector4 b, out Vector4 result)
@@ -1912,12 +2106,186 @@ items:
       description: Second operand.
     - id: result
       type: OpenTK.Mathematics.Vector4
-      description: The component-wise maximum.
+      description: The component-wise minimum.
     content.vb: Public Shared Sub ComponentMax(a As Vector4, b As Vector4, result As Vector4)
   overload: OpenTK.Mathematics.Vector4.ComponentMax*
   nameWithType.vb: Vector4.ComponentMax(Vector4, Vector4, Vector4)
   fullName.vb: OpenTK.Mathematics.Vector4.ComponentMax(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
   name.vb: ComponentMax(Vector4, Vector4, Vector4)
+- uid: OpenTK.Mathematics.Vector4.ComponentMaxNumber(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  commentId: M:OpenTK.Mathematics.Vector4.ComponentMaxNumber(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  id: ComponentMaxNumber(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  parent: OpenTK.Mathematics.Vector4
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNumber(Vector4, Vector4)
+  nameWithType: Vector4.ComponentMaxNumber(Vector4, Vector4)
+  fullName: OpenTK.Mathematics.Vector4.ComponentMaxNumber(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
+  type: Method
+  source:
+    id: ComponentMaxNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
+    startLine: 669
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector4 ComponentMaxNumber(Vector4 a, Vector4 b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMaxNumber(a As Vector4, b As Vector4) As Vector4
+  overload: OpenTK.Mathematics.Vector4.ComponentMaxNumber*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector4.ComponentMaxNumber(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  commentId: M:OpenTK.Mathematics.Vector4.ComponentMaxNumber(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  id: ComponentMaxNumber(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  parent: OpenTK.Mathematics.Vector4
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNumber(in Vector4, in Vector4, out Vector4)
+  nameWithType: Vector4.ComponentMaxNumber(in Vector4, in Vector4, out Vector4)
+  fullName: OpenTK.Mathematics.Vector4.ComponentMaxNumber(in OpenTK.Mathematics.Vector4, in OpenTK.Mathematics.Vector4, out OpenTK.Mathematics.Vector4)
+  type: Method
+  source:
+    id: ComponentMaxNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
+    startLine: 687
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: public static void ComponentMaxNumber(in Vector4 a, in Vector4 b, out Vector4 result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector4
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMaxNumber(a As Vector4, b As Vector4, result As Vector4)
+  overload: OpenTK.Mathematics.Vector4.ComponentMaxNumber*
+  nameWithType.vb: Vector4.ComponentMaxNumber(Vector4, Vector4, Vector4)
+  fullName.vb: OpenTK.Mathematics.Vector4.ComponentMaxNumber(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
+  name.vb: ComponentMaxNumber(Vector4, Vector4, Vector4)
+- uid: OpenTK.Mathematics.Vector4.ComponentMaxNative(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  commentId: M:OpenTK.Mathematics.Vector4.ComponentMaxNative(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  id: ComponentMaxNative(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
+  parent: OpenTK.Mathematics.Vector4
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNative(Vector4, Vector4)
+  nameWithType: Vector4.ComponentMaxNative(Vector4, Vector4)
+  fullName: OpenTK.Mathematics.Vector4.ComponentMaxNative(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
+  type: Method
+  source:
+    id: ComponentMaxNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
+    startLine: 703
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector4 ComponentMaxNative(Vector4 a, Vector4 b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMaxNative(a As Vector4, b As Vector4) As Vector4
+  overload: OpenTK.Mathematics.Vector4.ComponentMaxNative*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector4.ComponentMaxNative(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  commentId: M:OpenTK.Mathematics.Vector4.ComponentMaxNative(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  id: ComponentMaxNative(OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@,OpenTK.Mathematics.Vector4@)
+  parent: OpenTK.Mathematics.Vector4
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNative(in Vector4, in Vector4, out Vector4)
+  nameWithType: Vector4.ComponentMaxNative(in Vector4, in Vector4, out Vector4)
+  fullName: OpenTK.Mathematics.Vector4.ComponentMaxNative(in OpenTK.Mathematics.Vector4, in OpenTK.Mathematics.Vector4, out OpenTK.Mathematics.Vector4)
+  type: Method
+  source:
+    id: ComponentMaxNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
+    startLine: 721
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: public static void ComponentMaxNative(in Vector4 a, in Vector4 b, out Vector4 result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector4
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMaxNative(a As Vector4, b As Vector4, result As Vector4)
+  overload: OpenTK.Mathematics.Vector4.ComponentMaxNative*
+  nameWithType.vb: Vector4.ComponentMaxNative(Vector4, Vector4, Vector4)
+  fullName.vb: OpenTK.Mathematics.Vector4.ComponentMaxNative(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4)
+  name.vb: ComponentMaxNative(Vector4, Vector4, Vector4)
 - uid: OpenTK.Mathematics.Vector4.MagnitudeMin(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
   commentId: M:OpenTK.Mathematics.Vector4.MagnitudeMin(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
   id: MagnitudeMin(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)
@@ -1932,7 +2300,7 @@ items:
   source:
     id: MagnitudeMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 593
+    startLine: 737
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1979,7 +2347,7 @@ items:
   source:
     id: MagnitudeMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 606
+    startLine: 750
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2019,7 +2387,7 @@ items:
   source:
     id: MagnitudeMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 618
+    startLine: 762
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2066,7 +2434,7 @@ items:
   source:
     id: MagnitudeMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 631
+    startLine: 775
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2106,7 +2474,7 @@ items:
   source:
     id: Clamp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 643
+    startLine: 787
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2153,7 +2521,7 @@ items:
   source:
     id: Clamp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 660
+    startLine: 804
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2193,7 +2561,7 @@ items:
   source:
     id: Abs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 673
+    startLine: 817
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2224,7 +2592,7 @@ items:
   source:
     id: Abs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 687
+    startLine: 831
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2258,7 +2626,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 700
+    startLine: 844
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2299,7 +2667,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 715
+    startLine: 859
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2333,7 +2701,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 730
+    startLine: 874
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2380,7 +2748,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 747
+    startLine: 891
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2420,7 +2788,7 @@ items:
   source:
     id: Ceiling
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 761
+    startLine: 905
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2464,7 +2832,7 @@ items:
   source:
     id: Ceiling
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 777
+    startLine: 921
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2501,7 +2869,7 @@ items:
   source:
     id: Floor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 791
+    startLine: 935
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2545,7 +2913,7 @@ items:
   source:
     id: Floor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 807
+    startLine: 951
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2582,7 +2950,7 @@ items:
   source:
     id: Truncate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 821
+    startLine: 965
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2626,7 +2994,7 @@ items:
   source:
     id: Truncate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 837
+    startLine: 981
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2663,7 +3031,7 @@ items:
   source:
     id: Distance
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 851
+    startLine: 995
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2707,7 +3075,7 @@ items:
   source:
     id: Distance
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 864
+    startLine: 1008
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2744,7 +3112,7 @@ items:
   source:
     id: DistanceSquared
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 875
+    startLine: 1019
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2788,7 +3156,7 @@ items:
   source:
     id: DistanceSquared
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 888
+    startLine: 1032
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2825,7 +3193,7 @@ items:
   source:
     id: Normalize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 898
+    startLine: 1042
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2866,7 +3234,7 @@ items:
   source:
     id: Normalize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 914
+    startLine: 1058
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2900,7 +3268,7 @@ items:
   source:
     id: NormalizeFast
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 928
+    startLine: 1072
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2941,7 +3309,7 @@ items:
   source:
     id: NormalizeFast
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 944
+    startLine: 1088
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2975,7 +3343,7 @@ items:
   source:
     id: Dot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 959
+    startLine: 1103
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3019,7 +3387,7 @@ items:
   source:
     id: Dot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 971
+    startLine: 1115
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3056,7 +3424,7 @@ items:
   source:
     id: LessThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 982
+    startLine: 1126
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3093,7 +3461,7 @@ items:
   source:
     id: LessThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 993
+    startLine: 1137
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3130,7 +3498,7 @@ items:
   source:
     id: GreaterThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1004
+    startLine: 1148
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3167,7 +3535,7 @@ items:
   source:
     id: GreaterThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1015
+    startLine: 1159
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3204,7 +3572,7 @@ items:
   source:
     id: ComponentEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1026
+    startLine: 1170
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3241,7 +3609,7 @@ items:
   source:
     id: ComponentNotEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1037
+    startLine: 1181
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3278,7 +3646,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1049
+    startLine: 1193
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3328,7 +3696,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1066
+    startLine: 1210
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3368,7 +3736,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1081
+    startLine: 1225
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3415,7 +3783,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1098
+    startLine: 1242
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3455,7 +3823,7 @@ items:
   source:
     id: Slerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1115
+    startLine: 1259
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3510,7 +3878,7 @@ items:
   source:
     id: Slerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1146
+    startLine: 1290
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3555,7 +3923,7 @@ items:
   source:
     id: Elerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1184
+    startLine: 1328
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3601,7 +3969,7 @@ items:
   source:
     id: Elerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1202
+    startLine: 1346
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3647,7 +4015,7 @@ items:
   source:
     id: BaryCentric
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1219
+    startLine: 1363
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3703,7 +4071,7 @@ items:
   source:
     id: BaryCentric
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1238
+    startLine: 1382
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3752,7 +4120,7 @@ items:
   source:
     id: TransformRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1263
+    startLine: 1407
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3796,7 +4164,7 @@ items:
   source:
     id: TransformRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1276
+    startLine: 1420
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3833,7 +4201,7 @@ items:
   source:
     id: Transform
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1291
+    startLine: 1435
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3877,7 +4245,7 @@ items:
   source:
     id: Transform
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1304
+    startLine: 1448
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3914,7 +4282,7 @@ items:
   source:
     id: TransformColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1323
+    startLine: 1467
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3958,7 +4326,7 @@ items:
   source:
     id: TransformColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1336
+    startLine: 1480
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3995,7 +4363,7 @@ items:
   source:
     id: TransformTwoDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1351
+    startLine: 1495
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4039,7 +4407,7 @@ items:
   source:
     id: TransformTwoDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1364
+    startLine: 1508
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4076,7 +4444,7 @@ items:
   source:
     id: TransformThreeDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1378
+    startLine: 1522
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4120,7 +4488,7 @@ items:
   source:
     id: TransformThreeDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1391
+    startLine: 1535
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4157,7 +4525,7 @@ items:
   source:
     id: TransformTwoDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1406
+    startLine: 1550
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4201,7 +4569,7 @@ items:
   source:
     id: TransformTwoDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1419
+    startLine: 1563
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4238,7 +4606,7 @@ items:
   source:
     id: TransformThreeDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1433
+    startLine: 1577
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4282,7 +4650,7 @@ items:
   source:
     id: TransformThreeDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1446
+    startLine: 1590
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4319,7 +4687,7 @@ items:
   source:
     id: Xy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1458
+    startLine: 1602
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4346,7 +4714,7 @@ items:
   source:
     id: Xz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1472
+    startLine: 1616
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4373,7 +4741,7 @@ items:
   source:
     id: Xw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1486
+    startLine: 1630
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4400,7 +4768,7 @@ items:
   source:
     id: Yx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1500
+    startLine: 1644
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4427,7 +4795,7 @@ items:
   source:
     id: Yz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1514
+    startLine: 1658
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4454,7 +4822,7 @@ items:
   source:
     id: Yw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1528
+    startLine: 1672
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4481,7 +4849,7 @@ items:
   source:
     id: Zx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1542
+    startLine: 1686
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4508,7 +4876,7 @@ items:
   source:
     id: Zy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1556
+    startLine: 1700
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4535,7 +4903,7 @@ items:
   source:
     id: Zw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1570
+    startLine: 1714
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4562,7 +4930,7 @@ items:
   source:
     id: Wx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1584
+    startLine: 1728
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4589,7 +4957,7 @@ items:
   source:
     id: Wy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1598
+    startLine: 1742
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4616,7 +4984,7 @@ items:
   source:
     id: Wz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1612
+    startLine: 1756
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4643,7 +5011,7 @@ items:
   source:
     id: Xyz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1626
+    startLine: 1770
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4670,7 +5038,7 @@ items:
   source:
     id: Xyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1641
+    startLine: 1785
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4697,7 +5065,7 @@ items:
   source:
     id: Xzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1656
+    startLine: 1800
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4724,7 +5092,7 @@ items:
   source:
     id: Xzw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1671
+    startLine: 1815
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4751,7 +5119,7 @@ items:
   source:
     id: Xwy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1686
+    startLine: 1830
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4778,7 +5146,7 @@ items:
   source:
     id: Xwz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1701
+    startLine: 1845
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4805,7 +5173,7 @@ items:
   source:
     id: Yxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1716
+    startLine: 1860
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4832,7 +5200,7 @@ items:
   source:
     id: Yxw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1731
+    startLine: 1875
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4859,7 +5227,7 @@ items:
   source:
     id: Yzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1746
+    startLine: 1890
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4886,7 +5254,7 @@ items:
   source:
     id: Yzw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1761
+    startLine: 1905
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4913,7 +5281,7 @@ items:
   source:
     id: Ywx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1776
+    startLine: 1920
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4940,7 +5308,7 @@ items:
   source:
     id: Ywz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1791
+    startLine: 1935
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4967,7 +5335,7 @@ items:
   source:
     id: Zxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1806
+    startLine: 1950
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4994,7 +5362,7 @@ items:
   source:
     id: Zxw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1821
+    startLine: 1965
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5021,7 +5389,7 @@ items:
   source:
     id: Zyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1836
+    startLine: 1980
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5048,7 +5416,7 @@ items:
   source:
     id: Zyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1851
+    startLine: 1995
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5075,7 +5443,7 @@ items:
   source:
     id: Zwx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1866
+    startLine: 2010
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5102,7 +5470,7 @@ items:
   source:
     id: Zwy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1881
+    startLine: 2025
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5129,7 +5497,7 @@ items:
   source:
     id: Wxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1896
+    startLine: 2040
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5156,7 +5524,7 @@ items:
   source:
     id: Wxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1911
+    startLine: 2055
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5183,7 +5551,7 @@ items:
   source:
     id: Wyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1926
+    startLine: 2070
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5210,7 +5578,7 @@ items:
   source:
     id: Wyz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1941
+    startLine: 2085
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5237,7 +5605,7 @@ items:
   source:
     id: Wzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1956
+    startLine: 2100
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5264,7 +5632,7 @@ items:
   source:
     id: Wzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1971
+    startLine: 2115
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5291,7 +5659,7 @@ items:
   source:
     id: Xywz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 1986
+    startLine: 2130
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5318,7 +5686,7 @@ items:
   source:
     id: Xzyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2002
+    startLine: 2146
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5345,7 +5713,7 @@ items:
   source:
     id: Xzwy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2018
+    startLine: 2162
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5372,7 +5740,7 @@ items:
   source:
     id: Xwyz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2034
+    startLine: 2178
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5399,7 +5767,7 @@ items:
   source:
     id: Xwzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2050
+    startLine: 2194
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5426,7 +5794,7 @@ items:
   source:
     id: Yxzw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2066
+    startLine: 2210
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5453,7 +5821,7 @@ items:
   source:
     id: Yxwz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2082
+    startLine: 2226
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5480,7 +5848,7 @@ items:
   source:
     id: Yyzw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2098
+    startLine: 2242
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5507,7 +5875,7 @@ items:
   source:
     id: Yywz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2114
+    startLine: 2258
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5534,7 +5902,7 @@ items:
   source:
     id: Yzxw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2130
+    startLine: 2274
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5561,7 +5929,7 @@ items:
   source:
     id: Yzwx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2146
+    startLine: 2290
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5588,7 +5956,7 @@ items:
   source:
     id: Ywxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2162
+    startLine: 2306
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5615,7 +5983,7 @@ items:
   source:
     id: Ywzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2178
+    startLine: 2322
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5642,7 +6010,7 @@ items:
   source:
     id: Zxyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2194
+    startLine: 2338
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5669,7 +6037,7 @@ items:
   source:
     id: Zxwy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2210
+    startLine: 2354
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5696,7 +6064,7 @@ items:
   source:
     id: Zyxw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2226
+    startLine: 2370
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5723,7 +6091,7 @@ items:
   source:
     id: Zywx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2242
+    startLine: 2386
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5750,7 +6118,7 @@ items:
   source:
     id: Zwxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2258
+    startLine: 2402
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5777,7 +6145,7 @@ items:
   source:
     id: Zwyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2274
+    startLine: 2418
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5804,7 +6172,7 @@ items:
   source:
     id: Zwzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2290
+    startLine: 2434
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5831,7 +6199,7 @@ items:
   source:
     id: Wxyz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2306
+    startLine: 2450
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5858,7 +6226,7 @@ items:
   source:
     id: Wxzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2322
+    startLine: 2466
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5885,7 +6253,7 @@ items:
   source:
     id: Wyxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2338
+    startLine: 2482
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5912,7 +6280,7 @@ items:
   source:
     id: Wyzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2354
+    startLine: 2498
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5939,7 +6307,7 @@ items:
   source:
     id: Wzxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2370
+    startLine: 2514
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5966,7 +6334,7 @@ items:
   source:
     id: Wzyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2386
+    startLine: 2530
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5993,7 +6361,7 @@ items:
   source:
     id: Wzyw
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2402
+    startLine: 2546
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6020,7 +6388,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2421
+    startLine: 2565
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6067,7 +6435,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2437
+    startLine: 2581
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6114,7 +6482,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2453
+    startLine: 2597
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6163,7 +6531,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2469
+    startLine: 2613
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6210,7 +6578,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2485
+    startLine: 2629
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6257,7 +6625,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2501
+    startLine: 2645
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6306,7 +6674,7 @@ items:
   source:
     id: op_UnaryNegation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2516
+    startLine: 2660
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6352,7 +6720,7 @@ items:
   source:
     id: op_UnaryPlus
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2531
+    startLine: 2675
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6398,7 +6766,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2547
+    startLine: 2691
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6447,7 +6815,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2563
+    startLine: 2707
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6494,7 +6862,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2579
+    startLine: 2723
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6543,7 +6911,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2595
+    startLine: 2739
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6592,7 +6960,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2608
+    startLine: 2752
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6641,7 +7009,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2621
+    startLine: 2765
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6690,7 +7058,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2634
+    startLine: 2778
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6739,7 +7107,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2650
+    startLine: 2794
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6786,7 +7154,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2666
+    startLine: 2810
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6835,7 +7203,7 @@ items:
   source:
     id: op_LessThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2682
+    startLine: 2826
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6882,7 +7250,7 @@ items:
   source:
     id: op_LessThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2694
+    startLine: 2838
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6929,7 +7297,7 @@ items:
   source:
     id: op_GreaterThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2706
+    startLine: 2850
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6976,7 +7344,7 @@ items:
   source:
     id: op_GreaterThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2718
+    startLine: 2862
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7023,7 +7391,7 @@ items:
   source:
     id: op_Equality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2730
+    startLine: 2874
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7062,7 +7430,7 @@ items:
   source:
     id: op_Inequality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2741
+    startLine: 2885
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7101,7 +7469,7 @@ items:
   source:
     id: op_Implicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2751
+    startLine: 2895
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7145,7 +7513,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2762
+    startLine: 2906
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7189,7 +7557,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2773
+    startLine: 2917
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7233,7 +7601,7 @@ items:
   source:
     id: op_Implicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2785
+    startLine: 2929
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7280,7 +7648,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2795
+    startLine: 2939
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7323,7 +7691,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2805
+    startLine: 2949
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7366,7 +7734,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2812
+    startLine: 2956
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7394,7 +7762,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2818
+    startLine: 2962
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7406,9 +7774,9 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
@@ -7433,7 +7801,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2824
+    startLine: 2968
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7445,9 +7813,9 @@ items:
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -7469,7 +7837,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2830
+    startLine: 2974
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7481,17 +7849,17 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -7518,7 +7886,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2842
+    startLine: 2986
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7553,7 +7921,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2848
+    startLine: 2992
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7586,7 +7954,7 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2857
+    startLine: 3001
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -7614,7 +7982,7 @@ items:
   source:
     id: Deconstruct
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector4.cs
-    startLine: 2869
+    startLine: 3013
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -9474,12 +9842,36 @@ references:
   name: ComponentMin
   nameWithType: Vector4.ComponentMin
   fullName: OpenTK.Mathematics.Vector4.ComponentMin
+- uid: OpenTK.Mathematics.Vector4.ComponentMinNumber*
+  commentId: Overload:OpenTK.Mathematics.Vector4.ComponentMinNumber
+  href: OpenTK.Mathematics.Vector4.html#OpenTK_Mathematics_Vector4_ComponentMinNumber_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_
+  name: ComponentMinNumber
+  nameWithType: Vector4.ComponentMinNumber
+  fullName: OpenTK.Mathematics.Vector4.ComponentMinNumber
+- uid: OpenTK.Mathematics.Vector4.ComponentMinNative*
+  commentId: Overload:OpenTK.Mathematics.Vector4.ComponentMinNative
+  href: OpenTK.Mathematics.Vector4.html#OpenTK_Mathematics_Vector4_ComponentMinNative_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_
+  name: ComponentMinNative
+  nameWithType: Vector4.ComponentMinNative
+  fullName: OpenTK.Mathematics.Vector4.ComponentMinNative
 - uid: OpenTK.Mathematics.Vector4.ComponentMax*
   commentId: Overload:OpenTK.Mathematics.Vector4.ComponentMax
   href: OpenTK.Mathematics.Vector4.html#OpenTK_Mathematics_Vector4_ComponentMax_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_
   name: ComponentMax
   nameWithType: Vector4.ComponentMax
   fullName: OpenTK.Mathematics.Vector4.ComponentMax
+- uid: OpenTK.Mathematics.Vector4.ComponentMaxNumber*
+  commentId: Overload:OpenTK.Mathematics.Vector4.ComponentMaxNumber
+  href: OpenTK.Mathematics.Vector4.html#OpenTK_Mathematics_Vector4_ComponentMaxNumber_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_
+  name: ComponentMaxNumber
+  nameWithType: Vector4.ComponentMaxNumber
+  fullName: OpenTK.Mathematics.Vector4.ComponentMaxNumber
+- uid: OpenTK.Mathematics.Vector4.ComponentMaxNative*
+  commentId: Overload:OpenTK.Mathematics.Vector4.ComponentMaxNative
+  href: OpenTK.Mathematics.Vector4.html#OpenTK_Mathematics_Vector4_ComponentMaxNative_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_
+  name: ComponentMaxNative
+  nameWithType: Vector4.ComponentMaxNative
+  fullName: OpenTK.Mathematics.Vector4.ComponentMaxNative
 - uid: OpenTK.Mathematics.Vector4.MagnitudeMin*
   commentId: Overload:OpenTK.Mathematics.Vector4.MagnitudeMin
   href: OpenTK.Mathematics.Vector4.html#OpenTK_Mathematics_Vector4_MagnitudeMin_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_

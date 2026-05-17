@@ -388,7 +388,10 @@ items:
   summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Matrix4" data-throw-if-not-resolved="false"></xref> struct.
   example: []
   syntax:
-    content: public Matrix4(float m00, float m01, float m02, float m03, float m10, float m11, float m12, float m13, float m20, float m21, float m22, float m23, float m30, float m31, float m32, float m33)
+    content: >-
+      [SuppressMessage("ReSharper", "SA1117", Justification = "For better readability of Matrix struct.")]
+
+      public Matrix4(float m00, float m01, float m02, float m03, float m10, float m11, float m12, float m13, float m20, float m21, float m22, float m23, float m30, float m31, float m32, float m33)
     parameters:
     - id: m00
       type: System.Single
@@ -438,8 +441,23 @@ items:
     - id: m33
       type: System.Single
       description: Fourth item of the fourth row of the matrix.
-    content.vb: Public Sub New(m00 As Single, m01 As Single, m02 As Single, m03 As Single, m10 As Single, m11 As Single, m12 As Single, m13 As Single, m20 As Single, m21 As Single, m22 As Single, m23 As Single, m30 As Single, m31 As Single, m32 As Single, m33 As Single)
+    content.vb: >-
+      <SuppressMessage("ReSharper", "SA1117", Justification:="For better readability of Matrix struct.")>
+
+      Public Sub New(m00 As Single, m01 As Single, m02 As Single, m03 As Single, m10 As Single, m11 As Single, m12 As Single, m13 As Single, m20 As Single, m21 As Single, m22 As Single, m23 As Single, m30 As Single, m31 As Single, m32 As Single, m33 As Single)
   overload: OpenTK.Mathematics.Matrix4.#ctor*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: ReSharper
+    - type: System.String
+      value: SA1117
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: For better readability of Matrix struct.
   nameWithType.vb: Matrix4.New(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
   fullName.vb: OpenTK.Mathematics.Matrix4.New(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
   name.vb: New(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
@@ -3012,6 +3030,7 @@ items:
     commentId: T:System.ArgumentOutOfRangeException
     description: >-
       Thrown under the following conditions:
+
        <ul><li>fovy is zero, less than zero or larger than Math.PI</li><li>aspect is negative or zero</li><li>depthNear is negative or zero</li><li>depthFar is negative or zero</li><li>depthNear is larger than depthFar</li></ul>
   nameWithType.vb: Matrix4.CreatePerspectiveFieldOfView(Single, Single, Single, Single, Matrix4)
   fullName.vb: OpenTK.Mathematics.Matrix4.CreatePerspectiveFieldOfView(Single, Single, Single, Single, OpenTK.Mathematics.Matrix4)
@@ -3067,6 +3086,7 @@ items:
     commentId: T:System.ArgumentOutOfRangeException
     description: >-
       Thrown under the following conditions:
+
        <ul><li>fovy is zero, less than zero or larger than Math.PI</li><li>aspect is negative or zero</li><li>depthNear is negative or zero</li><li>depthFar is negative or zero</li><li>depthNear is larger than depthFar</li></ul>
   attributes:
   - type: System.Diagnostics.Contracts.PureAttribute
@@ -3126,6 +3146,7 @@ items:
     commentId: T:System.ArgumentOutOfRangeException
     description: >-
       Thrown under the following conditions:
+
        <ul><li>depthNear is negative or zero</li><li>depthFar is negative or zero</li><li>depthNear is larger than depthFar</li></ul>
   nameWithType.vb: Matrix4.CreatePerspectiveOffCenter(Single, Single, Single, Single, Single, Single, Matrix4)
   fullName.vb: OpenTK.Mathematics.Matrix4.CreatePerspectiveOffCenter(Single, Single, Single, Single, Single, Single, OpenTK.Mathematics.Matrix4)
@@ -3187,6 +3208,7 @@ items:
     commentId: T:System.ArgumentOutOfRangeException
     description: >-
       Thrown under the following conditions:
+
        <ul><li>depthNear is negative or zero</li><li>depthFar is negative or zero</li><li>depthNear is larger than depthFar</li></ul>
   attributes:
   - type: System.Diagnostics.Contracts.PureAttribute
@@ -4638,9 +4660,9 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
@@ -4677,9 +4699,9 @@ items:
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -4713,17 +4735,17 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:

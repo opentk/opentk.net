@@ -125,16 +125,16 @@ The code shown so far will create a window and then process events while renderi
 
 This is becase closing the window is an event that needs to be responeded to, and as we are not handling any events no action is taken when the user wants to quit the application. So lets fix that!
 
-First step of handling events is to register a callback to the `EventQueue.EventRaised` event. Do this before creating the window like follows:
+First step of handling events is to register a callback to the `Toolkit.Event.EventRaised` event. Do this before creating the window like follows:
 
 ```cs
-EventQueue.EventRaised += EventRaised;
+Toolkit.Event.EventRaised += EventRaised;
 ```
 
 Now we need to define the `EventRaised` function.
 
 ```cs
-void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
+void EventRaised(EventArgs args)
 {
 
 }
@@ -143,13 +143,12 @@ void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
 > [!WARNING]
 > The arguments of the event callback are likely to change.
 
-This callback gets a few arguments, the one we are interested in right now is `args`.
-`args` contains data specific to the type of event and we can pattern match on a specific args type to respond to a specific event.
+This callback gets a single argument, `args`, which contains data specific to the type of event and we can pattern match on a specific args type to respond to a specific event.
 
 To handle the quit message we will do the following:
 
 ```cs
-void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
+void EventRaised(EventArgs args)
 {
     if (args is CloseEventArgs closeArgs)
     {
@@ -180,7 +179,7 @@ class Sample
 {
     public static void Main(string[] args)
     {
-        EventQueue.EventRaised += EventRaised;
+        Toolkit.Event.EventRaised += EventRaised;
 
         ToolkitOptions options = new ToolkitOptions();
 
@@ -229,7 +228,7 @@ class Sample
         }
     }
 
-    static void EventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
+    static void EventRaised(EventArgs args)
     {
         if (args is CloseEventArgs closeArgs)
         {

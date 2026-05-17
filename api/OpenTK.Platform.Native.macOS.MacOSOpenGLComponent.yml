@@ -18,6 +18,7 @@ items:
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetSwapInterval
+  - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Initialize(OpenTK.Platform.ToolkitOptions)
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Logger
   - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.Name
@@ -383,7 +384,7 @@ items:
   source:
     id: DestroyContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 430
+    startLine: 431
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -416,7 +417,7 @@ items:
   source:
     id: GetContextValues
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 443
+    startLine: 449
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -463,7 +464,7 @@ items:
   source:
     id: GetBindingsContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 451
+    startLine: 457
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -504,7 +505,7 @@ items:
   source:
     id: GetProcedureAddress
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 457
+    startLine: 463
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -543,7 +544,7 @@ items:
   source:
     id: GetCurrentContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 464
+    startLine: 470
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -575,7 +576,7 @@ items:
   source:
     id: SetCurrentContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 479
+    startLine: 485
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -614,7 +615,7 @@ items:
   source:
     id: GetSharedContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 496
+    startLine: 502
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -650,7 +651,7 @@ items:
   source:
     id: SetSwapInterval
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 503
+    startLine: 509
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -683,7 +684,7 @@ items:
   source:
     id: GetSwapInterval
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 514
+    startLine: 520
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -712,7 +713,7 @@ items:
   source:
     id: SwapBuffers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 528
+    startLine: 534
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -731,6 +732,39 @@ items:
     commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
   implements:
   - OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
+- uid: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  id: GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetWindow(OpenGLContextHandle)
+  nameWithType: MacOSOpenGLComponent.GetWindow(OpenGLContextHandle)
+  fullName: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  type: Method
+  source:
+    id: GetWindow
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
+    startLine: 541
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Gets the <xref href="OpenTK.Platform.WindowHandle" data-throw-if-not-resolved="false"></xref> that was used to create this context, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if this context wasn't created from a window.
+  example: []
+  syntax:
+    content: public WindowHandle? GetWindow(OpenGLContextHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the OpenGL context.
+    return:
+      type: OpenTK.Platform.WindowHandle
+      description: The <xref href="OpenTK.Platform.WindowHandle" data-throw-if-not-resolved="false"></xref> that was used to create this context, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if this context wasn't created from a window.
+    content.vb: Public Function GetWindow(handle As OpenGLContextHandle) As WindowHandle
+  overload: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetWindow*
+  implements:
+  - OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
 - uid: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetNSOpenGLContext(OpenTK.Platform.OpenGLContextHandle)
   commentId: M:OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetNSOpenGLContext(OpenTK.Platform.OpenGLContextHandle)
   id: GetNSOpenGLContext(OpenTK.Platform.OpenGLContextHandle)
@@ -745,7 +779,7 @@ items:
   source:
     id: GetNSOpenGLContext
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSOpenGLComponent.cs
-    startLine: 539
+    startLine: 552
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -1905,6 +1939,37 @@ references:
   - uid: OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
     name: SwapBuffers
     href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_SwapBuffers_OpenTK_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Platform.OpenGLContextHandle.html
+  - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetWindow*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetWindow
+  href: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.html#OpenTK_Platform_Native_macOS_MacOSOpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
+  name: GetWindow
+  nameWithType: MacOSOpenGLComponent.GetWindow
+  fullName: OpenTK.Platform.Native.macOS.MacOSOpenGLComponent.GetWindow
+- uid: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
+  name: GetWindow(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.GetWindow(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+    name: GetWindow
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
+  - name: (
+  - uid: OpenTK.Platform.OpenGLContextHandle
+    name: OpenGLContextHandle
+    href: OpenTK.Platform.OpenGLContextHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+    name: GetWindow
+    href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
   - name: (
   - uid: OpenTK.Platform.OpenGLContextHandle
     name: OpenGLContextHandle

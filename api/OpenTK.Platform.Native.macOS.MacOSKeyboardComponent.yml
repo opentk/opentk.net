@@ -7,8 +7,10 @@ items:
   children:
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.BeginIme(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.EndIme(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetAvailableKeyboardLayouts
+  - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetInstalledInputLanguages
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetKeyboardModifiers
   - OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetKeyboardState(System.Boolean[])
@@ -279,29 +281,19 @@ items:
   source:
     id: GetActiveKeyboardLayout
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 37
+    startLine: 36
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: Get the active keyboard layout.
-  example: []
   syntax:
     content: public string GetActiveKeyboardLayout(WindowHandle? handle)
     parameters:
     - id: handle
       type: OpenTK.Platform.WindowHandle
-      description: (optional) Handle to a window to query the layout for. Ignored on systems where keyboard layout is global.
     return:
       type: System.String
-      description: A string which describes the active keyboard layout.
     content.vb: Public Function GetActiveKeyboardLayout(handle As WindowHandle) As String
   overload: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveKeyboardLayout*
-  exceptions:
-  - type: OpenTK.Platform.PalNotImplementedException
-    commentId: T:OpenTK.Platform.PalNotImplementedException
-    description: Driver cannot query active keyboard layout.
-  implements:
-  - OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
   nameWithType.vb: MacOSKeyboardComponent.GetActiveKeyboardLayout(WindowHandle)
   fullName.vb: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
   name.vb: GetActiveKeyboardLayout(WindowHandle)
@@ -319,21 +311,81 @@ items:
   source:
     id: GetAvailableKeyboardLayouts
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 44
+    startLine: 42
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
-  summary: See list of possible keyboard layouts for this system.
-  example: []
   syntax:
     content: public string[] GetAvailableKeyboardLayouts()
     return:
       type: System.String[]
-      description: Array containing possible keyboard layouts.
     content.vb: Public Function GetAvailableKeyboardLayouts() As String()
   overload: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetAvailableKeyboardLayouts*
+- uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  id: GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetActiveInputLanguage(WindowHandle?)
+  nameWithType: MacOSKeyboardComponent.GetActiveInputLanguage(WindowHandle?)
+  fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle?)
+  type: Method
+  source:
+    id: GetActiveInputLanguage
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
+    startLine: 49
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: Get the active input language + keyboard layout.
+  example: []
+  syntax:
+    content: public InputLanguage GetActiveInputLanguage(WindowHandle? handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.WindowHandle
+      description: Handle to a window to query the layout for. Ignored on systems where keyboard layout is global.
+    return:
+      type: OpenTK.Platform.InputLanguage
+      description: The currently active input language and keyboard layout.
+    content.vb: Public Function GetActiveInputLanguage(handle As WindowHandle) As InputLanguage
+  overload: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage*
   implements:
-  - OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
+  - OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  nameWithType.vb: MacOSKeyboardComponent.GetActiveInputLanguage(WindowHandle)
+  fullName.vb: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  name.vb: GetActiveInputLanguage(WindowHandle)
+- uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetInstalledInputLanguages
+  commentId: M:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetInstalledInputLanguages
+  id: GetInstalledInputLanguages
+  parent: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent
+  langs:
+  - csharp
+  - vb
+  name: GetInstalledInputLanguages()
+  nameWithType: MacOSKeyboardComponent.GetInstalledInputLanguages()
+  fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetInstalledInputLanguages()
+  type: Method
+  source:
+    id: GetInstalledInputLanguages
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
+    startLine: 56
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.macOS
+  summary: See list of installed input language + keyboard layout combinations for this system.
+  example: []
+  syntax:
+    content: public InputLanguage[] GetInstalledInputLanguages()
+    return:
+      type: OpenTK.Platform.InputLanguage[]
+      description: Array containing installed input language + keyboard layout combinations.
+    content.vb: Public Function GetInstalledInputLanguages() As InputLanguage()
+  overload: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetInstalledInputLanguages*
+  implements:
+  - OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
 - uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
   commentId: M:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetScancodeFromKey(OpenTK.Platform.Key)
   id: GetScancodeFromKey(OpenTK.Platform.Key)
@@ -348,7 +400,7 @@ items:
   source:
     id: GetScancodeFromKey
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 247
+    startLine: 267
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -394,7 +446,7 @@ items:
   source:
     id: GetKeyFromScancode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 253
+    startLine: 273
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -436,7 +488,7 @@ items:
   source:
     id: GetKeyboardState
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 312
+    startLine: 332
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -477,7 +529,7 @@ items:
   source:
     id: GetKeyboardModifiers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 319
+    startLine: 339
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -509,7 +561,7 @@ items:
   source:
     id: BeginIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 360
+    startLine: 380
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -539,7 +591,7 @@ items:
   source:
     id: SetImeRectangle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 366
+    startLine: 386
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -584,7 +636,7 @@ items:
   source:
     id: EndIme
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\macOS\MacOSKeyboardComponent.cs
-    startLine: 377
+    startLine: 397
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.macOS
@@ -1154,43 +1206,12 @@ references:
   name: SupportsIme
   nameWithType: IKeyboardComponent.SupportsIme
   fullName: OpenTK.Platform.IKeyboardComponent.SupportsIme
-- uid: OpenTK.Platform.PalNotImplementedException
-  commentId: T:OpenTK.Platform.PalNotImplementedException
-  href: OpenTK.Platform.PalNotImplementedException.html
-  name: PalNotImplementedException
-  nameWithType: PalNotImplementedException
-  fullName: OpenTK.Platform.PalNotImplementedException
 - uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveKeyboardLayout*
   commentId: Overload:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveKeyboardLayout
   href: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.html#OpenTK_Platform_Native_macOS_MacOSKeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
   name: GetActiveKeyboardLayout
   nameWithType: MacOSKeyboardComponent.GetActiveKeyboardLayout
   fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveKeyboardLayout
-- uid: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  commentId: M:OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  parent: OpenTK.Platform.IKeyboardComponent
-  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
-  name: GetActiveKeyboardLayout(WindowHandle)
-  nameWithType: IKeyboardComponent.GetActiveKeyboardLayout(WindowHandle)
-  fullName: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-  spec.csharp:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-    name: GetActiveKeyboardLayout
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
-  - name: (
-  - uid: OpenTK.Platform.WindowHandle
-    name: WindowHandle
-    href: OpenTK.Platform.WindowHandle.html
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetActiveKeyboardLayout(OpenTK.Platform.WindowHandle)
-    name: GetActiveKeyboardLayout
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveKeyboardLayout_OpenTK_Platform_WindowHandle_
-  - name: (
-  - uid: OpenTK.Platform.WindowHandle
-    name: WindowHandle
-    href: OpenTK.Platform.WindowHandle.html
-  - name: )
 - uid: OpenTK.Platform.WindowHandle
   commentId: T:OpenTK.Platform.WindowHandle
   parent: OpenTK.Platform
@@ -1204,25 +1225,6 @@ references:
   name: GetAvailableKeyboardLayouts
   nameWithType: MacOSKeyboardComponent.GetAvailableKeyboardLayouts
   fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetAvailableKeyboardLayouts
-- uid: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
-  commentId: M:OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
-  parent: OpenTK.Platform.IKeyboardComponent
-  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetAvailableKeyboardLayouts
-  name: GetAvailableKeyboardLayouts()
-  nameWithType: IKeyboardComponent.GetAvailableKeyboardLayouts()
-  fullName: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts()
-  spec.csharp:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
-    name: GetAvailableKeyboardLayouts
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetAvailableKeyboardLayouts
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: OpenTK.Platform.IKeyboardComponent.GetAvailableKeyboardLayouts
-    name: GetAvailableKeyboardLayouts
-    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetAvailableKeyboardLayouts
-  - name: (
-  - name: )
 - uid: System.String[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.string
@@ -1244,6 +1246,90 @@ references:
     name: String
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage
+  href: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.html#OpenTK_Platform_Native_macOS_MacOSKeyboardComponent_GetActiveInputLanguage_OpenTK_Platform_WindowHandle_
+  name: GetActiveInputLanguage
+  nameWithType: MacOSKeyboardComponent.GetActiveInputLanguage
+  fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetActiveInputLanguage
+- uid: OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IKeyboardComponent
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveInputLanguage_OpenTK_Platform_WindowHandle_
+  name: GetActiveInputLanguage(WindowHandle)
+  nameWithType: IKeyboardComponent.GetActiveInputLanguage(WindowHandle)
+  fullName: OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+    name: GetActiveInputLanguage
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveInputLanguage_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IKeyboardComponent.GetActiveInputLanguage(OpenTK.Platform.WindowHandle)
+    name: GetActiveInputLanguage
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetActiveInputLanguage_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+- uid: OpenTK.Platform.InputLanguage
+  commentId: T:OpenTK.Platform.InputLanguage
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.InputLanguage.html
+  name: InputLanguage
+  nameWithType: InputLanguage
+  fullName: OpenTK.Platform.InputLanguage
+- uid: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetInstalledInputLanguages*
+  commentId: Overload:OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetInstalledInputLanguages
+  href: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.html#OpenTK_Platform_Native_macOS_MacOSKeyboardComponent_GetInstalledInputLanguages
+  name: GetInstalledInputLanguages
+  nameWithType: MacOSKeyboardComponent.GetInstalledInputLanguages
+  fullName: OpenTK.Platform.Native.macOS.MacOSKeyboardComponent.GetInstalledInputLanguages
+- uid: OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
+  commentId: M:OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
+  parent: OpenTK.Platform.IKeyboardComponent
+  href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetInstalledInputLanguages
+  name: GetInstalledInputLanguages()
+  nameWithType: IKeyboardComponent.GetInstalledInputLanguages()
+  fullName: OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages()
+  spec.csharp:
+  - uid: OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
+    name: GetInstalledInputLanguages
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetInstalledInputLanguages
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IKeyboardComponent.GetInstalledInputLanguages
+    name: GetInstalledInputLanguages
+    href: OpenTK.Platform.IKeyboardComponent.html#OpenTK_Platform_IKeyboardComponent_GetInstalledInputLanguages
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.InputLanguage[]
+  isExternal: true
+  href: OpenTK.Platform.InputLanguage.html
+  name: InputLanguage[]
+  nameWithType: InputLanguage[]
+  fullName: OpenTK.Platform.InputLanguage[]
+  nameWithType.vb: InputLanguage()
+  fullName.vb: OpenTK.Platform.InputLanguage()
+  name.vb: InputLanguage()
+  spec.csharp:
+  - uid: OpenTK.Platform.InputLanguage
+    name: InputLanguage
+    href: OpenTK.Platform.InputLanguage.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: OpenTK.Platform.InputLanguage
+    name: InputLanguage
+    href: OpenTK.Platform.InputLanguage.html
   - name: (
   - name: )
 - uid: OpenTK.Platform.IKeyboardComponent.GetKeyFromScancode(OpenTK.Platform.Scancode)

@@ -5,8 +5,10 @@ items:
   id: MouseButtonDownEventArgs
   parent: OpenTK.Platform
   children:
-  - OpenTK.Platform.MouseButtonDownEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier)
+  - OpenTK.Platform.MouseButtonDownEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier,System.Int32)
   - OpenTK.Platform.MouseButtonDownEventArgs.Button
+  - OpenTK.Platform.MouseButtonDownEventArgs.Clicks
+  - OpenTK.Platform.MouseButtonDownEventArgs.ClientPosition
   - OpenTK.Platform.MouseButtonDownEventArgs.Modifiers
   langs:
   - csharp
@@ -18,7 +20,7 @@ items:
   source:
     id: MouseButtonDownEventArgs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 459
+    startLine: 433
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -41,6 +43,33 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: OpenTK.Platform.MouseButtonDownEventArgs.ClientPosition
+  commentId: P:OpenTK.Platform.MouseButtonDownEventArgs.ClientPosition
+  id: ClientPosition
+  parent: OpenTK.Platform.MouseButtonDownEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ClientPosition
+  nameWithType: MouseButtonDownEventArgs.ClientPosition
+  fullName: OpenTK.Platform.MouseButtonDownEventArgs.ClientPosition
+  type: Property
+  source:
+    id: ClientPosition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
+    startLine: 438
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: The position where the mouse was pressed, in client coordinates.
+  example: []
+  syntax:
+    content: public Vector2 ClientPosition { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Property ClientPosition As Vector2
+  overload: OpenTK.Platform.MouseButtonDownEventArgs.ClientPosition*
 - uid: OpenTK.Platform.MouseButtonDownEventArgs.Button
   commentId: P:OpenTK.Platform.MouseButtonDownEventArgs.Button
   id: Button
@@ -55,7 +84,7 @@ items:
   source:
     id: Button
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 464
+    startLine: 443
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -82,7 +111,7 @@ items:
   source:
     id: Modifiers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 469
+    startLine: 448
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -95,43 +124,80 @@ items:
       type: OpenTK.Platform.KeyModifier
     content.vb: Public Property Modifiers As KeyModifier
   overload: OpenTK.Platform.MouseButtonDownEventArgs.Modifiers*
-- uid: OpenTK.Platform.MouseButtonDownEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier)
-  commentId: M:OpenTK.Platform.MouseButtonDownEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier)
-  id: '#ctor(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier)'
+- uid: OpenTK.Platform.MouseButtonDownEventArgs.Clicks
+  commentId: P:OpenTK.Platform.MouseButtonDownEventArgs.Clicks
+  id: Clicks
   parent: OpenTK.Platform.MouseButtonDownEventArgs
   langs:
   - csharp
   - vb
-  name: MouseButtonDownEventArgs(WindowHandle, MouseButton, KeyModifier)
-  nameWithType: MouseButtonDownEventArgs.MouseButtonDownEventArgs(WindowHandle, MouseButton, KeyModifier)
-  fullName: OpenTK.Platform.MouseButtonDownEventArgs.MouseButtonDownEventArgs(OpenTK.Platform.WindowHandle, OpenTK.Platform.MouseButton, OpenTK.Platform.KeyModifier)
+  name: Clicks
+  nameWithType: MouseButtonDownEventArgs.Clicks
+  fullName: OpenTK.Platform.MouseButtonDownEventArgs.Clicks
+  type: Property
+  source:
+    id: Clicks
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
+    startLine: 455
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    The number of times this button has been clicked in a row in a small area and time limit.
+
+    1 for single-click, 2 for double-click, etc.
+  remarks: The details of counting multi-clicks follows the platform conventions.
+  example: []
+  syntax:
+    content: public int Clicks { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Clicks As Integer
+  overload: OpenTK.Platform.MouseButtonDownEventArgs.Clicks*
+- uid: OpenTK.Platform.MouseButtonDownEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier,System.Int32)
+  commentId: M:OpenTK.Platform.MouseButtonDownEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier,System.Int32)
+  id: '#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier,System.Int32)'
+  parent: OpenTK.Platform.MouseButtonDownEventArgs
+  langs:
+  - csharp
+  - vb
+  name: MouseButtonDownEventArgs(WindowHandle, Vector2, MouseButton, KeyModifier, int)
+  nameWithType: MouseButtonDownEventArgs.MouseButtonDownEventArgs(WindowHandle, Vector2, MouseButton, KeyModifier, int)
+  fullName: OpenTK.Platform.MouseButtonDownEventArgs.MouseButtonDownEventArgs(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2, OpenTK.Platform.MouseButton, OpenTK.Platform.KeyModifier, int)
   type: Constructor
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 477
+    startLine: 465
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
   summary: Initializes a new instance of the <xref href="OpenTK.Platform.MouseButtonDownEventArgs" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public MouseButtonDownEventArgs(WindowHandle window, MouseButton button, KeyModifier modifiers)
+    content: public MouseButtonDownEventArgs(WindowHandle window, Vector2 clientPosition, MouseButton button, KeyModifier modifiers, int clicks)
     parameters:
     - id: window
       type: OpenTK.Platform.WindowHandle
       description: The window that was clicked on.
+    - id: clientPosition
+      type: OpenTK.Mathematics.Vector2
+      description: The coordinate in client coordinates where the mouse was pressed.
     - id: button
       type: OpenTK.Platform.MouseButton
       description: The mouse button that was pressed.
     - id: modifiers
       type: OpenTK.Platform.KeyModifier
       description: The modifiers that where active when the mouse button was pressed.
-    content.vb: Public Sub New(window As WindowHandle, button As MouseButton, modifiers As KeyModifier)
+    - id: clicks
+      type: System.Int32
+      description: The click count for this event, single-click, double-click, etc.
+    content.vb: Public Sub New(window As WindowHandle, clientPosition As Vector2, button As MouseButton, modifiers As KeyModifier, clicks As Integer)
   overload: OpenTK.Platform.MouseButtonDownEventArgs.#ctor*
-  nameWithType.vb: MouseButtonDownEventArgs.New(WindowHandle, MouseButton, KeyModifier)
-  fullName.vb: OpenTK.Platform.MouseButtonDownEventArgs.New(OpenTK.Platform.WindowHandle, OpenTK.Platform.MouseButton, OpenTK.Platform.KeyModifier)
-  name.vb: New(WindowHandle, MouseButton, KeyModifier)
+  nameWithType.vb: MouseButtonDownEventArgs.New(WindowHandle, Vector2, MouseButton, KeyModifier, Integer)
+  fullName.vb: OpenTK.Platform.MouseButtonDownEventArgs.New(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2, OpenTK.Platform.MouseButton, OpenTK.Platform.KeyModifier, Integer)
+  name.vb: New(WindowHandle, Vector2, MouseButton, KeyModifier, Integer)
 references:
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
@@ -422,6 +488,41 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: OpenTK.Platform.MouseButtonDownEventArgs.ClientPosition*
+  commentId: Overload:OpenTK.Platform.MouseButtonDownEventArgs.ClientPosition
+  href: OpenTK.Platform.MouseButtonDownEventArgs.html#OpenTK_Platform_MouseButtonDownEventArgs_ClientPosition
+  name: ClientPosition
+  nameWithType: MouseButtonDownEventArgs.ClientPosition
+  fullName: OpenTK.Platform.MouseButtonDownEventArgs.ClientPosition
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Vector2.html
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  href: OpenTK.html
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
 - uid: OpenTK.Platform.MouseButtonDownEventArgs.Button*
   commentId: Overload:OpenTK.Platform.MouseButtonDownEventArgs.Button
   href: OpenTK.Platform.MouseButtonDownEventArgs.html#OpenTK_Platform_MouseButtonDownEventArgs_Button
@@ -448,6 +549,23 @@ references:
   name: KeyModifier
   nameWithType: KeyModifier
   fullName: OpenTK.Platform.KeyModifier
+- uid: OpenTK.Platform.MouseButtonDownEventArgs.Clicks*
+  commentId: Overload:OpenTK.Platform.MouseButtonDownEventArgs.Clicks
+  href: OpenTK.Platform.MouseButtonDownEventArgs.html#OpenTK_Platform_MouseButtonDownEventArgs_Clicks
+  name: Clicks
+  nameWithType: MouseButtonDownEventArgs.Clicks
+  fullName: OpenTK.Platform.MouseButtonDownEventArgs.Clicks
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: OpenTK.Platform.MouseButtonDownEventArgs
   commentId: T:OpenTK.Platform.MouseButtonDownEventArgs
   href: OpenTK.Platform.MouseButtonDownEventArgs.html
@@ -456,7 +574,7 @@ references:
   fullName: OpenTK.Platform.MouseButtonDownEventArgs
 - uid: OpenTK.Platform.MouseButtonDownEventArgs.#ctor*
   commentId: Overload:OpenTK.Platform.MouseButtonDownEventArgs.#ctor
-  href: OpenTK.Platform.MouseButtonDownEventArgs.html#OpenTK_Platform_MouseButtonDownEventArgs__ctor_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseButton_OpenTK_Platform_KeyModifier_
+  href: OpenTK.Platform.MouseButtonDownEventArgs.html#OpenTK_Platform_MouseButtonDownEventArgs__ctor_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2_OpenTK_Platform_MouseButton_OpenTK_Platform_KeyModifier_System_Int32_
   name: MouseButtonDownEventArgs
   nameWithType: MouseButtonDownEventArgs.MouseButtonDownEventArgs
   fullName: OpenTK.Platform.MouseButtonDownEventArgs.MouseButtonDownEventArgs

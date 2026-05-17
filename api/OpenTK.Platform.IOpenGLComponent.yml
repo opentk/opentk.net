@@ -17,6 +17,7 @@ items:
   - OpenTK.Platform.IOpenGLComponent.GetProcedureAddress(OpenTK.Platform.OpenGLContextHandle,System.String)
   - OpenTK.Platform.IOpenGLComponent.GetSharedContext(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.IOpenGLComponent.GetSwapInterval
+  - OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.IOpenGLComponent.SetCurrentContext(OpenTK.Platform.OpenGLContextHandle)
   - OpenTK.Platform.IOpenGLComponent.SetSwapInterval(System.Int32)
   - OpenTK.Platform.IOpenGLComponent.SwapBuffers(OpenTK.Platform.OpenGLContextHandle)
@@ -42,6 +43,12 @@ items:
   seealso:
   - linkId: OpenTK.Platform.Toolkit.OpenGL
     commentId: P:OpenTK.Platform.Toolkit.OpenGL
+  derivedClasses:
+  - OpenTK.Platform.Native.ANGLE.ANGLEOpenGLComponent
+  - OpenTK.Platform.Native.SDL.SDLOpenGLComponent
+  - OpenTK.Platform.Native.Windows.OpenGLComponent
+  - OpenTK.Platform.Native.X11.X11OpenGLComponent
+  - OpenTK.Platform.Native.macOS.MacOSOpenGLComponent
   inheritedMembers:
   - OpenTK.Platform.IPalComponent.Name
   - OpenTK.Platform.IPalComponent.Provides
@@ -537,6 +544,37 @@ items:
   seealso:
   - linkId: OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
     commentId: P:OpenTK.Platform.OpenGLGraphicsApiHints.SwapMethod
+- uid: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  commentId: M:OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  id: GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  parent: OpenTK.Platform.IOpenGLComponent
+  langs:
+  - csharp
+  - vb
+  name: GetWindow(OpenGLContextHandle)
+  nameWithType: IOpenGLComponent.GetWindow(OpenGLContextHandle)
+  fullName: OpenTK.Platform.IOpenGLComponent.GetWindow(OpenTK.Platform.OpenGLContextHandle)
+  type: Method
+  source:
+    id: GetWindow
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IOpenGLComponent.cs
+    startLine: 136
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Gets the <xref href="OpenTK.Platform.WindowHandle" data-throw-if-not-resolved="false"></xref> that was used to create this context, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if this context wasn't created from a window.
+  example: []
+  syntax:
+    content: WindowHandle? GetWindow(OpenGLContextHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: Handle to the OpenGL context.
+    return:
+      type: OpenTK.Platform.WindowHandle
+      description: The <xref href="OpenTK.Platform.WindowHandle" data-throw-if-not-resolved="false"></xref> that was used to create this context, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if this context wasn't created from a window.
+    content.vb: Function GetWindow(handle As OpenGLContextHandle) As WindowHandle
+  overload: OpenTK.Platform.IOpenGLComponent.GetWindow*
 references:
 - uid: OpenTK.Platform.Toolkit.OpenGL
   commentId: P:OpenTK.Platform.Toolkit.OpenGL
@@ -1057,3 +1095,9 @@ references:
   name: SwapBuffers
   nameWithType: IOpenGLComponent.SwapBuffers
   fullName: OpenTK.Platform.IOpenGLComponent.SwapBuffers
+- uid: OpenTK.Platform.IOpenGLComponent.GetWindow*
+  commentId: Overload:OpenTK.Platform.IOpenGLComponent.GetWindow
+  href: OpenTK.Platform.IOpenGLComponent.html#OpenTK_Platform_IOpenGLComponent_GetWindow_OpenTK_Platform_OpenGLContextHandle_
+  name: GetWindow
+  nameWithType: IOpenGLComponent.GetWindow
+  fullName: OpenTK.Platform.IOpenGLComponent.GetWindow

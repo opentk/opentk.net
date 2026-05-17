@@ -26,8 +26,16 @@ items:
   - OpenTK.Mathematics.Vector3d.ComponentEqual(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
   - OpenTK.Mathematics.Vector3d.ComponentMax(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   - OpenTK.Mathematics.Vector3d.ComponentMax(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  - OpenTK.Mathematics.Vector3d.ComponentMaxNative(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  - OpenTK.Mathematics.Vector3d.ComponentMaxNative(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  - OpenTK.Mathematics.Vector3d.ComponentMaxNumber(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  - OpenTK.Mathematics.Vector3d.ComponentMaxNumber(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
   - OpenTK.Mathematics.Vector3d.ComponentMin(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   - OpenTK.Mathematics.Vector3d.ComponentMin(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  - OpenTK.Mathematics.Vector3d.ComponentMinNative(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  - OpenTK.Mathematics.Vector3d.ComponentMinNative(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  - OpenTK.Mathematics.Vector3d.ComponentMinNumber(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  - OpenTK.Mathematics.Vector3d.ComponentMinNumber(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
   - OpenTK.Mathematics.Vector3d.ComponentNotEqual(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
   - OpenTK.Mathematics.Vector3d.Cross(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   - OpenTK.Mathematics.Vector3d.Cross(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
@@ -1636,11 +1644,14 @@ items:
   source:
     id: ComponentMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 492
+    startLine: 493
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the smallest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: >-
@@ -1680,11 +1691,14 @@ items:
   source:
     id: ComponentMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 507
+    startLine: 510
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the smallest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: public static void ComponentMin(in Vector3d a, in Vector3d b, out Vector3d result)
@@ -1703,6 +1717,180 @@ items:
   nameWithType.vb: Vector3d.ComponentMin(Vector3d, Vector3d, Vector3d)
   fullName.vb: OpenTK.Mathematics.Vector3d.ComponentMin(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
   name.vb: ComponentMin(Vector3d, Vector3d, Vector3d)
+- uid: OpenTK.Mathematics.Vector3d.ComponentMinNumber(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  commentId: M:OpenTK.Mathematics.Vector3d.ComponentMinNumber(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  id: ComponentMinNumber(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  parent: OpenTK.Mathematics.Vector3d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNumber(Vector3d, Vector3d)
+  nameWithType: Vector3d.ComponentMinNumber(Vector3d, Vector3d)
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMinNumber(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  type: Method
+  source:
+    id: ComponentMinNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
+    startLine: 525
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector3d ComponentMinNumber(Vector3d a, Vector3d b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector3d
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector3d
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMinNumber(a As Vector3d, b As Vector3d) As Vector3d
+  overload: OpenTK.Mathematics.Vector3d.ComponentMinNumber*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector3d.ComponentMinNumber(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  commentId: M:OpenTK.Mathematics.Vector3d.ComponentMinNumber(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  id: ComponentMinNumber(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  parent: OpenTK.Mathematics.Vector3d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNumber(in Vector3d, in Vector3d, out Vector3d)
+  nameWithType: Vector3d.ComponentMinNumber(in Vector3d, in Vector3d, out Vector3d)
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMinNumber(in OpenTK.Mathematics.Vector3d, in OpenTK.Mathematics.Vector3d, out OpenTK.Mathematics.Vector3d)
+  type: Method
+  source:
+    id: ComponentMinNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
+    startLine: 542
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: public static void ComponentMinNumber(in Vector3d a, in Vector3d b, out Vector3d result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector3d
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector3d
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMinNumber(a As Vector3d, b As Vector3d, result As Vector3d)
+  overload: OpenTK.Mathematics.Vector3d.ComponentMinNumber*
+  nameWithType.vb: Vector3d.ComponentMinNumber(Vector3d, Vector3d, Vector3d)
+  fullName.vb: OpenTK.Mathematics.Vector3d.ComponentMinNumber(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  name.vb: ComponentMinNumber(Vector3d, Vector3d, Vector3d)
+- uid: OpenTK.Mathematics.Vector3d.ComponentMinNative(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  commentId: M:OpenTK.Mathematics.Vector3d.ComponentMinNative(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  id: ComponentMinNative(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  parent: OpenTK.Mathematics.Vector3d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNative(Vector3d, Vector3d)
+  nameWithType: Vector3d.ComponentMinNative(Vector3d, Vector3d)
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMinNative(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  type: Method
+  source:
+    id: ComponentMinNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
+    startLine: 557
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector3d ComponentMinNative(Vector3d a, Vector3d b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector3d
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector3d
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMinNative(a As Vector3d, b As Vector3d) As Vector3d
+  overload: OpenTK.Mathematics.Vector3d.ComponentMinNative*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector3d.ComponentMinNative(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  commentId: M:OpenTK.Mathematics.Vector3d.ComponentMinNative(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  id: ComponentMinNative(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  parent: OpenTK.Mathematics.Vector3d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMinNative(in Vector3d, in Vector3d, out Vector3d)
+  nameWithType: Vector3d.ComponentMinNative(in Vector3d, in Vector3d, out Vector3d)
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMinNative(in OpenTK.Mathematics.Vector3d, in OpenTK.Mathematics.Vector3d, out OpenTK.Mathematics.Vector3d)
+  type: Method
+  source:
+    id: ComponentMinNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
+    startLine: 574
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the smallest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: public static void ComponentMinNative(in Vector3d a, in Vector3d b, out Vector3d result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector3d
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector3d
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMinNative(a As Vector3d, b As Vector3d, result As Vector3d)
+  overload: OpenTK.Mathematics.Vector3d.ComponentMinNative*
+  nameWithType.vb: Vector3d.ComponentMinNative(Vector3d, Vector3d, Vector3d)
+  fullName.vb: OpenTK.Mathematics.Vector3d.ComponentMinNative(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  name.vb: ComponentMinNative(Vector3d, Vector3d, Vector3d)
 - uid: OpenTK.Mathematics.Vector3d.ComponentMax(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   commentId: M:OpenTK.Mathematics.Vector3d.ComponentMax(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   id: ComponentMax(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
@@ -1717,11 +1905,14 @@ items:
   source:
     id: ComponentMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 520
+    startLine: 589
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the largest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: >-
@@ -1737,7 +1928,7 @@ items:
       description: Second operand.
     return:
       type: OpenTK.Mathematics.Vector3d
-      description: The component-wise maximum.
+      description: The component-wise minimum.
     content.vb: >-
       <Pure>
 
@@ -1761,11 +1952,14 @@ items:
   source:
     id: ComponentMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 535
+    startLine: 606
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
-  summary: Returns a vector created from the largest of the corresponding components of the given vectors.
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    Any NaN inputs are propagated.
   example: []
   syntax:
     content: public static void ComponentMax(in Vector3d a, in Vector3d b, out Vector3d result)
@@ -1778,12 +1972,186 @@ items:
       description: Second operand.
     - id: result
       type: OpenTK.Mathematics.Vector3d
-      description: The component-wise maximum.
+      description: The component-wise minimum.
     content.vb: Public Shared Sub ComponentMax(a As Vector3d, b As Vector3d, result As Vector3d)
   overload: OpenTK.Mathematics.Vector3d.ComponentMax*
   nameWithType.vb: Vector3d.ComponentMax(Vector3d, Vector3d, Vector3d)
   fullName.vb: OpenTK.Mathematics.Vector3d.ComponentMax(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
   name.vb: ComponentMax(Vector3d, Vector3d, Vector3d)
+- uid: OpenTK.Mathematics.Vector3d.ComponentMaxNumber(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  commentId: M:OpenTK.Mathematics.Vector3d.ComponentMaxNumber(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  id: ComponentMaxNumber(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  parent: OpenTK.Mathematics.Vector3d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNumber(Vector3d, Vector3d)
+  nameWithType: Vector3d.ComponentMaxNumber(Vector3d, Vector3d)
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMaxNumber(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  type: Method
+  source:
+    id: ComponentMaxNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
+    startLine: 621
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector3d ComponentMaxNumber(Vector3d a, Vector3d b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector3d
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector3d
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMaxNumber(a As Vector3d, b As Vector3d) As Vector3d
+  overload: OpenTK.Mathematics.Vector3d.ComponentMaxNumber*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector3d.ComponentMaxNumber(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  commentId: M:OpenTK.Mathematics.Vector3d.ComponentMaxNumber(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  id: ComponentMaxNumber(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  parent: OpenTK.Mathematics.Vector3d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNumber(in Vector3d, in Vector3d, out Vector3d)
+  nameWithType: Vector3d.ComponentMaxNumber(in Vector3d, in Vector3d, out Vector3d)
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMaxNumber(in OpenTK.Mathematics.Vector3d, in OpenTK.Mathematics.Vector3d, out OpenTK.Mathematics.Vector3d)
+  type: Method
+  source:
+    id: ComponentMaxNumber
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
+    startLine: 638
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    If one of the two components are NaN the other component is returned.
+  example: []
+  syntax:
+    content: public static void ComponentMaxNumber(in Vector3d a, in Vector3d b, out Vector3d result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector3d
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector3d
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMaxNumber(a As Vector3d, b As Vector3d, result As Vector3d)
+  overload: OpenTK.Mathematics.Vector3d.ComponentMaxNumber*
+  nameWithType.vb: Vector3d.ComponentMaxNumber(Vector3d, Vector3d, Vector3d)
+  fullName.vb: OpenTK.Mathematics.Vector3d.ComponentMaxNumber(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  name.vb: ComponentMaxNumber(Vector3d, Vector3d, Vector3d)
+- uid: OpenTK.Mathematics.Vector3d.ComponentMaxNative(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  commentId: M:OpenTK.Mathematics.Vector3d.ComponentMaxNative(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  id: ComponentMaxNative(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
+  parent: OpenTK.Mathematics.Vector3d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNative(Vector3d, Vector3d)
+  nameWithType: Vector3d.ComponentMaxNative(Vector3d, Vector3d)
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMaxNative(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  type: Method
+  source:
+    id: ComponentMaxNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
+    startLine: 653
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: >-
+      [Pure]
+
+      public static Vector3d ComponentMaxNative(Vector3d a, Vector3d b)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector3d
+      description: Second operand.
+    return:
+      type: OpenTK.Mathematics.Vector3d
+      description: The component-wise minimum.
+    content.vb: >-
+      <Pure>
+
+      Public Shared Function ComponentMaxNative(a As Vector3d, b As Vector3d) As Vector3d
+  overload: OpenTK.Mathematics.Vector3d.ComponentMaxNative*
+  attributes:
+  - type: System.Diagnostics.Contracts.PureAttribute
+    ctor: System.Diagnostics.Contracts.PureAttribute.#ctor
+    arguments: []
+- uid: OpenTK.Mathematics.Vector3d.ComponentMaxNative(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  commentId: M:OpenTK.Mathematics.Vector3d.ComponentMaxNative(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  id: ComponentMaxNative(OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@,OpenTK.Mathematics.Vector3d@)
+  parent: OpenTK.Mathematics.Vector3d
+  langs:
+  - csharp
+  - vb
+  name: ComponentMaxNative(in Vector3d, in Vector3d, out Vector3d)
+  nameWithType: Vector3d.ComponentMaxNative(in Vector3d, in Vector3d, out Vector3d)
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMaxNative(in OpenTK.Mathematics.Vector3d, in OpenTK.Mathematics.Vector3d, out OpenTK.Mathematics.Vector3d)
+  type: Method
+  source:
+    id: ComponentMaxNative
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
+    startLine: 670
+  assemblies:
+  - OpenTK.Mathematics
+  namespace: OpenTK.Mathematics
+  summary: >-
+    Returns a vector created from the largest of the corresponding components of the given vectors.
+
+    What happens when the input component is NaN or -0 is platform dependent.
+  example: []
+  syntax:
+    content: public static void ComponentMaxNative(in Vector3d a, in Vector3d b, out Vector3d result)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector3d
+      description: First operand.
+    - id: b
+      type: OpenTK.Mathematics.Vector3d
+      description: Second operand.
+    - id: result
+      type: OpenTK.Mathematics.Vector3d
+      description: The component-wise minimum.
+    content.vb: Public Shared Sub ComponentMaxNative(a As Vector3d, b As Vector3d, result As Vector3d)
+  overload: OpenTK.Mathematics.Vector3d.ComponentMaxNative*
+  nameWithType.vb: Vector3d.ComponentMaxNative(Vector3d, Vector3d, Vector3d)
+  fullName.vb: OpenTK.Mathematics.Vector3d.ComponentMaxNative(OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d, OpenTK.Mathematics.Vector3d)
+  name.vb: ComponentMaxNative(Vector3d, Vector3d, Vector3d)
 - uid: OpenTK.Mathematics.Vector3d.MagnitudeMin(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   commentId: M:OpenTK.Mathematics.Vector3d.MagnitudeMin(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
   id: MagnitudeMin(OpenTK.Mathematics.Vector3d,OpenTK.Mathematics.Vector3d)
@@ -1798,7 +2166,7 @@ items:
   source:
     id: MagnitudeMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 548
+    startLine: 684
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1842,7 +2210,7 @@ items:
   source:
     id: MagnitudeMin
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 560
+    startLine: 696
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1879,7 +2247,7 @@ items:
   source:
     id: MagnitudeMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 571
+    startLine: 707
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1923,7 +2291,7 @@ items:
   source:
     id: MagnitudeMax
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 583
+    startLine: 719
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -1960,7 +2328,7 @@ items:
   source:
     id: Clamp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 595
+    startLine: 731
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2007,7 +2375,7 @@ items:
   source:
     id: Clamp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 611
+    startLine: 747
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2047,7 +2415,7 @@ items:
   source:
     id: Abs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 623
+    startLine: 759
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2078,7 +2446,7 @@ items:
   source:
     id: Abs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 636
+    startLine: 772
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2112,7 +2480,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 648
+    startLine: 784
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2153,7 +2521,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 662
+    startLine: 798
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2187,7 +2555,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 676
+    startLine: 812
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2234,7 +2602,7 @@ items:
   source:
     id: Round
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 692
+    startLine: 828
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2274,7 +2642,7 @@ items:
   source:
     id: Ceiling
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 705
+    startLine: 841
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2318,7 +2686,7 @@ items:
   source:
     id: Ceiling
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 720
+    startLine: 856
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2355,7 +2723,7 @@ items:
   source:
     id: Floor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 733
+    startLine: 869
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2399,7 +2767,7 @@ items:
   source:
     id: Floor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 748
+    startLine: 884
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2436,7 +2804,7 @@ items:
   source:
     id: Truncate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 761
+    startLine: 897
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2480,7 +2848,7 @@ items:
   source:
     id: Truncate
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 776
+    startLine: 912
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2517,7 +2885,7 @@ items:
   source:
     id: Distance
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 789
+    startLine: 925
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2561,7 +2929,7 @@ items:
   source:
     id: Distance
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 802
+    startLine: 938
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2598,7 +2966,7 @@ items:
   source:
     id: DistanceSquared
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 814
+    startLine: 950
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2642,7 +3010,7 @@ items:
   source:
     id: DistanceSquared
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 827
+    startLine: 963
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2679,7 +3047,7 @@ items:
   source:
     id: Normalize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 838
+    startLine: 974
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2720,7 +3088,7 @@ items:
   source:
     id: Normalize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 853
+    startLine: 989
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2754,7 +3122,7 @@ items:
   source:
     id: NormalizeFast
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 866
+    startLine: 1002
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2795,7 +3163,7 @@ items:
   source:
     id: NormalizeFast
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 881
+    startLine: 1017
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2829,7 +3197,7 @@ items:
   source:
     id: Dot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 895
+    startLine: 1031
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2873,7 +3241,7 @@ items:
   source:
     id: Dot
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 907
+    startLine: 1043
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2910,7 +3278,7 @@ items:
   source:
     id: Cross
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 918
+    startLine: 1054
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2954,7 +3322,7 @@ items:
   source:
     id: Cross
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 931
+    startLine: 1067
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -2991,7 +3359,7 @@ items:
   source:
     id: LessThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 944
+    startLine: 1080
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3028,7 +3396,7 @@ items:
   source:
     id: LessThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 955
+    startLine: 1091
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3065,7 +3433,7 @@ items:
   source:
     id: GreaterThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 966
+    startLine: 1102
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3102,7 +3470,7 @@ items:
   source:
     id: GreaterThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 977
+    startLine: 1113
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3139,7 +3507,7 @@ items:
   source:
     id: ComponentEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 988
+    startLine: 1124
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3176,7 +3544,7 @@ items:
   source:
     id: ComponentNotEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 999
+    startLine: 1135
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3213,7 +3581,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1011
+    startLine: 1147
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3263,7 +3631,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1027
+    startLine: 1163
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3303,7 +3671,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1041
+    startLine: 1177
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3350,7 +3718,7 @@ items:
   source:
     id: Lerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1057
+    startLine: 1193
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3390,7 +3758,7 @@ items:
   source:
     id: Slerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1073
+    startLine: 1209
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3445,7 +3813,7 @@ items:
   source:
     id: Slerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1104
+    startLine: 1240
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3490,7 +3858,7 @@ items:
   source:
     id: Elerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1142
+    startLine: 1278
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3536,7 +3904,7 @@ items:
   source:
     id: Elerp
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1159
+    startLine: 1295
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3582,7 +3950,7 @@ items:
   source:
     id: BaryCentric
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1175
+    startLine: 1311
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3638,7 +4006,7 @@ items:
   source:
     id: BaryCentric
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1194
+    startLine: 1330
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3697,7 +4065,7 @@ items:
   source:
     id: TransformVector
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1221
+    startLine: 1357
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3744,7 +4112,7 @@ items:
   source:
     id: TransformVector
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1235
+    startLine: 1371
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3784,7 +4152,7 @@ items:
   source:
     id: TransformNormal
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1260
+    startLine: 1396
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3832,7 +4200,7 @@ items:
   source:
     id: TransformNormal
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1277
+    startLine: 1413
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3873,7 +4241,7 @@ items:
   source:
     id: TransformNormalInverse
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1293
+    startLine: 1429
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3921,7 +4289,7 @@ items:
   source:
     id: TransformNormalInverse
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1310
+    startLine: 1446
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -3962,7 +4330,7 @@ items:
   source:
     id: TransformPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1331
+    startLine: 1467
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4006,7 +4374,7 @@ items:
   source:
     id: TransformPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1344
+    startLine: 1480
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4043,7 +4411,7 @@ items:
   source:
     id: TransformRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1368
+    startLine: 1504
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4087,7 +4455,7 @@ items:
   source:
     id: TransformRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1381
+    startLine: 1517
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4124,7 +4492,7 @@ items:
   source:
     id: TransformTwoDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1394
+    startLine: 1530
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4168,7 +4536,7 @@ items:
   source:
     id: TransformTwoDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1407
+    startLine: 1543
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4205,7 +4573,7 @@ items:
   source:
     id: TransformTwoDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1419
+    startLine: 1555
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4249,7 +4617,7 @@ items:
   source:
     id: TransformTwoDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1432
+    startLine: 1568
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4286,7 +4654,7 @@ items:
   source:
     id: TransformFourDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1444
+    startLine: 1580
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4330,7 +4698,7 @@ items:
   source:
     id: TransformFourDimensionsRow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1457
+    startLine: 1593
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4367,7 +4735,7 @@ items:
   source:
     id: TransformFourDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1471
+    startLine: 1607
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4411,7 +4779,7 @@ items:
   source:
     id: TransformFourDimensionsColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1484
+    startLine: 1620
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4448,7 +4816,7 @@ items:
   source:
     id: Transform
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1498
+    startLine: 1634
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4492,7 +4860,7 @@ items:
   source:
     id: Transform
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1511
+    startLine: 1647
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4529,7 +4897,7 @@ items:
   source:
     id: TransformColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1530
+    startLine: 1666
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4573,7 +4941,7 @@ items:
   source:
     id: TransformColumn
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1543
+    startLine: 1679
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4610,7 +4978,7 @@ items:
   source:
     id: TransformPerspective
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1556
+    startLine: 1692
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4654,7 +5022,7 @@ items:
   source:
     id: TransformPerspective
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1569
+    startLine: 1705
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4691,7 +5059,7 @@ items:
   source:
     id: CalculateAngle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1585
+    startLine: 1721
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4736,7 +5104,7 @@ items:
   source:
     id: CalculateAngle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1599
+    startLine: 1735
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4774,7 +5142,7 @@ items:
   source:
     id: Xy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1608
+    startLine: 1744
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4801,7 +5169,7 @@ items:
   source:
     id: Xz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1622
+    startLine: 1758
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4828,7 +5196,7 @@ items:
   source:
     id: Yx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1636
+    startLine: 1772
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4855,7 +5223,7 @@ items:
   source:
     id: Yz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1650
+    startLine: 1786
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4882,7 +5250,7 @@ items:
   source:
     id: Zx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1664
+    startLine: 1800
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4909,7 +5277,7 @@ items:
   source:
     id: Zy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1678
+    startLine: 1814
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4936,7 +5304,7 @@ items:
   source:
     id: Xzy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1692
+    startLine: 1828
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4963,7 +5331,7 @@ items:
   source:
     id: Yxz
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1707
+    startLine: 1843
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -4990,7 +5358,7 @@ items:
   source:
     id: Yzx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1722
+    startLine: 1858
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5017,7 +5385,7 @@ items:
   source:
     id: Zxy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1737
+    startLine: 1873
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5044,7 +5412,7 @@ items:
   source:
     id: Zyx
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1752
+    startLine: 1888
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5071,7 +5439,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1770
+    startLine: 1906
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5118,7 +5486,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1785
+    startLine: 1921
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5165,7 +5533,7 @@ items:
   source:
     id: op_Addition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1800
+    startLine: 1936
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5214,7 +5582,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1815
+    startLine: 1951
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5261,7 +5629,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1830
+    startLine: 1966
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5308,7 +5676,7 @@ items:
   source:
     id: op_Subtraction
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1845
+    startLine: 1981
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5357,7 +5725,7 @@ items:
   source:
     id: op_UnaryNegation
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1859
+    startLine: 1995
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5403,7 +5771,7 @@ items:
   source:
     id: op_UnaryPlus
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1873
+    startLine: 2009
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5449,7 +5817,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1888
+    startLine: 2024
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5498,7 +5866,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1903
+    startLine: 2039
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5545,7 +5913,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1918
+    startLine: 2054
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5594,7 +5962,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1933
+    startLine: 2069
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5633,7 +6001,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1945
+    startLine: 2081
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5682,7 +6050,7 @@ items:
   source:
     id: op_Multiply
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1958
+    startLine: 2094
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5721,7 +6089,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1970
+    startLine: 2106
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5770,7 +6138,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 1985
+    startLine: 2121
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5817,7 +6185,7 @@ items:
   source:
     id: op_Division
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2000
+    startLine: 2136
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5866,7 +6234,7 @@ items:
   source:
     id: op_LessThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2015
+    startLine: 2151
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5913,7 +6281,7 @@ items:
   source:
     id: op_LessThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2027
+    startLine: 2163
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -5960,7 +6328,7 @@ items:
   source:
     id: op_GreaterThan
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2039
+    startLine: 2175
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6007,7 +6375,7 @@ items:
   source:
     id: op_GreaterThanOrEqual
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2051
+    startLine: 2187
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6054,7 +6422,7 @@ items:
   source:
     id: op_Equality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2063
+    startLine: 2199
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6093,7 +6461,7 @@ items:
   source:
     id: op_Inequality
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2074
+    startLine: 2210
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6132,7 +6500,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2084
+    startLine: 2220
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6176,7 +6544,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2095
+    startLine: 2231
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6220,7 +6588,7 @@ items:
   source:
     id: op_Explicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2106
+    startLine: 2242
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6264,7 +6632,7 @@ items:
   source:
     id: op_Implicit
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2118
+    startLine: 2254
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6311,7 +6679,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2125
+    startLine: 2261
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6339,7 +6707,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2131
+    startLine: 2267
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6351,9 +6719,9 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
@@ -6378,7 +6746,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2137
+    startLine: 2273
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6390,9 +6758,9 @@ items:
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -6414,7 +6782,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2143
+    startLine: 2279
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6426,17 +6794,17 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -6463,7 +6831,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2154
+    startLine: 2290
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6498,7 +6866,7 @@ items:
   source:
     id: Equals
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2160
+    startLine: 2296
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6531,7 +6899,7 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2169
+    startLine: 2305
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -6559,7 +6927,7 @@ items:
   source:
     id: Deconstruct
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Mathematics\Vector\Vector3d.cs
-    startLine: 2180
+    startLine: 2316
   assemblies:
   - OpenTK.Mathematics
   namespace: OpenTK.Mathematics
@@ -8409,12 +8777,36 @@ references:
   name: ComponentMin
   nameWithType: Vector3d.ComponentMin
   fullName: OpenTK.Mathematics.Vector3d.ComponentMin
+- uid: OpenTK.Mathematics.Vector3d.ComponentMinNumber*
+  commentId: Overload:OpenTK.Mathematics.Vector3d.ComponentMinNumber
+  href: OpenTK.Mathematics.Vector3d.html#OpenTK_Mathematics_Vector3d_ComponentMinNumber_OpenTK_Mathematics_Vector3d_OpenTK_Mathematics_Vector3d_
+  name: ComponentMinNumber
+  nameWithType: Vector3d.ComponentMinNumber
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMinNumber
+- uid: OpenTK.Mathematics.Vector3d.ComponentMinNative*
+  commentId: Overload:OpenTK.Mathematics.Vector3d.ComponentMinNative
+  href: OpenTK.Mathematics.Vector3d.html#OpenTK_Mathematics_Vector3d_ComponentMinNative_OpenTK_Mathematics_Vector3d_OpenTK_Mathematics_Vector3d_
+  name: ComponentMinNative
+  nameWithType: Vector3d.ComponentMinNative
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMinNative
 - uid: OpenTK.Mathematics.Vector3d.ComponentMax*
   commentId: Overload:OpenTK.Mathematics.Vector3d.ComponentMax
   href: OpenTK.Mathematics.Vector3d.html#OpenTK_Mathematics_Vector3d_ComponentMax_OpenTK_Mathematics_Vector3d_OpenTK_Mathematics_Vector3d_
   name: ComponentMax
   nameWithType: Vector3d.ComponentMax
   fullName: OpenTK.Mathematics.Vector3d.ComponentMax
+- uid: OpenTK.Mathematics.Vector3d.ComponentMaxNumber*
+  commentId: Overload:OpenTK.Mathematics.Vector3d.ComponentMaxNumber
+  href: OpenTK.Mathematics.Vector3d.html#OpenTK_Mathematics_Vector3d_ComponentMaxNumber_OpenTK_Mathematics_Vector3d_OpenTK_Mathematics_Vector3d_
+  name: ComponentMaxNumber
+  nameWithType: Vector3d.ComponentMaxNumber
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMaxNumber
+- uid: OpenTK.Mathematics.Vector3d.ComponentMaxNative*
+  commentId: Overload:OpenTK.Mathematics.Vector3d.ComponentMaxNative
+  href: OpenTK.Mathematics.Vector3d.html#OpenTK_Mathematics_Vector3d_ComponentMaxNative_OpenTK_Mathematics_Vector3d_OpenTK_Mathematics_Vector3d_
+  name: ComponentMaxNative
+  nameWithType: Vector3d.ComponentMaxNative
+  fullName: OpenTK.Mathematics.Vector3d.ComponentMaxNative
 - uid: OpenTK.Mathematics.Vector3d.MagnitudeMin*
   commentId: Overload:OpenTK.Mathematics.Vector3d.MagnitudeMin
   href: OpenTK.Mathematics.Vector3d.html#OpenTK_Mathematics_Vector3d_MagnitudeMin_OpenTK_Mathematics_Vector3d_OpenTK_Mathematics_Vector3d_

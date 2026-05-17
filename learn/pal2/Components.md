@@ -15,6 +15,7 @@ There are currently 12 components in PAL2.
 |`Toolkit.Mouse`|[`IMouseComponent`](xref:OpenTK.Platform.IMouseComponent)|This component allows for getting and setting of the mouse cursor position.|
 |`Toolkit.Keyboard`|[`IKeyboardComponent`](xref:OpenTK.Platform.IKeyboardComponent)|This component is responsible for translating platform dependent keycodes and scancodes to a cross platform representation. This component also exposes information about keyboard layout and has functions for IME input.|
 |`Toolkit.Joystick`|[`IJoystickComponent`](xref:OpenTK.Platform.IJoystickComponent)|This component is responsible for exposing joystick input and interfacing with joystick controllers.|
+|`Toolkit.Gamepad`|[`IGamepadComponent`](xref:OpenTK.Platform.IGamepadComponent)|This component is responsible for exposing xbox style gamepad input and interfacing with controllers.|
 |`Toolkit.Clipboard`|[`IClipboardComponent`](xref:OpenTK.Platform.IClipboardComponent)|This component is used to read and write to the clipboard.|
 |`Toolkit.Shell`|[`IShellComponent`](xref:OpenTK.Platform.IShellComponent)|This component exposes functions for interacting with the system more generally. Things like battery status and user prefered theme is exposed here.|
 |`Toolkit.Dialog`|[`IDialogComponent`](xref:OpenTK.Platform.IDialogComponent)|This component has functions for creating modal message boxes and open/save file dialogs.|

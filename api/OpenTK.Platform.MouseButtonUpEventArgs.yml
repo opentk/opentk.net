@@ -5,8 +5,10 @@ items:
   id: MouseButtonUpEventArgs
   parent: OpenTK.Platform
   children:
-  - OpenTK.Platform.MouseButtonUpEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier)
+  - OpenTK.Platform.MouseButtonUpEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier,System.Int32)
   - OpenTK.Platform.MouseButtonUpEventArgs.Button
+  - OpenTK.Platform.MouseButtonUpEventArgs.Clicks
+  - OpenTK.Platform.MouseButtonUpEventArgs.ClientPosition
   - OpenTK.Platform.MouseButtonUpEventArgs.Modifiers
   langs:
   - csharp
@@ -18,7 +20,7 @@ items:
   source:
     id: MouseButtonUpEventArgs
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 487
+    startLine: 477
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -41,6 +43,33 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: OpenTK.Platform.MouseButtonUpEventArgs.ClientPosition
+  commentId: P:OpenTK.Platform.MouseButtonUpEventArgs.ClientPosition
+  id: ClientPosition
+  parent: OpenTK.Platform.MouseButtonUpEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ClientPosition
+  nameWithType: MouseButtonUpEventArgs.ClientPosition
+  fullName: OpenTK.Platform.MouseButtonUpEventArgs.ClientPosition
+  type: Property
+  source:
+    id: ClientPosition
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
+    startLine: 482
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: The position where the mouse was released, in client coordinates.
+  example: []
+  syntax:
+    content: public Vector2 ClientPosition { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Property ClientPosition As Vector2
+  overload: OpenTK.Platform.MouseButtonUpEventArgs.ClientPosition*
 - uid: OpenTK.Platform.MouseButtonUpEventArgs.Button
   commentId: P:OpenTK.Platform.MouseButtonUpEventArgs.Button
   id: Button
@@ -55,7 +84,7 @@ items:
   source:
     id: Button
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 492
+    startLine: 487
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -82,7 +111,7 @@ items:
   source:
     id: Modifiers
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 497
+    startLine: 492
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -95,43 +124,80 @@ items:
       type: OpenTK.Platform.KeyModifier
     content.vb: Public Property Modifiers As KeyModifier
   overload: OpenTK.Platform.MouseButtonUpEventArgs.Modifiers*
-- uid: OpenTK.Platform.MouseButtonUpEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier)
-  commentId: M:OpenTK.Platform.MouseButtonUpEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier)
-  id: '#ctor(OpenTK.Platform.WindowHandle,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier)'
+- uid: OpenTK.Platform.MouseButtonUpEventArgs.Clicks
+  commentId: P:OpenTK.Platform.MouseButtonUpEventArgs.Clicks
+  id: Clicks
   parent: OpenTK.Platform.MouseButtonUpEventArgs
   langs:
   - csharp
   - vb
-  name: MouseButtonUpEventArgs(WindowHandle, MouseButton, KeyModifier)
-  nameWithType: MouseButtonUpEventArgs.MouseButtonUpEventArgs(WindowHandle, MouseButton, KeyModifier)
-  fullName: OpenTK.Platform.MouseButtonUpEventArgs.MouseButtonUpEventArgs(OpenTK.Platform.WindowHandle, OpenTK.Platform.MouseButton, OpenTK.Platform.KeyModifier)
+  name: Clicks
+  nameWithType: MouseButtonUpEventArgs.Clicks
+  fullName: OpenTK.Platform.MouseButtonUpEventArgs.Clicks
+  type: Property
+  source:
+    id: Clicks
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
+    startLine: 499
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    The number of times this button has been clicked in a row in a small area and time limit.
+
+    1 for single-click, 2 for double-click, etc.
+  remarks: The details of counting multi-clicks follows the platform conventions.
+  example: []
+  syntax:
+    content: public int Clicks { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Clicks As Integer
+  overload: OpenTK.Platform.MouseButtonUpEventArgs.Clicks*
+- uid: OpenTK.Platform.MouseButtonUpEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier,System.Int32)
+  commentId: M:OpenTK.Platform.MouseButtonUpEventArgs.#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier,System.Int32)
+  id: '#ctor(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2,OpenTK.Platform.MouseButton,OpenTK.Platform.KeyModifier,System.Int32)'
+  parent: OpenTK.Platform.MouseButtonUpEventArgs
+  langs:
+  - csharp
+  - vb
+  name: MouseButtonUpEventArgs(WindowHandle, Vector2, MouseButton, KeyModifier, int)
+  nameWithType: MouseButtonUpEventArgs.MouseButtonUpEventArgs(WindowHandle, Vector2, MouseButton, KeyModifier, int)
+  fullName: OpenTK.Platform.MouseButtonUpEventArgs.MouseButtonUpEventArgs(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2, OpenTK.Platform.MouseButton, OpenTK.Platform.KeyModifier, int)
   type: Constructor
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\WindowEventArgs.cs
-    startLine: 505
+    startLine: 509
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
   summary: Initializes a new instance of the <xref href="OpenTK.Platform.MouseButtonUpEventArgs" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public MouseButtonUpEventArgs(WindowHandle window, MouseButton button, KeyModifier modifiers)
+    content: public MouseButtonUpEventArgs(WindowHandle window, Vector2 clientPosition, MouseButton button, KeyModifier modifiers, int clicks)
     parameters:
     - id: window
       type: OpenTK.Platform.WindowHandle
       description: The window that had input focus when the mouse is released.
+    - id: clientPosition
+      type: OpenTK.Mathematics.Vector2
+      description: The coordinate in client coordinates where the mouse was pressed.
     - id: button
       type: OpenTK.Platform.MouseButton
       description: The button that was released.
     - id: modifiers
       type: OpenTK.Platform.KeyModifier
       description: The modifiers that where active when the mouse button was released.
-    content.vb: Public Sub New(window As WindowHandle, button As MouseButton, modifiers As KeyModifier)
+    - id: clicks
+      type: System.Int32
+      description: The click count for this event, single-click, double-click, etc.
+    content.vb: Public Sub New(window As WindowHandle, clientPosition As Vector2, button As MouseButton, modifiers As KeyModifier, clicks As Integer)
   overload: OpenTK.Platform.MouseButtonUpEventArgs.#ctor*
-  nameWithType.vb: MouseButtonUpEventArgs.New(WindowHandle, MouseButton, KeyModifier)
-  fullName.vb: OpenTK.Platform.MouseButtonUpEventArgs.New(OpenTK.Platform.WindowHandle, OpenTK.Platform.MouseButton, OpenTK.Platform.KeyModifier)
-  name.vb: New(WindowHandle, MouseButton, KeyModifier)
+  nameWithType.vb: MouseButtonUpEventArgs.New(WindowHandle, Vector2, MouseButton, KeyModifier, Integer)
+  fullName.vb: OpenTK.Platform.MouseButtonUpEventArgs.New(OpenTK.Platform.WindowHandle, OpenTK.Mathematics.Vector2, OpenTK.Platform.MouseButton, OpenTK.Platform.KeyModifier, Integer)
+  name.vb: New(WindowHandle, Vector2, MouseButton, KeyModifier, Integer)
 references:
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
@@ -422,6 +488,41 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: OpenTK.Platform.MouseButtonUpEventArgs.ClientPosition*
+  commentId: Overload:OpenTK.Platform.MouseButtonUpEventArgs.ClientPosition
+  href: OpenTK.Platform.MouseButtonUpEventArgs.html#OpenTK_Platform_MouseButtonUpEventArgs_ClientPosition
+  name: ClientPosition
+  nameWithType: MouseButtonUpEventArgs.ClientPosition
+  fullName: OpenTK.Platform.MouseButtonUpEventArgs.ClientPosition
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  href: OpenTK.Mathematics.Vector2.html
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  href: OpenTK.html
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    href: OpenTK.html
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    href: OpenTK.Mathematics.html
 - uid: OpenTK.Platform.MouseButtonUpEventArgs.Button*
   commentId: Overload:OpenTK.Platform.MouseButtonUpEventArgs.Button
   href: OpenTK.Platform.MouseButtonUpEventArgs.html#OpenTK_Platform_MouseButtonUpEventArgs_Button
@@ -448,6 +549,23 @@ references:
   name: KeyModifier
   nameWithType: KeyModifier
   fullName: OpenTK.Platform.KeyModifier
+- uid: OpenTK.Platform.MouseButtonUpEventArgs.Clicks*
+  commentId: Overload:OpenTK.Platform.MouseButtonUpEventArgs.Clicks
+  href: OpenTK.Platform.MouseButtonUpEventArgs.html#OpenTK_Platform_MouseButtonUpEventArgs_Clicks
+  name: Clicks
+  nameWithType: MouseButtonUpEventArgs.Clicks
+  fullName: OpenTK.Platform.MouseButtonUpEventArgs.Clicks
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: OpenTK.Platform.MouseButtonUpEventArgs
   commentId: T:OpenTK.Platform.MouseButtonUpEventArgs
   href: OpenTK.Platform.MouseButtonUpEventArgs.html
@@ -456,7 +574,7 @@ references:
   fullName: OpenTK.Platform.MouseButtonUpEventArgs
 - uid: OpenTK.Platform.MouseButtonUpEventArgs.#ctor*
   commentId: Overload:OpenTK.Platform.MouseButtonUpEventArgs.#ctor
-  href: OpenTK.Platform.MouseButtonUpEventArgs.html#OpenTK_Platform_MouseButtonUpEventArgs__ctor_OpenTK_Platform_WindowHandle_OpenTK_Platform_MouseButton_OpenTK_Platform_KeyModifier_
+  href: OpenTK.Platform.MouseButtonUpEventArgs.html#OpenTK_Platform_MouseButtonUpEventArgs__ctor_OpenTK_Platform_WindowHandle_OpenTK_Mathematics_Vector2_OpenTK_Platform_MouseButton_OpenTK_Platform_KeyModifier_System_Int32_
   name: MouseButtonUpEventArgs
   nameWithType: MouseButtonUpEventArgs.MouseButtonUpEventArgs
   fullName: OpenTK.Platform.MouseButtonUpEventArgs.MouseButtonUpEventArgs

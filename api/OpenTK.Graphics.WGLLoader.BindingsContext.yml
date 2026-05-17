@@ -20,6 +20,8 @@ items:
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: The bindings context for WGL.
+  example: []
   syntax:
     content: public static class WGLLoader.BindingsContext
     content.vb: Public Module WGLLoader.BindingsContext
@@ -47,17 +49,26 @@ items:
   source:
     id: GetProcAddress
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\WGLLoader.cs
-    startLine: 15
+    startLine: 24
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: The wglGetProcAddress function returns the address of an OpenGL extension function for use with the current OpenGL rendering context.
+  example: []
   syntax:
     content: public static nint GetProcAddress(string procName)
     parameters:
     - id: procName
       type: System.String
+      description: Points to a null-terminated string that is the name of the extension function. The name of the extension function must be identical to a corresponding function implemented by OpenGL.
     return:
       type: System.IntPtr
+      description: >-
+        When the function succeeds, the return value is the address of the extension function.
+
+        When no current rendering context exists or the function fails, the return value is NULL.
+
+        To get extended error information, call GetLastError.
     content.vb: Public Shared Function GetProcAddress(procName As String) As IntPtr
   overload: OpenTK.Graphics.WGLLoader.BindingsContext.GetProcAddress*
   nameWithType.vb: WGLLoader.BindingsContext.GetProcAddress(String)

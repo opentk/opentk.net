@@ -28,6 +28,7 @@ items:
   - OpenTK.Platform.IWindowComponent.GetMaxClientSize(OpenTK.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   - OpenTK.Platform.IWindowComponent.GetMinClientSize(OpenTK.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   - OpenTK.Platform.IWindowComponent.GetMode(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.IWindowComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2i@)
   - OpenTK.Platform.IWindowComponent.GetScaleFactor(OpenTK.Platform.WindowHandle,System.Single@,System.Single@)
   - OpenTK.Platform.IWindowComponent.GetSize(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2i@)
@@ -85,6 +86,11 @@ items:
   seealso:
   - linkId: OpenTK.Platform.Toolkit.Window
     commentId: P:OpenTK.Platform.Toolkit.Window
+  derivedClasses:
+  - OpenTK.Platform.Native.SDL.SDLWindowComponent
+  - OpenTK.Platform.Native.Windows.WindowComponent
+  - OpenTK.Platform.Native.X11.X11WindowComponent
+  - OpenTK.Platform.Native.macOS.MacOSWindowComponent
   inheritedMembers:
   - OpenTK.Platform.IPalComponent.Name
   - OpenTK.Platform.IPalComponent.Provides
@@ -312,7 +318,7 @@ items:
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
-  summary: Processes platform events and sends them to the <xref href="OpenTK.Platform.EventQueue" data-throw-if-not-resolved="false"></xref>.
+  summary: Processes platform events and sends them to the EventQueue.
   example: []
   syntax:
     content: void ProcessEvents(bool waitForEvents)
@@ -1478,6 +1484,12 @@ items:
     - id: display
       type: OpenTK.Platform.DisplayHandle
       description: The display where the window is fullscreen or null if the window is not fullscreen.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)
+        arguments:
+        - type: System.Boolean
+          value: true
     return:
       type: System.Boolean
       description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the window was fullscreen, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.
@@ -1585,6 +1597,7 @@ items:
   namespace: OpenTK.Platform
   summary: >-
     Returns true if <xref href="OpenTK.Platform.WindowTransparencyMode.TransparentFramebuffer" data-throw-if-not-resolved="false"></xref> is supported for this window.
+
 
     <table><tbody><tr><td class="term">Win32</td><td class="description">Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr><tr><td class="term">macOS</td><td class="description">Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr><tr><td class="term">Linux/X11</td><td class="description">Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the selected <xref href="OpenTK.Platform.ContextValues" data-throw-if-not-resolved="false"></xref> had <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr></tbody></table>
   example: []
@@ -2259,6 +2272,37 @@ items:
   nameWithType.vb: IWindowComponent.GetScaleFactor(WindowHandle, Single, Single)
   fullName.vb: OpenTK.Platform.IWindowComponent.GetScaleFactor(OpenTK.Platform.WindowHandle, Single, Single)
   name.vb: GetScaleFactor(WindowHandle, Single, Single)
+- uid: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  id: GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IWindowComponent
+  langs:
+  - csharp
+  - vb
+  name: GetOpenGLContext(WindowHandle)
+  nameWithType: IWindowComponent.GetOpenGLContext(WindowHandle)
+  fullName: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  type: Method
+  source:
+    id: GetOpenGLContext
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Interfaces\IWindowComponent.cs
+    startLine: 590
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Returns the OpenGL context created from this window, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no OpenGL has been created for this window.
+  example: []
+  syntax:
+    content: OpenGLContextHandle? GetOpenGLContext(WindowHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.WindowHandle
+      description: The window handle.
+    return:
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: The OpenGL context created from this window, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no OpenGL has been created for this window.
+    content.vb: Function GetOpenGLContext(handle As WindowHandle) As OpenGLContextHandle
+  overload: OpenTK.Platform.IWindowComponent.GetOpenGLContext*
 references:
 - uid: OpenTK.Platform.Toolkit.Window
   commentId: P:OpenTK.Platform.Toolkit.Window
@@ -2746,13 +2790,6 @@ references:
     name: WindowMode
     href: OpenTK.Platform.WindowMode.html
   - name: )
-- uid: OpenTK.Platform.EventQueue
-  commentId: T:OpenTK.Platform.EventQueue
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.EventQueue.html
-  name: EventQueue
-  nameWithType: EventQueue
-  fullName: OpenTK.Platform.EventQueue
 - uid: OpenTK.Platform.IWindowComponent.ProcessEvents*
   commentId: Overload:OpenTK.Platform.IWindowComponent.ProcessEvents
   href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_ProcessEvents_System_Boolean_
@@ -4249,3 +4286,16 @@ references:
   name: GetScaleFactor
   nameWithType: IWindowComponent.GetScaleFactor
   fullName: OpenTK.Platform.IWindowComponent.GetScaleFactor
+- uid: OpenTK.Platform.IWindowComponent.GetOpenGLContext*
+  commentId: Overload:OpenTK.Platform.IWindowComponent.GetOpenGLContext
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  name: GetOpenGLContext
+  nameWithType: IWindowComponent.GetOpenGLContext
+  fullName: OpenTK.Platform.IWindowComponent.GetOpenGLContext
+- uid: OpenTK.Platform.OpenGLContextHandle
+  commentId: T:OpenTK.Platform.OpenGLContextHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.OpenGLContextHandle.html
+  name: OpenGLContextHandle
+  nameWithType: OpenGLContextHandle
+  fullName: OpenTK.Platform.OpenGLContextHandle

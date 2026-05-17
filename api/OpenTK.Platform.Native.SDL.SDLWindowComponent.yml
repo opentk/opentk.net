@@ -28,6 +28,7 @@ items:
   - OpenTK.Platform.Native.SDL.SDLWindowComponent.GetMaxClientSize(OpenTK.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   - OpenTK.Platform.Native.SDL.SDLWindowComponent.GetMinClientSize(OpenTK.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   - OpenTK.Platform.Native.SDL.SDLWindowComponent.GetMode(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.Native.SDL.SDLWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.Native.SDL.SDLWindowComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2i@)
   - OpenTK.Platform.Native.SDL.SDLWindowComponent.GetScaleFactor(OpenTK.Platform.WindowHandle,System.Single@,System.Single@)
   - OpenTK.Platform.Native.SDL.SDLWindowComponent.GetSize(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2i@)
@@ -239,7 +240,7 @@ items:
   source:
     id: Uninitialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 46
+    startLine: 59
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -268,7 +269,7 @@ items:
   source:
     id: CanSetIcon
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 52
+    startLine: 65
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -302,7 +303,7 @@ items:
   source:
     id: CanGetDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 55
+    startLine: 68
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -334,7 +335,7 @@ items:
   source:
     id: CanSetCursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 58
+    startLine: 71
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -366,7 +367,7 @@ items:
   source:
     id: CanCaptureCursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 61
+    startLine: 74
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -398,7 +399,7 @@ items:
   source:
     id: SupportedEvents
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 64
+    startLine: 77
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -427,7 +428,7 @@ items:
   source:
     id: SupportedStyles
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 67
+    startLine: 80
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -456,7 +457,7 @@ items:
   source:
     id: SupportedModes
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 70
+    startLine: 83
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -485,11 +486,11 @@ items:
   source:
     id: ProcessEvents
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 79
+    startLine: 92
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
-  summary: Processes platform events and sends them to the <xref href="OpenTK.Platform.EventQueue" data-throw-if-not-resolved="false"></xref>.
+  summary: Processes platform events and sends them to the EventQueue.
   example: []
   syntax:
     content: public void ProcessEvents(bool waitForEvents)
@@ -518,7 +519,7 @@ items:
   source:
     id: PostUserEvent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 453
+    startLine: 476
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -556,7 +557,7 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 464
+    startLine: 487
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -592,7 +593,7 @@ items:
   source:
     id: Destroy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 573
+    startLine: 596
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -627,7 +628,7 @@ items:
   source:
     id: IsWindowDestroyed
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 585
+    startLine: 608
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -665,7 +666,7 @@ items:
   source:
     id: GetTitle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 593
+    startLine: 616
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -701,7 +702,7 @@ items:
   source:
     id: SetTitle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 602
+    startLine: 625
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -740,7 +741,7 @@ items:
   source:
     id: GetIcon
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 610
+    startLine: 633
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -782,7 +783,7 @@ items:
   source:
     id: SetIcon
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 618
+    startLine: 641
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -832,7 +833,7 @@ items:
   source:
     id: GetPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 628
+    startLine: 651
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -871,7 +872,7 @@ items:
   source:
     id: SetPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 641
+    startLine: 664
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -904,7 +905,7 @@ items:
   source:
     id: GetSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 653
+    startLine: 676
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -940,7 +941,7 @@ items:
   source:
     id: SetSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 666
+    startLine: 689
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -973,7 +974,7 @@ items:
   source:
     id: GetBounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 679
+    startLine: 702
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1018,7 +1019,7 @@ items:
   source:
     id: SetBounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 694
+    startLine: 717
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1063,7 +1064,7 @@ items:
   source:
     id: GetClientPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 710
+    startLine: 733
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1099,7 +1100,7 @@ items:
   source:
     id: SetClientPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 718
+    startLine: 741
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1132,7 +1133,7 @@ items:
   source:
     id: GetClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 726
+    startLine: 749
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1168,7 +1169,7 @@ items:
   source:
     id: SetClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 734
+    startLine: 757
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1201,7 +1202,7 @@ items:
   source:
     id: GetClientBounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 742
+    startLine: 765
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1246,7 +1247,7 @@ items:
   source:
     id: SetClientBounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 751
+    startLine: 774
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1291,7 +1292,7 @@ items:
   source:
     id: GetFramebufferSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 760
+    startLine: 783
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1330,7 +1331,7 @@ items:
   source:
     id: GetMaxClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 768
+    startLine: 791
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1369,7 +1370,7 @@ items:
   source:
     id: SetMaxClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 783
+    startLine: 806
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1408,7 +1409,7 @@ items:
   source:
     id: GetMinClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 793
+    startLine: 818
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1447,7 +1448,7 @@ items:
   source:
     id: SetMinClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 806
+    startLine: 831
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1486,7 +1487,7 @@ items:
   source:
     id: GetDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 814
+    startLine: 841
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1526,7 +1527,7 @@ items:
   source:
     id: GetMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 825
+    startLine: 852
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1559,7 +1560,7 @@ items:
   source:
     id: SetMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 859
+    startLine: 886
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1612,7 +1613,7 @@ items:
   source:
     id: SetFullscreenDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 907
+    startLine: 934
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1654,7 +1655,7 @@ items:
   source:
     id: SetFullscreenDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 942
+    startLine: 969
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1700,7 +1701,7 @@ items:
   source:
     id: GetFullscreenDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 989
+    startLine: 1016
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1714,6 +1715,12 @@ items:
     - id: display
       type: OpenTK.Platform.DisplayHandle
       description: The display where the window is fullscreen or null if the window is not fullscreen.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)
+        arguments:
+        - type: System.Boolean
+          value: true
     return:
       type: System.Boolean
       description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the window was fullscreen, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.
@@ -1745,7 +1752,7 @@ items:
   source:
     id: GetBorderStyle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1006
+    startLine: 1033
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1781,7 +1788,7 @@ items:
   source:
     id: SetBorderStyle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1033
+    startLine: 1060
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1821,12 +1828,13 @@ items:
   source:
     id: SupportsFramebufferTransparency
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1060
+    startLine: 1087
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
   summary: >-
     Returns true if <xref href="OpenTK.Platform.WindowTransparencyMode.TransparentFramebuffer" data-throw-if-not-resolved="false"></xref> is supported for this window.
+
 
     <table><tbody><tr><td class="term">Win32</td><td class="description">Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr><tr><td class="term">macOS</td><td class="description">Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr><tr><td class="term">Linux/X11</td><td class="description">Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the selected <xref href="OpenTK.Platform.ContextValues" data-throw-if-not-resolved="false"></xref> had <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr></tbody></table>
   example: []
@@ -1866,7 +1874,7 @@ items:
   source:
     id: SetTransparencyMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1066
+    startLine: 1093
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1912,7 +1920,7 @@ items:
   source:
     id: GetTransparencyMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1072
+    startLine: 1099
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1958,7 +1966,7 @@ items:
   source:
     id: SetAlwaysOnTop
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1078
+    startLine: 1105
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -1997,7 +2005,7 @@ items:
   source:
     id: IsAlwaysOnTop
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1086
+    startLine: 1113
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2033,7 +2041,7 @@ items:
   source:
     id: SetHitTestCallback
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1096
+    startLine: 1123
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2084,7 +2092,7 @@ items:
   source:
     id: SetCursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1141
+    startLine: 1168
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2127,7 +2135,7 @@ items:
   source:
     id: GetCursorCaptureMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1165
+    startLine: 1192
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2165,7 +2173,7 @@ items:
   source:
     id: SetCursorCaptureMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1186
+    startLine: 1213
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2206,7 +2214,7 @@ items:
   source:
     id: IsFocused
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1207
+    startLine: 1234
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2244,7 +2252,7 @@ items:
   source:
     id: FocusWindow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1215
+    startLine: 1242
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2279,7 +2287,7 @@ items:
   source:
     id: RequestAttention
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1223
+    startLine: 1250
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2315,7 +2323,7 @@ items:
   source:
     id: ScreenToClient
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1231
+    startLine: 1258
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2363,7 +2371,7 @@ items:
   source:
     id: ClientToScreen
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1241
+    startLine: 1268
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2411,7 +2419,7 @@ items:
   source:
     id: ClientToFramebuffer
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1251
+    startLine: 1278
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2459,7 +2467,7 @@ items:
   source:
     id: FramebufferToClient
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1260
+    startLine: 1287
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2507,7 +2515,7 @@ items:
   source:
     id: GetScaleFactor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
-    startLine: 1269
+    startLine: 1296
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.SDL
@@ -2535,6 +2543,39 @@ items:
   nameWithType.vb: SDLWindowComponent.GetScaleFactor(WindowHandle, Single, Single)
   fullName.vb: OpenTK.Platform.Native.SDL.SDLWindowComponent.GetScaleFactor(OpenTK.Platform.WindowHandle, Single, Single)
   name.vb: GetScaleFactor(WindowHandle, Single, Single)
+- uid: OpenTK.Platform.Native.SDL.SDLWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.Native.SDL.SDLWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  id: GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.Native.SDL.SDLWindowComponent
+  langs:
+  - csharp
+  - vb
+  name: GetOpenGLContext(WindowHandle)
+  nameWithType: SDLWindowComponent.GetOpenGLContext(WindowHandle)
+  fullName: OpenTK.Platform.Native.SDL.SDLWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  type: Method
+  source:
+    id: GetOpenGLContext
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\SDL\SDLWindowComponent.cs
+    startLine: 1308
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.SDL
+  summary: Returns the OpenGL context created from this window, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no OpenGL has been created for this window.
+  example: []
+  syntax:
+    content: public OpenGLContextHandle? GetOpenGLContext(WindowHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.WindowHandle
+      description: The window handle.
+    return:
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: The OpenGL context created from this window, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no OpenGL has been created for this window.
+    content.vb: Public Function GetOpenGLContext(handle As WindowHandle) As OpenGLContextHandle
+  overload: OpenTK.Platform.Native.SDL.SDLWindowComponent.GetOpenGLContext*
+  implements:
+  - OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
 references:
 - uid: OpenTK.Platform.Native.SDL
   commentId: N:OpenTK.Platform.Native.SDL
@@ -3473,13 +3514,6 @@ references:
     name: WindowMode
     href: OpenTK.Platform.WindowMode.html
   - name: )
-- uid: OpenTK.Platform.EventQueue
-  commentId: T:OpenTK.Platform.EventQueue
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.EventQueue.html
-  name: EventQueue
-  nameWithType: EventQueue
-  fullName: OpenTK.Platform.EventQueue
 - uid: OpenTK.Platform.Native.SDL.SDLWindowComponent.ProcessEvents*
   commentId: Overload:OpenTK.Platform.Native.SDL.SDLWindowComponent.ProcessEvents
   href: OpenTK.Platform.Native.SDL.SDLWindowComponent.html#OpenTK_Platform_Native_SDL_SDLWindowComponent_ProcessEvents_System_Boolean_
@@ -6023,3 +6057,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.single
   - name: )
+- uid: OpenTK.Platform.Native.SDL.SDLWindowComponent.GetOpenGLContext*
+  commentId: Overload:OpenTK.Platform.Native.SDL.SDLWindowComponent.GetOpenGLContext
+  href: OpenTK.Platform.Native.SDL.SDLWindowComponent.html#OpenTK_Platform_Native_SDL_SDLWindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  name: GetOpenGLContext
+  nameWithType: SDLWindowComponent.GetOpenGLContext
+  fullName: OpenTK.Platform.Native.SDL.SDLWindowComponent.GetOpenGLContext
+- uid: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IWindowComponent
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  name: GetOpenGLContext(WindowHandle)
+  nameWithType: IWindowComponent.GetOpenGLContext(WindowHandle)
+  fullName: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+    name: GetOpenGLContext
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+    name: GetOpenGLContext
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+- uid: OpenTK.Platform.OpenGLContextHandle
+  commentId: T:OpenTK.Platform.OpenGLContextHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.OpenGLContextHandle.html
+  name: OpenGLContextHandle
+  nameWithType: OpenGLContextHandle
+  fullName: OpenTK.Platform.OpenGLContextHandle

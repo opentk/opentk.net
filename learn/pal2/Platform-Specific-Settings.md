@@ -116,7 +116,7 @@ The following is a list of macOS specific settings and functions.
 |`MacOSIconComponent`||
 |[`MacOSIconComponent.CreateSFSymbol`](xref:OpenTK.Platform.Native.macOS.MacOSIconComponent.CreateSFSymbol(System.String,System.String))|Creates a IconHandle from a SF symbol name.|
 |`MacOSDisplayComponent`||
-|[`MacOSDisplayComponent.GetSafeArea`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetSafeArea(OpenTK.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@))|Gets the area of the screen that is not covered by things like camera housings.|
+|[`MacOSDisplayComponent.GetSafeArea`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetSafeArea(OpenTK.Platform.DisplayHandle))|Gets the area of the screen that is not covered by things like camera housings.|
 |[`MacOSDisplayComponent.GetSafeLeftAuxArea`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetSafeLeftAuxArea(OpenTK.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@))|Gets the visible area of the screen to the left of the camera housing or an empty area if there is no camera housing.|
 |[`MacOSDisplayComponent.GetSafeRightAuxArea`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetSafeRightAuxArea(OpenTK.Platform.DisplayHandle,OpenTK.Mathematics.Box2i@))|Gets the visible area of the screen to the right of the camera housing or an empty area of there is no camera housing.|
 |[`MacOSDisplayComponent.GetDirectDisplayID`](xref:OpenTK.Platform.Native.macOS.MacOSDisplayComponent.GetDirectDisplayID(OpenTK.Platform.DisplayHandle))|Gets the `CGDirectDisplayID` for the display handle.|

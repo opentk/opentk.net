@@ -1,30 +1,33 @@
 ### YamlMime:ManagedReference
 items:
-- uid: OpenTK.Input.Hid.HidHelper
-  commentId: T:OpenTK.Input.Hid.HidHelper
-  id: HidHelper
-  parent: OpenTK.Input.Hid
+- uid: OpenTK.Platform.Toolkit.Event
+  commentId: T:OpenTK.Platform.Toolkit.Event
+  id: Toolkit.Event
+  parent: OpenTK.Platform
   children:
-  - OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis(OpenTK.Input.Hid.HidPage,System.Int32)
+  - OpenTK.Platform.Toolkit.Event.EventRaised
+  - OpenTK.Platform.Toolkit.Event.ProcessEvents(System.Boolean)
+  - OpenTK.Platform.Toolkit.Event.RaiseEvent(System.EventArgs)
+  - OpenTK.Platform.Toolkit.Event.RaiseEventNotify(System.EventArgs)
   langs:
   - csharp
   - vb
-  name: HidHelper
-  nameWithType: HidHelper
-  fullName: OpenTK.Input.Hid.HidHelper
+  name: Toolkit.Event
+  nameWithType: Toolkit.Event
+  fullName: OpenTK.Platform.Toolkit.Event
   type: Class
   source:
-    id: HidHelper
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Input\Hid\HidHelper.cs
-    startLine: 7
+    id: Event
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Toolkit.cs
+    startLine: 318
   assemblies:
-  - OpenTK.Input
-  namespace: OpenTK.Input.Hid
-  summary: Static class that provides helper functions for consuming HID input.
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Event component for interacting with platform events.
   example: []
   syntax:
-    content: public static class HidHelper
-    content.vb: Public Module HidHelper
+    content: public static class Toolkit.Event
+    content.vb: Public Module Toolkit.Event
   inheritance:
   - System.Object
   inheritedMembers:
@@ -35,74 +38,141 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis(OpenTK.Input.Hid.HidPage,System.Int32)
-  commentId: M:OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis(OpenTK.Input.Hid.HidPage,System.Int32)
-  id: TranslateJoystickAxis(OpenTK.Input.Hid.HidPage,System.Int32)
-  parent: OpenTK.Input.Hid.HidHelper
+- uid: OpenTK.Platform.Toolkit.Event.EventRaised
+  commentId: E:OpenTK.Platform.Toolkit.Event.EventRaised
+  id: EventRaised
+  parent: OpenTK.Platform.Toolkit.Event
   langs:
   - csharp
   - vb
-  name: TranslateJoystickAxis(HidPage, int)
-  nameWithType: HidHelper.TranslateJoystickAxis(HidPage, int)
-  fullName: OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis(OpenTK.Input.Hid.HidPage, int)
-  type: Method
+  name: EventRaised
+  nameWithType: Toolkit.Event.EventRaised
+  fullName: OpenTK.Platform.Toolkit.Event.EventRaised
+  type: Event
   source:
-    id: TranslateJoystickAxis
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Input\Hid\HidHelper.cs
-    startLine: 15
+    id: EventRaised
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Toolkit.cs
+    startLine: 323
   assemblies:
-  - OpenTK.Input
-  namespace: OpenTK.Input.Hid
-  summary: Translates a generic HID usage value to a specific joystick axis for the specified <xref href="OpenTK.Input.Hid.HidPage" data-throw-if-not-resolved="false"></xref>.
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Invoked when an event is raised.
   example: []
   syntax:
-    content: public static int TranslateJoystickAxis(HidPage page, int usage)
-    parameters:
-    - id: page
-      type: OpenTK.Input.Hid.HidPage
-      description: The HID usage page.
-    - id: usage
-      type: System.Int32
-      description: The generic usage value.
+    content: public static event PlatformEventHandler? EventRaised
     return:
-      type: System.Int32
-      description: An <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> that maps the HID usage value to a joystick axis.
-    content.vb: Public Shared Function TranslateJoystickAxis(page As HidPage, usage As Integer) As Integer
-  overload: OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis*
-  nameWithType.vb: HidHelper.TranslateJoystickAxis(HidPage, Integer)
-  fullName.vb: OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis(OpenTK.Input.Hid.HidPage, Integer)
-  name.vb: TranslateJoystickAxis(HidPage, Integer)
+      type: OpenTK.Platform.PlatformEventHandler
+    content.vb: Public Shared Event EventRaised As PlatformEventHandler
+- uid: OpenTK.Platform.Toolkit.Event.RaiseEvent(System.EventArgs)
+  commentId: M:OpenTK.Platform.Toolkit.Event.RaiseEvent(System.EventArgs)
+  id: RaiseEvent(System.EventArgs)
+  parent: OpenTK.Platform.Toolkit.Event
+  langs:
+  - csharp
+  - vb
+  name: RaiseEvent(EventArgs)
+  nameWithType: Toolkit.Event.RaiseEvent(EventArgs)
+  fullName: OpenTK.Platform.Toolkit.Event.RaiseEvent(System.EventArgs)
+  type: Method
+  source:
+    id: RaiseEvent
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Toolkit.cs
+    startLine: 329
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Raise an event without notifying waiters.
+  example: []
+  syntax:
+    content: public static void RaiseEvent(EventArgs args)
+    parameters:
+    - id: args
+      type: System.EventArgs
+      description: The event to raise.
+    content.vb: Public Shared Sub [RaiseEvent](args As EventArgs)
+  overload: OpenTK.Platform.Toolkit.Event.RaiseEvent*
+- uid: OpenTK.Platform.Toolkit.Event.RaiseEventNotify(System.EventArgs)
+  commentId: M:OpenTK.Platform.Toolkit.Event.RaiseEventNotify(System.EventArgs)
+  id: RaiseEventNotify(System.EventArgs)
+  parent: OpenTK.Platform.Toolkit.Event
+  langs:
+  - csharp
+  - vb
+  name: RaiseEventNotify(EventArgs)
+  nameWithType: Toolkit.Event.RaiseEventNotify(EventArgs)
+  fullName: OpenTK.Platform.Toolkit.Event.RaiseEventNotify(System.EventArgs)
+  type: Method
+  source:
+    id: RaiseEventNotify
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Toolkit.cs
+    startLine: 338
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Raise an event and notify anyone waiting for events.
+  example: []
+  syntax:
+    content: public static void RaiseEventNotify(EventArgs args)
+    parameters:
+    - id: args
+      type: System.EventArgs
+      description: The event to raise.
+    content.vb: Public Shared Sub RaiseEventNotify(args As EventArgs)
+  overload: OpenTK.Platform.Toolkit.Event.RaiseEventNotify*
+- uid: OpenTK.Platform.Toolkit.Event.ProcessEvents(System.Boolean)
+  commentId: M:OpenTK.Platform.Toolkit.Event.ProcessEvents(System.Boolean)
+  id: ProcessEvents(System.Boolean)
+  parent: OpenTK.Platform.Toolkit.Event
+  langs:
+  - csharp
+  - vb
+  name: ProcessEvents(bool)
+  nameWithType: Toolkit.Event.ProcessEvents(bool)
+  fullName: OpenTK.Platform.Toolkit.Event.ProcessEvents(bool)
+  type: Method
+  source:
+    id: ProcessEvents
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Toolkit.cs
+    startLine: 347
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Process platform events and send them to the <xref href="OpenTK.Platform.Toolkit.Event.EventRaised" data-throw-if-not-resolved="false"></xref> callback.
+  example: []
+  syntax:
+    content: public static void ProcessEvents(bool waitForEvents)
+    parameters:
+    - id: waitForEvents
+      type: System.Boolean
+      description: Specifies if this function should wait for events or return immediately if there are no events.
+    content.vb: Public Shared Sub ProcessEvents(waitForEvents As Boolean)
+  overload: OpenTK.Platform.Toolkit.Event.ProcessEvents*
+  nameWithType.vb: Toolkit.Event.ProcessEvents(Boolean)
+  fullName.vb: OpenTK.Platform.Toolkit.Event.ProcessEvents(Boolean)
+  name.vb: ProcessEvents(Boolean)
 references:
-- uid: OpenTK.Input.Hid
-  commentId: N:OpenTK.Input.Hid
+- uid: OpenTK.Platform
+  commentId: N:OpenTK.Platform
   href: OpenTK.html
-  name: OpenTK.Input.Hid
-  nameWithType: OpenTK.Input.Hid
-  fullName: OpenTK.Input.Hid
+  name: OpenTK.Platform
+  nameWithType: OpenTK.Platform
+  fullName: OpenTK.Platform
   spec.csharp:
   - uid: OpenTK
     name: OpenTK
     href: OpenTK.html
   - name: .
-  - uid: OpenTK.Input
-    name: Input
-    href: OpenTK.Input.html
-  - name: .
-  - uid: OpenTK.Input.Hid
-    name: Hid
-    href: OpenTK.Input.Hid.html
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
   spec.vb:
   - uid: OpenTK
     name: OpenTK
     href: OpenTK.html
   - name: .
-  - uid: OpenTK.Input
-    name: Input
-    href: OpenTK.Input.html
-  - name: .
-  - uid: OpenTK.Input.Hid
-    name: Hid
-    href: OpenTK.Input.Hid.html
+  - uid: OpenTK.Platform
+    name: Platform
+    href: OpenTK.Platform.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -340,27 +410,53 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: OpenTK.Input.Hid.HidPage
-  commentId: T:OpenTK.Input.Hid.HidPage
-  parent: OpenTK.Input.Hid
-  href: OpenTK.Input.Hid.HidPage.html
-  name: HidPage
-  nameWithType: HidPage
-  fullName: OpenTK.Input.Hid.HidPage
-- uid: System.Int32
-  commentId: T:System.Int32
+- uid: OpenTK.Platform.PlatformEventHandler
+  commentId: T:OpenTK.Platform.PlatformEventHandler
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.PlatformEventHandler.html
+  name: PlatformEventHandler
+  nameWithType: PlatformEventHandler
+  fullName: OpenTK.Platform.PlatformEventHandler
+- uid: OpenTK.Platform.Toolkit.Event.RaiseEvent*
+  commentId: Overload:OpenTK.Platform.Toolkit.Event.RaiseEvent
+  href: OpenTK.Platform.Toolkit.Event.html#OpenTK_Platform_Toolkit_Event_RaiseEvent_System_EventArgs_
+  name: RaiseEvent
+  nameWithType: Toolkit.Event.RaiseEvent
+  fullName: OpenTK.Platform.Toolkit.Event.RaiseEvent
+- uid: System.EventArgs
+  commentId: T:System.EventArgs
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis*
-  commentId: Overload:OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis
-  href: OpenTK.Input.Hid.HidHelper.html#OpenTK_Input_Hid_HidHelper_TranslateJoystickAxis_OpenTK_Input_Hid_HidPage_System_Int32_
-  name: TranslateJoystickAxis
-  nameWithType: HidHelper.TranslateJoystickAxis
-  fullName: OpenTK.Input.Hid.HidHelper.TranslateJoystickAxis
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: System.EventArgs
+- uid: OpenTK.Platform.Toolkit.Event.RaiseEventNotify*
+  commentId: Overload:OpenTK.Platform.Toolkit.Event.RaiseEventNotify
+  href: OpenTK.Platform.Toolkit.Event.html#OpenTK_Platform_Toolkit_Event_RaiseEventNotify_System_EventArgs_
+  name: RaiseEventNotify
+  nameWithType: Toolkit.Event.RaiseEventNotify
+  fullName: OpenTK.Platform.Toolkit.Event.RaiseEventNotify
+- uid: OpenTK.Platform.Toolkit.Event.EventRaised
+  commentId: E:OpenTK.Platform.Toolkit.Event.EventRaised
+  href: OpenTK.Platform.Toolkit.Event.html#OpenTK_Platform_Toolkit_Event_EventRaised
+  name: EventRaised
+  nameWithType: Toolkit.Event.EventRaised
+  fullName: OpenTK.Platform.Toolkit.Event.EventRaised
+- uid: OpenTK.Platform.Toolkit.Event.ProcessEvents*
+  commentId: Overload:OpenTK.Platform.Toolkit.Event.ProcessEvents
+  href: OpenTK.Platform.Toolkit.Event.html#OpenTK_Platform_Toolkit_Event_ProcessEvents_System_Boolean_
+  name: ProcessEvents
+  nameWithType: Toolkit.Event.ProcessEvents
+  fullName: OpenTK.Platform.Toolkit.Event.ProcessEvents
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

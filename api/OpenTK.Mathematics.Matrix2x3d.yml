@@ -242,7 +242,10 @@ items:
   summary: Initializes a new instance of the <xref href="OpenTK.Mathematics.Matrix2x3d" data-throw-if-not-resolved="false"></xref> struct.
   example: []
   syntax:
-    content: public Matrix2x3d(double m00, double m01, double m02, double m10, double m11, double m12)
+    content: >-
+      [SuppressMessage("ReSharper", "SA1117", Justification = "For better readability of Matrix struct.")]
+
+      public Matrix2x3d(double m00, double m01, double m02, double m10, double m11, double m12)
     parameters:
     - id: m00
       type: System.Double
@@ -262,8 +265,23 @@ items:
     - id: m12
       type: System.Double
       description: Third item of the second row of the matrix.
-    content.vb: Public Sub New(m00 As Double, m01 As Double, m02 As Double, m10 As Double, m11 As Double, m12 As Double)
+    content.vb: >-
+      <SuppressMessage("ReSharper", "SA1117", Justification:="For better readability of Matrix struct.")>
+
+      Public Sub New(m00 As Double, m01 As Double, m02 As Double, m10 As Double, m11 As Double, m12 As Double)
   overload: OpenTK.Mathematics.Matrix2x3d.#ctor*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: ReSharper
+    - type: System.String
+      value: SA1117
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: For better readability of Matrix struct.
   nameWithType.vb: Matrix2x3d.New(Double, Double, Double, Double, Double, Double)
   fullName.vb: OpenTK.Mathematics.Matrix2x3d.New(Double, Double, Double, Double, Double, Double)
   name.vb: New(Double, Double, Double, Double, Double, Double)
@@ -2236,9 +2254,9 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     return:
@@ -2275,9 +2293,9 @@ items:
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:
@@ -2311,17 +2329,17 @@ items:
     - id: format
       type: System.String
       description: >-
-        The format to use.  
+        The format to use.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <xref href="System.IFormattable" data-throw-if-not-resolved="false"></xref> implementation.
     - id: formatProvider
       type: System.IFormatProvider
       description: >-
-        The provider to use to format the value.  
+        The provider to use to format the value.
 
-         -or-  
+         -or-
 
          A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.
     return:

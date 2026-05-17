@@ -6,9 +6,14 @@ items:
   parent: OpenTK.Platform
   children:
   - OpenTK.Platform.DisplayResolution.#ctor(System.Int32,System.Int32)
+  - OpenTK.Platform.DisplayResolution.Equals(OpenTK.Platform.DisplayResolution)
+  - OpenTK.Platform.DisplayResolution.Equals(System.Object)
+  - OpenTK.Platform.DisplayResolution.GetHashCode
   - OpenTK.Platform.DisplayResolution.ResolutionX
   - OpenTK.Platform.DisplayResolution.ResolutionY
   - OpenTK.Platform.DisplayResolution.ToString
+  - OpenTK.Platform.DisplayResolution.op_Equality(OpenTK.Platform.DisplayResolution,OpenTK.Platform.DisplayResolution)
+  - OpenTK.Platform.DisplayResolution.op_Inequality(OpenTK.Platform.DisplayResolution,OpenTK.Platform.DisplayResolution)
   langs:
   - csharp
   - vb
@@ -19,18 +24,18 @@ items:
   source:
     id: DisplayResolution
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
-    startLine: 5
+    startLine: 7
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
   summary: Represents a display resolution.
   example: []
   syntax:
-    content: public readonly struct DisplayResolution
-    content.vb: Public Structure DisplayResolution
+    content: 'public readonly struct DisplayResolution : IEquatable<DisplayResolution>'
+    content.vb: Public Structure DisplayResolution Implements IEquatable(Of DisplayResolution)
+  implements:
+  - System.IEquatable{OpenTK.Platform.DisplayResolution}
   inheritedMembers:
-  - System.ValueType.Equals(System.Object)
-  - System.ValueType.GetHashCode
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
@@ -48,7 +53,7 @@ items:
   source:
     id: ResolutionX
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
-    startLine: 10
+    startLine: 12
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -73,7 +78,7 @@ items:
   source:
     id: ResolutionY
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
-    startLine: 15
+    startLine: 17
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -98,7 +103,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
-    startLine: 22
+    startLine: 24
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -118,6 +123,102 @@ items:
   nameWithType.vb: DisplayResolution.New(Integer, Integer)
   fullName.vb: OpenTK.Platform.DisplayResolution.New(Integer, Integer)
   name.vb: New(Integer, Integer)
+- uid: OpenTK.Platform.DisplayResolution.Equals(System.Object)
+  commentId: M:OpenTK.Platform.DisplayResolution.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: OpenTK.Platform.DisplayResolution
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: DisplayResolution.Equals(object?)
+  fullName: OpenTK.Platform.DisplayResolution.Equals(object?)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
+    startLine: 31
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: OpenTK.Platform.DisplayResolution.Equals*
+  nameWithType.vb: DisplayResolution.Equals(Object)
+  fullName.vb: OpenTK.Platform.DisplayResolution.Equals(Object)
+  name.vb: Equals(Object)
+- uid: OpenTK.Platform.DisplayResolution.Equals(OpenTK.Platform.DisplayResolution)
+  commentId: M:OpenTK.Platform.DisplayResolution.Equals(OpenTK.Platform.DisplayResolution)
+  id: Equals(OpenTK.Platform.DisplayResolution)
+  parent: OpenTK.Platform.DisplayResolution
+  langs:
+  - csharp
+  - vb
+  name: Equals(DisplayResolution)
+  nameWithType: DisplayResolution.Equals(DisplayResolution)
+  fullName: OpenTK.Platform.DisplayResolution.Equals(OpenTK.Platform.DisplayResolution)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
+    startLine: 37
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(DisplayResolution other)
+    parameters:
+    - id: other
+      type: OpenTK.Platform.DisplayResolution
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As DisplayResolution) As Boolean
+  overload: OpenTK.Platform.DisplayResolution.Equals*
+  implements:
+  - System.IEquatable{OpenTK.Platform.DisplayResolution}.Equals(OpenTK.Platform.DisplayResolution)
+- uid: OpenTK.Platform.DisplayResolution.GetHashCode
+  commentId: M:OpenTK.Platform.DisplayResolution.GetHashCode
+  id: GetHashCode
+  parent: OpenTK.Platform.DisplayResolution
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: DisplayResolution.GetHashCode()
+  fullName: OpenTK.Platform.DisplayResolution.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
+    startLine: 44
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: OpenTK.Platform.DisplayResolution.GetHashCode*
 - uid: OpenTK.Platform.DisplayResolution.ToString
   commentId: M:OpenTK.Platform.DisplayResolution.ToString
   id: ToString
@@ -132,7 +233,7 @@ items:
   source:
     id: ToString
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
-    startLine: 29
+    startLine: 50
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -146,6 +247,72 @@ items:
     content.vb: Public Overrides Function ToString() As String
   overridden: System.ValueType.ToString
   overload: OpenTK.Platform.DisplayResolution.ToString*
+- uid: OpenTK.Platform.DisplayResolution.op_Equality(OpenTK.Platform.DisplayResolution,OpenTK.Platform.DisplayResolution)
+  commentId: M:OpenTK.Platform.DisplayResolution.op_Equality(OpenTK.Platform.DisplayResolution,OpenTK.Platform.DisplayResolution)
+  id: op_Equality(OpenTK.Platform.DisplayResolution,OpenTK.Platform.DisplayResolution)
+  parent: OpenTK.Platform.DisplayResolution
+  langs:
+  - csharp
+  - vb
+  name: operator ==(DisplayResolution, DisplayResolution)
+  nameWithType: DisplayResolution.operator ==(DisplayResolution, DisplayResolution)
+  fullName: OpenTK.Platform.DisplayResolution.operator ==(OpenTK.Platform.DisplayResolution, OpenTK.Platform.DisplayResolution)
+  type: Operator
+  source:
+    id: op_Equality
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
+    startLine: 56
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  example: []
+  syntax:
+    content: public static bool operator ==(DisplayResolution left, DisplayResolution right)
+    parameters:
+    - id: left
+      type: OpenTK.Platform.DisplayResolution
+    - id: right
+      type: OpenTK.Platform.DisplayResolution
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As DisplayResolution, right As DisplayResolution) As Boolean
+  overload: OpenTK.Platform.DisplayResolution.op_Equality*
+  nameWithType.vb: DisplayResolution.=(DisplayResolution, DisplayResolution)
+  fullName.vb: OpenTK.Platform.DisplayResolution.=(OpenTK.Platform.DisplayResolution, OpenTK.Platform.DisplayResolution)
+  name.vb: =(DisplayResolution, DisplayResolution)
+- uid: OpenTK.Platform.DisplayResolution.op_Inequality(OpenTK.Platform.DisplayResolution,OpenTK.Platform.DisplayResolution)
+  commentId: M:OpenTK.Platform.DisplayResolution.op_Inequality(OpenTK.Platform.DisplayResolution,OpenTK.Platform.DisplayResolution)
+  id: op_Inequality(OpenTK.Platform.DisplayResolution,OpenTK.Platform.DisplayResolution)
+  parent: OpenTK.Platform.DisplayResolution
+  langs:
+  - csharp
+  - vb
+  name: operator !=(DisplayResolution, DisplayResolution)
+  nameWithType: DisplayResolution.operator !=(DisplayResolution, DisplayResolution)
+  fullName: OpenTK.Platform.DisplayResolution.operator !=(OpenTK.Platform.DisplayResolution, OpenTK.Platform.DisplayResolution)
+  type: Operator
+  source:
+    id: op_Inequality
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\DisplayResolution.cs
+    startLine: 62
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  example: []
+  syntax:
+    content: public static bool operator !=(DisplayResolution left, DisplayResolution right)
+    parameters:
+    - id: left
+      type: OpenTK.Platform.DisplayResolution
+    - id: right
+      type: OpenTK.Platform.DisplayResolution
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As DisplayResolution, right As DisplayResolution) As Boolean
+  overload: OpenTK.Platform.DisplayResolution.op_Inequality*
+  nameWithType.vb: DisplayResolution.<>(DisplayResolution, DisplayResolution)
+  fullName.vb: OpenTK.Platform.DisplayResolution.<>(OpenTK.Platform.DisplayResolution, OpenTK.Platform.DisplayResolution)
+  name.vb: <>(DisplayResolution, DisplayResolution)
 references:
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
@@ -169,60 +336,38 @@ references:
   - uid: OpenTK.Platform
     name: Platform
     href: OpenTK.Platform.html
-- uid: System.ValueType.Equals(System.Object)
-  commentId: M:System.ValueType.Equals(System.Object)
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  name: Equals(object)
-  nameWithType: ValueType.Equals(object)
-  fullName: System.ValueType.Equals(object)
-  nameWithType.vb: ValueType.Equals(Object)
-  fullName.vb: System.ValueType.Equals(Object)
-  name.vb: Equals(Object)
+- uid: System.IEquatable{OpenTK.Platform.DisplayResolution}
+  commentId: T:System.IEquatable{OpenTK.Platform.DisplayResolution}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<DisplayResolution>
+  nameWithType: IEquatable<DisplayResolution>
+  fullName: System.IEquatable<OpenTK.Platform.DisplayResolution>
+  nameWithType.vb: IEquatable(Of DisplayResolution)
+  fullName.vb: System.IEquatable(Of OpenTK.Platform.DisplayResolution)
+  name.vb: IEquatable(Of DisplayResolution)
   spec.csharp:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: OpenTK.Platform.DisplayResolution
+    name: DisplayResolution
+    href: OpenTK.Platform.DisplayResolution.html
+  - name: '>'
   spec.vb:
-  - uid: System.ValueType.Equals(System.Object)
-    name: Equals
+  - uid: System.IEquatable`1
+    name: IEquatable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Platform.DisplayResolution
+    name: DisplayResolution
+    href: OpenTK.Platform.DisplayResolution.html
   - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
@@ -338,14 +483,41 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.ValueType
-  commentId: T:System.ValueType
-  parent: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype
-  name: ValueType
-  nameWithType: ValueType
-  fullName: System.ValueType
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -357,13 +529,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -377,6 +542,7 @@ references:
   name.vb: Integer
 - uid: OpenTK.Platform.DisplayResolution
   commentId: T:OpenTK.Platform.DisplayResolution
+  parent: OpenTK.Platform
   href: OpenTK.Platform.DisplayResolution.html
   name: DisplayResolution
   nameWithType: DisplayResolution
@@ -390,6 +556,147 @@ references:
   nameWithType.vb: DisplayResolution.New
   fullName.vb: OpenTK.Platform.DisplayResolution.New
   name.vb: New
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: OpenTK.Platform.DisplayResolution.Equals*
+  commentId: Overload:OpenTK.Platform.DisplayResolution.Equals
+  href: OpenTK.Platform.DisplayResolution.html#OpenTK_Platform_DisplayResolution_Equals_System_Object_
+  name: Equals
+  nameWithType: DisplayResolution.Equals
+  fullName: OpenTK.Platform.DisplayResolution.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.IEquatable{OpenTK.Platform.DisplayResolution}.Equals(OpenTK.Platform.DisplayResolution)
+  commentId: M:System.IEquatable{OpenTK.Platform.DisplayResolution}.Equals(OpenTK.Platform.DisplayResolution)
+  parent: System.IEquatable{OpenTK.Platform.DisplayResolution}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(DisplayResolution)
+  nameWithType: IEquatable<DisplayResolution>.Equals(DisplayResolution)
+  fullName: System.IEquatable<OpenTK.Platform.DisplayResolution>.Equals(OpenTK.Platform.DisplayResolution)
+  nameWithType.vb: IEquatable(Of DisplayResolution).Equals(DisplayResolution)
+  fullName.vb: System.IEquatable(Of OpenTK.Platform.DisplayResolution).Equals(OpenTK.Platform.DisplayResolution)
+  spec.csharp:
+  - uid: System.IEquatable{OpenTK.Platform.DisplayResolution}.Equals(OpenTK.Platform.DisplayResolution)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: OpenTK.Platform.DisplayResolution
+    name: DisplayResolution
+    href: OpenTK.Platform.DisplayResolution.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{OpenTK.Platform.DisplayResolution}.Equals(OpenTK.Platform.DisplayResolution)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: OpenTK.Platform.DisplayResolution
+    name: DisplayResolution
+    href: OpenTK.Platform.DisplayResolution.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.DisplayResolution.GetHashCode*
+  commentId: Overload:OpenTK.Platform.DisplayResolution.GetHashCode
+  href: OpenTK.Platform.DisplayResolution.html#OpenTK_Platform_DisplayResolution_GetHashCode
+  name: GetHashCode
+  nameWithType: DisplayResolution.GetHashCode
+  fullName: OpenTK.Platform.DisplayResolution.GetHashCode
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
   parent: System.ValueType
@@ -429,3 +736,33 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: OpenTK.Platform.DisplayResolution.op_Equality*
+  commentId: Overload:OpenTK.Platform.DisplayResolution.op_Equality
+  href: OpenTK.Platform.DisplayResolution.html#OpenTK_Platform_DisplayResolution_op_Equality_OpenTK_Platform_DisplayResolution_OpenTK_Platform_DisplayResolution_
+  name: operator ==
+  nameWithType: DisplayResolution.operator ==
+  fullName: OpenTK.Platform.DisplayResolution.operator ==
+  nameWithType.vb: DisplayResolution.=
+  fullName.vb: OpenTK.Platform.DisplayResolution.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: OpenTK.Platform.DisplayResolution.op_Equality*
+    name: ==
+    href: OpenTK.Platform.DisplayResolution.html#OpenTK_Platform_DisplayResolution_op_Equality_OpenTK_Platform_DisplayResolution_OpenTK_Platform_DisplayResolution_
+- uid: OpenTK.Platform.DisplayResolution.op_Inequality*
+  commentId: Overload:OpenTK.Platform.DisplayResolution.op_Inequality
+  href: OpenTK.Platform.DisplayResolution.html#OpenTK_Platform_DisplayResolution_op_Inequality_OpenTK_Platform_DisplayResolution_OpenTK_Platform_DisplayResolution_
+  name: operator !=
+  nameWithType: DisplayResolution.operator !=
+  fullName: OpenTK.Platform.DisplayResolution.operator !=
+  nameWithType.vb: DisplayResolution.<>
+  fullName.vb: OpenTK.Platform.DisplayResolution.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: OpenTK.Platform.DisplayResolution.op_Inequality*
+    name: '!='
+    href: OpenTK.Platform.DisplayResolution.html#OpenTK_Platform_DisplayResolution_op_Inequality_OpenTK_Platform_DisplayResolution_OpenTK_Platform_DisplayResolution_

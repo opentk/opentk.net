@@ -4,7 +4,9 @@ items:
   commentId: T:OpenTK.Platform.ToolkitOptions.X11Options
   id: ToolkitOptions.X11Options
   parent: OpenTK.Platform
-  children: []
+  children:
+  - OpenTK.Platform.ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution
+  - OpenTK.Platform.ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug
   langs:
   - csharp
   - vb
@@ -15,7 +17,7 @@ items:
   source:
     id: X11Options
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ToolkitOptions.cs
-    startLine: 103
+    startLine: 111
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform
@@ -33,6 +35,93 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: OpenTK.Platform.ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution
+  commentId: P:OpenTK.Platform.ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution
+  id: DealWithVSCodeEnvironmentVariablePollution
+  parent: OpenTK.Platform.ToolkitOptions.X11Options
+  langs:
+  - csharp
+  - vb
+  name: DealWithVSCodeEnvironmentVariablePollution
+  nameWithType: ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution
+  fullName: OpenTK.Platform.ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution
+  type: Property
+  source:
+    id: DealWithVSCodeEnvironmentVariablePollution
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ToolkitOptions.cs
+    startLine: 141
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    VSCode leaks a bunch of envrionment variables that mess with dynamic library resolution.
+
+    If the environment variable <code>SNAP_NAME</code> is set to <code>code</code> and this variable is set to true,
+
+    we will remove a bunch of environment variables that vscode leaks into the C# process.
+
+    This means that if you want to set these variables yourself while running in VSCode 
+
+    for whatever reason then you need to disable this.
+
+    Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  remarks: >-
+    Specifically all variables that have a <code>_VSCODE_SNAP_ORIG</code> version will be reset to their original values.
+
+    But additionally the following environment variables will be removed:
+
+
+    <ul><li><code>GTK_PATH</code></li><li><code>GIO_MODULE_DIR</code></li><li><code>GTK_EXE_PREFIX</code></li><li><code>GIO_LAUNCHED_DESKTOP_FILE</code></li><li><code>GIO_LAUNCHED_DESKTOP_FILE_PID</code></li><li><code>GTK_IM_MODULE_FILE</code></li><li><code>GDK_PIXBUF_MODULEDIR</code></li><li><code>GDK_PIXBUF_MODULE_FILE</code></li><li><code>GSETTINGS_SCHEMA_DIR</code></li><li><code>XDG_DATA_HOME</code></li></ul>
+
+
+    After <xref href="OpenTK.Platform.Toolkit.Uninit" data-throw-if-not-resolved="false"></xref> these environment variables will be reset to their original values.
+
+
+    <p>
+
+    If this setting ever bites you, I'm sorry.
+
+    </p>
+  example: []
+  syntax:
+    content: public bool DealWithVSCodeEnvironmentVariablePollution { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property DealWithVSCodeEnvironmentVariablePollution As Boolean
+  overload: OpenTK.Platform.ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution*
+- uid: OpenTK.Platform.ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug
+  commentId: P:OpenTK.Platform.ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug
+  id: PrintLibraryPathResolutionDebug
+  parent: OpenTK.Platform.ToolkitOptions.X11Options
+  langs:
+  - csharp
+  - vb
+  name: PrintLibraryPathResolutionDebug
+  nameWithType: ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug
+  fullName: OpenTK.Platform.ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug
+  type: Property
+  source:
+    id: PrintLibraryPathResolutionDebug
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\ToolkitOptions.cs
+    startLine: 148
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform
+  summary: >-
+    If this option is set to true, the custom dll resolver used to load native dependencies
+
+    will print out to the <xref href="OpenTK.Platform.ToolkitOptions.Logger" data-throw-if-not-resolved="false"></xref> debug information about exact
+
+    paths for loaded <code>.so</code> files. Can be useful when debugging library resolution issues.
+  example: []
+  syntax:
+    content: public bool PrintLibraryPathResolutionDebug { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property PrintLibraryPathResolutionDebug As Boolean
+  overload: OpenTK.Platform.ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug*
 references:
 - uid: OpenTK.Platform
   commentId: N:OpenTK.Platform
@@ -269,3 +358,50 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: OpenTK.Platform.Toolkit.Uninit
+  commentId: M:OpenTK.Platform.Toolkit.Uninit
+  href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  name: Uninit()
+  nameWithType: Toolkit.Uninit()
+  fullName: OpenTK.Platform.Toolkit.Uninit()
+  spec.csharp:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.Toolkit.Uninit
+    name: Uninit
+    href: OpenTK.Platform.Toolkit.html#OpenTK_Platform_Toolkit_Uninit
+  - name: (
+  - name: )
+- uid: OpenTK.Platform.ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution*
+  commentId: Overload:OpenTK.Platform.ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution
+  href: OpenTK.Platform.ToolkitOptions.X11Options.html#OpenTK_Platform_ToolkitOptions_X11Options_DealWithVSCodeEnvironmentVariablePollution
+  name: DealWithVSCodeEnvironmentVariablePollution
+  nameWithType: ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution
+  fullName: OpenTK.Platform.ToolkitOptions.X11Options.DealWithVSCodeEnvironmentVariablePollution
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: OpenTK.Platform.ToolkitOptions.Logger
+  commentId: P:OpenTK.Platform.ToolkitOptions.Logger
+  href: OpenTK.Platform.ToolkitOptions.html#OpenTK_Platform_ToolkitOptions_Logger
+  name: Logger
+  nameWithType: ToolkitOptions.Logger
+  fullName: OpenTK.Platform.ToolkitOptions.Logger
+- uid: OpenTK.Platform.ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug*
+  commentId: Overload:OpenTK.Platform.ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug
+  href: OpenTK.Platform.ToolkitOptions.X11Options.html#OpenTK_Platform_ToolkitOptions_X11Options_PrintLibraryPathResolutionDebug
+  name: PrintLibraryPathResolutionDebug
+  nameWithType: ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug
+  fullName: OpenTK.Platform.ToolkitOptions.X11Options.PrintLibraryPathResolutionDebug

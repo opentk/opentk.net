@@ -9,9 +9,7 @@ items:
   - OpenTK.Graphics.VKLoader.GetInstanceProcAddress(OpenTK.Graphics.Vulkan.VkInstance,System.String)
   - OpenTK.Graphics.VKLoader.GetInstanceProcAddress(System.String)
   - OpenTK.Graphics.VKLoader.Init
-  - OpenTK.Graphics.VKLoader.Instance
   - OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
-  - OpenTK.Graphics.VKLoader.VulkanHandle
   langs:
   - csharp
   - vb
@@ -22,10 +20,12 @@ items:
   source:
     id: VKLoader
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\VKLoader.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: Used to load the Vulkan bindings.
+  example: []
   syntax:
     content: public static class VKLoader
     content.vb: Public Module VKLoader
@@ -39,52 +39,6 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: OpenTK.Graphics.VKLoader.VulkanHandle
-  commentId: F:OpenTK.Graphics.VKLoader.VulkanHandle
-  id: VulkanHandle
-  parent: OpenTK.Graphics.VKLoader
-  langs:
-  - csharp
-  - vb
-  name: VulkanHandle
-  nameWithType: VKLoader.VulkanHandle
-  fullName: OpenTK.Graphics.VKLoader.VulkanHandle
-  type: Field
-  source:
-    id: VulkanHandle
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\VKLoader.cs
-    startLine: 12
-  assemblies:
-  - OpenTK.Graphics
-  namespace: OpenTK.Graphics
-  syntax:
-    content: public static nint VulkanHandle
-    return:
-      type: System.IntPtr
-    content.vb: Public Shared VulkanHandle As IntPtr
-- uid: OpenTK.Graphics.VKLoader.Instance
-  commentId: F:OpenTK.Graphics.VKLoader.Instance
-  id: Instance
-  parent: OpenTK.Graphics.VKLoader
-  langs:
-  - csharp
-  - vb
-  name: Instance
-  nameWithType: VKLoader.Instance
-  fullName: OpenTK.Graphics.VKLoader.Instance
-  type: Field
-  source:
-    id: Instance
-    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\VKLoader.cs
-    startLine: 14
-  assemblies:
-  - OpenTK.Graphics
-  namespace: OpenTK.Graphics
-  syntax:
-    content: public static VkInstance Instance
-    return:
-      type: OpenTK.Graphics.Vulkan.VkInstance
-    content.vb: Public Shared Instance As VkInstance
 - uid: OpenTK.Graphics.VKLoader.Init
   commentId: M:OpenTK.Graphics.VKLoader.Init
   id: Init
@@ -99,14 +53,23 @@ items:
   source:
     id: Init
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\VKLoader.cs
-    startLine: 16
+    startLine: 20
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: Loads the vulkan native libraries and initializes the vulkan loader.
+  example: []
   syntax:
     content: public static void Init()
     content.vb: Public Shared Sub Init()
   overload: OpenTK.Graphics.VKLoader.Init*
+  exceptions:
+  - type: System.PlatformNotSupportedException
+    commentId: T:System.PlatformNotSupportedException
+    description: We don't know the path to the vulkan binaries on this platform.
+  - type: System.EntryPointNotFoundException
+    commentId: T:System.EntryPointNotFoundException
+    description: Couldn't load <code>vkGetInstanceProcAddr</code> from the loaded vulkan library.
 - uid: OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
   commentId: M:OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
   id: SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
@@ -121,17 +84,25 @@ items:
   source:
     id: SetInstance
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\VKLoader.cs
-    startLine: 52
+    startLine: 62
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: Set the <xref href="OpenTK.Graphics.Vulkan.VkInstance" data-throw-if-not-resolved="false"></xref> to use to load functions when calling functions directly on <xref href="OpenTK.Graphics.Vulkan.Vk" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static void SetInstance(VkInstance instance)
     parameters:
     - id: instance
       type: OpenTK.Graphics.Vulkan.VkInstance
+      description: The <xref href="OpenTK.Graphics.Vulkan.VkInstance" data-throw-if-not-resolved="false"></xref> to use to load functions.
     content.vb: Public Shared Sub SetInstance(instance As VkInstance)
   overload: OpenTK.Graphics.VKLoader.SetInstance*
+  seealso:
+  - linkId: OpenTK.Graphics.Vulkan.InstanceDispatchTable
+    commentId: T:OpenTK.Graphics.Vulkan.InstanceDispatchTable
+  - linkId: OpenTK.Graphics.Vulkan.DeviceDispatchTable
+    commentId: T:OpenTK.Graphics.Vulkan.DeviceDispatchTable
 - uid: OpenTK.Graphics.VKLoader.GetInstanceProcAddress(System.String)
   commentId: M:OpenTK.Graphics.VKLoader.GetInstanceProcAddress(System.String)
   id: GetInstanceProcAddress(System.String)
@@ -146,17 +117,21 @@ items:
   source:
     id: GetInstanceProcAddress
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\VKLoader.cs
-    startLine: 57
+    startLine: 72
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: Gets a function pointer to an instance function using the <xref href="OpenTK.Graphics.Vulkan.VkInstance" data-throw-if-not-resolved="false"></xref> set in <xref href="OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)" data-throw-if-not-resolved="false"></xref> to load the function.
+  example: []
   syntax:
     content: public static nint GetInstanceProcAddress(string name)
     parameters:
     - id: name
       type: System.String
+      description: The name of the instance function to load.
     return:
       type: System.IntPtr
+      description: The loaded function pointer, or null.
     content.vb: Public Shared Function GetInstanceProcAddress(name As String) As IntPtr
   overload: OpenTK.Graphics.VKLoader.GetInstanceProcAddress*
   nameWithType.vb: VKLoader.GetInstanceProcAddress(String)
@@ -176,19 +151,24 @@ items:
   source:
     id: GetInstanceProcAddress
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\VKLoader.cs
-    startLine: 62
+    startLine: 83
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: Gets a function pointer to an instance function using the <xref href="OpenTK.Graphics.Vulkan.VkInstance" data-throw-if-not-resolved="false"></xref> provided in <code class="paramref">instance</code> to load the function.
+  example: []
   syntax:
     content: public static nint GetInstanceProcAddress(VkInstance instance, string name)
     parameters:
     - id: instance
       type: OpenTK.Graphics.Vulkan.VkInstance
+      description: The instance to use when loading function pointers.
     - id: name
       type: System.String
+      description: The name of the function to load.
     return:
       type: System.IntPtr
+      description: The loaded function pointer, or null.
     content.vb: Public Shared Function GetInstanceProcAddress(instance As VkInstance, name As String) As IntPtr
   overload: OpenTK.Graphics.VKLoader.GetInstanceProcAddress*
   nameWithType.vb: VKLoader.GetInstanceProcAddress(VkInstance, String)
@@ -208,19 +188,24 @@ items:
   source:
     id: GetDeviceProcAddr
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Graphics\VKLoader.cs
-    startLine: 77
+    startLine: 104
   assemblies:
   - OpenTK.Graphics
   namespace: OpenTK.Graphics
+  summary: Calls <xref href="OpenTK.Graphics.Vulkan.Vk.GetDeviceProcAddr(OpenTK.Graphics.Vulkan.VkDevice%2cSystem.Byte*)" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static nint GetDeviceProcAddr(VkDevice device, string name)
     parameters:
     - id: device
       type: OpenTK.Graphics.Vulkan.VkDevice
+      description: The device load a function pointer from.
     - id: name
       type: System.String
+      description: The name of the function to load.
     return:
       type: System.IntPtr
+      description: The function pointer, or null.
     content.vb: Public Shared Function GetDeviceProcAddr(device As VkDevice, name As String) As IntPtr
   overload: OpenTK.Graphics.VKLoader.GetDeviceProcAddr*
   nameWithType.vb: VKLoader.GetDeviceProcAddr(VkDevice, String)
@@ -486,23 +471,53 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.IntPtr
-  commentId: T:System.IntPtr
-  parent: System
+- uid: System.PlatformNotSupportedException
+  commentId: T:System.PlatformNotSupportedException
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.intptr
-  name: nint
-  nameWithType: nint
-  fullName: nint
-  nameWithType.vb: IntPtr
-  fullName.vb: System.IntPtr
-  name.vb: IntPtr
+  href: https://learn.microsoft.com/dotnet/api/system.platformnotsupportedexception
+  name: PlatformNotSupportedException
+  nameWithType: PlatformNotSupportedException
+  fullName: System.PlatformNotSupportedException
+- uid: System.EntryPointNotFoundException
+  commentId: T:System.EntryPointNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.entrypointnotfoundexception
+  name: EntryPointNotFoundException
+  nameWithType: EntryPointNotFoundException
+  fullName: System.EntryPointNotFoundException
+- uid: OpenTK.Graphics.VKLoader.Init*
+  commentId: Overload:OpenTK.Graphics.VKLoader.Init
+  href: OpenTK.Graphics.VKLoader.html#OpenTK_Graphics_VKLoader_Init
+  name: Init
+  nameWithType: VKLoader.Init
+  fullName: OpenTK.Graphics.VKLoader.Init
+- uid: OpenTK.Graphics.Vulkan.InstanceDispatchTable
+  commentId: T:OpenTK.Graphics.Vulkan.InstanceDispatchTable
+  name: InstanceDispatchTable
+  nameWithType: InstanceDispatchTable
+  fullName: OpenTK.Graphics.Vulkan.InstanceDispatchTable
+- uid: OpenTK.Graphics.Vulkan.DeviceDispatchTable
+  commentId: T:OpenTK.Graphics.Vulkan.DeviceDispatchTable
+  name: DeviceDispatchTable
+  nameWithType: DeviceDispatchTable
+  fullName: OpenTK.Graphics.Vulkan.DeviceDispatchTable
 - uid: OpenTK.Graphics.Vulkan.VkInstance
   commentId: T:OpenTK.Graphics.Vulkan.VkInstance
   parent: OpenTK.Graphics.Vulkan
   name: VkInstance
   nameWithType: VkInstance
   fullName: OpenTK.Graphics.Vulkan.VkInstance
+- uid: OpenTK.Graphics.Vulkan.Vk
+  commentId: T:OpenTK.Graphics.Vulkan.Vk
+  name: Vk
+  nameWithType: Vk
+  fullName: OpenTK.Graphics.Vulkan.Vk
+- uid: OpenTK.Graphics.VKLoader.SetInstance*
+  commentId: Overload:OpenTK.Graphics.VKLoader.SetInstance
+  href: OpenTK.Graphics.VKLoader.html#OpenTK_Graphics_VKLoader_SetInstance_OpenTK_Graphics_Vulkan_VkInstance_
+  name: SetInstance
+  nameWithType: VKLoader.SetInstance
+  fullName: OpenTK.Graphics.VKLoader.SetInstance
 - uid: OpenTK.Graphics.Vulkan
   commentId: N:OpenTK.Graphics.Vulkan
   href: OpenTK.html
@@ -533,18 +548,28 @@ references:
   - uid: OpenTK.Graphics.Vulkan
     name: Vulkan
     href: OpenTK.Graphics.Vulkan.html
-- uid: OpenTK.Graphics.VKLoader.Init*
-  commentId: Overload:OpenTK.Graphics.VKLoader.Init
-  href: OpenTK.Graphics.VKLoader.html#OpenTK_Graphics_VKLoader_Init
-  name: Init
-  nameWithType: VKLoader.Init
-  fullName: OpenTK.Graphics.VKLoader.Init
-- uid: OpenTK.Graphics.VKLoader.SetInstance*
-  commentId: Overload:OpenTK.Graphics.VKLoader.SetInstance
+- uid: OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
+  commentId: M:OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
   href: OpenTK.Graphics.VKLoader.html#OpenTK_Graphics_VKLoader_SetInstance_OpenTK_Graphics_Vulkan_VkInstance_
-  name: SetInstance
-  nameWithType: VKLoader.SetInstance
-  fullName: OpenTK.Graphics.VKLoader.SetInstance
+  name: SetInstance(VkInstance)
+  nameWithType: VKLoader.SetInstance(VkInstance)
+  fullName: OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
+  spec.csharp:
+  - uid: OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
+    name: SetInstance
+    href: OpenTK.Graphics.VKLoader.html#OpenTK_Graphics_VKLoader_SetInstance_OpenTK_Graphics_Vulkan_VkInstance_
+  - name: (
+  - uid: OpenTK.Graphics.Vulkan.VkInstance
+    name: VkInstance
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Graphics.VKLoader.SetInstance(OpenTK.Graphics.Vulkan.VkInstance)
+    name: SetInstance
+    href: OpenTK.Graphics.VKLoader.html#OpenTK_Graphics_VKLoader_SetInstance_OpenTK_Graphics_Vulkan_VkInstance_
+  - name: (
+  - uid: OpenTK.Graphics.Vulkan.VkInstance
+    name: VkInstance
+  - name: )
 - uid: OpenTK.Graphics.VKLoader.GetInstanceProcAddress*
   commentId: Overload:OpenTK.Graphics.VKLoader.GetInstanceProcAddress
   href: OpenTK.Graphics.VKLoader.html#OpenTK_Graphics_VKLoader_GetInstanceProcAddress_System_String_
@@ -562,6 +587,55 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: OpenTK.Graphics.Vulkan.Vk.GetDeviceProcAddr(OpenTK.Graphics.Vulkan.VkDevice,System.Byte*)
+  commentId: M:OpenTK.Graphics.Vulkan.Vk.GetDeviceProcAddr(OpenTK.Graphics.Vulkan.VkDevice,System.Byte*)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: GetDeviceProcAddr(VkDevice, byte*)
+  nameWithType: Vk.GetDeviceProcAddr(VkDevice, byte*)
+  fullName: OpenTK.Graphics.Vulkan.Vk.GetDeviceProcAddr(OpenTK.Graphics.Vulkan.VkDevice, byte*)
+  nameWithType.vb: Vk.GetDeviceProcAddr(VkDevice, Byte*)
+  fullName.vb: OpenTK.Graphics.Vulkan.Vk.GetDeviceProcAddr(OpenTK.Graphics.Vulkan.VkDevice, Byte*)
+  name.vb: GetDeviceProcAddr(VkDevice, Byte*)
+  spec.csharp:
+  - uid: OpenTK.Graphics.Vulkan.Vk.GetDeviceProcAddr(OpenTK.Graphics.Vulkan.VkDevice,System.Byte*)
+    name: GetDeviceProcAddr
+  - name: (
+  - uid: OpenTK.Graphics.Vulkan.VkDevice
+    name: VkDevice
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Graphics.Vulkan.Vk.GetDeviceProcAddr(OpenTK.Graphics.Vulkan.VkDevice,System.Byte*)
+    name: GetDeviceProcAddr
+  - name: (
+  - uid: OpenTK.Graphics.Vulkan.VkDevice
+    name: VkDevice
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
 - uid: OpenTK.Graphics.VKLoader.GetDeviceProcAddr*
   commentId: Overload:OpenTK.Graphics.VKLoader.GetDeviceProcAddr
   href: OpenTK.Graphics.VKLoader.html#OpenTK_Graphics_VKLoader_GetDeviceProcAddr_OpenTK_Graphics_Vulkan_VkDevice_System_String_

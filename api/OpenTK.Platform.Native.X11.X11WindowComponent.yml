@@ -31,6 +31,7 @@ items:
   - OpenTK.Platform.Native.X11.X11WindowComponent.GetMaxClientSize(OpenTK.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   - OpenTK.Platform.Native.X11.X11WindowComponent.GetMinClientSize(OpenTK.Platform.WindowHandle,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)
   - OpenTK.Platform.Native.X11.X11WindowComponent.GetMode(OpenTK.Platform.WindowHandle)
+  - OpenTK.Platform.Native.X11.X11WindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
   - OpenTK.Platform.Native.X11.X11WindowComponent.GetPosition(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2i@)
   - OpenTK.Platform.Native.X11.X11WindowComponent.GetScaleFactor(OpenTK.Platform.WindowHandle,System.Single@,System.Single@)
   - OpenTK.Platform.Native.X11.X11WindowComponent.GetSize(OpenTK.Platform.WindowHandle,OpenTK.Mathematics.Vector2i@)
@@ -211,7 +212,7 @@ items:
   source:
     id: Initialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 63
+    startLine: 158
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -246,7 +247,7 @@ items:
   source:
     id: Uninitialize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 383
+    startLine: 488
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -275,7 +276,7 @@ items:
   source:
     id: CanSetIcon
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 410
+    startLine: 520
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -309,7 +310,7 @@ items:
   source:
     id: CanGetDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 413
+    startLine: 523
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -341,7 +342,7 @@ items:
   source:
     id: CanSetCursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 416
+    startLine: 526
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -373,7 +374,7 @@ items:
   source:
     id: CanCaptureCursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 419
+    startLine: 529
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -405,7 +406,7 @@ items:
   source:
     id: SupportedEvents
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 434
+    startLine: 544
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -434,7 +435,7 @@ items:
   source:
     id: SupportedStyles
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 437
+    startLine: 547
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -463,7 +464,7 @@ items:
   source:
     id: SupportedModes
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 440
+    startLine: 550
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -492,7 +493,7 @@ items:
   source:
     id: IsWindowManagerFreedesktop
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 445
+    startLine: 555
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -519,7 +520,7 @@ items:
   source:
     id: FreedesktopWindowManagerName
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 450
+    startLine: 560
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -546,11 +547,11 @@ items:
   source:
     id: ProcessEvents
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 522
+    startLine: 632
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
-  summary: Processes platform events and sends them to the <xref href="OpenTK.Platform.EventQueue" data-throw-if-not-resolved="false"></xref>.
+  summary: Processes platform events and sends them to the EventQueue.
   example: []
   syntax:
     content: public void ProcessEvents(bool waitForEvents)
@@ -579,7 +580,7 @@ items:
   source:
     id: PostUserEvent
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 1549
+    startLine: 1671
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -617,7 +618,7 @@ items:
   source:
     id: Create
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 1575
+    startLine: 1697
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -653,7 +654,7 @@ items:
   source:
     id: Destroy
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2072
+    startLine: 2202
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -688,7 +689,7 @@ items:
   source:
     id: IsWindowDestroyed
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2100
+    startLine: 2230
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -726,7 +727,7 @@ items:
   source:
     id: GetTitle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2108
+    startLine: 2238
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -762,7 +763,7 @@ items:
   source:
     id: SetTitle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2149
+    startLine: 2279
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -801,7 +802,7 @@ items:
   source:
     id: GetIconifiedTitle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2182
+    startLine: 2312
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -832,7 +833,7 @@ items:
   source:
     id: SetIconifiedTitle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2223
+    startLine: 2353
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -866,7 +867,7 @@ items:
   source:
     id: GetIcon
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2247
+    startLine: 2377
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -908,7 +909,7 @@ items:
   source:
     id: SetIcon
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2255
+    startLine: 2385
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -958,7 +959,7 @@ items:
   source:
     id: GetPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2349
+    startLine: 2479
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -997,7 +998,7 @@ items:
   source:
     id: SetPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2362
+    startLine: 2492
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1030,7 +1031,7 @@ items:
   source:
     id: GetSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2377
+    startLine: 2507
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1066,7 +1067,7 @@ items:
   source:
     id: SetSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2390
+    startLine: 2520
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1099,7 +1100,7 @@ items:
   source:
     id: GetBounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2408
+    startLine: 2538
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1144,7 +1145,7 @@ items:
   source:
     id: SetBounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2431
+    startLine: 2561
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1189,7 +1190,7 @@ items:
   source:
     id: GetClientPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2451
+    startLine: 2581
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1225,7 +1226,7 @@ items:
   source:
     id: SetClientPosition
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2467
+    startLine: 2597
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1258,7 +1259,7 @@ items:
   source:
     id: GetClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2475
+    startLine: 2605
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1294,7 +1295,7 @@ items:
   source:
     id: SetClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2485
+    startLine: 2615
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1327,7 +1328,7 @@ items:
   source:
     id: GetClientBounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2495
+    startLine: 2625
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1372,7 +1373,7 @@ items:
   source:
     id: SetClientBounds
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2509
+    startLine: 2639
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1417,7 +1418,7 @@ items:
   source:
     id: GetFramebufferSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2519
+    startLine: 2649
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1456,7 +1457,7 @@ items:
   source:
     id: GetMaxClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2528
+    startLine: 2658
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1495,7 +1496,7 @@ items:
   source:
     id: SetMaxClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2565
+    startLine: 2695
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1534,7 +1535,7 @@ items:
   source:
     id: GetMinClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2594
+    startLine: 2724
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1573,7 +1574,7 @@ items:
   source:
     id: SetMinClientSize
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2632
+    startLine: 2762
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1612,7 +1613,7 @@ items:
   source:
     id: GetDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2659
+    startLine: 2789
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1652,7 +1653,7 @@ items:
   source:
     id: GetMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2735
+    startLine: 2865
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1689,7 +1690,7 @@ items:
   source:
     id: SetMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 2832
+    startLine: 2962
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1742,7 +1743,7 @@ items:
   source:
     id: SetFullscreenDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3030
+    startLine: 3160
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1785,7 +1786,7 @@ items:
   source:
     id: SetFullscreenDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3105
+    startLine: 3235
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1832,7 +1833,7 @@ items:
   source:
     id: GetFullscreenDisplay
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3179
+    startLine: 3309
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1847,6 +1848,12 @@ items:
     - id: display
       type: OpenTK.Platform.DisplayHandle
       description: The display where the window is fullscreen or null if the window is not fullscreen.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)
+        arguments:
+        - type: System.Boolean
+          value: true
     return:
       type: System.Boolean
       description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the window was fullscreen, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.
@@ -1878,7 +1885,7 @@ items:
   source:
     id: GetBorderStyle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3191
+    startLine: 3321
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1918,7 +1925,7 @@ items:
   source:
     id: SetBorderStyle
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3275
+    startLine: 3405
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -1958,12 +1965,13 @@ items:
   source:
     id: SupportsFramebufferTransparency
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3409
+    startLine: 3539
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
   summary: >-
     Returns true if <xref href="OpenTK.Platform.WindowTransparencyMode.TransparentFramebuffer" data-throw-if-not-resolved="false"></xref> is supported for this window.
+
 
     <table><tbody><tr><td class="term">Win32</td><td class="description">Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr><tr><td class="term">macOS</td><td class="description">Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr><tr><td class="term">Linux/X11</td><td class="description">Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the selected <xref href="OpenTK.Platform.ContextValues" data-throw-if-not-resolved="false"></xref> had <xref href="OpenTK.Platform.ContextValues.SupportsFramebufferTransparency" data-throw-if-not-resolved="false"></xref> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</td></tr></tbody></table>
   example: []
@@ -2003,7 +2011,7 @@ items:
   source:
     id: SetTransparencyMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3416
+    startLine: 3546
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2049,7 +2057,7 @@ items:
   source:
     id: GetTransparencyMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3493
+    startLine: 3623
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2095,7 +2103,7 @@ items:
   source:
     id: SetAlwaysOnTop
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3564
+    startLine: 3694
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2134,7 +2142,7 @@ items:
   source:
     id: IsAlwaysOnTop
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3603
+    startLine: 3733
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2170,7 +2178,7 @@ items:
   source:
     id: SetHitTestCallback
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3660
+    startLine: 3790
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2221,7 +2229,7 @@ items:
   source:
     id: SetCursor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3668
+    startLine: 3798
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2264,7 +2272,7 @@ items:
   source:
     id: GetCursorCaptureMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3678
+    startLine: 3808
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2302,7 +2310,7 @@ items:
   source:
     id: SetCursorCaptureMode
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3686
+    startLine: 3816
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2343,7 +2351,7 @@ items:
   source:
     id: IsFocused
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3740
+    startLine: 3870
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2381,7 +2389,7 @@ items:
   source:
     id: FocusWindow
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3750
+    startLine: 3880
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2416,7 +2424,7 @@ items:
   source:
     id: RequestAttention
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3760
+    startLine: 3890
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2452,7 +2460,7 @@ items:
   source:
     id: DemandAttention
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3786
+    startLine: 3916
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2483,7 +2491,7 @@ items:
   source:
     id: ScreenToClient
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3821
+    startLine: 3951
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2531,7 +2539,7 @@ items:
   source:
     id: ClientToScreen
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3838
+    startLine: 3968
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2579,7 +2587,7 @@ items:
   source:
     id: ClientToFramebuffer
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3855
+    startLine: 3985
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2627,7 +2635,7 @@ items:
   source:
     id: FramebufferToClient
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3863
+    startLine: 3993
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2675,7 +2683,7 @@ items:
   source:
     id: GetScaleFactor
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3873
+    startLine: 4058
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2703,6 +2711,39 @@ items:
   nameWithType.vb: X11WindowComponent.GetScaleFactor(WindowHandle, Single, Single)
   fullName.vb: OpenTK.Platform.Native.X11.X11WindowComponent.GetScaleFactor(OpenTK.Platform.WindowHandle, Single, Single)
   name.vb: GetScaleFactor(WindowHandle, Single, Single)
+- uid: OpenTK.Platform.Native.X11.X11WindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.Native.X11.X11WindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  id: GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.Native.X11.X11WindowComponent
+  langs:
+  - csharp
+  - vb
+  name: GetOpenGLContext(WindowHandle)
+  nameWithType: X11WindowComponent.GetOpenGLContext(WindowHandle)
+  fullName: OpenTK.Platform.Native.X11.X11WindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  type: Method
+  source:
+    id: GetOpenGLContext
+    path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
+    startLine: 4068
+  assemblies:
+  - OpenTK.Platform
+  namespace: OpenTK.Platform.Native.X11
+  summary: Returns the OpenGL context created from this window, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no OpenGL has been created for this window.
+  example: []
+  syntax:
+    content: public OpenGLContextHandle? GetOpenGLContext(WindowHandle handle)
+    parameters:
+    - id: handle
+      type: OpenTK.Platform.WindowHandle
+      description: The window handle.
+    return:
+      type: OpenTK.Platform.OpenGLContextHandle
+      description: The OpenGL context created from this window, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no OpenGL has been created for this window.
+    content.vb: Public Function GetOpenGLContext(handle As WindowHandle) As OpenGLContextHandle
+  overload: OpenTK.Platform.Native.X11.X11WindowComponent.GetOpenGLContext*
+  implements:
+  - OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
 - uid: OpenTK.Platform.Native.X11.X11WindowComponent.GetX11Display
   commentId: M:OpenTK.Platform.Native.X11.X11WindowComponent.GetX11Display
   id: GetX11Display
@@ -2717,7 +2758,7 @@ items:
   source:
     id: GetX11Display
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3888
+    startLine: 4078
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -2744,7 +2785,7 @@ items:
   source:
     id: GetX11Window
     path: C:\Users\juliu\Documents\GitHub\opentk.net\website\opentk\src\OpenTK.Platform\Native\X11\X11WindowComponent.cs
-    startLine: 3898
+    startLine: 4088
   assemblies:
   - OpenTK.Platform
   namespace: OpenTK.Platform.Native.X11
@@ -3711,13 +3752,6 @@ references:
   name: FreedesktopWindowManagerName
   nameWithType: X11WindowComponent.FreedesktopWindowManagerName
   fullName: OpenTK.Platform.Native.X11.X11WindowComponent.FreedesktopWindowManagerName
-- uid: OpenTK.Platform.EventQueue
-  commentId: T:OpenTK.Platform.EventQueue
-  parent: OpenTK.Platform
-  href: OpenTK.Platform.EventQueue.html
-  name: EventQueue
-  nameWithType: EventQueue
-  fullName: OpenTK.Platform.EventQueue
 - uid: OpenTK.Platform.Native.X11.X11WindowComponent.ProcessEvents*
   commentId: Overload:OpenTK.Platform.Native.X11.X11WindowComponent.ProcessEvents
   href: OpenTK.Platform.Native.X11.X11WindowComponent.html#OpenTK_Platform_Native_X11_X11WindowComponent_ProcessEvents_System_Boolean_
@@ -6347,6 +6381,44 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.single
   - name: )
+- uid: OpenTK.Platform.Native.X11.X11WindowComponent.GetOpenGLContext*
+  commentId: Overload:OpenTK.Platform.Native.X11.X11WindowComponent.GetOpenGLContext
+  href: OpenTK.Platform.Native.X11.X11WindowComponent.html#OpenTK_Platform_Native_X11_X11WindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  name: GetOpenGLContext
+  nameWithType: X11WindowComponent.GetOpenGLContext
+  fullName: OpenTK.Platform.Native.X11.X11WindowComponent.GetOpenGLContext
+- uid: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  commentId: M:OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  parent: OpenTK.Platform.IWindowComponent
+  href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  name: GetOpenGLContext(WindowHandle)
+  nameWithType: IWindowComponent.GetOpenGLContext(WindowHandle)
+  fullName: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+  spec.csharp:
+  - uid: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+    name: GetOpenGLContext
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+  spec.vb:
+  - uid: OpenTK.Platform.IWindowComponent.GetOpenGLContext(OpenTK.Platform.WindowHandle)
+    name: GetOpenGLContext
+    href: OpenTK.Platform.IWindowComponent.html#OpenTK_Platform_IWindowComponent_GetOpenGLContext_OpenTK_Platform_WindowHandle_
+  - name: (
+  - uid: OpenTK.Platform.WindowHandle
+    name: WindowHandle
+    href: OpenTK.Platform.WindowHandle.html
+  - name: )
+- uid: OpenTK.Platform.OpenGLContextHandle
+  commentId: T:OpenTK.Platform.OpenGLContextHandle
+  parent: OpenTK.Platform
+  href: OpenTK.Platform.OpenGLContextHandle.html
+  name: OpenGLContextHandle
+  nameWithType: OpenGLContextHandle
+  fullName: OpenTK.Platform.OpenGLContextHandle
 - uid: OpenTK.Platform.Native.X11.X11WindowComponent.GetX11Display*
   commentId: Overload:OpenTK.Platform.Native.X11.X11WindowComponent.GetX11Display
   href: OpenTK.Platform.Native.X11.X11WindowComponent.html#OpenTK_Platform_Native_X11_X11WindowComponent_GetX11Display
